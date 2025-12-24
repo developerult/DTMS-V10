@@ -1,0 +1,606 @@
+﻿<div id="wndLEAEdit">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+            <!--LEGAL ENTITY SECTION-->
+            <div style="float: left;">
+                <!--Radio Buttons-->
+                <div id="divCompRadioButtons" style="float: left;">
+                    <input type="radio" name="rbgCreateLE" id="rbExisting" value="existing">Existing Company
+                    <input type="radio" name="rbgCreateLE" id="rbCreateNew" value="new">New Company
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--Legal Entity-->
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Legal Entity<span class="redRequiredAsterik"> *</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtLegalEntity" maxlength="50"/></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--CNS Prefix-->
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">CNS Prefix<span class="redRequiredAsterik"> *</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtCNSPrefix" maxlength="3"/></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--CNS Low/High-->
+                <div style="float: left;">                    
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">CNS Number Low<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCNSNumberLow" type="number"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">CNS Number High<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCNSNumberHigh" type="number"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--OrderSeq-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Auto Assign Order Seq Seed<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtAutoAssignOrderSeqSeed" type="number" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkAllowCreateOrderSeq" ><label class="k-checkbox-label" for="chkAllowCreateOrderSeq"><strong>Allow Create Order Sequence</strong></label></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!--Last Assigned-->
+                <div id="divLastAssigned" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Last Assigned CNS</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCNSNumber" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Last Assigned PRO</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtPRONumber" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- Security Settings -->
+                <div id="divLastAssigned" style="float: left;">
+                    <h4>Security Level: Enter a value: 1 = default, 2 = strong, 3 = stronger</h4>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Password Security Level</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminSecurityLevel" type="number" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--Legal Text-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">BOL Legal Text</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><textarea id="txtBOLLegalText" rows="3" style="resize:vertical; height:auto; width:100%;"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Dispatch Legal Text</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><textarea id="txtDispatchLegalText" rows="3" style="resize:vertical; height:auto; width:100%;"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--Expired Loads-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Expired Loads Email To</td>
+                            </tr>
+                            <tr>
+                                <!--<td class="tblResponsive-top"><input id="txtLEAdminExpiredLoadsTo" maxlength="1000" /></td>-->
+                                <td class="tblResponsive-top"><textarea id="txtLEAdminExpiredLoadsTo" rows="3" style="resize:vertical; height:auto; width:100%;" maxlength="1000"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Expired Loads Cc</td>
+                            </tr>
+                            <tr>
+                                <!--<td class="tblResponsive-top"><input id="txtLEAdminExpiredLoadsCc" maxlength="1000" /></td>-->
+                                <td class="tblResponsive-top"><textarea id="txtLEAdminExpiredLoadsCc" rows="3" style="resize:vertical; height:auto; width:100%;" maxlength="1000"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--<div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Carrier Accept Load Mins</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminCarrierAcceptLoadMins" type="number" /></td>
+                            </tr>
+                        </table>
+                    </div>-->
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Carrier Accept Load Mins</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminCarrierAcceptLoadMins" type="number" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--AMS Carrier Automation-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top"></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkCarApptAutomation"  disabled="disabled"><label class="k-checkbox-label" for="chkCarApptAutomation"><strong>Carrier Appointment Automation</strong></label></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--Scheduler Settings-->
+                <div id="divAMSSettings" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top"></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkAllowApptEdit" ><label class="k-checkbox-label" for="chkAllowApptEdit"><strong>Allow Carrier Appt Edit</strong></label></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top"></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkAllowApptDelete" ><label class="k-checkbox-label" for="chkAllowApptDelete"><strong>Allow Carrier Appt Delete</strong></label></div></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Appt Mod Cut-Off Minutes</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminApptModCutOffMinutes" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Default Last Load Time</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminDefaultLastLoadTime" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--LVV Changed 1/4/19 - Commented out for now because this functionality does not actually exist yet-->
+                    <!--<div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Appt Not Set Alert Minutes</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLEAdminApptNotSetAlertMinutes" /></td>
+                            </tr>
+                        </table>
+                    </div>-->
+                </div>
+
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+            <!--COMPANY SECTION-->
+            <div style="float: left;">
+
+                <!--Existing Comp-->
+                <div style="float:left;" id="divExistingComp">
+
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Company</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="ddlComps" style="width: 250px;" /></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--New Comp-->
+                <div style="float:left;" id="divNewComp">
+
+                    <div class="fast-tab">
+                        <span id="ExpandNewCompSpan" style="display: none;"><a onclick='expandNewComp();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseNewCompSpan" style="display: normal;"><a onclick='collapseNewComp();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Create New Company</span>&nbsp;&nbsp;<br />
+                        <div id="FastTabDivNewComp" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                            <div style="padding-bottom: 10px;">
+                                <div style="margin-left: 5px;">
+                                    <input type="checkbox" id="chkNewCompActive" ><label class="k-checkbox-label" for="chkNewCompActive"><strong>Active</strong></label>
+                                </div>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Comp Name<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtNewCompName" maxlength="40" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Location Code<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtNewCompAlphaCode" maxlength="50" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Pro Abrv<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtNewCompProAbrv" maxlength="3" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Website</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtNewCompWebsite" maxlength="255" style="width:310px" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtNewCompEmail" maxlength="50" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!--Address Info-->
+                            <div style="float: left;">
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Address 1<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompAddress1" maxlength="40" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Address 2</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompAddress2" maxlength="40" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Address 3</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompAddress3" maxlength="40" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">City<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompCity" maxlength="25" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">State<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompState" maxlength="8" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Postal Code<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompZip" maxlength="10" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Country<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompCountry" maxlength="30" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <!--Contact-->
+                            <div style="margin-left: 5px;"><h3>Contact</h3></div>
+
+                            <div style="padding-bottom: 10px;">
+                                <div style="margin-left: 5px;">
+                                    <input type="checkbox" id="chkNewCompContTender" ><label class="k-checkbox-label" for="chkNewCompContTender"><strong>Notify</strong></label>
+                                </div>
+                            </div>
+
+                            <div style="float: left;">
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Contact Name<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContName" maxlength="25" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Contact Title</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContTitle" maxlength="25" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">800</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompCont800" maxlength="50" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Phone</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContPhone" maxlength="15" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Phone Ext</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContPhoneExt" maxlength="5" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Fax</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContFax" maxlength="15" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top"><input id="txtNewCompContEmail" maxlength="50" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div> <!--end fastTab content-->
+                    </div> <!--end class fast-tab-->
+
+                </div> <!--End DivNewComp-->
+            </div> <!--End Comp Section-->
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <input id="txtLEAControl" type="hidden" />
+
+        </div>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+    var kmask = new kendoMasks();
+    kmask.loadDefaultMasks();
+    var phoneMask = kmask.getMask("phone_number");
+
+    //LEA Fields
+    $("#txtLegalEntity").kendoMaskedTextBox();
+    $("#txtCNSPrefix").kendoMaskedTextBox();
+    $("#txtCNSNumberHigh").kendoNumericTextBox({ format: "#########", min: 1111, max: 999999999 });
+    $("#txtCNSNumberLow").kendoNumericTextBox({ format: "#########", min: 1111, max: 999999999 });
+    $("#txtLEAdminSecurityLevel").kendoNumericTextBox({ format: "#" });
+    txtLEAdminSecurityLevel
+    $("#txtCNSNumber").kendoNumericTextBox({ format: "#########" });
+    $("#txtPRONumber").kendoNumericTextBox({ format: "#########" });
+    $("#txtAutoAssignOrderSeqSeed").kendoNumericTextBox({ format: "#########", min: 0, max: 999999999 });
+
+    $("#txtBOLLegalText").kendoMaskedTextBox();
+    $("#txtDispatchLegalText").kendoMaskedTextBox();
+
+    $("#txtLEAdminDefaultLastLoadTime").kendoMaskedTextBox();
+    $("#txtLEAdminApptModCutOffMinutes").kendoNumericTextBox({ format: "#########", min: 0 });
+    $("#txtLEAdminApptNotSetAlertMinutes").kendoNumericTextBox({ format: "#########", min: 0 });
+
+    $("#txtLEAdminCarrierAcceptLoadMins").kendoNumericTextBox({ format: "#########", min: 0 });
+    $("#txtLEAdminExpiredLoadsTo").kendoMaskedTextBox();
+    $("#txtLEAdminExpiredLoadsCc").kendoMaskedTextBox();
+
+    //Comp Fields
+    $("#txtNewCompName").kendoMaskedTextBox();
+    $("#txtNewCompAlphaCode").kendoMaskedTextBox();
+    $("#txtNewCompProAbrv").kendoMaskedTextBox();
+    $("#txtNewCompWebsite").kendoMaskedTextBox();
+    $("#txtNewCompEmail").kendoMaskedTextBox();
+    $("#txtNewCompAddress1").kendoMaskedTextBox();
+    $("#txtNewCompAddress2").kendoMaskedTextBox();
+    $("#txtNewCompAddress3").kendoMaskedTextBox();
+    $("#txtNewCompCity").kendoMaskedTextBox();
+    $("#txtNewCompState").kendoMaskedTextBox();
+    $("#txtNewCompZip").kendoMaskedTextBox();
+    $("#txtNewCompCountry").kendoMaskedTextBox();
+    //CompCont Fields
+    $("#txtNewCompContName").kendoMaskedTextBox();
+    $("#txtNewCompContTitle").kendoMaskedTextBox();
+    $("#txtNewCompCont800").kendoMaskedTextBox();
+    $("#txtNewCompContPhone").kendoMaskedTextBox({ mask: phoneMask });
+    $("#txtNewCompContPhoneExt").kendoMaskedTextBox();
+    $("#txtNewCompContFax").kendoMaskedTextBox({ mask: phoneMask });
+    $("#txtNewCompContEmail").kendoMaskedTextBox();
+
+    //Fast Tab functions
+    function expandNewComp() {
+        $("#FastTabDivNewComp").show();
+        $("#ExpandNewCompSpan").hide();
+        $("#CollapseNewCompSpan").show();
+    }
+    function collapseNewComp() {
+        $("#FastTabDivNewComp").hide();
+        $("#ExpandNewCompSpan").show();
+        $("#CollapseNewCompSpan").hide();
+    }
+
+</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Single Sign On</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - SECURITY.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="nextrackportal.htm" /><link rel="next" href="newuserroles.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="3ee26a71-071b-4ead-a148-fb65e39775f2">
+<h2><a name="_Toc43197360" id="_Toc43197360">Single Sign On</a></h2>
+<p class="MsoNormal">The new security model follows OAuth 2 specifications and 
+does not store the user’s password on the client machine.  The 
+authentication is managed by a user token which is updated periodically as the 
+user signs in and out and navigates through the system.  When a desktop 
+client is used to access D365 the system uses Windows Authentication to look up 
+the users Token.  This Token is used to validate the user’s access to the 
+system.   When the D365 NEXTrack Portal is accessed directly from the 
+web browser it may be necessary for the user to log on with a username and 
+password.  For this reason, NGL recommends the use of SSL encryption to 
+secure the users initial sign on.  Passwords are encrypted and stored in 
+the database.  Special logic developed by NGL is required to validate user 
+passwords.  It is not possible for anyone to retrieve the unencrypted 
+password.</p><span id="related-topics"></span></body></html>

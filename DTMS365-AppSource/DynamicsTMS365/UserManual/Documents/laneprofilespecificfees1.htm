@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Lane Profile Specific Fees</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - CARRIERS ACCESSORIALS.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="lanefees1.htm" /><link rel="next" href="orderspecificfees1.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="61e2ee42-e56f-4045-995b-fe024fa1128b">
+<h1>Lane Profile Specific Fees</h1>
+<p class="MsoNormal">Profile specific Fees are associated with a Lane and a 
+Tariff.  The lane data determines what locations are affected by the Fee 
+and the Tariff determines the cost configuration of the Fee.  When a tariff 
+is selected the system searches for a match between both the Tariff and the Lane 
+to determine if a fee should be assigned to the order.  A fee is only 
+assigned if both the Lane and Tariff are configured to use the fee.  An 
+example would be a Lift Gate Fee. If the location requires a Lift Gate the lane 
+would be configured with the Lift Gate Profile Specific Fee. Then each carrier 
+that provided Lift Gate Service would add the fee to the Tariff Fees 
+configuration. When selecting the carrier manually a message is displayed on the 
+carrier selection screen for carriers that do not have Lift Gate Service.  
+</p>
+<p class="MsoNormal">The system does not prevent carriers from being assigned or 
+selected if they are not configured with a cost for a Profile specific Fee; the 
+software assumes that the fee is zero. So, when setting up lowest cost carrier 
+selection lanes it is important to understand how Profile specific Fees may or 
+may not affect lowest cost carrier costing.</p>
+<p class="MsoNormal">An administrative tool called HDM Maintenance is available to 
+assist with maintaining Lane Profile Specific Fees by zip code. This tool 
+provides a way to mass update Fees at the Lane level when requirements change. 
+An example would be Henry Hudson Bridge tolls in New York. A list of New York 
+zip codes affected by the fee could be entered in the HDM Maintenance tool and 
+the fee could be automatically added to each affected Lane. Each tariff could 
+then be configured with a unique cost for the toll; some equipment may need to 
+pay higher tolls than other. When this configuration is properly assigned to 
+both Lanes and Tariffs the Profile specific Fee will be automatically included 
+in the carrier’s estimated cost.</p>
+<p class="MsoNormal">The process for over ridding Profile specific fees will 
+follow the same rules as over ridding Tariff specific Fees. Also, Profile 
+specific Fees will be grouped and displayed together with Tariff specific Fees 
+on the Revenue tab, they will not be displayed with the Lane Fees.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image36_12.jpg" alt="" /></p><span id="related-topics"></span></body></html>

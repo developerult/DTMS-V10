@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DTMS Test Search Filters No Widget</title>
+    <link href="https://kendo.cdn.telerik.com/themes/6.3.0/default/default-main.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/themes/6.3.0/classic/classic-opal.css" rel="stylesheet" />
+    <script src="https://kendo.cdn.telerik.com/2023.1.425/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.425/js/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] ="small";</script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+
+                    <div id="center-pane">
+
+
+                        <!-- begin Page Content -->
+
+                        <div id="id30172201804181519523442634wrapper">
+                            <div id="id30172201804181519523442634FilterFastTab" style="margin-left: 50px;">
+                                <span id="Expandid30172201804181519523442634FilterFastTabSpan" style="display:none;">
+                                    <a onclick="expandFastTab('Expandid30172201804181519523442634FilterFastTabSpan','Collapseid30172201804181519523442634FilterFastTabSpan','id30172201804181519523442634FilterFastTabHeader',null);">
+                                        <span style="font - size: small; font - weight:bold;" class="k-icon k-i-chevron-down"></span>
+                                    </a>
+                                </span>
+                                <span id="Collapseid30172201804181519523442634FilterFastTabSpan" style="display:normal;">
+                                    <a onclick="collapseFastTab('Expandid30172201804181519523442634FilterFastTabSpan','Collapseid30172201804181519523442634FilterFastTabSpan','id30172201804181519523442634FilterFastTabHeader',null);">
+                                        <span style="font - size: small; font - weight:bold;" class="k-icon k-i-chevron-up"></span>
+                                    </a>
+                                </span>
+                                <span style="font-size:small; font-weight:bold"> Warehouse Maintenance Filters </span>
+                                <div id="id30172201804181519523442634FilterFastTabHeader" style="padding: 10px; margin-left: 5px;">
+                                    <div>
+                                        <div style="margin: 5px 0 15px 0">
+                                            <label for="filterid30172201804181519523442634Groups" style="margin-right: 5px">Load Saved Filter:</label>
+                                            <input id="filterid30172201804181519523442634Groups" />
+                                            <input type="text" id="filterid30172201804181519523442634Name" name="filterName" style="margin-right: 5px;" />
+                                            <button type="button" id="saveOwnid30172201804181519523442634Filter">Save Current Filter</button>
+                                        </div>
+                                       
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+
+                            <!-- End Page Content -->
+                        </div>
+                    </div>
+          
+        <script>
+           
+            let saveddata = [
+                { ID: 1, ProductName: "Item 1" },
+                { ID: 2, ProductName: "Item 2" },
+                { ID: 3, ProductName: "Item 3" }
+            ];
+
+            
+            $(document).ready(function () {
+
+                $("#filterid30172201804181519523442634Groups").kendoDropDownList({
+                    dataTextField: "ProductName",
+                    dataValueField: "ID",
+                    width: "auto",
+                    heigh: "auto",
+                    dataSource: saveddata,
+                    filter: "contains"
+                });
+
+                $("#filterid30172201804181519523442634Name").kendoMaskedTextBox();
+
+                $("#saveOwnid30172201804181519523442634Filter").kendoButton({
+                    icon: "filter",
+                    click: function (e) {
+                        alert("save");
+                    }
+                });
+
+            });
+
+        </script>
+        <style>
+            .k-grid tbody tr td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .k-tooltip {
+                max-height: 500px;
+                max-width: 450px;
+                overflow-y: auto;
+            }
+
+            .k-grid tbody .k-grid-Edit {
+                min-width: 0;
+            }
+
+                .k-grid tbody .k-grid-Edit .k-icon {
+                    margin: 0;
+                }
+        </style>
+</body>
+</html>

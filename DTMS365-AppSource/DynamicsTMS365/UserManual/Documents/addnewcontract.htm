@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Add New Contract</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - TARIFF MANAGEMENT.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="contract.htm" /><link rel="next" href="editacontract.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="4742bf0d-166d-4e75-a08f-5b897dcccfe9">
+<h3>Add New Contract</h3>
+<p class="MsoNormal">When creating a new contract, the following items are 
+required to complete a carrier contract/tariff set up and be ready to rate out 
+shipments.</p>
+<p class="MsoNormal">1) Create contract.<br />2) Need to add the 
+<b><u>Service/Equipment</u></b> (LTL, FTL, Reefer, Van etc. most come 
+preconfigured)<br />3) Need to apply any <b>Exceptions</b> (Discounts, Minimums, 
+etc.) applies to LTL.<br />4) Need to import carrier <b>Rates </b>according to 
+tariff<b>.<br /></b>5) Need to configure your <b>break points</b> (weight breaks 
+or pallet breaks for LTL).<br />6) Need to configure the Fuel 
+Matrix.<b><br /></b>7)<b> </b>Need to apply any carrier <b>Fees</b> (stop charges, 
+fuel, taxes etc.)<br />8)<b> </b>If carriers are to be entering in freight 
+invoices in the portal or if using EDI, see TMS CARRIER document for additional 
+freight audit tolerance set up.<b></b></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Go to Contracts create a new Carrier Contract. The system 
+will take you to the carrier contracts page.</p>
+<p class="MsoNormal">Click on <i>ADD</i></p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_2.jpg" alt="" /></p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_3.jpg" alt="" /></p>
+<p class="MsoNormal">Required fields are as follows:</p>
+<p class="MsoNormal">1.       Tariff Name = Name 
+(Examples: RidgeWay - TL, Swift – Intermodal, FedEX – LTL Economy</p>
+<p class="MsoNormal">2.       Carrier Number = 
+Select carrier for the new contract</p>
+<p class="MsoNormal">3.       Select the 
+company/warehouse location for this contract</p>
+<p class="MsoNormal">4.       Car Tar ID 
+(Example:  Contract Number or another unique format)</p>
+<p class="MsoNormal">3.       Effective Date when 
+the contract starts (Required)</p>
+<p class="MsoNormal">4        Effective Date 
+when the contract ends (not required)</p>
+<p class="MsoNormal">5.       Def Weight - Check on if 
+rating requires deficit weight calculations for LTL.</p>
+<p class="MsoNormal">6.       If Outbound leave 
+<b>ON</b>. If Inbound turn <b>OFF</b>.</p>
+<p class="MsoNormal">7.       Drive Saturday = 
+On/Off     (On for TL Off for 
+LTL)        Drive Sunday = On/Off (On for TL 
+Off for LTL)</p>
+<p class="MsoNormal">8.       Mode Type = Select mode 
+(typically road). Use Rail for Intermodal.</p>
+<p class="MsoNormal">9.       Tariff Type (Private = 
+negotiated contracts, Public = public contracts)</p>
+<p class="MsoNormal">10.     Temp = Dry, Frozen, Cooler, Any 
+(must match service/equipment being used for this contract)</p>
+<p class="MsoNormal">11.     Auto Assign Pro = Turn off if not 
+configuring to auto generate carrier Pro Number Logic.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Once you have created a contract, you now need to assign the 
+<i>Service</i> to the contract.</p>
+<p class="MsoNormal">Find the contract you just created and click on the row, so 
+it is highlighted.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_4.jpg" alt="" /></p>
+<p class="MsoNormal">In the Actions menu select <i>Service</i>. Note, Service is 
+synonymous with Equipment.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_5.jpg" alt="" /></p>
+<p class="MsoNormal">Examples are:</p>
+<p class="MsoNormal">LTL<br />Truckload<br />Reefer<br />Dry Van<br />BTrain</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">The Tariff Service Data screen will open.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_6.jpg" alt="" /></p>
+<p class="MsoNormal">The highlighted fields are required.</p>
+<p class="MsoNormal"><b>Equipment</b> = Select the appropriate service/equipment 
+as part of the system configuration. For 
+<br />                        
+example, Van or Reefer or LTL or FTL. Equipment defaults should already be 
+configured 
+<br />                        
+based on your implementation.</p>
+<p class="MsoNormal"><b>Temp</b> = Temp must match equipment added as part of 
+system configuration. This should default to the 
+<br />               
+correct temperature.</p>
+<p class="MsoNormal"><b>Bracket Type</b> = The bracket calculation method for this 
+tariff.<br />                             
+LTL = Select the bracket type that matches your tariff. Such as Lbs. or Plts 
+(pallets). <b><span style="COLOR: red">CWT 
+<br />                             
+is not supported and should be converted to Rate per Pound when importing 
+rates.</span></b><br />                             
+Truckload = If creating a truckload tariff, skip this setting.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_7.jpg" alt="" /></p>
+<p class="MsoNormal"><b>Class Type</b> = Freight class for this tariff. <br />LTL = 
+Most configurations will be FAK<br />Truckload = Skip this step</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_8.jpg" alt="" /></p>
+<p class="MsoNormal"><b></b> </p>
+<p class="MsoNormal"><b>Rate Type</b> = The rate type for this tariff.<br />Class = 
+If this is an LTL tariff.<br />Distance = If this is a Rate per 
+Distance/Mile.<br />Flat = If this is a Flat rate.<br />Unit of Measure = If this is 
+a per pallet rate etc.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_9.jpg" alt="" /></p>
+<p class="MsoNormal"><b></b> </p>
+<p class="MsoNormal"><b>Rate Name</b> = Examples can be LTL FAK 70 or Distance 
+(for rate per mile tariff) or Flat (for flat rate).</p>
+<p class="MsoNormal"><b>Rate Country = </b>Entering the country code will seed the 
+first row for entering in a rate to generate a 
+<br />                             
+tariff. You do not have to fill in the State/Prov, City, or postal code ranges 
+at this time.</p>
+<p class="MsoNormal"><b></b> </p>
+<p class="MsoNormal"><b>Example 1</b> = <i>Truckload Rate Per Mile Tariff</i> 
+(Note: Flat rate would be the same, but Rate Type should read Flat). The system 
+will use the default capacity settings for each equipment.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_10.jpg" alt="" /></p>
+<p class="MsoNormal">Users can modify the capacities associated with the default 
+Service settings. <i><u>For example</u></i>, the default Wt. Max is 45,000 lbs. 
+If you want to change this to 20,000 lbs. you can do so. This means that this 
+tariff will be made available for any order/load under 20,000 lbs.  </p>
+<p class="MsoNormal"><b></b> </p>
+<p class="MsoNormal"><b>Example 2</b> = <i>Pallet Based Tariff</i></p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_11.jpg" alt="" /></p>
+<p class="MsoNormal">Users can modify the capacities associated with the default 
+Service settings. <i><u>For example</u></i>, the default Wt. Max is 45,000 lbs. 
+If you want to change this to 20,000 lbs. you can do so. This means that this 
+tariff will be made available for any order/load under 20,000 lbs.  </p>
+<p class="MsoNormal"><b>Example 3</b> = LTL Class/Weight Based Rates</p>
+<p class="MsoNormal"><img src="../ImagesExt/image54_12.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Users can modify the capacities associated with the default 
+Service settings. <i><u>For example</u></i>, the default Wt.. Max is 45,000 lbs. 
+If you want to change this to 20,000 lbs. you can do so. This means that this 
+tariff will be made available for any order/load under 20,000 lbs.  </p>
+<p class="MsoNormal"><span style="COLOR: red">Once you have completed the Contract 
+and assigned the Service/Equipment set up, the system automatically creates the 
+first version of a tariff matrix for you. If using Break Points for LTL, set up 
+your weight breaks by highlighting the first row of your rates and click on 
+Break Points to insert the brackets. Now you can import your rates. Please 
+review your break points following import.<br /><br /></span><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span></p>
+<p class="MsoNormal">Note: User must perform additional set up for LTL Class Rates 
+following rate import. See Class Exceptions, Discounts, Minimum Charge 
+configurations for LTL. If applicable.</p>
+<p class="MsoNormal"><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span> </p>
+<p class="MsoNormal"><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span> </p><span id="related-topics"></span></body></html>

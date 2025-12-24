@@ -1,0 +1,595 @@
+﻿
+<div id="winRateIT">
+
+    <h2>
+        Click to Rate IT > &nbsp;&nbsp;
+        <a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" href="#" onclick="processRateITOptions();"><span class="k-icon k-i-download" ></span></a>
+    </h2>
+    <div class="fast-tab">
+        <span id="ExpandRateITOptionsSpan" style="display: none;"><a onclick="expandFastTab('ExpandRateITOptionsSpan', 'CollapseRateITOptionsSpan', 'divRateITOptions', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+        <span id="CollapseRateITOptionsSpan" style="display: normal;"><a onclick="collapseFastTab('ExpandRateITOptionsSpan', 'CollapseRateITOptionsSpan', 'divRateITOptions', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+        <span class="ui-span-container">Rating Options -- Select All That Apply</span>
+        <div id="divRateITOptions" class="RateITOptions">
+            <ul>
+                <li id="liFlatRateOptions" style="display: normal;">
+                    Flat Rate
+                    <input type="checkbox" id="FlatRate-switch" aria-label="Flat Rate Switch" />
+                </li>
+                <li id="liPostingOptions" style="display: normal;">
+                    Posting Options
+                    <ul>
+                        <li>
+                            Post to DAT
+                            <input type="checkbox" id="PostToDAT-switch" aria-label="Post to DAT Switch" />
+                        </li>
+                        <li>
+                            Post to NEXTStop
+                            <input type="checkbox" id="PostToNEXTStop-switch" aria-label="Post to NEXTStop Switch" />
+                        </li>
+                    </ul>
+                </li>
+                <li id="liRatingOptions" style="display: normal;">
+                    Rating Options
+                    <ul>
+                        <li>
+                            Use API
+                            <input type="checkbox" id="API-switch" aria-label="API Switch" />
+                        </li>
+                        <li>
+                            Private Tariff
+                            <input type="checkbox" id="PrivateTariff-switch" aria-label="Private Tariff Switch" />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr />
+        </div>
+    </div>
+   
+    <div class="fast-tab" id="divSpotRateWrapper" style="display:none;">
+        
+    </div>
+    <hr style='clear:both; display: block; float: none;' />
+        <!--<span id="ExpandCSpan" style="display: none;"><a onclick="expandFastTab('ExpandSpotRateDetailsSpan', 'CollapseSpotRateDetailsSpan', 'divSpotRateDetails', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+        <span id="CollapseSpotRateDetailsSpan" style="display: normal;"><a onclick="collapseFastTab('ExpandSpotRateDetailsSpan', 'CollapseSpotRateDetailsSpan', 'divSpotRateDetails', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+        <span class="ui-span-container">Spot Rate Options </span>
+        <div id="divSpotRateDetails" style="position:relative;">           
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">Select Provider</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateCarrierControl" maxlength="40" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">Enter Line Haul</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateLineHaul" maxlength="40" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top style=" max-width:200px; min-width:200px;"">Allocation Formula</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateAllocationFormula" maxlength="40" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">Reason</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateReason" maxlength="40" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p style='clear:both; display: block; float: none; border:0;padding:0'>* When using the Carrier Fuel Addendumn option Fuel is based on this weeks average fuel cost, the system will not update the costs if fuel changes.  All other fuel fees will be removed.</p>
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">* Use Carrier Fuel Addendum</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateUseCarrierFuelAddendum" maxlength="40" type="checkbox" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float: left; display:none;" id="divSpotRateAvgFuelPrice">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">Enter Fuel Total</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                            <input id="txtSpotRateAvgFuelPrice" maxlength="40" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div  id="divBFCOptionsWrapper" style='clear:both; display: block; float: none;'>
+                <span id="ExpandSpotRateBFCOptionsSpan" style="display: none;"><a onclick="expandFastTab('ExpandSpotRateBFCOptionsSpan', 'CollapseSpotRateBFCOptionsSpan', 'divSpotRateBFCOptions', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+                <span id="CollapseSpotRateBFCOptionsSpan" style="display: normal;"><a onclick="collapseFastTab('ExpandSpotRateBFCOptionsSpan', 'CollapseSpotRateBFCOptionsSpan', 'divSpotRateBFCOptions', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+                <span class="ui-span-container">Spot Rate BFC Options </span>
+                <div id="divSpotRateBFCOptions" style="position:relative;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">Auto Calculate BFC</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                                    <input id="txtSpotRateAutoCalculateBFC" maxlength="40" type="checkbox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left; display:none;" id="divSpotRateFixedBFC">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">TotalBFC</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                                        <input id="txtSpotRateTotalBFC" maxlength="40" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">BFC Allocation</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top" style="max-width:200px; min-width:200px;">
+                                        <input id="txtSpotRateAllocationBFCFormula" maxlength="40" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+            -->
+            <!--
+
+
+
+            Stop Fast Tab
+            -------------------
+            Order # Child Fast Tabs
+            -----------------------
+            Show Order Info summary and stop number
+            Show Pallet Details
+            Show Fee Details
+
+            Auto populate running total on bottom of page
+            $Line Haul | $Fuel | $Fees | $Total-->
+
+           
+    </div>
+    <div id="divOrderInfoWrapper" style='clear:both; display: block; float: none;'>
+        <div class="fast-tab" id="divOrderInfoFastTab">
+            <span id="ExpandOrderInfoSpan" style="display: none;"><a onclick="expandFastTab('ExpandOrderInfoSpan', 'CollapseOrderInfoSpan', 'divOrderInfo', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+            <span id="CollapseOrderInfoSpan" style="display: normal;"><a onclick="collapseFastTab('ExpandOrderInfoSpan', 'CollapseOrderInfoSpan', 'divOrderInfo', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+            <span style="font-size:small; font-weight:bold">Origin and Destination</span>&nbsp;&nbsp;
+            
+            <div id="divOrderInfo" class="fast-tab">
+                <button id='btnAddressBookPopup' class='k-button actionBarButton' type='button' onclick='execActionClick(btnAddressBook, 145);'><span class='k-icon k-i-book'></span>Open Address Book</button>
+                <br />
+
+                <table id="tblOrderInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                    <tr>
+                        <th style="border:none;">Load ID</th>
+                        <th style="border:none;">Ship Date</th>
+                        <th style="border:none;">Req Date</th>
+                        <th style="border:none;">Weight UOM</th>
+                        <th style="border:none;">Length UOM</th>
+                        <th style="border:none;">Total Wgt</th>
+                        <th style="border:none;">Total Qty</th>
+                        <th style="border:none;">Total Pkgs</th>
+                    </tr>
+                    <tr>
+                        <td style="border:none;">
+                            <input id="txtSHID" style="width: 100px;" value="(Auto)" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtShipDate" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtDeliveryDate" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtWeightUnit" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtLengthUnit" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtTotalWgt" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtTotalCases" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtTotalPlts" style="width: 100px;" />
+                        </td>
+                    </tr>
+                </table>
+                <table id="tblOrigInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                    <tr>
+                        <th style="border:none;">Origin Location</th>
+                        <th style="border:none;">Postal Code</th>
+                        <th style="border:none;">Street</th>
+                        <th style="border:none;">City</th>
+                        <th style="border:none;">State</th>
+                        <th style="border:none;">Country</th>
+                    </tr>
+                    <tr>
+                        <td style="border:none;">
+                            <input id="txtorigCompName" style="width: 200px;" value="Ship From" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtorigCompPostalCode" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtorigCompAddress1" style="width: 200px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtorigCompCity" style="width: 200px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtorigCompState" style="width: 75px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtorigCompCountry" value="US" style="width: 100px;" />
+                        </td>
+                    </tr>
+                </table>
+                <table id="tblDestInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-bottom:5px; margin-top:5px;">
+                    <tr>
+                        <th style="border:none;">Destination Location</th>
+                        <th style="border:none;">Postal Code</th>
+                        <th style="border:none;">Street</th>
+                        <th style="border:none;">City</th>
+                        <th style="border:none;">State</th>
+                        <th style="border:none;">Country</th>
+                    </tr>
+                    <tr>
+                        <td style="border:none;">
+                            <input id="txtdestCompName" style="width: 200px;" value="Ship To" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtdestCompPostalCode" style="width: 100px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtdestCompAddress1" style="width: 200px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtdestCompCity" style="width: 200px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtdestCompState" style="width: 75px;" />
+                        </td>
+                        <td style="border:none;">
+                            <input id="txtdestCompCountry" value="US" style="width: 100px;" />
+                        </td>
+                    </tr>
+                </table>
+
+                <input id="txtShipKey" type="hidden" />
+                <input id="txtBookConsPrefix" type="hidden" />
+                <input id="txtBookProNumber" type="hidden" />
+                <input id="txtBookControl" type="hidden" />
+                <input id="txtOrderID" type="hidden" />
+                <input id="txtBookCustCompControl" type="hidden" />
+                <input id="txtCompNumber" type="hidden" />
+                <input id="txtCompAlphaCode" type="hidden" />
+                <input id="txtBookCarrierControl" type="hidden" />
+                <input id="txtCarrierName" type="hidden" />
+                <input id="txtCarrierNumber" type="hidden" />
+                <input id="txtCarrierAlphaCode" type="hidden" />
+                <input id="txtBookSHID" type="hidden" />
+                <input id="txtorigCompControl" type="hidden" />
+                <input id="txtorigCompNumber" type="hidden" />
+                <input id="txtorigCompAddress2" type="hidden" />
+                <input id="txtorigCompAddress3" type="hidden" />
+                <input id="txtdestCompControl" type="hidden" />
+                <input id="txtdestCompNumber" type="hidden" />
+                <input id="txtdestCompAddress2" type="hidden" />
+                <input id="txtdestCompAddress3" type="hidden" />
+                <input id="txtStopIndex" type="hidden" />
+                <input id="txtSelectedStopIndex" type="hidden" />
+                <input id="txtItemIndex" type="hidden" />
+                <input id="txtLoadID" type="hidden" />
+                <input id="txtItemStopIndex" type="hidden" />
+                <input id="txtNumPieces" type="hidden" />
+                <input id="txtDescription" type="hidden" />
+                <input id="txtHazmatId" type="hidden" />
+                <input id="txtCode" type="hidden" />
+                <input id="txtHazmatClass" type="hidden" />
+                <input id="txtIsHazmat" type="hidden" />
+                <input id="txtPieces" type="hidden" />
+                <input id="txtPackageType" type="hidden" />
+                <input id="txtDensity" type="hidden" />
+                <input id="txtNMFCItem" type="hidden" />
+                <input id="txNMFCSub" type="hidden" />
+                <input id="txtFeeIndex" type="hidden" />
+
+                <input id="txtOrigPhone" type="hidden" />
+                <input id="txtOrigContactName" type="hidden" />
+                <input id="txtOrigContactEmail" type="hidden" />
+                <input id="txtOrigEmergencyContactPhone" type="hidden" />
+                <input id="txtOrigEmergencyContactName" type="hidden" />
+
+                <input id="txtDestPhone" type="hidden" />
+                <input id="txtDestContactName" type="hidden" />
+                <input id="txtDestContactEmail" type="hidden" />
+                <input id="txtDestEmergencyContactPhone" type="hidden" />
+                <input id="txtDestEmergencyContactName" type="hidden" />
+
+
+                <hr />
+            </div>
+        </div>
+    
+        <div class="fast-tab">
+            <span id="ExpandCurrentItemsSpan" style="display: none;"><a onclick="expandFastTab(' ExpandCurrentItemsSpan', 'CollapseCurrentItemsSpan', 'divCurrentItems', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+            <span id="CollapseCurrentItemsSpan" style="display: normal;"><a onclick="collapseFastTab(' ExpandCurrentItemsSpan', 'CollapseCurrentItemsSpan', 'divCurrentItems', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+            <span class="ui-span-container">Items</span>
+            <div id="divCurrentItems" class="fast-tab">
+                <div id="Items"></div>
+            </div>
+        </div>
+        <div class="fast-tab">
+            <span id="ExpandAccessorialsSpan" style="display: none;"><a onclick="expandFastTab('ExpandAccessorialsSpan', 'CollapseAccessorialsSpan', 'divAccessorials', null);"><span class="k-icon k-i-chevron-down ui-span-container"></span></a></span>
+            <span id="CollapseAccessorialsSpan" style="display: normal;"><a onclick="collapseFastTab('ExpandAccessorialsSpan', 'CollapseAccessorialsSpan', 'divAccessorials', null);"><span class="k-icon k-i-chevron-up ui-span-container"></span></a></span>
+            <span class="ui-span-container">Accessorials</span>
+            <div id="divAccessorials" class="fast-tab">
+                <div id="Accessorials"></div>
+            </div>
+        </div>
+    </div>
+        <style>
+            .RateITOptions ul {
+                margin: 0;
+                padding: 0;
+                max-width: 220px;
+            }
+
+                .RateITOptions ul li {
+                    margin: 0;
+                    padding: 10px 0px 0px 20px;
+                    min-height: 25px;
+                    line-height: 25px;
+                    vertical-align: middle;
+                    /*border: 1px solid rgba(128,128,128,.5);*/
+                    border-top: 1px solid rgba(128,128,128,.5);
+                }
+
+            .RateITOptions {
+                min-width: 220px;
+                padding: 0;
+                position: relative;
+            }
+
+                .RateITOptions ul li .km-switch {
+                    float: right;
+                }
+
+            .RateITOptions-head {
+                height: 50px;
+                background-color: skyblue;
+            }
+        </style>
+    </div>
+
+<script type="text/x-kendo-template" id="AccGridToolbarTemplate">
+    <input id="comboAccessorials" class="k-combobox" style="width: 275px" />
+    <a class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='btnAddFee_Click();'><span class='k-icon k-i-plus'></span> Add Accessorial</a>
+    <a class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='clearAccessorials_Click();'><span class='k-icon k-i-minus'></span> Clear Accessorials</a>
+</script>
+
+<script>
+
+    function onSwitchChange(e) {
+        var sID = e.sender.element[0].id
+        if (!sID) { return; }
+        switch (sID) {
+            case "FlatRate-switch":
+                if (e.checked === true) {
+                    $("#divSpotRateWrapper").show();
+                    $("#PostToDAT-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").enable(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").check(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").enable(false);
+                    $("#API-switch").data("kendoSwitch").check(false);
+                    $("#API-switch").data("kendoSwitch").enable(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").check(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").enable(false);
+                    $("#liPostingOptions").hide();
+                    $("#liRatingOptions").hide();
+                } else {
+                    $("#divSpotRateWrapper").hide();
+                    $("#PostToDAT-switch").data("kendoSwitch").enable(true);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").enable(true);
+                    $("#API-switch").data("kendoSwitch").enable(true);
+                    $("#PrivateTariff-switch").data("kendoSwitch").enable(true);
+                    $("#liPostingOptions").show();
+                    $("#liRatingOptions").show();
+                }
+                break;
+            case "PostToDAT-switch":
+                if (e.checked === true) {
+                    $("#divSpotRateWrapper").hide();
+                    $("#FlatRate-switch").data("kendoSwitch").check(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").enable(true);
+                    $("#API-switch").data("kendoSwitch").check(false);
+                    $("#API-switch").data("kendoSwitch").enable(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").check(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").enable(false);
+                    $("#liFlatRateOptions").hide();
+                    $("#liRatingOptions").hide();
+                } else {
+                    var iChecked = $("#PostToNEXTStop-switch").data("kendoSwitch").check()
+                    if (iChecked === false) {
+                        $("#API-switch").data("kendoSwitch").enable(true);
+                        $("#PrivateTariff-switch").data("kendoSwitch").enable(true);
+                        $("#liFlatRateOptions").show();
+                        $("#liRatingOptions").show();
+                    }
+                }
+                break;
+            case "PostToNEXTStop-switch":
+                if (e.checked === true) {
+                    $("#divSpotRateWrapper").hide();
+                    $("#FlatRate-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").enable(true);
+                    $("#API-switch").data("kendoSwitch").check(false);
+                    $("#API-switch").data("kendoSwitch").enable(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").check(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").enable(false);
+                    $("#liFlatRateOptions").hide();
+                    $("#liRatingOptions").hide();
+                } else {
+                    var iChecked = $("#PostToDAT-switch").data("kendoSwitch").check()
+                    if (iChecked === false) {
+                        $("#API-switch").data("kendoSwitch").enable(true);
+                        $("#PrivateTariff-switch").data("kendoSwitch").enable(true);
+                        $("#liFlatRateOptions").show();
+                        $("#liRatingOptions").show();
+                    }
+                    
+                }
+                break;
+            case "API-switch":
+                if (e.checked === true) {
+                    $("#divSpotRateWrapper").hide();
+                    $("#FlatRate-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").enable(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").enable(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").check(false);
+                    $("#PrivateTariff-switch").data("kendoSwitch").enable(true);
+                    $("#liFlatRateOptions").hide();
+                    $("#liPostingOptions").hide();
+                } else {
+                    var iChecked = $("#PrivateTariff-switch").data("kendoSwitch").check()
+                    if (iChecked === false) {
+                        $("#PostToDAT-switch").data("kendoSwitch").enable(true);
+                        $("#PostToNEXTStop-switch").data("kendoSwitch").enable(true);
+                        $("#liFlatRateOptions").show();
+                        $("#liPostingOptions").show();
+                    }
+                }
+                break;
+            case "PrivateTariff-switch":
+                if (e.checked === true) {
+                    $("#divSpotRateWrapper").hide();
+                    $("#FlatRate-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").check(false);
+                    $("#PostToDAT-switch").data("kendoSwitch").enable(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").enable(false);
+                    $("#PostToNEXTStop-switch").data("kendoSwitch").check(false);
+                    $("#API-switch").data("kendoSwitch").enable(true);
+                    $("#liFlatRateOptions").hide();
+                    $("#liPostingOptions").hide();
+                } else {
+                    var iChecked = $("#API-switch").data("kendoSwitch").check()
+                    if (iChecked === false) {
+                        $("#PostToDAT-switch").data("kendoSwitch").enable(true);
+                        $("#PostToNEXTStop-switch").data("kendoSwitch").enable(true);
+                        $("#liFlatRateOptions").show();
+                        $("#liPostingOptions").show();
+                    }
+                }
+                break;
+            case "txtSpotRateUseCarrierFuelAddendum":
+                if (e.checked === true) {
+                    $("#divSpotRateAvgFuelPrice").hide();
+                } else {
+                    $("#divSpotRateAvgFuelPrice").show();
+
+                }
+                break;
+            case "txtSpotRateAutoCalculateBFC":
+                if (e.checked === true) {
+                    $("#divSpotRateFixedBFC").hide();
+                } else {
+                    $("#divSpotRateFixedBFC").show();
+
+                }
+                break;
+
+        }
+        console.log(e.checked);//true of false
+    }
+
+    $(function () {
+        
+        $("#FlatRate-switch").kendoSwitch({
+            onLabel: "YES",
+            offLabel: "NO",
+            change:  onSwitchChange
+
+        });
+        $("#PostToDAT-switch").kendoSwitch({
+            checked: false, change: onSwitchChange
+        });
+        $("#PostToNEXTStop-switch").kendoSwitch({
+            checked: false, change: onSwitchChange
+        });
+        $("#API-switch").kendoSwitch({
+            checked: false, change: onSwitchChange
+        });
+        $("#PrivateTariff-switch").kendoSwitch({
+            checked: false, change: onSwitchChange
+        });
+       
+        $("#txtSpotRateCarrierControl").kendoNumericTextBox();
+        $("#txtSpotRateLineHaul").kendoNumericTextBox();
+        $("#txtSpotRateAllocationFormula").kendoMaskedTextBox();
+        $("#txtSpotRateReason").kendoMaskedTextBox();
+        $("#txtSpotRateUseCarrierFuelAddendum").kendoSwitch({
+            onLabel: "YES",
+            offLabel: "NO",
+            checked: true,
+            change: onSwitchChange
+        });
+        $("#txtSpotRateAvgFuelPrice").kendoNumericTextBox();
+        $("#txtSpotRateAutoCalculateBFC").kendoSwitch({
+            onLabel: "YES",
+            offLabel: "NO",
+            checked: true,
+            change:  onSwitchChange
+        });
+        $("#txtSpotRateTotalBFC").kendoNumericTextBox();
+        $("#txtSpotRateAllocationBFCFormula").kendoMaskedTextBox();
+           
+    });
+</script>
+
+
+

@@ -1,0 +1,112 @@
+﻿<!--Added By SRP on 3/5/18 DocSegmentElementAddExample -->
+<div id="wndAddDocSegmentElement">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <input id="txtDSEControl" type="hidden" />
+
+            <div style="float: left;">
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Doc. ElementName</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtElementName" style="width:250px; background-color:lightgray" readonly="readonly" />
+                                <input id="hdndoctype" style="width:250px;" type="hidden" />
+                                <input id="hdnsegment" style="width:250px;" type="hidden" />
+                                <input id="txtSegmentcreatuser" maxlength="50" type="hidden" />
+                                <input id="txtSegmentcreatedate" maxlength="50" type="hidden" />
+                                <input id="txtSegmentupdate" maxlength="50" type="hidden" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Doc. Element ID/Code</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtDSEElementControl" style="width:250px; background-color:lightgray" readonly="readonly" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Position</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtDSEPosition" type="number" min="1" step="1"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:250px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="position-validation" class="hide-display" style="color: red;position: relative; bottom: 5px;">Position Can't be less then '1'</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Defalut Value</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtDSEDefaultVal" maxlength="50" style="width:250px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Formating Function</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="ddlFormating" maxlength="50" style="width:250px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="fn-validation" class="hide-display" style="color: red;position: relative; bottom: 5px;">Select FormatingFn</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Active</td>
+                            <td class="tblResponsive-top">
+                                <input id="chksegmentupdate" type="checkbox"
+                                       style="width:200px;" />
+                            </td>
+                        </tr>
+
+                    </table>
+                </div> 
+
+
+            </div>
+
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+        </div>
+    </div>
+</div>

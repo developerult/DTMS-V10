@@ -1,0 +1,312 @@
+﻿<link rel="stylesheet" href="https://maps-sdk.trimblemaps.com/v2/trimblemaps-2.1.2.css" />
+<script src="https://maps-sdk.trimblemaps.com/v2/trimblemaps-2.1.2.js"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=String.prototype.startsWith%2CObject.values%2CArray.prototype.includes"></script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 99% !important;
+    }
+</style>
+<style>
+    .olPopupCloseBox {
+        background: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE0cHgiIHdpZHRoPSIxNHB4IiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxwYXRoIGQ9Ik03LDBDMy4xMzQsMCwwLDMuMTM0LDAsN2MwLDMuODY3LDMuMTM0LDcsNyw3YzMuODY3LDAsNy0zLjEzMyw3LTdDMTQsMy4xMzQsMTAuODY3LDAsNywweiBNMTAuNSw5LjVsLTEsMUw3LDhsLTIuNSwyLjVsLTEtMUw2LDdMMy41LDQuNWwxLTFMNyw2bDIuNS0yLjVsMSwxTDgsN0wxMC41LDkuNXoiLz48L3N2Zz4=") no-repeat;
+        cursor: pointer;
+    }
+</style>
+
+<div id="wndMap" style="width: 100%; height: 100%">
+    <div id="map"></div>
+</div>
+
+<script>
+    var wndMap = kendo.ui.Window;
+    var directionsManagerMap;
+    var directionsManagerTrack;
+    var trackItWaypointLayer;
+    var mapItWaypointLayer;
+    var infoboxTrackPins;
+    var searchManager;
+    var loadWgt = 0;
+    var routingLayer = null;
+    var routingLayer1 = null;
+    var markerLayer = null;
+    var mapsLat = [];
+    var trackLat = [];
+    var userDatalst = [];
+    var userDatalst1 = [];
+    var userData = null;
+    /* enum DAL.Models.MapWaypoint.StopType */
+    var MapWaypointStopType = {
+        Pickup: 0,
+        Delivery: 1,
+        PickAndDel: 2,
+        Track: 3
+    }
+    /* object definition */
+    //function searchUserData() {
+    //    PinTitle: "";
+    //    PinDescription: "";
+    //    PinColor: "";
+    //    PinLabel: "";
+    //    PinType: "";
+    //    City: "";
+    //    State: "";
+    //    Zip: "";
+    //    Address: "";
+    //}
+    /* Summary - Gets the pin color based on the type of stop */
+    //function getPinColor(stopCategory, stopCompleted) {
+    //    // debugger;
+    //    var pinColor = '';
+    //    switch (stopCategory) {
+    //        case MapWaypointStopType.Pickup:
+    //            if (stopCompleted === false) { pinColor = 'blue'; } else { pinColor = 'green'; }
+    //            //pinColor = 'blue';
+    //            break;
+    //        case MapWaypointStopType.Delivery:
+    //            if (stopCompleted === false) { pinColor = 'dodgerblue'; } else { pinColor = 'green'; }
+    //            //pinColor = 'dodgerblue';
+    //            break;
+    //        case MapWaypointStopType.PickAndDel:
+    //            if (stopCompleted === false) { pinColor = 'purple'; } else { pinColor = 'green'; }
+    //            //pinColor = 'purple';
+    //            break;
+    //        case MapWaypointStopType.Track:
+    //            pinColor = 'green';
+    //            break;
+    //        default:
+    //            break;
+    //    }mapit
+    //    return pinColor;
+    //}
+    var blnShowDebugMsg = false;
+    // var map = null;
+    function GetMap() {
+        //debugger;
+        try {
+
+
+
+        } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+    }
+
+    // This data can be hard-coded, loaded from a file, or pulled from a service
+    function MapIt(bookControl, wgt) {
+        try {
+            // debugger;
+            loadWgt = wgt;
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.read("Map/GetBingMapRoutes", bookControl, tPage, "GetBingMapRoutesSuccessCallback", "GetBingMapRoutesAjaxErrorCallback", true);
+        } catch (err) { ngl.showWarningMsg("Bing Maps", "(" + err + ") Make sure you have the correct permissions and SSOA configuration for Trimble Maps", null); } //ngl.showErrMsg(err.name, err.description, null);
+    }
+
+    //function MapIt(bookControl, wgt) {
+    //    window.open("maproute.html", 'winname', "width=800,height=600,toolbar=no,menubar=no,resizable=yes");
+    //}
+
+    /* Summary - Called from MapIt() on success */
+    function GetBingMapRoutesSuccessCallback(data) {
+        var oResults = new nglEventParameters();
+        oResults.source = "GetBingMapRoutesSuccessCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        this.rData = null;
+        var tObj = this;
+        try {
+            var blnSuccess = false;
+            var blnErrorShown = false;
+            var strValidationMsg = "";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) {
+                    blnErrorShown = true;
+                    oResults.error = new Error();
+                    oResults.error.name = "Get Map Routes Failure";
+                    oResults.error.message = data.Errors;
+                    ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+                }
+                else {
+                    //Clear all arrays and map DIV
+                    //before populating data and map
+                    var stopsarr = [];
+                    var mapData = [];
+                    var trackData = [];
+                    userDatalst = [];
+                    userDatalst1 = [];
+                    mapsLat = [];
+                    trackLat = [];
+                    var tmapData = new TrimbleMapData();
+                    tmapData.MapStyle = "TRANSPORTATION";
+
+                    $("#map").empty();
+                    wndMap.center().open();
+
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                            this.rData = data.Data; oResults.data = data.Data; oResults.msg = "Success";
+                            //debugger;
+                            blnSuccess = true;
+                            mapData = data.Data[0].MapItWayPoints;
+                            trackData = data.Data[0].TrackItWayPoints;
+
+                            if (ngl.stringHasValue(data.Data[0].ErrMsg)) { ngl.showErrMsg("", data.Data[0].ErrMsg, tObj); return; }
+                            //Get the routes
+                            var trackPins = [];
+                            var mapPins = [];
+                            var Wgt = 30000;
+                            //TrimbleMaps.APIKey = 'C36349D0A5F5D440AAC0CB8A0287F02C';
+                            if (loadWgt > 0) { Wgt = loadWgt; }
+                            for (i = 0; i < mapData.length; i++) {
+                                // debugger;                                    //create wayPoints
+                                var diMap = mapData[i];
+                                //console.log(mapData[i].Longitude + ',' + mapData[i].Lattitude)
+                                userData = new StopDetails();
+                                userData.Address = ngl.replaceEmptyString(diMap.AddressString, '', null);;
+                                userData.StopDescription = ngl.replaceEmptyString(diMap.Comment, '', null);
+                                userData.StopLabel = diMap.StopNumber.toString();
+                                userData.StopColor = getStopColor(diMap.StopCategory, diMap.StopCompleted);
+                                userData.StopType = "MAP";
+                                userData.City = diMap.City;
+                                userData.State = diMap.State;
+                                userData.Zip = diMap.Zip;
+                                var coord = new TrimbleMaps.LngLat(0, 0);
+                                if (mapData[i].Lattitude === 0 && mapData[i].Longitude === 0) {
+                                    coord = geoCode(userData);
+                                } else {
+                                    //mapsLat.push(new TrimbleMaps.LngLat(mapData[i].Longitude, mapData[i].Lattitude));
+                                    coord = AddMapStop(mapData[i].Longitude, mapData[i].Lattitude);
+                                }
+                                mapsLat.push(coord);
+                                console.log("MapsLat");
+                                console.log(mapsLat);
+                                userDatalst.push(userData);
+                                console.log("User Data List");
+                                console.log(userDatalst);
+                            }
+
+                            //TRACK IT
+                            for (i = 0; i < trackData.length; i++) {
+                                //debugger;
+                                //create wayPoints
+                                var diTrack = trackData[i];
+                                var strAddress = ngl.replaceEmptyString(diTrack.AddressString, '', null);
+                                // var twp = createWayPoint(diTrack.Lattitude, diTrack.Longitude, strAddress); //Create waypoint to use to calculate the route
+                                // directionsManagerTrack.addWaypoint(twp);
+                                //create pins
+                                //if (diTrack.Lattitude === 0 && diTrack.Longitude === 0) { geoTrackCode(diTrack.Address1, userData); }
+                                userData = new StopDetails();
+                                userData.Address = ngl.replaceEmptyString(diTrack.AddressString, '', null);;
+                                userData.StopDescription = ngl.replaceEmptyString(diMap.Comment, '', null);
+                                userData.StopLabel = diMap.StopNumber.toString();
+                                userData.StopColor = getStopColor(diTrack.StopCategory, diTrack.StopCompleted);
+                                userData.StopType = "TRACK";
+                                userData.City = diMap.City;
+                                userData.State = diMap.State;
+                                userData.Zip = diMap.Zip;
+                                var coord = new TrimbleMaps.LngLat(0, 0);
+                                if (trackData[i].Lattitude === 0 && trackData[i].Longitude === 0) {
+                                    coord = geoCode(userData);
+                                } else {
+                                    //mapsLat.push(new TrimbleMaps.LngLat(mapData[i].Longitude, mapData[i].Lattitude));
+                                    coord = AddMapStop(trackData[i].Longitude, trackData[i].Lattitude);
+                                }
+                                // test data added by RHR on 7/9/2021
+                                coord[0] = coord[0] + 0.4
+                                coord[0] = coord[1] + 0.4
+                                trackLat.push(coord);
+                                userDatalst1.push(userData);
+                                console.log("User Data List track");
+                                console.log(userDatalst1);
+                            }
+                        }
+                        //var lats = [];
+                        //var lngs = [];
+                        //for (var i = 0; i < trackLat.length; i++) {
+                        //    lats.push(trackLat[i].lat)
+                        //    lngs.push(trackLat[i].lng)
+                        //}
+                        //console.log(trackLat);
+
+                        // var array3 = userDatalst.concat(userDatalst1);
+                        //var merged = userDatalst.concat(userDatalst1);
+                        //for (var i = 0; i < merged.length; ++i) {
+                        //    for (var j = i + 1; j < merged.length; ++j) {
+                        //        if (merged[i].PinTitle === merged[j].PinTitle)
+                        //            merged.splice(j--, 1);
+                        //    }
+                        //}
+                        //console.log(merged);
+                        //var a = mapsLat.concat(trackLat);
+
+                        //for (var i = 0; i < a.length; ++i) {
+                        //    for (var j = i + 1; j < a.length; ++j) {
+                        //        if (a[i].lat === a[j].lat && a[i].lng === a[j].lng)
+                        //            a.splice(j--, 1);
+                        //    }
+                        //}
+                        //debugger;
+                        //setTimeout(function () {   
+                        showTrimbleMap('map', tmapData, mapsLat, trackLat, userDatalst, userDatalst1);
+                        //}, 1, tObj);
+                    }
+                    //OPEN WINDOW
+                    //wndMap.center().open();
+                }
+            }
+
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Get Map Routes Failure"; }
+                oResults.error = new Error();
+                oResults.error.name = "Get Map Routes Failure";
+                oResults.error.message = strValidationMsg;
+                ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj); }
+    }
+    function GetBingMapRoutesAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        oResults.source = "GetBingMapRoutesAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Get Map Routes Failure";
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+    }
+
+
+    $(document).ready(function () {
+        //GetMap();
+        wndMap = $("#wndMap").kendoWindow({
+            title: "Map",
+            height: '75%',
+            width: '70%',
+            modal: true,
+            scrollable: true,
+            visible: false,
+            actions: ["Minimize", "Maximize", "Close"],
+            close: function (e) {
+                //directionsManagerMap.clearAll();
+                //directionsManagerTrack.clearAll();
+                //deleteAllPushPins();
+                //loadWgt = 0;
+                map = null;
+                //trackLat = null;
+                //mapsLat = null;
+                //userDatalst = null;
+                //userDatalst1 = null;
+                //GetMap();
+                // map.destroy();
+                //GetMap();
+            }
+        }).data("kendoWindow");
+    });
+</script>

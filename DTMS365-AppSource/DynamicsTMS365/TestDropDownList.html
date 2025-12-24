@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Test Page</title>
+
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/ngl-classic-opal.css" rel="stylesheet" />
+
+   
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/SSOA.js"></script>
+
+    <div>
+        <table id="tblShippingInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+            <tr>
+                <td style="border:none;">Orig Postal Code: </td>
+                <td style="border:none;"><input id="txtorigCompPostalCode" style="width: 150px;" /></td>
+                <td style="border:none;">Dest Postal Code: </td>
+                <td style="border:none;"><input id="txtdestCompPostalCode" style="width: 150px;" /></td>
+            </tr>
+        </table>
+        <table id="tblOrigInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+            <tr>
+                <th style="border:none;">Origin Location</th>
+                <th style="border:none;">Street</th>
+                <th style="border:none;">City</th>
+                <th style="border:none;">State</th>
+                <th style="border:none;">Country</th>
+            </tr>
+            <tr>
+                <td style="border:none;"><input id="txtorigCompName" style="width: 200px;" value="Ship From" /></td>
+                <td style="border:none;"><input id="txtorigCompAddress1" style="width: 200px;" /></td>
+                <td style="border:none;"><input id="txtorigCompCity" style="width: 200px;" /></td>
+                <td style="border:none;"><input id="txtorigCompState" style="width: 150px;" /></td>
+                <td style="border:none;"><input id="txtorigCompCountry" style="width: 150px;" /></td>
+            </tr>
+        </table>
+        <table id="tblDestInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-bottom:5px; margin-top:5px;">
+            <tr>
+                <th style="border:none;">Destination Location</th>
+                <th style="border:none;">Street</th>
+                <th style="border:none;">City</th>
+                <th style="border:none;">State</th>
+                <th style="border:none;">Country</th>
+            </tr>
+            <tr>
+                <td style="border:none;"><input id="txtdestCompName" style="width: 200px;" value="Ship To" /></td>
+                <td style="border:none;"><input id="txtdestCompAddress1" style="width: 200px;" /></td>
+                <td style="border:none;"><input id="txtdestCompCity" style="width: 200px;" /></td>
+                <td style="border:none;"><input id="txtdestCompState" style="width: 75px;" /></td>
+                <td style="border:none;"><input id="txtdestCompCountry" style="width: 100px;" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+        $("#txtorigCompPostalCode").kendoComboBox({
+            dataTextField: "ZipCode",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.ZipCode # #: data.City # #: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/1",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                alert("select");
+                var item = e.dataItem;
+                console.log("item");
+                console.log(item.City);
+                console.log(item.State);
+                //var strText = this.value(); //strText will be populated with the value the user typed as long as the user did not hit the enter key. Enter key selection clears this value -- I haven't found a way to get it yet
+                if (item) {
+                    $("#txtorigCompCity").data("kendoComboBox").value(item.City);
+                    $("#txtorigCompState").data("kendoComboBox").value(item.State);
+                }
+            },
+            change: function (e) {
+                alert("change");
+                console.log("change");
+            },
+            cascade: function (e) {
+                alert("cascade");
+                console.log("cascade");
+            },
+        });
+
+        $("#txtdestCompPostalCode").kendoComboBox({
+            dataTextField: "ZipCode",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.ZipCode # #: data.City # #: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/1",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                console.log("Dest item");
+                console.log(item.City);
+                console.log(item.State);
+                //var strText = this.value(); //strText will be populated with the value the user typed as long as the user did not hit the enter key. Enter key selection clears this value -- I haven't found a way to get it yet
+                if (item) {
+                    $("#txtdestCompCity").data("kendoComboBox").value(item.City);
+                    $("#txtdestCompState").data("kendoComboBox").value(item.State);
+                }
+            },
+        });
+
+        $("#txtorigCompCity").kendoComboBox({
+            dataTextField: "City",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.City # #: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/2",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                if (item) {
+                    //$("#txtorigCompPostalCode").data("kendoComboBox").value(item.ZipCode);
+                    $("#txtorigCompState").data("kendoComboBox").value(item.State);
+                    $("#txtZipLocation").val("o");
+                    openZipWin(item.City, item.State)
+                }
+            },
+        });
+
+        $("#txtdestCompCity").kendoComboBox({
+            dataTextField: "City",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.City # #: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/2",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                if (item) {
+                    //$("#txtdestCompPostalCode").data("kendoComboBox").value(item.ZipCode);
+                    $("#txtdestCompState").data("kendoComboBox").value(item.State);
+                    $("#txtZipLocation").val("d");
+                    openZipWin(item.City, item.State)
+                }
+            },
+        });
+
+        $("#txtorigCompState").kendoComboBox({
+            dataTextField: "State",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/3",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                //var item = e.dataItem;                    
+                //if (item){                       
+                //    $("#txtorigCompPostalCode").data("kendoComboBox").value("");
+                //    $("#txtorigCompCity").data("kendoComboBox").value("");                        
+                //}                
+            },
+        });
+
+        $("#txtdestCompState").kendoComboBox({
+            dataTextField: "State",
+            dataValueField: "ZipCodeControl",
+            autoWidth: true,
+            template: '<span class="k-state-default"><p>#: data.State #</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/ZipCode/GetZipsTest/3",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "ZipCodeControl",
+                        fields: {
+                            ZipCodeControl: { type: "number" },
+                            ZipCode: { type: "string" },
+                            State: { type: "string" },
+                            City: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                //var item = e.dataItem;                    
+                //if (item){                       
+                //    $("#txtorigCompPostalCode").data("kendoComboBox").value("");
+                //    $("#txtorigCompCity").data("kendoComboBox").value("");                        
+                //}                
+            },
+        });
+
+        });
+
+    </script>
+
+</body >
+</html >

@@ -1,0 +1,166 @@
+﻿<table id="PageDetDataTypes" style="border: none; ">
+    <tbody class="data-container">
+        <tr class="data-template" style="border: none;">
+            <td class="data-entry-label">Container/Parent</td>
+            <td class="data-entry-label">Element Type</td>
+        </tr>
+        <tr class="data-template" style="border: none;">
+            <td class="data-entry-value">
+                <input id="ddlPageDetParentID" type="text" class="stopInfo" />
+                <input id="txtPageDetGroupTypeControl" type="hidden" />
+                <input id="txtPageDetParentID" type="hidden" />
+            </td>
+            <td class="data-entry-value">
+                <input id="ddlPageDetGroupSubTypeControl" type="text" class="stopInfo" />
+                <input id="txtPageDetGroupSubTypeControl" type="hidden" />
+            </td>
+        </tr>
+        <tr class="data-template" style="border: none;">
+            <td class="data-entry-label">Data Table or View</td>
+            <td class="data-entry-label">Data Field</td>
+        </tr>
+        <tr class="data-template" style="border: none;">
+            <td class="data-entry-value">
+                <input id="comboPageDetDataElements" type="text" class="stopInfo" />
+                <input id="txtPageDetDataElmtControl" type="hidden" />
+            </td>
+            <td class="data-entry-value">
+                <input id="comboPageDetElementFields" type="text" class="stopInfo" />
+                <input id="txtPageDetElmtFieldControl" type="hidden" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+<!--<div style="height:48vh; overflow:auto;">-->
+    <div style="height:auto; overflow:auto;">
+        <table id="PageDetDataElements" style="border: none; ">
+            <tbody class="data-container">
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Name</td>
+                    <td class="data-entry-value"><input id="txtPageDetName" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Description</td>
+                    <td class="data-entry-value"><input id="txtPageDetDesc" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Caption</td>
+                    <td class="data-entry-value"><input id="txtPageDetCaption" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Localized</td>
+                    <td class="data-entry-value"><input id="txtPageDetCaptionLocal" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Sequence No.</td>
+                    <td class="data-entry-value"><input id="txtPageDetSequenceNo" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Visible</td>
+                    <td class="data-entry-value"><input id="txtPageDetVisible" type="checkbox" class="stopInfo" /></td>                   
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Edit Wnd Seq No.</td>
+                    <td class="data-entry-value"><input id="txtPageDetEditWndSeqNo" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Edit Wnd Visible</td>
+                    <td class="data-entry-value"><input id="comboEditWndVisibility" type="text" class="stopInfo" /><input id="txtPageDetEditWndVisibility" type="hidden" /></td>                                      
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Add Wnd Seq No.</td>
+                    <td class="data-entry-value"><input id="txtPageDetAddWndSeqNo" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Add Wnd Visible</td>
+                    <td class="data-entry-value"><input id="comboAddWndVisibility" type="text" class="stopInfo" /><input id="txtPageDetAddWndVisibility" type="hidden" /></td>                                      
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Read Only</td>
+                    <td class="data-entry-value"><input id="txtPageDetReadOnly" type="checkbox" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Sortable</td>
+                    <td class="data-entry-value"><input id="txtPageDetAllowSort" type="checkbox" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Show Filter</td>
+                    <td class="data-entry-value"><input id="txtPageDetAllowFilter" type="checkbox" class="stopInfo" /></td>
+                    <td class="data-entry-label">Expanded</td>
+                    <td class="data-entry-value"><input id="txtPageDetExpanded" type="checkbox" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Insert Only</td>
+                    <td class="data-entry-value"><input id="txtPageDetInsertOnly" type="checkbox" class="stopInfo" /></td>
+                    <td class="data-entry-label">Required</td>
+                    <td class="data-entry-value"><input id="txtPageDetRequired" type="checkbox" class="stopInfo" /></td>
+                </tr>
+
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Format Override</td>
+                    <td class="data-entry-value"><input id="txtPageDetFieldFormatOverride" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Width</td>
+                    <td class="data-entry-value"><input id="txtPageDetWidth" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Template Override</td>
+                    <td class="data-entry-value"><input id="txtPageDetFieldTemplateOverride" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Template Control#</td>
+                    <td class="data-entry-value"><input id="txtPageDetPageTemplateControl" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">CSS Class</td>
+                    <td class="data-entry-value"><input id="txtPageDetCSSClass" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Style or Attributes</td>
+                    <td class="data-entry-value"><input id="txtPageDetAttributes" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">API Controller</td>
+                    <td class="data-entry-value"><input id="txtPageDetAPIReference" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">API Filter ID</td>
+                    <td class="data-entry-value"><input id="txtPageDetAPIFilterID" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">API Sort Key</td>
+                    <td class="data-entry-value"><input id="txtPageDetAPISortKey" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Tag ID</td>
+                    <td class="data-entry-value" ><label id="lblPageDetTagIDReference" class="stopInfo"></label></td>
+
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label">Widget Action</td>
+                    <td class="data-entry-value"><input id="txtPageDetWidgetAction" type="text" class="stopInfo" /></td>
+
+                    <td class="data-entry-label">Widget Action Keys</td>
+                    <td class="data-entry-value"><input id="txtPageDetWidgetActionKey" type="text" class="stopInfo" /></td>
+                </tr>
+                <tr class="data-template" style="border: none;">
+                    <td class="data-entry-label" style="width:100px; max-width:100px;"><label id="pgMetaData">Meta Data</label></td>
+                    <!--<td class="data-entry-value" colspan="2"><input id="txtPageDetMetaData"  style="height:100px; width:auto;" aria-label="editor" /></td>-->
+                    <td class="data-entry-value" colspan="2"><textarea id="txtPageDetMetaData" rows="3" cols="75" style="height:75px; width:auto;" aria-label="editor"></textarea></td>
+                    <td class="data-entry-value">
+                        <label id="pgMetaData">AllowPaging</label>
+                        <br />
+                        <input id="txtPageDetAllowPaging" type="checkbox" class="stopInfo" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input id="txtPageDetControl" type="hidden" />
+        <input id="txtPageDetPageControl" type="hidden" />
+        <input id="txtPageDetOrientation" type="hidden" />
+        <!--<input id="txtPageDetAllowFilter" type="hidden" />-->
+        <input id="txtPageDetFilterTypeControl" type="hidden" />
+        <input id="txtPageDetTagIDReference" type="hidden" />
+        <!--<input id="txtPageDetAllowSort" type="hidden" />-->
+        <!--<input id="txtPageDetAllowPaging" type="hidden" />-->
+        <input id="txtPageDetUserSecurityControl" type="hidden" />
+        <!--<input id="txtPageDetVisible" type="hidden" />-->
+        <!--<input id="txtPageDetReadOnly" type="hidden" />-->
+        <!--<input id="txtPageDetPageTemplateControl" type="hidden" />-->
+        <!--<input id="txtPageDetExpanded" type="hidden" />-->
+        <input id="txtPageDetFKReference" type="hidden" />
+        <input id="txtPageDetModDate" type="hidden" />
+        <input id="txtPageDetModUser" type="hidden" />
+        <input id="txtPageDetUpdated" type="hidden" />
+    </div>

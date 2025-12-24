@@ -1,0 +1,258 @@
+﻿<div id="wndAddWhatsNew">
+    <div style="width:100%; height:95%;">
+        <div style="float:left; width:50%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Version</td></tr>
+                <tr><td><input id="ddlWNAVersion" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; width:50%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Feature Type</td></tr>
+                <tr><td><input id="ddlWNAFeatureType" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:100%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Header Title</td></tr>
+                <tr><td><input id="txtWNATitle" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:100%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Sequence</td></tr>
+                <tr><td><input id="txtWNASequence" style="width:100%" /></td></tr>
+            </table>
+        </div>      
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:100%; min-width:150px;">
+            <div id="addNotesGrid" style="margin-top:5px;"></div>
+        </div>
+    </div>  
+</div>
+
+
+<!--initialize all the kendo components-->
+<script>
+    var wndAddWhatsNew = kendo.ui.Window;
+    var noteArray = new Array();
+    var intNoteIndex = 0;
+
+    function NoteItem() {
+        Index: 0;
+        Note: "";
+        SequenceNo: 0;
+    }
+
+    function WhatsNewItem() {
+        Version: "";
+        FeatureType: 0;
+        SequenceNo: 0;
+        Title: "";
+        Notes: [];
+    }
+
+    function AddWhatsNew() {
+        var item = new WhatsNewItem();
+        var diV = $("#ddlWNAVersion").data("kendoDropDownList").dataItem();
+        item.Version = diV.Name;
+        var diFT = $("#ddlWNAFeatureType").data("kendoDropDownList").dataItem();
+        item.FeatureType = diFT.Control;
+        item.SequenceNo = $("#txtWNASequence").data("kendoNumericTextBox").value();
+        item.Title = $("#txtWNATitle").data("kendoMaskedTextBox").value();
+        item.Notes = noteArray;        
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "api/WhatsNew/AddWhatsNew",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify(item),
+            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            success: function (data) {
+                try {
+                    var blnSuccess = false;
+                    var blnErrorShown = false;
+                    var strValidationMsg = "";
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Whats New Item Save Failure", data.Errors, null); }
+                        refresh();
+                    }
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+            },
+            error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Whats New Item Save Failure", sMsg, null); }
+        });
+        wndAddWhatsNew.close();
+    }
+
+
+    function getNoteByIndex(idx) {
+        var l = noteArray.length;
+        for (var j = 0; j < l; j++) {
+            if (noteArray[j].Index == idx) { return noteArray[j]; }
+        }
+        return null;
+    }
+
+    function getIndexByNoteIndex(noteIndex) {
+        var l = noteArray.length;
+        for (var j = 0; j < l; j++) {
+            if (noteArray[j].Index == noteIndex) { return j; }
+        }
+        return null;
+    }
+
+
+    function textAreaEditor(container, options) {
+        $('<textarea class="k-textbox" name="' + options.field + '" rows="5" style="width:100%;height:100%;" />').appendTo(container);
+    }
+
+    $(document).ready(function () {
+        $("#txtWNATitle").kendoMaskedTextBox();
+        $("#txtWNASequence").kendoNumericTextBox({ min: 0 });       
+    
+        $("#ddlWNAFeatureType").kendoDropDownList({
+            dataTextField: "Description",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        async: false,
+                        url: "api/vLookupList/GetStaticList/" + nglStaticLists.FeatureType,
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get FeatureType JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+
+        $("#ddlWNAVersion").kendoDropDownList({
+            dataTextField: "Name",
+            dataValueField: "Name",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        async: false,
+                        url: "api/vLookupList/GetStaticList/" + nglStaticLists.Version,
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get FeatureType JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+
+        $('#addNotesGrid').kendoGrid({
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        if (typeof (noteArray) === 'undefined' || ngl.isArray(noteArray) === false) { noteArray = []; }
+                        d.success(noteArray);
+                    },
+                    create: function (d) {
+                        intNoteIndex += 1;
+                        var item = new NoteItem();
+                        item.Index = intNoteIndex;
+                        item.Note = d.data.Note;
+                        item.SequenceNo = d.data.SequenceNo;
+                        // save data item to the original datasource
+                        noteArray.push(item);
+                        d.success(item);
+                    },
+                    update: function (d) {
+                        noteArray[getNoteByIndex(d.data.Index)] = d.data; //locate item in original datasource and update it                                       
+                        d.success();
+                    },
+                    destroy: function (d) {
+                        noteArray.splice(getIndexByNoteIndex(d.data.Index), 1);
+                        d.success(noteArray);
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                schema: {
+                    model: {
+                        id: "Index",
+                        fields: {
+                            Index: { type: "number", editable: false },
+                            Note: { type: "string", editable: true },
+                            SequenceNo: { type: "number", editable: true, validation: { min: 0 } }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Notes Grid Data Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Notes Grid DataSource Failure"), null); }
+            },
+            toolbar: [{ name: "create", text: "Add Note" }],
+            resizeable: true,
+            scrollable: true,
+            sortable: true,
+            pageable: false,
+            editable: { confirmation: false },
+            columns: [
+                { command: [{ className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" },
+                { field: "Index", title: "Index", hidden: true },
+                { field: "Note", title: "Note", editor: textAreaEditor },
+                { field: "SequenceNo", title: "Sequence", width:"15%" }               
+            ]
+        });
+
+        wndAddWhatsNew = $("#wndAddWhatsNew").kendoWindow({
+            title: "Add What's New Item",
+            height: '75%',
+            width: '75%',
+            modal: true,
+            scrollable: true,
+            visible: false,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                noteArray = new Array();
+                intNoteIndex = 0;
+                $("#txtWNATitle").data("kendoMaskedTextBox").value("");   
+                $("#txtWNASequence").data("kendoNumericTextBox").value(0);
+                ngl.readDataSource($('#ddlWNAFeatureType').data('kendoDropDownList'));
+                ngl.readDataSource($('#ddlWNAVersion').data('kendoDropDownList'));
+                ngl.readDataSource($('#addNotesGrid').data('kendoGrid'));
+            }
+        }).data("kendoWindow");
+        $("#wndAddWhatsNew").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { AddWhatsNew() });
+        wndAddWhatsNew.wrapper.find('.k-window-titlebar').css({ display: 'flex' }); //prevent the title from overflowing the window
+    });
+</script>
+

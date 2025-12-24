@@ -1,0 +1,1189 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dynamics TMS 365 Tariff Rates</title>
+    <link href="https://www.dynamicstms365.com/Content/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://www.dynamicstms365.com/Content/kendo/kendo.blueopal.min.css" rel="stylesheet" />
+
+    <link href="https://www.dynamicstms365.com/Content/kendo/kendo.blueopal.mobile.min.css" rel="stylesheet" />
+
+    <link href="Content/NGL/v-8.5.0.001/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://www.dynamicstms365.com/Scripts/kendo/jquery.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/kendo/kendo.all.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.0.001/core.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.0.001/NGLobjects.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.0.001/NGLCtrls.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.0.001/splitter2.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.0.001/SSOA.js"></script>
+
+    <div id="wndTariffRatesMatrix">
+        <div>
+            <a id="focusCancel" href="#"></a>
+            <div id="trWait" style="margin: 10px; z-index: 99999; top: 0px; left: 400px; display: none;"><span style="vertical-align:middle;">Working Please Wait&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="https://www.dynamicstms365.com/Content/NGL/loading5.gif"></div>
+            <div id="summaryInfo" class="k-block k-info-colored"></div>
+            <p>Please enter the Tarrif Rates or enter the number of rows to import. select all rows,  copy from excel, and paste using (Ctrl + V). On error check number of rows</p>
+            <p>Note: Expect to wait for large numbers of rows; processing time may not be reported.</p>
+            <hr />
+            <div style="display: flex;">
+                <div>From <input required id="EffectiveDate" title="datepicker" style="width: 70%" /></div>
+                <div>To: <input id="EffectiveTo" title="datepicker" style="width: 70%" /></div>
+                <div>Rows: <input id="txtRows" title="rowPicker" style="width: 70%" value="300"></div>
+                <div><button type="button" id="setdRows" onclick="setSheetRows()">Set Rows</button></div>
+            </div>
+            <hr />
+            <div id="TariffRatesMatrixGrid" style="width: 100%"></div>
+        </div>
+        <div>
+            <div id="exportToExcelGrid" style="display: none"></div>
+        </div>
+    </div>
+
+    <style>
+        #TariffRatesMatrixGrid .k-tabstrip-wrapper {
+            display: none;
+        }
+
+        .k-spreadsheet .k-spreadsheet-sheets-bar {
+            display: none;
+        }
+
+        .k-spreadsheet .k-dirty {
+            display: none;
+        }
+    </style>
+
+    <script>
+        var dsActiveCarriers = kendo.data.DataSource;
+        var simplesource = [];
+        var datasource = kendo.data.DataSource;
+        var wndTariffRatesMatrix = kendo.ui.Window;
+        var AllRecords;
+        var AllRecordsData;
+        var ActPageControl;
+        var CarrTarEquipMatCarrTarControl;
+        var CarrTarEquipMatCarrTarMatBPControl;
+        var CarrTarEquipMatName;
+        var CarrTarEquipControl;
+        var iRows = 300;
+        var PageControl = 57;
+        var tObj = this
+        var tPage = this
+        var iPageControl = 57;
+
+        var vCarrTarEquipMatPivotDetailDataJsonSet = (values, index) => ({
+            CarrTarEquipMatCountry: values[index][0],
+            CarrTarEquipMatState: values[index][1],
+            CarrTarEquipMatCity: values[index][2],
+            CarrTarEquipMatFromZip: values[index][3].toString(),
+            CarrTarEquipMatToZip: values[index][4].toString(),
+            LaneNumber: values[index][5],
+            CarrTarEquipMatClass: values[index][6],
+            CarrTarEquipMatMin: values[index][7],
+            CarrTarEquipMatMaxDays: values[index][8],
+            Val1: values[index][9],
+            Val2: values[index][10],
+            Val3: values[index][11],
+            Val4: values[index][12],
+            Val5: values[index][13],
+            Val6: values[index][14],
+            Val7: values[index][15],
+            Val8: values[index][16],
+            Val9: values[index][17],
+            Val10: values[index][18]
+        });
+
+        var vCarrTarEquipMatPivotTruckLoadDataJsonSet = (values, index) => ({
+            CarrTarEquipMatCountry: values[index][0],
+            CarrTarEquipMatState: values[index][1],
+            CarrTarEquipMatCity: values[index][2],
+            CarrTarEquipMatFromZip: values[index][3].toString(),
+            CarrTarEquipMatToZip: values[index][4].toString(),
+            LaneNumber: values[index][5],
+            CarrTarEquipMatMin: values[index][6],
+            CarrTarEquipMatMaxDays: values[index][7],
+            Rate: values[index][8],
+        });
+
+        var vCarrTarEquipMatPivotTruckLoadRowsSet = [
+            {
+                height: 25,
+                cells: [
+                    {
+                        value: "Country", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "State", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "City", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Start Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Stop Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Lane Number", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Min Value", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Max Trans Days", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Per Mile", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    }
+                ]
+            },
+        ];
+        var vCarrTarEquipMatPivotDetailLoadRowsSet = [
+            {
+                height: 25,
+                cells: [
+                    {
+                        value: "Country", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "State", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "City", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Start Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Stop Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                    },
+                    {
+                        value: "Lane Number", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Class", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Min Value", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "Max Trans Days", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "500", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "1000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "5000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "10000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "20000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "50000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    },
+                    {
+                        value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                    }
+                ]
+            },
+        ];
+
+        var dataJsonSet = {
+            "57": vCarrTarEquipMatPivotTruckLoadDataJsonSet,
+            "58": vCarrTarEquipMatPivotDetailDataJsonSet,
+            "59": vCarrTarEquipMatPivotTruckLoadDataJsonSet,
+            "60": vCarrTarEquipMatPivotDetailDataJsonSet,
+        }
+
+        var controllerName = {
+            "57": "TariffRateDistance",
+            "58": "TariffRateClass",
+            "59": "TariffRateFlat",
+            "60": "TariffRateUOM",
+        }
+
+        //var spreadsheetColumnSelection = {
+        //    "57": "A2:I10000",
+        //    "58": "A2:R10000",
+        //    "59": "A2:I10000",
+        //    "60": "A2:R10000",
+        //}
+
+        //Modified by RHR for v-8.5.0.002 on 01/05/2022 added row variable
+        var spreadsheetColumnSelection = {
+            "57": "A2:I",
+            "58": "A2:R",
+            "59": "A2:I",
+            "60": "A2:R",
+        }
+
+        var rowsSet = {
+            "57": vCarrTarEquipMatPivotTruckLoadRowsSet,
+            "58": vCarrTarEquipMatPivotDetailLoadRowsSet,
+            "59": vCarrTarEquipMatPivotTruckLoadRowsSet,
+            "60": vCarrTarEquipMatPivotDetailLoadRowsSet,
+        }
+
+        var columnsSet = {
+            "57": [
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                }
+            ],
+            "58": [
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                }
+            ],
+            "59": [
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                }
+            ],
+            "60": [
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                },
+                {
+                    width: 150
+                }
+            ]
+        }
+
+        function setSheetRows() {
+            var iNewRows = $("#txtRows").val();
+            if (isNaN(iNewRows)) { iNewRows = 300; }
+            iRows = iNewRows;
+            GetAllData();
+        }
+
+        //function openImportTariffRatesWnd(iPageControl) {
+        //    ActPageControl = iPageControl;
+        //    wndTariffRatesMatrix.center().open();
+
+        //    $(document).ready(function () {
+
+        //        $('a.k-window-action[aria-label="Save"]').prop('title', 'Save');
+        //        $('a.k-window-action[aria-label="Delete"]').prop('title', 'Delete');
+        //        $('a.k-window-action[aria-label="Strip-all-formatting"]').prop('title', 'Delete and save');
+        //        $('a.k-window-action[aria-label="Excel"]').prop('title', 'Export in Excel');
+
+        //        $("#EffectiveDate").kendoDatePicker({ value: new Date() });
+        //        $("#EffectiveTo").kendoDatePicker();
+
+        //        $('#summaryInfo').empty();
+
+        //        for (var i = 0; i < 3; i++) {
+        //            let summaryCellInfo = $($($('[id ^=divid][id $=Summary]')[0]).find('div td')[i]).text();
+        //            $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${summaryCellInfo}</div>`);
+        //        }
+        //    });
+        //}
+    </script>
+
+    <div id="example">
+        <div id="spreadsheet" style="width: 100%;"></div>
+        <script>
+            var values;
+            var changevariable = [];
+            var countforchange = 0;
+
+            //function onRender(arg) {
+            //    $("#trWait").show();
+            //    var spreadsheetView = $('.k-spreadsheet-view');
+            //    spreadsheetView.unbind('select');
+            //    spreadsheetView.unbind('paste');
+
+            //    spreadsheetView.on('paste', function (e) {
+            //        var element = $('.k-spreadsheet');
+
+            //        kendo.ui.progress(element, true);
+
+            //        setTimeout(function () {
+            //            onPaste(e);
+            //            kendo.ui.progress(element, false);
+            //        }, 1000);
+            //    });
+            //    spreadsheetView.on('select', function (e) {
+            //        //var element = $('.k-spreadsheet');
+
+            //        //kendo.ui.progress(element, true);
+
+            //        //setTimeout(function () {
+            //        //    kendo.ui.progress(element, false);
+            //        //    alert("select");
+            //        //}, 1000);
+            //    });
+            //}
+
+
+            function onPaste(arg) {
+                $("#trWait").show();
+                //var windowWidget = $("#wndTariffRatesMatrix").data("kendoWindow");
+                //    kendo.ui.progress(windowWidget.element, true);
+                // alert('processing');
+                setTimeout(function (tObj) {
+                    values = arg.clipboardContent.data.map(function (row) {
+                        return row.map(function (cell) {
+                            return cell.value;
+                        });
+                    });
+                    /*kendo.ui.progress(windowWidget.element, false);*/
+                    $("#trWait").hide();
+                }, 100, this);
+            }
+
+            //function onPaste(e) {
+            //    e.preventDefault()
+
+            //    var currentRange = e.range;
+            //    var fullData = e.clipboardContent.data;
+            //    var mergedCells = e.clipboardContent.mergedCells;
+            //    var topLeft = currentRange.topLeft();
+            //    var initialRow = topLeft.row;
+            //    var initialCol = topLeft.col;
+            //    var origRef = e.clipboardContent.origRef;
+            //    var numberOfRows = origRef.bottomRight.row - origRef.topLeft.row + 1;
+            //    var numberOfCols = origRef.bottomRight.col - origRef.topLeft.col + 1;
+            //    var spread = e.sender;
+            //    var sheet = spread.activeSheet();
+            //    var rangeToPaste = sheet.range(initialRow, initialCol, numberOfRows, numberOfCols);
+            //    console.log('Range: ' + initialRow + ', ' + initialCol + ', ' + numberOfRows + ', ' + numberOfCols)
+            //    sheet.batch(function () {
+            //        for (var i = 0; i < fullData.length; i += 1) {
+            //            var currentFullData = fullData[i];
+
+            //            for (var j = 0; j < currentFullData.length; j += 1) {
+            //                var range = sheet.range(initialRow + i, initialCol + j);
+            //                var value = currentFullData[j].value;
+
+            //                if (value !== null) {
+            //                    range.input(value);
+            //                    range.format(null);
+            //                }
+            //            }
+            //        }
+            //    });
+
+            //    sheet.select(rangeToPaste);
+
+            //    for (var i = 0; i < mergedCells.length; i += 1) {
+            //        var initialMergedRange = sheet.range(mergedCells[i]);
+            //        var mergeTopLeft = initialMergedRange.topLeft();
+            //        var mergeInitialRow = mergeTopLeft.row + initialRow;
+            //        var mergedInitialCol = mergeTopLeft.col + initialCol;
+            //        var mergedNumberOfRows = initialMergedRange.values.length;
+            //        var mergedNumberOfCols = initialMergedRange.values()[0].length;
+
+            //        sheet.range(mergeInitialRow, mergedInitialCol, mergedNumberOfRows, mergedNumberOfCols).merge();
+            //    }
+            //}
+
+            function onChange(arg) {
+                if (values == null) {
+                    values = "";
+                }
+
+                var sheet = $("#TariffRatesMatrixGrid").data("kendoSpreadsheet");
+                changevariable.push(arg.range.value());
+            }
+
+            function GetAllData() {
+
+
+                AllRecords = [
+                    {
+                        CarrTarEquipMatControl: 176727,
+                        CarrTarEquipMatName: "Flat",
+                        CarrTarEquipMatCarrTarControl: 319,
+                        CarrTarEquipMatCarrTarEquipControl: 291,
+                        CarrTarEquipName: "DRY53",
+                        CarrTarEquipDescription: "Dry 53 FT Van",
+                        CarrTarEquipMatCarrTarMatBPControl: 325,
+                        CarrTarEquipMatCountry: "USA",
+                        CarrTarEquipMatState: "",
+                        CarrTarEquipMatCity: "",
+                        CarrTarEquipMatFromZip: "37919",
+                        CarrTarEquipMatToZip: "37919",
+                        CarrTarEquipMatLaneControl: 0,
+                        CarrTarEquipMatMin: 1975,
+                        CarrTarEquipMatMaxDays: 3,
+                        CarrTarEquipMatClass: "",
+                        CarrTarEquipMatClassTypeControl: 0,
+                        CarrTarEquipMatTarRateTypeControl: 4,
+                        CarrTarEquipMatTarBracketTypeControl: 0,
+                        CarrTarEquipMatModUser: "RFCNT\\tmsadmin",
+                        CarrTarEquipMatModDate: "2022-08-22T13:05:00.647",
+                        LaneNumber: "ALL",
+                        Rate: 1975
+                    },
+                    {
+                        CarrTarEquipMatControl: 176728,
+                        CarrTarEquipMatName: "Flat",
+                        CarrTarEquipMatCarrTarControl: 319,
+                        CarrTarEquipMatCarrTarEquipControl: 291,
+                        CarrTarEquipName: "DRY53",
+                        CarrTarEquipDescription: "Dry 53 FT Van",
+                        CarrTarEquipMatCarrTarMatBPControl: 325,
+                        CarrTarEquipMatCountry: "USA",
+                        CarrTarEquipMatState: "",
+                        CarrTarEquipMatCity: "",
+                        CarrTarEquipMatFromZip: "70126",
+                        CarrTarEquipMatToZip: "70126",
+                        CarrTarEquipMatLaneControl: 0,
+                        CarrTarEquipMatMin: 2600,
+                        CarrTarEquipMatMaxDays: 3,
+                        CarrTarEquipMatClass: "",
+                        CarrTarEquipMatClassTypeControl: 0,
+                        CarrTarEquipMatTarRateTypeControl: 4,
+                        CarrTarEquipMatTarBracketTypeControl: 0,
+                        CarrTarEquipMatModUser: "RatesManualImport",
+                        CarrTarEquipMatModDate: "2022-08-22T13:04:06.997",
+                        LaneNumber: "ALL",
+                        Rate: 2600
+                    }
+                ];
+                console.log("Static All Data Record");
+                console.log(AllRecords);
+
+                for (var i = 0; i < AllRecords.length; i++) {
+                    if (AllRecords[i].CarrTarEquipMatCarrTarControl) {
+                        CarrTarEquipMatCarrTarControl = AllRecords[i].CarrTarEquipMatCarrTarControl;
+                    }
+                    if (AllRecords[i].CarrTarEquipMatCarrTarMatBPControl) {
+                        CarrTarEquipMatCarrTarMatBPControl = AllRecords[i].CarrTarEquipMatCarrTarMatBPControl;
+                    }
+                    if (AllRecords[i].CarrTarEquipMatName) {
+                        CarrTarEquipMatName = AllRecords[i].CarrTarEquipMatName;
+                    }
+                    //CarrTarEquipControl
+                    if (AllRecords[i].CarrTarEquipMatCarrTarEquipControl) {
+                        CarrTarEquipControl = AllRecords[i].CarrTarEquipMatCarrTarEquipControl;
+                    }
+                    simplesource.push(AllRecords[i].TariffRatesControl);
+                }
+
+
+                if (AllRecords && ngl.isArray(AllRecords) && AllRecords.length > 0) {
+                    if (iRows < AllRecords.length) {
+                        iRows = AllRecords.length;
+                        $("#txtRows").val(iRows);
+                    }
+
+
+                    AllRecordsData = AllRecords.map(row => {
+
+
+                        return {
+                            CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                            CarrTarEquipMatState: row.CarrTarEquipMatState,
+                            CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                            CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                            CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                            LaneNumber: row.LaneNumber,
+                            CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                            CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                            Rate: row.Rate
+                        }
+
+
+                    });
+
+                    $("#exportToExcelGrid").kendoGrid({
+                        columns: dataJsonSet[PageControl],
+                        dataSource: {
+                            data: AllRecordsData,
+                            schema: {
+                                model: {
+                                    fields: {
+                                        CarrTarEquipMatControl: { type: "number" },
+                                        CarrTarEquipMatName: { type: "string" },
+                                        CarrTarEquipMatCarrTarControl: { type: "number" },
+                                        CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                        CarrTarEquipName: { type: "string" },
+                                        CarrTarEquipDescription: { type: "string" },
+                                        CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                        CarrTarEquipMatCountry: { type: "string" },
+                                        CarrTarEquipMatState: { type: "string" },
+                                        CarrTarEquipMatCity: { type: "string" },
+                                        CarrTarEquipMatFromZip: { type: "string" },
+                                        CarrTarEquipMatToZip: { type: "string" },
+                                        CarrTarEquipMatLaneControl: { type: "number" },
+                                        CarrTarEquipMatMin: { type: "number" },
+                                        CarrTarEquipMatMaxDays: { type: "number" },
+                                        CarrTarEquipMatClass: { type: "string" },
+                                        CarrTarEquipMatClassTypeControl: { type: "number" },
+                                        CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                        CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                        CarrTarEquipMatModUser: { type: "string" },
+                                        CarrTarEquipMatModDate: { type: "string" },
+                                        LaneNumber: { type: "string" },
+                                        Rate: { type: "number" }
+                                    }
+                                }
+                            }
+                        },
+                    });
+
+                    let localDataSource = new kendo.data.DataSource({
+                        data: AllRecordsData,
+                        schema: {
+                            model: {
+                                fields: {
+                                    CarrTarEquipMatControl: { type: "number" },
+                                    CarrTarEquipMatName: { type: "string" },
+                                    CarrTarEquipMatCarrTarControl: { type: "number" },
+                                    CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                    CarrTarEquipName: { type: "string" },
+                                    CarrTarEquipDescription: { type: "string" },
+                                    CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                    CarrTarEquipMatCountry: { type: "string" },
+                                    CarrTarEquipMatState: { type: "string" },
+                                    CarrTarEquipMatCity: { type: "string" },
+                                    CarrTarEquipMatFromZip: { type: "string" },
+                                    CarrTarEquipMatToZip: { type: "string" },
+                                    CarrTarEquipMatLaneControl: { type: "number" },
+                                    CarrTarEquipMatMin: { type: "number" },
+                                    CarrTarEquipMatMaxDays: { type: "number" },
+                                    CarrTarEquipMatClass: { type: "string" },
+                                    CarrTarEquipMatClassTypeControl: { type: "number" },
+                                    CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                    CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                    CarrTarEquipMatModUser: { type: "string" },
+                                    CarrTarEquipMatModDate: { type: "string" },
+                                    LaneNumber: { type: "string" },
+                                    Rate: { type: "number" }
+                                }
+                            }
+                        }
+                    });
+
+                    createSpreadSheet(localDataSource);
+                    removeContextMenuFromSpreadSheet();
+                }
+            }
+
+            function GetTariffRatesMatrixSuccessCallback(data, errTitle) {
+                try {
+                    var blnSuccess = false;
+                    var blnErrorShown = false;
+                    var strValidationMsg = "";
+                    var element = $('.k-spreadsheet');
+                    if (element) {
+                        kendo.ui.progress(element, false);
+                    }
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg(errTitle, data.Errors, null); }
+                        else {
+                            if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                    blnSuccess = true;
+                                    AllRecords = data.Data;
+                                    for (var i = 0; i < data.Data.length; i++) {
+                                        if (data.Data[i].CarrTarEquipMatCarrTarControl) {
+                                            CarrTarEquipMatCarrTarControl = data.Data[i].CarrTarEquipMatCarrTarControl;
+                                        }
+                                        if (data.Data[i].CarrTarEquipMatCarrTarMatBPControl) {
+                                            CarrTarEquipMatCarrTarMatBPControl = data.Data[i].CarrTarEquipMatCarrTarMatBPControl;
+                                        }
+                                        if (data.Data[i].CarrTarEquipMatName) {
+                                            CarrTarEquipMatName = data.Data[i].CarrTarEquipMatName;
+                                        }
+                                        //CarrTarEquipControl
+                                        if (data.Data[i].CarrTarEquipMatCarrTarEquipControl) {
+                                            CarrTarEquipControl = data.Data[i].CarrTarEquipMatCarrTarEquipControl;
+                                        }
+                                        simplesource.push(data.Data[i].TariffRatesControl);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (AllRecords && ngl.isArray(AllRecords) && AllRecords.length > 0) {
+                        if (iRows < AllRecords.length) {
+                            iRows = AllRecords.length;
+                            $("#txtRows").val(iRows);
+                        }
+
+                        AllRecordsData = AllRecords.map(row => {
+
+                            if (PageControl == '57' || PageControl == '59') {
+                                return {
+                                    CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                                    CarrTarEquipMatState: row.CarrTarEquipMatState,
+                                    CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                                    CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                                    CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                                    LaneNumber: row.LaneNumber,
+                                    CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                                    CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                                    Rate: row.Rate
+                                }
+                            }
+                            else {
+                                return {
+                                    CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                                    CarrTarEquipMatState: row.CarrTarEquipMatState,
+                                    CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                                    CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                                    CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                                    LaneNumber: row.LaneNumber,
+                                    CarrTarEquipMatClass: row.CarrTarEquipMatClass,
+                                    CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                                    CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                                    Val1: row.Val1,
+                                    Val2: row.Val2,
+                                    Val3: row.Val3,
+                                    Val4: row.Val4,
+                                    Val5: row.Val5,
+                                    Val6: row.Val6,
+                                    Val7: row.Val7,
+                                    Val8: row.Val8,
+                                    Val9: row.Val9,
+                                    Val10: row.Val10
+                                }
+                            }
+
+                        });
+
+                        $("#exportToExcelGrid").kendoGrid({
+                            columns: dataJsonSet[PageControl],
+                            dataSource: AllRecordsData
+                        });
+
+                        let localDataSource = new kendo.data.DataSource({
+                            data: AllRecordsData
+                        });
+
+                        createSpreadSheet(localDataSource);
+                        removeContextMenuFromSpreadSheet();
+                    }
+
+                    if (blnSuccess === false && blnErrorShown === false) {
+                        if (strValidationMsg.length < 1) { strValidationMsg = errTitle; }
+                        ngl.showErrMsg(errTitle, strValidationMsg, null);
+                    }
+
+                    execActionClick("Refresh");
+
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                $("#trWait").hide();
+            }
+
+            function removeContextMenuFromSpreadSheet() {
+                $('#TariffRatesMatrixGrid').find('.k-spreadsheet-fixed-container').off('contextmenu');
+            }
+
+            function getAllDataSuccessCallback(data) {
+                GetTariffRatesMatrixSuccessCallback(data, "Get Tariff Rates Failure");
+            }
+
+            function getAllDataAjaxErrorCallback(results) {
+                $("#trWait").hide();
+                var element = $('.k-spreadsheet');
+                if (element) {
+                    kendo.ui.progress(element, false);
+                }
+                ngl.showErrMsg("Get Tariff Rates Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage);
+            }
+            var bSaveRatesMarix = false;
+            function ClearSpreadsheet(obj) {
+                if (obj == 1) {
+                    $("#trWait").show();
+                    bSaveRatesMarix = true;
+                    setTimeout(function () {
+                        DeleteCarrTarEquipMatRecords(true);
+                        /* SaveRatesMatrix();*/
+                        $("#trWait").hide();
+                    }, 100, tObj);
+                }
+            }
+
+            function DeleteRates(obj) {
+                if (obj == 1) {
+                    $("#trWait").show();
+                    bSaveRatesMarix = false;
+                    setTimeout(function () {
+                        DeleteCarrTarEquipMatRecords();
+                        /* GetAllData();*/
+                        $("#trWait").hide();
+                    }, 100, tObj);
+                }
+            }
+
+            function createSpreadSheet(localDataSource) {
+                $(function () {
+                    $("#TariffRatesMatrixGrid").empty();
+                    $("#TariffRatesMatrixGrid").kendoSpreadsheet({
+                        excel: {
+                            proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                        },
+                        toolbar: {
+                            insert: false,
+                            data: false
+                        },
+                        pdf: {
+                            proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                        },
+                        dataBound: function (e) {
+                            var sheet = e.sender.activeSheet();
+                            sheet.range('D2:D300').format('@')
+                            sheet.range('E2:E300').format('@')
+                        },
+                        render: function (e) {
+
+
+                            //alert('Column Count: ' + sheet._columns._count);
+
+                            //paste: onPaste,
+                            var spreadsheetView = $('.k-spreadsheet-view');
+
+                            spreadsheetView.unbind('select');
+
+                            spreadsheetView.unbind('paste');
+
+                            spreadsheetView.on('paste', function (e) {
+
+                                $("#trWait").show();
+                                var element = $('.k-spreadsheet');
+
+                                kendo.ui.progress(element, true);
+
+                                setTimeout(function () {
+                                    onPaste(e);
+                                    kendo.ui.progress(element, false);
+
+                                    $("#trWait").show();
+                                }, 100, this);
+                            });
+                            spreadsheetView.on('select', function (e) {
+                                var element = $('.k-spreadsheet');
+
+                                kendo.ui.progress(element, true);
+
+                                setTimeout(function () {
+                                    kendo.ui.progress(element, false);
+                                }, 100, this);
+                            });
+                        },
+                        sheets: [
+                            {
+                                name: "Tariff Rates matrix",
+                                cellRange: 10000,
+                                dataSource: localDataSource,
+                                rows: rowsSet[PageControl],
+                                columns: columnsSet[PageControl],
+
+                            },
+                        ],
+                        rows: iRows,
+                    }).data("kendoSpreadsheet").one("render", function (e) {
+                        //alert('Column Count: ' + sheet._columns._count);
+                        e.sender.sheets().forEach(function (sheet) {
+                            sheet.range(0, rowsSet[PageControl][0].cells.length, sheet._rows._count, sheet._columns._count).enable(false);
+                        })
+                    });
+                });
+            }
+
+            $(document).ready(function () {
+
+
+
+                wndTariffRatesMatrix = $("#wndTariffRatesMatrix").kendoWindow({
+                    title: "Import Tariff Rates",
+                    width: "60%",
+                    height: "80%",
+                    actions: ["Excel", "Strip-all-formatting", "Delete", "Save", "Minimize", "Maximize", "Close"],
+                    modal: true,
+                    visible: false
+                }).data("kendoWindow");
+
+                $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-i-excel").parent().click(function (e) {
+                    var grid = $("#exportToExcelGrid").data("kendoGrid");
+                    grid.saveAsExcel();
+                    e.preventDefault();
+                });
+
+                $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-i-strip-all-formatting").parent().click(function (e) {
+                    e.preventDefault();
+                    ngl.OkCancelConfirmation(
+                        "Replace all Rates",
+                        "Are you sure?  All  rates for this tariff will be replaced with the data in the spreadsheet?",
+                        400,
+                        400,
+                        tObj,
+                        "ClearSpreadsheet");
+
+                });
+
+                $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-i-delete").parent().click(function (e) {
+                    e.preventDefault();
+                    ngl.OkCancelConfirmation(
+                        "Delete Tariff Rates",
+                        "Are you sure?  All but one rate for this tariff will be deleted?",
+                        400,
+                        400,
+                        tObj,
+                        "DeleteRates");
+
+                });
+
+                $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-i-save").parent().click(function (e) {
+                    $("#trWait").show();
+                    setTimeout(function () {
+                        Window.SaveRatesMatrix();
+                        $("#trWait").hide();
+                    }, 100, this);
+                });
+
+
+                GetAllData();
+
+                ActPageControl = iPageControl;
+                wndTariffRatesMatrix.center().open();
+
+
+                $('a.k-window-action[aria-label="Save"]').prop('title', 'Save');
+                $('a.k-window-action[aria-label="Delete"]').prop('title', 'Delete');
+                $('a.k-window-action[aria-label="Strip-all-formatting"]').prop('title', 'Delete and save');
+                $('a.k-window-action[aria-label="Excel"]').prop('title', 'Export in Excel');
+
+                $("#EffectiveDate").kendoDatePicker({ value: new Date() });
+                $("#EffectiveTo").kendoDatePicker();
+
+                $('#summaryInfo').empty();
+
+                for (var i = 0; i < 3; i++) {
+                    let summaryCellInfo = $($($('[id ^=divid][id $=Summary]')[0]).find('div td')[i]).text();
+                    $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${summaryCellInfo}</div>`);
+                }
+
+                Window.SaveRatesMatrix = function SaveRatesMatrix() {
+                    var spreadsheet = $("#TariffRatesMatrixGrid").data("kendoSpreadsheet");
+                    var values = spreadsheet.sheets()[0].range(spreadsheetColumnSelection[PageControl] + iRows.toString()).values();
+                    var dataJson;
+
+                    if (values == null || values == "undefined" || values == undefined) {
+                        ngl.showErrMsg("Update Tariff Rates", "Please paste the Tariff Rates (Ctrl + V) and try again", "");
+                        return;
+                    }
+                    else {
+                        if (values != "") {
+
+                            $("#trWait").show();
+                            //var windowWidget = $("#wndTariffRatesMatrix").data("kendoWindow");
+                            //kendo.ui.progress(windowWidget.element, false);
+                            var element = $('.k-spreadsheet');
+
+                            kendo.ui.progress(element, true);
+
+                            setTimeout(function () {
+
+
+                                var result = [];
+                                for (var i = 0; i < values.length; i++) {
+                                    if (values[i][0] != null) {
+                                        var objectBuilder = dataJsonSet[PageControl];
+                                        dataJson = objectBuilder(values, i);
+                                        if (dataJson) {
+                                            result.push(dataJson);
+                                        }
+                                    }
+                                }
+                                if (result.length > 0) {
+                                    UpdatingTariffRatesGrid(result);
+                                }
+                                $("#trWait").hide();
+                            }, 100, tObj);
+                        }
+                    }
+
+                    console.log("spreadsheetColumnSelection[PageControl]" + iRows.toString());
+                    console.log(PageControl);
+                    console.log(spreadsheetColumnSelection[PageControl] + iRows.toString());
+                    spreadsheet.sheets()[0].range(spreadsheetColumnSelection[PageControl] + iRows.toString()).clear();
+                }
+
+                $(".k-spreadsheet-sheets-bar-add .k-button .k-button-icon").hide();
+
+                function upateGridAfterUpdate() {
+                    $("#trWait").hide();
+                    ngl.showSuccessMsg("Tariff Rates updated successfully.", null);
+                    GetAllData();
+                    refreshTariffRatesGrid();
+                }
+
+                function UpdatingTariffRatesGrid(DATAJSON) {
+                    let url;
+                    let from = $("#EffectiveDate").val();
+                    let to = $("#EffectiveTo").val();
+                    if (to) {
+                        url = `api/${controllerName[ActPageControl]}/PostSpreadSheet?CarrTarEquipMatCarrTarControl=${CarrTarEquipMatCarrTarControl}&CarrTarEquipMatCarrTarMatBPControl=${CarrTarEquipMatCarrTarMatBPControl}&CarrTarEquipMatName=${CarrTarEquipMatName}&EffectiveDate=${from}&EffectiveTo=${to}`;
+                    } else {
+                        url = `api/${controllerName[ActPageControl]}/PostSpreadSheet?CarrTarEquipMatCarrTarControl=${CarrTarEquipMatCarrTarControl}&CarrTarEquipMatCarrTarMatBPControl=${CarrTarEquipMatCarrTarMatBPControl}&CarrTarEquipMatName=${CarrTarEquipMatName}&EffectiveDate=${from}`;
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        data: JSON.stringify(DATAJSON),
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            var element = $('.k-spreadsheet');
+                            if (element) {
+                                kendo.ui.progress(element, false);
+                            }
+
+                            if (data.Errors != null) {
+                                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                                else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                            }
+                            $("#trWait").hide();
+                            upateGridAfterUpdate();
+                        },
+                        error: function (xhr, textStatus, error) {
+                            var element = $('.k-spreadsheet');
+                            if (element) {
+                                kendo.ui.progress(element, false);
+                            }
+                            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                            ngl.showErrMsg("Tariff Rates update failed", sMsg, null);
+                            $("#trWait").hide();
+                        }
+                    });
+                }
+
+
+            });
+
+            function DeleteCarrTarEquipMatRecords(bDeleteAll) {
+
+
+                var oCRUDCtrl = new nglRESTCRUDCtrl();
+                var sURL = `${controllerName[ActPageControl]}/DeleteCarrTarEquipMatRates`;
+                if (typeof (bDeleteAll) != 'undefined' && bDeleteAll != null && bDeleteAll == true) {
+                    var sURL = `${controllerName[ActPageControl]}/DeleteAllCarrTarEquipMatRates`;
+                }
+                var blnRet = oCRUDCtrl.delete(sURL, CarrTarEquipControl, tObj, "DeleteCarrTarEquipMatRecordsSuccessCallback", "DeleteCarrTarEquipMatRecordsAjaxErrorCallback", true);
+
+
+            }
+
+
+            function DeleteCarrTarEquipMatRecordsSuccessCallback(data) {
+
+                try {
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (typeof (data.Errors) !== 'undefined' && data.Errors != null && data.Errors.length > 0) {
+                            if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, tObj); }
+                            else { ngl.showErrMsg("Access Denied", data.Errors, tObj); }
+                        } else {
+                            if (bSaveRatesMarix == true) {
+                                //Modified by RHR for v-8.5.2.003 made SaveRatesMatrix part of the Window namespace
+                                Window.SaveRatesMatrix();
+                            } else {
+                                GetAllData();
+                            }
+
+                        }
+                    }
+                } catch (err) {
+                    ngl.showErrMsg(err.name, err.message, tObj);
+                }
+                $("#trWait").hide();
+            }
+
+            function DeleteCarrTarEquipMatRecordsAjaxErrorCallback(xhr, textStatus, error) {
+                ngl.showErrMsg("Delete Tariff Rates Details Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tObj);
+                GetAllData();
+                $("#trWait").hide();
+            }
+        </script>
+    </div>
+
+</body>
+</html>

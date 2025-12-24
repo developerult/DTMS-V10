@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+
+    <link href="Content/NGL/v-8.5.4.001/ngl-classic-opal.css" rel="stylesheet" />
+
+    <!--<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-ocean-blue.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>-->
+    <!--<script src="Scripts/kendoR32023/kendo.all.min.js"></script>-->
+
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/SSOA.js"></script>
+
+   
+    <!--<div id="h1Wait" style="margin:10px; position: absolute; z-index: 99999; top:0px; left:400px;"><span style="vertical-align:middle;">Please Wait Loading&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>-->
+    <div id="example" style="height: 100%; width: 100%;  margin-top: 2px;">
+        <div>
+            <!--<button id="btnid6229201810300752464382828" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" >Save</button>-->
+            <button id="btnid6229201810300752464382828" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  >Say Hello</button>
+        </div>
+        <div id="center-pane">
+            <span id="icon-1" class="k-icon k-i-gear"></span>
+            <span id="icon-2" class="k-icon k-i-gear"></span>
+            <span id="icon-3" class="k-icon k-i-gear"></span>
+            <br />
+            <input type="checkbox" id="eq1" data-role="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" checked="checked">
+            <!-- begin Page Content -->
+            <div id="id1051202009181044115481897"></div>
+            <!--<div id="1051202009181044115481897"></div>-->
+            <!-- End Page Content -->
+        </div>
+        <script>
+            kendo.ui.icon($('span[class^="k-icon k-i-gear"]'), { icon: 'gear' });
+            // kendo.ui.icon($('span[id^="icon"]'), { icon: 'gear' });
+            //kendo.ui.icon($('id^="icon"'), { icon: 'gear' });
+            var PageControl = '105';
+            var oCarrierEDIGrid = null;
+            var tObj = this;
+            var tPage = this;
+            var oCarrierEquipList = null;
+
+            var serverUserControl = 1;
+
+            var control = localStorage.NGLvar1452;
+
+            var sRequireAuthentication = 'false';
+
+            function sayHello() { alert("say hello"); }
+
+
+            function openAddNewCarrierEDIGridWindow(e, fk) {
+
+                // if ( (typeof(execBeforeCarrierEDIGridInsert) === 'undefined' || ngl.isFunction(execBeforeCarrierEDIGridInsert) === false) || (execBeforeCarrierEDIGridInsert(e,fk,wdgtCarrierEDIGridEdit) === true)){ wdgtCarrierEDIGridEdit.data = null;
+
+                //wdgtCarrierEDIGridEdit.show(fk);}
+
+            }
+
+            function openEditCarrierEDIGridWindow(e) {
+
+                //var data = this.dataItem($(e.currentTarget).closest("tr"));
+
+                //var parentGrid = $('#id1051202009181044115481897').data("kendoNGLGrid");
+
+                //if (typeof(parentGrid) !== 'undefined' && ngl.isObject(parentGrid)) {
+
+                // kendo.ui.progress(parentGrid.element, true);
+
+            }
+
+            function deleteCarrierEDIGridRecord(iRet, data) {
+
+                // if (typeof(iRet) === 'undefined' || iRet === null || iRet === 0) { return; }
+
+                //wdgtCarrierEDIGridEdit.delete(data.CarrierEDIControl);
+
+            }
+
+            function confirmDeleteCarrierEDIGridRecord(e) {
+
+            }
+
+
+            function execActionClick(btn, proc) {
+                //if(btn.id == "btnDeleteCarEDI"){
+                //    if (typeof (wdgtCarrierEDIEdit) !== 'undefined' && ngl.isObject(wdgtCarrierEDIEdit) === true) {
+                //        wdgtCarrierEDIEdit.delete();
+                //    }
+
+                //}
+
+                if (btn.id == "btnRefresh") {
+                    ngl.readDataSource(oCarrierEDIGrid);//oCarrierEDIGrid.dataSource.read();
+                }
+                else if (btn.id == "btnResetCurrentUserConfig") {
+                    resetCurrentUserConfig(PageControl);
+                }
+                else if (btn.id == "btnOpenCarrier") {
+                    location.href = "LECarrierMaint";
+                }
+            }
+
+            $(document).ready(function () {
+
+
+
+                if (control != 0) {
+                    //setTimeout(function () {
+                    //    //add code here to load screen specific information this is only visible when a user is authenticated
+                    //}, 1,this);
+
+                }
+
+
+                //wdgtCarrierEDIGridEdit = new NGLEditWindCtrl();
+
+
+
+                /*$('#id1051202009181044115481897').kendoNGLGrid({*/
+                $('#id1051202009181044115481897').kendoGrid({
+                    /*$('#1051202009181044115481897').kendoGrid({*/
+                    autoBind: true,
+                    //theme: "blueopal",
+
+                    toolbarColumnMenu: true,
+
+                    dataSource: [
+                        { CarrierEDIControl: '1', CarrierEDIXaction: 'SHID 1', CarrierEDIComment: 'comment', CarrierEDISecurityQual: '1' },
+                        { CarrierEDIControl: '2', CarrierEDIXaction: 'SHID 1', CarrierEDIComment: 'comment', CarrierEDISecurityQual: '1' },
+                        { CarrierEDIControl: '3', CarrierEDIXaction: 'SHID 1', CarrierEDIComment: 'comment', CarrierEDISecurityQual: '1' },
+                        { CarrierEDIControl: '4', CarrierEDIXaction: 'SHID 1', CarrierEDIComment: 'comment', CarrierEDISecurityQual: '1' },
+                        { CarrierEDIControl: '5', CarrierEDIXaction: 'SHID 1', CarrierEDIComment: 'comment', CarrierEDISecurityQual: '1' }
+
+                    ],
+
+                    selectable: "row",
+
+                    pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+
+                    sortable: {
+
+                        mode: "single",
+
+                        allowUnsort: true
+
+                    },
+
+                    sort: function (e) {
+
+                        //if (!e.sort.dir) { e.sort.dir == ""; e.sort.field == ""; }
+
+                        //if (!e.sort.field) { e.sort.field == ""; }
+
+                        //    $("#txtid1051202009181044115481897SortDirection").val(e.sort.dir);
+
+                        //    $("#txtid1051202009181044115481897SortField").val(e.sort.field);
+
+                    },
+
+                    dataBound: function (e) {
+
+                        //var tObj = this;
+
+                        //if (typeof (CarrierEDIGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(CarrierEDIGridDataBoundCallBack)) { CarrierEDIGridDataBoundCallBack(e,tObj,'id1051202009181044115481897'); }
+
+                    },
+
+                    resizable: true,
+
+                    reorderable: true,
+
+                    //nglCustomDragAndDrop: 'true',
+
+                    //nglDragStart: function(dsO, e) { if (typeof (CarrierEDIGridDragStartCallBack) !== 'undefined' && ngl.isFunction(CarrierEDIGridDragStartCallBack)) { CarrierEDIGridDragStartCallBack(dsO, e); }
+
+                    //},
+
+                    //nglDragEnd: function(dsO, ddO, isDraggingUp) { if (typeof (CarrierEDIGridDropCallBack) !== 'undefined' && ngl.isFunction(CarrierEDIGridDropCallBack)) { CarrierEDIGridDropCallBack(dsO, ddO, isDraggingUp); }
+
+                    //},
+
+                    //columnResize: function(e) { this._captureColumnResize(e); },
+
+                    //columnReorder: function(e) { this._captureColumnReorder(e); },
+
+                    groupable: true,
+
+                    group: function (e) {
+
+                        //arrid1051202009181044115481897GroupBy = new Array();
+
+                        //if (e.groups.length){
+
+                        //    for (let i = 0; i < e.groups.length; i++){
+
+                        //        arrid1051202009181044115481897GroupBy.push(e.groups[i].field);
+
+                        //    }
+
+                        //}
+
+                    },
+
+                    toolbar: [
+                        { name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" onclick="return openAddNewCarrierEDIGridWindow(event,' + null + ')"><span class="k-icon k-i-add"></span>Add</a>' }
+                    ],
+                    columns: [
+
+                        {
+                            command: [
+                                { className: "cm-icononly-button U", name: "EditbtnCarrierEDICRUD", text: "", iconClass: "k-icon k-i-chevron-down", click: openEditCarrierEDIGridWindow },
+                                { className: "cm-icononly-button U", name: "EditbtnCarrierEDICRUD", text: "", iconClass: "k-icon k-i-chevron-up", click: openEditCarrierEDIGridWindow },
+                                { className: "cm-icononly-button D", name: "DeletebtnCarrierEDICRUD", text: "", iconClass: "k-icon k-i-chevron-down", click: confirmDeleteCarrierEDIGridRecord },
+                                { className: "cm-icononly-button D", name: "DeletebtnCarrierEDICRUD", text: "", iconClass: "k-icon k-i-chevron-up", click: confirmDeleteCarrierEDIGridRecord }
+                            ],
+                            title: "Actions", width: 250
+                        },
+
+                        { field: "CarrierEDIControl", title: "ID", width: 250, hidden: false, showhide: 1, PageDetPageControl: 105, PageDetControl: 154022, PageDetUserSecurityControl: 0, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "CarrierEDIXaction", title: "Action", width: 250, showhide: 1, PageDetPageControl: 105, PageDetControl: 154024, PageDetUserSecurityControl: 0, template: "<span title='${CarrierEDIXaction}' style='white-space: nowrap'>${CarrierEDIXaction}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "CarrierEDIComment", title: "Comment", width: 250, showhide: 1, PageDetPageControl: 105, PageDetControl: 154025, PageDetUserSecurityControl: 0, template: "<span title='${CarrierEDIComment}' style='white-space: nowrap'>${CarrierEDIComment}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "CarrierEDISecurityQual", title: "Security Qual", width: 250, showhide: 1, PageDetPageControl: 105, PageDetControl: 154026, PageDetUserSecurityControl: 0, template: "<span title='${CarrierEDISecurityQual}' style='white-space: nowrap'>${CarrierEDISecurityQual}</span>", attributes: { class: "nowrap" } }],
+
+                });
+
+                //var divWait = $("#h1Wait");
+                //if  (typeof (divWait) !== 'undefined' ) {
+                //    divWait.hide();
+                //}
+                //if ($('span[class^="k-icon k-i-save"]') && $('span[class^="k-icon k-i-save"]').length > 0) { kendo.ui.icon($('span[class^="k-icon k-i-save"]'), { icon: 'save' }); }
+                //btnid6229201810300752464382828
+                $("#btnid6229201810300752464382828").kendoButton({
+                    iconClass: "k-i-save",
+                    click: tPage['sayHello']
+                });
+            });
+
+
+        </script>
+        <!--<style>
+
+        .k-grid tbody tr td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .k-tooltip {
+            max-height: 500px;
+            max-width: 450px;
+            overflow-y: auto;
+        }
+
+        .k-grid tbody .k-grid-Edit {
+            min-width: 0;
+        }
+
+            .k-grid tbody .k-grid-Edit .k-icon {
+                margin: 0;
+            }
+    </style>-->
+
+    </div>
+</body>
+</html>

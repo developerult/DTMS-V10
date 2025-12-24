@@ -1,0 +1,255 @@
+﻿<div id="wndCarSet">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+            <div>
+                <div id="lblLE" style="margin-left: 5px;"></div>
+            </div>
+
+            <div style="float: left;">
+
+                <div id="divAssignedLECarriers" style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Carrier</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlAssignedLECarriers" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="divUnassignedLECarriers" style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Carrier</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlUnassignedLECarriers" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">SCAC</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtCarrierSCAC" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Dispatch Type</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlDispatchType" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Carrier Account Reference</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtCarrierAccountRef" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+            </div>
+
+           <!-- ** Modified By LVV on 3/12/18 ** --> 
+           <!--Hide the top 3 checkbox fields because they are not actually being used anywhere right now (no backend logic yet exists)-->            
+            <!--<div style="padding-bottom: 5px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkRateShopOnly" ><label class="k-checkbox-label" for="chkRateShopOnly"><strong>Rate Shop Only</strong></label>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkAPIDispatching" ><label class="k-checkbox-label" for="chkAPIDispatching"><strong>API Dispatching</strong></label>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkAPIStatusUpdates" ><label class="k-checkbox-label" for="chkAPIStatusUpdates"><strong>API Status Updates</strong></label>
+                </div>
+            </div>-->
+            <div style="padding-bottom: 10px; padding-top: 0px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkShowAuditFailReason" ><label class="k-checkbox-label" for="chkShowAuditFailReason"><strong>Show Audit Fail Reason</strong><strong class="red"> *</strong></label>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkShowPendingFeeFailReason" ><label class="k-checkbox-label" for="chkShowPendingFeeFailReason"><strong>Show Pending Fee Fail Reason</strong><strong class="red"> *</strong></label>
+                </div>
+            </div>
+            <!--Modified by RHR for v-8.2.0.117 on 07/17/2019 Added LECarAllowLTLConsolidation-->
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkLECarAllowLTLConsolidation" ><label class="k-checkbox-label" for="chkLECarAllowLTLConsolidation"><strong>Allow LTL Multi-Pick Consolidations</strong></label>
+                </div>
+            </div>
+            <!-- Begin Modified by RHR for v-8.4.0.002 on 04/27/2021 Added Fields for Token Accept Reject
+            lec.LECarAllowCarrierAcceptRejectByEmail,	-- Turn Carrier Accept/Reject With Token via Email on or off
+            lec.LECarCarrierAuthCarrierAcceptRejectByEmail,	 -- Require Carrier Username and Password for Carrier Accept/Reject in addition to Token
+            lec.LECarCarrierAuthCarrierAcceptRejectExpMin  --  Carrier Accept/Reject With Token Expiration Minutes When Null or zero use Global Parameter AutoExpireTenderTokenMin
+                -->
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkLECarAllowCarrierAcceptRejectByEmail" ><label class="k-checkbox-label" for="chkLECarAllowCarrierAcceptRejectByEmail"><strong>Allow Carrier Accept/Reject By Token</strong></label>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkLECarCarrierAuthCarrierAcceptRejectByEmail" ><label class="k-checkbox-label" for="chkLECarCarrierAuthCarrierAcceptRejectByEmail"><strong>Require Login for Carrier Accept/Reject By Token</strong></label>
+                </div>
+            </div>
+            
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input id="txtLECarCarrierAuthCarrierAcceptRejectExpMin" type="number" /><label  for="txtLECarCarrierAuthCarrierAcceptRejectExpMin"><strong>Carrier Specific Accept/Reject By Token Expiration Minutes</strong></label>
+                </div>
+            </div>
+            <!-- End  Modified by RHR for v-8.4.0.002 on 04/27/2021 Added Fields for Token Accept Reject -->
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <!--Expired Loads-->
+            <div style="float: left;">
+                <div class="fast-tab">
+                    <span id="ExpandExpiredSpan" style="display: none;"><a onclick='expandExpired();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseExpiredSpan" style="display: normal;"><a onclick='collapseExpired();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Expired Loads</span>&nbsp;&nbsp;<br />
+                    <div id="FastTabDivExpired" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="padding-bottom: 10px; padding-top: 10px;">
+                            <div style="margin-left: 5px;">
+                                <input type="checkbox" id="chkLECarUseDefault" ><label class="k-checkbox-label" for="chkLECarUseDefault"><strong>Use Legal Entity Default</strong></label>
+                            </div>
+                        </div>
+
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top">Expired Loads Email To</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtLECarExpiredLoadsTo" maxlength="1000" style="width: 250px;" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top">Expired Loads Cc</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtLECarExpiredLoadsCc" maxlength="1000" style="width: 250px;" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top">Carrier Accept Load Mins</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtLECarCarrierAcceptLoadMins" type="number" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div> <!--end fastTab content-->
+                </div> <!--end class fast-tab-->
+            </div>
+                    
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+            <!--Billing Address-->
+            <div style="float: left;">
+                <div class="fast-tab">
+                    <span id="ExpandBillingSpan" style="display: none;"><a onclick='expandBilling();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseBillingSpan" style="display: normal;"><a onclick='collapseBilling();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Billing Address</span>&nbsp;&nbsp;<br />
+                    <div id="FastTabDivBilling" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Address 1</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingAddress1" maxlength="40" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Address 2</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingAddress2" maxlength="40" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Address 3</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingAddress3" maxlength="40" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">City</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingCity" maxlength="25" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">State</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingState" maxlength="8" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Zip</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingZip" maxlength="10" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Country</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtLECarBillingCountry" maxlength="30" style="width: 250px;" /></td></tr>
+                            </table>
+                        </div>
+
+                    </div> <!--end fastTab content-->
+                </div> <!--end class fast-tab-->
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+                  
+            <div style="padding-bottom: 10px; padding-top: 15px;">                      
+                <div style="margin-left: 5px;">                           
+                    <strong class="red">* Impacts the use of the Settlement page only</strong>                     
+                </div>              
+            </div>
+
+            <input id="txtBillToCompControl" type="hidden" />
+            <input id="txtIsEdit" type="hidden" />
+            
+        </div>           
+    </div>
+</div>

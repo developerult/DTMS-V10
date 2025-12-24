@@ -1,0 +1,688 @@
+﻿/***********************************************************************************
+** IQSS - Please add all new code to the top of this file only **
+***********************************************************************************/
+/* Remove the spinners in input type=number*/
+/*input::-webkit-inner-spin-button {*/
+/* display: none; <- Crashes Chrome on hover */
+/*-webkit-appearance: none;
+    margin: 0;*/ /* Apparently some margin are still there even though it's hidden */
+/*}*/
+
+/******* Preview Document in Popup*******/
+/*modified by RHR for v-8.5.4.001 on 05/22/2023 used as a template replace #1565c0 with correct theme color for blue border class
+    Other colors may also need changes to match theme*/
+
+.td_align {
+    text-align: center;
+    vertical-align: middle;
+}
+/*This style will be removed from this file on merge*/
+
+[id^=id] .k-grid-header > div > table,
+[id^=id] > .k-grid-content > table {
+    width: 100%;
+}
+
+/*fix popup padding-left*/
+.k-menu .k-animation-container,
+.k-menu-scroll-wrapper .k-animation-container,
+.k-popup .k-animation-container,
+.k-popups-wrapper .k-animation-container {
+    padding-left: 20px !important;
+}
+
+/*<--Document Preview -->*/
+#show {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.Docheader {
+    color: orangered;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 2px;
+}
+
+.DOCDetails {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 2px;
+}
+
+.cuttentDate {
+    text-align: center;
+    font-size: 1.01em;
+    margin: 2px;
+}
+
+.hederHR {
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    margin: 10px;
+}
+
+/*********Page Layout************/
+.size-a4 {
+    width: 8.3in;
+    height: 11.7in;
+}
+
+
+
+/***********************************************************************************
+** Do not modify or add any code below this comment**
+***********************************************************************************/
+
+.tabstrip {
+    font-size: 12px;
+}
+
+#vertical {
+    height: auto;
+    margin: 0 auto;
+}
+
+#menu-pane {
+    margin-left: 5px;
+    padding-left: 2px;
+    height: 40px;
+    width: 99%;
+}
+/*#order-pane { background-color: white; margin-left:5px; padding-left:2px;  height: auto; width: 99%;}
+        #orders-pane { background-color: white; margin-left:5px; padding-left:2px; height: auto; width: 99%;}
+        #results-pane { background-color: white; margin-left:5px; padding-left:2px; height: auto; width: 99%;}*/
+
+.pane-content {
+    height: auto;
+    width: auto;
+    padding: 0px;
+}
+
+.fast-tab {
+    height: auto;
+    width: auto;
+    padding-left: 1px;
+}
+
+.OpenOrders {
+    width: auto;
+    height: auto;
+    overflow: auto;
+    position: relative;
+}
+
+/*.order-details ul
+        {
+            list-style:none;
+            font-style:italic;
+            margin: 15px;
+            padding: 0;
+        }
+
+        .order-details ul li
+        {
+            margin: 0;
+            line-height: 1.7em;
+        }
+        
+        .order-details label
+        {
+            display:inline-block;
+             width:90px;
+             padding-right: 10px;
+             text-align: right;
+             font-style:normal;
+             font-weight:bold;
+        }*/
+
+table, th, td {
+    /*background-color:green;*/
+    border: 1px solid #bbdceb;
+    table-layout: auto;
+}
+
+.k-notification {
+    border: 0;
+}
+
+
+/* Info template */
+.k-notification-info.k-group {
+    background: rgba(0%,0%,0%,.7);
+    color: #fff;
+}
+
+.ngl-info {
+    background-color: #bbdceb;
+    /*background-color: #1565c0;*/
+    /*background-color: #0069a5;*/
+    width: 350px;
+    height: 150px;
+    overflow: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .ngl-info h3 {
+        font-size: 1em;
+        padding: 32px 10px 5px;
+    }
+
+    .ngl-info img {
+        float: left;
+        margin: 30px 15px 30px 30px;
+    }
+
+/* Error template */
+.k-notification-error.k-group {
+    color: #ffffff;
+}
+
+.ngl-error {
+    background-color: lightsalmon;
+    width: 350px;
+    height: 150px;
+    overflow: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .ngl-error h3 {
+        font-size: 1em;
+        padding: 32px 10px 5px;
+    }
+
+    .ngl-error img {
+        float: left;
+        margin: 30px 15px 30px 30px;
+    }
+
+/* Success template */
+.k-notification-success.k-group {
+    background: rgba(0%,60%,0%,.7);
+    color: #fff;
+}
+
+.ngl-success {
+    background-color: forestgreen;
+    width: 350px;
+    height: 150px;
+    overflow: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .ngl-success h3 {
+        font-size: 1em;
+        padding: 32px 10px 5px;
+    }
+
+    .ngl-success img {
+        float: left;
+        margin: 30px 15px 30px 30px
+    }
+
+
+.ngl-blueBorder {
+    height: auto;
+    width: 85%;
+    padding: 0px;
+    margin-top: 20px;
+    margin-left: 5%;
+    border: solid #1565c0 5px;
+    border-radius: 25px;
+    display: inline-block;
+    float: none;
+}
+
+.ngl-blueBorderFullPage {
+    height: auto;
+    width: 90%;
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: 5%;
+    border: solid #1565c0 5px;
+    border-radius: 25px;
+    display: inline-block;
+    float: none;
+}
+
+.ngl-blueBorderFullPage1 {
+    height: auto;
+    width: 90%;
+    padding: 0px;
+    margin-top: 5px;
+    margin-left: 5%;
+    border: solid #1565c0 5px;
+    border-radius: 25px;
+    display: inline-block;
+    float: none;
+}
+
+.ngl-blueBorderFullPageWide {
+    height: auto;
+    width: 96%;
+    padding: 0px;
+    margin-top: 5px;
+    margin-left: 1%;
+    border: solid #1565c0 5px;
+    border-radius: 25px;
+    display: inline-block;
+    float: none;
+}
+
+
+.ngl-blueBorderFixedSize {
+    height: 90%;
+    width: 80%;
+    padding: 0px;
+    margin-top: 20px;
+    margin-left: 10%;
+    border: solid #1565c0 5px;
+    border-radius: 25px;
+    display: inline-block;
+    float: none;
+}
+
+.P44CarrierPhoto {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 32px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+}
+
+.P44CarrierVendor {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    padding-left: 3px;
+}
+
+.BidCarrierPhoto {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 32px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+}
+
+.BidTypePhoto {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 32px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+}
+
+.BidCarrierVendor {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    padding-left: 3px;
+}
+
+.actionBarButton {
+    border: none;
+    background-color: Transparent;
+    /*background-image:none;*/
+}
+
+.menuTreeCurrentPage {
+    color: #ffffff;
+    background-color: #13688c;
+    box-shadow: none;
+    background-image: none,linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.23) 100%);
+}
+
+
+/* *************************** */
+.tblResponsive {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+}
+
+    .tblResponsive td {
+        height: auto;
+        font-weight: bold;
+        padding: 5px 5px;
+        border-style: solid;
+        border-width: 0px;
+        overflow: hidden;
+        word-break: normal;
+    }
+
+    .tblResponsive .tblResponsive-top {
+        vertical-align: top;
+        white-space: nowrap;
+    }
+
+    .tblResponsive .tblResponsive-middle {
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    .tblResponsive .tblResponsive-bottom {
+        vertical-align: bottom;
+        white-space: nowrap;
+    }
+
+@media screen {
+    .tblResponsive {
+        width: auto !important;
+    }
+
+        .tblResponsive col {
+            width: auto !important;
+        }
+
+    .tblResponsive-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 90%;
+        height: auto;
+    }
+}
+/* *************************** */
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.orangered {
+    color: orangered;
+}
+
+.darkorange {
+    color: darkorange;
+}
+
+.blue {
+    color: blue;
+}
+/*Added By LVV on 9/30/20 for v-8.3.0.001 Task #20200930125350 - DAT Migration*/
+
+.mediumseagreen {
+    color: mediumseagreen;
+}
+/*Added By LVV on 9/30/20 for v-8.3.0.001 Task #20200930125350 - DAT Migration*/
+
+.ngl-notification {
+    width: 50vw;
+    max-height: 250px;
+    /*max-height: 250px;*/
+    text-align: center;
+    overflow: auto;
+    /*overflow-wrap: break-word;*/
+    /*text-overflow: ellipsis;*/
+    /*word-break: break-all;*/
+    /*border:  1px solid;*/
+}
+
+
+/* ************Has Border*************** */
+.tbl {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    .tbl td {
+        padding: 10px 5px;
+        border-style: solid;
+        border-width: 1px;
+        overflow: hidden;
+        word-break: normal;
+    }
+
+    .tbl th {
+        padding: 10px 5px;
+        border-style: solid;
+        border-width: 1px;
+        overflow: hidden;
+        word-break: normal;
+        font-weight: normal;
+    }
+
+    .tbl .tbl-top {
+        vertical-align: top
+    }
+
+    .tbl .tbl-topBold {
+        vertical-align: top;
+        font-weight: bold;
+    }
+
+    .tbl .tbl-topBoldRt {
+        vertical-align: top;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .tbl .tbl-topRt {
+        text-align: right;
+        vertical-align: top
+    }
+
+    .tbl .tbl-Bold {
+        font-weight: bold;
+    }
+
+    .tbl .tbl-midLeftExpand {
+        vertical-align: middle;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+/* ************************************* */
+
+/* ***********No Border***************** */
+.tblNB {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+}
+
+    .tblNB td {
+        padding: 5px 5px;
+        border-style: solid;
+        border-width: 0px;
+        overflow: hidden;
+        word-break: normal;
+    }
+
+    .tblNB th {
+        padding: 5px 5px;
+        border-style: solid;
+        border-width: 0px;
+        overflow: hidden;
+        word-break: normal;
+        font-weight: normal;
+    }
+
+    .tblNB .tblNB-top {
+        vertical-align: top
+    }
+
+    .tblNB .tblNB-topBold {
+        vertical-align: top;
+        font-weight: bold;
+    }
+
+    .tblNB .tblNB-topBoldRt {
+        vertical-align: top;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .tblNB .tblNB-topRt {
+        text-align: right;
+        vertical-align: top
+    }
+
+    .tblNB .tblNB-Bold {
+        font-weight: bold;
+    }
+
+    .tblNB .tblNB-midLeftExpand {
+        vertical-align: middle;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+/* ************************************* */
+
+.alt {
+    background-color: #daecf4;
+}
+
+.txtBox-midLeftExpand {
+    vertical-align: middle;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.txtBox-midLeft {
+    vertical-align: middle;
+    text-align: left;
+}
+
+.k-grid tbody .cm-icononly-button {
+    min-width: 32px;
+    width: 32px;
+}
+
+.k-grid tbody .cm-greenicon-button {
+    min-width: 32px;
+    width: 32px;
+    color: green;
+}
+
+.k-grid tbody .cm-button {
+}
+
+/* Class for spans having red asterik to denote required fields. 
+      Can use this class to show/hide the asterik spans based on edit/add 
+      See LegalEntityEditWindow.html and LegalEntityMaint.aspx for examples
+   */
+.redRequiredAsterik {
+    color: red;
+}
+
+/*@media all {
+    .pgbrk { display: none; } 
+}*/
+
+@media print {
+    body > * {
+        display: none !important;
+    }
+
+    body > .printable {
+        display: block !important;
+        position: relative !important;
+        margin-top: 0 !important;
+        /*padding-top:0 !important;*/
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+        border-width: 0;
+        box-shadow: none !important;
+        overflow: hidden;
+    }
+
+    .printable .k-window-titlebar {
+        display: none;
+    }
+}
+
+@media print {
+    h1, .pgbrk {
+        display: block;
+        page-break-after: always;
+    }
+}
+
+
+/* *************************** */
+/*Added By LVV on 9/19/19 for Bing Maps - CLT aka "Comment Location Tag" (optional location to be tagged as detail with a comment)*/
+/* To get this to work all you need to do is add style="width:100%" to the inputs */
+.tblFitWidth {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+}
+
+    .tblFitWidth td {
+        height: auto;
+        font-weight: bold;
+        padding: 5px 5px;
+        border-style: solid;
+        border-width: 0px;
+        overflow: hidden;
+        word-break: normal;
+        vertical-align: top;
+        white-space: nowrap;
+    }
+
+@media screen {
+    .tblFitWidth {
+        width: 100% !important;
+    }
+
+        .tblFitWidth col {
+            width: auto !important;
+        }
+
+    .tblFitWidth-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 90%;
+        height: auto;
+    }
+}
+
+.RateITCaption {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+}
+/* Added by RHR for v-8.5.3.007 on 03/13/2023 new NGL Took Tip Logic */
+
+#NGLTooltip {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid black;
+    background-color: lightgray;
+    position: absolute;
+    z-index: 2;
+}
+
+/* *************************** */

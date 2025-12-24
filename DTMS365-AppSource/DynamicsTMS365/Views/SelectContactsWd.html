@@ -1,0 +1,340 @@
+﻿<!-- Added By LVV on 6/17/20 for v-8.2.1.008 Task#202005151417 - Company/Warehouse Maintenance Changes -->
+<div id="wndSelectContacts">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p>Select Contact</p>
+        <!--<button id="btnUCN" type="button">Preferred Carriers to the Lane</button>-->
+        <div id="SelectContactsGrid"></div>
+    </div>
+</div>
+
+
+<script>
+//const { Console } = require("console");
+
+
+    var dsSelectContacts = kendo.data.DataSource;
+    var wndSelectContacts = kendo.ui.Window;
+    var ActCarriersControl = 0;
+    var iLLTCControl = 0; //LImit Lane To Carrier Control number
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openSelectContactsWnd(iCarrierControl,pk) {       
+        //If a Legal Entity is provided use that - else use the users associated LE (done in the DAL method)
+        ActCarriersControl = iCarrierControl;
+        iLLTCControl = pk;
+        refreshAvaiableContactsGrid();
+        wndSelectContacts.center().open();
+    }
+
+
+    function refreshAvaiableContactsGrid() { ngl.readDataSource($('#SelectContactsGrid').data('kendoGrid')); }
+
+
+    /*************************** SAVE LOGIC *************************************/
+
+    /* Summary - Saves all the records that have been changed. If blnSaveUpdate is true, then after the save it runs the Update Credit Now! logic */
+    function BatchSaveSelectContacts(blnSaveUpdate) {
+        //debugger;
+        $("#SelectContactsGrid").on("click", ".k-i-hyperlink-open-sm", function () {
+            var row = $(this).closest("tr");
+            dataItem = grid.dataItem(row);
+            if (dataItem.BookCarrTarControl == 0) {
+                ngl.showValidationMsg("View Tariff", "The tariff is not valid");
+                return false;
+            }
+            else { window.open("../Tariff?tarcontrol=" + dataItem.BookCarrTarControl, "_blank"); }
+
+        });
+        if (ngl.isArray(arrCredit) && arrCredit.length > 0) {
+            kendo.ui.progress(wndSelectContacts.element, true);
+            if (blnSaveUpdate === true) { oCRUDCtrl.update("LELaneSelectContacts/PostPageSetting", arrCredit, tPage, "BatchSaveUpdateSuccessCallback", "BatchSaveUpdateAjaxErrorCallback"); }
+            else { oCRUDCtrl.update("LELaneSelectContacts/PostPageSetting", arrCredit, tPage, "BatchSaveSuccessCallback", "BatchSaveAjaxErrorCallback"); }
+        } else { ngl.showSuccessMsg("Nothing to save", null); }
+    }
+
+    var blnSelectContactsGridChangeBound = false;
+    //*************  Call Back Functions ****************
+    function SelectContactsGridDataBoundCallBack(e, tGrid) {
+        //debugger;
+        var oActiveCarGrid = tGrid;
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        if (blnSelectContactsGridChangeBound == false) {
+            oActiveCarGrid.bind("change");
+            var rows = oActiveCarGrid.items();
+            $(rows).each(function (e) {
+                var row = this;
+                var dataItem = oActiveCarGrid.dataItem(row);
+                var blnRet = oCRUDCtrl.update("LELaneSelectContacts/PostPageSetting", arrCredit, tPage, "BatchSaveUpdateSuccessCallback", "BatchSaveUpdateAjaxErrorCallback");
+            });
+        }
+    }
+
+    /* Summary - Executes when the Save is successful */
+    function BatchSaveSuccessCallback(data) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveSuccessCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        try {
+            kendo.ui.progress(wndSelectContacts.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) {
+                    blnErrorShown = true;
+                    oResults.error = new Error();
+                    oResults.error.name = "Save Active Carriers Failure";
+                    oResults.error.message = data.Errors;
+                    ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+                }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshAvaiableContactsGrid();
+                }
+
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Active Carriers Failure", strValidationMsg, null); }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful */
+    function BatchSaveAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Save Active Carriers Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndSelectContacts.element, false);
+    }
+
+    /* Summary - Executes when the Save is successful and calls the Update Credit Now! logic  */
+    function BatchSaveUpdateSuccessCallback(data) {
+        try {
+            kendo.ui.progress(wndSelectContacts.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Save Active Carriers Failure", data.Errors, null); }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshAvaiableContactsGrid();
+                   // UpdateCreditRoutine365LE();
+                }
+
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Active Carriers Failure", strValidationMsg, null); }
+        } catch (err) { ngl.showErrMsg(err.name, err.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful and we do not get to call the Update Credit Now! logic */
+    function BatchSaveUpdateAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveUpdateAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Save Active Carriers Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndSelectContacts.element, false);
+    }
+
+
+
+
+
+
+    $(document).ready(function () {
+
+
+        ////Existing Methods GetContacts.
+        //dsSelectContacts = new kendo.data.DataSource({
+        //    transport: {
+        //        read: function (options) {
+        //            var s = new AllFilter();
+        //            s.LEAdminControl = ActCarriersControl;
+        //            s.ContactType = "2";
+        //            s.Control = ActCarriersControl;                    
+        //            $.ajax({
+        //                url: 'api/Contact/GetContacts',
+        //                contentType: 'application/json; charset=utf-8',
+        //                dataType: 'json',
+        //                data: { filter: JSON.stringify(s) },
+        //                //data: { filter: "" },
+        //                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+        //                success: function (data) {
+        //                    options.success(data);
+        //                    if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+        //                        if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Active Carriers Failure", data.Errors, null); }
+        //                    }
+        //                },
+        //                error: function (result) { options.error(result); }
+        //            });
+        //        },
+        //        //parameterMap: function(options, operation) { return options; },
+        //        parameterMap: function (options, operation) {
+        //            if (operation !== "read" && options.models) { return { models: kendo.stringify(options.models) }; }
+        //        }
+        //    },
+        //    batch: true,
+        //    pageSize: 10,
+        //    schema: {
+        //        data: "Data",
+        //        total: "Count",
+        //        model: {
+        //            id: "ContactControl",
+        //            fields: {
+        //                ContactControl: { type: "number", editable: false, hidden: true },
+        //                ContactName: { type: "string", editable: false },
+        //                ContactTitle: { type: "string", editable: false },
+        //                ContactEmail: { type: "string", editable: false },
+        //                ContactPhone: { type: "string", editable: false },
+        //                ContactPhoneExt: { type: "string", editable: false },
+        //                Contact800: { type: "boolean", editable: false },
+        //                ContactFax: { type: "number", editable: false },
+        //                ContactDefault: { type: "boolean", editable: false, hidden: true },
+        //                ContactScheduler: { type: "number", editable: false, hidden: true },
+        //                ContactTender: { type: "number", editable: false, hidden: true },
+        //                ContactCarrierControl: { type: "number", editable: false, hidden: true },
+        //                ContactLECarControl: { type: "number", editable: false, hidden: true },
+        //                ContactCompControl: { type: "number", editable: false, hidden: true }
+        //            }
+        //        },
+        //        errors: "Errors"
+        //    },
+        //    error: function (xhr, textStatus, error) { ngl.showErrMsg("Access Available Carriers Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+        //});
+        ////End of Existing Methods GetContacts.
+
+        //New Method to GetContacts.
+        dsSelectContacts = new kendo.data.DataSource({
+            transport: {
+                read: function (options) {
+                    var s = new AllFilter();
+                    s.PrimaryKey = iLLTCControl;
+                    s.CarrierControlFrom = ActCarriersControl;
+                    console.log("Carrier Control: " + ActCarriersControl);
+                    $.ajax({
+                        url: 'api/LELanePreferredCarriers/GetContacts',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(s) },
+                        //data: { filter: "" },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            options.success(data);
+                            if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Active Carriers Failure", data.Errors, null); }
+                            }
+                        },
+                        error: function (result) { options.error(result); }
+                    });
+                },
+                //parameterMap: function(options, operation) { return options; },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) { return { models: kendo.stringify(options.models) }; }
+                }
+            },
+            batch: true,
+            pageSize: 10,
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "ContactControl",
+                    fields: {
+                        ContactControl: { type: "number", editable: false, hidden: true },
+                        ContactName: { type: "string", editable: false },
+                        ContactTitle: { type: "string", editable: false },
+                        ContactEmail: { type: "string", editable: false },
+                        ContactPhone: { type: "string", editable: false },
+                        ContactPhoneExt: { type: "string", editable: false },
+                        Contact800: { type: "boolean", editable: false },
+                        ContactFax: { type: "number", editable: false },
+                        ContactDefault: { type: "boolean", editable: false, hidden: true },
+                        ContactScheduler: { type: "number", editable: false, hidden: true },
+                        ContactTender: { type: "number", editable: false, hidden: true },
+                        ContactCarrierControl: { type: "number", editable: false, hidden: true },
+                        ContactLECarControl: { type: "number", editable: false, hidden: true },
+                        ContactCompControl: { type: "number", editable: false, hidden: true }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Access Available Carriers Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+        });
+        //End of New Method to GetContacts.
+        $("#SelectContactsGrid").kendoGrid({
+            dataSource: dsSelectContacts,
+            navigatable: true,
+            pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+            columns: [
+                   { field: "ContactControl", title: "ContactControl", hidden: true },
+                   { field: "ContactName", title: "Name", template: "<span title='${ContactName}'>${ContactName}</span>" },
+                   { field: "ContactTitle", title: "Title", template: "<span title='${ContactTitle}'>${ContactTitle}</span>" },
+                   { field: "ContactEmail", title: "Email", template: "<span title='${ContactEmail}'>${ContactEmail}</span>" },
+                   { field: "ContactPhone", title: "Phone" },
+                   { field: "ContactPhoneExt", title: "Phone Ext" },
+                   { field: "Contact800", title: "800" },
+                   { field: "ContactFax", title: "Fax" },
+                   { field: "ContactDefault", title: "Dispatch Default", template: "<input type='checkbox' #= ContactDefault ? 'checked=checked' : '' # disabled='disabled' ></input>" },
+                   { field: "ContactScheduler", title: "Scheduling Contact", template: "<input type='checkbox' #= ContactScheduler ? 'checked=checked' : '' # disabled='disabled' ></input>" },
+                   { field: "ContactTender", title: "Notify", template: "<input type='checkbox' #= ContactTender ? 'checked=checked' : '' # disabled='disabled' ></input>", hidden: true },
+                   { field: "ContactCarrierControl", title: "ContactCarrierControl", hidden: true },
+                   { field: "ContactLECarControl", title: "ContactLECarControl", hidden: true },
+                   { field: "ContactCompControl", title: "ContactCompControl", hidden: true }
+            ],
+            editable: false,
+            selectable: "single, row",
+            change: function(e) {
+                var selectedRows = this.select();
+                var grid = $("#SelectContactsGrid").data("kendoGrid");
+                var dataItem = grid.dataItem(selectedRows);
+                console.log(dataItem);
+                var dataJSON = {
+                    LLTCCarrierContControl: dataItem.ContactControl,
+                    LLTCCarrierControl: dataItem.ContactCarrierControl,
+                    LLTCControl:iLLTCControl
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "api/LELanePreferredCarriers/SavePreferredCarrierContacts/",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify(dataJSON),
+                    headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                    success: function(data) {
+                        if (data.Errors != null) {                          
+                            if (data.StatusCode === 203){ngl.showErrMsg("Authorization Timeout", data.Errors, null);}
+                            else { ngl.showErrMsg("Access Denied", data.Errors, null); refresh(); }
+                        }
+                        refreshAvaiableContactsGrid();
+                        ngl.showSuccessMsg("Contact Updated successfully.", null);
+                        },
+                        error: function (xhr, textStatus, error) {
+                            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                            ngl.showErrMsg("Saving Issues", sMsg, null);
+                        }
+                    });
+                
+
+            }
+    });
+
+        wndSelectContacts = $("#wndSelectContacts").kendoWindow({
+            title: "Select a default carrier Contact for this lane",
+            width: "80%",
+            actions: ["Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false
+        }).data("kendoWindow");
+        $("#wndSelectContacts").data("kendoWindow").wrapper.find(".k-svg-i-close").parent().click(function (e) { refresh(); }); //Perform the save and only the save
+
+    });
+
+</script>

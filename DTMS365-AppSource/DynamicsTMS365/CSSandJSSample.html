@@ -1,0 +1,907 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery-3.1.0.min.js"></script>
+    <!--  Section
+        Article
+        Nav
+        Header
+        Footer
+        Aside -->
+    <nav>
+        <h2>Main Menu</h2>
+        <section>
+            <h2>Help</h2>
+        </section>
+        <section>
+            <h2>About</h2>
+        </section>
+    </nav>
+    <form method="get">
+        Enter your favorite browser:
+        <br />
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+
+    </form>
+    <br />
+    <section>
+
+        <canvas id="c1" style="width:100px; height:100px; border: 2px solid black;"></canvas>
+    </section>
+    <section>
+
+        <div class="grid-container">
+            <div id="item1" class="grid-item">1</div>
+            <div id="item2" class="grid-item">2</div>
+            <div id="item3" class="grid-item">3</div>
+            <div id="item4" class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+        </div>
+        <h2>Fire Twirlers</h2>
+        <article>
+            <h2>Video</h2>
+            <video id="vid1" width="320" height="240" controls poster="Content/NGL/FrtMstrSplash.jpg">
+                <source src="Content/Video/firetwirlers.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </article>
+        <aside>
+            Sample Buttons
+            <button onclick="document.getElementById('vid1').play()">Play</button>
+            <button onclick="document.getElementById('vid1').pause()">Pause</button>
+        </aside>
+        <article>
+            <h2>Funky Backing Track</h2>
+            <audio id="track1" controls="controls">
+                <source src="Content/Audio/AmFunky.mp3" type="audio/mpeg" />
+            </audio>
+
+
+
+        </article>
+        <aside>
+            <button onclick="playorPauseAudo('track1',true)">Play</button>
+            <button onclick="playorPauseAudo('track1',false)">Pause</button>
+        </aside>
+        <article>
+            <h2>Alternate Audio File</h2>
+
+            <audio id="audiotag1" src="Content/Audio/AmFunky.mp3" preload="auto" type="audio/mpeg"></audio>
+
+
+        </article>
+        <aside>
+            <button onclick="playorPauseAudo('audiotag1',true)">Play</button>
+            <button onclick="playorPauseAudo('audiotag1',false)">Pause</button>
+        </aside>
+
+    </section>
+    <section>
+        <h2>Warning Clicking This Buttion will Cause a Bomb to Explode</h2>
+        <button onclick="resetSelfDistruct()">Self Distruct</button>
+        <button onclick="abortDistruct()">Disarm</button>
+        <p id="para1" class="first">
+            This is Paragraph 1 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+        </p>
+        <article>
+            <h1 id="idBeginCountDown">Your countdown has begun</h1>
+            <div id="content1" class="first" title="normal"></div>
+            <aside>
+                This div contains the current iteration
+            </aside>
+            <div id="content2" class="second" title="normal">
+                This is Div # 2
+            </div>
+            <aside>
+                This div will contain the countdown
+            </aside>
+        </article>
+        <p id="para2" class="second">
+            This is Paragraph 2 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+            XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx
+        </p>
+    </section>
+    <div class="flexcontainer">
+        <div id="start" class="flexitem">Item 1</div>
+        <div class="flexitem">Item 2</div>
+        <div class="flexitem">Item 3</div>
+        <div class="flexitem flexend">End</div>
+    </div>
+    <footer class="pfoot">
+        Parent
+        <div id="footer1">
+            Child One
+            <a href="#">Link One</a>
+            <p>
+                Grand Child 1
+                <span> Great Grand Child Inline 1 </span>
+            </p>
+            <div>
+                Grand Child 1 b
+                <div title="favorite">
+                    Great Grand Child Inline 1 b
+                </div>
+            </div>
+        </div>
+        <div id="footer2">
+            Child Two
+            <a href="#">Link Two</a>
+            <p id="Nearest">
+                Grand Child 2
+                <span title="favorite"> Great Grand Child Inline 2 </span>
+            </p>
+            <div>
+                Grand Child 2 b
+                <div>
+                    Great Grand Child Inline 2 b
+                </div>
+            </div>
+        </div>
+        <div id="footer3" title="favorite">
+            Child Three
+            <a href="#">Link Three</a>
+            <p>
+                Grand Child 3
+                <span> Great Grand Child Inline 3 </span>
+            </p>
+        </div>
+        <div id="footer4">
+            Child Four
+            <a href="#">Link Four</a>
+            <p>
+                Grand Child 4
+                <span> Great Grand Child Inline 4 </span>
+            </p>
+        </div>
+        <div id="footer5">
+            Child Five
+            <a href="#">Link Five</a>
+            <p>
+                Grand Child 5 a
+                <span> Great Grand Child Inline 5 a </span>
+            </p>
+            <div>
+                Grand Child 5 b
+                <div>
+                    Great Grand Child Inline 5 b
+                </div>
+            </div>
+        </div>
+        <div id="footer6">
+            Child Six
+            <a href="#">Link Six</a>
+            <p>
+                Grand Child 6
+                <span> Great Grand Child Inline 6 </span>
+            </p>
+            <div>
+                Grand Child 6 b
+                <div title="favorite">
+                    Great Grand Child Inline 6 b
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function playorPauseAudo(id, play) {
+            var oAud = document.getElementById(id)
+            if (play == true) {
+                oAud.play();
+            } else {
+                oAud.pause();
+            }
+        }
+
+        function tstClick() { alert("test"); }
+
+        var w;
+        $(function () {
+            loadWorker();
+            //var eCanvas = $("#c1");
+            var eCanvas = document.getElementById("c1");
+            if (eCanvas) {
+                var ctx = eCanvas.getContext("2d");
+                // determine the fill style (color)
+                ctx.fillStyle = "#FF0000";
+                // set the size from upper x,y to width, height
+                // fillRect has a starting position and a width and height
+                //ctx.fillRect(0, 0, 80, 80);
+                //eCanvas.width = 100px;
+                //eCanvas.height = 100px;
+                //var ctx = eCanvas.getContext("2d");
+                //ctx.fillStyle(rgba(200, 0, 0, 0.5));
+                ctx.fillRect(10, 10, 200, 200);
+            }
+            //function startWorker() {
+
+            //}
+        });
+
+
+        function resetSelfDistruct() {
+
+            playorPauseAudo("audiotag1", false);
+            $("#para1").removeAttr("style");
+            $("#para2").removeAttr("style");
+            $("#content1").removeAttr("style");
+            $("#content2").removeAttr("style");
+            //$(".first").css("border", "none");
+            //$(".second").css("border", "none");
+            $("#para1").removeClass("explode").addClass("first");
+            $("#para2").removeClass("explode").addClass("second");
+            $("#content1").removeClass("explode").addClass("first");
+            $("#content2").removeClass("explode").addClass("second");
+            $("#content1").attr("title", "normal");
+            $("p").html("");
+            $("div").html("");
+            $("article h1 ").text("Your countdown has begun");
+            $("#para1").html("This is Paragraph 1 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx   XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx");
+
+            $("#para2").html("This is Paragraph 2 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx   XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx");
+
+
+            $("footer.pfoot > p").html("New Text");
+            w.postMessage({ "start": true })
+        }
+
+        function abortDistruct() {
+
+            playorPauseAudo("audiotag1", false);
+            w.terminate();
+            w = undefined;
+            loadWorker();
+            $("#para1").removeAttr("style");
+            $("#para2").removeAttr("style");
+            $("#content1").removeAttr("style");
+            $("#content2").removeAttr("style");
+            //$(".first").css("border", "none");
+            //$(".second").css("border", "none");
+            $("#para1").removeClass("explode").addClass("first");
+            $("#para2").removeClass("explode").addClass("second");
+            $("#content1").removeClass("explode").addClass("first");
+            $("#content2").removeClass("explode").addClass("second");
+            $("#content1").attr("title", "normal");
+            $("p").html("");
+            $("div").html("");
+            $("article h1 ").text("Your countdown has begun");
+            $("#para1").html("This is Paragraph 1 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx   XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx");
+
+            $("#para2").html("This is Paragraph 2 XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx   XXXXXXXX XXXXXXXXXX XXX XXXXXX XXX XXXXXXX XXX XXXXXx");
+
+
+            $("footer.pfoot > p").html("New Text");
+        }
+
+        function loadWorker() {
+            if (typeof (Worker) !== "undefined") {
+                if (typeof (w) == "undefined") {
+                    w = new Worker("Scripts/Workers/WebWorker1.js");
+
+                }
+                w.onmessage = function (event) {
+
+                    var fObjs = $(".first");
+                    var sObjs = $(".second");
+                    if (typeof (event.data) == "number") {
+
+                        if (event.data % 2 == 0) {
+                            //even
+                            //alert("even");
+                            fObjs.css("border", "10px dashed Red");
+                            sObjs.css("border", "10px dotted green");
+                            $("#content1").css("font-weight", "600");
+                            //$('#content2').css('transform', 'rotateY(90deg)');
+                            //$('#content2').css('animation-name', 'showOnY');
+                            var c2Animate = new TmsAnimate('content2', 'showOnY');
+                            var or = c2Animate.animation();
+                            //doAnimate(true);
+
+                        } else {
+                            //odd
+                            sObjs.css("border", "10px dashed Red");
+                            fObjs.css("border", "10px dotted green");
+                            $("#content1").css("font-weight", "200");
+                            //$('#content2').css('transform', 'rotateY(0deg)');
+                            //$('#content2').css('animation-name', 'hideOnY');
+                            var c2Animate = new RTanimation('content2', 'hideOnY') // TmsAnimate('content2', 'hideOnY', '4s');
+                            var or = c2Animate.animation("8s");
+                            //doAnimate(false);
+                        }
+                        var iCountDown = 10;
+                        document.getElementById("content1").innerHTML = "Counting " + event.data.toString();
+                        var wwMsg = { "countDown": 10, "current": event.data };
+                        w.postMessage(wwMsg)
+                        if (event.data == iCountDown) { stopWorker(); }
+                    } else {
+
+                        $("#content2").html(event.data);
+                    }
+                };
+            } else {
+                document.getElementById("content1").innerHTML = "Sorry! No Web Worker support.";
+            }
+
+        }
+
+        function doAnimate(show) {
+
+            var c2Animate = new TmsAnimate('content2', 'hideOnY', '4s');
+            c2Animate.animation(show)
+            //if (show == true) {
+            //$('#content2').css('animation-name', 'showOnY');
+            //var or = c2Animate.startAnimation();
+            //} else {
+            //$('#content2').css('animation-name', 'hideOnY');
+            //var or = c2Animate.endAnimation();
+            //}
+
+        }
+
+        function TmsAnimate(id, name) {
+
+            this.id = id;
+            this.name = name;
+            TmsAnimate.prototype.animation = function () {
+                $('#' + id.toString()).css({ "animation-name": this.name });
+                return true;
+            }
+
+            //this.endAnimation = function() {
+            //    $('#content2').css('animation-name', 'hideOnY');
+            //    return true;
+            //}
+            //animate: function startAnimation() {
+            //$('#content2').css('animation-name', 'showOnY');
+            //$('#' + id.toString()).css("animation-name", this.name.toString());
+            //});
+            //$('#' + id.toString()).css({
+            //    "animation-duration":  this.duration.toString(), "animation-name": this.name.toString()
+            //});
+            //return true;
+            //}
+
+            //function startAnimation() {
+            //$('#content2').css('animation-name', 'showOnY');
+            //$('#' + id.toString()).css("animation-name", this.name.toString());
+            //});
+            //$('#' + id.toString()).css({
+            //    "animation-duration":  this.duration.toString(), "animation-name": this.name.toString()
+            //});
+            //return true;
+            //}
+            //function endAnimation() {
+            //$('#content2').css('animation-name', 'hideOnY');
+            //$('#' + id.toString()).css("animation-name", this.name.toString());
+            //});
+            //$('#' + id.toString()).css({
+            //    "animation-duration":  this.duration.toString(), "animation-name": this.name.toString()
+            //});
+            //return true;
+            //}
+
+        }
+
+        //var rrAnimage = new
+        function RrAnimation(id, name) {
+            TmsAnimate.call(this, id, name)
+            RrAnimation.prototype.animation = function (duration) {
+                $('#' + id.toString()).css({ "animation-name": this.name, "animation-duration": duration });
+                //alert(duration);
+                return true;
+            }
+        }
+
+        function RTanimation(id, name) {
+            TmsAnimate.call(this, id, name)
+            RTanimation.prototype = Object.create(TmsAnimate.prototype);
+            RTanimation.prototype.animation = function (duration) {
+                $('#' + id.toString()).css({ "animation-name": this.name, "animation-duration": duration });
+                //alert(duration);
+                return true;
+            }
+
+        }
+
+        /*
+        function Circle(x, y, r) {
+            // Call constructor of superclass to initialize superclass-derived members.
+            Shape.call(this, x, y);
+
+            // Initialize subclass's own members
+            this.r = r;
+        }
+
+        // Circle derives from Shape
+        Circle.prototype = Object.create(Shape.prototype);
+        Circle.prototype.constructor = Circle;
+
+        // Subclass methods. Add them after Circle.prototype is created with
+        // Object.create
+        Circle.prototype.area = function () {
+            return this.r * 2 * Math.PI;
+        }
+        //const me = Object.create(person);
+        RTanimation.prototype = TmsAnimate.prototype; //Object.create(TmsAnimate.prototype);
+        RTanimation.prototype.animation = function (duration) {
+            $('#' + id.toString()).css({ "animation-name": this.name, "animation-duration": duration });
+            //alert(duration);
+            return true;
+        }
+        */
+
+        function stopWorker() {
+            w.terminate();
+            w = undefined;
+            $(".first").removeAttr("style");
+            $(".second").removeAttr("style");
+            //$(".first").css("border", "none");
+            //$(".second").css("border", "none");
+            $(".first").removeClass("").addClass('explode');
+            $(".second").removeClass("").addClass('explode');
+            $("#content1").attr("title", "explode");
+            $("p").html("BOOM");
+            //$("p").attr('class', 'explode');
+            // $("p").css({ "border": "5px solid Red", "font-weight": "200", "font-size": "large", "font-family": "Comic Sans" });
+            $("div").html("BOOM");
+            //$("div").attr('class', 'explode');
+            //$("div").css({ "border": "5px solid Red", "font-weight": "200", "font-size": "large", "font-family": "Comic Sans" });
+            $("h1").text("To Late");
+            playorPauseAudo('audiotag1', true);
+            //document.getElementById('audiotag1').play();
+            //    var idAudo = $("#track1");
+            //var idAudioController = idAudo.controller;
+            //idAudioController.play();
+            loadWorker();
+        }
+    </script>
+
+    <style>
+                html {
+            font: 75% Verdana,sans-serif;
+            /* Add these */
+            background-color: azure;
+            color: gold;
+            padding: 5px;
+            margin: 5px;
+            border: 2px solid black;
+        }
+
+        .flexcontainer {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            height: 100px;
+            /*flex-direction: column;*/
+            /*justify-content: center;
+                align-items: center;*/
+            /*justify-content: space-between;*/
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -ms-flex-line-pack: center;
+                align-content: center;
+            border-radius: 50px 20px 10px;
+        }
+
+        #start {
+            -webkit-box-pack: start;
+                -ms-flex-pack: start;
+                    justify-content: flex-start;
+            text-align: start;
+            -webkit-box-align: start;
+                -ms-flex-align: start;
+                    align-items: flex-start;
+            -webkit-box-flex: 3;
+                -ms-flex: 3;
+                    flex: 3;
+        }
+
+        .flexitem {
+            border: 1px solid blue;
+            background-color: burlywood;
+            color: black;
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            margin: 5px;
+        }
+
+        .flexend {
+            -webkit-box-flex: 2;
+                -ms-flex: 2;
+                    flex: 2;
+            /*flex-wrap: wrap;*/
+        }
+
+        .grid-container {
+            display: -ms-grid;
+            display: grid;
+            grid-column-gap: 5px;
+            /*grid-template-columns: 20% 30% 30% 20%;*/
+            -ms-grid-columns: auto 5px auto 5px auto 5px auto;
+            grid-template-columns: auto auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            /*padding: 20px;*/
+            font-size: 10px;
+            text-align: center;
+        }
+
+
+        .grid-container #item1 {
+            -ms-grid-row: 1;
+                grid-row-start: 1;
+            -ms-grid-row-span: 4;
+            grid-row-end: 5;
+        }
+
+        .grid-container #item2 {
+            -ms-grid-column: 2;
+                grid-column-start: 2;
+            -ms-grid-column-span: 3;
+            grid-column-end: 5;
+        }
+
+
+        p {
+            font-family: Arial;
+            font-size: medium;
+            -webkit-column-count: 4;
+                    column-count: 4;
+        }
+
+            p::first-line {
+                color: Red;
+                text-transform: uppercase;
+            }
+
+        div {
+            font-family: Britannic;
+            font-size: large;
+            border: 2px solid black;
+        }
+
+            div[title="explode"] {
+                border: 5px solid Red;
+                font-weight: 200;
+                font-size: large;
+                font-family: Comic Sans;
+                background-color: cyan;
+            }
+
+        footer.pfoot {
+            -webkit-column-count: 4;
+                    column-count: 4;
+        }
+        /* all decendenets with a title of favorite under footer */
+        footer [title^="favorite" ] {
+            font-weight: 600;
+            font-size: large;
+            color: black;
+        }
+        /* all decendenets of id Nearest with a title of favorite under footer
+                overrides both all decendents and hover pseudo-class because of the id  */
+        footer #Nearest [title^="favorite" ] {
+            font-weight: 600;
+            font-size: large;
+            color: darkmagenta;
+        }
+        /*all  div decendants  under footer*/
+        footer div {
+            border: 2px double black;
+        }
+        /*   all spans under footer on pseudo-class hover*/
+        footer span:hover {
+            font-weight: 900;
+            font-size: x-large;
+            color: blue;
+        }
+        /*all  p decendants  under footer*/
+        footer p {
+            border: 2px double grey;
+        }
+        /*all div childern under footer overrides footer div for children but not grandchildren */
+        footer > div {
+            border: 2px double red;
+        }
+        /*second div under footer*/
+        footer div:nth-child(2) {
+            background-color: green;
+        }
+
+            /*all grandchild divs under second  child div under footer*/
+            footer div:nth-child(2) > div {
+                background-color: deepskyblue;
+            }
+
+        /*all decendent divs of all children div under footer*/
+        footer div > div {
+            background-color: darksalmon;
+        }
+
+        .first {
+            background-color: Yellow;
+        }
+
+        .second {
+            background-color: orange;
+        }
+
+        #content1 {
+            min-width: 200px;
+            min-height: 50px;
+        }
+
+        #content2 {
+            /*border: 2px solid green;*/
+            width: 100px;
+            height: 100px;
+            -webkit-transform: rotateY(90deg);
+                    transform: rotateY(90deg);
+            -webkit-animation-duration: 2s;
+                    animation-duration: 2s;
+        }
+
+        @-webkit-keyframes explode {
+
+            0% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+
+            25% {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+
+            50% {
+                -webkit-transform: rotateY(180deg);
+                        transform: rotateY(180deg);
+            }
+
+            50% {
+                -webkit-transform: rotateY(270deg);
+                        transform: rotateY(270deg);
+            }
+
+            75% {
+                -webkit-transform: rotateY(360deg);
+                        transform: rotateY(360deg);
+            }
+
+            100% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+            /*
+                from {
+                    transform: rotate(0deg);
+                    transform: rotateX(0deg) ;
+                    transform: rotateY(0deg)
+                }
+
+                to {
+                    transform: rotate(360deg);
+                    transform: rotateX(360deg) ;
+                    transform: rotateY(260deg)
+                }*/
+        }
+
+        @keyframes explode {
+
+            0% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+
+            25% {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+
+            50% {
+                -webkit-transform: rotateY(180deg);
+                        transform: rotateY(180deg);
+            }
+
+            50% {
+                -webkit-transform: rotateY(270deg);
+                        transform: rotateY(270deg);
+            }
+
+            75% {
+                -webkit-transform: rotateY(360deg);
+                        transform: rotateY(360deg);
+            }
+
+            100% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+            /*
+                from {
+                    transform: rotate(0deg);
+                    transform: rotateX(0deg) ;
+                    transform: rotateY(0deg)
+                }
+
+                to {
+                    transform: rotate(360deg);
+                    transform: rotateX(360deg) ;
+                    transform: rotateY(260deg)
+                }*/
+        }
+
+        @-webkit-keyframes showOnY {
+
+
+            from {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+
+            to {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+        }
+
+        @keyframes showOnY {
+
+
+            from {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+
+            to {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+        }
+
+        @-webkit-keyframes hideOnY {
+
+            0% {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+            /*25% {
+                    transform: rotateY(90deg)
+                }*/
+            50% {
+                -webkit-transform: rotateY(360deg);
+                        transform: rotateY(360deg);
+            }
+            /*50% {
+                    transform: rotateY(270deg)
+                }*/
+            /*75% {
+                    transform: rotateY(360deg)
+                }*/
+            100% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+            /*from {
+                    transform: rotateY(90deg)
+                }
+
+                to {
+                    transform: rotateY(0deg);
+                }*/
+        }
+
+        @keyframes hideOnY {
+
+            0% {
+                -webkit-transform: rotateY(90deg);
+                        transform: rotateY(90deg);
+            }
+            /*25% {
+                    transform: rotateY(90deg)
+                }*/
+            50% {
+                -webkit-transform: rotateY(360deg);
+                        transform: rotateY(360deg);
+            }
+            /*50% {
+                    transform: rotateY(270deg)
+                }*/
+            /*75% {
+                    transform: rotateY(360deg)
+                }*/
+            100% {
+                -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+            }
+            /*from {
+                    transform: rotateY(90deg)
+                }
+
+                to {
+                    transform: rotateY(0deg);
+                }*/
+        }
+
+        .explode {
+            border: 5px solid Red;
+            font-weight: 200;
+            font-size: large;
+            font-family: Comic Sans;
+            -webkit-animation: explode 6s infinite;
+                    animation: explode 6s infinite;
+        }
+
+        a:hover {
+            border: 2px solid Cyan;
+        }
+
+        @media screen and (max-width: 600px) {
+            footer.pfoot {
+                -webkit-column-count: 1;
+                        column-count: 1;
+            }
+
+            .grid-container {
+                display: -ms-grid;
+                display: grid;
+                grid-column-gap: 2px;
+                /*grid-template-columns: 20% 30% 30% 20%;*/
+                -ms-grid-columns: auto 2px auto;
+                grid-template-columns: auto auto;
+                background-color: #2196F3;
+                padding: 2px;
+            }
+
+                .grid-container #item1 {
+                    -ms-grid-row: 1;
+                        grid-row-start: 1;
+                    -ms-grid-row-span: 8;
+                    grid-row-end: 9;
+                }
+
+                .grid-container #item2 {
+                    -ms-grid-column: 2;
+                        grid-column-start: 2;
+                    -ms-grid-column-span: 1;
+                    grid-column-end: 3;
+                }
+        }
+    
+    </style>
+</body>
+</html>

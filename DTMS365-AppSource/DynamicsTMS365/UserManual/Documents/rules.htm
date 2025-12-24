@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Rules</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="orderspecificfees1.htm" /><link rel="next" href="howtoaddacarriersfuelmatrix.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="b05811f9-1fc4-44bc-ad6a-2398ccb31ae4">
+<h1 style="tab-stops: 145.5pt">Rules</h1>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">1.  All 
+carrier entered accessorial fees are flat rate charges.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  Web 
+Portal: carriers are asked to enter accessorial fees by order 
+number.    In v-8.0 Carriers are asked to perform any allocation 
+manually if fees are to be applied across multiple orders (like fuel).  In 
+v-8.1 the allocation rules for EDI will also be available for Web Portal (see 
+b).</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  
+EDI:  Available in v-8.1.  Fees may be entered for Load, Order Number 
+or Stop Number.    The TMS system will perform allocations as 
+follows:</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">i. If Order 
+Number selected no allocation.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">ii.          
+If Stop Number selected allocated by weight for each delivery address with the 
+same stop number.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">iii.         
+If Load Allocation the selected fee will be allocated by weight across all 
+orders. </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">iv.         
+Notes: </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 144pt; TEXT-INDENT: -18pt; tab-stops: 144.0pt">1.  Load 
+Allocation is the only way pickup fees may be applied to a load.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 144pt; TEXT-INDENT: -18pt; tab-stops: 144.0pt">2.  
+Multi-pick inbound fee allocation for pickup locations is not supported</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 144pt; TEXT-INDENT: -18pt; tab-stops: 144.0pt">3.  All 
+pickup fees must be allocated for the load.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">2.  Each 
+Legal Entity has separate accessorial fee tolerance settings</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  Legal 
+Entities are linked to TMS companies via the Legal Entity key on the company 
+maintenance page.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  One 
+company is assigned to each Legal Entity as the master company (or home 
+office).        This is maintained via the 
+new Legal Entity maintenance page in TMS 365.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">3.  
+Accessorial Fee Tolerance Settings are maintained via the new Carrier 
+Accessorial Fee Maintenance page in TMS 365.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">4.  Each 
+Fee for each Carrier has individual settings assigned to each Legal Entity.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  Flat 
+Rate Low Value: minimum dollar value allowed; typically zero.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  Flat 
+Rate High Value: maximum dollar value allowed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">c.  
+Expected Cost:  Previously call the Average Value.  The Expected Cost 
+is only used by the percentage tolerance calculations.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">d.  Lowest 
+Percentage Factor:  based on a pre-determined Expected Cost.  The 
+lowest percentage below the Expected Cost that is allowed, typically this is 
+100% which will evaluate to a minimum cost of zero dollars.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">e.  
+Highest Percentage Factor: base on the Expected Cost,  The highest 
+percentage above the Expected Cost that is allowed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">5.  
+Calculation Rules:</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  If the 
+Expected Cost is zero the system will use the Flat Rate values to determine if 
+the Cost falls inside the Flat Rate Tolerances.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  If the 
+Expected Cost is non-zero the system will use the Percentage Factors to 
+determine if the Cost falls inside the Percentage Tolerances.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">6.  Flat 
+Rate Formula: </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  If 
+Cost falls below the <i>Flat Rate Low Value</i> the fee cannot be 
+auto-approved.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  If the 
+Cost exceeds the <i>Flat Rate High Value</i> the fee cannot be 
+auto-approved.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">7.  Low 
+Percentage Factor Formula: If the Cost falls below the <i>Calculated Low 
+Value</i> based on the <i>Low Percentage Factor</i> the fee cannot be 
+auto-approved.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  If 
+<i>Low Percentage Factor</i> is zero the <i>Calculated Low Value</i> is equal to 
+the <i>Expected Cost</i>; the fee cannot be auto-approved if it falls below the 
+<i>Expected Cost</i>.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  If 
+<i>Low Percentage Factor</i> is greater than zero we apply the <i>Low Percentage 
+Factor </i>to the<i> Expected Cost: </i> where the <i>Calculated Low 
+Value</i> equals the difference between the <i>Expected Cost</i> and the product 
+of the <i>Expected Cost</i> and the <i>Low Percentage Factor.</i></p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">c.  
+Example:  In this example the <i>Lowest Cost Allowed</i> is $112.50</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">i. Expected 
+Cost = 150, Low Percentage Factor = 25%.  </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">ii.          
+Calculated Low Value = 150 - (150 * 0.25) </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">iii.         
+or $112.50 = $150 - $37.50</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 36.0pt">8.  High 
+Percentage Factor Formula:  If the Cost exceeds the <i>Calculated High 
+Value</i> based on the <i>High Percentage Factor</i> the fee cannot be 
+auto-approved.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">a.  If the 
+<i>High Percentage Factor</i> equals zero the <i>Calculated High Value</i> is 
+equal to the <i>Expected Cost; </i>the fee cannot be auto-approved if it exceeds 
+the <i>Expected Cost</i>.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">b.  If the 
+<i>High Percentage Factor</i> is greater than zero we apply the <i>High 
+Percentage Factor</i> to the <i>Expected Cost</i>: where the <i>Calculated High 
+Value</i> equals the sum of the <i>Expected Cost</i> and the product of the 
+<i>Expected Cost</i> and the <i>High Percentage Factor</i>.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 72pt; TEXT-INDENT: -18pt; tab-stops: 72.0pt">c.  
+Example:  In this example the <i>Highest Cost Allowed</i> is $187.50</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">i. Expected 
+Cost = 150, High Percentage Factor = 25%.  </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">ii.          
+Calculated High Value = 150 + (150 * 0.25) </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -9pt; tab-stops: 108.0pt">iii.         
+or $187.50 = $150 + $37.50</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Examples</p>
+<p class="MsoNormal"><b>1) Using Flat Rate example: <br /></b>Enter in dollar low 
+and high range. Low = $0       High = $195</p>
+<p class="MsoNormal">The fee entered by the carrier must fall between this 
+range.<br /><i>Percentage values and average value all must be zero and not being 
+applied.</i></p>
+<p class="MsoNormal"><img src="../ImagesExt/image58_0.jpg" alt="" /><br /><b><br />2) Using 
+Percentage Rate Example: <br /></b><i>Dollar value ranges are equal to zero and 
+not being applied.<br />Percentage values are set to 100% below <span style="BACKGROUND: yellow">Expected Cost value</span> and 30% above (.30 x 150) 
+<span style="BACKGROUND: yellow">Expected Average value</span> $150 
+(zero).<b><br /></b></i><img src="../ImagesExt/image58_1.jpg" alt="" /><br /><b>3) Dynamic 
+Expected Cost</b><br />This is used when you want to allow for variability in the 
+fee entry by the carrier. When checked on, you enter in the % Below value (100% 
+to equal zero) and % Above value ranges. Expected cost remains blank. <b>For 
+example</b>: Let’s say you configured fuel to use <i>Dynamic Expected Cost</i>. 
+If your settings were 100% below value and 10% high value and the actual fuel 
+cost for a given load was $225.00. This configuration will allow for $0 on the 
+below value and will allow up to $247.50 on the high value. </p>
+<p class="MsoNormal"><img src="../ImagesExt/image58_2.jpg" alt="" /></p><span id="related-topics"></span></body></html>

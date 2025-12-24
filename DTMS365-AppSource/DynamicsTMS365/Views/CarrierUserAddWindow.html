@@ -1,0 +1,144 @@
+﻿<div id="wndAddCarrierUser">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div style="padding: 0px 10px 10px 10px;">
+
+            <div style="float: left;">
+
+                <!--User Email-->
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtCarUserEmail" maxlength="100" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--First/Last/Friendly Names-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">First Name<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCarFirstName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Last Name<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCarLastName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Friendly Name</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCarFriendlyName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--Work Phone-->
+                <div id="divWorkPhone" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Work Phone</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCarWorkPhone" maxlength="20" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Work Phone Ext</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtCarWorkPhoneExt" maxlength="20" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Carrier<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="ddlCarriers" style="width: 200px;" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="padding-bottom: 10px; padding-top: 10px;">
+                    <div style="margin-left: 5px;">
+                        <input type="checkbox" id="chkCarrierAccounting" ><label class="k-checkbox-label" for="chkCarrierAccounting"><strong>Accounting</strong></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <input id="txtCarIsAdd" type="hidden" />
+
+        </div>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+
+    $(document).ready(function () {
+
+        var kmask = new kendoMasks();
+        kmask.loadDefaultMasks();
+        var phoneMask = kmask.getMask("phone_number");
+
+        $("#txtCarUserEmail").kendoMaskedTextBox();
+        $("#txtCarFirstName").kendoMaskedTextBox();
+        $("#txtCarLastName").kendoMaskedTextBox();
+        $("#txtCarFriendlyName").kendoMaskedTextBox();
+        $("#txtCarWorkPhone").kendoMaskedTextBox({ mask: phoneMask });
+        $("#txtCarWorkPhoneExt").kendoMaskedTextBox();
+
+        //** Initialize the window for "Add New" **
+        //** This way we only have to do special set up in the "Edit" method
+        //reset values
+        $("#txtCarIsAdd").val(1);
+        $("#txtCarUserEmail").data("kendoMaskedTextBox").value("");
+        $("#txtCarFirstName").data("kendoMaskedTextBox").value("");
+        $("#txtCarLastName").data("kendoMaskedTextBox").value("");
+        $("#txtCarFriendlyName").data("kendoMaskedTextBox").value("");
+        $("#txtCarWorkPhone").data("kendoMaskedTextBox").value("");
+        $("#txtCarWorkPhoneExt").data("kendoMaskedTextBox").value("");
+
+        $("#chkCarrierAccounting").prop('checked', false);
+
+    });
+
+</script>

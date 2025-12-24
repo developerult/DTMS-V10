@@ -1,0 +1,21 @@
+﻿body{font-family:"open sans",Helvetica,Arial,sans-serif}#example-container{padding:20px;width:850px}#example-container p{font-size:11pt}#example-container h1{font-size:17pt;}#example-container .bottom-panel{width:830px;margin-top:10px;background:#eee;padding:10px;font-size:11pt}#example-container .bottom-panel .stopList{width:60%;float:right;max-height:125px;overflow-y:scroll;margin-bottom:4px;padding-right:4px;border:1px solid gray;background-color:#fff;min-height:32px}#example-container .bottom-panel .stop-item{background-color:#eee;padding:4px 23px 4px 4px;border:1px solid #ccc;margin:3px -1px 3px 3px;cursor:n-resize;position:relative;font-size:11px;line-height:14px;border-radius:4px}#example-container .bottom-panel ul{margin:0;padding:0}#example-container .bottom-panel ul li{list-style:none}#example-container .bottom-panel ul ul{padding-left:20px}
+
+main .badge {
+  cursor: pointer !important;
+}
+main .badge:hover {
+  background-color: #444 !important;
+}
+main .card .badge,
+main .card .badge:hover {
+  cursor: auto !important;
+  background-color: #ccc !important;
+}
+main .card h5 {
+  color: #009ad9;
+}
+main .badge-primary,
+main .btn-primary {
+  background-color: #005f9e !important;
+}
+.example-box{min-height:195px;}

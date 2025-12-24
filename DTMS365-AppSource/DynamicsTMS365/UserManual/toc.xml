@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toc>
+  <item url="Documents/companymaintenance.htm">
+    <title><![CDATA[Company Maintenance]]></title>
+    <tooltip><![CDATA[Company Maintenance]]></tooltip>
+    <item url="Documents/companywarehouselocationcontacts.htm">
+      <title><![CDATA[Company/Warehouse Location Contacts]]></title>
+      <tooltip><![CDATA[Company/Warehouse Location Contacts]]></tooltip>
+      <item url="Documents/addcompanylocationcontact.htm">
+        <title><![CDATA[Add Company Location Contact]]></title>
+        <tooltip><![CDATA[Add Company Location Contact]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/carrierschedulingconfiguration.htm">
+      <title><![CDATA[Carrier Scheduling Configuration]]></title>
+      <tooltip><![CDATA[Carrier Scheduling Configuration]]></tooltip>
+    </item>
+    <item url="Documents/accessorialoverrides.htm">
+      <title><![CDATA[Accessorial Overrides]]></title>
+      <tooltip><![CDATA[Accessorial Overrides]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/carrier.htm">
+    <title><![CDATA[Carrier]]></title>
+    <tooltip><![CDATA[Carrier]]></tooltip>
+    <item url="Documents/addingacarriertosystem.htm">
+      <title><![CDATA[Adding a Carrier to System]]></title>
+      <tooltip><![CDATA[Adding a Carrier to System]]></tooltip>
+    </item>
+    <item url="Documents/addingcarrierstodifferentlegalentity.htm">
+      <title><![CDATA[Adding Carriers to Different Legal Entity]]></title>
+      <tooltip><![CDATA[Adding Carriers to Different Legal Entity]]></tooltip>
+    </item>
+    <item url="Documents/addingacarriercontact.htm">
+      <title><![CDATA[Adding a Carrier Contact]]></title>
+      <tooltip><![CDATA[Adding a Carrier Contact]]></tooltip>
+    </item>
+    <item url="Documents/addingacarrierportaluser.htm">
+      <title><![CDATA[Adding a Carrier Portal User]]></title>
+      <tooltip><![CDATA[Adding a Carrier Portal User]]></tooltip>
+    </item>
+    <item url="Documents/addingacarrierscheduleruser.htm">
+      <title><![CDATA[Adding a Carrier Scheduler User]]></title>
+      <tooltip><![CDATA[Adding a Carrier Scheduler User]]></tooltip>
+    </item>
+    <item url="Documents/carrierfeeentrysetup.htm">
+      <title><![CDATA[Carrier Fee Entry Setup]]></title>
+      <tooltip><![CDATA[Carrier Fee Entry Setup]]></tooltip>
+    </item>
+    <item url="Documents/feetolerancesetup.htm">
+      <title><![CDATA[Fee Tolerance Set up]]></title>
+      <tooltip><![CDATA[Fee Tolerance Set up]]></tooltip>
+    </item>
+    <item url="Documents/desktopclientsetup.htm">
+      <title><![CDATA[Desktop Client Set Up]]></title>
+      <tooltip><![CDATA[Desktop Client Set Up]]></tooltip>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[API Integration]]></title>
+    <tooltip><![CDATA[API Integration]]></tooltip>
+    <item url="Documents/rateshopping.htm">
+      <title><![CDATA[Rate Shopping]]></title>
+      <tooltip><![CDATA[Rate Shopping]]></tooltip>
+    </item>
+    <item url="Documents/loadboard2.htm">
+      <title><![CDATA[Load Board]]></title>
+      <tooltip><![CDATA[Load Board]]></tooltip>
+    </item>
+    <item url="Documents/nextstoploadposting.htm">
+      <title><![CDATA[NEXTStop Load Posting]]></title>
+      <tooltip><![CDATA[NEXTStop Load Posting]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/howtochangeresetacarrieruserpassword1.htm">
+    <title><![CDATA[How to Change/Reset a Carrier User password]]></title>
+    <tooltip><![CDATA[How to Change/Reset a Carrier User password]]></tooltip>
+  </item>
+  <item url="Documents/resetaforgottencarrieruserpassword1.htm">
+    <title><![CDATA[Reset a forgotten Carrier User password]]></title>
+    <tooltip><![CDATA[Reset a forgotten Carrier User password]]></tooltip>
+  </item>
+  <item url="Documents/changeacarrieruserpassword1.htm">
+    <title><![CDATA[Change a Carrier User password]]></title>
+    <tooltip><![CDATA[Change a Carrier User password]]></tooltip>
+  </item>
+  <item url="Documents/carriersaccessorialmanagement.htm">
+    <title><![CDATA[Carriers Accessorial Management]]></title>
+    <tooltip><![CDATA[Carriers Accessorial Management]]></tooltip>
+    <item url="Documents/addnewfee1.htm">
+      <title><![CDATA[Add New Fee]]></title>
+      <tooltip><![CDATA[Add New Fee]]></tooltip>
+    </item>
+    <item url="Documents/apifeecrossreference1.htm">
+      <title><![CDATA[API Fee Cross Reference]]></title>
+      <tooltip><![CDATA[API Fee Cross Reference]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/legacyaccessorials1.htm">
+    <title><![CDATA[Legacy Accessorials]]></title>
+    <tooltip><![CDATA[Legacy Accessorials]]></tooltip>
+    <item url="Documents/variablecode1.htm">
+      <title><![CDATA[Variable code:]]></title>
+      <tooltip><![CDATA[Variable code:]]></tooltip>
+    </item>
+    <item url="Documents/feeallocationmode1.htm">
+      <title><![CDATA[Fee Allocation Mode]]></title>
+      <tooltip><![CDATA[Fee Allocation Mode]]></tooltip>
+    </item>
+    <item url="Documents/feeallocationformula1.htm">
+      <title><![CDATA[Fee Allocation Formula]]></title>
+      <tooltip><![CDATA[Fee Allocation Formula]]></tooltip>
+    </item>
+    <item url="Documents/feecalculationprecedence1.htm">
+      <title><![CDATA[Fee Calculation Precedence]]></title>
+      <tooltip><![CDATA[Fee Calculation Precedence]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/tariffcarrierspecificfees1.htm">
+    <title><![CDATA[Tariff/Carrier Specific Fees]]></title>
+    <tooltip><![CDATA[Tariff/Carrier Specific Fees]]></tooltip>
+  </item>
+  <item url="Documents/lanefees1.htm">
+    <title><![CDATA[Lane Fees]]></title>
+    <tooltip><![CDATA[Lane Fees]]></tooltip>
+  </item>
+  <item url="Documents/laneprofilespecificfees1.htm">
+    <title><![CDATA[Lane Profile Specific Fees]]></title>
+    <tooltip><![CDATA[Lane Profile Specific Fees]]></tooltip>
+  </item>
+  <item url="Documents/orderspecificfees1.htm">
+    <title><![CDATA[Order Specific Fees]]></title>
+    <tooltip><![CDATA[Order Specific Fees]]></tooltip>
+  </item>
+  <item url="Documents/rules.htm">
+    <title><![CDATA[Rules]]></title>
+    <tooltip><![CDATA[Rules]]></tooltip>
+  </item>
+  <item url="Documents/howtoaddacarriersfuelmatrix.htm">
+    <title><![CDATA[How to Add a Carrier’s Fuel Matrix]]></title>
+    <tooltip><![CDATA[How to Add a Carrier’s Fuel Matrix]]></tooltip>
+  </item>
+  <item url="Documents/loadingafuelmatrix.htm">
+    <title><![CDATA[Loading a Fuel Matrix.]]></title>
+    <tooltip><![CDATA[Loading a Fuel Matrix.]]></tooltip>
+    <item url="Documents/manualentry.htm">
+      <title><![CDATA[Manual Entry]]></title>
+      <tooltip><![CDATA[Manual Entry]]></tooltip>
+    </item>
+    <item url="Documents/desktopimport.htm">
+      <title><![CDATA[Desktop Import]]></title>
+      <tooltip><![CDATA[Desktop Import]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/homepage.htm">
+    <title><![CDATA[Home Page]]></title>
+    <tooltip><![CDATA[Home Page]]></tooltip>
+  </item>
+  <item url="Documents/helppage.htm">
+    <title><![CDATA[Help Page]]></title>
+    <tooltip><![CDATA[Help Page]]></tooltip>
+  </item>
+  <item>
+    <title><![CDATA[Lane]]></title>
+    <tooltip><![CDATA[Lane]]></tooltip>
+    <item url="Documents/lanemaintenance1.htm">
+      <title><![CDATA[Lane Maintenance]]></title>
+      <tooltip><![CDATA[Lane Maintenance]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/freightbillentry.htm">
+    <title><![CDATA[Freight Bill Entry]]></title>
+    <tooltip><![CDATA[Freight Bill Entry]]></tooltip>
+  </item>
+  <item url="Documents/settlementpage2.htm">
+    <title><![CDATA[Settlement Page]]></title>
+    <tooltip><![CDATA[Settlement Page]]></tooltip>
+    <item url="Documents/1quickedit.htm">
+      <title><![CDATA[1) Quick Edit-]]></title>
+      <tooltip><![CDATA[1) Quick Edit-]]></tooltip>
+    </item>
+    <item url="Documents/2detailedfreightbillentry.htm">
+      <title><![CDATA[2) Detailed Freight Bill Entry-]]></title>
+      <tooltip><![CDATA[2) Detailed Freight Bill Entry-]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/feeapprovalpage.htm">
+    <title><![CDATA[Fee Approval Page]]></title>
+    <tooltip><![CDATA[Fee Approval Page]]></tooltip>
+    <item url="Documents/missingfeeapprovalsetup.htm">
+      <title><![CDATA[Missing Fee Approval Set Up]]></title>
+      <tooltip><![CDATA[Missing Fee Approval Set Up]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/freightbillauditing.htm">
+    <title><![CDATA[Freight Bill Auditing]]></title>
+    <tooltip><![CDATA[Freight Bill Auditing]]></tooltip>
+    <item url="Documents/step1gotofeeapprovalpage.htm">
+      <title><![CDATA[Step 1 - Go to Fee Approval Page]]></title>
+      <tooltip><![CDATA[Step 1 - Go to Fee Approval Page]]></tooltip>
+      <item url="Documents/missingfeeapprovalsetup1.htm">
+        <title><![CDATA[Missing Fee Approval Set Up]]></title>
+        <tooltip><![CDATA[Missing Fee Approval Set Up]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/step2gotoapfreightbillauditapprovalpage.htm">
+      <title><![CDATA[Step 2 - Go to AP Freight Bill Audit Approval Page]]></title>
+      <tooltip><![CDATA[Step 2 - Go to AP Freight Bill Audit Approval Page]]></tooltip>
+      <item url="Documents/matchedm.htm">
+        <title><![CDATA[Matched (M)]]></title>
+        <tooltip><![CDATA[Matched (M)]]></tooltip>
+      </item>
+      <item url="Documents/pendingapproval.htm">
+        <title><![CDATA[Pending Approval]]></title>
+        <tooltip><![CDATA[Pending Approval]]></tooltip>
+      </item>
+      <item url="Documents/approvedinvoices.htm">
+        <title><![CDATA[Approved Invoices]]></title>
+        <tooltip><![CDATA[Approved Invoices]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/auditingreport.htm">
+      <title><![CDATA[Auditing Report]]></title>
+      <tooltip><![CDATA[Auditing Report]]></tooltip>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Planning & Execution]]></title>
+    <tooltip><![CDATA[Planning & Execution]]></tooltip>
+    <item url="Documents/rateshop1.htm">
+      <title><![CDATA[Rate Shop]]></title>
+      <tooltip><![CDATA[Rate Shop]]></tooltip>
+      <item url="Documents/currentloads1.htm">
+        <title><![CDATA[Current Loads]]></title>
+        <tooltip><![CDATA[Current Loads]]></tooltip>
+      </item>
+      <item url="Documents/historicalquotes1.htm">
+        <title><![CDATA[Historical Quotes]]></title>
+        <tooltip><![CDATA[Historical Quotes]]></tooltip>
+      </item>
+      <item url="Documents/dispatched1.htm">
+        <title><![CDATA[Dispatched]]></title>
+        <tooltip><![CDATA[Dispatched]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/loadboard.htm">
+      <title><![CDATA[Load Board]]></title>
+      <tooltip><![CDATA[Load Board]]></tooltip>
+      <item url="Documents/actionmenu.htm">
+        <title><![CDATA[Action Menu]]></title>
+        <tooltip><![CDATA[Action Menu]]></tooltip>
+      </item>
+      <item url="Documents/howtodispatchaloadrateit.htm">
+        <title><![CDATA[How to Dispatch a Load - Rate It]]></title>
+        <tooltip><![CDATA[How to Dispatch a Load - Rate It]]></tooltip>
+      </item>
+      <item url="Documents/howtoremoveacarrierfromaload.htm">
+        <title><![CDATA[How to Remove a Carrier from a Load]]></title>
+        <tooltip><![CDATA[How to Remove a Carrier from a Load]]></tooltip>
+      </item>
+      <item url="Documents/orderpreview.htm">
+        <title><![CDATA[Order Preview]]></title>
+        <tooltip><![CDATA[Order Preview]]></tooltip>
+        <item url="Documents/warningmessages.htm">
+          <title><![CDATA[Warning Messages]]></title>
+          <tooltip><![CDATA[Warning Messages]]></tooltip>
+        </item>
+      </item>
+    </item>
+  </item>
+  <item url="Documents/nextstopops.htm">
+    <title><![CDATA[NEXTStop Ops]]></title>
+    <tooltip><![CDATA[NEXTStop Ops]]></tooltip>
+    <item url="Documents/howtopostaloaddesktopclient.htm">
+      <title><![CDATA[How to Post a Load -Desktop Client]]></title>
+      <tooltip><![CDATA[How to Post a Load -Desktop Client]]></tooltip>
+    </item>
+    <item url="Documents/howtopostaloadwebclient.htm">
+      <title><![CDATA[How to Post a Load – Web Client]]></title>
+      <tooltip><![CDATA[How to Post a Load – Web Client]]></tooltip>
+    </item>
+    <item url="Documents/pendingbids.htm">
+      <title><![CDATA[Pending Bids]]></title>
+      <tooltip><![CDATA[Pending Bids]]></tooltip>
+    </item>
+    <item url="Documents/activebids.htm">
+      <title><![CDATA[Active Bids]]></title>
+      <tooltip><![CDATA[Active Bids]]></tooltip>
+    </item>
+    <item url="Documents/finalizedbids.htm">
+      <title><![CDATA[Finalized Bids]]></title>
+      <tooltip><![CDATA[Finalized Bids]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/nextrack.htm">
+    <title><![CDATA[NEXTrack]]></title>
+    <tooltip><![CDATA[NEXTrack]]></tooltip>
+    <item url="Documents/allpage.htm">
+      <title><![CDATA[All Page]]></title>
+      <tooltip><![CDATA[All Page]]></tooltip>
+      <item url="Documents/editdataentry.htm">
+        <title><![CDATA[EDIT – Data Entry]]></title>
+        <tooltip><![CDATA[EDIT – Data Entry]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/tenderedpage.htm">
+      <title><![CDATA[Tendered Page]]></title>
+      <tooltip><![CDATA[Tendered Page]]></tooltip>
+    </item>
+    <item url="Documents/settlementpage.htm">
+      <title><![CDATA[Settlement Page]]></title>
+      <tooltip><![CDATA[Settlement Page]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/nextstopcarrier.htm">
+    <title><![CDATA[NEXTStop Carrier]]></title>
+    <tooltip><![CDATA[NEXTStop Carrier]]></tooltip>
+  </item>
+  <item url="Documents/appointmentschedulingcarrierautomation.htm">
+    <title><![CDATA[Appointment Scheduling- Carrier Automation]]></title>
+    <tooltip><![CDATA[Appointment Scheduling- Carrier Automation]]></tooltip>
+  </item>
+  <item url="Documents/nextrackhome.htm">
+    <title><![CDATA[NEXTrack HOME]]></title>
+    <tooltip><![CDATA[NEXTrack HOME]]></tooltip>
+  </item>
+  <item url="Documents/nextrack1.htm">
+    <title><![CDATA[NEXTrack]]></title>
+    <tooltip><![CDATA[NEXTrack]]></tooltip>
+    <item url="Documents/allpage1.htm">
+      <title><![CDATA[All Page]]></title>
+      <tooltip><![CDATA[All Page]]></tooltip>
+      <item url="Documents/editdataentry1.htm">
+        <title><![CDATA[Edit-Data Entry]]></title>
+        <tooltip><![CDATA[Edit-Data Entry]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/settlementpage1.htm">
+      <title><![CDATA[Settlement Page]]></title>
+      <tooltip><![CDATA[Settlement Page]]></tooltip>
+    </item>
+    <item url="Documents/settledpage.htm">
+      <title><![CDATA[Settled Page]]></title>
+      <tooltip><![CDATA[Settled Page]]></tooltip>
+    </item>
+    <item url="Documents/tenderedpage1.htm">
+      <title><![CDATA[Tendered Page]]></title>
+      <tooltip><![CDATA[Tendered Page]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/rateshop.htm">
+    <title><![CDATA[Rate Shop]]></title>
+    <tooltip><![CDATA[Rate Shop]]></tooltip>
+    <item url="Documents/currentloads.htm">
+      <title><![CDATA[Current Loads]]></title>
+      <tooltip><![CDATA[Current Loads]]></tooltip>
+    </item>
+    <item url="Documents/historicalquotes.htm">
+      <title><![CDATA[Historical Quotes]]></title>
+      <tooltip><![CDATA[Historical Quotes]]></tooltip>
+    </item>
+    <item url="Documents/dispatched.htm">
+      <title><![CDATA[Dispatched]]></title>
+      <tooltip><![CDATA[Dispatched]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/warehousescheduler1.htm">
+    <title><![CDATA[Warehouse Scheduler]]></title>
+    <tooltip><![CDATA[Warehouse Scheduler]]></tooltip>
+    <item url="Documents/selectwarehouse.htm">
+      <title><![CDATA[Select Warehouse]]></title>
+      <tooltip><![CDATA[Select Warehouse]]></tooltip>
+    </item>
+    <item url="Documents/findmyappointment.htm">
+      <title><![CDATA[Find My Appointment]]></title>
+      <tooltip><![CDATA[Find My Appointment]]></tooltip>
+    </item>
+    <item url="Documents/displaydocks.htm">
+      <title><![CDATA[Display Docks]]></title>
+      <tooltip><![CDATA[Display Docks]]></tooltip>
+    </item>
+    <item url="Documents/searchorders.htm">
+      <title><![CDATA[Search Orders]]></title>
+      <tooltip><![CDATA[Search Orders]]></tooltip>
+    </item>
+    <item url="Documents/schedulingcalendar.htm">
+      <title><![CDATA[Scheduling Calendar]]></title>
+      <tooltip><![CDATA[Scheduling Calendar]]></tooltip>
+    </item>
+    <item url="Documents/addeditappointment.htm">
+      <title><![CDATA[Add / Edit Appointment]]></title>
+      <tooltip><![CDATA[Add / Edit Appointment]]></tooltip>
+    </item>
+    <item url="Documents/addappointmenttoanorder.htm">
+      <title><![CDATA[Add Appointment to an Order]]></title>
+      <tooltip><![CDATA[Add Appointment to an Order]]></tooltip>
+    </item>
+    <item url="Documents/editappointment.htm">
+      <title><![CDATA[Edit Appointment]]></title>
+      <tooltip><![CDATA[Edit Appointment]]></tooltip>
+    </item>
+    <item url="Documents/appointmentinformationtab.htm">
+      <title><![CDATA[Appointment Information Tab]]></title>
+      <tooltip><![CDATA[Appointment Information Tab]]></tooltip>
+    </item>
+    <item url="Documents/orderdetails.htm">
+      <title><![CDATA[Order Details]]></title>
+      <tooltip><![CDATA[Order Details]]></tooltip>
+    </item>
+    <item url="Documents/carrierdatatab.htm">
+      <title><![CDATA[Carrier Data Tab]]></title>
+      <tooltip><![CDATA[Carrier Data Tab]]></tooltip>
+    </item>
+    <item url="Documents/overrideappointments.htm">
+      <title><![CDATA[Override Appointments]]></title>
+      <tooltip><![CDATA[Override Appointments]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/administrationmanageschedule1.htm">
+    <title><![CDATA[Administration-Manage Schedule]]></title>
+    <tooltip><![CDATA[Administration-Manage Schedule]]></tooltip>
+    <item url="Documents/resourcedockdoorconfiguration.htm">
+      <title><![CDATA[Resource (Dock Door) Configuration]]></title>
+      <tooltip><![CDATA[Resource (Dock Door) Configuration]]></tooltip>
+    </item>
+    <item url="Documents/deleteresource.htm">
+      <title><![CDATA[Delete Resource]]></title>
+      <tooltip><![CDATA[Delete Resource]]></tooltip>
+    </item>
+    <item url="Documents/copyresourcesettings.htm">
+      <title><![CDATA[Copy Resource Settings]]></title>
+      <tooltip><![CDATA[Copy Resource Settings]]></tooltip>
+    </item>
+    <item url="Documents/newresource.htm">
+      <title><![CDATA[New Resource]]></title>
+      <tooltip><![CDATA[New Resource]]></tooltip>
+    </item>
+    <item url="Documents/editresourcedetailsandsettings.htm">
+      <title><![CDATA[Edit Resource Details and Settings]]></title>
+      <tooltip><![CDATA[Edit Resource Details and Settings]]></tooltip>
+    </item>
+    <item url="Documents/packagetypes.htm">
+      <title><![CDATA[Package types]]></title>
+      <tooltip><![CDATA[Package types]]></tooltip>
+    </item>
+    <item url="Documents/temperaturetypes.htm">
+      <title><![CDATA[Temperature Types]]></title>
+      <tooltip><![CDATA[Temperature Types]]></tooltip>
+    </item>
+    <item url="Documents/appointmentcalculationtimefactor.htm">
+      <title><![CDATA[Appointment Calculation Time Factor]]></title>
+      <tooltip><![CDATA[Appointment Calculation Time Factor]]></tooltip>
+    </item>
+    <item url="Documents/editappointmentcalculationtimefactor.htm">
+      <title><![CDATA[Edit Appointment Calculation Time Factor]]></title>
+      <tooltip><![CDATA[Edit Appointment Calculation Time Factor]]></tooltip>
+    </item>
+    <item url="Documents/deleteappointmentcalculationtimefactor.htm">
+      <title><![CDATA[Delete Appointment Calculation Time Factor]]></title>
+      <tooltip><![CDATA[Delete Appointment Calculation Time Factor]]></tooltip>
+    </item>
+    <item url="Documents/overrides.htm">
+      <title><![CDATA[Overrides]]></title>
+      <tooltip><![CDATA[Overrides]]></tooltip>
+    </item>
+    <item url="Documents/userfields.htm">
+      <title><![CDATA[User Fields]]></title>
+      <tooltip><![CDATA[User Fields]]></tooltip>
+    </item>
+    <item url="Documents/appointmentstatuscolor.htm">
+      <title><![CDATA[Appointment Status Color]]></title>
+      <tooltip><![CDATA[Appointment Status Color]]></tooltip>
+    </item>
+    <item url="Documents/appointmentdetailsfields.htm">
+      <title><![CDATA[Appointment Details Fields]]></title>
+      <tooltip><![CDATA[Appointment Details Fields]]></tooltip>
+    </item>
+    <item url="Documents/trackingfields.htm">
+      <title><![CDATA[Tracking Fields]]></title>
+      <tooltip><![CDATA[Tracking Fields]]></tooltip>
+    </item>
+    <item url="Documents/miscellaneous.htm">
+      <title><![CDATA[Miscellaneous]]></title>
+      <tooltip><![CDATA[Miscellaneous]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/carrierscheduler1.htm">
+    <title><![CDATA[Carrier Scheduler]]></title>
+    <tooltip><![CDATA[Carrier Scheduler]]></tooltip>
+    <item url="Documents/pendingorderssummary.htm">
+      <title><![CDATA[Pending Orders Summary]]></title>
+      <tooltip><![CDATA[Pending Orders Summary]]></tooltip>
+    </item>
+    <item url="Documents/bookappointment.htm">
+      <title><![CDATA[Book Appointment]]></title>
+      <tooltip><![CDATA[Book Appointment]]></tooltip>
+    </item>
+    <item url="Documents/requestforbookappointment.htm">
+      <title><![CDATA[Request for Book Appointment]]></title>
+      <tooltip><![CDATA[Request for Book Appointment]]></tooltip>
+    </item>
+    <item url="Documents/bookedappointments.htm">
+      <title><![CDATA[Booked Appointments]]></title>
+      <tooltip><![CDATA[Booked Appointments]]></tooltip>
+    </item>
+    <item url="Documents/editupdateappointmentfororders.htm">
+      <title><![CDATA[Edit/Update Appointment for Orders]]></title>
+      <tooltip><![CDATA[Edit/Update Appointment for Orders]]></tooltip>
+    </item>
+    <item url="Documents/requestforbookappointment1.htm">
+      <title><![CDATA[Request for Book Appointment]]></title>
+      <tooltip><![CDATA[Request for Book Appointment]]></tooltip>
+    </item>
+    <item url="Documents/filterorderslist.htm">
+      <title><![CDATA[Filter Orders list]]></title>
+      <tooltip><![CDATA[Filter Orders list]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/configurationparameters.htm">
+    <title><![CDATA[Configuration Parameters]]></title>
+    <tooltip><![CDATA[Configuration Parameters]]></tooltip>
+    <item url="Documents/subscriptionalertsdtmsuserprofile.htm">
+      <title><![CDATA[Subscription Alerts-DTMS User Profile]]></title>
+      <tooltip><![CDATA[Subscription Alerts-DTMS User Profile]]></tooltip>
+    </item>
+    <item url="Documents/resourcenotifications.htm">
+      <title><![CDATA[Resource Notifications]]></title>
+      <tooltip><![CDATA[Resource Notifications]]></tooltip>
+    </item>
+    <item url="Documents/carrierconfirmationnotification.htm">
+      <title><![CDATA[Carrier Confirmation/Notification]]></title>
+      <tooltip><![CDATA[Carrier Confirmation/Notification]]></tooltip>
+    </item>
+    <item url="Documents/legalentitymaintenancepage.htm">
+      <title><![CDATA[Legal Entity Maintenance Page]]></title>
+      <tooltip><![CDATA[Legal Entity Maintenance Page]]></tooltip>
+      <item url="Documents/turncarrierautomationselfserviceportalonoff.htm">
+        <title><![CDATA[Turn Carrier Automation (Self Service Portal) On/Off]]></title>
+        <tooltip><![CDATA[Turn Carrier Automation (Self Service Portal) On/Off]]></tooltip>
+      </item>
+      <item url="Documents/carrierautomationconfigurationfields.htm">
+        <title><![CDATA[Carrier Automation Configuration Fields]]></title>
+        <tooltip><![CDATA[Carrier Automation Configuration Fields]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/legalentitycarrierpage.htm">
+      <title><![CDATA[Legal Entity Carrier Page]]></title>
+      <tooltip><![CDATA[Legal Entity Carrier Page]]></tooltip>
+    </item>
+    <item url="Documents/manageschedulepage.htm">
+      <title><![CDATA[Manage Schedule Page]]></title>
+      <tooltip><![CDATA[Manage Schedule Page]]></tooltip>
+      <item url="Documents/temperatureandpackagetypegrids.htm">
+        <title><![CDATA[Temperature and Package Type Grids]]></title>
+        <tooltip><![CDATA[Temperature and Package Type Grids]]></tooltip>
+      </item>
+      <item url="Documents/calculationtimefactors.htm">
+        <title><![CDATA[Calculation Time Factors]]></title>
+        <tooltip><![CDATA[Calculation Time Factors]]></tooltip>
+        <item url="Documents/calculatingappointmenttimeusingcalculationtimefactorrules.htm">
+          <title><![CDATA[Calculating Appointment Time Using Calculation Time Factor Rules]]></title>
+          <tooltip><![CDATA[Calculating Appointment Time Using Calculation Time Factor Rules]]></tooltip>
+        </item>
+      </item>
+      <item url="Documents/appointmenttimesettings.htm">
+        <title><![CDATA[Appointment Time Settings]]></title>
+        <tooltip><![CDATA[Appointment Time Settings]]></tooltip>
+      </item>
+      <item url="Documents/validation.htm">
+        <title><![CDATA[Validation]]></title>
+        <tooltip><![CDATA[Validation]]></tooltip>
+      </item>
+    </item>
+  </item>
+  <item url="Documents/howtoturnonschedulingautomation.htm">
+    <title><![CDATA[How to Turn On Scheduling Automation]]></title>
+    <tooltip><![CDATA[How to Turn On Scheduling Automation]]></tooltip>
+  </item>
+  <item url="Documents/howtoturnoffschedulingautomationbywarehouse.htm">
+    <title><![CDATA[How to Turn Off Scheduling Automation by Warehouse]]></title>
+    <tooltip><![CDATA[How to Turn Off Scheduling Automation by Warehouse]]></tooltip>
+  </item>
+  <item url="Documents/dynamicstmssecurityandusermaintenance.htm">
+    <title><![CDATA[DYNAMICS TMS Security and User Maintenance]]></title>
+    <tooltip><![CDATA[DYNAMICS TMS Security and User Maintenance]]></tooltip>
+  </item>
+  <item url="Documents/overview1.htm">
+    <title><![CDATA[Overview]]></title>
+    <tooltip><![CDATA[Overview]]></tooltip>
+  </item>
+  <item url="Documents/definitionsanddescriptions.htm">
+    <title><![CDATA[Definitions and Descriptions]]></title>
+    <tooltip><![CDATA[Definitions and Descriptions]]></tooltip>
+  </item>
+  <item>
+    <title><![CDATA[What’s New]]></title>
+    <tooltip><![CDATA[What’s New]]></tooltip>
+    <item url="Documents/nextrackportal.htm">
+      <title><![CDATA[NEXTrack Portal]]></title>
+      <tooltip><![CDATA[NEXTrack Portal]]></tooltip>
+    </item>
+    <item url="Documents/singlesignon.htm">
+      <title><![CDATA[Single Sign On]]></title>
+      <tooltip><![CDATA[Single Sign On]]></tooltip>
+    </item>
+    <item url="Documents/newuserroles.htm">
+      <title><![CDATA[New User Roles]]></title>
+      <tooltip><![CDATA[New User Roles]]></tooltip>
+    </item>
+    <item url="Documents/carrierproxy.htm">
+      <title><![CDATA[Carrier Proxy]]></title>
+      <tooltip><![CDATA[Carrier Proxy]]></tooltip>
+    </item>
+    <item url="Documents/procedurelevelsecurityandactionmenus.htm">
+      <title><![CDATA[Procedure Level Security and Action Menus]]></title>
+      <tooltip><![CDATA[Procedure Level Security and Action Menus]]></tooltip>
+    </item>
+    <item url="Documents/carriermaintenance.htm">
+      <title><![CDATA[Carrier Maintenance]]></title>
+      <tooltip><![CDATA[Carrier Maintenance]]></tooltip>
+    </item>
+    <item url="Documents/nextrackonlyaccounts.htm">
+      <title><![CDATA[NEXTrack Only Accounts]]></title>
+      <tooltip><![CDATA[NEXTrack Only Accounts]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/systemadministration.htm">
+    <title><![CDATA[System Administration]]></title>
+    <tooltip><![CDATA[System Administration]]></tooltip>
+    <item url="Documents/legalentitymaintenance2.htm">
+      <title><![CDATA[Legal Entity Maintenance]]></title>
+      <tooltip><![CDATA[Legal Entity Maintenance]]></tooltip>
+    </item>
+    <item url="Documents/usermaintenance2.htm">
+      <title><![CDATA[User Maintenance]]></title>
+      <tooltip><![CDATA[User Maintenance]]></tooltip>
+    </item>
+    <item url="Documents/systemparameters.htm">
+      <title><![CDATA[System Parameters]]></title>
+      <tooltip><![CDATA[System Parameters]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/system.htm">
+    <title><![CDATA[System]]></title>
+    <tooltip><![CDATA[System]]></tooltip>
+    <item url="Documents/legalentitymaintenance.htm">
+      <title><![CDATA[Legal Entity Maintenance]]></title>
+      <tooltip><![CDATA[Legal Entity Maintenance]]></tooltip>
+    </item>
+    <item url="Documents/usermaintenance.htm">
+      <title><![CDATA[User Maintenance]]></title>
+      <tooltip><![CDATA[User Maintenance]]></tooltip>
+      <item url="Documents/addingatmsuser.htm">
+        <title><![CDATA[Adding a TMS User]]></title>
+        <tooltip><![CDATA[Adding a TMS User]]></tooltip>
+      </item>
+      <item url="Documents/visiblecompanies.htm">
+        <title><![CDATA[Visible Companies]]></title>
+        <tooltip><![CDATA[Visible Companies]]></tooltip>
+      </item>
+      <item url="Documents/singlesignonaccounts.htm">
+        <title><![CDATA[Single Sign On Accounts]]></title>
+        <tooltip><![CDATA[Single Sign On Accounts]]></tooltip>
+      </item>
+      <item url="Documents/massupdateuserssoassinglesignons.htm">
+        <title><![CDATA[Mass Update User SSOA’s (Single Sign On’s)]]></title>
+        <tooltip><![CDATA[Mass Update User SSOA’s (Single Sign On’s)]]></tooltip>
+      </item>
+      <item url="Documents/associatedcarriers.htm">
+        <title><![CDATA[Associated Carriers]]></title>
+        <tooltip><![CDATA[Associated Carriers]]></tooltip>
+      </item>
+      <item url="Documents/editdeleteauser.htm">
+        <title><![CDATA[Edit/Delete a User]]></title>
+        <tooltip><![CDATA[Edit/Delete a User]]></tooltip>
+      </item>
+      <item url="Documents/addingacarrieruser.htm">
+        <title><![CDATA[Adding a Carrier User]]></title>
+        <tooltip><![CDATA[Adding a Carrier User]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/managerequestna.htm">
+      <title><![CDATA[Manage Request – N/A]]></title>
+      <tooltip><![CDATA[Manage Request – N/A]]></tooltip>
+    </item>
+    <item url="Documents/pagemaintenancena.htm">
+      <title><![CDATA[Page Maintenance – N/A]]></title>
+      <tooltip><![CDATA[Page Maintenance – N/A]]></tooltip>
+    </item>
+    <item url="Documents/parametersna.htm">
+      <title><![CDATA[Parameters – N/A]]></title>
+      <tooltip><![CDATA[Parameters – N/A]]></tooltip>
+    </item>
+    <item url="Documents/systeminfo.htm">
+      <title><![CDATA[System Info]]></title>
+      <tooltip><![CDATA[System Info]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/tariffmanagement.htm">
+    <title><![CDATA[Tariff Management]]></title>
+    <tooltip><![CDATA[Tariff Management]]></tooltip>
+    <item url="Documents/contract.htm">
+      <title><![CDATA[Contract]]></title>
+      <tooltip><![CDATA[Contract]]></tooltip>
+      <item url="Documents/addnewcontract.htm">
+        <title><![CDATA[Add New Contract]]></title>
+        <tooltip><![CDATA[Add New Contract]]></tooltip>
+      </item>
+      <item url="Documents/editacontract.htm">
+        <title><![CDATA[Edit a Contract]]></title>
+        <tooltip><![CDATA[Edit a Contract]]></tooltip>
+      </item>
+      <item url="Documents/deleteacontract.htm">
+        <title><![CDATA[Delete a Contract]]></title>
+        <tooltip><![CDATA[Delete a Contract]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/servicesakaequipment.htm">
+      <title><![CDATA[Services (aka equipment)]]></title>
+      <tooltip><![CDATA[Services (aka equipment)]]></tooltip>
+    </item>
+    <item url="Documents/rates.htm">
+      <title><![CDATA[Rates]]></title>
+      <tooltip><![CDATA[Rates]]></tooltip>
+      <item url="Documents/permileorflatrates.htm">
+        <title><![CDATA[Per Mile or Flat Rates]]></title>
+        <tooltip><![CDATA[Per Mile or Flat Rates]]></tooltip>
+      </item>
+      <item url="Documents/weightbasedrates.htm">
+        <title><![CDATA[Weight Based Rates]]></title>
+        <tooltip><![CDATA[Weight Based Rates]]></tooltip>
+      </item>
+      <item url="Documents/unitofmeasurerate.htm">
+        <title><![CDATA[Unit of Measure Rate]]></title>
+        <tooltip><![CDATA[Unit of Measure Rate]]></tooltip>
+      </item>
+      <item url="Documents/importingtariffrates.htm">
+        <title><![CDATA[Importing Tariff Rates]]></title>
+        <tooltip><![CDATA[Importing Tariff Rates]]></tooltip>
+        <item url="Documents/tariffexamples.htm">
+          <title><![CDATA[Tariff Examples:]]></title>
+          <tooltip><![CDATA[Tariff Examples:]]></tooltip>
+        </item>
+      </item>
+      <item url="Documents/exportingtariffrates.htm">
+        <title><![CDATA[Exporting Tariff Rates]]></title>
+        <tooltip><![CDATA[Exporting Tariff Rates]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/tariffexceptions.htm">
+      <title><![CDATA[Tariff Exceptions]]></title>
+      <tooltip><![CDATA[Tariff Exceptions]]></tooltip>
+      <item url="Documents/classexceptions.htm">
+        <title><![CDATA[Class Exceptions]]></title>
+        <tooltip><![CDATA[Class Exceptions]]></tooltip>
+      </item>
+      <item url="Documents/discounts.htm">
+        <title><![CDATA[Discounts]]></title>
+        <tooltip><![CDATA[Discounts]]></tooltip>
+      </item>
+      <item url="Documents/interlinepoints.htm">
+        <title><![CDATA[Interline Points]]></title>
+        <tooltip><![CDATA[Interline Points]]></tooltip>
+      </item>
+      <item url="Documents/minimumcharge.htm">
+        <title><![CDATA[Minimum Charge]]></title>
+        <tooltip><![CDATA[Minimum Charge]]></tooltip>
+      </item>
+      <item url="Documents/minimumweight.htm">
+        <title><![CDATA[Minimum Weight]]></title>
+        <tooltip><![CDATA[Minimum Weight]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/fuel.htm">
+      <title><![CDATA[Fuel]]></title>
+      <tooltip><![CDATA[Fuel]]></tooltip>
+    </item>
+    <item url="Documents/accessorialfees.htm">
+      <title><![CDATA[Accessorial Fees]]></title>
+      <tooltip><![CDATA[Accessorial Fees]]></tooltip>
+    </item>
+    <item url="Documents/packagedescriptions.htm">
+      <title><![CDATA[Package Descriptions]]></title>
+      <tooltip><![CDATA[Package Descriptions]]></tooltip>
+    </item>
+    <item url="Documents/hdmshighdensitymetro.htm">
+      <title><![CDATA[HDM’s (High Density Metro)]]></title>
+      <tooltip><![CDATA[HDM’s (High Density Metro)]]></tooltip>
+    </item>
+    <item url="Documents/nondrivedays.htm">
+      <title><![CDATA[Non-Drive Days]]></title>
+      <tooltip><![CDATA[Non-Drive Days]]></tooltip>
+    </item>
+  </item>
+  <item url="Documents/dynamicstmstrainingtariff.htm">
+    <title><![CDATA[DYNAMICS TMS Training – Tariff]]></title>
+    <tooltip><![CDATA[DYNAMICS TMS Training – Tariff]]></tooltip>
+  </item>
+  <item url="Documents/overview2.htm">
+    <title><![CDATA[Overview]]></title>
+    <tooltip><![CDATA[Overview]]></tooltip>
+  </item>
+  <item url="Documents/definitionsanddescriptions1.htm">
+    <title><![CDATA[Definitions and Descriptions]]></title>
+    <tooltip><![CDATA[Definitions and Descriptions]]></tooltip>
+  </item>
+  <item>
+    <title><![CDATA[TMS Tariff Maintenance]]></title>
+    <tooltip><![CDATA[TMS Tariff Maintenance]]></tooltip>
+    <item url="Documents/contract1.htm">
+      <title><![CDATA[Contract]]></title>
+      <tooltip><![CDATA[Contract]]></tooltip>
+      <item url="Documents/addnewcontract1.htm">
+        <title><![CDATA[Add New Contract]]></title>
+        <tooltip><![CDATA[Add New Contract]]></tooltip>
+      </item>
+      <item url="Documents/editacontract1.htm">
+        <title><![CDATA[Edit a Contract]]></title>
+        <tooltip><![CDATA[Edit a Contract]]></tooltip>
+      </item>
+      <item url="Documents/deleteacontract1.htm">
+        <title><![CDATA[Delete a Contract]]></title>
+        <tooltip><![CDATA[Delete a Contract]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/servicesakaequipment1.htm">
+      <title><![CDATA[Services (aka equipment)]]></title>
+      <tooltip><![CDATA[Services (aka equipment)]]></tooltip>
+    </item>
+    <item url="Documents/rates1.htm">
+      <title><![CDATA[Rates]]></title>
+      <tooltip><![CDATA[Rates]]></tooltip>
+      <item url="Documents/permileorflatrates1.htm">
+        <title><![CDATA[Per Mile or Flat Rates]]></title>
+        <tooltip><![CDATA[Per Mile or Flat Rates]]></tooltip>
+      </item>
+      <item url="Documents/weightbasedrates1.htm">
+        <title><![CDATA[Weight Based Rates]]></title>
+        <tooltip><![CDATA[Weight Based Rates]]></tooltip>
+      </item>
+      <item url="Documents/unitofmeasurerate1.htm">
+        <title><![CDATA[Unit of Measure Rate]]></title>
+        <tooltip><![CDATA[Unit of Measure Rate]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/importingatariffrates.htm">
+      <title><![CDATA[Importing a Tariff Rates]]></title>
+      <tooltip><![CDATA[Importing a Tariff Rates]]></tooltip>
+      <item url="Documents/summary.htm">
+        <title><![CDATA[Summary]]></title>
+        <tooltip><![CDATA[Summary]]></tooltip>
+      </item>
+      <item url="Documents/details.htm">
+        <title><![CDATA[Details]]></title>
+        <tooltip><![CDATA[Details]]></tooltip>
+        <item url="Documents/tariffexamples1.htm">
+          <title><![CDATA[Tariff Examples:]]></title>
+          <tooltip><![CDATA[Tariff Examples:]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="Documents/exportingatariffrates.htm">
+      <title><![CDATA[Exporting a Tariff Rates]]></title>
+      <tooltip><![CDATA[Exporting a Tariff Rates]]></tooltip>
+    </item>
+    <item url="Documents/tariffexceptions1.htm">
+      <title><![CDATA[Tariff Exceptions]]></title>
+      <tooltip><![CDATA[Tariff Exceptions]]></tooltip>
+      <item url="Documents/classexceptions1.htm">
+        <title><![CDATA[Class Exceptions]]></title>
+        <tooltip><![CDATA[Class Exceptions]]></tooltip>
+      </item>
+      <item url="Documents/discounts1.htm">
+        <title><![CDATA[Discounts]]></title>
+        <tooltip><![CDATA[Discounts]]></tooltip>
+      </item>
+      <item url="Documents/interlinepoints1.htm">
+        <title><![CDATA[Interline Points]]></title>
+        <tooltip><![CDATA[Interline Points]]></tooltip>
+      </item>
+      <item url="Documents/minimumcharge1.htm">
+        <title><![CDATA[Minimum Charge]]></title>
+        <tooltip><![CDATA[Minimum Charge]]></tooltip>
+      </item>
+      <item url="Documents/minimumweight1.htm">
+        <title><![CDATA[Minimum Weight]]></title>
+        <tooltip><![CDATA[Minimum Weight]]></tooltip>
+      </item>
+    </item>
+    <item url="Documents/fuel1.htm">
+      <title><![CDATA[Fuel]]></title>
+      <tooltip><![CDATA[Fuel]]></tooltip>
+    </item>
+    <item url="Documents/fees.htm">
+      <title><![CDATA[Fees]]></title>
+      <tooltip><![CDATA[Fees]]></tooltip>
+    </item>
+  </item>
+</toc>

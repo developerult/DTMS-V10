@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/SSOA.js"></script>
+
+    <div id="example" style="height: 99%; width: 99%;  margin-top: 2px;">
+
+        <script>
+            var ctrlSubTypes = new GroupSubTypes();
+            var sTypes = ctrlSubTypes.loadDefaults();
+            //debugger;
+            var stypename = ctrlSubTypes.getSupTypeName(12);
+            alert(stypename)
+        </script>
+
+    </div>
+
+</body>
+</html>

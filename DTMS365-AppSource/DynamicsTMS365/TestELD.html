@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DTMS Test ELD</title>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="Scripts/NGL/v-8.5.4.004/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/SSOA.js"></script>
+    <div id="container">
+        <!--<input id="Button1" type="button" value="button" onclick="btnClick()" />-->
+        <div id="eldResults"></div>
+        <script>
+            function btnClick(e) {
+
+                //var xhr = new XMLHttpRequest();
+                //xhr.withCredentials = true;
+
+                //xhr.addEventListener("readystatechange", function () {
+                //    if (this.readyState === 4) {
+                //        console.log(this.responseText);
+                //    }
+                //});
+                //xhr.addEventListener("onload", function () {
+                //    alert("success!")
+                //});
+                //xhr.onerror = function () {
+                //    alert("error")
+                //    //let xText = this.statusText
+                //    //let xError = this.status;
+                //    //let serror = xhr.error;
+                //    //var sMsg = formatAjaxJSONResponsMsgs(xhr, xText, error, "Get ELD Drivers Failed");
+                //    //ngl.showErrMsg("Get ELD Drivers Failed", sMsg, null);
+                //}
+
+                //xhr.addEventListener("onerror", function () {
+                //    alert("Error!")
+                //});
+
+                //xhr.open("GET", "https://api.samsara.com/me");
+                //xhr.setRequestHeader("Authorization", "Bearer 203GgwnP8QoIHoANowwWT448Y08jcW");
+
+                //xhr.send();
+
+                //let request = new XMLHttpRequest();
+                //request.open('GET', 'https://api.samsara.com/me')
+                //request.setRequestHeader("Authorization", "Basic 203GgwnP8QoIHoANowwWT448Y08jcW");
+                //request.setRequestHeader(" contentType", "application/json");
+                //request.responseType = 'json';
+                //request.onload = function () {
+                //    var data = JSON.parse(this.response)
+                //    if (request.status >= 200 && request.status < 400) {
+                //        alert("success!")
+                //        //data.forEach((movie) => {
+                //        //    console.log(movie.title)
+                //        //})
+                //    } else {
+                //       alert('error')
+                //    }
+
+
+                //}
+                //request.onerror = function (xhr) {
+                //    let xText = this.statusText
+                //    let xError = this.status;
+                //    let serror = xhr.error;
+                //    var sMsg = formatAjaxJSONResponsMsgs(xhr, xText, error, "Get ELD Drivers Failed");
+                //    ngl.showErrMsg("Get ELD Drivers Failed", sMsg, null);
+                //}
+
+
+                //request.send()
+                //$.ajax({
+                //    async: false,
+                //    url: 'https://api.samsara.com/me',
+                //    method: 'GET',
+                //    timeout: 0,
+                //    headers: { "Authorization": "Bearer 203GgwnP8QoIHoANowwWT448Y08jcW" },
+                //    success: function (data) {
+                //        alert("success");
+                //    },
+                //    error: function (xhr, textStatus, error) {
+                //        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Get ELD Drivers Failed");
+                //        ngl.showErrMsg("Get ELD Drivers Failed", sMsg, null);
+                //    },
+                //});
+
+
+                //var settings = {
+                //    "url": "https://api.samsara.com/me",
+                //    "method": "GET",
+                //    "timeout": 0,
+                //    "headers": {
+                //        "Authorization": "Bearer 203GgwnP8QoIHoANowwWT448Y08jcW"
+                //    },
+                //    "async": false,
+                //};
+
+                //$.ajax(settings).done(function (response) {
+                //    alert("Success")
+                //    console.log(response);
+                //});
+
+                //$.ajax({
+                //    async: false,
+                //    url: 'https://api.samsara.com/me',
+                //    type: 'GET',
+                //    beforeSend: function (xhr) {
+                //        xhr.setRequestHeader('Authorization', 'Bearer 203GgwnP8QoIHoANowwWT448Y08jcW');
+                //    },
+                //    data: {},
+                //    success: function (data) {
+                //        alert("success");
+                //    },
+                //    error: function (xhr, textStatus, error) {
+                //        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Get ELD Drivers Failed");
+                //        ngl.showErrMsg("Get ELD Drivers Failed", sMsg, null);
+                //    },
+                //});
+                $.ajax({
+                    async: false,
+                    type: "GET",
+                    url: "https://api.samsara.com/me",
+                    //url: "https://api.samsara.com/fleet/vehicles",
+                    //url: "https://api.samsara.com/fleet/vehicles/stats?types=faultCodes",
+                    contentType: "application/json",
+                    dataType: 'json',
+                    headers: { "Authorization": "Bearer 203GgwnP8QoIHoANowwWT448Y08jcW" },
+                    success: function (data) {
+                        alert("success");
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Get ELD Drivers Failed");
+                        ngl.showErrMsg("Get ELD Drivers Failed", sMsg, null);
+                    }
+                });
+                //alert("click");
+            }
+
+            $(document).ready(function () {
+
+            });
+        </script>
+
+    </div>
+
+</body>
+</html>

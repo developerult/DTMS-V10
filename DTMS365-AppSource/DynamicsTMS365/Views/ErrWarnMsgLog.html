@@ -1,0 +1,238 @@
+﻿<div id="wndErrWarnMsgLog" >
+        <div id="errWarnMsgLogTab">
+            <ul>
+                <li id="logtab"><sp id="logTitle"></sp></li>
+                <li id="msgtab"><sp id="msgTitle"></sp></li>
+                <li id="warntab"><sp id="warnTitle"></sp></li>
+                <li id="errtab"><sp id="errTitle"></sp></li>
+            </ul>
+            <div>                
+                <div id="loggrid"></div>
+            </div>
+            <div>                
+                <div id="msggrid"></div>
+            </div>
+            <div>                
+                <div id="warngrid"></div>
+            </div>
+            <div>                
+                <div id="errgrid"></div>
+            </div>
+        </div>
+</div>
+
+    <script>
+        var wndErrWarnMsgLog = kendo.ui.Window;
+        var logGridData = [{ Message: "No Data", ErrorDetails: "", ErrorMessage: "", ErrorReason: "" }];
+        var msgGridData = [{ Message: "No Data", ErrorDetails: "", ErrorMessage: "", ErrorReason: "" }];
+        var warnGridData = [{ Message: "No Data", ErrorDetails: "", ErrorMessage: "", ErrorReason: "" }];
+        var errGridData = [{ Message: "No Data", ErrorDetails: "", ErrorMessage: "", ErrorReason: "" }];
+
+        function openErrWarnMsgLogWnd() {
+            $("#wndErrWarnMsgLog").show();
+            wndErrWarnMsgLog.center().open();
+        }
+
+        // Checks if we have logs, messages, warnings or errors in data
+        // Opens the popup if this information exists;
+        function showErrWarnMsgLogWnd(data){
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                try {
+                    var sActiveTab = "#logtab";
+                    var blnTabSelected = false;
+                    var blnLogExists = false;
+                    var blnMsgExists = false;
+                    var blnWarnExists = false;
+                    var blnErrExists = false;
+                    var blankData = [{ Message: "No Data", ErrorDetails: "", ErrorMessage: "", ErrorReason: "" }];
+
+
+                    if (typeof (data.Log) !== 'undefined' && ngl.isArray(data.Log) && data.Log.length > 0) {
+                        blnTabSelected = true;
+                        blnLogExists = true;
+                        logGridData = data.Log;
+                        if (ngl.isNullOrWhitespace(data.LogTitle)) {
+                            $("#logTitle").html(data.Log.length.toString() + " Logs");
+                        } else {
+                            $("#logTitle").html(data.Log.length.toString() + ' ' + data.LogTitle);
+                        }
+                    } else {
+                        $("#logTitle").html("No Logs");
+                        logGridData = blankData;
+                    }
+
+                    if (typeof (data.Message) !== 'undefined' && ngl.isArray(data.Message) && data.Message.length > 0) {
+                        if (blnTabSelected != true) {
+                            blnTabSelected = true;
+                            sActiveTab = "#msgtab";
+                        }
+                        blnMsgExists = true;
+                        msgGridData = data.Message;
+                        if (ngl.isNullOrWhitespace(data.MsgTitle)) {
+                            $("#msgTitle").html(data.Message.length.toString() + " Messages");
+                        } else {
+                            $("#msgTitle").html(data.Message.length.toString() + ' ' + data.MsgTitle);
+                        }
+                    } else {
+                        $("#msgTitle").html("No Messages");
+                        msgGridData = blankData;
+                    }
+
+                    if (typeof (data.Warn) !== 'undefined' && ngl.isArray(data.Warn) && data.Warn.length > 0) {
+                        if (blnTabSelected != true) {
+                            blnTabSelected = true;
+                            sActiveTab = "#warntab";
+                        }
+                        blnWarnExists = true;
+                        warnGridData = data.Warn;
+                        if (ngl.isNullOrWhitespace(data.WarningTitle)) {
+                            $("#warnTitle").html(data.Warn.length.toString() + " Warnings");
+                        } else {
+                            $("#warnTitle").html(data.Warn.length.toString() + ' ' + data.WarningTitle);
+                        }
+                    } else {
+                        $("#warnTitle").html("No Warnings");
+                        warnGridData = blankData;
+
+                    }
+                    if (typeof (data.Err) !== 'undefined' && ngl.isArray(data.Err) && data.Err.length > 0) {
+                        if (blnTabSelected != true) {
+                            blnTabSelected = true;
+                            sActiveTab = "#errtab";
+                        }
+
+                        blnErrExists = true;
+                        errGridData = data.Err;
+                        if (ngl.isNullOrWhitespace(data.ErrTitle)) {
+                            $("#errTitle").html(data.Err.length.toString() + " Errors");
+                        } else {
+                            $("#errTitle").html(data.Err.length.toString() + ' ' + data.ErrTitle);
+                        }
+                    } else {
+                        $("#errTitle").html("No Errors");
+                        errGridData = blankData;
+                    }                   
+                    
+                    lgrid.setDataSource(logGridData);
+                    lgrid.refresh();
+                    mgrid.setDataSource(msgGridData);
+                    mgrid.refresh();
+                    wgrid.setDataSource(warnGridData);
+                    wgrid.refresh();
+                    egrid.setDataSource(errGridData);
+                    egrid.refresh();
+
+                    if (blnTabSelected == true) {
+                        openErrWarnMsgLogWnd();
+                        errMsgTab.activateTab($(sActiveTab));
+                    }
+                } catch (err) {
+                    ngl.showErrMsg("Process Warnings Failure", err.message, tObj);
+                }
+            }
+        }
+        
+        var errMsgTab = $("#errWarnMsgLogTab").kendoTabStrip().data("kendoTabStrip");
+
+        var lgrid = $("#loggrid").kendoGrid({
+            toolbarColumnMenu: true,
+            dataSource: {
+                data: logGridData,
+                pageSize: 10
+            },
+            height: 400,
+            scrollable: true,
+            resizable: true,
+            reorderable: true,
+            sortable: true,
+            toolbar: ["excel"], excel: { fileName: "vLoadBoardStops-12-3-2020-17-29-34.xlsx", allPages: true },
+            columns: [
+                { field: "Message", title: "Message", width: "300px" },
+                { field: "ErrorMessage", title: "Message", width: "100px" },
+                { field: "ErrorDetails", title: "Details", width: "100px" },
+                { field: "ErrorReason", title: "Reason", width: "100px" }
+            ]
+        }).data("kendoGrid");
+
+        var mgrid = $("#msggrid").kendoGrid({
+            toolbarColumnMenu: true,
+            dataSource: {
+                data: msgGridData,
+                pageSize: 10
+            },
+            height: 400,
+            scrollable: true,
+            resizable: true,
+            reorderable: true,
+            sortable: true,
+            toolbar: ["excel"], excel: { fileName: "vLoadBoardStops-12-3-2020-17-29-34.xlsx", allPages: true },
+            columns: [
+                { field: "Message", title: "Message", width: "300px" },
+                { field: "ErrorMessage", title: "Message", width: "100px" },
+                { field: "ErrorDetails", title: "Details", width: "100px" },
+                { field: "ErrorReason", title: "Reason", width: "100px" }
+            ]
+        }).data("kendoGrid");
+
+        var wgrid = $("#warngrid").kendoGrid({
+            toolbarColumnMenu: true,
+            dataSource: {
+                data: warnGridData,
+                pageSize: 10
+            },
+            height: 400,
+            scrollable: true,
+            resizable: true,
+            reorderable: true,
+            sortable: true,
+            toolbar: ["excel"], excel: { fileName: "vLoadBoardStops-12-3-2020-17-29-34.xlsx", allPages: true },
+            columns: [
+                { field: "Message", title: "Message", width: "300px" },
+                { field: "ErrorMessage", title: "Message", width: "100px" },
+                { field: "ErrorDetails", title: "Details", width: "100px" },
+                { field: "ErrorReason", title: "Reason", width: "100px" }
+            ]
+        }).data("kendoGrid");
+
+        var egrid = $("#errgrid").kendoGrid({
+            toolbarColumnMenu: true,
+            dataSource: {
+                data: errGridData,
+                pageSize: 10
+            },
+            height: 400,
+            scrollable: true,
+            resizable: true,
+            reorderable: true,
+            sortable: true,
+            toolbar: ["excel"],excel:{fileName: "vLoadBoardStops-12-3-2020-17-29-34.xlsx",allPages: true},
+            columns: [
+                { field: "Message", title: "Message", width: "300px" },
+                { field: "ErrorMessage", title: "Message", width: "100px" },
+                { field: "ErrorDetails", title: "Details", width: "100px" },
+                { field: "ErrorReason", title: "Reason", width: "100px" }
+            ]
+        }).data("kendoGrid");
+        
+        ////apply the activate event, which is thrown only after the animation is played out
+        errMsgTab.one("activate", function () {
+            lgrid.resize();
+            mgrid.resize();
+            wgrid.resize();
+            egrid.resize();
+        });
+               
+        $(document).ready(function () {
+            wndErrWarnMsgLog = $("#wndErrWarnMsgLog").kendoWindow({
+                title: "Logs Messages Warnings and Errors",
+                width: "80%",
+                height: 'auto',
+                actions: ["Minimize", "Maximize", "Close"],
+                modal: true,                
+                visible: false
+            }).data("kendoWindow");
+        });
+
+
+    </script>
+

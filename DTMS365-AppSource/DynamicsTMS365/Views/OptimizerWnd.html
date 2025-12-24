@@ -1,0 +1,525 @@
+﻿<!--Added By LVV on 9/16/20 for v-8.3.0.001 - Optimizer 365-->
+
+<!--<div id="wndOptimizer">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p>Running Optimizer...</p>
+
+        <div>
+            <p id="hdrMsg" style="font-weight:bold"></p>
+            <p id="subMsg"></p>
+            <div id="prg"></div>       
+        </div>
+
+    </div>
+</div>-->
+
+<!--<script>
+
+    var wndOptimizer = kendo.ui.Window;
+
+    var blnOptIsRunning = false;
+
+
+
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openOptimizerWnd(recordCount) {
+        if (recordCount > 200) { ngl.showErrMsg("Too Many Records", "Cannot Optimize more than 200 records. Add a filter to the grid to reduce the number of records.", null); return; }
+        if (recordCount < 1) { ngl.showErrMsg("Records Required", "No data to Optimize", null); return; }
+        //perform confirmation
+        ngl.OkCancelConfirmation(
+            "Run Optimizer",
+            "Running the Optimizer will clear any Routing Guide settings if the load is not on Hold. Do you want to continue?", //RunningTheOptimizerWarningQuestion
+            400,
+            400,
+            null,
+            "ConfirmOpenOptimizerWnd"); 
+    }
+
+    /* Summary - Runs the Optimizer */
+    function ConfirmOpenOptimizerWnd(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action
+        //Chose the Ok action
+        wndOptimizer.center().open();
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.read("LoadBoardOptimizer/RunOptimizer", 0, tPage, "runOptimizerSuccessCallback", "runOptimizerAjaxErrorCallback", true);
+        blnOptIsRunning = true;
+        setTimeout(getOptimizerStatus, 2000);
+    }
+
+
+    function runOptimizerSuccessCallback(data) {
+        var blnSuccess = false;
+        var blnErrorShown = false;
+        var strValidationMsg = "";
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Run Optimizer Failure", data.Errors, null); }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                            blnSuccess = true;
+                            blnOptIsRunning = false;
+                            alert("Done!");
+                            var oCRUDCtrl = new nglRESTCRUDCtrl();
+                            var blnRet = oCRUDCtrl.delete("LoadBoardOptimizer/DeleteOptMsgByUser", 0, tPage, "deleteOptMsgSuccessCallback", "deleteOptMsgAjaxErrorCallback", true);
+                        }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Run Optimizer Failure"; }
+                ngl.showErrMsg("Run Optimizer Failure", strValidationMsg, null);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(err.name, err.description, null); }
+    }
+    function runOptimizerAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Run Optimizer Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    }
+
+    function deleteOptMsgSuccessCallback(data) {
+        var blnSuccess = false;
+        var blnErrorShown = false;
+        var strValidationMsg = "";
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Delete Optimizer Status Msgs Failure", data.Errors, null); }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') { blnSuccess = true; }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Delete Optimizer Status Msgs Failure"; }
+                ngl.showErrMsg("Delete Optimizer Status Msgs Failure", strValidationMsg, null);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(err.name, err.description, null); }
+    }
+    function deleteOptMsgAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Delete Optimizer Status Msgs Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    }
+
+
+    function getOptimizerStatusSuccessCallback(data) {
+        try {
+            var blnSuccess = false;
+            var blnErrorShown = false;
+            var strValidationMsg = "";
+            if (typeof (data) != 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Get Optimizer Status Failure", data.Errors, null); }
+                else {
+                    if (typeof (data.Data) != 'undefined' && ngl.isArray(data.Data)) {                     
+                        if (data.Data.length > 0 && typeof (data.Data[0]) != 'undefined' && ngl.isObject(data.Data[0])) {
+                            blnSuccess = true;
+                            var res = data.Data[0];
+
+                            if (typeof (res.Step1) != 'undefined' && res.Step1 != null && ngl.isObject(res.Step1)) {
+                                    $("#hdrMsg").html(res.Step1.StepMessage);
+                                    $("#subMsg").html(res.Step1.StepSubMessage);
+                            }
+                          
+
+                            /*
+                            if (blnStep6Done === false) {
+                                if (typeof (res.Step6) != 'undefined' && res.Step6 != null && ngl.isObject(res.Step6)) {
+                                    //$("#divStep6").show();
+                                    if (res.Step6.StepComplete === false) {
+                                        //$("#prgStep6").show();
+                                        $("#s6Hdr").html("<b>" + res.Step6.StepMessage + "</b>");
+                                        $("#s6Sub").html(res.Step6.StepSubMessage);
+
+                                        //ngl.showErrMsg("Sub Message 6", res.Step6.StepSubMessage, null);
+                                        console.log("S6 Complete: " + res.Step6.StepComplete + " S6 Progress: " + res.Step6.StepProgress + " S6 Hdr: " + res.Step6.StepMessage + " S6 Sub: " + res.Step6.StepSubMessage);
+
+                                        //$("#prgStep6").data("kendoProgressBar").value(res.Step6.StepProgress);
+                                    } else {
+                                        var s6Hdr = "<b>" + res.Step6.StepMessage + " </b><span class='k-icon k-i-check-circle' style='color:green;'></span>";
+                                        $("#s6Hdr").html(s6Hdr);
+                                        //$("#s6Sub").hide();
+                                        //$("#prgStep6").hide();
+                                        blnStep6Done = true;
+                                    }
+                                }
+                            }
+
+                           */
+                        }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Get Optimizer Status Failure"; }
+                ngl.showErrMsg("Get Optimizer Status Failure", strValidationMsg, null);
+            }
+        } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+    }
+    function getOptimizerStatusAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Get Optimizer Status Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    }
+
+    function getOptimizerStatus() {
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.read("LoadBoardOptimizer/GetLatestOptimizerMessage", 0, tPage, "getOptimizerStatusSuccessCallback", "getOptimizerStatusAjaxErrorCallback", true);
+        if (blnOptIsRunning) { setTimeout(getOptimizerStatus, 2000); }
+    }
+
+
+
+    $(document).ready(function () {
+
+        //$("#prg").kendoProgressBar({ type: "chunk", chunkCount: 4, min: 0, max: 5, value: 0 }).data("kendoProgressBar");
+
+
+        wndOptimizer = $("#wndOptimizer").kendoWindow({
+            title: "Run Optimizer",
+            width: "80%",
+            actions: ["Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false,
+            close: function (e) {
+                $("#hdrMsg").html("");
+                $("#subMsg").html("");
+            }
+        }).data("kendoWindow");
+    });
+
+
+
+</script>-->
+
+<!--*****************************************-->
+
+<div id="wndOptimizer">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p id="optState">Running Optimizer...</p>
+
+        <div id="optMsgGrid"></div>
+
+    </div>
+</div>
+
+<script>
+
+    var wndOptimizer = kendo.ui.Window;
+    var blnOptIsRunning = false;
+
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openOptimizerWnd(recordCount) {
+        if (recordCount > 200) { ngl.showErrMsg("Too Many Records", "Cannot Optimize more than 200 records. Add a filter to the grid to reduce the number of records.", null); return; }
+        if (recordCount < 1) { ngl.showErrMsg("Records Required", "No data to Optimize", null); return; }
+        //perform confirmation
+        ngl.OkCancelConfirmation(
+            "Run Optimizer",
+            "Running the Optimizer will clear any Routing Guide settings if the load is not on Hold. Do you want to continue?", //RunningTheOptimizerWarningQuestion
+            400,
+            400,
+            null,
+            "ConfirmOpenOptimizerWnd");
+    }
+
+    /* Summary - Runs the Optimizer */
+    function ConfirmOpenOptimizerWnd(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action
+        //Chose the Ok action
+        wndOptimizer.center().open();
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.read("LoadBoardOptimizer/RunOptimizer", 0, tPage, "runOptimizerSuccessCallback", "runOptimizerAjaxErrorCallback", true);
+        blnOptIsRunning = true;
+        setTimeout(getOptimizerStatus, 2000);
+    }
+
+
+    function runOptimizerSuccessCallback(data) {
+        var blnSuccess = false;
+        var blnErrorShown = false;
+        var strValidationMsg = "";
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Run Optimizer Failure", data.Errors, null); }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                            blnSuccess = true;
+                            blnOptIsRunning = false;
+                            $("#optState").html("<strong class='green'>Optimization Complete</strong>");
+                            //setTimeout(deleteOptMsg, 2000);
+                        }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Run Optimizer Failure"; }
+                ngl.showErrMsg("Run Optimizer Failure", strValidationMsg, null);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(err.name, err.description, null); }
+    }
+    function runOptimizerAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Run Optimizer Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    }
+
+    function deleteOptMsgSuccessCallback(data) {
+        var blnSuccess = false;
+        var blnErrorShown = false;
+        var strValidationMsg = "";
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Delete Optimizer Status Msgs Failure", data.Errors, null); }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') { blnSuccess = true; }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Delete Optimizer Status Msgs Failure"; }
+                ngl.showErrMsg("Delete Optimizer Status Msgs Failure", strValidationMsg, null);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(err.name, err.description, null); }
+    }
+    function deleteOptMsgAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Delete Optimizer Status Msgs Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    }
+
+    function deleteOptMsg() {
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.delete("LoadBoardOptimizer/DeleteOptMsgByUser", 0, tPage, "deleteOptMsgSuccessCallback", "deleteOptMsgAjaxErrorCallback", true);
+    }
+    
+    ////function getOptimizerStatusSuccessCallback(data) {
+    ////    try {
+    ////        var blnSuccess = false;
+    ////        var blnErrorShown = false;
+    ////        var strValidationMsg = "";
+    ////        if (typeof (data) != 'undefined' && ngl.isObject(data)) {
+    ////            if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Get Optimizer Status Failure", data.Errors, null); }
+    ////            else {
+    ////                if (typeof (data.Data) != 'undefined' && ngl.isArray(data.Data)) {
+    ////                    if (data.Data.length > 0 && typeof (data.Data[0]) != 'undefined' && ngl.isObject(data.Data[0])) {
+    ////                        blnSuccess = true;
+    ////                        var res = data.Data[0];
+
+    ////                        if (typeof (res.Step1) != 'undefined' && res.Step1 != null && ngl.isObject(res.Step1)) {
+    ////                                $("#hdrMsg").html(res.Step1.StepMessage);
+    ////                                $("#subMsg").html(res.Step1.StepSubMessage);
+    ////                        }
+
+
+    ////                        /*
+    ////                        if (blnStep6Done === false) {
+    ////                            if (typeof (res.Step6) != 'undefined' && res.Step6 != null && ngl.isObject(res.Step6)) {
+    ////                                //$("#divStep6").show();
+    ////                                if (res.Step6.StepComplete === false) {
+    ////                                    //$("#prgStep6").show();
+    ////                                    $("#s6Hdr").html("<b>" + res.Step6.StepMessage + "</b>");
+    ////                                    $("#s6Sub").html(res.Step6.StepSubMessage);
+
+    ////                                    //ngl.showErrMsg("Sub Message 6", res.Step6.StepSubMessage, null);
+    ////                                    console.log("S6 Complete: " + res.Step6.StepComplete + " S6 Progress: " + res.Step6.StepProgress + " S6 Hdr: " + res.Step6.StepMessage + " S6 Sub: " + res.Step6.StepSubMessage);
+
+    ////                                    //$("#prgStep6").data("kendoProgressBar").value(res.Step6.StepProgress);
+    ////                                } else {
+    ////                                    var s6Hdr = "<b>" + res.Step6.StepMessage + " </b><span class='k-icon k-i-check-circle' style='color:green;'></span>";
+    ////                                    $("#s6Hdr").html(s6Hdr);
+    ////                                    //$("#s6Sub").hide();
+    ////                                    //$("#prgStep6").hide();
+    ////                                    blnStep6Done = true;
+    ////                                }
+    ////                            }
+    ////                        }
+
+    ////                       */
+    ////                    }
+    ////                }
+    ////            }
+    ////        }
+    ////        if (blnSuccess === false && blnErrorShown === false) {
+    ////            if (strValidationMsg.length < 1) { strValidationMsg = "Get Optimizer Status Failure"; }
+    ////            ngl.showErrMsg("Get Optimizer Status Failure", strValidationMsg, null);
+    ////        }
+    ////    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+    ////}
+    ////function getOptimizerStatusAjaxErrorCallback(xhr, textStatus, error) {
+    ////    ngl.showErrMsg("Get Optimizer Status Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), null);
+    ////}
+    
+
+    function getOptimizerStatus() {
+        //function refresh() { ngl.readDataSource(oLoadBoardGrid); }
+        ngl.readDataSource($('#optMsgGrid').data('kendoGrid'));
+        //var oCRUDCtrl = new nglRESTCRUDCtrl();
+        //var blnRet = oCRUDCtrl.read("LoadBoardOptimizer/GetLatestOptimizerMessage", 0, tPage, "getOptimizerStatusSuccessCallback", "getOptimizerStatusAjaxErrorCallback", true);
+        if (blnOptIsRunning) { setTimeout(getOptimizerStatus, 2000); }
+    }
+
+    function OptMsgGridDataBoundCallBack(e, tGrid) {
+        // get the index of the OptMsgText column
+        var columns = e.sender.columns;
+        var columnIndex = tGrid.wrapper.find(".k-grid-header [data-field=" + "OptMsgText" + "]").index();
+        //oSettlementGrid = tGrid;
+        var ds = tGrid.dataSource.data();
+        for (var j = 0; j < ds.length; j++) {
+            if (typeof (ds[j].OptMsgType) !== 'undefined' && ds[j].OptMsgType != null) {
+                if (ds[j].OptMsgType === 2) { //Error Msg
+                    var item = tGrid.dataSource.get(ds[j].OptMsgControl); //Get by ID or any other preferred method
+                    var row = e.sender.tbody.find("[data-uid='" + ds[j].uid + "']");
+                    var cell = row.children().eq(columnIndex);
+                    cell.addClass("red");
+                }
+                if (ds[j].OptMsgType === 3) { //Error Msg
+                    var item = tGrid.dataSource.get(ds[j].OptMsgControl); //Get by ID or any other preferred method
+                    var row = e.sender.tbody.find("[data-uid='" + ds[j].uid + "']");
+                    var cell = row.children().eq(columnIndex);
+                    cell.addClass("orangered");
+                }
+            }
+        }
+    }
+
+
+
+    $(document).ready(function () {
+
+        //$("#prg").kendoProgressBar({ type: "chunk", chunkCount: 4, min: 0, max: 5, value: 0 }).data("kendoProgressBar");
+        //var arrGroupBy = [];
+        //arrGroupBy.push("OptMsgCompName");
+        //var arrGroupBy = new Array("OptMsgCompName", "OptMsgCompInbound");
+        $('#optMsgGrid').kendoGrid({
+            dataSource: {
+                transport: { 
+                    read: function(options) { 
+                        var s = new AllFilter();
+                        //s.filterName = $("#ddlLEUSFilters").data("kendoDropDownList").value();
+                        //s.filterValue = $("#txtLEUSFilterVal").data("kendoMaskedTextBox").value();
+                        //s.filterFrom = $("#dpLEUSFilterFrom").data("kendoDatePicker").value();
+                        //s.filterTo = $("#dpLEUSFilterTo").data("kendoDatePicker").value();
+                        //s.sortName = $("#txtLEUSSortField").val();s.sortDirection = $("#txtLEUSSortDirection").val();                           
+                        //s.page = options.data.page;
+                        //s.skip = options.data.skip;
+                        //s.take = options.data.take;
+                        //s.LEAdminControl = $("#txtLEControl").val();
+                        var arrGroupBy = [];
+                        arrGroupBy.push("OptMsgCompName");
+                        s.Groups = arrGroupBy;
+                        $.ajax({ 
+                            url: 'api/LoadBoardOptimizer/GetOptMsgs/' + s,
+                            contentType: 'application/json; charset=utf-8', 
+                            dataType: 'json', 
+                            data: { filter: JSON.stringify(s) }, 
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }, 
+                            success: function(data) { 
+                                options.success(data); 
+                                if (data.Errors != null) { 
+                                    if (data.StatusCode === 203){ ngl.showErrMsg("Authorization Timeout", data.Errors, null); } 
+                                    else { ngl.showErrMsg("Access Denied", data.Errors, null); } 
+                                } 
+                            }, 
+                            error: function(result) { options.error(result); } 
+                        }); 
+                    },           
+                    parameterMap: function(options, operation) { return options; } 
+                },
+                requestStart: function(e) {
+                    setTimeout(function(e) {
+                        $(".k-loading-image").hide();
+                    })
+                },
+                serverSorting: true,
+                serverPaging: true, 
+                pageSize: 10,
+                ////transport: { 
+                ////    read: function(options) { 
+                ////        var s = new AllFilter();
+                ////        s.filterName = $("#ddlLEUSFilters").data("kendoDropDownList").value();
+                ////        s.filterValue = $("#txtLEUSFilterVal").data("kendoMaskedTextBox").value();
+                ////        s.filterFrom = $("#dpLEUSFilterFrom").data("kendoDatePicker").value();
+                ////        s.filterTo = $("#dpLEUSFilterTo").data("kendoDatePicker").value();
+                ////        s.sortName = $("#txtLEUSSortField").val();s.sortDirection = $("#txtLEUSSortDirection").val();                           
+                ////        s.page = options.data.page;
+                ////        s.skip = options.data.skip;
+                ////        s.take = options.data.take;
+                ////        s.LEAdminControl = $("#txtLEControl").val();
+
+                ////        $.ajax({ 
+                ////            url: 'api/LEUser/GetRecords/' + s, 
+                ////            contentType: 'application/json; charset=utf-8', 
+                ////            dataType: 'json', 
+                ////            data: { filter: JSON.stringify(s) }, 
+                ////            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }, 
+                ////            success: function(data) { 
+                ////                options.success(data); 
+                ////                if (data.Errors != null) { 
+                ////                    if (data.StatusCode === 203){ ngl.showErrMsg("Authorization Timeout", data.Errors, null); } 
+                ////                    else { ngl.showErrMsg("Access Denied", data.Errors, null); } 
+                ////                } 
+                ////            }, 
+                ////            error: function(result) { options.error(result); } 
+                ////        }); 
+                ////    },           
+                ////    parameterMap: function(options, operation) { return options; } 
+                ////},  
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "OptMsgControl",
+                        fields: {
+                            OptMsgControl: { type: "number" },
+                            OptMsgUSC: { type: "number" },
+                            OptMsgType: { type: "number" },
+                            OptMsgStep: { type: "number" },
+                            OptMsgText: { type: "string" },
+                            OptMsgSubText: { type: "string" },
+                            OptMsgProgress: { type: "number" },
+                            OptMsgComplete: { type: "boolean" },
+                            OptMsgCompName: { type: "string" },
+                            OptMsgCompInbound: { type: "boolean" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Opt Msgs Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+            },
+            autoBind: false,
+            pageable: { pageSizes: [5, 10, 15, 20, 25, 50, "all"] },
+            sortable: { mode: "single", allowUnsort: true },
+            resizable: true,
+            columns: [
+                { field: "OptMsgControl", title: "Control", hidden: true },
+                { field: "OptMsgType", title: "Type", hidden: true },
+                { field: "OptMsgStep", title: "Step", hidden: true },
+                { field: "OptMsgText", title: "Message", template: "<p><strong>#: OptMsgText #</strong></p><p>#: OptMsgSubText #</p>", width: "75%" },
+                { field: "OptMsgSubText", title: "Sub Msg", hidden: true },
+                { field: "OptMsgComplete", title: "Complete", template: '<input type="checkbox" #= OptMsgComplete ? "checked=checked" : "" # disabled="disabled" ></input>' },
+                { field: "OptMsgCompName", title: "Company" },
+                { field: "OptMsgCompInbound", title: "Inbound", template: '<input type="checkbox" #= OptMsgCompInbound ? "checked=checked" : "" # disabled="disabled" ></input>' }
+            ],
+            dataBound: function (e) {                var tObj = this;                if (typeof (OptMsgGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(OptMsgGridDataBoundCallBack)) { OptMsgGridDataBoundCallBack(e, tObj); }            },
+            groupable: true,            //group: function (e) {            //    arrGroupBy = new Array();            //    if (e.groups.length) {            //        for (let i = 0; i < e.groups.length; i++) {            //            arrGroupBy.push(e.groups[i].field);            //            //alert(e.groups[i].field);            //        }            //    }            //},
+        });
+
+
+        wndOptimizer = $("#wndOptimizer").kendoWindow({
+            title: "Run Optimizer",
+            width: "80%",
+            height: "80%",
+            actions: ["Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false,
+            close: function (e) {
+                ngl.readDataSource($('#optMsgGrid').data('kendoGrid'));
+                $("#optState").html("Running Optimizer...");
+                deleteOptMsg();
+            }
+        }).data("kendoWindow");
+    });
+
+
+
+</script>
+
+<style>
+    #optMsgGrid .k-loading-image { background-image: none; }
+    #optMsgGrid .k-loading-color { opacity: 0; }
+</style>

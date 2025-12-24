@@ -1,0 +1,575 @@
+﻿<!-- *****************************************BEGIN SINGLE SIGN ON SECTION***************************************** -->
+
+<div id="wndSingleSignOn">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div style="padding: 0px 10px 0px 10px;">
+                         
+            <div id="lblUser"></div>
+            
+            <div id="wndSingleSignOnTabStrip" style="height:100%;">
+                <ul>
+                    <li id="tbsSSOAManual" class="k-active">Enter</li>
+                    <li id="tbsSSOACopy">Copy Existing</li>
+                </ul>
+                <div>
+                    <!--CREATE NEW TAB-->
+                    <!--SSOA Account-->
+                    <div id="divAvailSSOA" style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Account</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="ddAvailSSOAccounts" style="width: 200px;" /></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="divAllSSOA" style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Account</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="ddAllSSOAccounts" style="width: 200px;" /></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                    <!--Reference ID-->
+                    <div style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Reference ID</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtRefID" maxlength="100" style="width:200px;" /></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                    <!--User Name-->
+                    <div style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">SSOA User Name</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtUserName" maxlength="100" style="width:200px;" /></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                    <!--Update Password-->
+                    <div id="divChkPass" style="padding-bottom: 10px; padding-top: 10px;">
+                        <div style="margin-left: 5px;">
+                            <input type="checkbox" id="chkUpdatePass" ><label class="k-checkbox-label" for="chkUpdatePass"><strong>Update Password</strong></label>
+                        </div>
+                    </div>
+                    <!--New Password-->
+                    <div id="divNewPass" style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Password</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtNewPassword" maxlength="100" style="width:200px;" /></td></tr>
+                            </table>
+                        </div>
+                        <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr><td class="tblResponsive-top">Confirm Password</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtConfirmPassword" maxlength="100" style="width:200px;" /></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                    <input id="txtSSOAXControl" type="hidden" />
+                    <input id="txtUSC" type="hidden" />
+                </div> <!--end first tab html-->
+                <div>               
+                    <!--COPY EXISTING TAB-->
+                    <!--Copy From Grid-->
+                    <div>
+                        <div id="ssoaToCopyGrid"></div>
+                    </div>
+                </div><!--end second tab html-->
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+<!--Template that is used by the grid "ssoaToCopyGrid" in wndSingleSignOn-->
+<script type="text/x-kendo-template" id="ssoaToCopyGridDetTemplate">
+    <div class="tabstrip">
+        <ul>
+            <li class="k-active">Single Sign On Accounts</li>
+        </ul>
+        <div><div class="ssoaToCopyAccounts"></div></div>
+    </div>
+</script>
+
+<script>
+
+    /* Summary - Calls the REST method to mass update the SSOAs */
+    function ConfirmCopySSOAToNewUser(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action           
+        //Chose the Ok action
+        if (typeof (ssoaCopyData) !== 'undefined' && ngl.isArray(ssoaCopyData.UserControls) && ssoaCopyData.UserControls.length > 0) {
+            $.ajax({
+                type: 'POST',
+                url: 'api/SingleSignOn/MassUpdateSingleSignOn',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(ssoaCopyData),
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    try {
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Copy SSOA To New User Failure", data.Errors, null); }
+                            else { wndSingleSignOn.close(); refreshLEUsersGrid(); }
+                        }
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Copy SSOA To New User Failure", sMsg, null); }
+            });
+        }
+    }
+
+
+    var ssoaCopyData = null;
+    /* Summary - executed when the select button is clicked inside the "Copy From" grid - Verifies that the user wants to copy the ssoa and if so calls ConfirmCopySSOAToNewUser() */
+    function copySSOAToNewUser(e) {
+        ssoaCopyData = null; //clear any old values
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        if (typeof (item) === 'undefined' || item == null || !ngl.isObject(item)) { ngl.showErrMsg("Error", "There was a problem getting the row from the grid", null); return; } //Verify the row item is not null
+        if (!('SSOAXControl' in item)) { ngl.showErrMsg("SSOAXControl Required", "Row object does not contain property SSOAXControl.", null); return; } //Verify SSOAXControl is a column in the grid     
+        if (typeof (item.SSOAXControl) === 'undefined' || item.SSOAXControl == null || item.SSOAXControl == 0) { ngl.showErrMsg("SSOAXControl Required", "SSOAXControl cannot be 0", null); return; } //Verify that SSOAXControl is not null or 0                                       
+
+        $("#txtSSOAXControlToCopy").val(item.SSOAXControl); //Save the SSOAXControl to  wndSingleSignOn
+        var copyFromUserName = "", copyFromAccountDesc = "";
+        if ('UserName' in item && ngl.stringHasValue(item.UserName)) { copyFromUserName = " " + item.UserName; }
+        if ('SSOADesc' in item && ngl.stringHasValue(item.SSOADesc)) { copyFromAccountDesc = " " + item.SSOADesc; }
+
+        var usc = $("#txtUSC").val();
+
+        ssoaCopyData = new MassUpdateSingleSignOn();
+        ssoaCopyData.NEXTStop = false;
+        ssoaCopyData.P44 = false;
+        ssoaCopyData.UserControls = [usc];
+        ssoaCopyData.CopyFromSSOAXCtrl = item.SSOAXControl;
+        //perform confirmation
+        var title = "Copy " + copyFromAccountDesc + " from " + copyFromUserName;
+        ngl.OkCancelConfirmation(
+            title,
+            "This action will overwrite any existing Single Sign On Account configurations for the selected User. Are you sure you want to proceed?",
+            400,
+            400,
+            null,
+            "ConfirmCopySSOAToNewUser");
+
+
+    }
+
+
+
+
+
+    var wndSingleSignOn = kendo.ui.Window;
+    var dsAvailSSOA = kendo.data.DataSource;
+    var dsAllSSOA = kendo.data.DataSource;
+
+    function configureSingleSignOnAddWindow(blnIsAdd) {
+        var tabStrip = $("#wndSingleSignOnTabStrip").data("kendoTabStrip");
+        if (blnIsAdd) {
+            $("#wndSingleSignOn").data("kendoWindow").title("Add Single Sign On");
+            //Set value of 'Update Password' checkbox to checked and hide the checkbox
+            $("#chkUpdatePass").prop('checked', true);
+            $("#divChkPass").hide();
+            //Show the password boxes and enable them
+            $("#txtNewPassword").data("kendoMaskedTextBox").readonly(false);
+            $("#txtConfirmPassword").data("kendoMaskedTextBox").readonly(false);
+            $("#divNewPass").show();
+
+            tabStrip.select(0);   // Select by index
+            tabStrip.enable(tabStrip.tabGroup.children().eq(1), true);
+
+        } else {
+            $("#wndSingleSignOn").data("kendoWindow").title("Edit Single Sign On");
+            $("#divAllSSOA").show()
+            $("#divAvailSSOA").hide()
+            dsAllSSOA.read();
+            //Set value of 'Update Password' checkbox to unchecked and show the checkbox
+            $("#chkUpdatePass").prop('checked', false);
+            $("#divChkPass").show();
+            //Set the textboxes to readonly and hide the textboxes
+            $("#txtNewPassword").data("kendoMaskedTextBox").readonly();
+            $("#txtConfirmPassword").data("kendoMaskedTextBox").readonly();
+            $("#divNewPass").hide();
+
+            tabStrip.select(0);   // Select by index
+            tabStrip.enable(tabStrip.tabGroup.children().eq(1), false);
+        }
+    }
+
+
+
+    function openSingleSignOnAddWindow(event, usc, userName, userGroupControl) {
+        configureSingleSignOnAddWindow(true);
+        //***** CANNOT EDIT AN INACTIVE USER *****           
+        if (typeof (userGroupControl) === 'undefined' || userGroupControl == null) { ngl.showErrMsg("UserUserGroupsControl Required", "UserUserGroupsControl cannot be null", null); return; }
+        if (userGroupControl == 10) { ngl.showWarningMsg("User Inactive", "Cannot edit an inactive user", null); return; }
+        //****************************************
+        if (typeof (usc) === 'undefined' || usc == null || usc == 0) { ngl.showErrMsg("UserSecurityControl Required", "UserSecurityControl cannot be 0", null); return; } //Verify that UserSecurityControl is not null or 0                                       
+        $("#txtUSC").val(usc); //Save the UserSecurityControl so it can be accessed by the Save function  
+        dsAvailSSOA.read();
+        $("#divAvailSSOA").show();
+        $("#divAllSSOA").hide();
+        $("#ddAvailSSOAccounts").data("kendoDropDownList").readonly(false);
+        if (ngl.stringHasValue(userName)) { var c = "<h3>" + userName + "</h3>"; $("#lblUser").html(c); }
+
+        $("#ssoaToCopyGrid").data("kendoGrid").clearSelection();
+        $('#ssoaToCopyGrid').data('kendoGrid').dataSource.read();
+
+        wndSingleSignOn.center().open();
+    }
+
+    function openSingleSignOnEditWindow(e) {
+        //***** CANNOT EDIT AN INACTIVE USER *****
+        var detailGridWrapper = this.wrapper;
+        var parentRow = detailGridWrapper.closest("tr.k-detail-row").prev("tr"); //GET PARENT ROW ELEMENT       
+        var parentGrid = parentRow.closest("[data-role=grid]").data("kendoGrid"); //GET PARENT GRID ELEMENT         
+        var parentModel = parentGrid.dataItem(parentRow); //GET THE PARENT ROW MODEL	
+        //Retrieve Parent data out of the model 
+        if (!('UserUserGroupsControl' in parentModel)) { ngl.showErrMsg("UserUserGroupsControl Required", "Parent Row object does not contain property UserUserGroupsControl.", null); return; } //Verify UserUserGroupsControl is a column in the parent record                                 
+        if (typeof (parentModel.UserUserGroupsControl) === 'undefined' || parentModel.UserUserGroupsControl == null) { ngl.showErrMsg("UserUserGroupsControl Required", "UserUserGroupsControl cannot be null", null); return; }
+        if (parentModel.UserUserGroupsControl == 10) { ngl.showWarningMsg("User Inactive", "Cannot edit an inactive user", null); return; }
+        //****************************************
+
+        configureSingleSignOnAddWindow(false);
+
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        if (typeof (item) === 'undefined' || item == null || !ngl.isObject(item)) { ngl.showErrMsg("Error", "There was a problem getting the row from the grid", null); return; } //Verify the row item is not null
+        if (!('SSOAXControl' in item)) { ngl.showErrMsg("SSOAXControl Required", "Row object does not contain property SSOAXControl.", null); return; } //Verify SSOAXControl is a column in the grid     
+        if (typeof (item.SSOAXControl) === 'undefined' || item.SSOAXControl == null || item.SSOAXControl == 0) { ngl.showErrMsg("SSOAXControl Required", "SSOAXControl cannot be 0", null); return; } //Verify that SSOAXControl is not null or 0                                       
+        $("#txtSSOAXControl").val(item.SSOAXControl); //Save the SSOAXControl so it can be accessed by the Save function               
+        if ('SSOAXUN' in item) { $("#txtUserName").data("kendoMaskedTextBox").value(item.SSOAXUN); }
+        if ('SSOAXRefID' in item) { $("#txtRefID").data("kendoMaskedTextBox").value(item.SSOAXRefID); }
+        if ('SSOAControl' in item) {
+            var dropdownlist = $("#ddAllSSOAccounts").data("kendoDropDownList");
+            dropdownlist.select(function (dataItem) { return dataItem.Control === item.SSOAControl; });
+            dropdownlist.readonly();
+        }
+        if ('USC' in item) { $("#txtUSC").val(item.USC); }
+        if ('UserName' in item) { var c = "<h3>" + item.UserName + "</h3>"; $("#lblUser").html(c); }
+
+        $("#ssoaToCopyGrid").data("kendoGrid").clearSelection();
+        $('#ssoaToCopyGrid').data('kendoGrid').dataSource.read();
+
+        wndSingleSignOn.center().open();
+    }
+
+    var deleteSSOAXControl = 0;
+    function deleteSingleSignOn(e) {
+        //***** CANNOT EDIT AN INACTIVE USER *****
+        var detailGridWrapper = this.wrapper;
+        var parentRow = detailGridWrapper.closest("tr.k-detail-row").prev("tr"); //GET PARENT ROW ELEMENT           
+        var parentGrid = parentRow.closest("[data-role=grid]").data("kendoGrid"); //GET PARENT GRID ELEMENT          
+        var parentModel = parentGrid.dataItem(parentRow); //GET THE PARENT ROW MODEL	
+        //Retrieve Parent data out of the model          
+        if (!('UserUserGroupsControl' in parentModel)) { ngl.showErrMsg("UserUserGroupsControl Required", "Parent Row object does not contain property UserUserGroupsControl.", null); return; } //Verify UserUserGroupsControl is a column in the parent record        
+        if (typeof (parentModel.UserUserGroupsControl) === 'undefined' || parentModel.UserUserGroupsControl == null) { ngl.showErrMsg("UserUserGroupsControl Required", "UserUserGroupsControl cannot be null", null); return; }
+        if (parentModel.UserUserGroupsControl == 10) { ngl.showWarningMsg("User Inactive", "Cannot edit an inactive user", null); return; }
+        //****************************************
+
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        deleteSSOAXControl = 0; //clear any old values
+        if (typeof (item) !== 'undefined' && item != null) { if ('SSOAXControl' in item) { deleteSSOAXControl = item.SSOAXControl; } }
+        if (deleteSSOAXControl == 0) { ngl.showErrMsg("Delete Error", "Could not get SSOAXControl from the record", null); return; }
+        //perform confirmation
+        var title = "Delete User Single Sign On Account";
+        ngl.OkCancelConfirmation(
+            title,
+            "Are you sure that you want to delete this Account?",
+            400,
+            400,
+            null,
+            "ConfirmDeleteSingleSignOn");
+    }
+
+    function ConfirmDeleteSingleSignOn(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action           
+        //Chose the Ok action
+        if (typeof (deleteSSOAXControl) !== 'undefined' && deleteSSOAXControl > 0) {
+            var tObj = tObjPG;
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.delete("SingleSignOn/DeleteSingleSignOnForUser", deleteSSOAXControl, tObj, "DeleteSSOForUserCallback", "DeleteSSOForUserAjaxErrorCallback")
+        }
+    }
+
+    function SaveSingleSignOn() {
+        var otmp = $("#focusCancelCont").focus();
+        var tfUpdateP = false;
+        if ($('#chkUpdatePass').is(":checked")) { tfUpdateP = true; }
+        var item = new SingleSignOn();
+        item.SSOAXControl = $("#txtSSOAXControl").val();
+        item.LECarContNACXControl = $("#txtNACXControl").val(); //TODO LVV: Where is this coming from??
+        item.SSOAXUN = $("#txtUserName").data("kendoMaskedTextBox").value();
+        item.SSOAXPass = $("#txtNewPassword").data("kendoMaskedTextBox").value();
+        item.NewPass = $("#txtConfirmPassword").data("kendoMaskedTextBox").value();
+        item.SSOAXRefID = $("#txtRefID").data("kendoMaskedTextBox").value();
+        item.USC = $("#txtUSC").val();
+        //We only need the SSOAControl if we are doing an insert 
+        var dataItem = $("#ddAvailSSOAccounts").data("kendoDropDownList").dataItem();
+        item.SSOAControl = dataItem.Control;
+        //This value only matters on update
+        item.UpdateP = tfUpdateP;
+        var tObj = tObjPG;
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.update("SingleSignOn/SaveSingleSignOnForUser", item, tObj, "SaveSSOForUserCallback", "SaveSSOForUserAjaxErrorCallback");
+    }
+
+    //SaveSSOForUser
+    function SaveSSOForUserCallback(data) { SuccessCallback(data, "SaveSSOForUserCallback", "SaveSingleSignOnForUser Failure"); }
+    function SaveSSOForUserAjaxErrorCallback(xhr, textStatus, error) { AjaxErrorCallback(xhr, textStatus, error, "SaveSSOForUserAjaxErrorCallback", "SaveSingleSignOnForUser Failure"); }
+
+
+    $(document).ready(function () {
+
+        $("#wndSingleSignOnTabStrip").kendoTabStrip({ animation:{ open:{ effects: "fadeIn" } } });
+
+
+        $("#txtUSC").val(0);
+
+        $("#txtRefID").kendoMaskedTextBox();
+        $("#txtUserName").kendoMaskedTextBox();
+
+        $("#txtNewPassword").kendoMaskedTextBox();
+        $("#txtConfirmPassword").kendoMaskedTextBox();
+
+        $('#chkUpdatePass').click(function () {
+            if ($(this).is(':checked')) {
+                $("#divNewPass").show();
+                $("#txtNewPassword").data("kendoMaskedTextBox").readonly(false);
+                $("#txtConfirmPassword").data("kendoMaskedTextBox").readonly(false);
+            } else {
+                $("#divNewPass").hide();
+                $("#txtNewPassword").data("kendoMaskedTextBox").value("");
+                $("#txtConfirmPassword").data("kendoMaskedTextBox").value("");
+                $("#txtNewPassword").data("kendoMaskedTextBox").readonly();
+                $("#txtConfirmPassword").data("kendoMaskedTextBox").readonly();
+            }
+        });
+
+
+        ///////////Avail SSOA/////////////SingleSignOnAccountName
+        //This ddl switches between 2 datasources (based on if it is an edit or add)
+        dsAvailSSOA = new kendo.data.DataSource({
+            serverSorting: true,
+            serverPaging: true,
+            pageSize: 10,
+            transport: {
+                read: function (options) {
+                    var v = new vLookupListCriteria();
+                    v.id = nglUserDynamicLists.AvailSSOAByUser;
+                    v.sortKey = 0;
+                    v.Criteria = $("#txtUSC").val();
+
+                    $.ajax({
+                        url: 'api/vLookupList/GetUserDynamicListFiltered',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(v) },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            options.success(data);
+                            if (data.Errors != null) {
+                                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                                else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                            }
+                        },
+                        error: function (result) { options.error(result); }
+                    });
+                },
+                parameterMap: function (options, operation) { return options; }
+            },
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "Control",
+                    fields: {
+                        Control: { type: "number" },
+                        Name: { type: "string" },
+                        Description: { type: "string" }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Get SSOA JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+        });
+
+        dsAllSSOA = new kendo.data.DataSource({
+            serverSorting: true,
+            serverPaging: true,
+            pageSize: 10,
+            transport: {
+                read: {
+                    url: "api/vLookupList/GetUserDynamicList/" + nglUserDynamicLists.SingleSignOnAccountName,
+                    headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                },
+                parameterMap: function (options, operation) { return options; }
+            },
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "Control",
+                    fields: {
+                        Control: { type: "number" },
+                        Name: { type: "string" },
+                        Description: { type: "string" }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Get SSOA JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+        });
+
+        $("#ddAllSSOAccounts").kendoDropDownList({
+            dataTextField: "Description",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: dsAllSSOA
+        });
+
+        $("#ddAvailSSOAccounts").kendoDropDownList({
+            dataTextField: "Description",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: dsAvailSSOA
+        });
+
+
+        ////////////wndSingleSignOn///////////////////
+        wndSingleSignOn = $("#wndSingleSignOn").kendoWindow({
+            title: "Single Sign On",
+            maxWidth: '80%',
+            modal: true,
+            visible: false,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                //reset values
+                $("#txtUSC").val(0);
+                $("#txtSSOAXControl").val(0);
+                $("#txtNewPassword").data("kendoMaskedTextBox").value("");
+                $("#txtConfirmPassword").data("kendoMaskedTextBox").value("");
+                $("#txtRefID").data("kendoMaskedTextBox").value("");
+                $("#txtUserName").data("kendoMaskedTextBox").value("");
+            }
+        }).data("kendoWindow");
+        $("#wndSingleSignOn").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveSingleSignOn(); });
+
+
+        $("#ssoaToCopyGrid").kendoGrid({
+            height: '100%',
+            autoBind: false,
+            dataSource: {
+                pageSize: 10,
+                transport: {
+                    read: function (options) {
+                        var s = new AllFilter();
+                        s.page = options.data.page;
+                        s.skip = options.data.skip;
+                        s.take = options.data.take;
+                        s.LEAdminControl = $("#txtLEControl").val();
+                        $.ajax({
+                            url: 'api/LEUser/GetActiveLEUsers365/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            data: { filter: JSON.stringify(s) },
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { ngl.showErrMsg('Access Denied', data.Errors, null); }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "UserSecurityControl",
+                        fields: {
+                            UserSecurityControl: { type: "number" },
+                            UserName: { type: "string" },
+                            UserFriendlyName: { type: "string" },
+                            UserFirstName: { type: "string" },
+                            UserLastName: { type: "string" }
+                        }
+                    }
+                }
+            },
+            pageable: true,
+            scrollable: false,
+            sortable: true,
+            columns: [
+                { field: "UserName", title: "User Name" },
+                { field: "UserFriendlyName", title: "Friendly Name" }
+            ],
+            detailTemplate: kendo.template($("#ssoaToCopyGridDetTemplate").html()),
+            detailInit: function (e) {
+                var detailRow = e.detailRow;
+                detailRow.find(".tabstrip").kendoTabStrip({
+                    animation: {
+                        open: { effects: "fadeIn" }
+                    }
+                });
+                //Single Sign On Accounts Tab
+                detailRow.find(".ssoaToCopyAccounts").kendoGrid({
+                    dataSource: {
+                        serverSorting: true,
+                        serverPaging: true,
+                        pageSize: 10,
+                        transport: {
+                            read: {
+                                url: "api/SingleSignOn/GetSingleSignOnForUser/" + e.data.UserSecurityControl,
+                                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                                type: "GET",
+                                dataType: 'json',
+                            },
+                            parameterMap: function (options, operation) { return options; }
+                        },
+                        schema: {
+                            data: "Data",
+                            total: "Count",
+                            model: {
+                                id: "SSOAXControl",
+                                fields: {
+                                    SSOAXControl: { type: "integer", editable: false },
+                                    SSOAXUN: { type: "string" },
+                                    SSOAName: { type: "string", editable: false },
+                                    SSOADesc: { type: "string", editable: false },
+                                    SSOAXRefID: { type: "string", editable: false },
+                                    UserName: { type: "string", editable: false }
+                                }
+                            },
+                            errors: "Errors"
+                        },
+                        error: function (xhr, textStatus, error) { ngl.showErrMsg("GetSingleSignOnForUser JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                    },
+                    pageable: { pageSizes: [5, 10] },
+                    resizable: true,
+                    groupable: false,
+                    columns: [
+                        { command: [{ className: "cm-icononly-button", name: "CopySSOAToNewUser", text: "", iconClass: "k-icon k-i-button", click: copySSOAToNewUser }], title: " ", width: 100 },
+                        { field: "SSOADesc", title: "Account" },
+                        { field: "SSOAXUN", title: "User Name" },
+                        { field: "SSOAXRefID", title: "Reference ID" }
+                    ]
+                });
+            }
+        });
+    });
+
+
+</script>
+
+<!-- ******************************************END SINGLE SIGN ON SECTION****************************************** -->

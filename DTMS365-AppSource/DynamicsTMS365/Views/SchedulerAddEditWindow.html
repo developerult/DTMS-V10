@@ -1,0 +1,260 @@
+﻿ <!--Appointment Add and Edit Window-->
+<div id="AppointmentAddEditWnd">
+    <div id="tabstrip">
+        <ul>
+            <li class="k-active">
+                Appointment Information
+            </li>
+            <li>
+                Carrier Data
+            </li>
+        </ul>
+        <div>
+            <div class="weather">
+                <div>
+                    <fieldset>
+                        <legend><span class='k-icon k-i-search'></span><b>Search Orders</b></legend>
+                        <div id="searchOrdersUI">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Order Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrderNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Appt Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtApptNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-min-margin">CNS :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtCNS" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Pro Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtProNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin"><button id="btnSearch" class="ui-min-margin">Search</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </fieldset>
+                </div>
+                <div class="MTop">
+                    <fieldset>
+                        <legend><span class='k-icon k-i-grid-layout'></span><b>Orders</b></legend>
+                        <div id="ordersWndGrid" ></div>
+                    </fieldset>
+                </div>
+                <div id="AddEditOrder" class="MTop">
+                    <fieldset>
+                        <legend id="AddEditOrderLegend"><b>Order Deatils</b></legend>
+                            <div id="OrdersAddEditUI">
+                              <table class="tblResponsive" style="width:100%" >
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">CNS :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCNS" style="width:80%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Equipment ID * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdEquipID" style="width:80%" /></td>
+                                         </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Pro Number :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdProNu" style="width:80%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrig" style="width:80%" /></td>
+                                         </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Order Number * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrderNu" style="width:80%" /><span id="txtOrdOrderNu-validation" class="hide-display ui-span-container"><br /><br />Order Number can't be empty</span></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig Address :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigAddress" style="width:80%" /></td> 
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">PO Number * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdPONu" style="width:80%" /><span id="txtOrdPONu-validation" class="hide-display ui-span-container"><br /><br />PO Number can't be empty</span></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig City :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigCity" style="width:80%" /></td> 
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Date Ordered :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdOrderd" data-role="datetimepicker" style="width:80%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig State :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigState" style="width:80%" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Date Load :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdLoad" data-role="datetimepicker" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig Zip :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdOrigZip" style="width:80%"  /></td>
+                                        </tr>
+                           
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Date Required :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdRequired"  data-role="datetimepicker" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Orig Country :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigCountry" style="width:80%"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Cases :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCases" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDest" style="width:80%"  /></td> 
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Cubes :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCubes" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest Address :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestAddress" style="width:80%"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Weight :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdWeight" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest City :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdDestCity" style="width:80%"  /></td>
+                                         </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Pallets In :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdPalletsIn" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest State :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtOrdDestState" style="width:80%"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Pallets Out :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdPalletsOut" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest Zip :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestZip" style="width:80%" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Description :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDesc" style="width:80%"  /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Dest Country :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestCountry" style="width:80%"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin"> </td>
+                                            <td class="tblResponsive-top ui-th-margin"> </td>
+                                            <td class="tblResponsive-top ui-th-margin"> </td>
+                                            <td class="tblResponsive-top ui-td-margin"><button id="btnSaveOrd" class="ui-button-margin">Save</button> <button id="btnCancelOrd" class="ui-button-margin">Cancel</button></td>
+                                        </tr>
+                                    </table>
+                            </div>
+                    </fieldset>
+                </div>
+                <div class="MTop">
+                    <fieldset>
+                        <legend><b>Appointment Details</b></legend>
+                          <div class="ApptAddEditDiv">
+                                    <table class="tblResponsive" style="width:100%">
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Carrier Name * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtCarrierName" style="width:98%" /><span id="apptCarrier-validation" class="hide-display ui-span-container"><br /><br />Carrier Name can't be empty</span></td>
+                                            <td class="tblResponsive-top ui-th-margin">Carrier Num/SCAC * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtSCAC" style="width:98%"  /><span id="apptSCAC-validation" class="hide-display ui-span-container"><br /><br />Carrier Num/SCAC can't be empty</span></td>
+                                         </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Description :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtDescription"  style="width:98%"  />
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Start Time * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtStartTime" data-role="datetimepicker" style="width:98%" /><span id="apptStartDate-validation" class="hide-display ui-span-container"><br /><br />Start Time Can't be empty or invalid</span></td>
+                                            <td class="tblResponsive-top ui-th-margin">End Time * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="txtEndTime"  data-role="datetimepicker" style="width:98%" /><span id="apptEndDate-validation" class="hide-display ui-span-container"><br /><br />End Time Can't be empty or invalid</span></td>
+                                            <td class="tblResponsive-top"><input type="checkbox" id="chkAllDay"  data-bind="checked: isChecked" /><label class="k-checkbox-label" for="chkAllDay" style="width:50px">All Day</label></td>
+                                         </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Dock Door * :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="ddlDockDoorID" style="width:98%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin"></td>
+                                            <td class="tblResponsive-top ui-td-margin" id="compBound"><input type="radio" id="rdoInBound" class="k-radio" name="InOutBound" /><label class="k-radio-label" for="rdoInBound">InBound</label> <input checked type="radio" id="rdoOutBound" class="k-radio" name="InOutBound" style="margin-left:50px;" /><label class="k-radio-label" for="rdoOutBound">OutBound</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin" style="vertical-align: -webkit-baseline-middle!important;">Notes :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><textarea id="txtNotes" style="width:98%" rows="4" cols="15" maxlength="400"></textarea></td>
+                                            <td class="tblResponsive-top ui-th-margin"> </td>
+                                            <td class="tblResponsive-top ui-td-margin"><button id="btnSave" class="ui-button-margin">Save</button> <button id="btnCancel" class="ui-button-margin">Cancel</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="weather">
+                <div>
+                    <fieldset>
+                        <legend><b>Appointment Details</b></legend>
+                                <div id="carrierDataUI">
+                                    <table class="tblResponsive">
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Scheduler Date Time :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATSchedulerFrom" style="width:98%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Check In Date Time :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATCheckIn" style="width:98%" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin"> </td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATSchedulerTo" style="width:98%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Check Out Date Time :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATCheckOut" style="width:98%" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tblResponsive-top ui-th-margin">Start (Un)Loading Date Time :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATStartLoading" style="width:98%" /></td>
+                                            <td class="tblResponsive-top ui-th-margin">Finish (Un)Loading Date Time :</td>
+                                            <td class="tblResponsive-top ui-td-margin"><input id="DATFinishLoading" style="width:98%" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ui-th-margin"> </td>
+                                            <td class="ui-th-margin"> </td>
+                                            <td class="ui-th-margin"> </td>
+                                            <td class="ui-td-margin"><button id="btnSaveCarrier" class="ui-button-margin">Save</button> <button id="btnCancelCarrier" class="ui-button-margin">Cancel</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                    </fieldset>
+                </div>
+                <div style="margin-top:20px">
+                    <div id="TrackingFieldsGrid"></div>
+                </div>
+                <div style="margin-top:20px">
+                    <div id="UserFieldsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+ <!--Appointment Add and Edit Override Window-->
+<div id="overrideWindow">
+    <div>
+        <div>
+            <fieldset>
+                <div>
+                    <h2 style="margin:0; font-size:1em;" id="txtFailedMsg"></h2>
+                    <br /><a href="#" id="aatMoreDetails"><span id="spanIconMoreDetails" class='k-icon k-i-minus'></span>More Details</a>
+                    <div id="FailedMsgDetails-UI" style="margin:10px">
+                        <h2 style="margin:0; font-size:1em;" id="txtFailedMsgDetails">No Additional Errors</h2>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="MTop">
+            <fieldset>
+                <div class="MBottom">
+                    <div class="SPRequired_UI MTop" align="center" >
+                        Password <input type="password" id="txtWndOverridePassword" class="ui-td-margin" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" /><span id="txtWndOverridePassword-validation" class="hide-display ui-span-container" style="margin-right:-20px;"><br /><br />Please enter the password</span>
+                    </div>
+                    <div class="RCRequired_UI  MTop" align="center" style="margin-left:-20px;" >
+                        Reason Code <input id="ddlWndOverrideReasonCode" class="ui-td-margin" /><span id="ddlWndOverrideReasonCode-validation" class="hide-display ui-span-container"><br /><br />Select Reason Code </span>
+                    </div>
+                </div>
+
+                <div class="btnOcerride_UI MTop" align="center" >
+                    <button id="btnWndOverride" class="OR-btn-width" >Override</button>
+                </div>
+                <div align="center" class="MTop">
+                    <h2 style="margin:0; font-size:1em;">Click the button below to search alternate</h2>
+                    <h2 style="margin:0; font-size:1em;"> resources for available times</h2>
+                    <button id="btnViewAvailability" class="OR-btn-width MTop">View Availability</button>
+                </div>
+                <div align="center" class="MTop">
+                    <div id="viewAvailableSlotsGrid" ></div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

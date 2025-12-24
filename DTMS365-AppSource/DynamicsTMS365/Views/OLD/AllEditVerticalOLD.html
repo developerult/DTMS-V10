@@ -1,0 +1,129 @@
+﻿<div id="wnd">
+    <div id="verticalWnd" style="height: 98%; width: 98%; ">
+        <div id="menu-pane2" style="height: 100%; width: 100%; background-color: white; ">
+            <div class="pane-content">
+                <div>
+                    <input id="dtpStampDate" />
+                    <button id="btnStampDateAllPick">Apply To All Pickup</button>
+                    <button id="btnStampDateAllDel">Apply To All Delivery</button>
+                </div>
+                <div>
+                    <input id="dtpStampTime" />
+                    <button id="btnStampTimeAllPick">Apply To All Pickup</button>
+                    <button id="btnStampTimeAllDel">Apply To All Delivery</button>
+                </div>
+            </div>
+        </div>
+        <div id="top-pane2">
+            <div id="horizontalWnd" style="height: 100%; width: 100%; ">
+                <div id="left-pane2">
+                    <div class="pane-content">
+                        <div><span><strong>Pickup Information</strong></span></div>
+                        <div class="wrapper">
+                            <ul>
+                                <li style="list-style-type: none;">Scheduled Appt Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrScheduleDate" /><button id="btnStampBookCarrScheduleDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrScheduleTime" /><button id="btnStampBookCarrScheduleTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Arrived-Checked In Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActualDate" /><button id="btnStampBookCarrActualDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActualTime" /><button id="btnStampBookCarrActualTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Start Loading Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrStartLoadingDate" /><button id="btnStampBookCarrStartLoadingDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrStartLoadingTime" /><button id="btnStampBookCarrStartLoadingTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Finish Loading Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrFinishLoadingDate" /><button id="btnStampBookCarrFinishLoadingDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrFinishLoadingTime" /><button id="btnStampBookCarrFinishLoadingTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Check Out Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActLoadComplete_Date" /><button id="btnStampBookCarrActLoadComplete_Date" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActLoadCompleteTime" /><button id="btnStampBookCarrActLoadCompleteTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Dock Door(s) Assignment</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrDockPUAssigment" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Whse Auth Number</li>
+                                <li style="list-style-type: none;"><input id="txtBookWhseAuthorizationNo" /></li>
+                                <li style="list-style-type: none; margin-top:5px"><input type="checkbox" id="chkApplyToAllPickup" ><label class="k-checkbox-label" for="chkApplyToAllPickup">Apply To All Orders With Same Pickup</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="center-pane2">
+                    <div class="pane-content">
+                        <div><span><strong>Delivery Information</strong></span></div>
+                        <div class="wrapper">
+                            <ul>
+                                <li style="list-style-type: none;">Scheduled Appt Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrApptDate" /><button id="btnStampBookCarrApptDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrApptTime" /><button id="btnStampBookCarrApptTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Delivered-Checked In Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActDate" /><button id="btnStampBookCarrActDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActTime" /><button id="btnStampBookCarrActTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Start Unloading Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrStartUnloadingDate" /><button id="btnStampBookCarrStartUnloadingDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrStartUnloadingTime" /><button id="btnStampBookCarrStartUnloadingTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Finish Unloading Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrFinishUnloadingDate" /><button id="btnStampBookCarrFinishUnloadingDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrFinishUnloadingTime" /><button id="btnStampBookCarrFinishUnloadingTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Check Out Date & Time</li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActUnloadCompDate" /><button id="btnStampBookCarrActUnloadCompDate" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none;"><input id="dtpBookCarrActUnloadCompTime" /><button id="btnStampBookCarrActUnloadCompTime" style="margin-left:5px"></button></li>
+                                <li style="list-style-type: none; margin-top:5px">Dock Door(s) Assignment</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrDockDelAssignment" /></li>
+                                <li style="list-style-type: none; margin-top:5px"><input type="checkbox" id="chkApplyToAllDelivery" ><label class="k-checkbox-label" for="chkApplyToAllDelivery">Apply To All Stops With Same Destination</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="right-pane">
+                    <div class="pane-content">
+                        <div><span><strong>Trailer Information</strong></span></div>
+                        <div class="wrapper">
+                            <ul>
+                                <li style="list-style-type: none;">Trailer Number</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrTrailerNo" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Trailer Seal Number</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrSealNo" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Driver Number</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrDriverNo" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Driver Name</li>
+                                <li style="list-style-type: none;"><input id="txtBookCarrDriverName" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Carrier Pro</li>
+                                <li style="list-style-type: none;"><input id="txtAssignedProNumber" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Carrier Name</li>
+                                <li style="list-style-type: none;"><input id="txtAssignedCarrierName" /></li>
+                                <li style="list-style-type: none; margin-top:5px">Carrier Num/SCAC</li>
+                                <li style="list-style-type: none;"><input id="txtAssignedCarrierNumber" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="bottom-pane2" style="height: 100%; width: 100%; ">
+            <div class="pane-content">
+                <div class="wrapper">
+                    <ul>
+                        <li style="list-style-type: none; margin-bottom:5px">Comments: <input id="txtComments" style="width:90%" /></li>
+                        <li style="list-style-type: none;">Reason Code: <input id="comboAllLoadStatusCodes" style="margin-right:5px" /><input type="checkbox" id="chkApplyToAll" ><label class="k-checkbox-label" for="chkApplyToAll">Apply To All Stops</label></li>
+
+                        <!--<li style="list-style-type: none; margin-top:5px"><input type="checkbox" id="chkApplyToAll" ><label class="k-checkbox-label" for="chkApplyToAll">Apply To All Stops</label></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <input id="txtControl" type="hidden" />
+    <input id="txtSHID" type="hidden" />
+    <input id="txtProNumber" type="hidden" />
+    <input id="txtCNS" type="hidden" />
+    <input id="txtOrderNumber" type="hidden" />
+    <input id="txtStopNumber" type="hidden" />
+    <input id="txtBookPickupStopNumber" type="hidden" />
+    <input id="txtAssignedCarrierContact" type="hidden" />
+    <input id="txtAssignedCarrierContactPhone" type="hidden" />
+
+    <!--<button type="button" id="btnSubmitBid" onclick="btnSubmitBid_Click();" style="margin-bottom:5px;margin-top:5px">Save&nbsp</button>-->
+</div>

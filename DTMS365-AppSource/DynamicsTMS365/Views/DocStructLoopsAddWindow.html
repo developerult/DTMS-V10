@@ -1,0 +1,127 @@
+﻿<!--Added By LVV on 2/12/18 AnimalAddExample -->
+<div id="wndAddMDocStructLoops">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <input id="txtMDSLoopControl" type="hidden" />
+            <input id="txtMDSLoopModDate" type="hidden" />
+            <input id="txtMDSLoopModUser" type="hidden" />
+            <input id="txtMDSLoopUpdated" type="hidden" />
+            <input id="txtMDSLoopCreateDate" type="hidden" />
+            <input id="txtMDSLoopCreateUser" type="hidden" />
+
+            <div style="float: left;">
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Loop</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="ddlMDSLoopLoopControl" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+
+                                <span id="name-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Select Loop Name</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Parent Loop</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="ddlMDSLoopParentLoopID" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Usage</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="ddlMDSLoopUsage" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Mininum Loops Allowed</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtMDSLoopMinCount" type="number" min="1" step="1"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="min-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Loop MinCount  Can't be 0 (or) Empty</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Maximum Loops Allowed</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtMDSLoopMaxCount" type="number" min="1" step="1"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="max-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Loop MaxCount  Can't be 0 (or) Empty</span>
+                                <span id="minmax-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Min value should be less than or equal to Max Value</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Sequence Index</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtMDSLoopSeqIndex" type="number" min="1" step="1"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="margin-top:10px;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Disabled</td>
+                            <td class="tblResponsive-top">
+                                <input id="chkMDSLoopDisabled" type="checkbox" style="margin-left:50px;" />
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+        </div>
+    </div>
+</div>

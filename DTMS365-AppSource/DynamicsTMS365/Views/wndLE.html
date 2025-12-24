@@ -1,0 +1,108 @@
+﻿<div id="wndLE">
+    <div>
+        <input id="ddLEA" style="width:200px;" />
+    </div>
+    <div style="margin-top:5px;">
+        <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" type="button" onclick="btnSetLEA_Click();">Change</button>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+
+    $(document).ready(function () {
+
+        ////////////wndLE///////////////////
+        wndLE = $("#wndLE").kendoWindow({
+            title: "Change Legal Entity",
+            modal: true,
+            visible: false
+        }).data("kendoWindow");
+
+        $("#ddLEA").kendoDropDownList({
+            //autoBind: false,
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            url: "api/vLookupList/GetStaticList/" + nglStaticLists.LegalEntities,
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                                    if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Legal Entities ddl Failure", data.Errors, null); }
+                                }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Legal Entities JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+   
+        
+
+        //////////LEGAL ENTITY DDL//////////
+        ////dsLEAs = new kendo.data.DataSource({
+        ////    transport: {
+        ////        read: {
+        ////            url: function (options) {
+        ////                return "api/LegalEntity/GetLegalEntityAdmins/";
+        ////            },
+        ////            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+        ////        },
+        ////        parameterMap: function (options, operation) { return options; }
+        ////    },
+        ////    schema: {
+        ////        data: "Data",
+        ////        total: "Count",
+        ////        model: {
+        ////            id: "LEAdminControl",
+        ////            fields: {
+        ////                LEAdminControl: { type: "number", editable: false },
+        ////                CompName: { type: "string", editable: false },
+        ////                LegalEntity: { type: "string", editable: false }
+        ////            }
+        ////        },
+        ////        errors: "Errors"
+        ////    },
+        ////    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Legal Entity Admins JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failuire"), null); this.cancelChanges(); },
+        ////    serverPaging: false,
+        ////    serverSorting: false,
+        ////    serverFiltering: false
+        ////});
+
+        ////$("#ddLEA").kendoDropDownList({
+        ////    autoBind: false,
+        ////    dataTextField: "LegalEntity",
+        ////    dataValueField: "LEAdminControl",
+        ////    dataSource: dsLEAs,
+        ////});
+
+
+    });
+
+
+</script>

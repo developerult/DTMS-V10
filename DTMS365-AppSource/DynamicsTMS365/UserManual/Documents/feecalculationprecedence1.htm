@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Fee Calculation Precedence</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - CARRIERS ACCESSORIALS.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="feeallocationformula1.htm" /><link rel="next" href="tariffcarrierspecificfees1.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="a976042c-451a-4aed-808f-f58663da1c2f">
+<h2>Fee Calculation Precedence</h2>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt"><b>Fee Calculation type: </b>fees 
+are calculated based on one of the following settings</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">1.  
+<b>All</b> = combine all fees together (default)</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">2.  
+<b>Unique</b> = only one fee will be included based on the accessorial 
+type.  Duplicates will be ignored and marked as overwritten For example: if 
+there is an unloading fee at lane level and unloading at order level, only the 
+order level unloading fee will be applied There is an order of precedence<b> 
+</b>used to resolve conflict with fee calculation types.  This precedence 
+is order, Lane, Tariff. </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -18pt; tab-stops: 108.0pt">a.  Any 
+fee marked as unique will only be overwritten if the exact fee exists at the 
+order level or lane level.  If the user deletes the previous overwritten 
+fee, it will be reset back to originals.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 108pt; TEXT-INDENT: -18pt; tab-stops: 108.0pt">b.  
+Exception to the rule – NEXTrack self-service carrier fee submittal process may 
+affect how these fees are calculated to be defined.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">3.  
+<b><span style="BACKGROUND: yellow">Carrier over lane</span></b> = carrier fees 
+have the ability to override lane fees and will combine with order specific 
+fees. For example: if there is a carrier unloading charge and lane unloading 
+charge and an order unloading charge; the carrier and order unloading charge 
+will be added together and the lane charge will be ignored, and the lane fee 
+will be marked as overwritten. Note: the order specific fee is not required for 
+this calculation type</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">4.  
+<b>Lane over Carrier = </b>lane fees have the ability to override carrier fees 
+and will combine with order specific fees. For example: if there is a carrier 
+unloading charge and lane unloading charge and an order unloading charge; the 
+lane and order unloading charge will be added together and the carrier charge 
+will be ignored, and the carrier fee will be marked as overwritten. Note: the 
+order specific fee is not required for this calculation type</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">5.  
+<b>Carrier over all = </b>carrier fee will always overwrite lane and order 
+specific fees</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">6.  
+<b>Lane over all = </b>lane fees will always overwrite carrier and orders 
+specific fees</p>
+<p class="MsoNormal"><img src="../ImagesExt/image36_8.jpg" alt="" /></p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt"><img src="../ImagesExt/image36_9.jpg" alt="" /></p><span id="related-topics"></span></body></html>

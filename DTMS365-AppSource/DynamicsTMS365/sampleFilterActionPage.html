@@ -1,0 +1,79 @@
+﻿
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DTMS Sample Filter Action Page</title>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+
+
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+
+    <div id="LocalizationData">
+        <div class="pane-content">
+            <div class="fast-tab">
+                <span id="ExpandLocalizationSpan" style="display:none;">&nbsp;&nbsp;<img id="imgExpandAvailableLoads" onclick="expandFastTab('ExpandLocalizationSpan','CollapseLocalizationSpan','LocalizationHeader','LocalizationDetail');" border="0" alt="Expand" src="../Content/NGL/expand.png" width="12" height="12" /></span>
+                <span id="CollapseLocalizationSpan" style="display:normal;">&nbsp;&nbsp;<img id="imgCollapseAvailableLoads" onclick="collapseFastTab('ExpandLocalizationSpan','CollapseLocalizationSpan','LocalizationHeader','LocalizationDetail');" border="0" alt="Collapse" src="../Content/NGL/collapse.png" width="12" height="12" /></span>
+                <span style="font-size:small; font-weight:bold">Localization  Data</span>
+                <br />
+
+                <div id="LocalizationHeader">
+                    <label>Localization Filters and Actions</label>>&nbsp;&nbsp;
+                    <span id="ExpandLocalizationFiltersSpan" style="display:none;">&nbsp;&nbsp;<img id="imgExpandAvailableLoads" onclick="expandFastTab('ExpandLocalizationFiltersSpan','CollapseLocalizationFiltersSpan','LocalizationFiltersHeader','LocalizationFiltersDetail');" border="0" alt="Expand" src="../Content/NGL/expand.png" width="12" height="12" /></span>
+                    <span id="CollapseLocalizationFiltersSpan" style="display:normal;">&nbsp;&nbsp;<img id="imgCollapseAvailableLoads" onclick="collapseFastTab('ExpandLocalizationFiltersSpan','CollapseLocalizationFiltersSpan','LocalizationFiltersHeader','LocalizationFiltersDetail');" border="0" alt="Collapse" src="../Content/NGL/collapse.png" width="12" height="12" /></span>
+                    <label>Filters:  Put Single Filter Here</label>
+                    <span id="LocalizationFiltersHeader">Instructions For Adding filters</span>
+                    <div id="LocalizationFiltersDetail">
+                        <ul class="filterfieldlist" id="LocalizationFiltersfieldlist">
+                            <li class="filterfieldLabel"><label for="cmLocalKeyFilter">Key Filter:</label></li>
+                            <li><input id="cmLocalKeyFilter" value="Reference Meta Data Here" /></li>
+                            <li class="filterfieldLabel"><label for="cmLocalValueFilter">Default Filter:</label></li>
+                            <li><input id="cmLocalValueFilter" value="Reference Meta Data Here" /></li>
+                            <li class="filterfieldLabel"><label for="cmLocalValueLocalFilter">Localized Filter:</label></li>
+                            <li><input id="cmLocalValueLocalFilter" value="Reference Meta Data Here" /></li>
+                            <li class="filterfieldLabel"><label for="cmLocalModDateFilter">Mod Date Filter:</label></li>
+                            <li><input id="cmLocalModDateFilter" value="Reference Meta Data Here" /></li>
+                            <li class="filterfieldLabel"><label for="cmLocalModUserFilter">Mod User Filter:</label></li>
+                            <li><input id="cmLocalModUserFilter" value="Reference Meta Data Here" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!--This Div is missing-->
+            <div id="LocalizationDetail" class="OpenOrders">
+                <div id="LocalizationGrid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

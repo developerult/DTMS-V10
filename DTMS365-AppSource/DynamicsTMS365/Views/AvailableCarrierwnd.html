@@ -1,0 +1,304 @@
+﻿<!-- Added By LVV on 6/17/20 for v-8.2.1.008 Task#202005151417 - Company/Warehouse Maintenance Changes -->
+<div id="wndActiveCarriers">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p>Available Carriers to Add</p>
+        <!--<button id="btnUCN" type="button">Preferred Carriers to the Lane</button>-->
+        <div id="ActiveCarriersGrid"></div>
+    </div>
+</div>
+
+
+<script>
+
+    var dsActiveCarriers = kendo.data.DataSource;
+    var wndActiveCarriers = kendo.ui.Window;
+    var ActCarriersControl = 0;    
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openActiveCarriersWnd(leControl) {
+        //If a Legal Entity is provided use that - else use the users associated LE (done in the DAL method)
+        ActCarriersControl = leControl;
+        refreshAvaiableCarriersGrid();       
+        wndActiveCarriers.center().open();
+    }
+
+
+    function refreshAvaiableCarriersGrid() { ngl.readDataSource($('#ActiveCarriersGrid').data('kendoGrid')); }
+
+
+    /*************************** SAVE LOGIC *************************************/
+
+    /* Summary - Saves all the records that have been changed. If blnSaveUpdate is true, then after the save it runs the Update Credit Now! logic */
+    function BatchSaveActiveCarriers(blnSaveUpdate) {
+              $("#ActiveCarriersGrid").on("click", ".k-i-hyperlink-open-sm", function () {
+            var row = $(this).closest("tr");
+            dataItem = grid.dataItem(row);
+            if (dataItem.BookCarrTarControl == 0) {
+                ngl.showValidationMsg("View Tariff", "The tariff is not valid");
+                return false;
+            }
+            else { window.open("../Tariff?tarcontrol=" + dataItem.BookCarrTarControl, "_blank"); }
+
+        });
+        if (ngl.isArray(arrCredit) && arrCredit.length > 0) {
+            kendo.ui.progress(wndActiveCarriers.element, true);
+            if (blnSaveUpdate === true) { oCRUDCtrl.update("LELaneActiveCarriers/PostPageSetting", arrCredit, tPage, "BatchSaveUpdateSuccessCallback", "BatchSaveUpdateAjaxErrorCallback"); }
+            else { oCRUDCtrl.update("LELaneActiveCarriers/PostPageSetting", arrCredit, tPage, "BatchSaveSuccessCallback", "BatchSaveAjaxErrorCallback"); }
+        } else { ngl.showSuccessMsg("Nothing to save", null); }
+    }
+
+    var blnActiveCarriersGridChangeBound = false;
+    //*************  Call Back Functions ****************
+    function ActiveCarriersGridDataBoundCallBack(e, tGrid) {
+        //debugger;
+        var oActiveCarGrid = tGrid;
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        if (blnActiveCarriersGridChangeBound == false) {
+            oActiveCarGrid.bind("change");
+            var rows = oActiveCarGrid.items();
+            $(rows).each(function (e) {
+                var row = this;
+                var dataItem = oActiveCarGrid.dataItem(row);
+                var blnRet = oCRUDCtrl.update("LELaneActiveCarriers/PostPageSetting", arrCredit, tPage, "BatchSaveUpdateSuccessCallback", "BatchSaveUpdateAjaxErrorCallback");
+            });
+        }
+    }
+    
+    /* Summary - Executes when the Save is successful */
+    function BatchSaveSuccessCallback(data) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveSuccessCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        try {
+            kendo.ui.progress(wndActiveCarriers.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) {
+                    blnErrorShown = true;
+                    oResults.error = new Error();
+                    oResults.error.name = "Save Active Carriers Failure";
+                    oResults.error.message = data.Errors;
+                    ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+                }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshAvaiableCarriersGrid();
+                }
+
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Active Carriers Failure", strValidationMsg, null); }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful */
+    function BatchSaveAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Save Active Carriers Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndActiveCarriers.element, false);
+    }
+
+    /* Summary - Executes when the Save is successful and calls the Update Credit Now! logic  */
+    function BatchSaveUpdateSuccessCallback(data) {
+        try {
+            kendo.ui.progress(wndActiveCarriers.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Save Active Carriers Failure", data.Errors, null); }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshAvaiableCarriersGrid();
+                   // UpdateCreditRoutine365LE();
+                }
+
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Active Carriers Failure", strValidationMsg, null); }
+        } catch (err) { ngl.showErrMsg(err.name, err.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful and we do not get to call the Update Credit Now! logic */
+    function BatchSaveUpdateAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveUpdateAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Save Active Carriers Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndActiveCarriers.element, false);
+    }
+
+
+
+    
+
+
+    $(document).ready(function () {
+
+       
+
+        dsActiveCarriers = new kendo.data.DataSource({
+            transport: {
+                read: function (options) {
+                    var s = new AllFilter();
+                    s.LEAdminControl = ActCarriersControl;
+                    $.ajax({
+                        url: 'api/LELaneActiveCarriers/GetAllRecords',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(s) },
+                        //data: { filter: "" },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            //debugger;
+                            options.success(data);
+                            if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Active Carriers Failure", data.Errors, null); }
+                            }
+                        },
+                        error: function (result) { options.error(result); }
+                    });
+                },
+                //parameterMap: function(options, operation) { return options; },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) { return { models: kendo.stringify(options.models) }; }
+                }
+            },
+            batch: true,
+            pageSize: 10,
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "LaneControl",
+                    fields: {
+                        CarrierNumber: { type: "number", editable: false },
+                        CarrierName: { type: "string", editable: false },
+                        ModeTypeName: { type: "string", editable: false },
+                        TempTypeName: { type: "string", editable: false },
+                        TariffName: { type: "string", editable: false },
+                        TariffEquip: { type: "string", editable: false },
+                        CarrierIgnoreTariff: { type: "boolean", editable: false },
+                        BookCarrTarControl: { type: "number", editable: false, hidden: true },
+                        LaneControl: { type: "number", editable: false, hidden: true },
+                        CarrierControl: { type: "number", editable: false, hidden: true }                        
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Access Available Carriers Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+        });
+       
+        $("#ActiveCarriersGrid").kendoGrid({
+            dataSource: dsActiveCarriers,
+            navigatable: true,
+            pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+            columns: [
+                { field: "CarrierNumber", title: "Carrier Number", width: "30%" },
+                 { field: "CarrierName", title: "Carrier Name", width: "30%" },
+                { field: "ModeTypeName", title: "Mode", width: "10%" },
+                { field: "TempTypeName", title: "Temp Type", width: "20%" },
+                { field: "TariffName", title: "Tariff Name", width: "20%" },
+                { field: "TariffEquip", title: "Service", width: "20%" },
+                { field: "CarrierIgnoreTariff", title: "Ignore Tariff", width: "20%" },
+                 { field: "BookCarrTarControl", title: "BookCarrTarControl", hidden: true },
+                 { field: "LaneControl", title: "LaneControl", hidden: true },
+                 { field: "CarrierControl", title: "CarrierControl", hidden: true },                   
+                 { template: "<a href  class='k-icon k-i-hyperlink-open-sm'> View Traiff </button>", title: "View Tariff", width: "20%" },
+            ],
+            editable: false,
+            selectable: "single, row",
+            change: function(e) {
+                var selectedRows = this.select();
+                var grid = $("#ActiveCarriersGrid").data("kendoGrid");
+                var dataItem = grid.dataItem(selectedRows);              
+                console.log(dataItem);
+                var dataJSON = {
+                    LLTCCarrierControl:dataItem.CarrierControl,
+                    LLTCCarrierNumber:dataItem.CarrierNumber,
+                    LLTCCarrierName: dataItem.CarrierName,
+                    LLTCLaneControl: dataItem.LaneControl,                 
+                    LLTCModeTypeControl: dataItem.ModeTypeControl,
+                    LLTCSequenceNumber:0,
+                    LLTCSActive:true,
+                    LLTCTempType:dataItem.TempTypeControl,
+                    LLTCMaxCases:0,
+                    LLTCMaxWgt:0,
+                    LLTCMaxCube:0,
+                    LLTCMaxPL:0,
+                    LLTCTariffControl:dataItem.TariffControl,
+                    LLTCTariffName:dataItem.TariffName,
+                    LLTCTariffEquip:dataItem.TariffEquip,
+                    LLTCMinAllowedCost:0,
+                    LLTCMaxAllowedCost:0,
+                    LLTCAllowAutoAssignment:false,
+                    LLTCIgnoreTariff:dataItem.CarrierIgnoreTariff                    
+                    
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "api/LELaneActiveCarriers/SaveLimitLaneToCarrier/",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify(dataJSON),
+                    headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                    success: function(data) {
+                        if (data.Errors != null) {
+                            if (data.StatusCode === 203){ngl.showErrMsg("Authorization Timeout", data.Errors, null);}
+                            else { ngl.showErrMsg("Access Denied", data.Errors, null); }                       
+                        }
+                        ngl.showSuccessMsg("Carriers Added successfully.", null);
+                        },
+                        error: function (xhr, textStatus, error) {
+                            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                            ngl.showErrMsg("Saving Issues", sMsg, null);
+                        }
+                    });
+                //var selectedDataItems = [];
+                //for (var i = 0; i < selectedRows.length; i++) {
+                //    var dataItem = this.dataItem(selectedRows[i]);
+                //    selectedDataItems.push(dataItem);
+                //}
+
+                //// selectedDataItems contains all selected data items
+                //console.log("Selected data items' name: " + selectedDataItems.map(e => e.name).join(", "));
+
+            }
+    });
+       
+        var grid = $("#ActiveCarriersGrid").data("kendoGrid");
+        $("#ActiveCarriersGrid").on("click", ".k-i-hyperlink-open-sm", function () {
+            var row = $(this).closest("tr");
+            dataItem = grid.dataItem(row);
+            if (dataItem.BookCarrTarControl == 0) {
+                ngl.showValidationMsg("View Tariff", "The tariff is not valid");
+                return false;
+            }
+            else { window.open("../Tariff?tarcontrol=" + dataItem.BookCarrTarControl, "_blank"); }          
+            
+        });
+        wndActiveCarriers = $("#wndActiveCarriers").kendoWindow({
+            title: "Available Carriers to the Lane",
+            width: "80%",
+            actions: ["Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false
+        }).data("kendoWindow");
+        $("#wndActiveCarriers").data("kendoWindow").wrapper.find(".k-svg-i-close").parent().click(function (e) {
+           refresh();
+        }); //Perform the save and only the save
+
+    });
+
+</script>

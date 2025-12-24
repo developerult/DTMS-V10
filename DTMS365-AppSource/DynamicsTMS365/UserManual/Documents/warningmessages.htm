@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Warning Messages</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="orderpreview.htm" /><link rel="next" href="nextstopops.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="34eadeaa-2051-4fc6-928b-b5593798b071">
+<h4>Warning Messages</h4>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">These are warning attributes to warn the user on how to 
+proceed with the order before importing.  Some silent or auto tendered 
+orders will get stopped in the order preview screen.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">1.  
+<b><i>CONFIRMED</i></b>: this order is a ship confirmed update.  Updates 
+are followed by cost recalculations if costs are not locked.  BFC values 
+and Total Costs are always reallocated by weight to the item level detail every 
+time an update is received, even if the costs are locked, this is to account for 
+the condition where items may have changed but the total cost remains the 
+same.  An additional feature of the update process is the ability to update 
+the pick list status upon ship confirmed.  This is controlled by the global 
+parameter “<b>ImportAddConfirmedToPicklist</b>”.  </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">2.  
+<b><i>NO PRO</i></b>: this is a new order being imported for the first time. 
+Process as normal.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">3.  
+<b><i>DELETE-B</i></b>:  The order has been transmitted with the delete 
+code.  It has not been accepted by the carrier, not finalized.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">4.  
+<b><i>DELETE-F</i></b>:  the order has been transmitted with the delete 
+code.  It has already been accepted by the carrier (finalized). The users 
+should cancel the order with the carrier, go to booking and select Drop 
+Load, then click on process order in order preview or delete the order from 
+the order preview screen</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">5.  
+<b><i>DELETED</i></b>:  a matching order cannot be located in the booking 
+table; we assume it was previously deleted.  This typically happens when we 
+receive a ship confirmed and the order cannot be found.  There is a 
+parameter, <b>GlobalTreatShipConfirmedLikeNew</b>, which can control this 
+behavior.  If the parameter is on (1) the order will be marked with the No 
+Pro attribute.  If the order is transmitted with the delete status code and 
+the order cannot be found in the book table, the DELETED attribute will be 
+displayed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">6.  
+<b><i>FINALIZED</i></b>:  a modification to the order was transmitted but 
+the order has already been accepted by the carrier (finalized). Users should 
+manually unfinalize the order before clicking on Process order or delete it from 
+the Order Preview Screen if you do not want to bring in order changes. However, 
+this will impact the order metrics and costs.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">7.  
+<b><i>NO LANE</i></b>:  this attribute is applied with an order is 
+transmitted and a lane cannot be located. The user should import the lane, 
+create a lane manually; then re-transmit the order from the ERP system.  It 
+may be possible to import the record from the order preview screen without 
+re-transmitting, but all data must be checked for errors and this is not the 
+recommended approach.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">8.  
+<b><i>NEW TRAN</i></b>:  any new or modified order that is transmitted will 
+be marked with the NEW TRAN attribute if the order data does not match the Lane 
+Trans Type (CPU, Delivered etc..) (aka Shipment Method) or is different than the 
+lane. It cannot be imported. Care should be taken when processing this 
+order to be sure the correct carrier is assigned; the default carrier may 
+not be correct. There is a company level parameter, 
+<b><i>PODownloadNewTranWarningFlag</i></b>, Flag to determine if records in the 
+order preview screen are marked with New Tran if it does not match lane.  
+Prevents silent tender. 0 = off 1 = on.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">9.  
+<b><i>NEW TRAN-F</i></b>: this attribute is applied with a modification where 
+The Trans type (CPU, Delivered etc..) has changed or is different than the lane 
+after the order has been finalized.  Users can import the record from the 
+order preview screen, but the carrier requirements may have changed, and the 
+load should be retendered.  We suggest that you unfinalize the order before 
+importing.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">10. <b><i>NEW 
+COMP</i></b>:  this attribute is applied when the company/location has 
+changed to a different warehouse. This takes precedence over NEW TRAN. Loads 
+cannot be imported for NEW COMP automatically.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">11. <b><i>SPLIT 
+NEW COMP</i></b>: - The ship from warehouse (company) has changed.  Users 
+cannot import this data and it must manually be deleted from the order preview 
+screen once manual updates are complete.  Users must manually make 
+corrections to the existing spit loads including ship from locations and item 
+level details.  In the case where orders were split due to capacity manual 
+adjustment of changes to item level details is required.  One option is to 
+delete all orders that have been split manually and re-transmit the data from 
+the ERP system, but this is a last resort.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">12. <b><i>SPLIT 
+NEW TRAN</i></b>: - The Trans method (CPU, Delivered etc..) has changed or is 
+different than the lane. Users cannot import this data and it must manually be 
+deleted from the order preview screen once manual updates are complete.  
+Users must manually make corrections to the existing spit loads including ship 
+from locations and item level details.  In the case where orders were split 
+due to capacity manual adjustment of changes to item level details is 
+required.  One option is to delete all orders that have been split manually 
+and re-transmit the data from the ERP system, but this is a last resort.  
+</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 54.0pt">13. <b><i>SPLIT 
+ORDER</i></b>: - Users cannot import this data and it must manually be deleted 
+from the order preview screen once manual updates are complete.  Users must 
+manually make corrections to the existing spit loads including ship from 
+locations and item level details.  In the case where orders were split due 
+to capacity manual adjustment of changes to item level details is 
+required.  One option is to delete all orders that have been split manually 
+and re-transmit the data from the ERP system, but this is a last resort.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Below is an example of a deleted order which is an exception 
+indicating that this order is to be deleted and it’s also assigned to a carrier- 
+F (Finalized).</p>
+<p class="MsoNormal">Users should un-finalize the order in TMS, notify carrier of 
+order cancellation.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image67_61.jpg" alt="" /><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span></p>
+<p class="MsoNormal">Then click the green arrow (process button) and it will 
+delete the order in TMS.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image67_62.png" alt="" /><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span></p>
+<p class="MsoNormal"><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span> </p>
+<p class="MsoNormal"><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span> </p>
+<p class="MsoNormal"><img src="../ImagesExt/image67_63.jpg" alt="" /><span style="FONT-SIZE: 12pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #1f4d78"></span></p>
+<p class="MsoNormal">The Process All button will bring in all transactions on this 
+page. If you wish to not bring in certain orders into TMS, users can simply 
+place orders on HOLD by clicking the HOLD button for each record. When on hold, 
+it will turn to RED. </p>
+<p class="MsoNormal"><img src="../ImagesExt/image67_64.jpg" alt="" /></p><span id="related-topics"></span></body></html>

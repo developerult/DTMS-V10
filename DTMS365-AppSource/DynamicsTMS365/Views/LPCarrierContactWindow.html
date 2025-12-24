@@ -1,0 +1,146 @@
+﻿<style>
+    
+
+</style>
+<div id="winLPCarrierContact">
+    
+        <div id="LPCarrierContactGrid">
+            
+        </div>
+    
+</div>
+
+<script>
+
+    // load planning carrier contact popup window btnOpenCarCont click
+
+    function btnLPCarrierContact_Click(CarrierControlPK) {
+        var winLPCarrierContact = $("#winLPCarrierContact").kendoWindow({
+            title: "Carrier Contact",
+            maxHeight: $(window).height(),
+            maxWidth: $(window).width(),
+            height: 300,
+            width: ($(window).width() / 10) * 9,
+            modal: true,
+            visible: false,
+            resizable: true,
+            scrollable: true,
+            actions: ["Minimize", "Maximize", "Close"],
+            //close: function () { saveScreenInfo(); },
+            open: function () { //btnClear_Click();
+            }
+        }).data("kendoWindow");
+
+        winLPCarrierContact.wrapper.find(".k-svg-i-save").parent().click(function (e) {
+            e.preventDefault();
+            //btnSaveClick();
+            SaveOrder();
+        });
+        winLPCarrierContact.wrapper.find(".k-svg-i-print").parent().click(function (e) {
+            e.preventDefault();
+            printwinItems();
+        });
+        blnWinItemsClosing = false;
+        winLPCarrierContact.center().open();
+
+        var LoadPlanningCarrierContactListDataSource = new kendo.data.DataSource({
+            pageSize: 1,
+            transport: {
+                read: function (options) {
+
+                    $.ajax({
+                        url: 'api/Contact/GetUserLECarrierContacts', 
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify({ "CarrierControlFrom": CarrierControlPK }) },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            consignments = data.Data;
+                            //console.log(cons[0]["SolutionTruckConsPrefix"]);
+                            options.success(data);
+                            //console.log(data);
+                            if (data.Errors != null) {
+                                PageStatus = 1;
+                                if (data.StatusCode === 203) {
+                                    ngl.showErrMsg("Authorization Timeout", data.Errors, null);
+                                }
+                                else {
+                                    ngl.showErrMsg("Access Denied", data.Errors, null);
+                                }
+                            }
+                        },
+
+                        error: function (result) {
+                            options.error(result);
+                        }
+                    });
+
+                },
+                parameterMap: function (options, operation) { return options; }
+
+            },
+            batch: true,
+            pageSize: 20,
+            autoSync: true,
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "ContactControl",
+                    fields: {
+                        ContactControl: { type: "number", editable: false, hidden: true },
+                        ContactName: { type: "string", editable: false },
+                        ContactTitle: { type: "string", editable: false },
+                        ContactEmail: { type: "string", editable: false },
+                        ContactPhone: { type: "string", editable: false },
+                        ContactPhoneExt: { type: "string", editable: false },
+                        Contact800: { type: "boolean", editable: false },
+                        ContactFax: { type: "number", editable: false },
+                        ContactDefault: { type: "boolean", editable: false, hidden: true },
+                        ContactScheduler: { type: "number", editable: false, hidden: true },
+                        ContactTender: { type: "number", editable: false, hidden: true },
+                        ContactCarrierControl: { type: "number", editable: false, hidden: true },
+                        ContactLECarControl: { type: "number", editable: false, hidden: true },
+                        ContactCompControl: { type: "number", editable: false, hidden: true }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Access Available Carriers Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+        });
+
+
+        $("#LPCarrierContactGrid").kendoGrid({
+            dataSource: LoadPlanningCarrierContactListDataSource,
+            columnMenu: {
+                filterable: false
+            },
+            editable: "incell",
+            pageable: false,
+            sortable: true,
+            navigatable: true,
+            resizable: true,
+            reorderable: true,
+            groupable: false,
+            filterable: true,
+            toolbar: [],
+            columns: [
+                { field: "ContactControl", title: "ContactControl", hidden: true },
+                { field: "ContactName", title: "Name", template: "<span title='${ContactName}'>${ContactName}</span>" },
+                { field: "ContactTitle", title: "Title", template: "<span title='${ContactTitle}'>${ContactTitle}</span>" },
+                { field: "ContactEmail", title: "Email", template: "<span title='${ContactEmail}'>${ContactEmail}</span>" },
+                { field: "ContactPhone", title: "Phone" },
+                { field: "ContactPhoneExt", title: "Phone Ext" },
+                { field: "Contact800", title: "800" },
+                { field: "ContactFax", title: "Fax" },
+                { field: "ContactDefault", title: "Dispatch Default", template: "<input type='checkbox' #= ContactDefault ? 'checked=checked' : '' # disabled='disabled' ></input>" },
+                { field: "ContactScheduler", title: "Scheduling Contact", template: "<input type='checkbox' #= ContactScheduler ? 'checked=checked' : '' # disabled='disabled' ></input>" },
+                { field: "ContactTender", title: "Notify", template: "<input type='checkbox' #= ContactTender ? 'checked=checked' : '' # disabled='disabled' ></input>", hidden: true },
+                { field: "ContactCarrierControl", title: "ContactCarrierControl", hidden: true },
+                { field: "ContactLECarControl", title: "ContactLECarControl", hidden: true },
+                { field: "ContactCompControl", title: "ContactCompControl", hidden: true }
+            ],
+        });
+    }
+
+</script>

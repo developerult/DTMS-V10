@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Missing Fee Approval Set Up</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="step1gotofeeapprovalpage.htm" /><link rel="next" href="step2gotoapfreightbillauditapprovalpage.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="c8333bff-32ce-44c1-8184-a136278abdf5">
+<h3>Missing Fee Approval Set Up</h3>
+<p class="MsoNormal">When a fee comes into TMS for the first time via EDI or if it 
+has not been configured as part of the carrier’s fee tolerance settings, users 
+can configure the fee for automation so the next time this fee comes in, it will 
+follow the business rules for automation and approval. Carriers who are entering 
+invoices into the portal, should contact logistics if you do not see the fee 
+you’re trying to enter. Users should update the carrier configuration for fee to 
+display for carrier. (See <i>Carrier Page</i>-Accessorials)</p>
+<p class="MsoNormal">Click on <i>Add Config</i>.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_8.jpg" alt="" /></p>
+<p class="MsoNormal">The approval configuration screen will appear for users to 
+configure accordingly.</p>
+<p class="MsoNormal"><u>Auto Approve</u> = Check the box to have this fee auto 
+approve based on tolerance settings. Otherwise, users will need to approve this 
+fee next time if it was not included during dispatch/tender.<br /><u>Allow Carrier 
+Updates</u> = Check the box to allow carrier edit/updates (via Portal or EDI) 
+<b><i>Recommended</i></b>.</p>
+<p class="MsoNormal"><u>Show Contracted Fees</u> = Check the box to display fees 
+during invoice entry (via Portal). <b><i>Recommended.</i></b></p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_9.jpg" alt="" /></p>
+<p class="MsoNormal">Then select your tolerance settings-</p>
+<p class="MsoNormal">Select only one.</p>
+<p class="MsoNormal"><span style="COLOR: #4472c4">BLUE UNDERLINE</span> -Insert 
+dollar value low and high. For example, $0 (low) between $100 (high). You accept 
+anything between $0 - $100 for this fee. Anything else fails audit tolerance, 
+requires approval.</p>
+<p class="MsoNormal"><span style="COLOR: red">RED</span> <span style="COLOR: red">CIRCLE</span>– <i>Check Dynamic Expected Cost</i> to insert a 
+percentage low and high range. For example, 100% (% below) to 25% (% above). 
+Will approve $0 to 25% higher than the cost. </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><b>Or</b></p>
+<p class="MsoNormal">Set your expected cost at $50. Your percentage low set to 20% 
+(which is $50-$10=$40) to 20% above ($50 + $10 = $60) above. This fee expected 
+price range is between $40 - $60. Or just insert expected cost and no low/high 
+range. </p><span id="related-topics"></span></body></html>

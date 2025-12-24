@@ -1,0 +1,1095 @@
+﻿<div id="wndLaneEA">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <!--LANE SECTION-->
+            <div style="float: left; width:99%;">
+
+                <!--New Lane-->
+                <div style="float:left; width:100%;" id="divEALane">
+                    <div id="divLaneNumberAddMsg">On new lanes the system will generate a Lane Number if left blank</div>
+                    <div class="fast-tab">
+                        <span id="ExpandEALaneSpan" style="display: none;"><a onclick='expandEALane();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseEALaneSpan" style="display: normal;"><a onclick='collapseEALane();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Lane</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabEALane" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtEALaneName" maxlength="50" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="divLaneNumber" style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtEALaneNumber" maxlength="50" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="divLaneCompDDL" style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Company<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="ddlEALEComps" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Legal Entity</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtEALaneLegalEntity" maxlength="50" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div id="divLTTransType" style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Direction<span class="redRequiredAsterik"> *</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="ddlEALTTransType" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Transport Type</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="ddlEALaneTrans" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Temp Req</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="ddlEATempType" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">System Lane Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtEALSystemLaneNumber" data-role="maskedtextbox" readonly maxlength="150" style="width: 250px;" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Master Number</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneNumberMaster" maxlength="50" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Master Name</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneNameMaster" maxlength="50" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Special Codes</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneCarrierEquipmentCodes" maxlength="50" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                        </div> <!--end fastTab content-->
+                    </div> <!--end class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Options-->
+                    <div class="fast-tab">
+                        <span id="ExpandOptions" style="display: none;"><a onclick='expandOptions();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseOptions" style="display: normal;"><a onclick='collapseOptions();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Options</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabOptions" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <!--<div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneActive" ><label class="k-checkbox-label" for="chkEALaneActive"><strong>Active</strong></label></div>-->
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneActive" ><label class="k-checkbox-label" for="chkEALaneActive"><strong>Active</strong></label></div>
+
+                            </div>
+                            <div id="divInbound" style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneOrigAddressUse" ><label class="k-checkbox-label" for="chkEALaneOrigAddressUse"><strong>Inbound</strong></label></div>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">&nbsp;</div>
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneDefaultCarrierUse" ><label class="k-checkbox-label" for="chkEALaneDefaultCarrierUse"><strong>Auto Assign Carrier</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneAutoTenderFlag" ><label class="k-checkbox-label" for="chkEALaneAutoTenderFlag"><strong>Auto Tender</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneDoNotInvoice" ><label class="k-checkbox-label" for="chkEALaneDoNotInvoice"><strong>Invoice</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneAllowInterline" ><label class="k-checkbox-label" for="chkEALaneAllowInterline"><strong>Allow Interline</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneCascadingDispatchingFlag" ><label class="k-checkbox-label" for="chkEALaneCascadingDispatchingFlag"><strong>Cascading Dispatching</strong></label></div>
+                            </div>
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALanePalletExchange" ><label class="k-checkbox-label" for="chkEALanePalletExchange"><strong>Pallet Xchg</strong></label></div>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">&nbsp;</div>
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneRestrictCarrierSelection" ><label class="k-checkbox-label" for="chkEALaneRestrictCarrierSelection"><strong>Using Company Carrier Restriction Settings</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneWarnOnRestrictedCarrierSelection" ><label class="k-checkbox-label" for="chkEALaneWarnOnRestrictedCarrierSelection"><strong>Using Company Warning Settings</strong></label></div>
+                            </div>
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">Book Appointment via Email Options</div>
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneAllowCarrierBookApptByEmail" ><label class="k-checkbox-label" for="chkEALaneAllowCarrierBookApptByEmail"><strong>Allow Carriers to Book Appt with Token via Email</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneRequireCarrierAuthBookApptByEmail" ><label class="k-checkbox-label" for="chkEALaneRequireCarrierAuthBookApptByEmail"><strong>Require Carrier Username and Password for Carrier Book Appt in addition to Token</strong></label></div>
+                            </div>                            
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneUseCarrieContEmailForBookApptByEmail" ><label class="k-checkbox-label" for="chkEALaneUseCarrieContEmailForBookApptByEmail"><strong>Use default Carrier Contact Email instead of Lane specific Email below</strong></label></div>
+                            </div>                        
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">&nbsp;</div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Lane Specific Email for Booking appointments</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneCarrierBookApptviaTokenEmail" maxlength="100" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Contact Email if Token Fails</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneCarrierBookApptviaTokenFailEmail" maxlength="100" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Contact phone if Token Fails</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneCarrierBookApptviaTokenFailPhone" maxlength="100" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">&nbsp;</div>
+
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneTransLeadTimeUseMasterLane" ><label class="k-checkbox-label" for="chkEALaneTransLeadTimeUseMasterLane"><strong>Use Lane Master data for statistical analysis</strong></label></div>
+                            </div> 
+                        
+                            <div class="tblResponsive-wrap" style="float: none; height:0;">&nbsp;</div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Trans Lead Time Location Option</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneTransLeadTimeLocationOption" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Trans Lead Time Calc Type</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneTransLeadTimeCalcType" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+
+
+                        </div> <!--end Options fastTab content-->
+                    </div> <!--end Options class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Default Provider Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandDefaultProvider" style="display: none;"><a onclick='expandDefaultProvider();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseDefaultProvider" style="display: normal;"><a onclick='collapseDefaultProvider();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Default Provider</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabDefaultProvider" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <div style="float: left; width:100%;">
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Default Provider</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneDefaultCarrierText" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Contact Name</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneDefaultCarrierContact" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Contact Phone</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneDefaultCarrierPhone" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Extra Stops</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneStops" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div> <!--end Default Provider Block fastTab content-->
+                    </div> <!--end Default Provider Block class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Capacity Settings Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandCapacitySettings" style="display: none;"><a onclick='expandCapacitySettings();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseCapacitySettings" style="display: normal;"><a onclick='collapseCapacitySettings();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">TL Capacity Settings</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabCapacitySettings" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <!--Capacity Settings Block-->
+                            <div id="divCapSetBlock" style="float: left; width:100%;">
+                                <!--Added By LVV on 5/18/20 - default TL capcity settings to 0 on create new lane from 365-->
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Weight</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneTLWgt" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Quantity</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneTLCases" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Volume</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneTLCube" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                                <div style="float: left;">
+                                    <table class="tblResponsive">
+                                        <tr><td class="tblResponsive-top">Pallets</td></tr>
+                                        <tr><td class="tblResponsive-top"><input id="txtEALaneTLPL" style="width: 250px;" /></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div> <!--end Capacity Settings Block fastTab content-->
+                    </div> <!--end Capacity Settings Block class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Configurations Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandConfig" style="display: none;"><a onclick='expandConfig();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseConfig" style="display: normal;"><a onclick='collapseConfig();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Configuration</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabConfig" style="padding: 10px; width:calc(100%); height:100%;">
+                        
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Pallet Type</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALanePalletType" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Mode</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneModeType" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+                     
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Benchmark LT Order</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneOLTBenchmark" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Trans</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneTLTBenchmark" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Coord/Buyer</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALanePrimaryBuyer" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Lane Key</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneConsigneeNumber" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check In</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneRecMinIn" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Load/Unload</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneRecMinUnload" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check Out</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneRecMinOut" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>                            
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Contracted Cost/BFC</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneBFC" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Cost Type</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneBFCType" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>                           
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Port of Entry</td></tr>
+                                    <!--<tr><td class="tblResponsive-top"><input id="txtEALanePortofEntry" style="width: 250px;" /></td></tr>-->
+                                    <tr><td class="tblResponsive-top"><textarea id="txtEALanePortofEntry" rows="3" maxlength="255" style="width:100%; max-width:100%;"></textarea></td></tr>
+                                </table>
+                            </div>
+
+
+                        </div> <!--end Configuration fastTab content-->
+                    </div> <!--end Configuration class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Comments Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandCommentsBlock" style="display: none;"><a onclick='expandCommentsBlock();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseCommentsBlock" style="display: normal;"><a onclick='collapseCommentsBlock();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Comments</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabCommentsBlock" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <!--Comments Block-->
+                            <div id="divCommentsBlock" style="float: left; width:100%;">
+                                <!--Comments-->
+                                <div id="divComments" style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Delivery Notes</strong></div>
+                                    <textarea id="txtEALaneComments" rows="3" maxlength="255" style="width:100%; max-width:100%;"></textarea>
+                                </div>
+                                <!--Comments Confidential-->
+                                <div id="divComConfidential" style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Confidential Comments</strong></div>
+                                    <textarea id="txtEALaneCommentsConfidential" rows="3" maxlength="255" style="width:100%; max-width:100%"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div style="float: left; width:100%;">
+                                <!--LaneUser1-->
+                                <div style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Lane User 1</strong></div>
+                                    <textarea id="txtEALaneUser1" rows="3" maxlength="4000" style="width:100%; max-width:100%;"></textarea>
+                                </div>
+                                <!--LaneUser2-->
+                                <div style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Lane User 2</strong></div>
+                                    <textarea id="txtEALaneUser2" rows="3" maxlength="4000" style="width:100%; max-width:100%"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <div style="float: left; width:100%;">
+                                <!--LaneUser3-->
+                                <div style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Lane User 3</strong></div>
+                                    <textarea id="txtEALaneUser3" rows="3" maxlength="4000" style="width:100%; max-width:100%;"></textarea>
+                                </div>
+                                <!--LaneUser4-->
+                                <div style="display:block; margin:5px; width:49%; float: left;">
+                                    <div style="padding-bottom:10px;"><strong>Lane User 4</strong></div>
+                                    <textarea id="txtEALaneUser4" rows="3" maxlength="4000" style="width:100%; max-width:100%"></textarea>
+                                </div>
+                            </div>
+
+                        </div> <!--end Comments Block fastTab content-->
+                    </div> <!--end Comments Block class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Dynamic Routing Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandDynamicRouting" style="display: none;"><a onclick='expandDynamicRouting();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseDynamicRouting" style="display: normal;"><a onclick='collapseDynamicRouting();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Dynamic Routing</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabDynamicRouting" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <!--LaneBenchMiles-->
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Approved Lane Dist</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneBenchMiles" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+                            <!--LaneLatitude-->
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Latitude</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneLatitude" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+                            <!--LaneLongitude-->
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Longitude</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneLongitude" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <!--LaneIsTransLoad/LaneIsCrossDockFacility-->
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneIsTransLoad" ><label id="lblEALaneIsTransLoad" class="k-checkbox-label" for="chkEALaneIsTransLoad"><strong>Transload Active</strong></label></div>
+                            </div>
+                            <div style="float: left; padding-bottom: 10px;">
+                                <div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneIsCrossDockFacility" ><label id="lblEALaneIsCrossDockFacility" class="k-checkbox-label" for="chkEALaneIsCrossDockFacility"><strong>Cross Dock Facility</strong></label></div>
+                            </div>
+
+                        </div> <!--end Dynamic Routing fastTab content-->
+                    </div> <!--end Dynamic Routing class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Static Routing-->
+                    <div class="fast-tab">
+                        <span id="ExpandStaticRouting" style="display: none;"><a onclick='expandStaticRouting();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseStaticRouting" style="display: normal;"><a onclick='collapseStaticRouting();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Static Routing</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabStaticRouting" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Route Guide</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneRouteGuide" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Default Route Seq</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtEALaneDefaultRouteSequence" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Route Type</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="ddlEALaneRouteTypeCode" style="width: 250px;" /></td></tr>
+                                </table>
+                            </div>
+
+                        </div> <!--end Static Routing fastTab content-->
+                    </div> <!--end Static Routing class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Address Info Block-->
+                    <div class="fast-tab">
+                        <span id="ExpandAddressBlock" style="display: none;"><a onclick='expandAddressBlock();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                        <span id="CollapseAddressBlock" style="display: normal;"><a onclick='collapseAddressBlock();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                        <span style="font-size:small; font-weight:bold">Origin and Destination</span>&nbsp;&nbsp;<br />
+                        <div id="divFastTabAddressBlock" style="padding: 10px; width:calc(100%); height:100%;">
+
+                            <!--Address Info Block Container-->
+                            <div id="divAddrInfoBlock" style="float: left; width:100%;">
+                                <!--Orig Address Block-->
+                                <div id="divAddrOrig" class="k-block k-info-colored" style="margin:5px; width:49%; float: left;">
+                                    <div style="margin-left:5px;"><h2>Origin</h2></div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Company</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="ddlEALECompOrig" style="width: 250px;" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigName" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 1<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigAddress1" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigAddress2" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigAddress3" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">City<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigCity" maxlength="25" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">State<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigState" maxlength="8" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Postal Code<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigZip" maxlength="10" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Country<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneOrigCountry" maxlength="30" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Time Zone</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="ddlEALaneOrigTimeZone" style="width: 250px;" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                                    <!--Dock Hours-->
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Dock Hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="tpEALaneRecHourStart" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top">-</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="tpEALaneRecHourStop" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneAppt"><label class="k-checkbox-label" for="chkEALaneAppt"><strong>Appt Req</strong></label></div></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                                    <!--ORIG CONTACT SECTION-->
+                                    <div style="float:left; margin-bottom:10px;" id="divEALaneOrigCont">
+                                        <div class="fast-tab">
+                                            <span id="ExpandEALaneOrigContSpan" style="display: none;"><a onclick='expandEALaneOrigCont();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                                            <span id="CollapseEALaneOrigContSpan" style="display: normal;"><a onclick='collapseEALaneOrigCont();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                                            <span style="font-size:small; font-weight:bold">Contacts</span>&nbsp;&nbsp;<br />
+                                            <div id="divFastTabEALaneOrigCont" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                                                <!--Primary Contact-->
+                                                <div style="float: left;">
+                                                    <div style="margin-left:5px;"><h3>Primary Contact</h3></div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneOrigContactName" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Phone</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneOrigContactPhone" maxlength="15" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneOrigContactEmail" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                                <!--Emergency Contact-->
+                                                <div style="float: left;">
+                                                    <div style="margin-left:5px;"><h3>Emergency Contact</h3></div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneOrigEmergencyContactName" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Phone<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneOrigEmergencyContactPhone" maxlength="15" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                            </div> <!--end fastTab content-->
+                                        </div> <!--end class fast-tab-->
+                                    </div> <!--End divEALaneOrigCont-->
+
+                                </div> <!--End Orig Address Block-->
+                                <!--Dest Address Block-->
+                                <div id="divAddrDest" class="k-block k-info-colored" style="margin:5px; width:49%; float: left;">
+                                    <div style="margin-left:5px;"><h2>Destination</h2></div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Company</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="ddlEALECompDest" style="width: 250px;" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestName" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 1<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestAddress1" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestAddress2" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Address 3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestAddress3" maxlength="40" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">City<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestCity" maxlength="25" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">State<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestState" maxlength="8" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Postal Code<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestZip" maxlength="10" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Country<span class="redRequiredAsterik"> *</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="txtEALaneDestCountry" maxlength="30" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Time Zone</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="ddlEALaneDestTimeZone" style="width: 250px;" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                                    <!--Dock Hours-->
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">Dock Hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="tpEALaneDestHourStart" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top">-</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><input id="tpEALaneDestHourStop" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="float: left;">
+                                        <table class="tblResponsive">
+                                            <tr>
+                                                <td class="tblResponsive-top">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tblResponsive-top"><div style="margin-left: 5px;"><input type="checkbox" id="chkEALaneAptDelivery"><label class="k-checkbox-label" for="chkEALaneAptDelivery"><strong>Appt Req</strong></label></div></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                                    <!--DEST CONTACT SECTION-->
+                                    <div style="float:left; margin-bottom:10px;" id="divEALaneDestCont">
+                                        <div class="fast-tab">
+                                            <span id="ExpandEALaneDestContSpan" style="display: none;"><a onclick='expandEALaneDestCont();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                                            <span id="CollapseEALaneDestContSpan" style="display: normal;"><a onclick='collapseEALaneDestCont();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                                            <span style="font-size:small; font-weight:bold">Contacts</span>&nbsp;&nbsp;<br />
+                                            <div id="divFastTabEALaneDestCont" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                                                <!--Primary Contact-->
+                                                <div style="float: left;">
+                                                    <div style="margin-left:5px;"><h3>Primary Contact</h3></div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneDestContactName" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Phone</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneDestContactPhone" maxlength="15" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneDestContactEmail" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                                <!--Emergency Contact-->
+                                                <div style="float: left;">
+                                                    <div style="margin-left:5px;"><h3>Emergency Contact</h3></div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Name<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneDestEmergencyContactName" maxlength="50" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <table class="tblResponsive">
+                                                            <tr>
+                                                                <td class="tblResponsive-top">Phone<span class="redRequiredAsterik"> *</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tblResponsive-top"><input id="txtEALaneDestEmergencyContactPhone" maxlength="15" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                                            </div> <!--end fastTab content-->
+                                        </div> <!--end class fast-tab-->
+                                    </div> <!--End divEALaneDestCont-->
+
+                                </div> <!--End Dest Address Block-->
+                            </div> <!--End Address Info Block Container-->
+
+                        </div> <!--end AddressBlock fastTab content-->
+                    </div> <!--end AddressBlock class fast-tab-->
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    
+                    <input id="txtEALaneControl" type="hidden" />
+                    <input id="txtEALaneUpdated" type="hidden" />
+                </div> <!--End divEALane-->
+            </div> <!--End Lane Section-->
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+        </div>
+    </div>
+</div>
+
+<!--
+
+    chkEALaneActive
+    txtEALaneControl
+    txtEALaneName
+    txtEALaneNumber
+    txtEALaneLegalEntity
+    txtEALaneComments
+    txtEALaneCommentsConfidential
+
+    ddlEALTTransType
+    ddlEALEComps
+    ddlEALECompOrig
+    ddlEALECompDest
+    ddlEALaneTrans
+    ddlEATempType
+
+    txtEALaneOrigName
+    txtEALaneOrigAddress1
+    txtEALaneOrigAddress2
+    txtEALaneOrigAddress3
+    txtEALaneOrigCity
+    txtEALaneOrigState
+    txtEALaneOrigZip
+    txtEALaneOrigCountry
+    txtEALaneOrigContactName
+    txtEALaneOrigContactPhone
+    txtEALaneOrigContactEmail
+    txtEALaneOrigEmergencyContactName
+    txtEALaneOrigEmergencyContactPhone
+    tpEALaneRecHourStart
+    tpEALaneRecHourStop
+    chkEALaneAppt
+
+    txtEALaneDestName
+    txtEALaneDestAddress1
+    txtEALaneDestAddress2
+    txtEALaneDestAddress3
+    txtEALaneDestCity
+    txtEALaneDestState
+    txtEALaneDestZip
+    txtEALaneDestCountry
+    txtEALaneDestContactName
+    txtEALaneDestContactPhone
+    txtEALaneDestContactEmail
+    txtEALaneDestEmergencyContactName
+    txtEALaneDestEmergencyContactPhone
+    tpEALaneDestHourStart
+    tpEALaneDestHourStop
+    chkEALaneAptDelivery
+
+    EditDiv
+    divEALane
+    divLaneNumber
+    divAddrInfoBlock
+    divAddrOrig
+    divEALaneOrigCont
+    divAddrDest
+    divEALaneDestCont
+    -->

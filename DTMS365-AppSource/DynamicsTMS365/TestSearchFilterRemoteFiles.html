@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DTMS Test Search Filters Remote Files</title>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>-->
+    <!--<script src="Scripts/kendoR32023/jquery.min.js"></script>-->
+    <!--<script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>-->
+    <!--<script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+    <!--<script src="Scripts/kendoR32023/kendo.all.min.js"></script>-->
+    <!--<script src="https://www.dynamicstms365.com/Scripts/kendo/kendo.all.min.js"></script>-->
+    <script src="https://www.dynamicstms365.com/Scripts/kendo/jquery.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/kendo/kendo.all.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.3.007/core.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.3.007/NGLobjects.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.3.007/NGLCtrls.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.3.007/splitter2.js"></script>
+    <script src="https://www.dynamicstms365.com/Scripts/NGL/v-8.5.3.007/SSOA.js"></script>
+
+
+
+
+    <!--<script src="Scripts/NGL/v-8.5.4.004/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/SSOA.js"></script>-->
+
+    <div id="example" style="height: 100%; width: 100%;  margin-top: 2px;">
+        <div id="vertical" style="height: 98%; width: 98%; ">
+            <div id="menu-pane" style="height: 100%; width: 100%; background-color: white; ">
+                <div id="tab" class="menuBarTab"></div>
+            </div>
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%; ">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <div><span>Menu</span></div>
+                            <div id="menuTree"></div>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+
+
+                        <div id="divTitleLE"></div>
+
+                        <!-- begin Page Content -->
+                        <div id="divid308202010291323130766339"></div>
+                        <div id="id30172201804181502550340766">
+                            <div class="fast-tab">
+                                <span id="Expandid30172201804181502550340766Span" style="display:none;">
+                                    <a onclick="expandFastTab('Expandid30172201804181502550340766Span','Collapseid30172201804181502550340766Span','id30172201804181502550340766Header','id30172201804181502550340766Detail');">
+                                        <span style="font - size: small; font - weight:bold;" class="k-icon k-i-chevron-down"></span>
+                                    </a>
+                                </span>
+                                <span id="Collapseid30172201804181502550340766Span" style="display:normal;">
+                                    <a onclick="collapseFastTab('Expandid30172201804181502550340766Span','Collapseid30172201804181502550340766Span','id30172201804181502550340766Header',null);">
+                                        <span style="font - size: small; font - weight:bold;" class="k-icon k-i-chevron-up"></span>
+                                    </a>
+                                </span>
+                                <span style="font-size:small; font-weight:bold"> Companies</span>
+                            </div>
+                            <div id="id30172201804181502550340766Header" class="OpenOrders">
+                                <div id="id30172201804181519523442634wrapper">
+                                    <div id="divid308202011021514333818928"></div>
+                                    <div id="divid30172201809061410124109510"></div>
+                                    <div id="divid30172201811021305277484517"></div>
+                                    <div id="divid301201810090739127642466"></div>
+                                    <div id="divid30172201804181519523442634filterContent"></div>
+                                    <div id="id30172201804181519523442634">
+                                        <h4>Filtered Results Go Here</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End Page Content -->
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-pane" class="k-block" style="height: 100%; width: 100%;">
+                <div class="pane-content">
+                    <div><span><p> <a href='https://www.nextgeneration.com'> © Copyright Next Generation Logistics, Inc. All Rights Reserved.</a> </p></span></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var objid30172201804181519523442634Filters = new AllFiltersCtrl('True', 'Comp');
+                var objid30172201804181519523442634FilterData = [{ filterCaption: "Name", filterName: "CompName", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Number", filterName: "CompNumber", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Pro Abrev", filterName: "CompAbrev", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Location Code", filterName: "CompAlphaCode", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Email", filterName: "CompEmail", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Website", filterName: "CompWeb", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Active", filterName: "CompActive", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Address 1", filterName: "CompStreetAddress1", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "City", filterName: "CompStreetCity", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "ST/Prov", filterName: "CompStreetState", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Postal Code", filterName: "CompStreetZip", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Country", filterName: "CompStreetCountry", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }];;
+                objid30172201804181519523442634Filters.loadDefaults("divid30172201804181519523442634filterContent", "id30172201804181519523442634", objid30172201804181519523442634FilterData, 'blueopal', function (results) { var oKendoGrid = $('#id30172201804181519523442634').data("kendoNGLGrid"); if (typeof (oKendoGrid) !== 'undefined' && ngl.isObject(oKendoGrid)) { oKendoGrid.dataSource.read(); } return; }, 'Warehouse Maintenance Filters');
+                objid30172201804181519523442634Filters.show();
+                objid30172201804181519523442634Filters.addSavedFilters();
+
+            });
+
+        </script>
+        <style>
+            .k-grid tbody tr td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .k-tooltip {
+                max-height: 500px;
+                max-width: 450px;
+                overflow-y: auto;
+            }
+
+            .k-grid tbody .k-grid-Edit {
+                min-width: 0;
+            }
+
+                .k-grid tbody .k-grid-Edit .k-icon {
+                    margin: 0;
+                }
+        </style>
+    </div>
+</body>
+</html>

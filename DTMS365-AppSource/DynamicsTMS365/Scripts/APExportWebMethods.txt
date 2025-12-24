@@ -1,0 +1,29 @@
+Ap Export Web Methods
+APExportObject
+
+* getData70 calls apExport.readObjectData70
+
+GetDataWDetails calls apExport.readObjectData
+
+GetAllDataWDetails calls apExport.readObjectData
+
+GetDataEx calls apExport.readObjectData
+
+GetDataByOrderSequence apExport.readObjectData
+
+GetDataByProNumber apExport.readObjectData
+
+GetData  apExport.readObjectData
+
+ConfirmExport apExport.confirmExport
+
+ConfirmExportByOrderSequence  apExport.confirmExport
+
+ConfirmExportByPro apExport.confirmExport
+
+*  ConfirmExportEx  apExport.confirmExportEx
+
+New web method:
+
+DTMSERPIntegration Web Service
+GetApExportRecordsAggregated.

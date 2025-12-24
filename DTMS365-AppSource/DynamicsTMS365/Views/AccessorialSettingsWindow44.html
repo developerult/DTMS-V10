@@ -1,0 +1,102 @@
+﻿<div id="wndAccessorial">
+    <a id="focusCancelAcc" href="#"></a>
+    <div>
+        <div style="padding: 0px 10px 0px 10px;">
+
+            <div>
+                <div id="lblLEAcc"></div>
+                <div id="lblCarr"></div>
+            </div>
+
+            <div style="padding-bottom: 5px; padding-top: 5px;"> 
+                <input type="checkbox" id="chkAutoApprove" ><label class="k-checkbox-label" for="chkAutoApprove"><strong>Auto Approve</strong></label>              
+            </div>
+            <div style="padding-bottom: 5px; padding-top: 5px;">
+                <input type="checkbox" id="chkAllowCarrierUpdates" ><label class="k-checkbox-label" for="chkAllowCarrierUpdates"><strong>Allow Carrier Updates</strong></label>
+            </div>
+            <div style="padding-bottom: 5px; padding-top: 5px;">
+                <input type="checkbox" id="chkAccessorialVisible" ><label class="k-checkbox-label" for="chkAccessorialVisible"><strong>Show Contracted Fees</strong></label>
+            </div>
+
+            <div style="float: left;">
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Accessorial</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddAccessorialCode" style="width: 200px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div style="float: left;">
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Caption</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtCaption" maxlength="50" style="width:200px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">EDI Code</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtEDICode" maxlength="20" style="width:200px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top">Tolerances</td>
+                        <td class="tblResponsive-bottom">&nbsp;</td>
+                        <td class="tblResponsive-top"></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top"><input type="checkbox" id="chkDynamicAverageValue" ><label class="k-checkbox-label" for="chkDynamicAverageValue">Dynamic Expected Cost</label></td>
+                        <td class="tblResponsive-bottom">&nbsp;</td>
+                        <td class="tblResponsive-top"></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top"><input id="txtApproveToleranceLow" type="number" /></td>
+                        <td class="tblResponsive-bottom">Between</td>
+                        <td class="tblResponsive-top"><input id="txtApproveToleranceHigh" type="number" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <div style="float: left;">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top">% Below</td>
+                        <td class="tblResponsive-bottom">Expected Cost</td>
+                        <td class="tblResponsive-top">% Above</td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top"><input id="txtApproveTolerancePerLow" type="number" /></td>
+                        <td class="tblResponsive-bottom"><input id="txtAverageValue" type="number" /></td>
+                        <td class="tblResponsive-top"><input id="txtApproveTolerancePerHigh" type="number" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+            <input id="txtLECAControl" type="hidden" />
+            <input id="txtLECALECarControl" type="hidden" />
+            <input id="txtLECAUpdated" type="hidden" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <theme>
+    <name>Dynamics TMS 8.X</name>
+    <predefined>false</predefined>
+    <baseTheme>Tabs</baseTheme>
+    <baseVersion>1.11.12</baseVersion>
+  </theme>
+  <pageHeader>
+    <logoImage>images/NGL96x96_2.jpg</logoImage>
+    <height>80</height>
+    <logoClick>https://www.nextgeneration.com</logoClick>
+    <visible>true</visible>
+  </pageHeader>
+</settings>

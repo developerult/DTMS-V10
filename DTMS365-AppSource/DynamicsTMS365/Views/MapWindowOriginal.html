@@ -1,0 +1,334 @@
+﻿<!--
+    Bing Maps
+-->
+
+<div id="wndMap">
+    <div id="myMap" style="position:relative;"></div>
+</div>
+
+
+<script>
+    var wndMap = kendo.ui.Window;
+    var map;
+    var directionsManagerMap;
+    var directionsManagerTrack;
+    var trackItWaypointLayer;
+    var mapItWaypointLayer;
+    var infoboxTrackPins;
+    var searchManager;
+    var loadWgt = 0;
+
+    //enum DAL.Models.MapWaypoint.StopType
+    var MapWaypointStopType = {
+        Pickup: 0,
+        Delivery: 1,
+        PickAndDel: 2,
+        Track: 3
+    }
+
+    function searchUserData() {
+        PinTitle: "";
+        PinDescription: "";
+        PinColor: "";
+        PinLabel: "";
+        PinType: "";
+    }
+
+    ////function mapClicked(e) { alert(e.location); } //used this to get test data - returns lat/long of point clicked on map
+    ////function showInstruction(e) { infoboxTrackPins.setOptions({ location: e.target.getLocation(), description: e.target.metadata.description, offset: e.target.metadata.infoboxOffset, visible: true }); }
+    ////function hideInstruction() { infoboxTrackPins.setOptions({ visible: false }); }
+
+    function GetMap() {
+        try{
+            map = new Microsoft.Maps.Map('#myMap', { disableBirdseye: true, disableStreetside: true, navigationBarMode: Microsoft.Maps.NavigationBarMode.compact, supportedMapTypes: [Microsoft.Maps.MapTypeId.road, Microsoft.Maps.MapTypeId.aerial, Microsoft.Maps.MapTypeId.grayscale, Microsoft.Maps.MapTypeId.canvasLight, Microsoft.Maps.MapTypeId.canvasDark] }); /* No need to set credentials if already passed in URL */
+            trackItWaypointLayer = new Microsoft.Maps.Layer(); //Create a layer for managing custom waypoints.
+            mapItWaypointLayer = new Microsoft.Maps.Layer(); //Create a layer for managing custom waypoints.
+            map.layers.insert(trackItWaypointLayer); //add layer to map
+            map.layers.insert(mapItWaypointLayer); //add layer to map
+            infoboxTrackPins = new Microsoft.Maps.Infobox(map.getCenter(), { visible: false }); //Create an infobox at the center of the map but don't show it.
+            infoboxTrackPins.setMap(map); //Assign the infobox to a map instance.
+            //Load the directions module.
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                directionsManagerMap = new Microsoft.Maps.Directions.DirectionsManager(map); //Create an instance of the directions manager. (for MapIt route)
+                directionsManagerTrack = new Microsoft.Maps.Directions.DirectionsManager(map); //Create an instance of the directions manager. (for TrackIt route)
+            });
+            Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () { searchManager = new Microsoft.Maps.Search.SearchManager(map); });
+            //Microsoft.Maps.Events.addHandler(trackItWaypointLayer, 'mouseover', showInstruction); //Add mouse events for showing instruction when hovering pins in directions waypoint layer
+            //Microsoft.Maps.Events.addHandler(trackItWaypointLayer, 'mouseout', hideInstruction); //Add mouse events for showing instruction when hovering pins in directions waypoint layer
+            //Microsoft.Maps.Events.addHandler(map, 'click', mapClicked); //Add a click event to the map.
+        } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+    }
+
+    function GetBingMapRoutesSuccessCallback(data) {
+        //debugger;
+        var oResults = new nglEventParameters();
+        oResults.source = "GetBingMapRoutesSuccessCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        this.rData = null;
+        var tObj = this;
+        try {
+            var blnSuccess = false;
+            var blnErrorShown = false;
+            var strValidationMsg = "";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) {
+                    blnErrorShown = true;
+                    oResults.error = new Error();
+                    oResults.error.name = "Get Bing Map Routes Failure";
+                    oResults.error.message = data.Errors;
+                    ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+                }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                            this.rData = data.Data;
+                            oResults.data = data.Data;
+                            oResults.msg = "Success";
+                            blnSuccess = true;
+                            var mapData = data.Data[0].MapItWayPoints;
+                            var trackData = data.Data[0].TrackItWayPoints;
+                            //debugger;
+                            if (ngl.stringHasValue(data.Data[0].ErrMsg)) { ngl.showErrMsg("", data.Data[0].ErrMsg, tObj); return; }
+
+
+                            var trackPins = [];
+                            var mapPins = [];
+                            var Wgt = 30000;
+                            if (loadWgt > 0) { Wgt = loadWgt; }
+                            for (i = 0; i < mapData.length; i++) {
+    /*
+                                var diMap = mapData[i];
+                                var mwp = createWayPoint(diMap.Lattitude, diMap.Longitude, diMap.AddressString); //Create waypoint to use to calculate the route
+                                directionsManagerMap.addWaypoint(mwp);
+                                var pin = createPin(diMap.Lattitude, diMap.Longitude, diMap.Name + ': ' + diMap.AddressString, diMap.StopCategory, diMap.Comment, diMap.StopNumber.toString(), diMap.StopCompleted); //Create the pushpin to display on the map
+                                mapPins.push(pin);
+    */
+
+                                var diMap = mapData[i];
+                                var strAddress = ngl.replaceEmptyString(diMap.AddressString, '', null);
+                                var mwp = createWayPoint(diMap.Lattitude, diMap.Longitude, strAddress); //Create waypoint to use to calculate the route
+                                directionsManagerMap.addWaypoint(mwp);
+                                var userData = new searchUserData();
+                                userData.PinTitle = strAddress;
+                                userData.PinDescription = ngl.replaceEmptyString(diMap.Comment, '', null);
+                                userData.PinLabel = diMap.StopNumber.toString();
+                                userData.PinColor = getPinColor(diMap.StopCategory, diMap.StopCompleted);
+                                userData.PinType = "MAP";
+                                if (diMap.Lattitude === 0 && diMap.Longitude === 0) { geocodePin(strAddress, userData); }
+                                else {
+                                    var location = new Microsoft.Maps.Location(diMap.Lattitude, diMap.Longitude);
+                                    var pin = createPin2(location, userData); //Create the pushpin to display on the map
+                                    //mapPins.push(pin);
+                                    mapItWaypointLayer.add(pin)
+                                }
+
+                            }
+                            for (i = 0; i < trackData.length; i++) {
+                                var diTrack = trackData[i];
+                                var twp = createWayPoint(diTrack.Lattitude, diTrack.Longitude, diTrack.AddressString); //Create waypoint to use to calculate the route
+                                directionsManagerTrack.addWaypoint(twp);
+                                //if (i > 0 && i < (trackData.length - 1)) {
+                                //if (i > 0) {
+                                var pin = createPin(diTrack.Lattitude, diTrack.Longitude, diTrack.Name + ': ' + diTrack.AddressString, diTrack.StopCategory, diTrack.Comment, null, diTrack.StopCompleted); //Create the pushpin to display on the map
+                                    trackPins.push(pin);
+                                //}
+                            }
+                            //Apply any special parameters to be used to calculate the route
+                            var vSpec = { dimensionUnit: 'ft', weightUnit: 'lb', vehicleWeight: Wgt } //vehicleHeight: 5, vehicleWidth: 3.5, vehicleLength: 30, vehicleAxles: 3, vehicleTrailers: 2, vehicleSemi: true, vehicleMaxGradient: 10, vehicleMinTurnRadius: 15, vehicleAvoidCrossWind: true, vehicleAvoidGroundingRisk: true, vehicleHazardousMaterials: 'F', vehicleHazardousPermits: 'F'
+                            //SET REQUEST OPTIONS
+                            directionsManagerMap.setRequestOptions({ routeMode: Microsoft.Maps.Directions.RouteMode.truck, vehicleSpec: vSpec });
+                            directionsManagerTrack.setRequestOptions({ routeMode: Microsoft.Maps.Directions.RouteMode.truck, vehicleSpec: vSpec });
+                            //SET RENDER OPTIONS
+                            directionsManagerMap.setRenderOptions({ autoUpdateMapView: true, firstWaypointPushpinOptions: { visible: false }, lastWaypointPushpinOptions: { visible: false }, waypointPushpinOptions: { visible: false } }); //Hide all default waypoint pushpins
+                            directionsManagerTrack.setRenderOptions({ drivingPolylineOptions: { strokeColor: 'green', strokeThickness: 4 }, firstWaypointPushpinOptions: { visible: false }, lastWaypointPushpinOptions: { visible: false }, waypointPushpinOptions: { visible: false } }); //Hide all default waypoint pushpins
+                            //ADD PINS TO MAP LAYERS AND CALCULATE DIRECTIONS
+
+                            if (directionsManagerMap.getAllWaypoints().length > 1) {
+                            //if (mapPins.length > 0) {
+                                mapPins.reverse(); //Reverse the order of the pins so that when rendered the last waypoints in the route are on top
+                                mapItWaypointLayer.add(mapPins); //Add the pins to the map
+                                directionsManagerMap.calculateDirections();
+                            }
+                            if (trackPins.length > 0) {
+                                trackPins.reverse(); //Reverse the order of the pins so that when rendered the last waypoints in the route are on top
+                                trackItWaypointLayer.add(trackPins); //Add the pins to the map
+                                directionsManagerTrack.calculateDirections();
+                            }
+                            //OPEN WINDOW
+                            wndMap.center().open();
+                        }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "Get Bing Map Routes Failure"; }
+                oResults.error = new Error();
+                oResults.error.name = "Get Bing Map Routes Failure";
+                oResults.error.message = strValidationMsg;
+                ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+            }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj); }
+    }
+    function GetBingMapRoutesAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        oResults.source = "GetBingMapRoutesAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Get Bing Map Routes Failure";
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+    }
+
+    //Bing Maps
+    function MapIt(bookControl, wgt) {
+        try {
+            loadWgt = wgt;
+            if (typeof (directionsManagerMap) === 'undefined' || directionsManagerMap == null) { directionsManagerMap = new Microsoft.Maps.Directions.DirectionsManager(map); }
+            if (typeof (directionsManagerTrack) === 'undefined' || directionsManagerTrack == null) { directionsManagerTrack = new Microsoft.Maps.Directions.DirectionsManager(map); }
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.read("Map/GetBingMapRoutes", bookControl, tPage, "GetBingMapRoutesSuccessCallback", "GetBingMapRoutesAjaxErrorCallback", true);
+        } catch (err) { ngl.showErrMsg("Bing Maps Error","(" + err + ") Make sure you have the correct permissions and SSOA configuration for Bing Maps", null); } //ngl.showErrMsg(err.name, err.description, null);
+    }
+
+    function pushpinClicked(e) {
+        if (e.target.metadata) {
+            infoboxTrackPins.setOptions({
+                location: e.target.getLocation(),
+                title: e.target.metadata.title,
+                description: e.target.metadata.description,
+                maxHeight: 256,
+                visible: true
+            });
+        }
+    }
+
+    function createWayPoint(lattitude, longitude, addressString) {
+        var wp;
+        //lat/long seems more accurate than address so use it first
+        if (lattitude !== 0 && longitude !== 0) {
+            wp = new Microsoft.Maps.Directions.Waypoint({ location: new Microsoft.Maps.Location(lattitude, longitude) });
+        } else { wp = new Microsoft.Maps.Directions.Waypoint({ address: addressString }); }
+        return wp;
+    }
+
+    function createPin(lattitude, longitude, addressString, stopCategory, comment, wpLabel, stopCompleted) {
+        var pinColor = '';
+        //debugger;
+        switch (stopCategory) {
+            case MapWaypointStopType.Pickup:
+                if (stopCompleted === false) { pinColor = 'blue'; } else { pinColor = 'green'; }
+                //pinColor = 'blue';
+                break;
+            case MapWaypointStopType.Delivery:
+                if (stopCompleted === false) { pinColor = 'dodgerblue'; } else { pinColor = 'green'; }
+                //pinColor = 'dodgerblue';
+                break;
+            case MapWaypointStopType.PickAndDel:
+                if (stopCompleted === false) { pinColor = 'purple'; } else { pinColor = 'green'; }
+                //pinColor = 'purple';
+                break;
+            case MapWaypointStopType.Track:
+                pinColor = 'green';
+                break;
+            default:
+                break;
+        }
+        var location = new Microsoft.Maps.Location(lattitude, longitude);
+        var pin = new Microsoft.Maps.Pushpin(location);
+        if (ngl.stringHasValue(pinColor)) { pin.setOptions({ color: pinColor }); } //set waypoint color
+        if (ngl.stringHasValue(wpLabel)) { pin.setOptions({ text: wpLabel }); } //Give waypoints a letter as a label
+        //Store some metadata with the pushpin.
+
+        var strTitle = ngl.replaceEmptyString(addressString, '', null);
+        var strComment = ngl.replaceEmptyString(comment, '', null);
+        pin.metadata = { title: strTitle, description: strComment };
+        Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked); //Add a click event handler to the pushpin.
+        return pin;
+    }
+
+
+    function deleteAllPushPins() {
+        map.entities.clear();
+        trackItWaypointLayer.clear();
+        mapItWaypointLayer.clear();
+    }
+
+
+
+    function getPinColor(stopCategory, stopCompleted) {
+        var pinColor = '';
+        switch (stopCategory) {
+            case MapWaypointStopType.Pickup:
+                if (stopCompleted === false) { pinColor = 'blue'; } else { pinColor = 'green'; }
+                //pinColor = 'blue';
+                break;
+            case MapWaypointStopType.Delivery:
+                if (stopCompleted === false) { pinColor = 'dodgerblue'; } else { pinColor = 'green'; }
+                //pinColor = 'dodgerblue';
+                break;
+            case MapWaypointStopType.PickAndDel:
+                if (stopCompleted === false) { pinColor = 'purple'; } else { pinColor = 'green'; }
+                //pinColor = 'purple';
+                break;
+            case MapWaypointStopType.Track:
+                pinColor = 'green';
+                break;
+            default:
+                break;
+        }
+        return pinColor;
+    }
+
+    function createPin2(location, userData) {
+        var pin = new Microsoft.Maps.Pushpin(location);
+        if (ngl.stringHasValue(userData.PinColor)) { pin.setOptions({ color: userData.PinColor }); }
+        if (ngl.stringHasValue(userData.PinLabel)) { pin.setOptions({ text: userData.PinLabel }); }
+        pin.metadata = { title: userData.PinTitle, description: userData.PinDescription };
+        Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked); //Add a click event handler to the pushpin.
+        return pin;
+    }
+
+    function geocodePin(query, userData) {
+        if (typeof (searchManager) === 'undefined' || searchManager == null) { searchManager = new Microsoft.Maps.Search.SearchManager(map); }
+        var searchRequest = {
+            where: query,
+            userData: userData,
+            callback: function (r, userData) {
+                if (r && r.results && r.results.length > 0) {
+                    var pin = createPin2(r.results[0].location, userData);
+                    if (userData.PinType === "MAP") { mapItWaypointLayer.add(pin); } else { trackItWaypointLayer.add(pin); }
+                }
+            },
+            errorCallback: function (e) { } //Do nothing //If there is an error, alert the user about it. //alert("No results found");
+        };
+        //I DON"T KNOW WHY WE NEED THE SETTIMEOUT CALL BUT FOR WHATEVER REASON IT DOESN'T WORK UNLESS I HAVE THIS DELAY - NEED TO FIGURE THIS OUT
+        //WITHOUT SETTIMEOUT - IT ALWAYS FAILS THE FIRST TIME BUT AFTER THAT IT ALWAYS WORKS - SOMETHING TO DO WITH LOADING THE MAP MAYBE??
+        setTimeout(function () {
+            searchManager.geocode(searchRequest); //Make the geocode request.
+        }, 1000);
+    }
+
+    $(document).ready(function () {
+
+        wndMap = $("#wndMap").kendoWindow({
+            title: "Map",
+            height: '75%',
+            width: '75%',
+            modal: true,
+            scrollable: true,
+            visible: false,
+            actions: ["Minimize", "Maximize", "Close"],
+            close: function (e) {
+                directionsManagerMap.clearAll();
+                directionsManagerTrack.clearAll();
+                deleteAllPushPins();
+                loadWgt = 0;
+            }
+        }).data("kendoWindow");
+
+    });
+
+</script>

@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Snippet</title>
+
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+
+    <link href="Content/NGL/v-8.5.4.001/ngl-classic-opal.css" rel="stylesheet" />
+
+    <!--<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-ocean-blue.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>-->
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/SSOA.js"></script>
+
+    <!--<button id="openBtn">Open</button>-->
+    <!--<div id="tabstrip">
+        <ul>
+            <li id="tab1">Tab 1</li>
+            <li id="tab2">Tab 2</li>
+        </ul>
+        <div><div id="grid"></div></div>
+        <div>Content 2</div>
+    </div>-->
+    <div id="h1Wait" style="margin:10px; position: absolute; z-index: 99999; top:0px; left:400px;"><span style="vertical-align:middle;">Please Wait Loading&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>
+    <div id="LBStampCNS" style="display: none; position: absolute; top: 8px; left: 320px; margin: auto; border: 2px solid red; width: auto; text-align: center; padding: 2px; z-index: 5000;">
+        <span id="LBStampMsg">Test Msg</span>
+    </div>
+
+    <div id="example" style="height: 100%; width: 100%; margin-top: 2px;">
+        <div id="vertical" style="height: 98%; width: 98%;">
+
+            <div id="menu-pane" style="height: 100%; width: 100%; background-color: white;">
+                <div id="tab" class="menuBarTab"></div>
+            </div>
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%;">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <div><span>Menu</span></div>
+                            <div id="menuTree"></div>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+
+                        <!-- begin Page Content -->
+                        <div id="divid6229202012290909168982037wrapper"></div>
+                        <div id="grid"></div>
+                        <div id="divid621201809260224077181214"></div><div id="divid621201809251302564013007filterContent"></div><div id="id621201809251302564013007"></div>
+                    </div><div id="divid6229201811141149594477268"><div id="tmpid6229201811141153070398080wrapper" style="display:none;"><div id="divid6229201811141153070398080wrapper"></div><div id="divid628201811281028299575898wrapper"></div><div id="divid628201811261634261716559wrapper"></div><div id="divid628201811281117203058452wrapper"></div><div id="divid6229201811261011333081791wrapper"></div><div id="divid6229201811141603392202183wrapper"></div><div id="divid628201811261647249952795wrapper"></div><div id="divid628201811261628430936559wrapper"></div><div id="divid628201811281135272340769wrapper"></div><div id="divid628201811281135466140769wrapper"></div><div id="divid628201811281136019510769wrapper"></div><div id="divid628201811281136302750769wrapper"></div><div id="divid628201811281136442290769wrapper"></div></div></div><div id="divid6229201810290939573231235"><div id="tmpid6229201810291610112586371wrapper" style="display:none;"><div id="divid6229201810291610112586371wrapper"></div><div id="divid621201811071412297636963wrapper"></div></div><div id="tmpid621201810301530508814120wrapper" style="display:none;"><div id="id621201810301530508814120wrapper"><div id="divid621201811071230234981155"></div><div id="divid621201811071350538611498"></div><div id="divid621201810301530508814120filterContent" style="display: none;"></div><div id="id621201810301530508814120"></div></div></div></div><div id="divid621201812031636286044005"><div id="tmpid6229201812200517229308781wrapper" style="display:none;"><div id="id6229201812200517229308781wrapper"><div id="divid6229201812200517229308781filterContent"></div><div id="id6229201812200517229308781"></div></div></div></div><div id="divid622201912020851358420780"></div><div id="divid6229202012151043507765530" style="display: none;"><div id="divid6229202012151043507765530ErWaMsLgTab"><ul><li id="liid6229202012151043507765530logTab"><sp id="spid6229202012151043507765530logTitle"></sp></li><li id="liid6229202012151043507765530msgTab"><sp id="spid6229202012151043507765530msgTitle"></sp></li><li id="liid6229202012151043507765530warnTab"><sp id="spid6229202012151043507765530warnTitle"></sp></li><li id="liid6229202012151043507765530errTab"><sp id="spid6229202012151043507765530errTitle"></sp></li></ul><div><div id="divid6229202012151043507765530logGrid"></div></div><div><div id="divid6229202012151043507765530msgGrid"></div></div><div><div id="divid6229202012151043507765530warnGrid"></div></div><div><div id="divid6229202012151043507765530errGrid"></div></div></div></div><div id="divid628202007161434271714264"></div><div id="divid621202310061520088168323"><div id="tmpid621202310061521292469045wrapper" style="display:none;"><div id="id621202310061521292469045wrapper"><div id="divid621202310061521292469045filterContent" style="display: none;"></div><div id="id621202310061521292469045"></div></div></div></div>
+                    <!-- End Page Content -->
+                </div>
+            </div>
+        </div>
+        <div id="bottom-pane" class="k-block" style="height: 100%; width: 100%;">
+            <div class="pane-content">
+                <div><span><p> <a href='https://www.nextgeneration.com'> © Copyright Next Generation Logistics, Inc. All Rights Reserved.</a> </p></span></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<script src="https://demos.telerik.com/kendo-ui/content/shared/js/products.js"></script>-->
+    <script>
+        // var tabstrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        //var grid = $("#grid").kendoGrid({
+        ////$("#grid").kendoNGLGrid({
+        //    autoBind: true,
+        //    //theme: "blueopal",
+        //    //toolbarColumnMenu: true,
+        //    dataSource: [{ ProductName: 'computer', UnitPrice: 2.50, UnitsInStock: 10, Discontinued: false }, { ProductName: 'desk', UnitPrice: 12.50, UnitsInStock: 10, Discontinued: false }],
+        //    scrollable: true,
+        //    selectable: "row",
+        //    resizable: true,
+        //    reorderable: true,
+        //    sortable: {
+
+        //        mode: "single",
+
+        //        allowUnsort: true
+
+        //    },
+        //    //toolbar: ["excel"], excel: { fileName: "vLaneTransLoadXref-12-12-2023-13-55-59.xlsx", allPages: true },
+        //    columns: [
+        //        //"ProductName",
+        //        { field: "ProductName", title: "Name",width: "130px" },
+        //        //{ command: [{ className: "cm-button S", name: "btnSelectTransLoad", text: "Select", iconClass: "k-icon k-i-check", click: SelectTransLoad }], title: "Actions", width: 50},
+        //        { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "130px" },
+        //        { field: "UnitsInStock", title: "Units In Stock", width: "130px" },
+        //        { field: "Discontinued", width: "130px" }
+        //    ],
+        //    //columnResize: function (e) { this._captureColumnResize(e); },
+
+        //    //columnReorder: function (e) { this._captureColumnReorder(e); },
+
+
+        //    //groupable: true,
+
+        ////}).data("kendoNGLGrid");
+        //}).data("kendoGrid");
+
+        //tabstrip.one("activate", function () {
+        //    grid.resize();
+        //});
+
+        //$("#openBtn").click(function (e) {
+        //    tabstrip.activateTab($("#tab1"));
+        //});
+
+        function SelectTransLoad(e) {
+            alert('select trans load');
+        }
+
+        function PostUpdateCNS(e) {
+            alert('PostUpdateCNSoad');
+        }
+
+        function PostHoldBooking(e) {
+            alert('PostHoldBooking');
+        }
+
+        function openEditLoadBoardGridWindow(e) {
+            alert('openEditLoadBoardGridWindow');
+        }
+
+        function confirmDeleteLoadBoardGridRecord(e) {
+            alert('confirmDeleteLoadBoardGridRecord');
+        }
+
+        ////$('#grid').kendoNGLGrid({
+        //    $('#grid').kendoGrid({
+
+        //     autoBind: true,
+
+        //    toolbarColumnMenu: true,
+
+        //    dataSource: [
+        //        { LaneTranXName: 'Tran 1', LaneTranXLaneName: 'Name 1', LaneTranXLaneNumber: 'Number 1' },
+        //        { LaneTranXName: 'Tran 2', LaneTranXLaneName: 'Name 2', LaneTranXLaneNumber: 'Number 2' }],
+
+        //    selectable: "row",
+
+        //    pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+
+        //    sortable: {
+
+        //        mode: "single",
+
+        //        allowUnsort: true
+
+        //    },
+
+        //    sort: function (e) {
+
+        //        //if (!e.sort.dir) { e.sort.dir == ""; e.sort.field == ""; }
+
+        //        //if (!e.sort.field) { e.sort.field == ""; }
+
+        //        //$("#txtid621202310061521292469045SortDirection").val(e.sort.dir);
+
+        //        //$("#txtid621202310061521292469045SortField").val(e.sort.field);
+
+        //    },
+
+        //    dataBound: function (e) {
+
+        //    //    var tObj = this;
+
+        //    //    if (typeof (SelectLaneTransGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(SelectLaneTransGridDataBoundCallBack)) { SelectLaneTransGridDataBoundCallBack(e, tObj, 'id621202310061521292469045'); }
+
+        //    },
+
+        //    resizable: true,
+
+        //    reorderable: true,
+
+        //    nglCustomDragAndDrop: 'true',
+
+        //    //nglDragStart: function (dsO, e) {
+        //    //    if (typeof (SelectLaneTransGridDragStartCallBack) !== 'undefined' && ngl.isFunction(SelectLaneTransGridDragStartCallBack)) { SelectLaneTransGridDragStartCallBack(dsO, e); }
+
+        //    //},
+
+        //    //nglDragEnd: function (dsO, ddO, isDraggingUp) {
+        //    //    if (typeof (SelectLaneTransGridDropCallBack) !== 'undefined' && ngl.isFunction(SelectLaneTransGridDropCallBack)) { SelectLaneTransGridDropCallBack(dsO, ddO, isDraggingUp); }
+
+        //    //},
+
+        //    //columnResize: function (e) { this._captureColumnResize(e); },
+
+        //    //columnReorder: function (e) { this._captureColumnReorder(e); },
+
+        //    groupable: true,
+
+        //    group: function (e) {
+
+        //        //arrid621202310061521292469045GroupBy = new Array();
+
+        //        //if (e.groups.length) {
+
+        //        //    for (let i = 0; i < e.groups.length; i++) {
+
+        //        //        arrid621202310061521292469045GroupBy.push(e.groups[i].field);
+
+        //        //    }
+
+        //        //}
+
+        //    },
+
+        //    toolbar: ["excel"], excel: { fileName: "vLaneTransLoadXref-12-12-2023-13-55-59.xlsx", allPages: true }
+
+        //    , columns: [
+
+        //        {
+        //            command: [
+
+        //                { className: "cm-button S", name: "btnSelectTransLoad", text: "Select", iconClass: "k-icon k-i-check", click: SelectTransLoad }], title: "Actions", width: 50
+        //        },
+
+
+        //        { field: "LaneTranXName", title: "Trans Load Name", width: 100, showhide: 1, PageDetPageControl: 62, PageDetControl: 163724, PageDetUserSecurityControl: 1, template: "<span title='${LaneTranXName}' style='white-space: nowrap'>${LaneTranXName}</span>", attributes: { class: "nowrap" } },
+
+        //        { field: "LaneTranXLaneName", title: "Lane Name", width: 100, showhide: 1, PageDetPageControl: 62, PageDetControl: 163725, PageDetUserSecurityControl: 1, template: "<span title='${LaneTranXLaneName}' style='white-space: nowrap'>${LaneTranXLaneName}</span>", attributes: { class: "nowrap" } },
+
+        //        { field: "LaneTranXLaneNumber", title: "Lane Number", width: 100, showhide: 1, PageDetPageControl: 62, PageDetControl: 163726, PageDetUserSecurityControl: 1, template: "<span title='${LaneTranXLaneNumber}' style='white-space: nowrap'>${LaneTranXLaneNumber}</span>", attributes: { class: "nowrap" } }],
+
+        //});
+
+
+
+        $('#grid').kendoNGLGrid({
+
+            autoBind: true, theme: "blueopal",
+
+            toolbarColumnMenu: true,
+
+            dataSource: [
+                { BookConsPrefix: 'CNS 1', BookSHID: 'SHID 1', BookStopNo: '1' },
+                { BookConsPrefix: 'CNS 2', BookSHID: 'SHID 2', BookStopNo: '2' },
+                { BookConsPrefix: 'CNS 3', BookSHID: 'SHID 3', BookStopNo: '3' },
+                { BookConsPrefix: 'CNS 4', BookSHID: 'SHID 4', BookStopNo: '4' },
+                { BookConsPrefix: 'CNS 5', BookSHID: 'SHID 5', BookStopNo: '5' }
+
+            ],
+
+            selectable: "row",
+
+            pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+
+            sortable: {
+
+                mode: "single",
+
+                allowUnsort: true
+
+            },
+
+            sort: function (e) {
+
+                //if (!e.sort.dir) { e.sort.dir == ""; e.sort.field == ""; }
+
+                //if (!e.sort.field) { e.sort.field == ""; }
+
+                //$("#txtid621201809251302564013007SortDirection").val(e.sort.dir);
+
+                //$("#txtid621201809251302564013007SortField").val(e.sort.field);
+
+            },
+
+            dataBound: function (e) {
+
+                //var tObj = this;
+
+                //if (typeof (LoadBoardGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(LoadBoardGridDataBoundCallBack)) { LoadBoardGridDataBoundCallBack(e, tObj, 'id621201809251302564013007'); }
+
+            },
+
+            resizable: true,
+
+            reorderable: true,
+
+            nglCustomDragAndDrop: 'true',
+
+            nglDragStart: function (dsO, e) {
+                if (typeof (LoadBoardGridDragStartCallBack) !== 'undefined' && ngl.isFunction(LoadBoardGridDragStartCallBack)) { LoadBoardGridDragStartCallBack(dsO, e); }
+
+            },
+
+            nglDragEnd: function (dsO, ddO, isDraggingUp) {
+                if (typeof (LoadBoardGridDropCallBack) !== 'undefined' && ngl.isFunction(LoadBoardGridDropCallBack)) { LoadBoardGridDropCallBack(dsO, ddO, isDraggingUp); }
+
+            },
+
+            columnResize: function (e) { this._captureColumnResize(e); },
+
+            columnReorder: function (e) { this._captureColumnReorder(e); },
+
+            groupable: true,
+
+            group: function (e) {
+
+                //arrid621201809251302564013007GroupBy = new Array();
+
+                //if (e.groups.length) {
+
+                //    for (let i = 0; i < e.groups.length; i++) {
+
+                //        arrid621201809251302564013007GroupBy.push(e.groups[i].field);
+
+                //    }
+
+                //}
+
+            },
+
+            toolbar: ["excel"], excel: { fileName: "vBookLoadBoard-12-12-2023-13-55-58.xlsx", allPages: true }
+
+            , columns: [
+
+                {
+                    command: [
+
+                        { className: "cm-icononly-button T", name: "btnStampCNS", text: "", iconClass: "k-icon k-i-paperclip", click: PostUpdateCNS },
+
+                        { className: "cm-icononly-button H", name: "btnHold", text: "", iconClass: "k-icon k-i-check", click: PostHoldBooking },
+
+                        { className: "cm-icononly-button U", name: "EditLoadBoardCRUDCtrl", text: "", iconClass: "k-icon k-i-pencil", click: openEditLoadBoardGridWindow },
+
+                        { className: "cm-icononly-button D", name: "DeleteLoadBoardCRUDCtrl", text: "", iconClass: "k-icon k-i-trash", click: confirmDeleteLoadBoardGridRecord }], title: "Actions", width: 160
+                },
+
+
+                { field: "BookConsPrefix", title: "Consolidation No.", width: 70, showhide: 1, PageDetPageControl: 62, PageDetControl: 163928, PageDetUserSecurityControl: 1, template: "<span title='${BookConsPrefix}' style='white-space: nowrap'>${BookConsPrefix}</span>", attributes: { class: "nowrap" } },
+
+                { field: "BookSHID", title: "SHID", width: 70, showhide: 1, PageDetPageControl: 62, PageDetControl: 163929, PageDetUserSecurityControl: 1, template: "<span title='${BookSHID}' style='white-space: nowrap'>${BookSHID}</span>", attributes: { class: "nowrap" } },
+
+                { field: "BookStopNo", title: "Stop No", width: 50, showhide: 1, PageDetPageControl: 62, PageDetControl: 163930, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } }],
+
+        });
+
+    </script>
+    <style>
+        /*span
+                            {
+                              white-space: nowrap;
+                            }*/
+        /* #grid { width : 490px; }  .k-grid tbody tr{ height: 38px; }  */
+        .k-grid tbody tr td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+
+        .k-grid td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .k-tooltip {
+            max-height: 500px;
+            max-width: 450px;
+            overflow-y: auto;
+        }
+
+        .k-grid tbody .k-grid-Edit {
+            min-width: 0;
+        }
+
+            .k-grid tbody .k-grid-Edit .k-icon {
+                margin: 0;
+            }
+
+        .k-grid .k-onHold {
+            background-color: red;
+        }
+
+
+        .RateITOptions ul {
+            margin: 0;
+            padding: 0;
+            max-width: 255px;
+        }
+
+            .RateITOptions ul li {
+                margin: 0;
+                padding: 10px 0px 0px 20px;
+                min-height: 25px;
+                line-height: 25px;
+                vertical-align: middle;
+                /*border: 1px solid rgba(128,128,128,.5);*/
+                border-top: 1px solid rgba(128,128,128,.5);
+            }
+
+        .RateITOptions {
+            min-width: 220px;
+            padding: 0;
+            position: relative;
+        }
+
+            .RateITOptions ul li .km-switch {
+                float: right;
+            }
+
+        .RateITOptions-head {
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+
+    </div>
+</body>
+</html>

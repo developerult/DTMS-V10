@@ -1,0 +1,154 @@
+﻿<!--Added By SRP on 2/24/18 ElementAddExample -->
+<div id="wndAddElement">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <input id="txtElementControl" type="hidden" />
+
+            <div style="float: left;">
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Element Name</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtElementName" maxlength="50" style="width:250px;" onfocus="true" />
+                                <input id="txtElemencreatuser" maxlength="50" type="hidden" />
+                                <input id="txtElementcreatedate" maxlength="50" type="hidden" />
+                                <input id="txtElementupdate" maxlength="50" type="hidden" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+
+                                <span id="name-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Element Name Can't be empty</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Element Description</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><textarea id="txtElementDescription" rows="5" cols="20" maxlength="255" style="width: 250px;resize:none"></textarea></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Minimum Length</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtElementMinLength" type="number" min="1" step="1"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:200px;" />
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Maximum Length</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtElementMaxLength" type="number" min="1" step="1"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:200px;" />
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="maxnew-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Minimum Length should be less than Maximum Length</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Data Type</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlEditType" style="width: 250px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+
+                                <span id="edittype-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Please Select data type</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Validation Type</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlValidationType" style="width: 250px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+
+                                <span id="fn-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Please Select Validation Type</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Formating Function</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlFormating" style="width: 250px;" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+
+                                <span id="fn-formating" class="hide-display" style="color: red;position: relative;bottom: 5px;">Please Select Formating Function</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Disabled</td>
+                            <td class="tblResponsive-top">
+                                <input id="chksegmentupdate" type="checkbox"
+                                       style="width:200px;" />
+                            </td>
+                        </tr>
+
+                    </table>
+                </div> 
+
+                
+
+            </div>
+
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+        </div>
+    </div>
+</div>

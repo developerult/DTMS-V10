@@ -1,0 +1,324 @@
+﻿<!--
+    NOTE: 
+        Must add DeleteAssociatedCarrierSuccessCallback() and DeleteAssociatedCarrierAjaxErrorCallback(),
+        SaveAssociatedCarrierSuccessCallback() and SaveAssociatedCarrierAjaxErrorCallback(),    
+        to any page which references this View (LEUsers)
+        Also must add calls to deleteAssociatedCarrier(), openEditAssociatedCarrierWindow(), 
+        and openAddAssociatedCarrierWindow() to the grid
+--> 
+
+<div id="wndAssociatedCarrierEA">
+    <div style="padding: 0px 10px 10px 10px;">
+        <div>
+            <div id="lblAssociatedCarrierUserName"></div>
+        </div>
+        <div style="float: left;">
+
+            <div id="divAscCarCarrierUser" style="float: left;">
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Carrier</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlAssociatedCarriersCU" style="width: 200px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="divAscCarNonCarrierUser" style="float: left;">
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Carrier</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlAssociatedCarriersNCU" style="width: 200px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkAssociatedCarrierAccounting" ><label class="k-checkbox-label" for="chkAssociatedCarrierAccounting"><strong>Accounting</strong></label>
+                </div>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <input id="txtACWndUSCControl" type="hidden" />
+            <input id="txtACWndUserSecurityControl" type="hidden" />
+            <input id="txtACWndUSCUpdated" type="hidden" />
+        </div>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+
+    var wndAssociatedCarrierEA = kendo.ui.Window;
+    var blnAssociatedCarrierIsEdit = false;
+    var blnAssociatedCarrierIsParentCarrier = true;
+
+    //************* Window Functions ********************
+    function openAddAssociatedCarrierWindow(event, usc, userName, userGroupControl) {
+        $("#wndAssociatedCarrierEA").data("kendoWindow").title("Add Associated Carrier");
+        blnAssociatedCarrierIsEdit = false;
+
+        if (typeof (usc) === 'undefined' || usc == null || usc == 0) { ngl.showErrMsg("UserSecurityControl Required", "UserSecurityControl cannot be 0", null); return; } //Verify UserSecurityControl is not null or 0
+        $("#txtACWndUserSecurityControl").val(usc); //Save the UserSecurityControl to the window
+        if (ngl.stringHasValue(userName)) { var c = "<h3>" + userName + "</h3>"; $("#lblAssociatedCarrierUserName").html(c); }
+        if (userGroupControl === 7 || userGroupControl === 8) { blnAssociatedCarrierIsParentCarrier = true; } else { blnAssociatedCarrierIsParentCarrier = false; }
+
+        //refresh ddl
+        if (blnAssociatedCarrierIsParentCarrier === true) {      
+            $('#ddlAssociatedCarriersCU').data('kendoDropDownList').dataSource.read();           
+            $("#divAscCarCarrierUser").show();
+            $("#divAscCarNonCarrierUser").hide();
+            var ddlCU = $("#ddlAssociatedCarriersCU").data("kendoDropDownList");
+            ddlCU.select(0);
+            ddlCU.trigger("change");
+        }
+        else {
+            dsAssociatedCarriersNCU.read();
+            $("#divAscCarNonCarrierUser").show();
+            $("#divAscCarCarrierUser").hide();
+        }
+
+        $("#txtACWndUSCControl").val(0); //Save the USCControl to the window
+        $("#chkAssociatedCarrierAccounting").prop('checked', false);
+        $("#txtACWndUSCUpdated").val("");
+
+        wndAssociatedCarrierEA.center().open();
+    }
+
+    function openEditAssociatedCarrierWindow(e) {
+        $("#wndAssociatedCarrierEA").data("kendoWindow").title("Edit Associated Carrier");
+        blnAssociatedCarrierIsEdit = true;
+
+        var detailGridWrapper = this.wrapper;
+        var parentRow = detailGridWrapper.closest("tr.k-detail-row").prev("tr"); //GET PARENT ROW ELEMENT
+        var parentGrid = parentRow.closest("[data-role=grid]").data("kendoGrid"); //GET PARENT GRID ELEMENT
+        var parentModel = parentGrid.dataItem(parentRow); //GET THE PARENT ROW MODEL
+        //Retrieve Parent data out of the model
+        if (typeof (parentModel) === 'undefined' || parentModel == null || !ngl.isObject(parentModel)) { ngl.showErrMsg("Error", "There was a problem getting the parent row from the grid", null); return; } //Verify the parent row item is not null
+        if (!('UserSecurityControl' in parentModel)) { ngl.showErrMsg("UserSecurityControl Required", "Parent Row object does not contain property UserSecurityControl.", null); return; } //Verify UserSecurityControl is a column in the Parent Row
+        if (typeof (parentModel.UserSecurityControl) === 'undefined' || parentModel.UserSecurityControl == null || parentModel.UserSecurityControl == 0) { ngl.showErrMsg("UserSecurityControl Required", "UserSecurityControl cannot be 0", null); return; } //Verify UserSecurityControl is not null or 0
+
+        $("#txtACWndUserSecurityControl").val(parentModel.UserSecurityControl); //Save the UserSecurityControl to the window
+        if ('UserUserGroupsControl' in parentModel) {
+            if (parentModel.UserUserGroupsControl === 7 || parentModel.UserUserGroupsControl === 8) { blnAssociatedCarrierIsParentCarrier = true; } else { blnAssociatedCarrierIsParentCarrier = false; }
+        }
+
+        if ('UserName' in parentModel) {
+            var c = "<h3>" + parentModel.UserName + "</h3>";
+            $("#lblAssociatedCarrierUserName").html(c);
+        }
+
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+
+        if (typeof (item) === 'undefined' || item == null || !ngl.isObject(item)) { ngl.showErrMsg("Error", "There was a problem getting the row from the grid", null); return; } //Verify the row item is not null
+        if (!('USCCarrierControl' in item)) { ngl.showErrMsg("USCCarrierControl Required", "Row object does not contain property USCCarrierControl.", null); return; } //Verify USCCarrierControl is a column in the grid
+        if (typeof (item.USCCarrierControl) === 'undefined' || item.USCCarrierControl == null || item.USCCarrierControl == 0) { ngl.showErrMsg("USCCarrierControl Required", "USCCarrierControl cannot be 0", null); return; } //Verify USCCarrierControl is not null or 0
+        if (!('USCControl' in item)) { ngl.showErrMsg("USCControl Required", "Row object does not contain property USCControl.", null); return; } //Verify USCControl is a column in the grid
+        if (typeof (item.USCControl) === 'undefined' || item.USCControl == null || item.USCControl == 0) { ngl.showErrMsg("USCControl Required", "USCControl cannot be 0", null); return; } //Verify USCControl is not null or 0
+
+        if (item.USCCarrierAccounting === "Y") { $("#chkAssociatedCarrierAccounting").prop('checked', true); } else { $("#chkAssociatedCarrierAccounting").prop('checked', false); }
+        $("#txtACWndUSCControl").val(item.USCControl); //Save the USCControl to the window
+        $("#txtACWndUSCUpdated").val(item.USCUpdated);
+
+        if (blnAssociatedCarrierIsParentCarrier === true) {
+            $('#ddlAssociatedCarriersCU').data('kendoDropDownList').dataSource.read();
+            $("#divAscCarCarrierUser").show();
+            $("#divAscCarNonCarrierUser").hide();
+            var ddlCU = $("#ddlAssociatedCarriersCU").data("kendoDropDownList");
+            ddlCU.select(function (dataItem) { return dataItem.Control === item.USCCarrierControl; });
+        }
+        else {           
+            dsAssociatedCarriersNCU.read();
+            setTimeout(function () {
+                var ddlNCU = $("#ddlAssociatedCarriersNCU").data("kendoDropDownList");
+                ddlNCU.select(function (dataItem) { return dataItem.Control === item.USCCarrierControl; });
+            }, 500, this);
+            $("#divAscCarNonCarrierUser").show();
+            $("#divAscCarCarrierUser").hide();
+        }
+        wndAssociatedCarrierEA.center().open();
+    }
+
+    var deleteUSCControl = 0;
+    function deleteAssociatedCarrier(e) {
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        deleteUSCControl = 0; //clear any old values
+        if (typeof (item) !== 'undefined' && item != null) { if ('USCControl' in item) { deleteUSCControl = item.USCControl; } }
+        if (deleteUSCControl == 0) { ngl.showErrMsg("Delete Associated Carrier Error", "Could not get the Control from the record", null); return; }
+
+        //perform confirmation
+        var title = "Delete Associated Carrier";
+        ngl.OkCancelConfirmation(
+            title,
+            "Are you sure that you want to delete this Associated Carrier?",
+            400,
+            400,
+            null,
+            "ConfirmDeleteAssociatedCarrier");
+    }
+
+    function ConfirmDeleteAssociatedCarrier(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null  || iRet === 0 ) { return; } //Chose the Cancel action
+        //Chose the Ok action
+        if (typeof (deleteUSCControl) !== 'undefined' && deleteUSCControl > 0) {
+            var tObj = tObjPG;
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.delete("UserSecurityCarrier/DELETE", deleteUSCControl, tObj, "DeleteAssociatedCarrierSuccessCallback", "DeleteAssociatedCarrierAjaxErrorCallback")
+        }
+    }
+
+    function SaveAssociatedCarrierRecord() {
+        var carrierControl = 0;
+        var carrierNumber;
+        var carrierAccounting = "N";
+        if ($('#chkAssociatedCarrierAccounting').is(":checked")) { carrierAccounting = "Y"; } else { carrierAccounting = "N"; }
+        if (blnAssociatedCarrierIsParentCarrier === true) {
+            var dataItemCU = $("#ddlAssociatedCarriersCU").data("kendoDropDownList").dataItem();
+            carrierControl = dataItemCU.Control;
+            carrierNumber = dataItemCU.Description;
+        }
+        else {
+            var dataItemNCU = $("#ddlAssociatedCarriersNCU").data("kendoDropDownList").dataItem();
+            carrierControl = dataItemNCU.Control;
+            carrierNumber = dataItemNCU.Description;
+        }
+        var item = new vUserSecurityCarrier();
+        item.USCControl = $("#txtACWndUSCControl").val();
+        item.USCUserSecurityControl = $("#txtACWndUserSecurityControl").val();
+        item.USCUpdated = $("#txtACWndUSCUpdated").val();
+        item.USCCarrierControl = carrierControl;
+        item.USCCarrierNumber = carrierNumber;
+        item.USCCarrierAccounting = carrierAccounting;
+        item.USCCarrierContControl = 0;
+
+        var tObj = tObjPG;
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.update("UserSecurityCarrier/Post", item, tObj, "SaveAssociatedCarrierSuccessCallback", "SaveAssociatedCarrierAjaxErrorCallback");
+    }
+
+
+    $(document).ready(function () {
+
+        $("#chkAssociatedCarrierAccounting").prop('checked', false); //Uncheck "Account"
+
+        $("#ddlAssociatedCarriersCU").kendoDropDownList({
+            //autoBind: false,
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            url: "api/vLookupList/GetStaticList/" + nglStaticLists.AllCarriers,
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                                    if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Associated Carriers (Carrier User) ddl Failure", data.Errors, null); }
+                                }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                    parameterMap: function(options, operation) { return options; }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Associated Carriers (Carrier User) JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+
+        dsAssociatedCarriersNCU = new kendo.data.DataSource({
+            serverSorting: true,
+            serverPaging: true,
+            pageSize: 10,
+            transport: {
+                read: function (options) {
+                    var gr = new GenericResult();
+                    gr.Control = $("#txtACWndUserSecurityControl").val();
+                    gr.blnField = blnAssociatedCarrierIsEdit;
+                    $.ajax({
+                        url: 'api/UserSecurityCarrier/GetUserAssociatedCarriersList',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(gr) },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            options.success(data);
+                            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Associated Carriers (Non-Carrier User) ddl Failure", data.Errors, null); }
+                            }
+                        },
+                        error: function (result) { options.error(result); }
+                    });
+                },
+                parameterMap: function (options, operation) { return options; }
+            },
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "Control",
+                    fields: {
+                        Control: { type: "number" },
+                        Name: { type: "string" },
+                        Description: { type: "string" }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Associated Carriers (Non-Carrier User) Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+        });
+
+        $("#ddlAssociatedCarriersNCU").kendoDropDownList({
+            autoBind: false,
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: dsAssociatedCarriersNCU
+        });
+
+        ////////////wndAssociatedCarrierEA///////////////
+        wndAssociatedCarrierEA = $("#wndAssociatedCarrierEA").kendoWindow({
+            title: "Add Associated Carrier",
+            modal: true,
+            visible: false,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                //reset values
+                $("#chkAssociatedCarrierAccounting").prop('checked', false); //Uncheck "Account"
+            }
+        }).data("kendoWindow");
+        $("#wndAssociatedCarrierEA").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveAssociatedCarrierRecord(); });
+
+    });
+
+</script>
+
+

@@ -1,0 +1,430 @@
+﻿<div id="wnd">
+    <div>
+
+        <div id="timeStamp-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandTimeStampSpan" style="display: none;"><a onclick='expandTimeStamp();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseTimeStampSpan" style="display: normal;"><a onclick='collapseTimeStamp();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Date/Time Mass Update</span>&nbsp;&nbsp;<br />
+                    <div id="TimeStampDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <%--Dates--%>
+                        <div>
+                            <div><input id="dtpStampDate" />&nbsp;<button id="btnStampDate" style="min-width:150px;">Apply Date To Checked</button></div>
+
+                            <%--Pickup--%>
+                            <div style="float:left;">
+                                <div style="padding-bottom:10px; padding-top:10px;">
+                                    <span>Pickup</span>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrScheduleDate" ><label class="k-checkbox-label" for="chkBookCarrScheduleDate"><strong>Scheduled Appt Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActualDate" ><label class="k-checkbox-label" for="chkBookCarrActualDate"><strong>Arrived-Checked In Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrStartLoadingDate" ><label class="k-checkbox-label" for="chkBookCarrStartLoadingDate"><strong>Start Loading Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActLoadComplete_Date" ><label class="k-checkbox-label" for="chkBookCarrActLoadComplete_Date"><strong>Check Out Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrFinishLoadingDate" ><label class="k-checkbox-label" for="chkBookCarrFinishLoadingDate"><strong>Finish Loading Date</strong></label></div>
+                                </div>
+                            </div>
+
+                            <%--Delivery--%>
+                            <div style="float:left;">
+                                <div style="padding-bottom:10px; padding-top:10px;">
+                                    <span>Delivery</span>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrApptDate" ><label class="k-checkbox-label" for="chkBookCarrApptDate"><strong>Scheduled Appt Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActDate" ><label class="k-checkbox-label" for="chkBookCarrActDate"><strong>Delivered-Checked In Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrStartUnloadingDate" ><label class="k-checkbox-label" for="chkBookCarrStartUnloadingDate"><strong>Start Unloading Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActUnloadCompDate" ><label class="k-checkbox-label" for="chkBookCarrActUnloadCompDate"><strong>Check Out Date</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrFinishUnloadingDate" ><label class="k-checkbox-label" for="chkBookCarrFinishUnloadingDate"><strong>Finish Unloading Date</strong></label></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+
+                        <%--Time--%>
+                        <div>
+                            <div><input id="dtpStampTime" />&nbsp;<button id="btnStampTime" style="min-width:150px;">Apply Time To Checked</button></div>
+
+                            <%--Pickup--%>
+                            <div style="float:left;">
+                                <div style="padding-bottom:10px; padding-top:10px;">
+                                    <span>Pickup</span>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrScheduleTime" ><label class="k-checkbox-label" for="chkBookCarrScheduleTime"><strong>Scheduled Appt Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActualTime" ><label class="k-checkbox-label" for="chkBookCarrActualTime"><strong>Arrived-Checked In Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrStartLoadingTime" ><label class="k-checkbox-label" for="chkBookCarrStartLoadingTime"><strong>Start Loading Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActLoadCompleteTime" ><label class="k-checkbox-label" for="chkBookCarrActLoadCompleteTime"><strong>Check Out Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrFinishLoadingTime" ><label class="k-checkbox-label" for="chkBookCarrFinishLoadingTime"><strong>Finish Loading Time</strong></label></div>
+                                </div>
+                            </div>
+
+                            <%--Delivery--%>
+                            <div style="float:left;">
+                                <div style="padding-bottom:10px; padding-top:10px;">
+                                    <span>Delivery</span>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrApptTime" ><label class="k-checkbox-label" for="chkBookCarrApptTime"><strong>Scheduled Appt Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActTime" ><label class="k-checkbox-label" for="chkBookCarrActTime"><strong>Delivered-Checked In Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrStartUnloadingTime" ><label class="k-checkbox-label" for="chkBookCarrStartUnloadingTime"><strong>Start Unloading Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrActUnloadCompTime" ><label class="k-checkbox-label" for="chkBookCarrActUnloadCompTime"><strong>Check Out Time</strong></label></div>
+                                    <div style="margin-left:5px;"><input type="checkbox" id="chkBookCarrFinishUnloadingTime" ><label class="k-checkbox-label" for="chkBookCarrFinishUnloadingTime"><strong>Finish Unloading Time</strong></label></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Pickup-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandPickupSpan" style="display: none;"><a onclick='expandPickup();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapsePickupSpan" style="display: normal;"><a onclick='collapsePickup();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span id="spFTPickupLbl" style="font-size:small; font-weight:bold">Pickup Information</span>&nbsp;&nbsp;<br />
+                    <div id="PickupDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="padding-bottom:10px; padding-top:10px;">
+                            <div style="margin-left:5px;"><input type="checkbox" id="chkApplyToAllPickup" ><label class="k-checkbox-label" for="chkApplyToAllPickup"><strong>Apply To All Orders With Same Pickup</strong></label></div>
+                        </div>
+
+                        <div style="width:95%; height:95%;">
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Scheduled Appt Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrScheduleDate" /></div><div><input id="dtpBookCarrScheduleTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Arrived-Checked In Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrActualDate" /></div><div><input id="dtpBookCarrActualTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Start Loading Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrStartLoadingDate" /></div><div><input id="dtpBookCarrStartLoadingTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Check Out Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrActLoadComplete_Date" /></div><div><input id="dtpBookCarrActLoadCompleteTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Finish Loading Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrFinishLoadingDate" /></div><div><input id="dtpBookCarrFinishLoadingTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float:none;">
+
+                            <table class="tblResponsive" style="float:left;">
+                                <tr>
+                                    <td class="tblResponsive-top">Dock Door(s) Assignment</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtBookCarrDockPUAssigment" /></td>
+                                </tr>
+                            </table>
+
+                            <table class="tblResponsive" style="float:left;">
+                                <tr>
+                                    <td class="tblResponsive-top">Whse Auth Number</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtBookWhseAuthorizationNo" /></td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Delivery-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandDeliverySpan" style="display: none;"><a onclick='expandDelivery();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseDeliverySpan" style="display: normal;"><a onclick='collapseDelivery();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span id="spFTDeliveryLbl" style="font-size:small; font-weight:bold">Delivery Information</span>&nbsp;&nbsp;<br />
+                    <div id="DeliveryDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="padding-bottom:10px; padding-top:10px;">
+                            <div style="margin-left:5px;"><input type="checkbox" id="chkApplyToAllDelivery" ><label class="k-checkbox-label" for="chkApplyToAllDelivery"><strong>Apply To All Stops With Same Destination</strong></label></div>
+                        </div>
+
+                        <div style="width:95%; height:95%;">
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Scheduled Appt Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrApptDate" /></div><div><input id="dtpBookCarrApptTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Delivered-Checked In Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrActDate" /></div><div><input id="dtpBookCarrActTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Start Unloading Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrStartUnloadingDate" /></div><div><input id="dtpBookCarrStartUnloadingTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Check Out Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrActUnloadCompDate" /></div><div><input id="dtpBookCarrActUnloadCompTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Finish Unloading Date & Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><div><input id="dtpBookCarrFinishUnloadingDate" /></div><div><input id="dtpBookCarrFinishUnloadingTime" /></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float:none;">
+                            <table class="tblResponsive" style="float:left;">
+                                <tr>
+                                    <td class="tblResponsive-top">Dock Door(s) Assignment</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtBookCarrDockDelAssignment" /></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Trailer-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandTrailerSpan" style="display: none;"><a onclick='expandTrailer();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseTrailerSpan" style="display: normal;"><a onclick='collapseTrailer();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Trailer/Load Information</span>&nbsp;&nbsp;<br />
+                    <div id="TrailerDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="width:95%; height:95%;">
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Trailer Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookCarrTrailerNo" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Trailer Seal Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookCarrSealNo" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Driver Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookCarrDriverNo" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Driver Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookCarrDriverName" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Carrier Pro</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtAssignedProNumber" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Carrier Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtAssignedCarrierName" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Carrier Num/SCAC</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtAssignedCarrierNumber" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Load Shipped Wgt</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookFinAPActWgt" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">BOL Number</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="txtBookCarrBLNumber" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Notes-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandNotesSpan" style="display: none;"><a onclick='expandNotes();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseNotesSpan" style="display: normal;"><a onclick='collapseNotes();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Notes</span>&nbsp;&nbsp;<br />
+                    <div id="NotesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+
+                        <div style="padding-bottom:10px; padding-top:10px;">
+                            <div><input type="checkbox" id="chkApplyToAll" ><label class="k-checkbox-label" for="chkApplyToAll"><strong>Apply To All Stops</strong></label></div>
+                        </div>
+
+                        <div style="width:95%; height:95%;">
+                            <div style="margin-bottom:5px"><strong>Comments</strong></div>
+                            <div style="margin-bottom:5px"><textarea id="txtComments" maxlength="255" rows="3" style="resize:vertical; height:auto; width:95%;"></textarea></div>
+
+                            <div style="margin-bottom:5px"><strong>Reason Code</strong></div>
+                            <div><input id="comboAllLoadStatusCodes" style="margin-bottom:1px; width:50%" /></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <input id="txtControl" type="hidden" />
+    <input id="txtSHID" type="hidden" />
+    <input id="txtProNumber" type="hidden" />
+    <input id="txtCNS" type="hidden" />
+    <input id="txtOrderNumber" type="hidden" />
+    <input id="txtStopNumber" type="hidden" />
+    <input id="txtBookPickupStopNumber" type="hidden" />
+    <input id="txtAssignedCarrierContact" type="hidden" />
+    <input id="txtAssignedCarrierContactPhone" type="hidden" />
+
+</div>

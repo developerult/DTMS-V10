@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Matched (M)</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="step2gotoapfreightbillauditapprovalpage.htm" /><link rel="next" href="pendingapproval.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="37e7b7eb-8658-4e28-8968-db650431f7dd">
+<h3>Matched (M)</h3>
+<p class="MsoNormal">To view all invoices that have matched a transaction in TMS 
+and failed audit, select carrier and filter by Matched (M). All invoices that 
+have failed audit and status of M will display here. Users must fix all M 
+transactions and run the audit process manually so they can be approved and sent 
+to the ERP for payment.</p>
+<p class="MsoNormal">It is suggested to run the AUD075 – Load Audit Exception 
+Report. This report will show all invoices that are in M status and need to be 
+fixed by carrier. This report will show the difference between the expected cost 
+and the billed cost. </p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_14.jpg" alt="" /></p>
+<p class="MsoNormal">In most cases the failed audits will be related to a 
+differential in the line haul cost, providing that you approved all fees. The 
+Company level tolerance settings prevent higher than expected freight bills from 
+passing audit. This setting can be found in the Desktop client, under each 
+company called, <i>Tolerances</i>.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_15.jpg" alt="" /></p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_16.jpg" alt="" /></p>
+<p class="MsoNormal">The values look at the % low and % high values and the $ 
+dollar amount low and high values when auditing total cost of the invoices.</p>
+<p class="MsoNormal">Above settings:</p>
+<p class="MsoNormal">100% lower than billed cost to 10% above billed cost. If this 
+is true, this passes this audit check.<br />$500 less than billed cost to $100 
+higher than billed cost. If this is true, this passes this audit check.</p>
+<p class="MsoNormal">If either of these conditions fail, the freight bill will not 
+pass audit. Both of these checks need to pass. If percentage passes but the 
+dollar amount does not, it remains in M status and fails audit. These settings 
+allow for freight invoices to pass due to minimal differential in pricing 
+calculations.</p>
+<p class="MsoNormal"><i>If you set the % High to 0 and the dollar amount high to 
+$0. This means the freight bill total cost needs to match or be lower in order 
+to pass audit.</i></p>
+<p class="MsoNormal">In order to approve and fix failed audits (M status) as a 
+result of a higher than expected cost, users must go to the desktop client and 
+add an <b>Invoice Adjustment Fee. This assumes all fees have been 
+approved</b>.</p>
+<p class="MsoNormal">Go to the desktop client and click on Find.</p>
+<p class="MsoNormal">Expand Load in the Find section.</p>
+<p class="MsoNormal">Search by ShipID or Freight Bill Number. Click and highlight 
+either one, place your cursor in the field and hit enter. User can also search 
+by order number (Maybe warehouse shipment number depending on your ERP 
+configuration.)</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_17.png" alt="" /></p>
+<p class="MsoNormal">Go to the Revenue tab.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_18.jpg" alt="" /></p>
+<p class="MsoNormal">If the Lock All Costs box is checked, users must uncheck this 
+box to insert <i>Invoice Adjustment Fee</i>.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_19.jpg" alt="" /></p>
+<p class="MsoNormal">In the Ribbon Bar, click on Icon with Plus Sign to open up 
+the fees table.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_20.jpg" alt="" /></p>
+<p class="MsoNormal">Search for the fee <i>Invoice Adjustment</i>, insert the 
+difference in the total freight bill cost in the Minimum field. Click Save. The 
+system will recalculate the total cost. Re-check the Lock All Cost field.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_21.jpg" alt="" /></p>
+<p class="MsoNormal">The next step is to Run the Audit function.</p>
+<p class="MsoNormal">Go to the <i>AP Freight Bill Audit Approval Page</i> in the 
+Web Client.</p>
+<p class="MsoNormal">Select the appropriate carrier, apply your filter to Normal 
+(or <i>Electronic</i> for EDI carriers) and insert the date range of the invoice 
+your auditing. Once applied, you should see the transaction in the table.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_22.jpg" alt="" /></p>
+<p class="MsoNormal">Click and highlight the transaction.</p>
+<p class="MsoNormal">In the Actions menu, Click Run Audit.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image60_23.jpg" alt="" /></p>
+<p class="MsoNormal">The system will update the records and perform the audit 
+routine for this transaction or any other transactions that maybe on this 
+screen. If Approved, the record(s) should remove from this filter and can be 
+found in the APPROVED section. </p>
+<p class="MsoNormal">Apply your filter to see APPROVED invoices and you should see 
+the invoice is now approved.</p><span id="related-topics"></span></body></html>

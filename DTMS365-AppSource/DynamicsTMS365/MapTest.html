@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="https://maps-sdk.trimblemaps.com/v2/trimblemaps-2.1.2.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="https://maps-sdk.trimblemaps.com/v2/trimblemaps-2.2.0.js"></script>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=String.prototype.startsWith%2CObject.values%2CArray.prototype.includes"></script>
+    <div id="map"></div>
+
+    <script>
+          TrimbleMaps.APIKey = "C36349D0A5F5D440AAC0CB8A0287F02C";
+
+          var map = new TrimbleMaps.Map({
+              container: "map",
+              style: TrimbleMaps.Common.Style.TRANSPORTATION, //hosted style id
+              center: [-74.60018, 40.36144], // starting position
+              zoom: 12
+          });
+
+          // This data can be hard-coded, loaded from a file, or pulled from a service
+          const geoJsonData = {
+              type: 'geojson',
+              data: {
+                  type: 'FeatureCollection',
+                  features: [{
+                      type: 'Feature',
+                      properties: {
+                          name: 'TrimbleMAPS HQ'
+                      },
+                      geometry: {
+                          type: 'Point',
+                          coordinates: [-74.60018, 40.36144]
+                      }
+                  }]
+              }
+          };
+
+          // Wait for the map to load before adding
+          map.on('load', function () {
+              // Add datasource
+              map.addSource('hqSource', geoJsonData);
+
+              // Load image to use as the marker
+              map.loadImage('https://developer.trimblemaps.com/maps-sdk/img/marker_blue.png', function (error, image) {
+                  // Add image to the map
+                  map.addImage('marker-icon', image);
+
+                  // Add layer to render marker based on datasource
+                  map.addLayer({
+                      id: 'hqPoints',
+                      type: 'symbol',
+                      source: 'hqSource',
+                      layout: {
+                          'icon-image': 'marker-icon',
+                          'icon-size': 1
+                      }
+                  });
+
+                  // Listen for clicks on the hqPoints layer
+                  map.on('click', 'hqPoints', function (evt) {
+                      const popupLocation = evt.features[0].geometry.coordinates.slice();
+                      const popupContent = evt.features[0].properties.name;
+
+                      new TrimbleMaps.Popup()
+                        .setLngLat(popupLocation)
+                        .setHTML(popupContent)
+                        .addTo(map);
+                  });
+
+                  // Change cursor when hovering over a feature on the hqPoints layer
+                  map.on('mouseenter', 'hqPoints', function () {
+                      map.getCanvas().style.cursor = 'pointer';
+                  });
+
+                  // Change cursor back
+                  map.on('mouseleave', 'hqPoints', function () {
+                      map.getCanvas().style.cursor = '';
+                  });
+              });
+          });
+    </script>
+
+</body>
+</html>

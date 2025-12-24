@@ -1,0 +1,166 @@
+﻿
+--Username: BRETTREILYFOODS
+--Password: Ups1234567
+--Account: Y117R8
+
+
+
+
+/* 
+Created by RHR for v-8.5.1.002 on 03/04/2022 
+Run this after the upgrade all script.
+*/
+-- Note: update the default location id for this customer, get from UPS
+-- Add update tblSSOALEConfig set SSOALEClientID = 'NGLUPS' 
+
+Declare @SSOALEControl int = 0
+Declare @LowLTLWeight nvarchar(50) = '0'
+Declare @HighLTLWeight nvarchar(50)  = '151'
+Declare @LowTLWeight nvarchar(50) = '0'
+Declare @HighTLWeight nvarchar(50) = '0'
+Declare @CarrierNumber int = 15  -- 'UPS'
+Declare @SSOAControl int = 11 -- 'UPS'
+Declare @AuthCode nvarchar(100) = '8DB68B854C9118E5'
+declare @DataURL nvarchar(500) = 'https://wwwcie.ups.com/ship/v1/rating/Rate'	
+
+if @CarrierNumber > 0 and exists(Select * from dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = @SSOAControl)
+Begin
+	if not exists(Select * From  dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = @SSOAControl  and tblSingleSignOnAccount.SSOAClientID  = 'NGLUPS')
+	Begin
+		--Not set up so add the header details
+		update  dbo.tblSingleSignOnAccount set
+			tblSingleSignOnAccount.SSOAClientID  = 'NGLUPS',
+			SSOAClientSecret = '',
+			SSOAAuthCode = @AuthCode,
+			SSOALoginURL = '',
+			SSOADataURL = @DataURL			
+		where tblSingleSignOnAccount.SSOAControl = @SSOAControl
+	End
+	Declare @SSOACSSOALEControl int
+	if not exists(Select * From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = @SSOAControl and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEClientID  = 'NGLUPS')
+	Begin
+		--Not set up so add the LE header details
+		Insert Into   dbo.tblSSOALEConfig (
+			SSOALESSOAControl,
+			SSOALELEAdminControl,
+			SSOALEClientID,
+			SSOALEClientSecret,
+			SSOALEAuthCode,
+			SSOALELoginURL,
+			SSOALeDataURL
+		)
+		Values(
+			@SSOAControl, -- UPS SSOALESSOAControl,
+			0, -- SSOALELEAdminControl,
+			'BRETTREILYFOODS', -- SSOALEClientID,
+			'Ups1234567', -- SSOALEClientSecret,
+			@AuthCode, -- SSOALEAuthCode,
+			'', -- SSOALELoginURL,
+			@DataURL-- SSOALeDataURL
+		)
+		Select @SSOALEControl = SCOPE_IDENTITY() 
+	End
+	Else
+	Begin
+		Select @SSOALEControl = SSOALEControl  From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = @SSOAControl and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEAuthCode  = @AuthCode
+	End
+
+	
+	-- check for each of the default config settings
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl and [SSOACCompControl] = 0 and SSOACName = '03')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'03','Ground','1',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '02')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'02','2nd Day','1',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '01')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'01','Next Day','1',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '07')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'07','Global Express','0',getdate(),'System') -- Off
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '08')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'08','Global Expedited','0',getdate(),'System') -- Off
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '11')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'11','Standard','1',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '12')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'12','3 Day Select','0',getdate(),'System') -- off
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '14')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'14','Next Day Early','1',getdate(),'System') 
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '54')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'54','Express Plus','0',getdate(),'System')  -- off
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '59')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'59','2nd Day Early','1',getdate(),'System')  
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = '65')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'65','Global Saver','0',getdate(),'System')  -- off
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'CarrierNumber')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'CarrierNumber','Default API Carrier Number for All Locations',Cast(@CarrierNumber as nvarchar(20)),getdate(),'System')
+	End	
+
+	
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'ShipperName')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'ShipperName','Default API Carrier Number for All Locations',Cast(@CarrierNumber as nvarchar(20)),getdate(),'System')
+	End	
+	
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowLTLWeight','Default UPS Low LTL Weight Break for All Locations',@LowLTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighLTLWeight','Default UPS High LTL Weight Break for All Locations',@HighLTLWeight,getdate(),'System')
+	End
+
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowTLWeight','Default UPS Low Truckload Weight for All Locations',@LowTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighTLWeight','Default UPS High Truckload Weight for All Locations',@HighTLWeight,getdate(),'System')
+	End
+
+	
+
+End

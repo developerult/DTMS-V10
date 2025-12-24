@@ -1,0 +1,361 @@
+﻿<!--<div id="winDispRpt" style="margin-top:0; padding-top:0;" >
+    <div style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0; ">       
+        <div style="font-size:large;"><b>Load Dispatch Report</b></div>
+        <span id="spDispRptCarrierNotes"></span>
+        <div style="font-size:medium;"><b>Summary</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbDispRptSummary" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Origin</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Destination</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Summary</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Wgt</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Qty</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Pkgs</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 20%; min-width: 100px; padding-right:4px;"><span id="spDispRptOrigin"></span></td>
+                    <td style="border: none;  width: 20%; min-width: 100px; padding-right:4px;"><span id="spDispRptDest"></span></td>
+                    <td style="border: none;  width: 30%; min-width: 100px; padding-right:4px;"><span id="spDispRptShipDetails"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispRptShipWgt"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispRptShipQty"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispRptShipPlts"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="font-size:medium;"><b>Details</b></div>
+        <div class="k-block " style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbDispRptDetails" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Carrier</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Vendor</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Quote Number</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Linear Feet</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Line Haul</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Fuel</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none;  width: 15%; min-width: 75px; padding-right:2px;"><span id="spDispRptProviderSCAC"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 75px; padding-right:2px;"><span id="spDispRptVendorSCAC"></span></td>
+                    <td style="border: none;  width: 20%; min-width: 75px; padding-right:2px;"><span id="spDispRptQuoteNumber"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 60px; padding-right:2px; text-align:right;"><span id="spDispRptLinearFeet"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 30px; padding-right:2px;text-align:right;"><span id="spDispRptLineHaul"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 30px; padding-right:2px;text-align:right;"><span id="spDispRptFuel"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 30px; text-align:right;"><span id="spDispRptTotalCost"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="font-size:medium;"><b>Shipment Information</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white; ">
+            <table id="tbDispRptDeliveryElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Tranport Type:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%;  min-width: 200px;"><span id="spDispRptTransType" type="text" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 100px; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Confirmation Nbr:</td>
+                        <td class="data-entry-value" style="border: none; width: auto; min-width: 200px;"><span id="spDispRptConfNbr" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 100px; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Shipment ID:</td>
+                        <td class="data-entry-value" style="border: none; width: auto; min-width: 200px;"><span id="spDispRptSHID" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Purchase Order Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><span id="spDispRptPONumber" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Order Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><span id="spDispRptOrderNumber" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Carrier PRO Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><span id="spDispRptCarrierProNumber" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Confidential Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptConfidentialNote" class="stopInfo"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="font-size:medium;"><b>Pickup Information</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white; ">
+            <table id="tbDispRptOriginElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; text-align:right; padding-right:4px;">Location Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigName" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Street Address:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigAddress1" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Contact Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContName" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Phone:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContPhone" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Email:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContEmail" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Pickup Date:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupDate" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">From:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupStartTime" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">To:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupEndTime" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Pickup Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupNote" class="stopInfo"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="font-size:medium;"><b>Delivery Information</b></div>        
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbDispRptDestElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px; ">Location Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestName" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Street Address:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestAddress1" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Contact Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContName" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Phone:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContPhone" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Email:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContEmail" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Delivery Date:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryDate" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">From:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryStartTime" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">To:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryEndTime" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Delivery Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryNote" class="stopInfo"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="padding-left:10px; padding-bottom:0px; padding-top:5px; padding-right:10px;"><span id="spDispRptLegal" class="stopInfo"></span></div>
+    </div>
+</div>-->
+
+
+<!--NEW-->
+<div id="winDispRpt" style="margin-top:0; padding-top:0;">
+    <div id="divErrMsgDispRpt" style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0;">
+        <div class="k-block k-error-colored" style="text-align:center; margin-left:2px; margin-right:2px; margin-top:10px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px;"><h2>No Dispatch data is available</h2></div>
+    </div> 
+    <div id="divDispRpt" style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0; ">
+        <div style="font-size:large;"><b>Load Dispatch Report</b></div>
+        <span id="spDispRptCarrierNotes"></span>
+        <div style="font-size:medium;"><b>Summary</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; margin-bottom:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbDispRptDetails" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Carrier Name</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Carrier</th>               
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Linear Feet</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total Wgt</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total Qty</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total Pkgs</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 20%; min-width: 75px; padding-right:2px;"><span id="spDispRptProviderName"></span></td>
+                    <td style="border: none; width: 10%; min-width: 75px; padding-right:2px;"><span id="spDispRptProviderSCAC"></span></td>              
+                    <td style="border: none; width: 10%; min-width: 60px; padding-right:2px; text-align:right;"><span id="spDispRptLinearFeet"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; text-align:right;"><span id="spDispRptShipWgt"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; text-align:right;"><span id="spDispRptShipQty"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; text-align:right;"><span id="spDispRptShipPlts"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Quote Number</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Vendor</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Line Haul</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Fuel</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Fees</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 20%; min-width: 75px; padding-right:2px;"><span id="spDispRptQuoteNumber"></span></td>
+                    <td style="border: none; width: 10%; min-width: 75px; padding-right:2px;"><span id="spDispRptVendorSCAC"></span></td>
+                    <td style="border: none; width: 10%; min-width: 30px; padding-right:2px; text-align:right;"><span id="spDispRptLineHaul"></span></td>
+                    <td style="border: none; width: 10%; min-width: 30px; padding-right:2px; text-align:right;"><span id="spDispRptFuel"></span></td>
+                    <td style="border: none; width: 10%; min-width: 30px; padding-right:2px; text-align:right;"><span id="spDispRptFees"></span></td>
+                    <td style="border: none; width: 10%; min-width: 30px; text-align:right;"><span id="spDispRptTotalCost"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="font-size:medium;"><b>Shipment Information</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; margin-bottom:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white; ">
+            <table id="tbDispRptDeliveryElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Tranport Type:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%;  min-width: 200px;"><span id="spDispRptTransType" type="text" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 100px; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Confirmation Nbr:</td>
+                        <td class="data-entry-value" style="border: none; width: auto; min-width: 200px;"><span id="spDispRptConfNbr" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 100px; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Shipment ID:</td>
+                        <td class="data-entry-value" style="border: none; width: auto; min-width: 200px;"><span id="spDispRptSHID" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Carrier PRO Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><span id="spDispRptCarrierProNumber" class="stopInfo"></span></td>
+                    </tr>
+                    <!--<tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Confidential Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptConfidentialNote" class="stopInfo"></span></td>
+                    </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <div id="divDispatchStops">
+            <div id="lblPickupInfo" style="font-size:medium;"><b>Pickup Information</b></div>
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; margin-bottom:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white; ">
+                <table id="tbDispRptOriginElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                    <tbody class="data-container" style="width: auto;">
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; text-align:right; padding-right:4px;">Location Name:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigName" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Street Address:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigAddress1" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Contact Name:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContName" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Phone:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContPhone" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Email:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrigContEmail" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Pickup Date:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupDate" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">From:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupStartTime" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">To:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupEndTime" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Pickup Notes:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPickupNote" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Purchase Order Nbr:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPONumberPU" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Order Nbr:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrderNumberPU" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Item SO Numbers:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptItemOrderNumbersPU" class="stopInfo"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="lblDeliveryInfo" style="font-size:medium;"><b>Delivery Information</b></div>
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbDispRptDestElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                    <tbody class="data-container" style="width: auto;">
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px; ">Location Name:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestName" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Street Address:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestAddress1" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Contact Name:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContName" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Phone:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContPhone" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Email:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDestContEmail" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Delivery Date:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryDate" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">From:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryStartTime" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">To:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryEndTime" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Delivery Notes:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptDeliveryNote" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Purchase Order Nbr:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptPONumberDEL" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Order Nbr:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptOrderNumberDEL" class="stopInfo"></span></td>
+                        </tr>
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px;">Item SO Numbers:</td>
+                            <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><span id="spDispRptItemOrderNumbersDEL" class="stopInfo"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="padding-left:10px; padding-bottom:0px; padding-top:5px; padding-right:10px;"><span id="spDispRptLegal" class="stopInfo"></span></div>
+    </div>
+</div>

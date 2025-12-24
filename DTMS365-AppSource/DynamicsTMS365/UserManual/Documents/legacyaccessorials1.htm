@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Legacy Accessorials</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - CARRIERS ACCESSORIALS.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="apifeecrossreference1.htm" /><link rel="next" href="variablecode1.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="072add1c-50f1-4261-a801-2ca400868f66">
+<h1>Legacy Accessorials</h1>
+<p class="MsoNormal">Stop charges, pick charges, fuel surcharges have specific 
+allocation rules <b><u>that should not be modified.</u></b></p>
+<p class="MsoNormal"><b>Legacy Stop fee:</b></p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Any accessorial (codes 20-28) like stop X fee is considered a legacy stop 
+fee</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>legacy stop fees use specific variable codes formulas 7-16 with names 
+like Stop X Flat fee. These variable codes settings should match the accessorial 
+codes settings with the same stop # For Example, stop 1 fee should be assigned 
+the accessorial code formula of stop 1 flat fee (current v6.0 system logic)</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>legacy stop fees are always allocated by destination, so the fee 
+allocation type is ignored. The system will reset this value when costs are 
+recalculated if it is changed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>legacy stop fees are always allocation type of destination and always 
+have allocation formula of weight. (user settings are ignored or will be 
+modified by the system to reflect default values) The system will reset this 
+value when costs are recalculated if it is changed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>fee calculation type for stop fees is always set to unique</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>stop fees are adjusted for rounding errors automatically with any 
+discrepancy being applied to the order with the heaviest weight at that specific 
+destination</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The allocated cost will be stored in the fee value</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The system will use the highest configured stop fee available if there 
+are additional stops that do not have fees configured in the carrier tariff 
+contract.  For example, if you have 4 stops configured but build a 5 stop 
+load, the system will use the stop 4 fee$ amount for stop 5. </p>
+<p class="MsoNormal"><b>Legacy Fuel Surcharge Fee</b> (The standard Rate Per Mile 
+and Rate Percent fuel fees) </p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The Fee Allocation Type is always Load.  The system will reset this 
+value when costs are recalculated if it is changed.</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The Fee Calculation Type is always Unique.  The system will reset 
+this value when the costs are recalculated if it is changed</p>
+<p class="MsoNormal"><b>Legacy Pickup Fee</b> (The standard Pick 1, Pick 2 etc… 
+fee):</p>
+<p class="MsoNormal" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 36.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The Fee Allocation Type is always Origin.  The system will reset 
+this value when costs are recalculated if it is changed.</p>
+<p class="MsoListParagraph" style="MARGIN-LEFT: 0pt">The Fee Calculation Type is 
+always Unique.  The system will reset this value when the costs are 
+recalculated if it is changed</p>
+<p class="MsoNormal"><span class="Heading3Char"><span style="FONT-SIZE: 16pt"></span></span> </p>
+<div class="related-topics-header">
+<p class="RelatedHead">More:</p>
+<div class="related-topics">
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="variablecode1.htm">Variable code:</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="feeallocationmode1.htm">Fee Allocation Mode</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="feeallocationformula1.htm">Fee Allocation Formula</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="feecalculationprecedence1.htm">Fee Calculation 
+Precedence</a></p></div></div></body></html>

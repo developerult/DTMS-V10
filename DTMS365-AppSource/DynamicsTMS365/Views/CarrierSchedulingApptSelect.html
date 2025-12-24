@@ -1,0 +1,110 @@
+﻿<!--Book Appointment -->
+<div id="selectCarrierAppt">
+    <div>
+        <fieldset>
+            <legend><b>Order Details</b></legend>
+            <div style="margin:10px;">
+                <table class="tblResponsive" style="width:100%;">
+                    <tr>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Order No: </b></label><label><b id="lblUOOrderNo"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Equip ID: </b></label><label><b id="lblUOEquipID"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Load Date: </b></label><label><b id="lblUOLoadDate"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Delivery Date: </b></label><label><b id="lblUODeliveryDate"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Scheduled: </b></label><label><b id="lblUOSheduled"></b></label></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>SHID: </b></label><label><b id="lblUOSHID"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>CNS: </b></label><label><b id="lblUOCNS"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Pickup: </b></label> <input id="lblUOPickup" type="checkbox"  /><label for="lblUNPickup" class="k-checkbox-label"></label> </td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Inbound: </b></label> <input id="lblUOInbound" type="checkbox" /><label for="lblUNInbound" class="k-checkbox-label"></label> </td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Transfer: </b></label> <input id="lblUOTransfer" type="checkbox" /><label for="lblUNTransfer" class="k-checkbox-label"></label> </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div style="margin-top: 15px;">
+        <fieldset>
+            <legend><b>Available Appointments</b></legend>
+            <div style="margin-top: 15px;" align="center">
+                <div id="avialbaleApptGrid"></div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Request Email Appointment -->
+<div id="ReqEmailForNewEditDelete">
+    <div align="center">
+        <h2 style="margin:0; font-size:1em;" id="lblEmailMessage"></h2>
+    </div>
+    <div>
+        <fieldset>
+            <legend><b>Body</b></legend>
+            <div align="center">
+                <h2 style="margin:0; font-size:1em;" id="lblEmailBody"></h2>
+            </div>
+        </fieldset>
+    </div>
+    <div style="margin-top: 15px;">
+        <fieldset>
+            <legend><b>Additional Comments</b></legend>
+            <div style="margin-top: 15px;" align="center">
+                <textarea id="txtEmailComments" rows="8" cols="20" style="width:300px;"></textarea>
+            </div>
+            <div style="margin-top: 15px;" align="center">
+                <button id="btnSubmitReqEmail">Submit Request</button>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Edit Orders EquipID -->
+<div id="editOrdersEquipmentID">
+    <div>
+        <fieldset>
+            <legend><b>Edit EquipmentID</b></legend>
+            <div style="margin-top: 15px;" align="center">
+                <h2 style="margin:0; font-size:1em;" id="lblEditEquipIDMessage"></h2>
+            </div>
+            <div style="margin-top: 15px;" align="center">
+                <button id="btnEditEquipIDSubmitChanges">Save EquipmentID</button>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Edit Booked Appointment -->
+<div id="reqAvailApptForCarrierBookedAppt">
+    <div>
+        <fieldset>
+            <legend><b>Order Details</b></legend>
+            <div style="margin:10px;">
+                <table class="tblResponsive" style="width:100%;">
+                    <tr>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Order No: </b></label><label><b id="lblBOOrderNo"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Equip ID: </b></label><label><b id="lblBOEquipID"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Load Date: </b></label><label><b id="lblBOLoadDate"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Delivery Date: </b></label><label><b id="lblBODeliveryDate"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Scheduled: </b></label><label><b id="lblBOSheduled"></b></label></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>SHID: </b></label><label><b id="lblBOSHID"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>CNS: </b></label><label><b id="lblBOCNS"></b></label></td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Pickup: </b></label> <input id="lblBOPickup" type="checkbox"  /><label for="lblBOPickup" class="k-checkbox-label"></label> </td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Inbound: </b></label> <input id="lblBOInbound" type="checkbox"  /><label for="lblBOInbound" class="k-checkbox-label"></label> </td>
+                        <td class="tblResponsive-top" style="width: 20%;"><label><b>Transfer: </b></label> <input id="lblBOTransfer" type="checkbox"  /><label for="lblBOTransfer" class="k-checkbox-label"></label> </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div style="margin-top: 15px;">
+        <fieldset>
+            <legend><b>Available Appointments</b></legend>
+            <div style="margin-top: 15px;" align="center">
+               <div id="availApptForBookedApptGrid"></div>
+            </div>
+        </fieldset>
+    </div>
+</div>

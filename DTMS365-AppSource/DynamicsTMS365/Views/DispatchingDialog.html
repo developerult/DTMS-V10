@@ -1,0 +1,248 @@
+﻿<div id="winDispatchDialog">
+    <div style="margin-left:10px; margin-right:10px">
+        <span class="RateITCaption">Click to Dispatch &nbsp;&nbsp;</span>
+        <a id="aDispClickToDispatch" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" href="#">
+        <span class="k-icon k-i-upload" ></span>
+        </a>
+
+        <table class="tblResponsive">
+            <tr><td style="max-width:1000px; min-width:100px;word-wrap:normal">Select On to Automatically Dispatch and Accept the load; Select Off to require the carrier to accept or reject the load.</td></tr>
+            <tr><td><input type="checkbox" id="swDispAutoAcceptOnDispatch" ></td></tr>
+        </table>
+        <br />
+        <table class="tblResponsive">
+            <tr><td style="max-width:1000px; min-width:100px;word-wrap:normal">Select On to send the carrier a load tender sheet via email; When this swiitch is Off load tender sheets are not sent automatically to the carrier.</td></tr>
+            <tr><td><input type="checkbox" id="swDispEmailLoadTenderSheet" ></td></tr>
+        </table>
+
+        <h4>Current Load To Dispatch</h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px;">
+            <table id="tDispatchSummary" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Origin</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Destination</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Summary</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Wgt</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Qty</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Total Pkgs</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 20%; min-width: 100px; padding-right:4px;"><span id="spDispOrigin"></span></td>
+                    <td style="border: none; width: 20%; min-width: 100px; padding-right:4px;"><span id="spDispDest"></span></td>
+                    <td style="border: none; width: 30%; min-width: 100px; padding-right:4px;"><span id="spDispShipDetails"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispShipWgt"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispShipQty"></span></td>
+                    <td style="border: none; width: 10%; min-width: 25px; padding-right:4px;"><span id="spDispShipPlts"></span></td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+        <h4>Details</h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px;">
+            <table id="tbDispatchDetails" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Carrier</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Vendor</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Quote Number</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Linear Feet</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Line Haul</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Fuel</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Fees</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: right;">Total</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none;  width: 15%; min-width: 75px; padding-right:2px;"><span id="spProviderSCAC"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 75px; padding-right:2px;"><span id="spVendorSCAC"></span></td>
+                    <td style="border: none;  width: 20%; min-width: 75px; padding-right:2px;"><span id="spQuoteNumber"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 60px; padding-right:2px; text-align:right;"><span id="spLinearFeet"></span></td>
+                    <td style="border: none;  width: 15%; min-width: 30px; padding-right:2px;text-align:right;"><span id="spLineHaul"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 30px; padding-right:2px;text-align:right;"><span id="spFuel"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 30px; padding-right:2px;text-align:right;"><span id="spFees"></span></td>
+                    <td style="border: none;  width: 10%; min-width: 30px; text-align:right;"><span id="spTotalCost"></span></td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+        <h2>Please fill in all the required information below</h2>
+        <h4>Shipment Information</h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; ">
+            <table id="tbDispatchDeliveryElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Tranport Type:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%;  min-width: 200px;"><input id="txtLoadTenderTransTypeControl" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 100px; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Shipment ID:</td>
+                        <td class="data-entry-value" style="border: none; width: auto; min-width: 200px;"><span id="spDispSHID" class="stopInfo"></span></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Purchase Order Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><input id="txtDispPONumber" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Order Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><input id="txtDispOrderNumber" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Carrier PRO Nbr:</td>
+                        <td class="data-entry-value" style="border: none;  width: 80%; min-width: 200px;"><input id="txtDispCarrierProNumber" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Confidential Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><textarea rows="2" cols="100" maxlength="255" id="txtDispConfidentialNote" style="height:50px;"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4>Pickup Information</h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; ">
+            <table id="tbDispatchOriginElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; text-align:right; padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Location Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispOrigName" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Street Address:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispOrigAddress1" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Contact Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispOrigContName" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Phone:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispOrigContPhone" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Email:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispOrigContEmail" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Pickup Date:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispPickupDate" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Pickup Available From:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispPickupStartTime" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Pickup Available To</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispPickupEndTime" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Pickup Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><textarea rows="2" cols="100" maxlength="50" id="txtDispPickupNote" style="height:50px;"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4>Delivery Information</h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; ">
+            <table id="tbDispatchDestElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tbody class="data-container" style="width: auto;">
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px; "><span class="redRequiredAsterik">*&nbsp;</span>Location Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDestName" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Street Address:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDestAddress1" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Contact Name:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDestContName" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Phone:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDestContPhone" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Email:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDestContEmail" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Delivery Date:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDeliveryDate" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Delivery Available From:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDeliveryStartTime" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;"><span class="redRequiredAsterik">*&nbsp;</span>Delivery Available To:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><input id="txtDispDeliveryEndTime" type="text" class="stopInfo" style="display: inline; width: 100%; height: 100%; min-width: 200px;" /></td>
+                    </tr>
+                    <tr class="data-template" style="border: none;">
+                        <td class="data-entry-label" style="border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right;  padding-right:4px;">Delivery Notes:</td>
+                        <td class="data-entry-value" style="border: none; width: 80%; min-width: 200px;"><textarea rows="2" cols="100" maxlength="50" id="txtDispDeliveryNote" style="height:50px;"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--add a button to select a different contact create a popupwindow activated by this button for the user to pick the contact using this carrier and le-->
+        <h4>Carrier Contact Information<button id='btnDispSelectContact' class="k-button actionBarButton"><span class='k-icon k-i-book'></span></button></h4>
+        <div class="k-block k-info-colored" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px;">
+            <table id="tbDispatchCarrierContact" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Contact Name</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Title</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Email</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Phone</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Phone Ext</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">800</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Fax</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 15%; min-width: 75px; padding-right:2px;"><span id="spDispCarContName"></span></td>
+                    <td style="border: none; width: 15%; min-width: 75px; padding-right:2px;"><span id="spDispCarContTitle"></span></td>
+                    <td style="border: none; width: 20%; min-width: 100px; padding-right:2px;"><span id="spDispCarContEmail"></span></td>
+                    <td style="border: none; width: 15%; min-width: 40px; padding-right:2px;"><span id="spDispCarContPhone"></span></td>
+                    <td style="border: none; width: 10%; min-width: 30px; padding-right:2px;"><span id="spDispCarContPhoneExt"></span></td>
+                    <td style="border: none; width: 15%; min-width: 40px; padding-right:2px;"><span id="spDispCarCont800"></span></td>
+                    <td style="border: none; width: 10%; min-width: 40px;"><span id="spDispCarContFax"></span></td>
+                </tr>
+            </table>
+            <table id="tbDispatchCarrierContact" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:10px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Dispatch Default</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;">Scheduling Contact</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;"></th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;"></th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;"></th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;"></th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: left;"></th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; width: 15%; min-width: 75px; padding-right:2px;">
+                        <div><input type="checkbox" id="chkDispCarContDefault" ><label class="k-checkbox-label" for="chkDispCarContDefault"></label></div>
+                    </td>
+                    <td style="border: none; width: 15%; min-width: 75px; padding-right:2px;">
+                        <div><input type="checkbox" id="chkDispCarContScheduler" ><label class="k-checkbox-label" for="chkDispCarContScheduler"></label></div>
+                    </td>
+                    <td style="border: none; width: 20%; min-width: 100px; padding-right:2px;"></td>
+                    <td style="border: none; width: 15%; min-width: 40px; padding-right:2px;"></td>
+                    <td style="border: none; width: 10%; min-width: 30px; padding-right:2px;"></td>
+                    <td style="border: none; width: 15%; min-width: 40px; padding-right:2px;"></td>
+                    <td style="border: none; width: 10%; min-width: 40px;"><span></span></td>
+                </tr>
+            </table>
+            <input id="txtDispCarContControl" type="hidden" />
+            <input id="txtDispCarContCarrierControl" type="hidden" />
+            <input id="txtDispCarContLECarControl" type="hidden" />
+            <input id="txtDispCarrierControl" type="hidden" />
+        </div>
+
+        <br />
+    </div>
+</div>
+
+
+
+
+<div id="divContactsWindow"></div> <!--html tag where the SelectContactCtrl widget will create the HTML for the Contacts window-->
+
+
+

@@ -1,0 +1,399 @@
+<!-- Added By LVV on 6/17/20 for v-8.2.1.008 Task#202005151417 - Company/Warehouse Maintenance Changes -->
+<div id="wndFuelMatrix">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p>Please paste or enter the Tariff Specific Fuel Matrix</p>
+        <!--<button id="btnUCN" type="button">Preferred Carriers to the Lane</button>-->
+        <div id="CarSpecificFuelMatrixGrid"></div>
+    </div>
+</div>
+<style>
+    #CarSpecificFuelMatrixGrid .k-tabstrip-wrapper {
+        display: none;
+    }
+
+    .k-spreadsheet .k-spreadsheet-sheets-bar {
+        display: none;
+    }
+
+    .k-spreadsheet .k-dirty {
+        display: none;
+    }
+</style>
+
+
+
+<script>
+
+    var dsActiveCarriers = kendo.data.DataSource;
+    var simplesource = [];
+    var datasource = kendo.data.DataSource;
+    var wndFuelMatrix = kendo.ui.Window;
+    var ActCarriersControl = 0;
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openImportFuelWnd(leControl) {
+        //If a Legal Entity is provided use that - else use the users associated LE (done in the DAL method)
+        ActCarriersControl = leControl;
+        GetAllData(); //Modified by RHR for v-85.4.005 on 02/02/2024
+        //refreshAvaiableCarriersGrid();
+        wndFuelMatrix.center().open();
+    }
+</script>
+
+<div id="example">
+    <div id="spreadsheet" style="width: 100%;"></div>
+    <script>
+        var values;
+        var changevariable = [];
+        var countforchange = 0;
+        function onPaste(arg) {
+            console.log('On Paste');
+            values = arg.clipboardContent.data.map(function (row) {
+                return row.map(function (cell) {
+                    return cell.value;
+                });
+            });
+        }
+
+        function onChange(arg) {
+            if (values == null) {
+                values = "";
+            }
+            //console.log(arg.range.value());
+            //console.log(arg.range.value().format())
+            var sheet = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet");
+            //var book = sheet.activeSheet();
+            //var newdateformate = book.range("A2").value(arg.range.value()).format(kendo.spreadsheet.formats.date);
+
+            changevariable.push(arg.range.value());
+            //console.log(changevariable + " change vairable");
+
+        }
+
+        function GetAllData() {
+            simplesource = []; //Modified by RHR for v-8.5.4.005 on 02/02/2024
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.read("TariffFuelAdRate/GetCompleteRecord", 0, tPage, "getAllDataSuccessCallback", "getAllDataAjaxErrorCallback", false); //Modified by RHR for v-8.5.4.005 on 02/02/2024 async is now false
+        }
+
+        function GetTariffFuelMatrixSuccessCallback(data, errTitle) {
+            try {
+                var blnSuccess = false;
+                var blnErrorShown = false;
+                var strValidationMsg = "";
+                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                    if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg(errTitle, data.Errors, null); }
+                    else {
+                        if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                            if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                blnSuccess = true;
+                                for (var i = 0; i < data.Data.length; i++) {
+                                    simplesource.push(data.Data[i].CarrFuelAdRatesControl);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (blnSuccess === false && blnErrorShown === false) {
+                    if (strValidationMsg.length < 1) { strValidationMsg = errTitle; }
+                    ngl.showErrMsg(errTitle, strValidationMsg, null);
+                }
+                execActionClick("Refresh");
+            } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+        }
+
+        function getAllDataSuccessCallback(data) {
+            GetTariffFuelMatrixSuccessCallback(data, "Get Miles Failure");
+        }
+        function getAllDataAjaxErrorCallback(results) { ngl.showErrMsg("Get Tariff Fuel Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage); }
+
+        $(document).ready(function () {
+            //GetAllData(); //Modified by RHR for v-8.5.4.005 on 02/02/2024 we now read data on window open
+            
+            $(function () {
+                $("#CarSpecificFuelMatrixGrid").kendoSpreadsheet({
+                    excel: {
+                        // Required to enable saving files in older browsers
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    toolbar: {
+                        insert: false,
+                        //home: false,
+                        data: false
+                    },
+                    pdf: {
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    paste: onPaste,
+                    //change: onChange,
+                    //render: onRender,
+                    sheets: [
+                        {
+                            name: "Fuel matrix",
+                            cellRange: 500, //Modified by RHR for v-8.5.4.005 on 02/02/2024 increase to 500
+                            dataSource: datasource,
+                            rows: [
+                                {
+                                    height: 25,
+                                    cells: [
+                                        {
+                                            value: "Eff. Date",
+                                            background: "rgb(167,214,255)",
+                                            bold: "true",
+                                            textAlign: "center",
+                                            color: "rgb(0,62,117)",
+                                            format: "{0: MM-dd-yy}"
+                                            //validation: {
+                                            //    dataType: "date",
+                                            //    type: "reject",
+                                            //    comparerType: "custom",
+                                            //    titleTemplate: "Columnn has to be in Date Format",
+                                            //    messageTemplate: "Columnn has to be in Date Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "Low", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    from: "0",
+                                            //    comparerType: "greaterThan",
+                                            //    titleTemplate: "Columnn has to be in Number Format",
+                                            //    messageTemplate: "Columnn has to be in Number Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "High", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    titleTemplate: "Columnn has to be in Date Format",
+                                            //    messageTemplate: "Columnn has to be in Date Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "Per Mile", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "Percent", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        }
+                                    ]
+                                },
+                            ],
+                            columns: [
+                                {
+                                    width: 100,
+                                },
+                                {
+                                    width: 215
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                }
+                            ],
+
+                        },
+                    ],
+                   rows: 500,
+                }).data("kendoSpreadsheet").one("render", function (e) {
+                    e.sender.sheets().forEach(function (sheet) {
+                        sheet.range(0, 5, sheet._rows._count, sheet._columns._count).enable(false);
+                    })
+
+                    //var Effdate = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet").activeSheet().range("A2:A500");
+                    //Effdate.validation({
+                    //    dataType: "date",
+                    //    type: "reject",
+                    //    from: "DATEVALUE(\"01-01-2000\")",
+                    //    comparerType: "greaterThan",
+                    //    titleTemplate: "Column has to be in Date Format",
+                    //    messageTemplate: "Column has to be in Date Format and Greater than 01-01-2000"
+                    //});
+
+                    //Effdate.format("mm-dd-yyyy");
+                    //Effdate.textAlign("center");
+
+
+                    var Low = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet").activeSheet().range("B2:B500");
+                    Low.validation({
+                        format: "$##.####",
+                        textAlign: "center",
+                        dataType: "number",
+                        type: "reject",
+                        from: "-1",
+                        comparerType: "greaterThanOrEqualTo",
+                        titleTemplate: "Column has to be in Number Format",
+                        messageTemplate: "Column has to be in Number Format and Greater than 0."
+                    });
+
+                    Low.format("$##.####");
+                    Low.textAlign("center");
+
+                    var High = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet").activeSheet().range("C2:C500");
+                    High.validation({
+                        dataType: "number",
+                        type: "reject",
+                        from: "-1",
+                        comparerType: "greaterThanOrEqualTo",
+                        titleTemplate: "Column has to be in Number Format",
+                        messageTemplate: "Column has to be in Number Format and Greater than 0."
+                    });
+
+                    High.format("$##.####");
+                    High.textAlign("center");
+
+
+                    var PerMile = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet").activeSheet().range("D2:D500");
+                    PerMile.validation({
+                        dataType: "number",
+                        type: "reject",
+                        from: "-1",
+                        comparerType: "greaterThanOrEqualTo",
+                        titleTemplate: "Column has to be in Number Format",
+                        messageTemplate: "Column has to be in Number Format and Greater than 0."
+                    });
+
+                    PerMile.format("$##.####");
+                    PerMile.textAlign("center");
+
+                    var Percent = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet").activeSheet().range("E2:E500");
+                    Percent.validation({
+                        dataType: "number",
+                        type: "reject",
+                        from: "-1",
+                        comparerType: "greaterThanOrEqualTo",
+                        titleTemplate: "Column has to be in Number Format",
+                        messageTemplate: "Column has to be in Number Format and Greater than 0."
+                    });
+                    Percent.textAlign("center");
+
+                });
+            });
+            
+            wndFuelMatrix = $("#wndFuelMatrix").kendoWindow({
+                title: "Import Tariff Specific Fuel Matrix",
+                width: "60%",
+                height: "80%",
+                actions: ["Save", "Minimize", "Maximize", "Close"],
+                modal: true,
+                visible: false
+            }).data("kendoWindow");
+
+            $("#wndFuelMatrix").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) {
+                var spreadsheet = $("#CarSpecificFuelMatrixGrid").data("kendoSpreadsheet");
+                var values = spreadsheet.sheets()[0].range("A2:E500").values();
+                var dataJson;
+                var effDate;
+                var effDateNum;
+                var id;
+                if (values == null || values == "undefined" || values == undefined) {
+                    ngl.showErrMsg("Update Carrier Fuel Matrix", "Please paste the Carrier Fuel matrix and try again", "");
+                    return;
+                }
+                else {
+                    if (values != "") {
+                        for (var i = 0; i < values.length ; i++) {
+                            if (values[i][0] != null) {
+                                effDate = values[i][0];
+                                if (effDate.toString().indexOf("-") > 0 || effDate.toString().indexOf("/") > 0) {
+                                    effDateNum = null;
+                                    effDate = values[i][0];
+                                } else {
+                                    effDateNum = values[i][0];
+                                    effDate = "02-02-2020";
+                                }
+                            } else {
+                                effDateNum = values[i][0];
+                                effDate = "02-02-2020";
+                            }
+                            dataJson = {
+                                CarrFuelAdRatesEffDate: effDate,
+                                CarrFuelAdRatesPriceFrom: values[i][1],
+                                CarrFuelAdRatesPriceTo: values[i][2],
+                                CarrFuelAdRatesPerMile: values[i][3],
+                                CarrFuelAdRatesPercent: values[i][4],
+                                CarrFuelAdRatesEffDateNum: values[i][0]
+                            }
+                            //Adds the new fuel surcharge details pasted to excel
+                            if (values[i][0] != null && values[i][1] != null && values[i][2] != null && values[i][3] != null && values[i][4] != null) {
+                                UpdatingFuelGrid(dataJson); //commented here
+                                //console.log(dataJson);
+                            }
+                        }
+                    }
+                }
+
+                //Deletes existing fuel surcharge deails
+                DeleteCarrierTariffGrid(simplesource);// commented here
+
+                ngl.showSuccessMsg("Fuel Surcharge Details updated successfully.", null);
+                GetAllData();
+                spreadsheet.sheets()[0].range("A2:E500").clear();
+                refresh();
+            }); //Perform the save and only the save
+
+            $(".k-spreadsheet-sheets-bar-add .k-button .k-button-icon").hide();
+                       
+
+            function DeleteCarrierTariffGrid(FuelMatrixRecord) {
+                var Allrecords = "";
+                //console.log(FuelMatrixRecord);
+                for (var i = 0; i < FuelMatrixRecord.length; i++) {
+                    Allrecords = Allrecords + "," + FuelMatrixRecord[i];
+                }
+
+                    var dataJSON = { CarrFuelAdRateControl: Allrecords };
+                    //console.log(dataJSON);
+                $.ajax({
+                    async: false, //Modified by RHR for v-8.5.4.005 on 02/02/2024
+                        type: 'DELETE',
+                        url: 'api/TariffFuelAdRate/DeleteFuelRateAdExRecords',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        data: JSON.stringify(dataJSON),
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            if (data.Errors != null) {
+                                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                                else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                            }
+                        },
+                        error: function (xhr, textStatus, error) {
+                            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                            ngl.showErrMsg("Update Fuel Surcharge Details", sMsg, null);
+
+                        }
+                    });
+
+            }
+
+            function UpdatingFuelGrid(DATAJSON) {
+                $.ajax({
+                    async: false,//Modified by RHR for v-8.5.4.005 on 02/02/2024
+                    type: 'POST',
+                    url: 'api/TariffFuelAdRate/PostSpreadSheet/',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify(DATAJSON),
+                    headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                    success: function (data) {
+                        if (data.Errors != null) {
+                            if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                            else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                        }
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                        ngl.showErrMsg("Fuel Surcharge Details update failed", sMsg, null);
+                    }
+                });
+            }
+        });
+    </script>
+</div>

@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+
+    <div id="winRateShop">
+        <h2>Click to Get Rates &nbsp;&nbsp;<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" href="#" onclick="CloseWinItemAndCalculate();" "><span class="k-icon k-i-download"></span></a></h2>
+        <div id="divRateShopOrder" class="fast-tab">
+            <table id="tblRateShipOrder">
+                <tr><td>Pickup Date</td><td style="border:none;"><input id="txtRSShipDate" style="width: 100px;" /></td></tr>
+                <tr><td>Origin Postal Code</td><td style="border:none;"><input id="txtRSorigCompPostalCode" style="width: 150px;" /></td></tr>
+                <tr><td>Dest Postal Code</td><td style="border:none;"><input id="txtRSdestCompPostalCode" style="width: 150px;" /></td></tr>
+
+            </table>
+            <table id="tblOrderInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Load ID</th>
+                    <th style="border:none;">Ship Date</th>
+                    <th style="border:none;">Req Date</th>
+                    <th style="border:none;">Weight UOM</th>
+                    <th style="border:none;">Length UOM</th>
+                    <th style="border:none;">Total Wgt</th>
+                    <th style="border:none;">Total Qty</th>
+                    <th style="border:none;">Total Pkgs</th>
+                    <th style="border:none;">Temperature</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtSHID" style="width: 100px;" value="(Auto)" /></td>
+                    <td style="border:none;"><input id="txtShipDate" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtDeliveryDate" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtWeightUnit" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtLengthUnit" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalWgt" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalCases" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalPlts" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="ddlLoadTemp" style="width: 100px;" /></td>
+
+                </tr>
+            </table>
+            <table id="tblOrigInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Origin Location</th>
+                    <th style="border:none;">Postal Code</th>
+                    <th style="border:none;">Street</th>
+                    <th style="border:none;">City</th>
+                    <th style="border:none;">State</th>
+                    <th style="border:none;">Country</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtorigCompName" style="width: 200px;" value="Ship From" /></td>
+                    <td style="border:none;"><input id="txtorigCompPostalCode" style="width: 150px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompAddress1" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompCity" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompState" style="width: 75px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompCountry" value="US" style="width: 75px;" /></td>
+                </tr>
+            </table>
+            <table id="tblDestInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-bottom:5px; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Destination Location</th>
+                    <th style="border:none;">Postal Code</th>
+                    <th style="border:none;">Street</th>
+                    <th style="border:none;">City</th>
+                    <th style="border:none;">State</th>
+                    <th style="border:none;">Country</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtdestCompName" style="width: 200px;" value="Ship To" /></td>
+                    <td style="border:none;"><input id="txtdestCompPostalCode" style="width: 150px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompAddress1" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompCity" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompState" style="width: 75px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompCountry" value="US" style="width: 100px;" /></td>
+                </tr>
+            </table>
+
+            <input id="txtShipKey" type="hidden" />
+            <input id="txtBookConsPrefix" type="hidden" />
+            <input id="txtBookProNumber" type="hidden" />
+            <input id="txtBookControl" type="hidden" />
+            <input id="txtOrderID" type="hidden" />
+            <input id="txtBookCustCompControl" type="hidden" />
+            <input id="txtCompNumber" type="hidden" />
+            <input id="txtCompAlphaCode" type="hidden" />
+            <input id="txtBookCarrierControl" type="hidden" />
+            <input id="txtCarrierName" type="hidden" />
+            <input id="txtCarrierNumber" type="hidden" />
+            <input id="txtCarrierAlphaCode" type="hidden" />
+            <input id="txtBookSHID" type="hidden" />
+            <input id="txtorigCompControl" type="hidden" />
+            <input id="txtorigCompNumber" type="hidden" />
+            <input id="txtorigCompAddress2" type="hidden" />
+            <input id="txtorigCompAddress3" type="hidden" />
+            <input id="txtdestCompControl" type="hidden" />
+            <input id="txtdestCompNumber" type="hidden" />
+            <input id="txtdestCompAddress2" type="hidden" />
+            <input id="txtdestCompAddress3" type="hidden" />
+            <input id="txtStopIndex" type="hidden" />
+            <input id="txtSelectedStopIndex" type="hidden" />
+            <input id="txtItemIndex" type="hidden" />
+            <input id="txtLoadID" type="hidden" />
+            <input id="txtItemStopIndex" type="hidden" />
+            <input id="txtNumPieces" type="hidden" />
+            <input id="txtDescription" type="hidden" />
+            <input id="txtHazmatId" type="hidden" />
+            <input id="txtCode" type="hidden" />
+            <input id="txtHazmatClass" type="hidden" />
+            <input id="txtIsHazmat" type="hidden" />
+            <input id="txtPieces" type="hidden" />
+            <input id="txtPackageType" type="hidden" />
+            <input id="txtDensity" type="hidden" />
+            <input id="txtNMFCItem" type="hidden" />
+            <input id="txNMFCSub" type="hidden" />
+            <input id="txtFeeIndex" type="hidden" />
+
+            <input id="txtOrigPhone" type="hidden" />
+            <input id="txtOrigContactName" type="hidden" />
+            <input id="txtOrigContactEmail" type="hidden" />
+            <input id="txtOrigEmergencyContactPhone" type="hidden" />
+            <input id="txtOrigEmergencyContactName" type="hidden" />
+
+            <input id="txtDestPhone" type="hidden" />
+            <input id="txtDestContactName" type="hidden" />
+            <input id="txtDestContactEmail" type="hidden" />
+            <input id="txtDestEmergencyContactPhone" type="hidden" />
+            <input id="txtDestEmergencyContactName" type="hidden" />
+
+
+        </div>
+    </div>
+
+</head>
+<body>
+
+</body>
+</html>

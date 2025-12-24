@@ -1,0 +1,89 @@
+﻿<!--Added By SRP on 3/7/18 EDILoopAddExample -->
+<div id="wndAddEDILoop">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <input id="txtLoopControl" type="hidden" />
+
+            <div style="float: left;">
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Loop Name</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtLoopName" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="name-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Loop Name Can't be empty</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Loop Description</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><textarea id="txtLoopDescription" rows="6" cols="20" maxlength="255" style="width: 200px;resize:none"></textarea></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Mininum Loops Allowed</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtLoopMinCount"  type="number" min="1" step="1"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="min-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Loop MinCount  Can't be 0 (or) Empty</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Maximum Loops Allowed</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <input id="txtLoopMaxCount" type="number" min="1" step="1"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:200px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top">
+                                <span id="max-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Loop MinCount  Can't be 0 (or) Empty</span>
+                                <span id="maxnew-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Minimum value should be less than Maximum Value</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+
+                
+
+            </div>
+
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+
+        </div>
+    </div>
+</div>

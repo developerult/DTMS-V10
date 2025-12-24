@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Fees</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - HOW TO SET UP TARIFFS.css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="fuel1.htm" /><link rel="next" href="#" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="985db3c1-1583-49b7-819d-6497066b2cd9">
+<h2><a name="_Toc51899471" id="_Toc51899471">Fees</a></h2>
+<p class="MsoNormal">Pre-determined fees should be configured in the fee section 
+of the carrier’s contract/tariff. These fees include stop fees, fuel, or any 
+other fee that is required to calculate estimated carrier costs. </p>
+<p class="MsoNormal">If a carrier has a fee that is order specific such as 
+Extended Length or Liftgate, you can set up a Profile Fee. This configuration 
+will only calculate the fee value when a user selects this fee prior to rating a 
+carrier on an order. When rating and prior to dispatching a shipment, users 
+should select the accessorial if they want to include as part of the cost 
+calculation i.e. Lift Gate or Extended Length. Profile fees set up are for 
+tariff-based carriers and not API carriers. When a specific accessorial is 
+selected the API carrier will return the fee.</p>
+<p class="MsoNormal">To add a fee:</p>
+<p class="MsoNormal">Click the add button and Add Fee screen will pop open.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image44_58.jpg" alt="" /></p>
+<p class="MsoNormal">Select from the drop-down list of pre-loaded fees. Additional 
+fees can be configured, and you should see system admin for more 
+information.</p>
+<p class="MsoNormal"><b>Minimum</b> = Absolute minimum value i.e. $50. 
+<br /><b>Maximum</b> = Absolute maximum value (if applicable)<br /><b>Formula 
+Variable</b> = such as .17 for 17% (if applicable and not a minimum)<br /><b>Calc 
+Formula List</b> = Select the calculation formula according to the fee 
+calculation type.</p>
+<p class="MsoNormal">Each fee value can be carrier specific. So, one carrier may 
+have a $50 min, and another can have a $40 min. When you assign a fee to a 
+carrier, you then put in the fee value for that carrier.</p>
+<p class="MsoNormal">Below you see a screenshot of fees configured for stops and 
+fuel. The system knows how to apply stop fees based on the number of stops 
+assigned. All stops should be configured to properly calculate stop fees. For 
+example, you will need to add stop fee 4, 5 and 6 even if the fee cost is the 
+same. To calculate fuel, users must add the fuel fee (per mile or 
+percentage).<img src="../ImagesExt/image44_59.jpg" alt="" /></p><span id="related-topics"></span></body></html>

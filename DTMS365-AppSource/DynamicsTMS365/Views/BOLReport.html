@@ -1,0 +1,329 @@
+﻿
+<!--<div id="winBOLRpt" style="margin-top:0; padding-top:0; ">
+    <div style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0;">
+        <div style="font-size:large; width:100%; vertical-align:central; text-align:center"><b>Bill of Lading</b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbCarrierInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                <tr style="border: none;">
+                    <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">Shipment ID / BOL Number</th>
+                    <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">Carrier Name</th>
+                    <th style="border-top: none; border-left: none; border-bottom: none; border-right: none; text-align: center;">Carrier PRO Nbr</th>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border-top: none; border-left: none;  border-bottom: none; width: 25%; min-width: 100px; text-align: center;"><span id="spBOLRptSHID" class="stopInfo"></span></td>
+                    <td style="border-top: none; border-left: none;  border-bottom: none;  width: 50%; min-width: 100px; text-align: center;"><span id="spBOLRptCarrier"></span></td>
+                    <td style="border: none;  width: 25%; min-width: 100px; text-align: center;"><span id="spBOLRptCarrierProNumber"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;"><b>Pickup Date:</b>&nbsp;&nbsp;<span id="spBOLRptPickupDate" class="stopInfo"></span></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbBOLRptShipper" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Shipper Name:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptOrigName" class="stopInfo"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Address:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptOrigAddress1" class="stopInfo"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>City:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigCity"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>State:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigState"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Zip:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptOrigZip"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Contact:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigContactName"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Phone:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;" colspan="3"><span id="spBOLRptOrigPhone"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Email:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptOrigEmail"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;"><b>Required Date:</b>&nbsp;&nbsp;<span id="spBOLRptDeliveryDate" class="stopInfo"></span></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbBOLRptShipper" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Dest Name:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptDestName" class="stopInfo"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Address:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptDestAddress1" class="stopInfo"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>City:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestCity"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>State:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestState"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Zip:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptDestZip"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Contact:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestContactName"></span></td>
+                    <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Phone:</b></td>
+                    <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;" colspan="3"><span id="spBOLRptDestPhone"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Email:</b></td>
+                    <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptDestEmail" ></span></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div id="divBOLRptItemDetails"></div>        
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <div><b>Summary&nbsp;Totals</b></div>
+            <table id="tbBOLRptSummary" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">
+                <tr style="border: none;">                    
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: center;">Pieces</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: center;">Weight</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: center;">Packages</th>
+                    <th style="border-top: none; border-left: none; border-right: none; text-align: center;">Cubes</th>
+                </tr>
+                <tr style="border: none;">                    
+                    <td style="border: none;  width: 25%; min-width: 50px; text-align: center;"><span id="spBOLRptShipQty"></span></td>
+                    <td style="border: none;  width: 25%; min-width: 50px; text-align: center;"><span id="spBOLRptShipWgt" ></span></td>
+                    <td style="border: none;  width: 25%; min-width: 50px; text-align: center;"><span id="spBOLRptShipPlts"></span></td>
+                    <td style="border: none;  width: 25%; min-width: 50px; text-align: center;"><span id="spBOLRptShipCubes"></span></td>
+                </tr>
+            </table>
+        </div>       
+        <div style="padding-left:10px; padding-bottom:10px; padding-top:10px; padding-right:10px;"><b>SPECIAL INSTRUCTIONS:</b>&nbsp;&nbsp;<span id="spBOLRptSpecialInstructions" class="stopInfo"></span></div>
+        <br />
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <div><b>Reference Numbers</b></div>
+            <table id="tbBOLRptRefNbrs" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Quote Number:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptQuoteNumber"></span></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Confirmation Nbr:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptConfNbr" class="stopInfo"></span></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Purchase Order Nbr:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptPONumber" class="stopInfo"></span></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Order Nbr:</b></td>
+                    <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrderNumber" class="stopInfo"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding-left:10px; padding-bottom:5px; padding-right:10px;" class="stopInfo"><b><span id="spBOLRptBillingType" class="stopInfo"></span></b></div>
+        <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <b>Bill Freight Charges To:</b>
+            <div id="divBOLRptBillingAddress">
+                <div><span id="spBOLRptBillToName" class="stopInfo"></span></div>
+                <div><span id="spBOLRptBillToAddress1" class="stopInfo"></span></div>
+                <div>
+                    <span id="spBOLRptBillToCity"></span>&nbsp;&nbsp;&nbsp;
+                    <span id="spBOLRptBillToState"></span>&nbsp;&nbsp;
+                    <span id="spBOLRptBillToZip"></span>&nbsp;&nbsp;
+                    <span id="spBOLRptBillToPhone"></span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+            <table id="tbSignatures" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                <tr style="border: none;">
+                    <td style="border-top:none; border-left: none;  border-bottom:2px solid black; border-right: none; width: 45%; padding:10px; margin:10px;" colspan="2"></td>
+                    <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">&nbsp;&nbsp;</td>
+                    <td style="border-top:none; border-left: none;  border-bottom:2px solid black; border-right: none; width: 45%; padding:10px;" colspan="2"></td>
+                </tr>
+                <tr style="border: none;">
+                    <td style="border: none;  width: 35%; text-align:left; padding-left:10px; ">Shipper</td>
+                    <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">Date</td>
+                    <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">&nbsp;&nbsp;</td>
+                    <td style="border: none;  width: 35%; text-align:left; padding-left:10px; ">Carrier-Recieved in Good Order</td>
+                    <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">Date</td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;"><b>Additional Services:</b>&nbsp;&nbsp;<span id="spBOLRptAdditionalServices" class="stopInfo"></span></div>
+        <div style="padding-left:10px; padding-bottom:5px; padding-right:10px;"><span id="spBOLRptLegal" class="stopInfo"></span></div>
+
+    </div>
+</div>-->
+
+<!--NEW-->
+<div id="winBOLRpt" class="getPdf" style="margin-top:0; padding-top:0;">
+    <div id="divErrMsgBOLRpt" style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0;">
+        <div class="k-block k-error-colored" style="text-align:center; margin-left:2px; margin-right:2px; margin-top:10px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px;"><h2>No BOL data is available</h2></div>
+    </div>        
+    <div id="divBOLRpt" style="margin-left:10px; margin-right:10px; margin-top:0; padding-top:0;">
+            <div style="font-size:large; width:100%; vertical-align:central; text-align:center;"><b>Bill of Lading</b></div>
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbCarrierInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                    <tr style="border: none;">
+                        <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">BOL Number</th>
+                        <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">Carrier Name</th>
+                        <th style="border-top: none; border-left: none; border-bottom: none; border-right: none; text-align: center;">Carrier PRO Nbr</th>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border-top: none; border-left: none; border-bottom: none; width: 25%; min-width: 100px; text-align: center;"><span id="spBOLRptBOL" class="stopInfo"></span></td>
+                        <td style="border-top: none; border-left: none; border-bottom: none; width: 50%; min-width: 100px; text-align: center;"><span id="spBOLRptCarrierName"></span></td>
+                        <td style="border: none; width: 25%; min-width: 100px; text-align: center;"><span id="spBOLRptCarrierProNumber"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">Shipment ID</th>
+                        <th style="border-top: none; border-left: none; border-bottom: none; text-align: center;">Carrier SCAC</th>
+                        <th style="border-top: none; border-left: none; border-bottom: none; border-right: none; text-align: center;">&nbsp;&nbsp;</th>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border-top: none; border-left: none; border-bottom: none; width: 25%; min-width: 100px; text-align: center;"><span id="spBOLRptSHID" class="stopInfo"></span></td>
+                        <td style="border-top: none; border-left: none; border-bottom: none; width: 50%; min-width: 100px; text-align: center;"><span id="spBOLRptCarrierSCAC"></span></td>
+                        <td style="border: none; width: 25%; min-width: 100px; text-align: center;">(Bar Code Here)</td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbBOLRptShipper" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Shipper Name:</b></td>
+                        <td style="border: none; text-align: left;" colspan="3"><span id="spBOLRptOrigName" class="stopInfo"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Pickup Date:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptPickupDate"></span></td>
+
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Address:</b></td>
+                        <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptOrigAddress1" class="stopInfo"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>City:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigCity"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>State:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigState"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Zip:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptOrigZip"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Contact:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrigContactName"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Phone:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;" colspan="3"><span id="spBOLRptOrigPhone"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Email:</b></td>
+                        <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptOrigEmail"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbBOLRptShipper" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Consignee Name:</b></td>
+                        <td style="border: none; text-align: left;" colspan="3"><span id="spBOLRptDestName" class="stopInfo"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Required Date:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptDeliveryDate"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Address:</b></td>
+                        <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptDestAddress1" class="stopInfo"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>City:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestCity"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>State:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestState"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Zip:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px;"><span id="spBOLRptDestZip"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Contact:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptDestContactName"></span></td>
+                        <td style="border: none; text-align: left;  width: 10%; min-width: 30px; padding-right:4px;"><b>Phone:</b></td>
+                        <td style="border: none; text-align: left;  width: 15%; min-width: 75px; padding-right:4px;" colspan="3"><span id="spBOLRptDestPhone"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 20%; min-width: 75px; padding-right:4px;"><b>Email:</b></td>
+                        <td style="border: none; text-align: left;" colspan="5"><span id="spBOLRptDestEmail"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div id="divBOLRptItemDetails"></div>
+            <br />
+            <div style="padding-left:10px; padding-bottom:10px; padding-top:10px; padding-right:10px;"><b>SPECIAL INSTRUCTIONS:</b>&nbsp;&nbsp;<span id="spBOLRptSpecialInstructions" class="stopInfo"></span></div>
+            <br />
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbBOLRptRefNbrs" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Quote Number:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptQuoteNumber"></span></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Confirmation Nbr:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptConfNbr" class="stopInfo"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Purchase Order Nbr:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptPONumber" class="stopInfo"></span></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Order Nbr:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><span id="spBOLRptOrderNumber" class="stopInfo"></span></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px;"><b>Item SO Numbers:</b></td>
+                        <td style="border: none; text-align: left;  width: 25%; min-width: 75px; padding-right:4px; column-span:all"><span id="spBOLRptItemOrderNumbers" class="stopInfo"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;" class="stopInfo"><b><span id="spBOLRptBillingType" class="stopInfo"></span></b></div>
+            <div class="k-block" style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <b>Invoicee:</b>
+                <div id="divBOLRptBillingAddress">
+                    <div><span id="spBOLRptBillToName" class="stopInfo"></span></div>
+                    <div><span id="spBOLRptBillToAddress1" class="stopInfo"></span></div>
+                    <div>
+                        <span id="spBOLRptBillToCity"></span>&nbsp;&nbsp;&nbsp;
+                        <span id="spBOLRptBillToState"></span>&nbsp;&nbsp;
+                        <span id="spBOLRptBillToZip"></span>&nbsp;&nbsp;
+                        <span id="spBOLRptBillToPhone"></span>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;"><b>Additional Services:</b>&nbsp;&nbsp;<span id="spBOLRptAdditionalServices" class="stopInfo"></span></div>
+            <div style="padding-left:10px; padding-bottom:5px; padding-right:10px;"><span id="spBOLRptLegal" class="stopInfo"></span></div>
+            <div style="padding-left:10px; padding-bottom:5px; padding-top:5px; padding-right:10px;"><b>Freight Charge Terms:</b>&nbsp;&nbsp;<span class="stopInfo"><b>Note: (2) Liability limitation for loss or damage on this shipment may be applicable. See 49 U.S.C. §14706(c)(1)(A) and (B).</b></span></div>
+            <br />
+            <div style="margin-left:2px; margin-right:2px; margin-top:2px; width:auto; min-width: 450px; padding-left:2px; padding-right:2px; background-color:white;">
+                <table id="tbSignatures" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:100%;">
+                    <tr style="border: none;">
+                        <td style="border-top:none; border-left: none;  border-bottom:2px solid black; border-right: none; width: 45%; padding:10px; margin:10px;" colspan="2"></td>
+                        <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">&nbsp;&nbsp;</td>
+                        <td style="border-top:none; border-left: none;  border-bottom:2px solid black; border-right: none; width: 45%; padding:10px;" colspan="2"></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td style="border: none;  width: 35%; text-align:left; padding-left:10px; ">Shipper</td>
+                        <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">Date</td>
+                        <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">&nbsp;&nbsp;</td>
+                        <td style="border: none;  width: 35%; text-align:left; padding-left:10px; ">Carrier-Received in Good Order</td>
+                        <td style="border: none;  width: 10%; text-align:right; padding-right:10px; ">Date</td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+        </div>
+    <h1 id ="pgbr" class="pgbrk"></h1>
+</div>
+
+
+<!--<style>
+    @media all { 
+        .pagebreak { display: none; } 
+    }
+    
+    @media print {
+        .pagebreak { display: block; page-break-after: always; }
+    }
+
+</style>-->

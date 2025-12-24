@@ -1,0 +1,447 @@
+﻿<!--Popup forAdd Resource-->
+
+<div id="addResourceDockDoor">
+    <div>
+        <fieldset>
+            <legend><b>Add New Resource </b></legend>
+            <div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Resource ID :</td>
+                            <td class="tblResponsive-top"><input id="numWndNewResourceID" class="ui-td-margin" /><span id="numWndNewResourceID-validation" class="hide-display ui-span-container"><br /><br />Resource ID can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Resource Name :</td>
+                            <td class="tblResponsive-top"><input id="txtWndNewResourceName" class="ui-td-margin" /><span id="txtWndNewResourceName-validation" class="hide-display ui-span-container"><br /><br />Resource Name can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Booking Sequence :</td>
+                            <td class="tblResponsive-top"><input id="numWndNewResourceBookSeq" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Validation On/Off :</td>
+                            <td class="tblResponsive-top"><input id="redioWndNewResourceValidation" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Override Alert :</td>
+                            <td class="tblResponsive-top"><input id="redioWndNewResourceOverride" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Notification Alert :</td>
+                            <td class="tblResponsive-top"><input id="redioWndNewResourceNotificationAlert" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Notification Email :</td>
+                            <td class="tblResponsive-top"><input id="txtWndNewResourceNotificationEmail" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div> <!--Added By LVV on 3/5/20 Scheduler Inbound/Outbound Dock Enhancement-->
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin">Inbound :</td>
+                            <td class="tblResponsive-top"><input id="chkWndNewResourceInbound" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="MTop">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"></td>
+                        <td class="tblResponsive-top"><button id="btnWndSaveResource" class="BtnWidth" >Add</button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Popup for Copy Resource Settings-->
+
+<div id="CopyResourceSettings">
+    <div>
+        <fieldset>
+            <legend><b>Resource Details</b></legend>
+            <div class="RDdiv">
+                <lable><b>Resource ID :</b></lable>
+                <lable><b id="lblCopyResourceID"></b></lable>
+                <lable class="MLeftRD"><b>Resource Name :</b></lable>
+                <lable><b id="lblCopyResourceName"></b></lable>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Copy Resource Settings To</b></legend>
+            <div class="MBottom">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-marginExtra">New/Existing Resource :</td>
+                        <td class="tblResponsive-top"><input type="radio" id="rdoNEWResource" name="Resource" class="newExt k-radio" checked/><label class="k-radio-label" for="rdoNEWResource">New Resource</label> <input type="radio" id="rdoEXTResource" name="Resource" class="newExt k-radio" /><label class="k-radio-label"  for="rdoEXTResource">Existing Resource</label></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="NewResourceDiv">
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-marginExtra">Resource ID :</td>
+                            <td class="tblResponsive-top"><input id="numWndNewResourceIDCopy" class="ui-td-margin" /><span id="numWndNewResourceIDCopy-validation" class="hide-display ui-span-container"><br /><br />Resource ID can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-marginExtra">Resource Name :</td>
+                            <td class="tblResponsive-top"><input id="txtWndNewResourceNameCopy" class="ui-td-margin" /><span id="txtWndNewResourceNameCopy-validation" class="hide-display ui-span-container"><br /><br />Resource Name can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <div id="ExistingResourceDiv">
+               
+               
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-marginExtra">Select Resource :</td>
+                            <td class="tblResponsive-top"><input id="ddlWndExtSelectResourceCopy" class="ui-td-margin" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="MTop">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-marginExtra"></td>
+                        <td class="tblResponsive-top"><button id="btnWndSaveResourceCopy"></button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Popup for Supervisor Override Password Settings-->
+
+<div id="SupOverridePassword">
+    <div>
+        <fieldset>
+            <legend><b>Resource Details</b></legend>
+            <div class="RDdiv">
+                <lable><b>Resource ID :</b></lable>
+                <lable><b id="lblSOPassResourceID"></b></lable>
+                <lable class="MLeftRD"><b>Resource Name :</b></lable>
+                <lable><b id="lblSOPassResourceName"></b></lable>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Supervisor Override Password</b></legend>
+
+            <div class="MBottom" >
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-marginExtra">New Password :</td>
+                            <td class="tblResponsive-top"><input type="password" id="txtWndNewPassword" class="ui-td-margin" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" /><span id="txtWndNewPassword-validation" class="hide-display ui-span-container"><br /><br />New Password can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-marginExtra">Confirm New Password :</td>
+                            <td class="tblResponsive-top"><input type="password" id="txtWndNewConPassword" class="ui-td-margin" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" /><span id="txtWndNewConPassword-validation" class="hide-display ui-span-container"><br /><br />Confirm New Password can't be empty</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="MTop">
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-marginExtra"></td>
+                        <td class="tblResponsive-top"><button id="btnWndChangePassword">Change Password</button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Popup for Appointment Block Periods for Resource-->
+
+<div id="ApptBlockPeriods">
+    <div>
+        <fieldset>
+            <legend><b>Resource Details</b></legend>
+                <div class="RDdiv">
+                    <table class="tblResponsive" style="width:100%;">
+                        <tr>
+                            <td class="tblResponsive-top ui-th-margin"><lable><b>Resource ID :</b></lable></td>
+                            <td class="tblResponsive-top ui-td-margin"><lable><b id="lblApptBlockOutID"></b></lable></td>
+                            <td class="tblResponsive-top ui-th-margin"><lable><b>Resource Name :</b></lable></td>
+                            <td class="tblResponsive-top ui-td-margin"><lable><b id="lblApptBlockOutName"></b></lable></td>
+                        </tr>
+                    </table>
+                </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Appointment Block out Period</b></legend>
+            <div id="ApptBlockOutUI" class="MBottom">
+                <table class="tblResponsive" style="width:100%;">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Type :</td>
+                        <td class="tblResponsive-top ui-td-margin"><input id="ddlApptBlockOutRecurrenceType" style="width:35%;" /></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Title :</td>
+                        <td class="tblResponsive-top ui-td-margin"><input id="txtApptBlockOutTitle" style="width:60%;" /><span id="txtApptBlockOutTitle-validation" class="hide-display ui-span-container"><br /><br />Title can't be empty</span></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin" style="vertical-align: -webkit-baseline-middle!important;">Desc :</td>
+                        <td class="tblResponsive-top ui-td-margin"><textarea id="txtApptBlockOutDesc" style="width:60%" rows="4" cols="15" maxlength="400"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">From :</td>
+                        <td class="tblResponsive-top ui-td-margin">
+                            <table class="tblResponsive" style="width:100%!important; margin-left:-5px!important;">
+                                <tr>
+                                    <td class="tblResponsive-top"  style="width:28%;" ><input id="timeApptBlockOutFrom" style="width:100%;" /><span id="timeApptBlockOutFrom-validation" class="hide-display ui-span-container"><br /><br />From Time can't be empty</span></td>
+                                    <td class="tblResponsive-top">To :</td>
+                                    <td class="tblResponsive-top"  style="width:72%;" ><input id="timeApptBlockOutTo" style="width:40%;" /><span id="timeApptBlockOutTo-validation" class="hide-display ui-span-container"><br /><br />To Time can't be empty</span></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Start :</td>
+                        <td class="tblResponsive-top ui-td-margin"><input id="dateApptBlockOutStart" style="width:27%;" /><span id="dateApptBlockOutStart-validation" class="hide-display ui-span-container"><br /><br />Start Date can't be empty</span></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">End :</td>
+                        <td class="tblResponsive-top ui-td-margin">
+                            <input type="radio" id="rdoOn" name="ApptBlock" class="ApptBlk k-radio" checked /><label class="k-radio-label" for="rdoOn">On</label>
+                            <input id="dateApptBlockOutEndOn" style="width:27%;" /><span id="dateApptBlockOutEndOn-validation" class="hide-display ui-span-container"><br /><br />On Date can't be empty</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"> </td>
+                        <td class="tblResponsive-top ui-td-margin">
+                            <input type="radio" id="rdoAfter" name="ApptBlock" class="ApptBlk k-radio" checked /><label class="k-radio-label" for="rdoAfter">After</label>
+                            <input id="numApptBlockOutEndAfter" style="width:12%;" /><label class="k-label">occurrence(s)</label><span id="numApptBlockOutEndAfter-validation" class="hide-display ui-span-container"><br /><br />After Count can't be empty (or) 0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"> </td>
+                        <td class="tblResponsive-top ui-td-margin"><input type="radio" id="rdoNever" name="ApptBlock" class="ApptBlk k-radio" checked /><label class="k-radio-label" for="rdoNever">Never</label></td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Days :</td>
+                        <td class="tblResponsive-top ui-td-margin">
+                            <input id="WeeklyMON" type="checkbox" class="k-checkbox  k-checkbox-md k-rounded-md" /><label for="WeeklyMON" Class="k-checkbox-label">Mon</label>
+                            <input id="WeeklyTUE" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklyTUE" Class="k-checkbox-label MLeft">TUE</label>
+                            <input id="WeeklyWED" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklyWED" Class="k-checkbox-label MLeft">WED</label>
+                            <input id="WeeklyTHU" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklyTHU" class="k-checkbox-label MLeft">THU</label>
+                            <input id="WeeklyFRI" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklyFRI" class="k-checkbox-label MLeft">FRI</label>
+                            <input id="WeeklySAT" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklySAT" class="k-checkbox-label MLeft">SAT</label>
+                            <input id="WeeklySUN" type="checkbox" class="k-checkbox k-checkbox-md k-rounded-md" /><label for="WeeklySUN" class="k-checkbox-label MLeft">SUN</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">On :</td>
+                        <td class="tblResponsive-top ui-td-margin"><input id="chkApptBlockOutOn" type="checkbox"  /><label for="chkApptBlockOutOn" class="k-checkbox-label"></label></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="MTop" style="text-align:center;">
+                <button id="btnWndAddApptblkoutPeriod" class="BtnWidth">Add</button> <button id="btnWndCancleApptblkoutPeriod" class="BtnWidth">Cancel</button>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Appointment Block out Period List</b></legend>
+            <div id="ApptBlkOutPeriodGrid"></div>
+        </fieldset>
+       
+    </div>
+</div>
+
+<!--Popup for Package type Add Edit-->
+
+<div id="PackageTypeAddEdit">
+    <div>
+        <fieldset>
+            <legend><b>Resource Details</b></legend>
+            <div class="RDdiv">
+                <table class="tblResponsive" style="width:100%;">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"><lable><b>Resource ID :</b></lable></td>
+                        <td class="tblResponsive-top ui-td-margin"><lable><b id="lblPackageTypeRID"></b></lable></td>
+                        <td class="tblResponsive-top ui-th-margin"><lable><b>Resource Name :</b></lable></td>
+                        <td class="tblResponsive-top ui-td-margin"><lable><b id="lblPackageTypeRNAME"></b></lable></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Supported Package Types</b></legend>
+            <div id="packagegrid"></div>
+            <div align="center">
+                <button id="btnWndSavePT" class="BtnWidth MTop" >Save</button>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Popup for Temperature type Add Edit-->
+
+<div id="TempTypeAddEdit">
+    <div>
+        <fieldset>
+            <legend><b>Temperature Details</b></legend>
+            <div class="RDdiv">
+                <table class="tblResponsive" style="width:100%;">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"><lable><b>Resource ID :</b></lable></td>
+                        <td class="tblResponsive-top ui-td-margin"><lable><b id="lblTempSettingRID"></b></lable></td>
+                        <td class="tblResponsive-top ui-th-margin"><lable><b>Resource Name :</b></lable></td>
+                        <td class="tblResponsive-top ui-td-margin"><lable><b id="lblTempSettingRNAME"></b></lable></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Temperature Type Details</b></legend>
+            <div id="tempgrid"></div>
+            <div align="center">
+                <button id="btnWndSaveTS" class="BtnWidth MTop">Save</button>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!--Popup for ACTFM  Add/Edit-->
+
+<div id="ResourceAddEdit">
+    <div>
+        <fieldset>
+            <legend><b>Resource Details</b></legend>
+            <div class="RDdiv">
+                <lable><b>Resource ID :</b></lable>
+                <lable><b id="lblACTFMRID"></b></lable>
+                <lable class="MLeftRD"><b>Resource Name :</b></lable>
+                <lable><b id="lblACTFMRNAME"></b></lable>
+            </div>
+        </fieldset>
+    </div>
+    <div class="MTop">
+        <fieldset>
+            <legend><b>Appointment Calculation Time Factor Details</b></legend>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Name </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="txtWndName" style="width:96%" /><span id="txtWndName-validation" class="hide-display ui-span-container"><br /><br />Name can't empty</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Description </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="txtWndDescription"  style="width:96%" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Calc Type </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="ddlWndCalcType"  style="width:96%" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"> Unit Of Measure </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="ddlWndUnitsOfMesure"  style="width:96%" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Amount </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="numWndAmount" class="ui-td-margin"  style="width:96%" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">Time Factor </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="numWndTimeFactor"  style="width:96%" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin">On/Off </td>
+                        <td class="tblResponsive-top ui-td-margin">:&nbsp; <input id="switchWndOnOff" type="checkbox" checked /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="tblResponsive">
+                    <tr>
+                        <td class="tblResponsive-top ui-th-margin"></td>
+                        <td class="tblResponsive-top ui-td-margin">&nbsp;&nbsp;&nbsp;<button id="btnWndSaveApptCal" class="BtnWidth">Save</button></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</div>

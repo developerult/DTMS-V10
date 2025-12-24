@@ -1,0 +1,81 @@
+﻿<div id="wndTruckActCar">
+    <div>
+        <input id="ddlActCar" style="width:200px;" />
+    </div>
+    <div style="margin-top:5px;">
+        <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" type="button" onclick="btnActAddTruck();">Add Truck</button>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+    var ActCarriersControl = 0;
+    var wndTruckActCar = kendo.ui.Window;
+    function openActCarriersWnd(leControl) {       
+        ActCarriersControl = leControl;        
+        wndTruckActCar.center().open();
+    }
+
+    $(document).ready(function () {
+       
+        ////////////wndActiveCarriers for Trucks///////////////////
+        wndTruckActCar = $("#wndTruckActCar").kendoWindow({
+            title: "Active Carriers",
+            modal: true,
+            visible: false,
+            close: function () {
+                $("#newTruckgrid").find('.k-grid-content').removeClass("dragOnGrid");
+            },
+        }).data("kendoWindow");
+
+        $("#ddlActCar").kendoDropDownList({
+            //autoBind: false,
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            url: "api/vLookupList/GetUserDynamicList/" + nglUserDynamicLists.CarrierActive,
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                                    if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Active Carriers ddl Failure", data.Errors, null); }
+                                }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Active Carriers JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+   
+        
+
+      
+
+    });
+
+
+</script>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+
+    <!--<link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+
+
+
+
+    <select id="dropdownlist"></select>
+
+    <script>
+        let data = [
+            { ID: 1, ProductName: "Beds" },
+            { ID: 2, ProductName: "Chairs" },
+            { ID: 3, ProductName: "Sofas" },
+            { ID: 4, ProductName: "Dining Tables" },
+            { ID: 5, ProductName: "TV stoves" }
+        ];
+
+        // Target the select element by using jQuery and then call the kendoDropDownList() method.
+        $("#dropdownlist").kendoDropDownList({
+            dataTextField: "ProductName",
+            dataValueField: "ID",
+            height: "400px",
+            dataSource: data,
+            filter: "contains"
+        });
+    </script>
+
+</body>
+</html>

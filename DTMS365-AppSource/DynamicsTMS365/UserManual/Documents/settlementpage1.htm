@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Settlement Page</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="editdataentry1.htm" /><link rel="next" href="settledpage.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="ec7682b3-8698-4b12-a806-83d0f1134376">
+<h2>Settlement Page<br /><br /></h2>
+<p class="MsoNormal">The settlement page is where carriers will enter in their 
+freight invoices and fees. Again, depending on credentials, not all carrier 
+users or TMS users will have access to this page. Carrier users, who have been 
+set up as accounting users, will have access to the Settlement and Settled Page 
+for carriers to enter invoices.</p>
+<p class="MsoNormal">The Settlement page allows carriers or TMS users to enter in 
+freight invoices. We have two options and users should seek instructions on 
+which option is best to use based on your implementation.</p>
+<p class="MsoNormal">1) <b>Quick Edit</b> – This is used for quick entry of the 
+<i>Freight Invoice Number</i> and <i>Total Invoice Amount Only</i>. Click Save 
+when done.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_20.jpg" alt="" /></p>
+<p class="MsoNormal">2) <b>Detailed Freight Bill Entry</b>-This is used to allow 
+carriers/users to insert additional fees as part of their invoice and apply 
+tolerances at the fee level.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_21.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">In order for carriers to see data and enter their freight 
+invoice within the Settlement Page, they will be required to enter in a 
+<b><i>delivery date/time stamp</i></b> in the ALL Page. <b><span style="COLOR: red">Only loads with a delivery date will appear in the Settlement 
+Page.</span></b></p>
+<p class="MsoNormal"><b><i>Carriers must enter in their invoice for each load (CNS 
+/ ShipID). Summary invoices are not allowed. In situations where carriers have a 
+summary invoice for more than 1 load, they must append a -1, -2 or –A, -B at the 
+end of their invoice entry to make this freight invoice unique.</i></b></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_22.jpg" alt="" /></p>
+<p class="MsoNormal">After the <i>Delivered-Checked In Date/Time</i> field has 
+been populated, Click on Settlement to enter in your freight invoices.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_23.jpg" alt="" /></p>
+<p class="MsoNormal">You can search for the CNS (aka ShipID) load you want to 
+enter in your freight invoice for. Click on EDIT to insert your invoice.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_24.jpg" alt="" /></p>
+<p class="MsoNormal">The Detailed Freight Bill Entry Screen will open. Yellow 
+highlighted are required fields to be entered by carriers.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_25.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Carriers must enter in their Invoice Number. The Line Haul 
+and fuel will autofill. The Fuel can be edited but not the Line Haul.  </p>
+<p class="MsoNormal">Once the invoice number has been entered, carriers can now 
+enter in any fees associated with an invoice. </p>
+<p class="MsoNormal">Click and expand the black arrow next to the CNS Number 
+(ShipID) and click ADD FEE.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_26.jpg" alt="" /></p>
+<p class="MsoNormal">In most configurations, the fees will automatically display 
+and be populated with the costing. </p>
+<p class="MsoNormal">Select your appropriate fee that has been pre-configured and 
+fee amount. Click <i>Add Fee</i> again to add additional fees.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_27.jpg" alt="" /></p>
+<p class="MsoNormal">Click SAVE icon when done entering in fees. It is important 
+to note that once fees have been entered and saved, the invoice process is 
+complete, and carriers cannot change anything.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_28.png" alt="" /></p>
+<p class="MsoNormal">After entering in your invoice, fee, and clicking save. The 
+system will update the status of the invoice based on the TMS configuration.</p>
+<p class="MsoNormal">There are three statuses:</p>
+<p class="MsoNormal"><i>Approved</i> = the system automatically approved the 
+entry, passed audit, and will disappear from the screen. Setting the PExp (Pay 
+Expense workflow to AA-auto approved) in the Load Detail Screen.</p>
+<p class="MsoNormal"><i>Pending Approval</i> = the system accepted carrier entry 
+and is waiting on TMS user approval. This transaction will remain in the Pending 
+Approval Page until a user approves them.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_29.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">The status will be updated in TMS on all loads that are 
+<i>Pending Approval</i> (PA). Setting the PExp (Pay Expense workflow to 
+PA-Pending Approval) in the Load Detail Screen.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_30.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><i>Failed </i>= the system accepted the freight invoice entry 
+as a matched transaction in TMS but has failed the audit process. Users should 
+communicate with carriers and run Audit Report and to resolve the invoice. All 
+transactions will need to be fixed, pass audit, and will automatically set to AA 
+status.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image64_31.png" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><span style="FONT-SIZE: 13pt; FONT-FAMILY: &quot;Calibri Light&quot;,sans-serif; COLOR: #2e74b5"></span> </p><span id="related-topics"></span></body></html>

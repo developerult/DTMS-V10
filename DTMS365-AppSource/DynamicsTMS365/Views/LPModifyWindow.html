@@ -1,0 +1,733 @@
+﻿<style>
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .content-container {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 20px;
+    }
+
+    .LPconfigureBox {
+        border: 1px solid #003f59;
+        background-color: #f0f9ff;
+        color: #003f59;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .LPModifyForm {
+        padding: 2em;
+    }
+
+        .LPModifyForm table, .LPModifyForm table td {
+            border: 0;
+        }
+
+    .configloadSelect {
+        border-radius: 5px;
+        border-color: #003f59;
+        background: #f0f9ff;
+        color: #003f59;
+        font-weight: 600;
+    }
+
+    .LPModifyForm .k-maskedtextbox {
+        display: block;
+    }
+
+    .LPconfigureBox p a {
+        cursor: pointer;
+        padding-left: 3em;
+    }
+    #LoadModifyTable td {
+        border: 0;
+    }
+</style>
+<div id="winLPModify">
+    <div class="container">
+        <div>
+            <p>
+                <img border="0" alt="Information" src="../Content/NGL/Information16.png">
+                <span id="BookingCNS"> </span>
+            </p>
+            <p>Please Note: Fill in the fields you wish, the blanks will be ignored. </p>
+        </div>
+        <div class="LPconfigureBox">
+
+            <p align="center">
+                <strong> Configure Load </strong>
+            </p>
+            <p style="display:none">
+                <strong>
+                    <img border="0" alt="Add" src="../Content/NGL/AddGreen16.png">
+                    Carrier Pro:   <select id="configPro" class="configloadSelect">
+                        <option></option>
+                        <option>Get NExt Carrier Pro</option>
+                        <option>Manual Entry</option>
+                    </select>
+                </strong>
+            </p>
+            <p>
+                <strong>
+                    <img border="0" alt="Settings" src="../Content/NGL/Settings16.png">
+                    Config Load :
+                    <input id="configloadSelect" />
+
+                </strong>
+            </p>
+            <span id="dropdownlisttooltip"> </span>
+        </div>
+        <div class="LPconfigureBox">
+            <p>
+                <a onclick="TriggerLPModifyCloseWindow()"> <img border="0" alt="Cancel" src="../Content/NGL/Cancel24.png"> Close </a>
+            </p>
+            <br />
+            <p>
+                <a onclick="TriggerLPModifySubmit()"> <img border="0" alt="Save" src="../Content/NGL/Save16.png"> Save </a>
+            </p>
+        </div>
+    </div>
+    <br
+    <br />
+    <hr />
+
+    <div class="content-container">
+        <div class="LPconfigureBox">
+            <div id="LPModifyListGrid"></div>
+        </div>
+        <div class="LPconfigureBox">
+           
+                <input type="hidden" placeholder="BookShipCarrierProNumberRaw" name="BookShipCarrierProNumberRaw" id="BookShipCarrierProNumberRaw" value="" />
+                <input type="hidden" placeholder="BookShipCarrierProControl" name="BookShipCarrierProControl" id="BookShipCarrierProControl" value="" />
+                <input type="hidden" placeholder="BookRouteConsFlag" name="BookRouteConsFlag" id="BookRouteConsFlag" value="" />
+                <input type="hidden" placeholder="BookRouteTypeCode" name="BookRouteTypeCode" id="BookRouteTypeCode" value="" />
+                <input type="hidden" id="BookTrackStatus" name="BookTrackStatus" value="" >
+                <table id="LoadModifyTable" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                    <tbody>
+                        <tr>
+                            <td>Load/Ship  <span class="redRequiredAsterik"> *</span></td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input id="BookDateLoad" style="width: 100%;" >
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Required <span class="redRequiredAsterik"> *</span> </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input style="width: 100%;" id="BookDateRequired" >
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Delivered  <span class="redRequiredAsterik"> *</span></td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input style="width: 100%;" id="BookCarrActDate" >
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" align="center">
+                                <br />
+                                <strong> Assigned Carrier </strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Carrier Pro  <span class="k-icon k-i-lock"></span></td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input readonly style="width: 100%;" id="BookShipCarrierProNumber" />
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Carrier Name </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookShipCarrierName" style="width: 100%;" data-role="maskedtextbox" >
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Num/SCAC  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookShipCarrierNumber"  style="width: 100%;"  >
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Bill of Lading </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookCarrBLNumber" style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Customer Approval Transmitted <input  class="k-checkbox k-checkbox-md k-rounded-md" value="1" id="BookCustomerApprovalTransmitted"  type="checkbox">
+                            </td>
+                            <td>
+
+                                Customer Approval Received <input class="k-checkbox k-checkbox-md k-rounded-md" value="1" id="BookCustomerApprovalRecieved"  type="checkbox">
+                            </td>
+                            <!--<td>
+
+                    Const Integrity <input name="BookRouteConsFlag" id="BookRouteConsFlag" value="true"  data-role="checkbox" aria-label="Select row" aria-checked="false" type="checkbox">
+                </td>-->
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" align="center">
+                                <br />
+                                <strong> Trailer Information </strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Trailer Number  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input id="BookCarrTrailerNo"  style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Trailer Seal Number  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookCarrSealNo" style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Driver Number  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookCarrDriverNo"  style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Driver Name  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input type="text" id="BookCarrDriverName" style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Load Trip Number  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input  id="BookCarrTripNo"  style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Load Route Number  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input  id="BookCarrRouteNo"  style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <br />
+                                <strong> Load Status Note </strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Contact/Reason Code  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <input id="BookTrackContact"  style="width: 100%;">
+                                    <span class="k-icon k-i-exclamation-circle"></span>
+                                </span>
+                            </td>
+                            <td>
+                                <input id="reasonCodeSelect" />
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Load Status Note  </td>
+                            <td>
+                                <span class="k-widget k-maskedtextbox">
+                                    <textarea id="BookTrackComment"  style="width: 100%;"></textarea>
+                                </span>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    //load planning Modify popup window logic
+    var LpModifyLoadDataFields = [
+        { fieldTagID: "BookDateLoad", fieldCaption: "Load/Ship", fieldName: "BookDateLoad", fieldDefaultValue: "", fieldRequired: true  },
+        {  fieldTagID: "BookDateRequired", fieldCaption: "Required", fieldName: "BookDateRequired", fieldDefaultValue: "", fieldRequired: true  },
+        { fieldTagID: "BookCarrActDate", fieldCaption: "Delivered", fieldName: "BookCarrActDate", fieldDefaultValue: "", fieldRequired: true },
+        {
+            fieldTagID: "BookShipCarrierProNumber", fieldCaption: "Carrier Pro", fieldName: "BookShipCarrierProNumber", fieldDefaultValue: "", fieldRequired: false },
+        { fieldTagID: "BookShipCarrierName", fieldCaption: "Carrier Name", fieldName: "BookShipCarrierName", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        {
+            fieldTagID: "BookShipCarrierNumber", fieldCaption: "Num/SCAC", fieldName: "BookShipCarrierNumber", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        {
+            fieldTagID: "BookCarrBLNumber", fieldCaption: "Bill of Lading", fieldName: "BookCarrBLNumber", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCustomerApprovalTransmitted", fieldCaption: "Customer Approval Transmitted 	", fieldName: "BookCustomerApprovalTransmitted", fieldDefaultValue: false, fieldRequired: false }
+        ,
+        { fieldTagID: "BookCustomerApprovalRecieved", fieldCaption: "Customer Approval Received", fieldName: "BookCustomerApprovalRecieved", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCarrTrailerNo", fieldCaption: "Trailer Number", fieldName: "BookDateBookCarrTrailerNoLoad", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCarrSealNo", fieldCaption: "Trailer Seal Number", fieldName: "BookCarrSealNo", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCarrDriverNo", fieldCaption: "Driver Number ", fieldName: "BookCarrDriverNo", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCarrDriverName", fieldCaption: "Driver Name", fieldName: "BookCarrDriverName", fieldDefaultValue: "", fieldRequired: false },
+        { fieldTagID: "BookCarrTripNo", fieldCaption: "Load Trip Number", fieldName: "BookCarrTripNo", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookCarrRouteNo", fieldCaption: "Load Route Number", fieldName: "BookCarrRouteNo", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookTrackContact", fieldCaption: "Contact", fieldName: "BookTrackContact", fieldDefaultValue: "", fieldRequired: false },
+        { fieldTagID: "BookTrackStatus", fieldCaption: "Reason Code", fieldName: "BookTrackStatus", fieldDefaultValue: "", fieldRequired: false }
+        ,
+        { fieldTagID: "BookTrackComment", fieldCaption: "Load Status Note", fieldName: "BookTrackComment", fieldDefaultValue: "", fieldRequired: false }
+    ];
+
+    $("#LPModifyForm input").on('change', function () {
+        var id = $(this).attr("id");
+        var val = $(this).val();
+       
+        $.each(LpModifyLoadDataFields, function (index, item) {
+            if (id == item.fieldName) {
+                LpModifyLoadDataFields[index].fieldDefaultValue = val;
+              }
+
+        });
+       
+
+    });
+
+    var winLPModify;
+    var SelectedBookingToModify = [];
+    function LoadPlanningModified() {
+        BookDateLoad:"";
+        BookDateRequired:"";
+        BookCarrActDate:"";
+        BookShipCarrierProNumber:"";
+        BookShipCarrierName:"";
+        BookShipCarrierNumber:"";
+        BookCarrBLNumber:"";
+        BookCustomerApprovalTransmitted:"";
+        BookCustomerApprovalRecieved:"";
+        BookCarrTrailerNo:"";
+        BookCarrSealNo:"";
+        BookCarrDriverNo:"";
+        BookCarrDriverName:"";
+        BookCarrTripNo:"";
+        BookCarrRouteNo:"";
+        BookTrackContact:"";
+        BookTrackStatus:"";
+        BookTrackComment:"";
+        BookShipCarrierProNumberRaw:"";
+        BookShipCarrierProControl:"";
+        BookRouteConsFlag:"";
+        BookRouteTypeCode:"";
+        BookProNumber: "";
+}
+    function btnLPModify_Click() {
+        $("#BookShipCarrierProNumberRaw").kendoMaskedTextBox();
+        $("#BookShipCarrierProControl").kendoMaskedTextBox();
+        $("#BookRouteConsFlag").kendoMaskedTextBox();
+        $("#BookRouteTypeCode").kendoMaskedTextBox();
+
+        $("#BookDateLoad").kendoDatePicker();
+        $("#BookDateRequired").kendoDatePicker();
+        $("#BookCarrActDate").kendoDatePicker();
+       
+        $("#BookShipCarrierProNumber").kendoMaskedTextBox();
+        $("#BookShipCarrierName").kendoMaskedTextBox();
+        $("#BookShipCarrierNumber").kendoMaskedTextBox();
+        $("#BookCarrBLNumber").kendoMaskedTextBox();
+
+        $("#BookCarrTrailerNo").kendoMaskedTextBox();
+        $("#BookCarrSealNo").kendoMaskedTextBox();
+        $("#BookCarrDriverNo").kendoMaskedTextBox();
+        $("#BookCarrDriverName").kendoMaskedTextBox();
+        $("#BookCarrTripNo").kendoMaskedTextBox();
+        $("#BookCarrRouteNo").kendoMaskedTextBox();
+
+        $("#BookTrackContact").kendoMaskedTextBox();
+        $("#BookTrackStatus").kendoMaskedTextBox();
+        $("#BookTrackComment").kendoMaskedTextBox();
+      
+        $(".k-textbox .k-icon").css({ "margin": "-8px -8px 0" });
+     
+        SelectedBookingToModify = [];
+        SetConfigLoad();
+        SetReasonDropDownlist();
+        var ds = $("#dy_grid_" + iTruckPK + "___0").data().kendoNGLGrid.dataSource.data();
+        var TruckBookingList = [];
+        ds.forEach(function (item) {
+            var dataSource = {};
+            dataSource.BookCarrOrderNumber = item["SolutionDetailOrderNumber"];
+            dataSource.BookRouteTypeName = item["SolutionDetailRouteTypeName"];
+            dataSource.BookOrderSequenced = item["SolutionDetailOrderSequence"];
+            dataSource.BookConsPrefix = item["SolutionDetailConsPrefix"];
+            dataSource.BookRouteConsFlag = item["SolutionDetailRouteConsFlag"];
+            dataSource.BookRouteTypeCode = item["SolutionDetailRouteTypeCode"];
+            dataSource.BookProNumber = item["SolutionDetailProNumber"];
+            TruckBookingList.push(dataSource);
+        });
+
+        $("#BookingCNS").text(TruckBookingList[0].BookConsPrefix);
+         winLPModify = $("#winLPModify").kendoWindow({
+            title: "Modify Load Planning",
+            maxHeight: $(window).height(),
+            maxWidth: $(window).width(),
+            height: ($(window).height() / 10) * 9,
+            width: ($(window).width() / 10) * 9,
+            modal: true,
+            visible: false,
+            resizable: true,
+            scrollable: true,
+            actions: ["Minimize",'save', "Maximize", "Close"],
+             close: function () {
+                 clearModifyLoad();
+             },
+            open: function () { 
+               
+            }
+        }).data("kendoWindow");
+
+       
+        blnwinLPModifyClosing = false;
+        winLPModify.center().open();
+        $("#LPModifyListGrid").kendoGrid({
+            dataSource: new kendo.data.DataSource({
+                data: TruckBookingList
+            }),
+            columnMenu: {
+                filterable: false
+            },
+            height: 680,
+            change: onChange,
+            toolbar: [],
+            columns: [{
+                selectable: true,
+                width: 55,
+                field: "BookProNumber",
+                attributes: {
+                    "class": "checkbox-align",
+                },
+                headerAttributes: {
+                    "class": "checkbox-align",
+                }
+            }, {
+
+                field: "BookCarrOrderNumber",
+                title: "Order Number",
+                width: 200
+            }, {
+                field: "BookOrderSequenced",
+                title: "Sequence",
+                width: 105
+            }, {
+                field: "BookConsPrefix",
+                title: "Cons Integrity",
+                width: 130,
+            }, {
+                field: "BookRouteTypeName",
+                title: "Route Type",
+                width: 125
+            }],
+        });
+
+    }
+
+    function SetConfigLoad() {
+      
+       var ddl =  $("#configloadSelect").kendoDropDownList({
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            change: onChangeConfigLoad,
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        url: "api/vLookupList/GetStaticList/26",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "select" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Load Planning JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        }).data("kendoDropDownList");
+
+       
+
+        $('body').kendoTooltip({
+            filter: 'li.k-list-item',
+            position: 'right',
+            content: function (e) {
+                var item = ddl.dataItem($(e.target));
+                var result = '<p>' + item.Description + '</p>';
+                return result;
+            },
+            width: 220,
+            height: 280
+        }).data("kendoTooltip");
+    }
+    function onChangeConfigLoad(e) {
+        $("#BookRouteTypeCode").val(e.sender.value())
+    }
+    function onChange(e) {
+        var rows = e.sender.select(),
+            items = [];
+
+        rows.each(function (e) {
+            var grid = $("#LPModifyListGrid").data("kendoGrid");
+            var dataItem = grid.dataItem(this);
+            items.push(dataItem);
+        });
+        SelectedBookingToModify = items;
+       
+    };
+   
+
+    function TriggerLPModifyCloseWindow() {
+        winLPModify.close();
+        location.reload();
+    }
+
+    function getLoadPlanningModified(){
+        var modifiedData = new LoadPlanningModified();
+        modifiedData.BookDateLoad = $("#BookDateLoad").data("kendoDatePicker").value();
+        modifiedData.BookDateRequired = $("#BookDateRequired").data("kendoDatePicker").value();
+        modifiedData.BookCarrActDate = $("#BookCarrActDate").data("kendoDatePicker").value();
+       
+        modifiedData.BookShipCarrierProNumber = $("#BookShipCarrierProNumber").data("kendoMaskedTextBox").value();
+        modifiedData.BookShipCarrierName = $("#BookShipCarrierName").data("kendoMaskedTextBox").value();
+        modifiedData.BookShipCarrierNumber = $("#BookShipCarrierNumber").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrBLNumber = $("#BookCarrBLNumber").data("kendoMaskedTextBox").value();
+
+       modifiedData.BookCustomerApprovalTransmitted = $("#BookCustomerApprovalTransmitted").is(':checked') ? 1: 0;
+        modifiedData.BookCustomerApprovalRecieved = $("#BookCustomerApprovalRecieved").is(':checked') ? 1: 0; 
+
+        modifiedData.BookCarrTrailerNo = $("#BookCarrTrailerNo").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrSealNo = $("#BookCarrSealNo").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrDriverNo = $("#BookCarrDriverNo").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrDriverName = $("#BookCarrDriverName").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrTripNo = $("#BookCarrTripNo").data("kendoMaskedTextBox").value();
+        modifiedData.BookCarrRouteNo = $("#BookCarrRouteNo").data("kendoMaskedTextBox").value();
+
+        modifiedData.BookTrackContact = $("#BookTrackContact").data("kendoMaskedTextBox").value();
+        modifiedData.BookTrackStatus = $("#BookTrackStatus").data("kendoMaskedTextBox").value();
+        modifiedData.BookTrackComment = $("#BookTrackComment").data("kendoMaskedTextBox").value();
+        
+        modifiedData.BookShipCarrierProNumberRaw = $("#BookShipCarrierProNumberRaw").data("kendoMaskedTextBox").value();
+        modifiedData.BookShipCarrierProControl = $("#BookShipCarrierProControl").data("kendoMaskedTextBox").value();
+        modifiedData.BookRouteConsFlag = $("#BookRouteConsFlag").data("kendoMaskedTextBox").value();
+        modifiedData.BookRouteTypeCode = $("#BookRouteTypeCode").data("kendoMaskedTextBox").value();
+        return modifiedData;
+    }
+
+    function TriggerLPModifySubmit() {
+        var EditedData = new getLoadPlanningModified();
+        if (SelectedBookingToModify.length == 0) {
+            ngl.showValidationMsg("Booking Pro Number Required", "Please select a Booking Pro Number form the table to continue", tPage);
+            return false;
+        }
+        var validateResult = validateLPModifyRequiredFields(EditedData, true);
+        
+        if (!validateResult.Success) {
+            ngl.showValidationMsg("Required Fields", validateResult.Message, null);
+           return false;
+        }
+        SelectedBookingToModify.forEach((item) =>
+            SaveModifiedLoadPlanning(EditedData, item.BookProNumber)
+        )
+       
+    }
+
+    function validateLPModifyRequiredFields(data, editing) {
+        var oRet = new validationResults();
+        var tObj = this;
+        if (typeof (data) === 'undefined' || $.isEmptyObject(data)) {
+            //something went wrong so throw an error. this should never happen
+            oRet.Message = "Please Enter Load Planning Detail";
+            oRet.Success = false;
+            return oRet;
+        } var blnValidated = true;
+        var sValidationMsg = "";
+        var sSpacer = "";
+        
+
+        if (typeof (LpModifyLoadDataFields) !== 'undefined' && ngl.isObject(LpModifyLoadDataFields) === true && ngl.isArray(LpModifyLoadDataFields) === true) {
+            this.blnEditing = false;
+            //if (typeof (editing) === 'undefined') { this.blnEditing = false; } else { this.blnEditing = editing == "true"; }
+            if (typeof (editing) === 'undefined') {
+                this.blnEditing = false;
+            } else {
+                this.blnEditing = editing;
+            }
+
+            $.each(LpModifyLoadDataFields, function (index, item) {
+               
+                if (item.fieldRequired === true) {
+                    var field = data[item.fieldName];
+                    if (typeof (field) === 'undefined' || field === null) {
+                        blnValidated = false;
+                        sValidationMsg += sSpacer + item.fieldCaption; sSpacer = ", ";
+                    }
+                    else {
+                        if (isEmpty(field) === true) { blnValidated = false; sValidationMsg += sSpacer + item.fieldCaption; sSpacer = ", "; }
+                    }
+                }          
+            });
+            } 
+        oRet.Success = blnValidated;
+        oRet.Message = sValidationMsg;
+        return oRet;
+        }
+
+
+
+
+
+    function SaveModifiedLoadPlanning(EditedData, BookProNumber) {
+        EditedData['BookProNumber'] =BookProNumber;
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.update("LoadPlanning/MassUpdate", EditedData, tPage, "LoadPlanningModifySuccessCallback", "LoadPlanningModifyAjaxErrorCallback", true);
+    }
+    function clearModifyLoad(){
+        $("#BookShipCarrierProNumberRaw").data("kendoMaskedTextBox").value('');
+        $("#BookShipCarrierProControl").data("kendoMaskedTextBox").value('');
+        $("#BookRouteConsFlag").data("kendoMaskedTextBox").value('');
+        $("#BookRouteTypeCode").data("kendoMaskedTextBox").value('');
+
+        $("#BookDateLoad").data("kendoDatePicker").value('');
+        $("#BookDateRequired").data("kendoDatePicker").value('');
+        $("#BookCarrActDate").data("kendoDatePicker").value('');
+       
+        $("#BookShipCarrierProNumber").data("kendoMaskedTextBox").value('');
+        $("#BookShipCarrierName").data("kendoMaskedTextBox").value('');
+        $("#BookShipCarrierNumber").data("kendoMaskedTextBox").value('');
+        $("#BookCarrBLNumber").data("kendoMaskedTextBox").value('');
+
+        $("#BookCarrTrailerNo").data("kendoMaskedTextBox").value('');
+        $("#BookCarrSealNo").data("kendoMaskedTextBox").value('');
+        $("#BookCarrDriverNo").data("kendoMaskedTextBox").value('');
+        $("#BookCarrDriverName").data("kendoMaskedTextBox").value('');
+        $("#BookCarrTripNo").data("kendoMaskedTextBox").value('');
+        $("#BookCarrRouteNo").data("kendoMaskedTextBox").value('');
+
+        $("#BookTrackContact").data("kendoMaskedTextBox").value('');
+        //$("#BookTrackStatus").data("kendoMaskedTextBox").value('');
+        $("#BookTrackComment").data("kendoMaskedTextBox").value('');
+    }
+
+    function LoadPlanningModifySuccessCallback(data) {
+        clearModifyLoad();
+        ngl.showSuccessMsg("Load Planning updated successfully");
+    }
+    function LoadPlanningModifyAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Load Planning Modify Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage);
+    }
+   
+    function onChangeReasonCodeDropdownlist(e) {
+        var id = "BookTrackStatus";
+        var val = e.sender.value();
+        $.each(LpModifyLoadDataFields, function (index, item) {
+            if (id == item.fieldName) {
+                LpModifyLoadDataFields[index].fieldDefaultValue = val;
+            }
+
+        });
+        $("#BookTrackStatus").val(e.sender.value())
+    }
+    function SetReasonDropDownlist() {
+
+        var reasonddl = $("#reasonCodeSelect").kendoDropDownList({
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            change: onChangeReasonCodeDropdownlist,
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        url: "api/vLookupList/GetStaticListVcTnd/18",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "select" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Load Planning JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        }).data("kendoDropDownList");
+    }
+
+
+</script>

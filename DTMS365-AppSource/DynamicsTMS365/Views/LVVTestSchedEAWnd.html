@@ -1,0 +1,963 @@
+﻿ <!--Appointment Add and Edit Window-->
+<div id="AppointmentAddEditWnd">
+    <div id="tabstrip">
+        <ul>
+            <li class="k-active">Appointment Information</li>
+            <li>Carrier Data</li>
+        </ul>
+        <div> <!--Appointment Information Tab-->
+            <div>
+                <div>
+                    <fieldset>
+                        <legend><span class='k-icon k-i-search'></span><b>Search Orders</b></legend>
+                        <div id="searchOrdersUI">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Order Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrderNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Appt Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtApptNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-min-margin">CNS :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtCNS" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Pro Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtProNumber" maxlength="50" style="width:98%;" /></td>
+                                    <td class="tblResponsive-top ui-th-margin"><button id="btnSearch" class="ui-min-margin">Search</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+                <div style="margin-top: 15px;">
+                    <fieldset>
+                        <legend><span class='k-icon k-i-grid-layout'></span><b>Orders</b></legend>
+                        <div id="ordersWndGrid"></div>
+                    </fieldset>
+                </div>
+                <div id="AddEditOrder" style="margin-top: 15px;">
+                    <fieldset>
+                        <legend id="AddEditOrderLegend"><b>Order Deatils</b></legend>
+                        <div id="OrdersAddEditUI">
+                            <table class="tblResponsive" style="width:100%">
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">CNS :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCNS" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Equipment ID * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdEquipID" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Pro Number :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdProNu" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrig" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Order Number * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrderNu" style="width:80%" /><span id="txtOrdOrderNu-validation" class="hide-display ui-span-container"><br /><br />Order Number can't be empty</span></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig Address :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigAddress" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">PO Number * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdPONu" style="width:80%" /><span id="txtOrdPONu-validation" class="hide-display ui-span-container"><br /><br />PO Number can't be empty</span></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig City :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigCity" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Date Ordered :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdOrderd" data-role="datetimepicker" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig State :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigState" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Date Load :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdLoad" data-role="datetimepicker" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig Zip :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdOrigZip" style="width:80%" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Date Required :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="dtOrdRequired" data-role="datetimepicker" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Orig Country :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdOrigCountry" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Cases :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCases" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDest" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Cubes :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdCubes" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest Address :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestAddress" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Weight :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdWeight" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest City :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdDestCity" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Pallets In :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdPalletsIn" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest State :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtOrdDestState" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Pallets Out :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdPalletsOut" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest Zip :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestZip" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Description :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDesc" style="width:80%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Dest Country :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input required id="txtOrdDestCountry" style="width:80%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin"> </td>
+                                    <td class="tblResponsive-top ui-th-margin"> </td>
+                                    <td class="tblResponsive-top ui-th-margin"> </td>
+                                    <td class="tblResponsive-top ui-td-margin"><button id="btnSaveOrd" class="ui-button-margin">Save</button> <button id="btnCancelOrd" class="ui-button-margin">Cancel</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+                <div style="margin-top: 15px;">
+                    <fieldset>
+                        <legend><b>Appointment Details</b></legend>
+                        <div class="ApptAddEditDiv">
+                            <table class="tblResponsive" style="width:100%">
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Carrier Name * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtCarrierName" style="width:98%" /><span id="apptCarrier-validation" class="hide-display ui-span-container"><br /><br />Carrier Name can't be empty</span></td>
+                                    <td class="tblResponsive-top ui-th-margin">Carrier Num/SCAC * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtSCAC" style="width:98%" /><span id="apptSCAC-validation" class="hide-display ui-span-container"><br /><br />Carrier Num/SCAC can't be empty</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Description :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtDescription" style="width:98%" />
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Start Time * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtStartTime" data-role="datetimepicker" style="width:98%" /><span id="apptStartDate-validation" class="hide-display ui-span-container"><br /><br />Start Time Can't be empty or invalid</span></td>
+                                    <td class="tblResponsive-top ui-th-margin">End Time * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="txtEndTime" data-role="datetimepicker" style="width:98%" /><span id="apptEndDate-validation" class="hide-display ui-span-container"><br /><br />End Time Can't be empty or invalid</span></td>
+                                    <td class="tblResponsive-top"><input type="checkbox" id="chkAllDay"  data-bind="checked: isChecked" /><label class="k-checkbox-label" for="chkAllDay" style="width:50px">All Day</label></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Dock Door * :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="ddlDockDoorID" style="width:98%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin"></td>
+                                    <td class="tblResponsive-top ui-td-margin" id="compBound"><input type="radio" id="rdoInBound" class="k-radio" name="InOutBound" /><label class="k-radio-label" for="rdoInBound">InBound</label> <input checked type="radio" id="rdoOutBound" class="k-radio" name="InOutBound" style="margin-left:50px;" /><label class="k-radio-label" for="rdoOutBound">OutBound</label></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin" style="vertical-align: -webkit-baseline-middle!important;">Notes :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><textarea id="txtNotes" style="width:98%" rows="4" cols="15" maxlength="400"></textarea></td>
+                                    <td class="tblResponsive-top ui-th-margin"> </td>
+                                    <td class="tblResponsive-top ui-td-margin"><button id="btnSave" class="ui-button-margin">Save</button> <button id="btnCancel" class="ui-button-margin">Cancel</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div> <!--Carrier Data Tab-->
+            <div>
+                <div>
+                    <fieldset>
+                        <legend><b>Appointment Details</b></legend>
+                        <div id="carrierDataUI">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Scheduler Date Time :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATSchedulerFrom" style="width:98%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Check In Date Time :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATCheckIn" style="width:98%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin"> </td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATSchedulerTo" style="width:98%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Check Out Date Time :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATCheckOut" style="width:98%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top ui-th-margin">Start (Un)Loading Date Time :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATStartLoading" style="width:98%" /></td>
+                                    <td class="tblResponsive-top ui-th-margin">Finish (Un)Loading Date Time :</td>
+                                    <td class="tblResponsive-top ui-td-margin"><input id="DATFinishLoading" style="width:98%" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="ui-th-margin"> </td>
+                                    <td class="ui-th-margin"> </td>
+                                    <td class="ui-th-margin"> </td>
+                                    <td class="ui-td-margin"><button id="btnSaveCarrier" class="ui-button-margin">Save</button> <button id="btnCancelCarrier" class="ui-button-margin">Cancel</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+                <div style="margin-top:20px">
+                    <div id="TrackingFieldsGrid"></div>
+                </div>
+                <div style="margin-top:20px">
+                    <div id="UserFieldsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+
+    //************Add edit popup for Appointment************//
+    function AddEditFunc(e) {
+        e.preventDefault();
+        $("#tabstrip").data("kendoTabStrip").select("li:contains('Appointment Information')");
+        EventAppt = "";
+        var dataSource = this.dataSource;
+        var event = e.event;
+        //validation remove And Default Values
+        $("#apptCarrier-validation").addClass("hide-display");
+        $("#apptSCAC-validation").addClass("hide-display");
+        $("#apptEndDate-validation").addClass("hide-display");
+        $("#apptStartDate-validation").addClass("hide-display");
+        $('#txtStartTime').data('kendoDateTimePicker').enable(true);
+        $('#txtEndTime').data('kendoDateTimePicker').enable(true);
+        $("#chkAllDay").prop('checked', false);
+        $("#compBound input:radio").attr('disabled', false);
+        $("#AddEditOrder").hide();
+        //**********Carrier Data default*********//
+        carrierDATStartLoading.value("");
+        carrierDATFinishLoading.value("");
+        carrierDATCheckIn.value("");
+        carrierDATCheckOut.value("");
+        $("#ApptCountrol").val("")
+        EventAppt = event;
+        $("#ApptCountrol").val(event.AMSApptControl);
+        $("#txtCarrierName").val(event.title);
+        $("#txtSCAC").val(event.AMSApptCarrierSCAC);
+        $("#txtDescription").val(event.AMSApptDescription);
+        start.value(event.start);
+        end.value(event.end);
+        $("#ddlDockDoorID").data("kendoDropDownList").value(event.doorId);
+        $("#txtNotes").val(event.AMSApptNotes);
+        $("#txtOrderNumber").kendoMaskedTextBox().val("");
+        $("#txtApptNumber").kendoMaskedTextBox().val("");
+        $("#txtCNS").kendoMaskedTextBox().val("");
+        $("#txtProNumber").kendoMaskedTextBox().val("");
+        var ApptOrders;
+        var FilterApptControl;
+        if (event.AMSApptControl) {
+            EventFlag = false;
+            $("#AppointmentAddEditWnd").data("kendoWindow").title("Appointment Details");
+            AvailApptControl = event.AMSApptControl;
+            FilterApptControl = event.AMSApptControl;
+            carrierDATSchedulerFrom.value(event.start);
+            carrierDATSchedulerTo.value(event.end);
+            carrierDATStartLoading.value(event.AMSApptStartLoadingDateTime);
+            carrierDATFinishLoading.value(event.AMSApptFinishLoadingDateTime);
+            carrierDATCheckIn.value(event.AMSApptActualDateTime);
+            carrierDATCheckOut.value(event.AMSApptActLoadCompleteDateTime);
+            TrackingFieldsUserFieldsApptControl = event.AMSApptControl;
+            $("#TrackingFieldsGrid").data("kendoGrid").dataSource.read();
+            $("#UserFieldsGrid").data("kendoGrid").dataSource.read();
+        } else {
+            EventFlag = true
+            $("#AppointmentAddEditWnd").data("kendoWindow").title("Add Appointment");
+            AvailApptControl = 0;
+            FilterApptControl = 0;
+            carrierDATSchedulerFrom.value(event.start);
+            carrierDATSchedulerTo.value(event.end);
+            $("#TrackingFieldsGrid").data("kendoGrid").dataSource.data([]);
+            $("#UserFieldsGrid").data("kendoGrid").dataSource.data([]);
+        }
+        $.ajax({
+            url: '/api/AMSOrder/GetRecordsByAppointmentFilter/',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: { filter: JSON.stringify({ "filterValue": FilterApptControl }) },
+            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            success: function (data) {
+                ApptOrders = data;
+                try {
+                    var blnSuccess = false;
+                    var blnErrorShown = false;
+                    var strValidationMsg = "";
+                    if (typeof (data) != 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Get Orders Details Failure", data.Errors, null); }
+                        else {
+                            if (typeof (data.Data) != 'undefined' && ngl.isArray(data.Data)) {
+                                if (data.Data.length > 0 && typeof (data.Data[0]) != 'undefined' && ngl.isObject(data.Data[0])) { blnSuccess = true; } else { blnSuccess = true; strValidationMsg = "No records were found matching your search criteria"; }
+                            }
+                        }
+                    }
+                    if (blnSuccess === false && blnErrorShown === false) {
+                        if (strValidationMsg.length < 1) { strValidationMsg = "Get Orders Details Failure"; }
+                        ngl.showErrMsg("Get Orders Details Failure", strValidationMsg, null);
+                    }
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+            },
+            error: function (result) { ngl.showErrMsg("Get Orders Details Failure", result, null); }
+        });
+        $("#ordersWndGrid").data("kendoGrid").dataSource.data(ApptOrders.Data);
+        if (ApptOrders.Data.length > 0) {
+            if (ApptOrders.Data[0].BookDestCompControl == CompControl) { //Modified By LVV on 11/6/2019 Ticket #201911041624
+                $("#rdoInBound").prop('checked', true);
+                $("#compBound input:radio").attr('disabled', true);
+            } else if (ApptOrders.Data[0].BookOrigCompControl == CompControl) {
+                $("#rdoOutBound").prop('checked', true);
+                $("#compBound input:radio").attr('disabled', true);
+            }
+        }
+        sdate = "";
+        wndAddEditEvent.center().open();
+    }
+
+
+    function saveUpdateAppointment(){                   
+        var submit = true;
+        if ($("#txtCarrierName").data("kendoMaskedTextBox").value() =="") { $("#apptCarrier-validation").removeClass("hide-display"); submit = false; }
+        if ($("#txtSCAC").data("kendoMaskedTextBox").value() =="") { $("#apptSCAC-validation").removeClass("hide-display"); submit = false; }                     
+        var startDate = new Date($('#txtStartTime').val());
+        var endDate = new Date($('#txtEndTime').val());
+        if (startDate == "Invalid Date" ) { $("#apptStartDate-validation").removeClass("hide-display"); submit = false; }
+        if (endDate =="Invalid Date") { $("#apptEndDate-validation").removeClass("hide-display"); submit = false; }
+        if (startDate > endDate){ ngl.showWarningMsg("Start DateTime can't be greater than End DateTime",""); submit = false; }
+        if(submit == true){
+            if(EventFlag == true){
+                EventAppt.AMSApptCompControl = CompControl
+                EventAppt.AMSApptCarrierControl = null;
+                EventAppt.AMSApptCarrierName = $("#txtCarrierName").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptCarrierSCAC = $("#txtSCAC").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptDescription = $("#txtDescription").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptStartDate = $("#txtStartTime").val();
+                EventAppt.AMSApptEndDate = $("#txtEndTime").val();
+                EventAppt.AMSApptDockdoorID = $('#ddlDockDoorID').data("kendoDropDownList").dataItem().CompDockDockDoorID;
+                EventAppt.AMSApptNotes = $("#txtNotes").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptRecurrenceParentControl = null;
+                EventAppt.AMSApptRecurrence = "";
+                EventAppt.AMSApptActualDateTime = $("#DATCheckIn").val();
+                EventAppt.AMSApptStartLoadingDateTime = $("#DATStartLoading").val();
+                EventAppt.AMSApptFinishLoadingDateTime = $("#DATFinishLoading").val();
+                EventAppt.AMSApptActLoadCompleteDateTime = $("#DATCheckOut").val();
+                EventAppt.AMSApptModDate =  new Date();
+                EventAppt.AMSApptStatusCode = 0;
+            }else{
+                EventAppt.AMSApptCarrierName = $("#txtCarrierName").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptCarrierSCAC = $("#txtSCAC").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptDescription = $("#txtDescription").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptStartDate = $("#txtStartTime").val();
+                EventAppt.AMSApptEndDate = $("#txtEndTime").val();
+                EventAppt.AMSApptDockdoorID = $('#ddlDockDoorID').data("kendoDropDownList").dataItem().CompDockDockDoorID;
+                EventAppt.AMSApptNotes = $("#txtNotes").data("kendoMaskedTextBox").value();
+                EventAppt.AMSApptActualDateTime = $("#DATCheckIn").val();
+                EventAppt.AMSApptStartLoadingDateTime = $("#DATStartLoading").val();
+                EventAppt.AMSApptFinishLoadingDateTime = $("#DATFinishLoading").val();
+                EventAppt.AMSApptActLoadCompleteDateTime = $("#DATCheckOut").val();
+                EventAppt.AMSApptModDate =  new Date();
+            }
+            var Appt = EventAppt;
+            var Flag = EventFlag;
+            var Ord = $("#ordersWndGrid").data("kendoGrid").dataSource.data();
+            for(var i = 0;i<Ord.length;i++){
+                if($("#rdoInBound").is(":checked")){ Ord[i].BookDestCompControl = CompControl; Ord[i].BookOrigCompControl = 0; }
+                else if($("#rdoOutBound").is(":checked")){ Ord[i].BookOrigCompControl = CompControl; Ord[i].BookDestCompControl = 0; }
+            }      
+            if(ApptValidation.BitString !== undefined){ ApptValidation.Input = $("#txtWndOverridePassword").val(); ApptValidation.ReasonCode = $("#ddlWndOverrideReasonCode").val(); }
+            else{                        
+                ApptValidation.SPRequired  = false;
+                ApptValidation.InvalidSP   = false;
+                ApptValidation.RCRequired   = false;
+                ApptValidation.InvalidRC  = false;
+                ApptValidation.Success   = false;
+                ApptValidation.NoOverride   = false;
+                ApptValidation.BitString   = null;
+                ApptValidation.Input   = null;
+                ApptValidation.ReasonCode   = null;
+                //ApptValidation.ReasonDesc   = null;
+                ApptValidation.FailedMsg   = null;
+                ApptValidation.FailedMsgDetails   = null;
+            }
+            var datanew ={"Validation":ApptValidation,"Appt":Appt,"Ord":Ord,"Flag":Flag};
+            $.ajax({ 
+                url: '/api/AMSAppointment/SaveUpdateAppointmentOrders/',
+                type:'Post',
+                contentType: 'application/json; charset=utf-8', 
+                dataType: 'json', 
+                data: JSON.stringify(datanew), 
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }, 
+                success: function(data) {
+                    try {
+                        var blnSuccess = false;
+                        var blnErrorShown = false;
+                        var strValidationMsg = "";
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Save Appointment Failure", data.Errors, null); }
+                            else {
+                                if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                    if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                        blnSuccess = true;
+                                        if(data.Data[0].Success !== undefined){
+                                            if(data.Data[0].Success == false){
+                                                $("#spanIconMoreDetails").addClass('k-i-minus').removeClass("k-i-plus");
+                                                $("#FailedMsgDetails-UI").show();
+                                                $("#txtWndOverridePassword-validation").addClass("hide-display");
+                                                $("#ddlWndOverrideReasonCode-validation").addClass("hide-display");
+                                                $(".SPRequired_UI").hide();
+                                                $(".RCRequired_UI").hide();
+                                                $(".btnOcerride_UI").hide();
+                                                if(!data.Data[0].NoOverride){
+                                                    if(data.Data[0].SPRequired){ $("#txtWndOverridePassword").val(""); $(".SPRequired_UI").show(); }
+                                                    if(data.Data[0].RCRequired){ $("#ddlWndOverrideReasonCode").data("kendoDropDownList").select(0); $(".RCRequired_UI").show(); }
+                                                    if(data.Data[0].SPRequired || data.Data[0].RCRequired){ $(".btnOcerride_UI").show(); }
+                                                }                                                               
+                                                $("#txtFailedMsg").text(data.Data[0].FailedMsg);
+                                                if(data.Data[0].FailedMsgDetails.length>0){
+                                                    $("#txtFailedMsgDetails").html("");
+                                                    $.each(data.Data[0].FailedMsgDetails,function(i,val){
+                                                        $("#txtFailedMsgDetails").append('<li>'+val+'</li>');
+                                                    });
+                                                }
+                                                $("#viewAvailableSlotsGrid").hide();
+                                                wndOverride.center().open();
+                                                ApptValidation = data.Data[0];
+                                            }
+                                        }   
+                                        else{
+                                            wndAddEditEvent.close();
+                                            scheduler.dataSource.read();
+                                            $("#grid").data("kendoGrid").dataSource.read();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (blnSuccess === false && blnErrorShown === false) {
+                            if (strValidationMsg.length < 1) { strValidationMsg = "Save Appointment Failure"; }
+                            ngl.showErrMsg("Save Appointment Failure", strValidationMsg, null);
+                        }
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Save Appointment Failure", sMsg, null); }
+            });
+        }else{
+            //ngl.showWarningMsg("Please ensure to input relevant data in all necessary input fields","");
+        }
+    }
+
+    function onlyUnique(mArray) {
+        var varyFresh = [];
+        var DummyFresh = [];
+        for (var i = 0; i < mArray.length; i++) {
+            if (DummyFresh.indexOf(mArray[i].BookControl) == -1) {
+                DummyFresh.push(mArray[i].BookControl);
+                varyFresh.push(mArray[i]);
+            }
+        }
+        return varyFresh;
+    }
+
+    var orderItem = new AMSOrders();
+    function openOdereAddEditWindow(e) {
+        $("#txtOrdOrderNu-validation").addClass("hide-display");
+        $("#txtOrdPONu-validation").addClass("hide-display");
+        $("#txtOrdCNS").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdProNu").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrderNu").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdPONu").data("kendoMaskedTextBox").enable(true);
+        $("#dtOrdOrderd").data("kendoDatePicker").enable(true);
+        $("#dtOrdLoad").data("kendoDatePicker").enable(true);
+        $("#dtOrdRequired").data("kendoDatePicker").enable(true);
+        $("#txtOrdCases").data("kendoNumericTextBox").enable(true);
+        $("#txtOrdCubes").data("kendoNumericTextBox").enable(true);
+        $("#txtOrdWeight").data("kendoNumericTextBox").enable(true);
+        $("#txtOrdPalletsIn").data("kendoNumericTextBox").enable(true);
+        $("#txtOrdPalletsOut").data("kendoNumericTextBox").enable(true);
+        $("#txtOrdDesc").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdEquipID").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrig").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrigAddress").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrigCity").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrigState").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrigZip").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdOrigCountry").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDest").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDestAddress").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDestCity").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDestState").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDestZip").data("kendoMaskedTextBox").enable(true);
+        $("#txtOrdDestCountry").data("kendoMaskedTextBox").enable(true);
+        orderItem = {};
+        if ($(e.currentTarget).hasClass("k-grid-createOrder")) {
+            $("#AddEditOrderLegend").html("<b>Add new Adhoc Order</b>");
+            orderItem.BookControl = 0;
+            $("#txtOrdCNS").data("kendoMaskedTextBox").value("");
+            $("#txtOrdProNu").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrderNu").data("kendoMaskedTextBox").value("");
+            $("#txtOrdPONu").data("kendoMaskedTextBox").value("");
+            $("#dtOrdOrderd").val("");
+            $("#dtOrdLoad").val("");
+            $("#dtOrdRequired").val("");
+            $("#txtOrdCases").data("kendoNumericTextBox").value("");
+            $("#txtOrdCubes").data("kendoNumericTextBox").value("");
+            $("#txtOrdWeight").data("kendoNumericTextBox").value("");
+            $("#txtOrdPalletsIn").data("kendoNumericTextBox").value("");
+            $("#txtOrdPalletsOut").data("kendoNumericTextBox").value("");
+            $("#txtOrdDesc").data("kendoMaskedTextBox").value("");
+            $("#txtOrdEquipID").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrig").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrigAddress").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrigCity").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrigState").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrigZip").data("kendoMaskedTextBox").value("");
+            $("#txtOrdOrigCountry").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDest").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDestAddress").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDestCity").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDestState").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDestZip").data("kendoMaskedTextBox").value("");
+            $("#txtOrdDestCountry").data("kendoMaskedTextBox").value("");
+            $("#AddEditOrder").show();
+            $("#txtOrdCNS").focus();
+        }
+        else if ($(e.currentTarget).has("td")) {
+            $("#AddEditOrderLegend").html("<b>Order Details</b>");
+            orderItem = this.dataItem($(e.currentTarget).closest("tr"));
+            if (orderItem.BookControl > 0) {
+                $("#txtOrdCNS").data("kendoMaskedTextBox").value(orderItem.BookConsPrefix);
+                $("#txtOrdProNu").data("kendoMaskedTextBox").value(orderItem.BookProNumber);
+                $("#txtOrdOrderNu").data("kendoMaskedTextBox").value(orderItem.BookCarrOrderNumber);
+                $("#txtOrdPONu").data("kendoMaskedTextBox").value(orderItem.BookLoadPONumber);
+                $("#dtOrdOrderd").data("kendoDatePicker").value(orderItem.BookDateOrdered);
+                $("#dtOrdLoad").data("kendoDatePicker").value(orderItem.BookDateLoad);
+                $("#dtOrdRequired").data("kendoDatePicker").value(orderItem.BookDateRequired);
+                $("#txtOrdCases").data("kendoNumericTextBox").value(orderItem.BookTotalCases);
+                $("#txtOrdCubes").data("kendoNumericTextBox").value(orderItem.BookTotalCube);
+                $("#txtOrdWeight").data("kendoNumericTextBox").value(orderItem.BookTotalWgt);
+                $("#txtOrdPalletsIn").data("kendoNumericTextBox").value(orderItem.BookTotalPL);
+                $("#txtOrdPalletsOut").data("kendoNumericTextBox").value(orderItem.BookTotalPX);
+                $("#txtOrdDesc").data("kendoMaskedTextBox").value(orderItem.BookItemDetailDescription);
+                $("#txtOrdEquipID").data("kendoMaskedTextBox").value(orderItem.EquipmentID);
+                $("#txtOrdOrig").data("kendoMaskedTextBox").value(orderItem.BookOrigName);
+                $("#txtOrdOrigAddress").data("kendoMaskedTextBox").value(orderItem.BookOrigAddress1);
+                $("#txtOrdOrigCity").data("kendoMaskedTextBox").value(orderItem.BookOrigCity);
+                $("#txtOrdOrigState").data("kendoMaskedTextBox").value(orderItem.BookOrigState);
+                $("#txtOrdOrigZip").data("kendoMaskedTextBox").value(orderItem.BookOrigZip);
+                $("#txtOrdOrigCountry").data("kendoMaskedTextBox").value(orderItem.BookOrigCountry);
+                $("#txtOrdDest").data("kendoMaskedTextBox").value(orderItem.BookDestName);
+                $("#txtOrdDestAddress").data("kendoMaskedTextBox").value(orderItem.BookDestAddress1);
+                $("#txtOrdDestCity").data("kendoMaskedTextBox").value(orderItem.BookDestCity);
+                $("#txtOrdDestState").data("kendoMaskedTextBox").value(orderItem.BookDestState);
+                $("#txtOrdDestZip").data("kendoMaskedTextBox").value(orderItem.BookDestZip);
+                $("#txtOrdDestCountry").data("kendoMaskedTextBox").value(orderItem.BookDestCountry);
+                $("#txtOrdCNS").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdProNu").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrderNu").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdPONu").data("kendoMaskedTextBox").enable(false);
+                $("#dtOrdOrderd").data("kendoDatePicker").enable(false);
+                $("#dtOrdLoad").data("kendoDatePicker").enable(false);
+                $("#dtOrdRequired").data("kendoDatePicker").enable(false);
+                $("#txtOrdCases").data("kendoNumericTextBox").enable(false);
+                $("#txtOrdCubes").data("kendoNumericTextBox").enable(false);
+                $("#txtOrdWeight").data("kendoNumericTextBox").enable(false);
+                $("#txtOrdPalletsIn").data("kendoNumericTextBox").enable(false);
+                $("#txtOrdPalletsOut").data("kendoNumericTextBox").enable(false);
+                $("#txtOrdDesc").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdEquipID").data("kendoMaskedTextBox").enable(true);
+                $("#txtOrdOrig").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrigAddress").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrigCity").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrigState").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrigZip").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdOrigCountry").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDest").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDestAddress").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDestCity").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDestState").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDestZip").data("kendoMaskedTextBox").enable(false);
+                $("#txtOrdDestCountry").data("kendoMaskedTextBox").enable(false);
+            } else {
+                $("#txtOrdCNS").data("kendoMaskedTextBox").value(orderItem.BookConsPrefix);
+                $("#txtOrdProNu").data("kendoMaskedTextBox").value(orderItem.BookProNumber);
+                $("#txtOrdOrderNu").data("kendoMaskedTextBox").value(orderItem.BookCarrOrderNumber);
+                $("#txtOrdPONu").data("kendoMaskedTextBox").value(orderItem.BookLoadPONumber);
+                $("#dtOrdOrderd").data("kendoDatePicker").value(orderItem.BookDateOrdered);
+                $("#dtOrdLoad").data("kendoDatePicker").value(orderItem.BookDateLoad);
+                $("#dtOrdRequired").data("kendoDatePicker").value(orderItem.BookDateRequired);
+                $("#txtOrdCases").data("kendoNumericTextBox").value(orderItem.BookTotalCases);
+                $("#txtOrdCubes").data("kendoNumericTextBox").value(orderItem.BookTotalCube);
+                $("#txtOrdWeight").data("kendoNumericTextBox").value(orderItem.BookTotalWgt);
+                $("#txtOrdPalletsIn").data("kendoNumericTextBox").value(orderItem.BookTotalPL);
+                $("#txtOrdPalletsOut").data("kendoNumericTextBox").value(orderItem.BookTotalPX);
+                $("#txtOrdDesc").data("kendoMaskedTextBox").value(orderItem.BookItemDetailDescription);
+                $("#txtOrdEquipID").data("kendoMaskedTextBox").value(orderItem.EquipmentID);
+                $("#txtOrdOrig").data("kendoMaskedTextBox").value(orderItem.BookOrigName);
+                $("#txtOrdOrigAddress").data("kendoMaskedTextBox").value(orderItem.BookOrigAddress1);
+                $("#txtOrdOrigCity").data("kendoMaskedTextBox").value(orderItem.BookOrigCity);
+                $("#txtOrdOrigState").data("kendoMaskedTextBox").value(orderItem.BookOrigState);
+                $("#txtOrdOrigZip").data("kendoMaskedTextBox").value(orderItem.BookOrigZip);
+                $("#txtOrdOrigCountry").data("kendoMaskedTextBox").value(orderItem.BookOrigCountry);
+                $("#txtOrdDest").data("kendoMaskedTextBox").value(orderItem.BookDestName);
+                $("#txtOrdDestAddress").data("kendoMaskedTextBox").value(orderItem.BookDestAddress1);
+                $("#txtOrdDestCity").data("kendoMaskedTextBox").value(orderItem.BookDestCity);
+                $("#txtOrdDestState").data("kendoMaskedTextBox").value(orderItem.BookDestState);
+                $("#txtOrdDestZip").data("kendoMaskedTextBox").value(orderItem.BookDestZip);
+                $("#txtOrdDestCountry").data("kendoMaskedTextBox").value(orderItem.BookDestCountry);
+            }
+            $("#AddEditOrder").show();
+        }
+    }
+
+
+    $(document).ready(function () {
+
+        //***********Define Kendo widgets ************//                    
+        $("#txtOrderNumber").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtApptNumber").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtCNS").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtProNumber").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtCarrierName").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtDescription").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        var start = $("#txtStartTime").kendoDateTimePicker({
+            format: "M/d/yyyy HH:mm",
+            timeFormat: "HH:mm",
+            change: function () {
+                var startDate = this.value();
+                var AlertOrdersArray = $("#ordersWndGrid").data("kendoGrid").dataSource.data();
+                AlertSCheduleDateMisMatch(AlertOrdersArray, startDate);
+            }
+        }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        $("#txtNotes").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtSCAC").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        var end = $("#txtEndTime").kendoDateTimePicker({
+            format: "M/d/yyyy HH:mm",
+            timeFormat: "HH:mm",
+            //change: function() {
+            //    var endDate = this.value();
+            //    startDate = start.value();
+            //    if (endDate) {
+            //        endDate = new Date(endDate);
+            //        endDate.setDate(endDate.getDate());
+            //        start.max(endDate);
+            //    } else if (startDate) {
+            //        end.min(new Date(startDate));
+            //    } else {
+            //        endDate = new Date();
+            //        start.max(endDate);
+            //        end.min(endDate);
+            //    }            
+            //}
+        }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        var carrierDATSchedulerFrom = $("#DATSchedulerFrom").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        var carrierDATSchedulerTo = $("#DATSchedulerTo").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        carrierDATSchedulerFrom.enable(false); //AppointmentAddEditWnd
+        carrierDATSchedulerTo.enable(false); //AppointmentAddEditWnd
+        var carrierDATStartLoading = $("#DATStartLoading").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        var carrierDATCheckIn = $("#DATCheckIn").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        var carrierDATCheckOut = $("#DATCheckOut").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        var carrierDATFinishLoading = $("#DATFinishLoading").kendoDateTimePicker({ format: "M/d/yyyy HH:mm", timeFormat: "HH:mm" }).data("kendoDateTimePicker"); //AppointmentAddEditWnd
+        $("#txtOrdCNS").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdProNu").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrderNu").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdPONu").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#dtOrdOrderd").kendoDatePicker(); //AppointmentAddEditWnd
+        $("#dtOrdLoad").kendoDatePicker(); //AppointmentAddEditWnd
+        $("#dtOrdRequired").kendoDatePicker(); //AppointmentAddEditWnd
+        $("#txtOrdCases").kendoNumericTextBox({ decimals: 0, format: "#", min: 0 }); //AppointmentAddEditWnd
+        $("#txtOrdCubes").kendoNumericTextBox({ decimals: 0, format: "#", min: 0 }); //AppointmentAddEditWnd
+        $("#txtOrdWeight").kendoNumericTextBox({ decimals: 1, min: 0 }); //AppointmentAddEditWnd
+        $("#txtOrdPalletsIn").kendoNumericTextBox({ decimals: 0, format: "#", min: 0 }); //AppointmentAddEditWnd
+        $("#txtOrdPalletsOut").kendoNumericTextBox({ decimals: 0, format: "#", min: 0 }); //AppointmentAddEditWnd
+        $("#txtOrdDesc").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdEquipID").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrig").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrigAddress").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrigCity").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrigState").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrigZip").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdOrigCountry").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDest").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDestAddress").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDestCity").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDestState").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDestZip").kendoMaskedTextBox(); //AppointmentAddEditWnd
+        $("#txtOrdDestCountry").kendoMaskedTextBox(); //AppointmentAddEditWnd
+
+        $("#btnSave").kendoButton({ icon: "save", click: function(e) { ApptValidation = {}; saveUpdateAppointment(); } });
+        $("#btnSaveCarrier").kendoButton({ icon: "save", click: function (e) { saveUpdateAppointment(); } });
+        $("#btnCancel").kendoButton({ icon: "cancel", click: function (e) { wndAddEditEvent.close(); } });
+        $("#btnCancelCarrier").kendoButton({ icon: "cancel", click: function (e) { wndAddEditEvent.close(); } });
+        $("#btnCancelOrd").kendoButton({ icon: "cancel", click: function (e) { $("#AddEditOrder").hide(); } }); //CANCEL new BookAdhoc Order
+        $("#btnSaveOrd").kendoButton({
+            icon: "save",
+            click: function (e) {
+                var submit = true;
+                var submit = true;
+                if ($("#txtOrdOrderNu").data("kendoMaskedTextBox").value() == "") { $("#txtOrdOrderNu-validation").removeClass("hide-display"); submit = false; }
+                if ($("#txtOrdPONu").data("kendoMaskedTextBox").value() == "") { $("#txtOrdPONu-validation").removeClass("hide-display"); submit = false; }
+                if (submit == true) {
+                    var ordData = new AMSOrders();
+                    if (orderItem.BookControl > 0 || orderItem.BookControl < 0) {
+                        ordData = orderItem;
+                        ordData.BookConsPrefix = $("#txtOrdCNS").data("kendoMaskedTextBox").value();
+                        ordData.BookProNumber = $("#txtOrdProNu").data("kendoMaskedTextBox").value();
+                        ordData.BookCarrOrderNumber = $("#txtOrdOrderNu").data("kendoMaskedTextBox").value();
+                        ordData.BookLoadPONumber = $("#txtOrdPONu").data("kendoMaskedTextBox").value();
+                        ordData.BookDateOrdered = new Date($("#dtOrdOrderd").val());
+                        ordData.BookDateLoad = new Date($("#dtOrdLoad").val());
+                        ordData.BookDateRequired = new Date($("#dtOrdRequired").val());
+                        ordData.BookTotalCases = $("#txtOrdCases").data("kendoNumericTextBox").value();
+                        ordData.BookTotalCube = $("#txtOrdCubes").data("kendoNumericTextBox").value();
+                        ordData.BookTotalWgt = $("#txtOrdWeight").data("kendoNumericTextBox").value();
+                        ordData.BookTotalPL = $("#txtOrdPalletsIn").data("kendoNumericTextBox").value();
+                        ordData.BookTotalPX = $("#txtOrdPalletsOut").data("kendoNumericTextBox").value();
+                        ordData.BookItemDetailDescription = $("#txtOrdDesc").data("kendoMaskedTextBox").value();
+                        ordData.EquipmentID = $("#txtOrdEquipID").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigName = $("#txtOrdOrig").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigAddress1 = $("#txtOrdOrigAddress").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigCity = $("#txtOrdOrigCity").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigState = $("#txtOrdOrigState").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigZip = $("#txtOrdOrigZip").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigCountry = $("#txtOrdOrigCountry").data("kendoMaskedTextBox").value();
+                        ordData.BookDestName = $("#txtOrdDest").data("kendoMaskedTextBox").value();
+                        ordData.BookDestAddress1 = $("#txtOrdDestAddress").data("kendoMaskedTextBox").value();
+                        ordData.BookDestCity = $("#txtOrdDestCity").data("kendoMaskedTextBox").value();
+                        ordData.BookDestState = $("#txtOrdDestState").data("kendoMaskedTextBox").value();
+                        ordData.BookDestZip = $("#txtOrdDestZip").data("kendoMaskedTextBox").value();
+                        ordData.BookDestCountry = $("#txtOrdDestCountry").data("kendoMaskedTextBox").value();
+                    } else {
+                        ordData.BookConsPrefix = $("#txtOrdCNS").data("kendoMaskedTextBox").value();
+                        ordData.BookProNumber = $("#txtOrdProNu").data("kendoMaskedTextBox").value();
+                        ordData.BookCarrOrderNumber = $("#txtOrdOrderNu").data("kendoMaskedTextBox").value();
+                        ordData.BookLoadPONumber = $("#txtOrdPONu").data("kendoMaskedTextBox").value();
+                        ordData.BookDateOrdered = new Date($("#dtOrdOrderd").val());
+                        ordData.BookDateLoad = new Date($("#dtOrdLoad").val());
+                        ordData.BookDateRequired = new Date($("#dtOrdRequired").val());
+                        ordData.BookTotalCases = $("#txtOrdCases").data("kendoNumericTextBox").value();
+                        ordData.BookTotalCube = $("#txtOrdCubes").data("kendoNumericTextBox").value();
+                        ordData.BookTotalWgt = $("#txtOrdWeight").data("kendoNumericTextBox").value();
+                        ordData.BookTotalPL = $("#txtOrdPalletsIn").data("kendoNumericTextBox").value();
+                        ordData.BookTotalPX = $("#txtOrdPalletsOut").data("kendoNumericTextBox").value();
+                        ordData.BookItemDetailDescription = $("#txtOrdDesc").data("kendoMaskedTextBox").value();
+                        ordData.EquipmentID = $("#txtOrdEquipID").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigName = $("#txtOrdOrig").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigAddress1 = $("#txtOrdOrigAddress").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigCity = $("#txtOrdOrigCity").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigState = $("#txtOrdOrigState").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigZip = $("#txtOrdOrigZip").data("kendoMaskedTextBox").value();
+                        ordData.BookOrigCountry = $("#txtOrdOrigCountry").data("kendoMaskedTextBox").value();
+                        ordData.BookDestName = $("#txtOrdDest").data("kendoMaskedTextBox").value();
+                        ordData.BookDestAddress1 = $("#txtOrdDestAddress").data("kendoMaskedTextBox").value();
+                        ordData.BookDestCity = $("#txtOrdDestCity").data("kendoMaskedTextBox").value();
+                        ordData.BookDestState = $("#txtOrdDestState").data("kendoMaskedTextBox").value();
+                        ordData.BookDestZip = $("#txtOrdDestZip").data("kendoMaskedTextBox").value();
+                        ordData.BookDestCountry = $("#txtOrdDestCountry").data("kendoMaskedTextBox").value();
+                    }
+                    var Appt = {};
+                    if (EventAppt.AMSApptControl > 0) {
+                        EventAppt.AMSApptCarrierName = $("#txtCarrierName").data("kendoMaskedTextBox").value();
+                        EventAppt.AMSApptCarrierSCAC = $("#txtSCAC").data("kendoMaskedTextBox").value();
+                        EventAppt.AMSApptDescription = $("#txtDescription").data("kendoMaskedTextBox").value();
+                        EventAppt.AMSApptStartDate = $("#txtStartTime").val();
+                        EventAppt.AMSApptEndDate = $("#txtEndTime").val();
+                        EventAppt.AMSApptDockdoorID = $('#ddlDockDoorID').data("kendoDropDownList").dataItem().CompDockDockDoorID;
+                        EventAppt.AMSApptNotes = $("#txtNotes").data("kendoMaskedTextBox").value();
+                        Appt = EventAppt
+                    }
+                    var Ord = [];
+                    Ord[0] = ordData;
+                    var OrdData = {};
+                    OrdData = { "Appt": Appt, "Ord": Ord };
+                    $.ajax({
+                        url: '/api/AMSOrder/AddOrdersToAppointment/',
+                        type: 'Post',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(OrdData),
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            try {
+                                var blnSuccess = false;
+                                var blnErrorShown = false;
+                                var strValidationMsg = "";
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                                    if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Add Orders To Appointment Failure", data.Errors, null); }
+                                    else {
+                                        if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                            if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                                blnSuccess = true;
+                                                var ordersGridDate = $("#ordersWndGrid").data("kendoGrid").dataSource.data();
+                                                ordersGridDate.push(data.Data[0])
+                                                var FordersGridDate = onlyUnique(ordersGridDate)
+                                                $("#ordersWndGrid").data("kendoGrid").dataSource.data(FordersGridDate);
+                                                $("#AddEditOrder").hide();
+                                                ngl.showSuccessMsg("Order Saved", "");
+                                            }
+                                        }
+                                    }
+                                }
+                                if (blnSuccess === false && blnErrorShown === false) {
+                                    if (strValidationMsg.length < 1) { strValidationMsg = "Add Orders To Appointment Failure"; }
+                                    ngl.showErrMsg("Add Orders To Appointment Failure", strValidationMsg, null);
+                                }
+                            } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                        },
+                        error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Add Orders To Appointment Failure", sMsg, null); }
+                    });
+                }
+            }
+        }); //SAVE new BookAdhoc and BookOrder
+
+
+        $("#txtCarrierName").on("change input", function () {
+            var datatypesval = $(this).val();
+            if (datatypesval != "") { $("#apptCarrier-validation").addClass("hide-display"); } else { $("#apptCarrier-validation").removeClass("hide-display"); }
+        });
+
+        $("#txtSCAC").on("change input", function () {
+            var datatypesval = $(this).val();
+            if (datatypesval != "") { $("#apptSCAC-validation").addClass("hide-display"); } else { $("#apptSCAC-validation").removeClass("hide-display"); }
+        });
+
+        $("#txtStartTime").on("change input", function () {
+            var datatypesval = $(this).val();
+            if (datatypesval != "") { $("#apptStartDate-validation").addClass("hide-display"); } else { $("#apptStartDate-validation").removeClass("hide-display"); }
+        });
+
+        $("#txtEndTime").on("change input", function () {
+            var datatypesval = $(this).val();
+            if (datatypesval != "") { $("#apptEndDate-validation").addClass("hide-display"); } else { $("#apptEndDate-validation").removeClass("hide-display"); }
+        });
+        
+
+        //*******OnChange Validation for new BookAdhoc Order********//
+        $("#txtOrdOrderNu").on("change input", function () {
+            if ($(this).val() != "") { $("#txtOrdOrderNu-validation").addClass("hide-display"); } else { $("#txtOrdOrderNu-validation").removeClass("hide-display"); }
+        });
+        $("#txtOrdPONu").on("change input", function () {
+            if ($(this).val() != "") { $("#txtOrdPONu-validation").addClass("hide-display"); } else { $("#txtOrdPONu-validation").removeClass("hide-display"); }
+        });
+
+
+
+        if ($("#txtOrderNumber").focus(function () {
+            $("#txtApptNumber").data("kendoMaskedTextBox").value("");
+            $("#txtCNS").data("kendoMaskedTextBox").value("");
+            $("#txtProNumber").data("kendoMaskedTextBox").value("");
+        }));
+        if ($("#txtApptNumber").focus(function () {
+            $("#txtOrderNumber").data("kendoMaskedTextBox").value("");
+            $("#txtCNS").data("kendoMaskedTextBox").value("");
+            $("#txtProNumber").data("kendoMaskedTextBox").value("");
+        }));
+        if ($("#txtCNS").focus(function () {
+            $("#txtOrderNumber").data("kendoMaskedTextBox").value("");
+            $("#txtApptNumber").data("kendoMaskedTextBox").value("");
+            $("#txtProNumber").data("kendoMaskedTextBox").value("");
+        }));
+        if ($("#txtProNumber").focus(function () {
+            $("#txtOrderNumber").data("kendoMaskedTextBox").value("");
+            $("#txtCNS").data("kendoMaskedTextBox").value("");
+            $("#txtApptNumber").data("kendoMaskedTextBox").value("");
+        }));
+
+        
+
+        if($('#ddlwarehouse').data("kendoDropDownList").dataItem()){
+            var ddlObj = $('#ddlwarehouse').data("kendoDropDownList").dataItem();
+            if (ddlObj.Control != null && ddlObj.Control != undefined ){ CompControl = ddlObj.Control; }else{ CompControl = -1; }
+        }else{ CompControl= -1; }
+
+
+
+        $("#btnSearch").kendoButton({
+            icon: "search",
+            click: function (e) {
+                if ($("#txtOrderNumber").data("kendoMaskedTextBox").value() == "" &&
+                    $("#txtApptNumber").data("kendoMaskedTextBox").value() == "" &&
+                    $("#txtCNS").data("kendoMaskedTextBox").value() == "" &&
+                    $("#txtProNumber").data("kendoMaskedTextBox").value() == "") {
+                    ngl.showWarningMsg("Please input details in atleast one criteria to search orders!", "")
+                    $("#txtOrderNumber").focus();
+                } else {
+                    //$("#ordersWndGrid").data("kendoGrid").dataSource.read();
+                    var s = new AllFilter();
+                    s.CompControlFrom = CompControl;
+                    s.filterFrom = Vstart;
+                    s.filterTo = Vend;
+                    if ($("#txtOrderNumber").data("kendoMaskedTextBox").value() != "") { s.filterName = "OrdNumber"; s.filterValue = $("#txtOrderNumber").data("kendoMaskedTextBox").value(); }
+                    if ($("#txtApptNumber").data("kendoMaskedTextBox").value() != "") { s.filterName = "PoNumber"; s.filterValue = $("#txtApptNumber").data("kendoMaskedTextBox").value(); }
+                    if ($("#txtCNS").data("kendoMaskedTextBox").value() != "") { s.filterName = "CNSNumber"; s.filterValue = $("#txtCNS").data("kendoMaskedTextBox").value(); }
+                    if ($("#txtProNumber").data("kendoMaskedTextBox").value() != "") { s.filterName = "ProNumner"; s.filterValue = $("#txtProNumber").data("kendoMaskedTextBox").value(); }
+                    $.ajax({
+                        url: '/api/AMSOrder/GetRecordsByOrdersFilter/',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(s) },
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            if (data.Data.length > 0) {
+                                AlertSCheduleDateMisMatch(data.Data, new Date($("#txtStartTime").val()));
+                                var ordersGridDate = $("#ordersWndGrid").data("kendoGrid").dataSource.data();
+                                ordersGridDate.push(data.Data[0])
+                                var FordersGridDate = onlyUnique(ordersGridDate)
+                                $("#ordersWndGrid").data("kendoGrid").dataSource.data(FordersGridDate);
+                                if ($("#txtCarrierName").val() == "") { $("#txtCarrierName").val(FordersGridDate[0].CarrierName); }
+                                if ($("#txtSCAC").val() == "") { $("#txtSCAC").val(FordersGridDate[0].CarrierNumber); }
+                                if (FordersGridDate[0].BookDestCompControl == CompControl) { //Modified By LVV on 11/6/2019 Ticket #201911041624
+                                    $("#rdoInBound").prop('checked', true);
+                                    $("#compBound input:radio").attr('disabled', true);
+                                } else if (FordersGridDate[0].BookOrigCompControl == CompControl) {
+                                    $("#rdoOutBound").prop('checked', true);
+                                    $("#compBound input:radio").attr('disabled', true);
+                                } else { $("#compBound input:radio").attr('disabled', false); }
+                            }
+                            if (data.Data.length == 0) { ngl.showWarningMsg("No Orders Found In this Criteria.!", ""); }
+                        }
+                    });
+                }
+            }
+        });
+
+
+        //****Add edit BookAdhoc Orders form****// 
+        $("#AddEditOrder").hide();
+
+        $("#ordersWndGrid .k-grid-createOrder").click(function (e) { openOdereAddEditWindow(e) });
+
+
+
+        var sdate;
+        var edate;
+        $("#chkAllDay").on("click", function () {
+            if (!sdate) { sdate = new Date($('#txtStartTime').val()); edate = new Date($('#txtEndTime').val()); }
+            if ($("#chkAllDay").is(":checked")) {
+                $("#txtStartTime").val(kendo.toString(new Date(sdate), "M/d/yyyy") + " " + kendo.toString(new Date("10/10/2018 00:00"), "HH:mm"));
+                $("#txtEndTime").val(kendo.toString(new Date(edate), "M/d/yyyy") + " " + kendo.toString(new Date("10/10/2018 23:59"), "HH:mm"));
+                $('#txtStartTime').data('kendoDateTimePicker').enable(false);
+                $('#txtEndTime').data('kendoDateTimePicker').enable(false);
+            } else {
+                $('#txtStartTime').data('kendoDateTimePicker').enable(true);
+                $('#txtEndTime').data('kendoDateTimePicker').enable(true);
+                $("#txtStartTime").val(kendo.toString(new Date(sdate), "M/d/yyyy HH:mm"));
+                $("#txtEndTime").val(kendo.toString(new Date(edate), "M/d/yyyy HH:mm"));
+            }
+        });
+
+
+    });
+
+
+
+</script>

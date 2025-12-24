@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Adding a Carrier to System</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="carrier.htm" /><link rel="next" href="addingcarrierstodifferentlegalentity.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="aa6c0365-5a8f-4444-9cd8-f6f2daec9e86">
+<h2>Adding a Carrier to System</h2>
+<p class="MsoNormal"><br />Here users can add new carriers, manage carrier contacts, 
+add accessorials by carrier.</p>
+<p class="MsoNormal">If your configuration uses Dynamics NAV for the ERP 
+integration, go to NAV and in the Transportation, Department click Set Up. If 
+using different ERP integration, skip this step and manually enter in your 
+carrier in the desktop application as normal.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_0.jpg" alt="" /></p>
+<p class="MsoNormal">Select Dynamics TMS Vendor Carrier</p>
+<p class="MsoNormal">Click on New in the action’s menu and search for the carrier 
+you want to send to TMS. Be sure to tab through and click ok when done. Click 
+Refresh and you should see the check box marked. Indicating this is now 
+synchronized and sent to TMS for further set up.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_1.jpg" alt="" /></p>
+<p class="MsoNormal">Then login into DTMS and go to the Carrier Page for the 
+specific Legal Entity you want to assign this carrier to. Use <i>Change Legal 
+Entity</i> to load new carrier for different Legal Entity.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_2.jpg" alt="" /></p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_3.jpg" alt="" /></p>
+<p class="MsoNormal">Click on <i>Add New Carrier</i> and using the drop-down list 
+find the new carrier to add.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_4.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Select the Dispatch Type for each carrier. </p>
+<p class="MsoNormal">If using TMS tariff system, select NGL Tariff.<br />If using 
+API’s, contact NGL for set up and <i>Account Reference</i> information and 
+further API configuration. Users can always reference a carrier that is already 
+using API’s to obtain this information.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_5.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_6.jpg" alt="" /></p>
+<p class="MsoNormal"><b>Carrier Account Reference</b> =Is used for API’s only. See 
+support for the correct reference account.</p>
+<p class="MsoNormal"><b>Show Audit Fail Reason</b> = If carrier is set up to use 
+Web Settlement, it will display <i>Failed</i> if invoice failed audit.</p>
+<p class="MsoNormal"><b>Show Pending Fee Fail</b> = If carrier is set up to use 
+Web Settlement, it will display Pending waiting on approval.</p>
+<p class="MsoNormal">Expired loads is used for web tendering and the time settings 
+used as to when a load tender should expire. There are two settings. 1) Legal 
+Entity (default) 2) By carrier.</p>
+<p class="MsoNormal">If new carrier supports multi location pick up LTL 
+consolidation, check <i>Allow LTL Multi-Pick Consolidations.</i> The system will 
+calculate freight costs based on the aggregated weight from each location, 
+shipping to the same delivery location. Additional set up in the Parameters is 
+required. See support for assistance.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_7.jpg" alt="" /></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_8.jpg" alt="" /></p>
+<p class="MsoNormal"><b>Expired Loads</b> = Check this box to use the Legal Entity 
+default (See Legal Entity setup). Or leave blank for carrier specific.</p>
+<p class="MsoNormal">Insert the TMS distribution email address created for the 
+logistics team. Any expired loads will be sent to this distribution list.</p>
+<p class="MsoNormal"><b>Expired Loads Email To </b>= Email address used to receive 
+expired load tenders. Best to use group TMS email address.</p>
+<p class="MsoNormal"><b>Expired Loads Cc </b>= Carbon copy Email address used to 
+receive expired load tenders.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Then insert the amount of time in minutes you allow for 
+carriers to accept/reject a load tender. If Legal Entity default is checked, it 
+will use setting in the Legal Entity Maintenance screen. </p>
+<p class="MsoNormal"><b>Carrier Accept Load Mins </b>= The amount of time in 
+minutes carriers have to accept a load tender. This can be set at the Legal 
+Entity level or carrier specific level. If Legal Entity is checked, the system 
+will use the Legal Entity default setting. Note, this does not impact API 
+carriers.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_9.jpg" alt="" /></p>
+<p class="MsoNormal">Once you have added the carrier, click in the row of the 
+carrier you just entered so it’s highlighted. </p>
+<p class="MsoNormal"><i>Set Billing Company</i> allows to you assign the 
+company/location where all freight bills or related information should be sent 
+i.e. Bill To. Click and highlight a carrier so it turns Blue, Select <i>Set 
+Billing Company </i>in the Actions menu and select the company/location.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_10.jpg" alt="" /></p>
+<p class="MsoNormal">In the Actions Menu, click on Set Billing Company and select 
+the company to display the billing company address for freight bills.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image39_11.jpg" alt="" /></p><span id="related-topics"></span></body></html>

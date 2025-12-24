@@ -1,0 +1,346 @@
+﻿<!-- Added By LVV on 6/17/20 for v-8.2.1.008 Task#202005151417 - Company/Warehouse Maintenance Changes -->
+<div id="wndCreditLimits">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <p>Credit Assigned is determined by the Accounting Manager</p>
+        <button id="btnUCN" type="button">Update Credit Now!</button>
+        <div id="CreditLimitsGrid"></div>
+    </div>
+</div>
+
+
+<script>
+
+    var dsCreditLimits = kendo.data.DataSource;
+    var wndCreditLimits = kendo.ui.Window;
+    var creditLimitLEControl = 0;
+
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openCreditLimitAssignWnd(leControl) {
+        //If a Legal Entity is provided use that - else use the users associated LE (done in the DAL method)
+        creditLimitLEControl = leControl;
+        refreshCreditLimitsGrid();
+        wndCreditLimits.center().open();
+    }
+
+
+    function refreshCreditLimitsGrid() { ngl.readDataSource($('#CreditLimitsGrid').data('kendoGrid')); }
+
+
+    /*************************** SAVE LOGIC *************************************/
+
+    /* Summary - Saves all the records that have been changed. If blnSaveUpdate is true, then after the save it runs the Update Credit Now! logic */
+    function BatchSaveCreditLimits(blnSaveUpdate) {
+        var oCRUDCtrl = new nglRESTCRUDCtrl();       
+        var arrCredit = new Array();
+        var ds = dsCreditLimits.data();
+        for (var i = 0; i < ds.length; i++) {
+            if (ds[i].dirty) {
+                var g = new GenericResult();
+                g.Control = ds[i].CompControl;
+                g.intField1 = ds[i].CompCreditAssigned;
+                arrCredit.push(g);
+            }
+        }
+        if (ngl.isArray(arrCredit) && arrCredit.length > 0) {
+            kendo.ui.progress(wndCreditLimits.element, true);
+            if (blnSaveUpdate === true) { oCRUDCtrl.update("CreditLimit/SaveCreditLimit", arrCredit, tPage, "BatchSaveUpdateSuccessCallback", "BatchSaveUpdateAjaxErrorCallback"); }
+            else { oCRUDCtrl.update("CreditLimit/SaveCreditLimit", arrCredit, tPage, "BatchSaveSuccessCallback", "BatchSaveAjaxErrorCallback"); }
+        } else { ngl.showSuccessMsg("Nothing to save", null); }
+    }
+
+    /* Summary - Executes when the Save is successful */
+    function BatchSaveSuccessCallback(data) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveSuccessCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed     
+        try {
+            kendo.ui.progress(wndCreditLimits.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) {
+                    blnErrorShown = true;
+                    oResults.error = new Error();
+                    oResults.error.name = "Save Credit Limits Failure";
+                    oResults.error.message = data.Errors;
+                    ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+                }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshCreditLimitsGrid();
+                }
+                 
+
+                    //if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                    //    //if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                    //    if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                    //        ngl.showSuccessMsg("Save Credit Limits Success!", null);
+                    //        blnSuccess = true;
+                    //        refreshCreditLimitsGrid();
+                    //    }
+                    //}
+
+                //}
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Credit Limits Failure", strValidationMsg, null); }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful */
+    function BatchSaveAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed  
+        oResults.error = new Error();
+        oResults.error.name = "Save Credit Limits Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndCreditLimits.element, false);
+    }
+
+    /* Summary - Executes when the Save is successful and calls the Update Credit Now! logic  */
+    function BatchSaveUpdateSuccessCallback(data) {  
+        try {
+            kendo.ui.progress(wndCreditLimits.element, false);
+            var blnSuccess = false, blnErrorShown = false;
+            var strValidationMsg = "There was a problem while executing the save";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Save Credit Limits Failure", data.Errors, null); }
+                //else {
+                if (ngl.stringHasValue(data.Messages)) {
+                    ngl.showSuccessMsg(data.Messages, null);
+                    blnSuccess = true;
+                    refreshCreditLimitsGrid();
+                    UpdateCreditRoutine365LE();
+                } 
+
+                    //if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                    //    //if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                    //    if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                    //        ngl.showSuccessMsg("Save Credit Limits Success!", null);
+                    //        blnSuccess = true;
+                    //        refreshCreditLimitsGrid();
+                    //        UpdateCreditRoutine365LE();
+                    //    }
+                    //}
+
+                //}
+            }
+            if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Save Credit Limits Failure", strValidationMsg, null); }
+        } catch (err) { ngl.showErrMsg(err.name, err.message, null); }
+    }
+    /* Summary - Executes when the Save is unsuccessful and we do not get to call the Update Credit Now! logic */
+    function BatchSaveUpdateAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        oResults.source = "BatchSaveUpdateAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed  
+        oResults.error = new Error();
+        oResults.error.name = "Save Credit Limits Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, null);
+        kendo.ui.progress(wndCreditLimits.element, false);
+    }
+
+
+
+    /*************************** UPDATE CREDIT NOW! LOGIC *************************************/
+
+    /* Summary - This is the initial point of entry when the user clicks the "Update Credit Now!" button */
+    function UpdateCreditNow_Click() {
+        //If there are no records in the grid show a message to the user and return
+        //Check to see if the grid has any unsaved changes
+        //  if there are unsaved changes, prompt the user to ask if they would like to save changes and continue
+        //      if the user clicks continue, save the changes
+        //          if the save is successful, call the UpdateCreditRoutine365 logic
+        //          if the save is unsuccessful, return
+        //      if the user clicks cancel, return
+        //  if there are no outstanding changes, call the UpdateCreditRoutine365 logic
+        var ds = dsCreditLimits.data();
+        if (ds.length < 1) { ngl.showErrMsg("Cannot Update Credit", "No data", null); } //this is what I will do for now to prevent the update from running when there are no records in the grid - otherwise it would still run because the sp only cares about the LEAControl which we have in a variable
+        var blnUnsavedChanges = false;
+        for (var i = 0; i < ds.length; i++) {
+            if (ds[i].dirty) { blnUnsavedChanges = true; break; }
+        }
+        if (blnUnsavedChanges) {
+            //if we have unsaved changes prompt the user to ask if they would like to save changes and continue
+            var title = "Update Credit Now";
+            var msg = "Would you like to save outstanding changes to the grid and continue?";          
+            ngl.OkCancelConfirmation(
+                title,
+                msg,
+                400,
+                400,
+                null,
+                "ConfirmSaveUpdateCreditRoutine365LE"); //perform confirmation
+        }
+        else { UpdateCreditRoutine365LE(); } //no outstanding changes so proceed
+    }
+
+    /* Summary - Confirms if the user wants to save outstanding changes and run the Update Credit Now! logic */
+    function ConfirmSaveUpdateCreditRoutine365LE(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action        
+        BatchSaveCreditLimits(true); //Chose the Ok action - perform the save and then update the credit
+    }
+
+    /* Summary - Executes the UpdateCreditRoutine365 logic for all Companies associated with the provided Legal Entity */
+    function UpdateCreditRoutine365LE() {
+        var g = new GenericResult();
+        g.Control = creditLimitLEControl;
+        $.ajax({
+            type: "POST",
+            url: "api/CreditLimit/UpdateCreditRoutine365LE",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify(g),
+            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            success: function (data) {
+                try {
+                    var blnSuccess = false, blnErrorShown = false;
+                    var strValidationMsg = "There was a problem while executing the Update Credit Routine";
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Update Credit Routine Failure", data.Errors, null); } //show errors if there are any
+                        if (ngl.stringHasValue(data.Messages)) { blnSuccess = true; ngl.showSuccessMsg(data.Messages, null); } //show messages if there are any
+                    }
+                    if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Update Credit Routine Failure", strValidationMsg, null); }
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+            },
+            error: function (xhr, textStatus, error) { kendo.ui.progress(wndCreditLimits.element, false); var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Update Credit Routine Failure", sMsg, null); }
+        });
+    }
+
+
+
+    /* Summary - [NOT CURRENTLY USED] This code executes the save for each individual record as soon as it is changed. BatchSaveCreditLimits() is used instead */
+    //function SaveCreditLimit(compControl, creditAssigned) {
+    //    var g = new GenericResult();
+    //    g.Control = compControl;
+    //    g.intField1 = creditAssigned;
+    //    var otmp = $("#focusCancel").focus();
+    //    kendo.ui.progress(wndCreditLimits.element, true);
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "api/CreditLimit/Post",
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: 'json',
+    //        data: JSON.stringify(g),
+    //        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+    //        success: function (data) {
+    //            try {
+    //                kendo.ui.progress(wndCreditLimits.element, false);
+    //                var blnSuccess = false, blnErrorShown = false;
+    //                var strValidationMsg = "There was a problem while executing Credit Limit Save";
+    //                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+    //                    if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Credit Limit Save Failure", data.Errors, null); }
+    //                    else {
+    //                        if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+    //                            //if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+    //                            if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+    //                                blnSuccess = true;
+    //                                refreshCreditLimitsGrid();
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //                if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Credit Limit Save Failure", strValidationMsg, null); }
+    //            } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+    //        },
+    //        error: function (xhr, textStatus, error) { kendo.ui.progress(wndCreditLimits.element, false); var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Credit Limit Save Failure", sMsg, null); }
+    //    });
+    //}
+
+    $(document).ready(function () {
+
+        $("#btnUCN").kendoButton({
+            icon: "reset",
+            click: function (e) { UpdateCreditNow_Click(); }
+        });
+
+        dsCreditLimits = new kendo.data.DataSource({
+            transport: {
+                read: function (options) {
+                    var s = new AllFilter();
+                    s.LEAdminControl = creditLimitLEControl;
+                    $.ajax({
+                        url: 'api/CreditLimit/GetAllRecords',
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: { filter: JSON.stringify(s) },
+                        //data: { filter: "" }, 
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        success: function (data) {
+                            options.success(data);
+                            if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Get Credit Limits Failure", data.Errors, null); }
+                            }
+                        },
+                        error: function (result) { options.error(result); }
+                    });
+                },
+                //parameterMap: function(options, operation) { return options; },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) { return { models: kendo.stringify(options.models) }; }
+                }
+            },
+            batch: true,
+            pageSize: 10,
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "CompControl",
+                    fields: {
+                        CompControl: { type: "number", editable: false },
+                        CompNumber: { type: "number", editable: false },
+                        CompName: { type: "string", editable: false },
+                        CompCreditAssigned: { type: "number", validation: { required: true, min: 0 } },
+                        CompCreditAvailable: { type: "number", editable: false },
+                        CompCreditUsed: { type: "number", editable: false }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Access Credit Limits Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges(); }
+        });
+
+        $("#CreditLimitsGrid").kendoGrid({
+            dataSource: dsCreditLimits,
+            navigatable: true,
+            pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+            columns: [
+                { field: "CompControl", title: "CompControl", hidden: true },
+                { field: "CompNumber", title: "Number", width: "10%" },
+                { field: "CompName", title: "Name", width: "30%" },
+                { field: "CompCreditAssigned", title: "Credit Assigned", width: "20%" },
+                { field: "CompCreditUsed", title: "Credit Used", width: "20%" },
+                { field: "CompCreditAvailable", title: "Credit Available", width: "20%" }
+            ],
+            editable: true,
+            //This code executes the save for each individual record as soon as it is changed
+            //save: function (e) {
+            //    var field = Object.keys(e.values)[0];
+            //    var newCredit = e.values[field];
+            //    var oldModel = e.sender.dataSource._pristineForModel(e.model);
+            //    var compControl = oldModel.CompControl;                          
+            //    SaveCreditLimit(compControl, newCredit);
+            //    //console.log("Save");
+            //}
+        });
+
+
+        wndCreditLimits = $("#wndCreditLimits").kendoWindow({
+            title: "Credit Limit Assignment",
+            width: "80%",
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false
+        }).data("kendoWindow");
+        $("#wndCreditLimits").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { var otmp = $("#focusCancel").focus(); BatchSaveCreditLimits(false); }); //Perform the save and only the save
+
+    });
+
+</script>

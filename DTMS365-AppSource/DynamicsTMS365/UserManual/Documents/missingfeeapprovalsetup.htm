@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Missing Fee Approval Set Up</title>
+<meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="../LinksExt/Dynamics TMS - FREIGHT BILL ENTRY WEB CLIENT (ver.2.0).css" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="feeapprovalpage.htm" /><link rel="next" href="freightbillauditing.htm" />
+<meta name="Generator" content="Doc-To-Help v.6.0.0.7222" />
+</head>
+<body data-c1-topic-id="ed68a17d-697a-4772-a9a8-6944e5ce3c72">
+<h2>Missing Fee Approval Set Up</h2>
+<p class="MsoNormal">When a fee comes into TMS for the first time and it is not 
+configured as part of the carrier’s fee tolerance settings, users can configure 
+the fee for automation so the next time this fee comes in, it will follow the 
+business rules for automation and approval.</p>
+<p class="MsoNormal"><img title="A screenshot of a computer&#xA;&#xA;Description automatically generated" alt="A screenshot of a computer&#xA;&#xA;Description automatically generated" src="../ImagesExt/image61_16.jpg" /></p>
+<p class="MsoNormal"><u>Auto Approve</u> = Check the box to have this fee auto 
+approve based on tolerance settings. Otherwise, users will need to approve this 
+fee next time.<br /><u>Allow Carrier Updates</u> = Check the box to allow carrier 
+updates (via Portal or EDI) <b><span style="COLOR: red">Recommended.</span></b></p>
+<p class="MsoNormal"><u>Show Contracted Fees</u> = Check the box to display fees 
+during invoice entry (via Portal). <b><span style="COLOR: red">Recommended.</span></b></p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><img title="A screenshot of a cell phone&#xA;&#xA;Description automatically generated" alt="A screenshot of a cell phone&#xA;&#xA;Description automatically generated" src="../ImagesExt/image61_17.jpg" /></p>
+<p class="MsoNormal">Then select your tolerance settings-Select only one.</p>
+<p class="MsoNormal"><span style="COLOR: #4472c4">BLUE</span> -Insert dollar value 
+low and high. For example, $25 (low) between $100 (high). You accept anything 
+between $25 - $100 for this fee.</p>
+<p class="MsoNormal"><span style="COLOR: red">RED</span> – Check <i>Dynamic 
+Expected Cost</i> to insert a percentage low and high range. For example, 100% 
+(% below) to 25% (% above)</p>
+<p class="MsoNormal">Or</p>
+<p class="MsoNormal">Set your <i>Expected Cost</i> at $50. Your percentage low set 
+to 20% (which is $50-$10=$40) to 20% above ($50 + $10 = $60) above. This fee 
+expected price range is between $40 - $60. </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">Go to the <i>Fee Approval</i> <i>Screen </i>and approve any 
+waiting fees entered by a user or carrier. You will need rights to access this 
+page. Click on Edit to change the amount you want to approve or click 
+Approve.</p>
+<p class="MsoNormal">You can filter the data to see fees by carrier etc. 
+Additional filters can be applied. You will see every fee entered by a TMS user, 
+carrier, or EDI for a given load that needs approval in this screen. It might be 
+helpful to group the data by ShipID (CNS Number) to see fees associated to the 
+same ShipID (invoice).</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_18.jpg" alt="" /></p>
+<p class="MsoNormal"><u>For example:</u></p>
+<p class="MsoNormal"><b>Filter by: CNS106722</b><br />Any of the column headers such 
+as CNS Number by clicking and dragging the header just above its location. If 
+you click on the group label, it will sort ascending / descending if you hit it 
+a second time. The third time will remove the sort.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_19.jpg" alt="" /></p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_20.jpg" alt="" /></p>
+<p class="MsoNormal">Users should review each fee by carrier and either 
+<b><i>Approve</i> </b>or <b><i>Edit</i> </b>the fee.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_21.jpg" alt="" /></p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_22.jpg" alt="" /></p>
+<p class="MsoNormal"><b><i>Approve</i></b> = when users click on <i>Approve, 
+</i>you are agreeing to the amount entered by the carrier. This will update the 
+fee(s) amount in the Revenue Screen and re-calculate and update the carrier 
+cost. Then push this invoice through the audit function.</p>
+<p class="MsoNormal"><b><i>Edit</i></b> = User is modifying the carrier fee entry 
+and is approving the lessor or higher amount entered by the carrier. This will 
+update the fee(s) amount in the Revenue Screen and re-calculate the carrier 
+cost. Then push this invoice through the audit function. </p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_23.jpg" alt="" /></p>
+<p class="MsoNormal">Click Save when done.</p>
+<p class="MsoNormal">The system will display what the carrier entered as a fee 
+value versus what the tendered cost for this predetermined fee.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_24.jpg" alt="" /></p>
+<p class="MsoNormal"><b>Locked Costs Approval</b></p>
+<p class="MsoNormal">If the cost box is locked, the system will prompt the user a 
+warning messaging indicating that this is a fee associated with a Locked Cost 
+load (Spot or API carrier) and have been locked to protect from automated 
+updates. All Spot Rate/API loads are “locked” in TMS to prevent automated 
+updates. Users can also see which loads have locked costs by the display box. If 
+checked, Costs are locked.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_25.png" alt="" /></p>
+<p class="MsoNormal">Before any fees can be approved, the system will notify the 
+user that costs are locked and must click <b>OK</b> in order for the system to 
+unlock the carrier costs automatically, allowing the system to insert the fee 
+update to the Revenue Screen in TMS and recalculate costs. <br /><br /><img src="../ImagesExt/image61_26.jpg" alt="" /></p>
+<p class="MsoNormal">After invoice has been entered. The system will update the 
+status of the invoice based on the system configuration.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><b><u>There are 3 status workflows:</u></b></p>
+<p class="MsoNormal"><b><i>1) AA = Approved</i></b><i>. </i>The system 
+automatically approved the entry, passed audit, and will disappear from the 
+screen. Setting the PExp (Pay Expense workflow to AA-auto approved) in the Load 
+Detail Screen.</p>
+<p class="MsoNormal">There are three ways to view <b>AA</b> statuses:</p>
+<p class="MsoNormal">A) Go to Load Board (Web Client) and apply the filter called 
+Pay Code = AA for a record.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_27.jpg" alt="" /></p>
+<p class="MsoNormal">B) Go to the Load Detail Screen (Desktop Client) for this 
+load. The PExp will be in AA status.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal">C) Go to AP Freight Bill Audit Approval Screen (Web Client) 
+and apply the filter called Pay Code = AA</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_28.jpg" alt="" /></p>
+<p class="MsoNormal">          a. 
+Apply your filter by carrier.</p>
+<p class="MsoNormal">          b. 
+Select a date range based on invoice date. </p>
+<p class="MsoNormal">          c. Use 
+drop down and select <i>Approved</i> to see all approve freight invoices for 
+this date range.</p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"> </p>
+<p class="MsoNormal"><b><i>2) PA = Pending Approval. </i></b>The system accepted 
+carrier web/EDI entry and is waiting on TMS user approval. This transaction will 
+remain in the Pending Approval Page until a user approves them.</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_29.jpg" alt="" /></p>
+<p class="MsoNormal">There are three ways to view <b>PA</b> statuses:</p>
+<p class="MsoNormal">A) Go to Load Board (Web Client) and apply the filter called 
+Pay Code = PA</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_30.jpg" alt="" /></p>
+<p class="MsoNormal">The status will be updated in TMS on all loads that are 
+<i>Pending Approval</i> (PA). Setting the PExp (Pay Expense workflow to 
+PA-Pending Approval) in the Load Detail Screen.</p>
+<p class="MsoNormal">B) Go to the Load Detail Screen (Desktop Client) for this 
+load. The PExp will be in PA status.</p>
+<p class="MsoNormal">C) Go to AP Freight Bill Audit Approval Screen (Web 
+Client)</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_31.jpg" alt="" /></p>
+<p class="MsoNormal">          a. 
+Apply your filter by carrier.</p>
+<p class="MsoNormal">          b. 
+Select a date range based on invoice date. </p>
+<p class="MsoNormal">          c. Use 
+drop down and select <i>PA (Pending Approval)</i> to see all Pending Approval 
+freight invoices <br />          
+    for this date range.</p>
+<p class="MsoNormal"><b><i>3) M = Match/Failed. </i></b> The system accepted 
+the freight invoice entry as a matched transaction in TMS but has failed the 
+audit process. All transactions will need to be fixed, re-audited, and pass 
+audit to be set to AA status.</p>
+<p class="MsoNormal">There are three ways to view <b>M</b> status 
+transactions:</p>
+<p class="MsoNormal">A) Go to Load Board (Web Client) and apply the filter called 
+Pay Code = M</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_32.jpg" alt="" /></p>
+<p class="MsoNormal">B) Go to the Load Detail Screen (Desktop Client) for this 
+load. The PExp will be in M status.</p>
+<p class="MsoNormal">C) Go to AP Freight Bill Audit Approval Screen (Web Client) 
+and apply the filter called Pay Code = M</p>
+<p class="MsoNormal"><img src="../ImagesExt/image61_33.jpg" alt="" /></p>
+<p class="MsoNormal">          a. 
+Apply your filter by carrier.</p>
+<p class="MsoNormal">          b. 
+Select a date range based on invoice date. </p>
+<p class="MsoNormal">          c. Use 
+drop down and select M (Matched) to see all failed invoices for this date 
+range.</p>
+<p class="MsoNormal"><b><span style="COLOR: red">NOTE: All transactions will need 
+to be in AA status, indicating the invoice passed audit and has been sent to the 
+ERP system for payment.</span></b></p><span id="related-topics"></span></body></html>

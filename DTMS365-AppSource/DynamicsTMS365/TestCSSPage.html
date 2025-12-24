@@ -1,0 +1,946 @@
+﻿
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DTMS Legal Entity SSOA API Config</title>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+
+    <link href="Content/NGL/v-8.5.4.001/ngl-classic-opal.css" rel="stylesheet" />
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.004/SSOA.js"></script>
+
+    <div id="h1Wait" style="margin:10px; position: absolute; z-index: 99999; top:0px; left:400px;"><span style="vertical-align:middle;">Please Wait Loading&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>
+    <div id="example" style="height: 100%; width: 100%;  margin-top: 2px;">
+        <div id="vertical" style="height: 98%; width: 98%; ">
+            <div id="menu-pane" style="height: 100%; width: 100%; background-color: white; ">
+                <div id="tab" class="menuBarTab"></div>
+            </div>
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%; ">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <div><span>Menu</span></div>
+                            <div id="menuTree"></div>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+
+
+                        <!-- begin Page Content -->
+                        <div id="id1671202308071203252653862wrapper"><div id="divid1671202308071209408401820"></div><div id="divid1671202308080755522942221"></div><div id="divid1671202308071203252653862filterContent"></div><div id="id1671202308071203252653862"></div></div>
+                        <!-- End Page Content -->
+
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-pane" class="k-block" style="height: 100%; width: 100%;">
+                <div class="pane-content">
+                    <div><span><p> <a href='https://www.nextgeneration.com'> © Copyright Next Generation Logistics, Inc. All Rights Reserved.</a> </p></span></div>
+                </div>
+            </div>
+        </div>
+
+        <span id='notification' style='display:none;'></span>
+        <script id='infoTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-info-circle' title='info'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script id='errorTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-x-outline' style='color: red;' title='error'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script id='successTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-check-outline' style='color: green;' title='success'></span>&nbsp;&nbsp;<p>#= message #</p></div></script>
+        <script id='warningTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-exclamation-circle' style='color: orange;' title='warning'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script>var notification = $('#notification').kendoNotification({ position: { pinned: true, top: 30, left: function (e) { var x = ($(window).width() * .5) - 50; return x; } }, autoHideAfter: 0, stacking: 'down', templates: [{ type: 'info', template: $('#infoTemplate').html() }, { type: 'error', template: $('#errorTemplate').html() }, { type: 'success', template: $('#successTemplate').html() }, { type: 'warning', template: $('#warningTemplate').html() }] }).data('kendoNotification');</script><div id='nglAlertDialog'></div><div id='nglConfirmDialog'></div><span id='alertNotification' style='display:none;'></span>
+        <script id='alertTemplate' type='text/x-kendo-template'><div class='k-block k-error-colored ngl-notification'><span class='k-icon k-i-bell' title='alert'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script>var alertNotification = $('#alertNotification').kendoNotification({ position: { pinned: true, bottom: 30, right: 30 }, autoHideAfter: 10000, stacking: 'up', templates: [{ type: 'alert', template: $('#alertTemplate').html() }] }).data('kendoNotification');</script>﻿<div id='HelpWindow'>
+            <div id='winCont'></div>
+            <div id='EditCont'>
+                <div id='E4Div'>
+                    <span id="ExpandE4" style="display:none;"><a onclick="expandE4();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE4" style="display:normal;"><a onclick="collapseE4();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE4' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE4PHCont' type='hidden' />
+                    <span id='spEditor4'><textarea id='editor4'></textarea></span>
+                </div>
+                <div id='E3Div'>
+                    <span id="ExpandE3" style="display:none;"><a onclick="expandE3();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE3" style="display:normal;"><a onclick="collapseE3();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE3' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE3PHCont' type='hidden' />
+                    <span id='spEditor3'><textarea id='editor3'></textarea></span>
+                </div>
+                <div id='E2Div'>
+                    <span id="ExpandE2" style="display:none;"><a onclick="expandE2();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE2" style="display:normal;"><a onclick="collapseE2();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE2' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE2PHCont' type='hidden' />
+                    <span id='spEditor2'><textarea id='editor2'></textarea></span>
+                </div>
+                <div id='E1Div'>
+                    <span id="ExpandE1" style="display:none;"><a onclick="expandE1();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE1" style="display:normal;"><a onclick="collapseE1();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE1' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE1PHCont' type='hidden' />
+                    <span id='spEditor1'><textarea id='editor1'></textarea></span>
+                </div>
+
+
+
+            </div>
+        </div>
+        <script>
+
+            var opostLogoutRedirectUri = 'http://localhost:44320/';
+
+            var oredirectUri = 'http://localhost:44320/' + getCurentFileName();
+
+            var oidaClient = '7a6d49ef-446b-41b2-97ec-fc97ab7309f0';
+
+            var oAuth2instasnce = 'https://login.microsoftonline.com/';
+
+            var oAuth2tenant = 'common';
+
+            loadAuthContext();
+
+
+            var PageControl = '167';
+            var oSSOALEConfigGrid = null;
+            var tObj = this;
+            var tPage = this;
+
+            var serverUserControl = 1;
+
+            var control = localStorage.NGLvar1452;
+
+            var sRequireAuthentication = 'true';
+
+            ngl.UserValidated365(sRequireAuthentication, control, getCurentFileName(), serverUserControl);
+
+
+
+            var iSSOALEPK = 0;
+            userMenuPaneSize = '100px';
+
+            userMenuCollapsed = false;
+
+            userBottomPaneSize = '35px';
+
+            userBottomPaneCollapsed = false;
+
+            userLeftPaneSize = '150px';
+
+            userLeftPaneCollapsed = false;
+
+
+            var wndSSOALEGridEdit = kendo.ui.Window;
+
+            var wdgtSSOALEGridEdit = new NGLEditWindCtrl();
+
+            function openAddNewSSOALEGridWindow(e, fk) {
+
+                if ((typeof (execBeforeSSOALEGridInsert) === 'undefined' || ngl.isFunction(execBeforeSSOALEGridInsert) === false) || (execBeforeSSOALEGridInsert(e, fk, wdgtSSOALEGridEdit) === true)) {
+                    wdgtSSOALEGridEdit.data = null;
+
+                    wdgtSSOALEGridEdit.show(fk);
+                }
+
+            }
+
+
+            function openEditSSOALEGridWindow(e) {
+
+                var data = this.dataItem($(e.currentTarget).closest("tr"));
+
+                var parentGrid = $('#id1671202308071203252653862').data("kendoNGLGrid");
+
+                if (typeof (parentGrid) !== 'undefined' && ngl.isObject(parentGrid)) {
+
+                    kendo.ui.progress(parentGrid.element, true);
+
+                }
+
+                wdgtSSOALEGridEdit.data = data;
+
+                wdgtSSOALEGridEdit.read(data.SSOALEControl);
+
+            }
+
+
+            function deleteSSOALEGridRecord(iRet, data) {
+
+                if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; }
+
+                wdgtSSOALEGridEdit.delete(data.SSOALEControl);
+
+            }
+
+
+            function confirmDeleteSSOALEGridRecord(e) {
+
+                var item = this.dataItem($(e.currentTarget).closest("tr"));
+
+                if (typeof (item) === 'undefined' || ngl.isObject(item) == false) { return; }
+
+                ngl.OkCancelConfirmation("Delete Selected Legal Entity API Edit Control Record", "Warning! This action cannot be undone.  Are you sure?", 400, 400, null, "deleteSSOALEGridRecord", item);
+
+            }
+
+
+            function NGLSSOALEGridClass() {
+
+                SSOALEGridH4Setup: null;
+
+                SSOALEClientID: null;
+
+                SSOALEAuthCode: null;
+
+                SSOALEClientSecret: null;
+
+                SSOALESSOATypeControl: null;
+
+                SSOALESSOAControl: null;
+
+                SSOALEGridH4EndPoints: null;
+
+                SSOALELoginURL: null;
+
+                SSOALEDataURL: null;
+
+                SSOALERedirectURL: null;
+
+                SSOALEGridH4Updated: null;
+
+                SSOALEModUser: null;
+
+                SSOALELEAdminControl: null;
+
+                SSOALEControl: null;
+
+                SSOALEUpdated: null;
+
+            }
+
+
+            var objSSOALEGridDataFields = [
+
+                { fieldID: "115207", fieldTagID: "id1671202308071438254295464", fieldCaption: "Setup", fieldName: "SSOALEGridH4Setup", fieldDefaultValue: "", fieldGroupSubType: 34, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 5, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 5, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 5, fieldNGLToolTip: "Setup" }
+
+
+                , { fieldID: "115193", fieldTagID: "id1671202308071733765736", fieldCaption: "Client Account Number", fieldName: "SSOALEClientID", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 500, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 6, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 6, fieldNGLToolTip: "Client Account Number" }
+
+
+                , { fieldID: "115192", fieldTagID: "id1671202308071733764739", fieldCaption: "Auth Code - Client ID", fieldName: "SSOALEAuthCode", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 1000, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 7, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 7, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 7, fieldNGLToolTip: "Auth Code - Client ID" }
+
+
+                , { fieldID: "115194", fieldTagID: "id1671202308071733766735", fieldCaption: "Client Secret", fieldName: "SSOALEClientSecret", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 500, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 8, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 8, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 8, fieldNGLToolTip: "Client Secret" }
+
+
+                , { fieldID: "115202", fieldTagID: "id1671202308071733774746", fieldCaption: "API Type", fieldName: "SSOALESSOATypeControl", fieldDefaultValue: "", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetStaticListCTRLDESC", fieldAPIFilterID: "99", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 9, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 9, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 9, fieldNGLToolTip: "API Type" }
+
+
+                , { fieldID: "115201", fieldTagID: "id1671202308071733773745", fieldCaption: "Single Sign on Type", fieldName: "SSOALESSOAControl", fieldDefaultValue: "", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetUserDynamicListVcTd", fieldAPIFilterID: "26", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 10, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 10, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 10, fieldNGLToolTip: "Single Sign on Type" }
+
+
+                , { fieldID: "115208", fieldTagID: "id1671202308071504116049647", fieldCaption: "SSOALEGridH4EndPoints", fieldName: "SSOALEGridH4EndPoints", fieldDefaultValue: "", fieldGroupSubType: 34, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 20, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "End Points" }
+
+
+                , { fieldID: "115198", fieldTagID: "id1671202308071733770747", fieldCaption: "Login - Token End Point", fieldName: "SSOALELoginURL", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 1000, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 21, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 21, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 21, fieldNGLToolTip: "Login - Token End Point" }
+
+
+                , { fieldID: "115196", fieldTagID: "id1671202308071733768746", fieldCaption: "Data End Point", fieldName: "SSOALEDataURL", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 1000, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 22, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 22, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 22, fieldNGLToolTip: "Data End Point" }
+
+
+                , { fieldID: "115200", fieldTagID: "id1671202308071733772746", fieldCaption: "Redirect End Point", fieldName: "SSOALERedirectURL", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 1000, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 23, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 23, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 23, fieldNGLToolTip: "Redirect End Point" }
+
+
+                , { fieldID: "115206", fieldTagID: "id1671202308071435137530869", fieldCaption: "Updated", fieldName: "SSOALEGridH4Updated", fieldDefaultValue: "", fieldGroupSubType: 34, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 80, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 2, fieldAddWndSeqNo: 0, fieldNGLToolTip: "Updated" }
+
+
+                , { fieldID: "115199", fieldTagID: "id1671202308071733771750", fieldCaption: "Mod User", fieldName: "SSOALEModUser", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 100, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 82, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 82, fieldAddWndVisibility: 2, fieldAddWndSeqNo: 0, fieldNGLToolTip: "Mod User" }
+
+
+                , { fieldID: "115197", fieldTagID: "id1671202308071733769746", fieldCaption: "SSOALELEAdminControl", fieldName: "SSOALELEAdminControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: true, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 200, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 2, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 2, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115195", fieldTagID: "id1671202308071733767697", fieldCaption: "SSOALEControl", fieldName: "SSOALEControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 202, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115203", fieldTagID: "id1671202308071733775745", fieldCaption: "SSOALEUpdated", fieldName: "SSOALEUpdated", fieldDefaultValue: "", fieldGroupSubType: 12, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308071209408401820", fieldSequenceNo: 203, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 2, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 2, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+            ];
+
+            var wndtblSSOAConfigGridEdit = kendo.ui.Window;
+
+            var wdgttblSSOAConfigGridEdit = new NGLEditWindCtrl();
+
+            function openAddNewtblSSOAConfigGridWindow(e, fk) {
+
+                if ((typeof (execBeforetblSSOAConfigGridInsert) === 'undefined' || ngl.isFunction(execBeforetblSSOAConfigGridInsert) === false) || (execBeforetblSSOAConfigGridInsert(e, fk, wdgttblSSOAConfigGridEdit) === true)) {
+                    wdgttblSSOAConfigGridEdit.data = null;
+
+                    wdgttblSSOAConfigGridEdit.show(fk);
+                }
+
+            }
+
+
+            function openEdittblSSOAConfigGridWindow(e) {
+
+                var data = this.dataItem($(e.currentTarget).closest("tr"));
+
+                var parentGrid = $('#id1671202308071203252653862').data("kendoNGLGrid");
+
+                if (typeof (parentGrid) !== 'undefined' && ngl.isObject(parentGrid)) {
+
+                    kendo.ui.progress(parentGrid.element, true);
+
+                }
+
+                wdgttblSSOAConfigGridEdit.data = data;
+
+                wdgttblSSOAConfigGridEdit.read(data.SSOACControl);
+
+            }
+
+
+            function deletetblSSOAConfigGridRecord(iRet, data) {
+
+                if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; }
+
+                wdgttblSSOAConfigGridEdit.delete(data.SSOACControl);
+
+            }
+
+
+            function confirmDeletetblSSOAConfigGridRecord(e) {
+
+                var item = this.dataItem($(e.currentTarget).closest("tr"));
+
+                if (typeof (item) === 'undefined' || ngl.isObject(item) == false) { return; }
+
+                ngl.OkCancelConfirmation("Delete Selected Edit Record", "Warning! This action cannot be undone.  Are you sure?", 400, 400, null, "deletetblSSOAConfigGridRecord", item);
+
+            }
+
+
+            function NGLtblSSOAConfigGridClass() {
+
+                SSOACCompControl: null;
+
+                SSOACControl: null;
+
+                SSOACDesc: null;
+
+                SSOACModDate: null;
+
+                SSOACModUser: null;
+
+                SSOACName: null;
+
+                SSOACSSOAControl: null;
+
+                SSOACSSOALEControl: null;
+
+                SSOACUpdated: null;
+
+                SSOACValue: null;
+
+                SSOALEAdminControl: null;
+
+            }
+
+
+            var objtblSSOAConfigGridDataFields = [
+
+                { fieldID: "115224", fieldTagID: "id167120230808125250438525", fieldCaption: "", fieldName: "SSOACCompControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115225", fieldTagID: "id167120230808125250439523", fieldCaption: "Primary Key", fieldName: "SSOACControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "Primary Key" }
+
+
+                , { fieldID: "115226", fieldTagID: "id167120230808125250440523", fieldCaption: "Description", fieldName: "SSOACDesc", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 100, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 1, fieldEditWndSeqNo: 10, fieldAddWndVisibility: 1, fieldAddWndSeqNo: 10, fieldNGLToolTip: "Description" }
+
+
+                , { fieldID: "115227", fieldTagID: "id167120230808125250441523", fieldCaption: "SSOACModDate", fieldName: "SSOACModDate", fieldDefaultValue: "", fieldGroupSubType: 9, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "#= kendo.toString(kendo.parseDate(SSOACModDate, 'yyyy-MM-dd'), 'MM/dd/yyyy') #", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115228", fieldTagID: "id167120230808125250442561", fieldCaption: "SSOACModUser", fieldName: "SSOACModUser", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 100, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115229", fieldTagID: "id167120230808125250443559", fieldCaption: "SSOACName", fieldName: "SSOACName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115230", fieldTagID: "id167120230808125250444525", fieldCaption: "SSOACSSOAControl", fieldName: "SSOACSSOAControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115231", fieldTagID: "id167120230808125250445094", fieldCaption: "SSOACSSOALEControl", fieldName: "SSOACSSOALEControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115232", fieldTagID: "id167120230808125250446134", fieldCaption: "SSOACUpdated", fieldName: "SSOACUpdated", fieldDefaultValue: "", fieldGroupSubType: 12, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115233", fieldTagID: "id167120230808125250447140", fieldCaption: "SSOACValue", fieldName: "SSOACValue", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 100, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+
+                , { fieldID: "115234", fieldTagID: "id167120230808125250448134", fieldCaption: "SSOALEAdminControl", fieldName: "SSOALEAdminControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id1671202308080755522942221", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0, fieldNGLToolTip: "" }
+
+            ];
+
+            function savePostPageSettingSuccessCallback(results) {
+                //for now do nothing when we save the pk
+            }
+            function savePostPageSettingSuccessCallbackAjaxErrorCallback(xhr, textStatus, error) {
+                //for now do nothing when we save the pk
+            }
+
+            function savetblSSOALEConfigPK() {
+                try {
+                    var row = oSSOALEGrid.select();
+                    if (typeof (row) === 'undefined' || row == null) {
+                        ngl.showValidationMsg("Record Required", "Please select a record to continue", tPage);
+                        return false;
+                    }
+                    //Get the dataItem for the selected row
+                    var dataItem = oSSOALEGrid.dataItem(row);
+                    if (typeof (dataItem) === 'undefined' || dataItem == null) {
+                        ngl.showValidationMsg("Record Required", "Please select a record to continue", tPage);
+                        return false;
+                    }
+                    if ("SSOALEControl" in dataItem) {
+
+                        iSSOALEPK = dataItem.SSOALEControl;
+                        var setting = { name: 'pk', value: iSSOALEPK.toString() };
+                        var oCRUDCtrl = new nglRESTCRUDCtrl();
+                        var blnRet = oCRUDCtrl.update("tblSSOALEConfig/PostPageSetting", setting, tPage, "savePostPageSettingSuccessCallback", "savePostPageSettingSuccessCallbackAjaxErrorCallback", tPage);
+                        return true;
+                    } else {
+                        ngl.showValidationMsg("Record Required", "Invlaid Record Identifier, please select a record to continue", tPage);
+                        return false;
+                    }
+
+                } catch (err) {
+                    ngl.showErrMsg("Cannot Continue", "There was an unexpected error, please reload the screen.  If this continues please contact technical support. Error: " + err.message, tPage);
+                }
+
+            }
+            function isRecordSelected() {
+                if (typeof (iSSOALEPK) === 'undefined' || iSSOALEPK === null || iSSOALEPK === 0) {
+                    return savetblSSOALEConfigPK();
+                }
+                return true;
+            }
+            function execActionClick(btn, proc) {
+                if (btn.id == "btnRefresh") {
+                    oSSOALEGrid.dataSource.read();
+                } else if (btn.id == "btnResetCurrentUserConfig") { resetCurrentUserConfig(PageControl); }
+            }
+            var blnSSOALEGridChangeBound = false;
+            //*************  Call Back Functions ****************
+            function SSOALEGridDataBoundCallBack(e, tGrid) {
+                oSSOALEGrid = tGrid;
+                if (blnSSOALEGridChangeBound == false) {
+                    oSSOALEGrid.bind("change", savetblSSOALEConfigPK);
+                    blnSSOALEGridChangeBound = true;
+                }
+
+
+            }
+
+
+            $(document).ready(function () {
+
+                var PageMenuTab = $('#tab').kendoTabStrip({ animation: { open: { effects: 'fadeIn' } }, dataTextField: 'text', dataContentField: 'content', dataSource: [{ text: 'Home', content: "<div class='pane-content'><div class='wrap' style='text-align:center'><div style='float: left;'><span style='margin:6px; vertical-align: middle;'><a href='Default.aspx'><img border='0' alt='Home' src='../Content/NGL/Home32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='http://www.nextgeneration.com'><img border='0' alt='NGL' src='../Content/NGL/nextracklogo.GIF'></a></span></div><div style='float: right;'><span id='WelcomeMessage' style='margin:6px; vertical-align: middle;'></span><a id='btnSignInOut' class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='signInOut();' href='#' style='margin:6px; vertical-align: top;'><span class='k-icon k-i-user' style='vertical-align: middle;'></span><span id='signInText' style='vertical-align: middle;'>Sign In</span></a><span style='margin:6px; vertical-align: middle;'><a href='Settings.aspx'><img border='0' alt='Settings' src='../Content/NGL/Settings32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='#' onclick='openHelpWindow();return false;'><img border='0' alt='Help (Test)' src='../Content/NGL/Help32Test.png'></a></span></div><div style='margin:0 auto !important; display:inline-block'><span><h2 style='-webkit-margin-before: 0.50em; -webkit-margin-after: 0.50em;'>Legal Entity SSOA API Config</h2></span></div></div></div>" }, { text: 'Actions', content: "<button id='btnRefresh' class='k-button actionBarButton' type='button' onclick='execActionClick(btnRefresh, 170);'><span class='k-icon k-i-reload'></span>Refresh</button><button id='btnResetCurrentUserConfig' class='k-button actionBarButton' type='button' onclick='execActionClick(btnResetCurrentUserConfig, 193);'><span class='k-icon k-i-file-wrench'></span>Reset Page Settings</button><span style='float:right; display:inline-block;'><span style='margin:6px; vertical-align: middle;'><a href='Settings.aspx'><img border='0' alt='Settings' src='../Content/NGL/Settings32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='#' onclick='openHelpWindow();return false;'><img border='0' alt='Help (Test)' src='../Content/NGL/Help32Test.png' ></a></span></span>" }] }).data('kendoTabStrip').select(1); if (localStorage.SignedIn == 't') { var divWelcome = document.getElementById('WelcomeMessage'); if (typeof (divWelcome) !== 'undefined' && ngl.isObject(divWelcome)) { divWelcome.innerHTML = 'Welcome ' + localStorage.NGLvar1455; } var signInMsg = document.getElementById('signInText'); if (typeof (signInMsg) !== 'undefined' && ngl.isObject(signInMsg)) { signInMsg.innerHTML = 'Sign Out'; } };
+
+                if (control != 0) {
+                    //setTimeout(function () {
+                    //    //add code here to load screen specific information this is only visible when a user is authenticated
+
+                    //}, 1,this);
+
+                }
+                var PageReadyJS = $('#menuTree').kendoTreeView({ dataUrlField: 'LinksTo', template: "#=item.text#", dataSource: { data: [{ text: '<span name="itemName" data-itemId=6196 data-security=1 data-order=1>Favorites</span>', id: '122', mtc: '6196', expanded: false }, { text: '<span name="itemName" data-itemId="6285" data-security=1 data-order=1>Home</span>', id: '20', mtc: '6285', expanded: false, LinksTo: '../Default.aspx' }, { text: '<span name="itemName" data-itemId="6286" data-security=1 data-order=2>Company</span>', id: '123', mtc: '6286', expanded: true, LinksTo: '../CompanyDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="6286" data-itemId="6287" data-position="1">Company</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6287); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6287); return false;"></span></div>', visible: true, id: '30', LinksTo: '../LECompMaint.aspx' }, { text: '<span name="itemName" data-parentId="6286" data-itemId="6288" data-position="2">Company EDI</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6288); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6288); return false;"></span></div>', visible: true, id: '104', LinksTo: '../CompEDI.aspx' }] }, { text: '<span name="itemName" data-itemId="6289" data-security=1 data-order=3>Carrier</span>', id: '124', mtc: '6289', expanded: true, LinksTo: '../CarrierDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="6289" data-itemId="6290" data-position="1">Carrier</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6290); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6290); return false;"></span></div>', visible: true, id: '44', LinksTo: '../LECarrierMaint.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6291" data-position="2">Carrier EDI</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6291); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6291); return false;"></span></div>', visible: true, id: '105', LinksTo: '../CarrierEDI.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6292" data-position="3">Carrier Fuel Index Maint</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6292); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6292); return false;"></span></div>', visible: true, id: '106', LinksTo: '../CarrierFuelIndex.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6293" data-position="4">Fuel Zones</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6293); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6293); return false;"></span></div>', visible: true, id: '108', LinksTo: '../NatFuelZones.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6294" data-position="5">Fuel</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6294); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6294); return false;"></span></div>', visible: true, id: '107', LinksTo: '../CarrierFuel.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6295" data-position="6">Equipment</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6295); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6295); return false;"></span></div>', visible: true, id: '107', LinksTo: '../CarrierEquipment.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6296" data-position="7">Carrier Exposure All</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6296); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6296); return false;"></span></div>', visible: true, id: '140', LinksTo: '../CarrierExposureAll.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6297" data-position="8">Carrier Qualification</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6297); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6297); return false;"></span></div>', visible: true, id: '145', LinksTo: '../CarrierQualification.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6298" data-position="9">Carrier Exposure Shipment</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6298); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6298); return false;"></span></div>', visible: true, id: '139', LinksTo: '../CarrierExposureShipment.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6299" data-position="10">Carrier Insurance Expired</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6299); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6299); return false;"></span></div>', visible: true, id: '143', LinksTo: '../CarrierInsuranceExpired.aspx' }, { text: '<span name="itemName" data-parentId="6289" data-itemId="6300" data-position="11">Carrier Pro Numbers</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6300); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6300); return false;"></span></div>', visible: true, id: '147', LinksTo: '../CarrierProNumbers.aspx' }] }, { text: '<span name="itemName" data-itemId=6301 data-security=1 data-order=4>Lane</span>', id: '0', mtc: '6301', expanded: true, items: [{ text: '<span name="itemName" data-parentId="6301" data-itemId="6302" data-position="1">Lane</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6302); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6302); return false;"></span></div>', visible: true, id: '31', LinksTo: '../LELaneMaint.aspx' }, { text: '<span name="itemName" data-parentId="6301" data-itemId="6303" data-position="2">Lane Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6303); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6303); return false;"></span></div>', visible: true, id: '99', LinksTo: '../LELaneFees.aspx' }, { text: '<span name="itemName" data-parentId="6301" data-itemId="6304" data-position="3">Lane Profile Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6304); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6304); return false;"></span></div>', visible: true, id: '100', LinksTo: '../LELaneProfileFees.aspx' }, { text: '<span name="itemName" data-parentId="6301" data-itemId="6305" data-position="4">Lane Preferred Carriers</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6305); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6305); return false;"></span></div>', visible: true, id: '101', LinksTo: '../LELanePreferredCarriers.aspx' }, { text: '<span name="itemName" data-parentId="6301" data-itemId="6306" data-position="5">Lane Trans Load</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6306); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6306); return false;"></span></div>', visible: true, id: '101', LinksTo: '../LELaneTransLoad.aspx' }, { text: '<span name="itemName" data-parentId="6301" data-itemId="6307" data-position="6">Lane HDM Fee Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6307); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6307); return false;"></span></div>', visible: true, id: '146', LinksTo: '../LELaneHDMMaint.aspx' }] }, { text: '<span name="itemName" data-itemId="6308" data-security=1 data-order=5>Planning & Execution</span>', id: '126', mtc: '6308', expanded: true, LinksTo: '../PlanningExecutionDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="6308" data-itemId="6309" data-position="1">Rate Shop</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6309); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6309); return false;"></span></div>', visible: true, id: '15', LinksTo: '../RateShopping.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6310" data-position="2">Load Board</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6310); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6310); return false;"></span></div>', visible: true, id: '62', LinksTo: '../LoadBoard.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6311" data-position="3">Fee Approval</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6311); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6311); return false;"></span></div>', visible: true, id: '43', LinksTo: '../CarrierAccessorialApproval.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6312" data-position="4">AP Frt Bill Audit Approval</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6312); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6312); return false;"></span></div>', visible: true, id: '81', LinksTo: '../APMassEntryMaint.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6313" data-position="5">Accessorials</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6313); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6313); return false;"></span></div>', visible: true, id: '32', LinksTo: '../AccessorialMaint.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6314" data-position="6">Order Preview</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6314); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6314); return false;"></span></div>', visible: true, id: '78', LinksTo: '../OrderPreview.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6315" data-position="7">Load Planning</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6315); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6315); return false;"></span></div>', visible: true, id: '26', LinksTo: '../LoadPlanning.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6316" data-position="8">Claims</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6316); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6316); return false;"></span></div>', visible: true, id: '109', LinksTo: '../Claims.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6317" data-position="9">Map Planning</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6317); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6317); return false;"></span></div>', visible: true, id: '115', LinksTo: '../MapRoutePLanning.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6318" data-position="10">Pick Worksheet</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6318); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6318); return false;"></span></div>', visible: true, id: '132', LinksTo: '../PickWorksheet.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6319" data-position="11">Purch Inv Worksheet</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6319); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6319); return false;"></span></div>', visible: true, id: '133', LinksTo: '../PurchInvWorksheet.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6320" data-position="14">Outdated Staging Orders</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6320); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6320); return false;"></span></div>', visible: true, id: '141', LinksTo: '../OutdatedStagingOrders.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6321" data-position="15">Outdated N Status Orders</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6321); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6321); return false;"></span></div>', visible: true, id: '142', LinksTo: '../OutdatedNStatusOrders.aspx' }, { text: '<span name="itemName" data-parentId="6308" data-itemId="6322" data-position="17">Preview Waiting</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6322); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6322); return false;"></span></div>', visible: true, id: '144', LinksTo: '../PreviewWaiting.aspx' }] }, { text: '<span name="itemName" data-itemId=6323 data-security=1 data-order=6>Tariffs</span>', id: '0', mtc: '6323', expanded: true, items: [{ text: '<span name="itemName" data-parentId="6323" data-itemId="6324" data-position="1">Contract</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6324); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6324); return false;"></span></div>', visible: true, id: '39', LinksTo: '../Tariff.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6325" data-position="2">Services</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6325); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6325); return false;"></span></div>', visible: true, id: '48', LinksTo: '../TariffServices.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6326" data-position="3">Rates</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6326); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6326); return false;"></span></div>', visible: true, id: '57', LinksTo: '../TariffRates.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6327" data-position="4">Exceptions</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6327); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6327); return false;"></span></div>', visible: true, id: '49', LinksTo: '../TariffExceptions.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6328" data-position="5">Fuel</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6328); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6328); return false;"></span></div>', visible: true, id: '54', LinksTo: '../TariffFuel.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6329" data-position="6">HDMs</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6329); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6329); return false;"></span></div>', visible: true, id: '55', LinksTo: '../TariffHDMs.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6330" data-position="8">Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6330); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6330); return false;"></span></div>', visible: true, id: '53', LinksTo: '../TariffFees.aspx' }, { text: '<span name="itemName" data-parentId="6323" data-itemId="6331" data-position="8">Package Descriptions</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6331); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6331); return false;"></span></div>', visible: true, id: '79', LinksTo: '../PackageDescriptions.aspx' }] }, { text: '<span name="itemName" data-itemId=6332 data-security=1 data-order=7>Scheduling</span>', id: '0', mtc: '6332', expanded: true, items: [{ text: '<span name="itemName" data-parentId="6332" data-itemId="6333" data-position="1">Warehouse</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6333); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6333); return false;"></span></div>', visible: true, id: '38', LinksTo: '../Scheduler.aspx' }, { text: '<span name="itemName" data-parentId="6332" data-itemId="6334" data-position="2">Carrier</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6334); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6334); return false;"></span></div>', visible: true, id: '51', LinksTo: '../CarrierScheduler.aspx' }, { text: '<span name="itemName" data-parentId="6332" data-itemId="6335" data-position="3">Carrier Appt.</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6335); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6335); return false;"></span></div>', visible: true, id: '75', LinksTo: '../CarrierSchedulerGrouped.aspx' }, { text: '<span name="itemName" data-parentId="6332" data-itemId="6336" data-position="4">Manage</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6336); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6336); return false;"></span></div>', visible: true, id: '50', LinksTo: '../ManageSchedule.aspx' }] }, { text: '<span name="itemName" data-itemId=6337 data-security=1 data-order=8>NEXTrack</span>', id: '0', mtc: '6337', expanded: false, items: [{ text: '<span name="itemName" data-parentId="6337" data-itemId="6338" data-position="1">All</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6338); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6338); return false;"></span></div>', visible: true, id: '18', LinksTo: '../All.aspx' }, { text: '<span name="itemName" data-parentId="6337" data-itemId="6339" data-position="2">Tendered</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6339); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6339); return false;"></span></div>', visible: true, id: '45', LinksTo: '../Tendered.aspx' }, { text: '<span name="itemName" data-parentId="6337" data-itemId="6340" data-position="3">Settlement</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6340); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6340); return false;"></span></div>', visible: true, id: '24', LinksTo: '../Settlement.aspx' }, { text: '<span name="itemName" data-parentId="6337" data-itemId="6341" data-position="4">Settled</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6341); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6341); return false;"></span></div>', visible: true, id: '25', LinksTo: '../Settled.aspx' }, { text: '<span name="itemName" data-parentId="6337" data-itemId="6342" data-position="5">Reports</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6342); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6342); return false;"></span></div>', visible: true, id: '74', LinksTo: '../Reporting.aspx' }, { text: '<span name="itemName" data-parentId="6337" data-itemId="6343" data-position="6">Local Reports</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6343); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6343); return false;"></span></div>', visible: true, id: '102', LinksTo: '../LocalReports.aspx' }] }, { text: '<span name="itemName" data-itemId=6344 data-security=1 data-order=9>NEXTStop</span>', id: '0', mtc: '6344', expanded: false, items: [{ text: '<span name="itemName" data-parentId="6344" data-itemId="6345" data-position="1">NEXTStop Ops</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6345); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6345); return false;"></span></div>', visible: true, id: '8', LinksTo: '../NSOpsStatic.aspx' }, { text: '<span name="itemName" data-parentId="6344" data-itemId="6346" data-position="2">NEXTStop Carrier</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6346); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6346); return false;"></span></div>', visible: true, id: '9', LinksTo: '../NextStopCarrier.aspx' }] }, { text: '<span name="itemName" data-itemId=6347 data-security=1 data-order=10>System</span>', id: '0', mtc: '6347', expanded: true, items: [{ text: '<span name="itemName" data-parentId="6347" data-itemId="6348" data-position="1">Legal Entity Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6348); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6348); return false;"></span></div>', visible: true, id: '29', LinksTo: '../LegalEntityMaint.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6349" data-position="2">User Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6349); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6349); return false;"></span></div>', visible: true, id: '47', LinksTo: '../LEUsers.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6350" data-position="3">Manage Requests</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6350); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6350); return false;"></span></div>', visible: true, id: '40', LinksTo: '../RegisterUser.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6351" data-position="4">Page Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6351); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6351); return false;"></span></div>', visible: true, id: '46', LinksTo: '../cmPages.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6352" data-position="5">Static List Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6352); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6352); return false;"></span></div>', visible: true, id: '112', LinksTo: '../StaticListMaint.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6353" data-position="6">Global List Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6353); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6353); return false;"></span></div>', visible: true, id: '113', LinksTo: '../GlobalListMaint.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6354" data-position="7">Manage Security</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6354); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6354); return false;"></span></div>', visible: true, id: '94', LinksTo: '../ManageSecurity.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6355" data-position="8">Manual EDI Processing</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6355); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6355); return false;"></span></div>', visible: true, id: '83', LinksTo: '../EDILogs.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6356" data-position="9">Parameters</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6356); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6356); return false;"></span></div>', visible: true, id: '34', LinksTo: '../Parameters.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6357" data-position="10">Whats New</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6357); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6357); return false;"></span></div>', visible: true, id: '89', LinksTo: '../WhatsNew.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6358" data-position="11">System Info</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6358); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6358); return false;"></span></div>', visible: true, id: '80', LinksTo: '../SystemInfo.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6359" data-position="12">NGL System Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6359); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6359); return false;"></span></div>', visible: true, id: '110', LinksTo: '../NGLSystemMaint.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6360" data-position="13">Task Manager</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6360); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6360); return false;"></span></div>', visible: true, id: '131', LinksTo: '../TaskManager.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6361" data-position="14">ERP Settings</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6361); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6361); return false;"></span></div>', visible: true, id: '134', LinksTo: '../ERPSettings.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6362" data-position="15">Workflow Configuration</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6362); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6362); return false;"></span></div>', visible: true, id: '135', LinksTo: '../WorkflowConfiguration.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6363" data-position="16">Mail Log</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6363); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6363); return false;"></span></div>', visible: true, id: '136', LinksTo: '../MailLog.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6364" data-position="17">Integration Log</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6364); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6364); return false;"></span></div>', visible: true, id: '137', LinksTo: '../IntegrationLog.aspx' }, { text: '<span name="itemName" data-parentId="6347" data-itemId="6365" data-position="18">Task Manager Log</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6365); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6365); return false;"></span></div>', visible: true, id: '138', LinksTo: '../TaskManagerLog.aspx' }] }, { text: '<span name="itemName" data-itemId=6366 data-security=1 data-order=11>NGL Accounting</span>', id: '0', mtc: '6366', expanded: true, items: [{ text: '<span name="itemName" data-parentId="6366" data-itemId="6367" data-position="1">PPR</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6367); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6367); return false;"></span></div>', visible: true, id: '87', LinksTo: '../NGLAccounting.aspx' }, { text: '<span name="itemName" data-parentId="6366" data-itemId="6368" data-position="2">Expenses</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(6196,6368); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(6368); return false;"></span></div>', visible: true, id: '88', LinksTo: '../NGLExpenses.aspx' }] }, { text: '<span name="itemName" data-itemId="6369" data-security=1 data-order=12>About</span>', id: '10', mtc: '6369', expanded: false, LinksTo: '../About.aspx' }, { text: '<span name="itemName" data-itemId="6370" data-security=1 data-order=13>Feature Requests</span>', id: '19', mtc: '6370', expanded: false, LinksTo: '../SignUp.aspx' }, { text: '<span name="itemName" data-itemId="6371" data-security=1 data-order=14>Contact</span>', id: '11', mtc: '6371', expanded: false, LinksTo: '../Contact.aspx' }] }, dataBound: function (e) { onMenuTreeDataBound(e); }, dragAndDrop: false, dragend: function (e) { onDragEndMenuTree(e); }, drop: function (e) { dropNodeMenuTree(e); }, drag: function (e) { dragNodeMenuTree(e); }, loadOnDemand: false, expand: function (e) { saveExpandNode(e); }, collapse: function (e) { saveCollapseNode(e); } }).data('kendoTreeView'), handleTextBox = function (callback) { return function (e) { if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) { callback(e); } }; }; setTimeout(function () { $('#txtE4PHCont').val(0); $('#txtE3PHCont').val(0); $('#txtE2PHCont').val(0); $('#txtE1PHCont').val(0); $('#editor1').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: "save", tooltip: "Save", exec: function (e) { saveHelpEditorL1(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor2').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL2(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor3').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL3(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor4').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL4(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#HelpWindow').kendoWindow({ title: "Help", modal: false, visible: false, actions: ["pencil", "Minimize", "Maximize", "Close"], maxHeight: $(window).height() * 0.8, maxWidth: $(window).width() * 0.8, minHeight: $(window).height() * 0.2, minWidth: $(window).width() * 0.2 }).data('kendoWindow'); $('#HelpWindow').data('kendoWindow').wrapper.find('.k-svg-i-pencil').parent().click(function (e) { getPageHelpNotes(PageControl, getPHNEdit); var ht = $('#HelpWindow').data('kendoWindow').title(); $('#HelpWindow').data('kendoWindow').title(ht + " : Edit Mode"); $('#winCont').hide(); $('#EditCont').show(); $('#HelpWindow').data('kendoWindow').center(); }); }, 0, this); $(document).ready(function () { $(function () { $('span[name="Remove"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-error"); }); $('span[name="Remove"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-error"); }); $('span[name="Favorite"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-warning"); }); $('span[name="Favorite"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-warning"); }); $('span[name="Restore"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-success"); }); $('span[name="Restore"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-success"); }); }); });
+
+
+
+                wdgttblSSOAConfigGridEdit = new NGLEditWindCtrl();
+
+                wdgttblSSOAConfigGridEdit.loadDefaults('divid1671202308080755522942221', wndtblSSOAConfigGridEdit, 'id1671202308080755522942221', 'id1671202308071203252653862', objtblSSOAConfigGridDataFields, 'blueopal', 'tblSSOAConfigGridCB', 'tblSSOAConfig', 'NGLtblSSOAConfigGridClass', 'Edit', 'Please select a Edit record with valid data.', 'A Edit Record is Required', 'Cannot add a new Edit record because the field configuration settings are not valid, contact technical support for more information.', 'The Add New Edit Settings Are Invalid', 'wdgttblSSOAConfigGridEdit');
+
+
+
+                wdgtSSOALEGridEdit = new NGLEditWindCtrl();
+
+                wdgtSSOALEGridEdit.loadDefaults('divid1671202308071209408401820', wndSSOALEGridEdit, 'id1671202308071209408401820', 'id1671202308071203252653862', objSSOALEGridDataFields, 'blueopal', 'SSOALEGridCB', 'tblSSOALEConfig', 'NGLSSOALEGridClass', 'Legal Entity API Edit Control', 'Please select a Legal Entity API Edit Control record with valid data.', 'A Legal Entity API Edit Control Record is Required', 'Cannot add a new Legal Entity API Edit Control record because the field configuration settings are not valid, contact technical support for more information.', 'The Add New Legal Entity API Edit Control Settings Are Invalid', 'wdgtSSOALEGridEdit');
+
+                var arrid1671202308071203252653862GroupBy = [];
+
+                objid1671202308071203252653862Filters = new AllFiltersCtrl('True', 'tblSSOALEConfig'); var objid1671202308071203252653862FilterData = [{ filterCaption: "Client Account Number", filterName: "SSOALEClientID", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Auth Code - Client ID", filterName: "SSOALEAuthCode", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Client Secret", filterName: "SSOALEClientSecret", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Single Sign on Type", filterName: "SSOALESSOAControl", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Mod User", filterName: "SSOALEModUser", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }];; objid1671202308071203252653862Filters.loadDefaults("divid1671202308071203252653862filterContent", "id1671202308071203252653862", objid1671202308071203252653862FilterData, 'blueopal', function (results) { var oKendoGrid = $('#id1671202308071203252653862').data("kendoNGLGrid"); if (typeof (oKendoGrid) !== 'undefined' && ngl.isObject(oKendoGrid)) { oKendoGrid.dataSource.read(); } return; }, 'Legal Entity API Config Filters'); objid1671202308071203252653862Filters.show(); objid1671202308071203252653862Filters.addSavedFilters();
+
+                tblSSOALEConfig = new kendo.data.DataSource({
+
+                    serverSorting: true,
+
+                    serverPaging: true,
+
+                    pageSize: 10,
+
+                    transport: {
+
+                        read: function (options) {
+
+                            var s = objid1671202308071203252653862Filters.data;
+
+                            s.Groups = arrid1671202308071203252653862GroupBy;
+
+                            s.sortName = $("#txtid1671202308071203252653862SortField").val(); s.sortDirection = $("#txtid1671202308071203252653862SortDirection").val();
+
+                            s.page = options.data.page;
+
+                            s.skip = options.data.skip;
+
+                            s.take = options.data.take;
+
+                            if (typeof (SSOALEGridGetStringData) !== 'undefined' && ngl.isFunction(SSOALEGridGetStringData)) { s.Data = SSOALEGridGetStringData(s); } else { s.Data = ''; };
+
+
+
+                            $.ajax({
+
+                                url: 'api/tblSSOALEConfig/GetRecords/' + s,
+
+                                contentType: 'application/json; charset=utf-8',
+
+                                dataType: 'json',
+
+                                data: { filter: JSON.stringify(s) },
+
+                                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+
+                                success: function (data) {
+
+                                    options.success(data);
+
+                                    if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { }
+                                },
+
+                                error: function (result) {
+
+                                    options.error(result);
+
+                                }
+
+                            });
+
+                        },
+
+                        parameterMap: function (options, operation) { return options; }
+
+                    },
+
+                    schema: {
+
+                        data: "Data",
+
+                        total: "Count",
+
+                        model: {
+
+                            id: "SSOALEControl",
+
+                            fields: {
+
+                                SSOALEControl: { type: "number" },
+
+                                SSOALEControl: { type: "number" },
+
+                                SSOALEControl: { type: "number" },
+
+                                SSOALEClientID: { type: "string" },
+
+                                SSOALEAuthCode: { type: "string" },
+
+                                SSOALEClientSecret: { type: "string" },
+
+                                SSOALESSOAControl: { type: "number" },
+
+                                SSOALELoginURL: { type: "string" },
+
+                                SSOALEDataURL: { type: "string" },
+
+                                SSOALERedirectURL: { type: "string" },
+
+                                SSOALEControl: { type: "number" },
+
+                                SSOALEModUser: { type: "string" },
+
+                                SSOALELEAdminControl: { type: "number" },
+
+                                SSOALEControl: { type: "number" },
+
+                                SSOALEUpdated: { type: "string" },
+
+                                SSOACControl: { type: "number" }
+
+                            }
+
+                        },
+
+                        errors: "Errors"
+
+                    },
+
+                    group: [],
+
+                    aggregate: [],
+
+                    error: function (xhr, textStatus, error) {
+
+                        ngl.showErrMsg("Access tblSSOALEConfig Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges();
+
+                    }
+
+                });
+
+
+
+
+                $('#id1671202308071203252653862').kendoNGLGrid({
+
+                    autoBind: false, theme: "blueopal",
+
+                    toolbarColumnMenu: true,
+
+                    dataSource: tblSSOALEConfig,
+
+                    selectable: "row",
+
+                    pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+
+                    sortable: {
+
+                        mode: "single",
+
+                        allowUnsort: true
+
+                    },
+
+                    sort: function (e) {
+
+                        if (!e.sort.dir) { e.sort.dir == ""; e.sort.field == ""; }
+
+                        if (!e.sort.field) { e.sort.field == ""; }
+
+                        $("#txtid1671202308071203252653862SortDirection").val(e.sort.dir);
+
+                        $("#txtid1671202308071203252653862SortField").val(e.sort.field);
+
+                    },
+
+                    dataBound: function (e) {
+
+                        var tObj = this;
+
+                        if (typeof (SSOALEGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(SSOALEGridDataBoundCallBack)) { SSOALEGridDataBoundCallBack(e, tObj, 'id1671202308071203252653862'); }
+
+                    },
+
+                    resizable: true,
+
+                    reorderable: true,
+
+                    nglCustomDragAndDrop: 'true',
+
+                    nglDragStart: function (dsO, e) {
+                        if (typeof (SSOALEGridDragStartCallBack) !== 'undefined' && ngl.isFunction(SSOALEGridDragStartCallBack)) { SSOALEGridDragStartCallBack(dsO, e); }
+
+                    },
+
+                    nglDragEnd: function (dsO, ddO, isDraggingUp) {
+                        if (typeof (SSOALEGridDropCallBack) !== 'undefined' && ngl.isFunction(SSOALEGridDropCallBack)) { SSOALEGridDropCallBack(dsO, ddO, isDraggingUp); }
+
+                    },
+
+                    columnResize: function (e) { this._captureColumnResize(e); },
+
+                    columnReorder: function (e) { this._captureColumnReorder(e); },
+
+                    groupable: true,
+
+                    group: function (e) {
+
+                        arrid1671202308071203252653862GroupBy = new Array();
+
+                        if (e.groups.length) {
+
+                            for (let i = 0; i < e.groups.length; i++) {
+
+                                arrid1671202308071203252653862GroupBy.push(e.groups[i].field);
+
+                            }
+
+                        }
+
+                    },
+
+                    toolbar: [{ name: "excel", excel: { fileName: "tblSSOALEConfig-8-8-2023-8-14-23.xlsx", allPages: true } }, { name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  onclick="return openAddNewSSOALEGridWindow(event,' + null + ')"><span class="k-icon k-i-add"></span>Add</a>' }]
+
+                    , columns: [
+
+                        {
+                            command: [
+
+                                { className: "cm-icononly-button U", name: "EditSSOALEGridCRUDCtrl", text: "", iconClass: "k-icon k-i-pencil", click: openEditSSOALEGridWindow },
+
+                                { className: "cm-icononly-button D", name: "DeleteSSOALEGridCRUDCtrl", text: "", iconClass: "k-icon k-i-trash", click: confirmDeleteSSOALEGridRecord }], title: "Actions", width: 150
+                        },
+
+
+                        { field: "SSOALEControl", title: "Export  to Excel", width: 213, showhide: 1, PageDetPageControl: 167, PageDetControl: 115204, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEControl", title: "Legal Entity API Edit Control", width: 150, showhide: 1, PageDetPageControl: 167, PageDetControl: 115205, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEControl", title: "Setup", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115207, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEClientID", title: "Client Account Number", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115193, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEClientID}' style='white-space: nowrap'>${SSOALEClientID}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEAuthCode", title: "Auth Code - Client ID", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115192, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEAuthCode}' style='white-space: nowrap'>${SSOALEAuthCode}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEClientSecret", title: "Client Secret", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115194, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEClientSecret}' style='white-space: nowrap'>${SSOALEClientSecret}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALESSOAControl", title: "Single Sign on Type", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115201, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALELoginURL", title: "Login - Token End Point", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115198, PageDetUserSecurityControl: 1, template: "<span title='${SSOALELoginURL}' style='white-space: nowrap'>${SSOALELoginURL}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEDataURL", title: "Data End Point", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115196, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEDataURL}' style='white-space: nowrap'>${SSOALEDataURL}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALERedirectURL", title: "Redirect End Point", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115200, PageDetUserSecurityControl: 1, template: "<span title='${SSOALERedirectURL}' style='white-space: nowrap'>${SSOALERedirectURL}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEControl", title: "Updated", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115206, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEModUser", title: "Mod User", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115199, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEModUser}' style='white-space: nowrap'>${SSOALEModUser}</span>", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALELEAdminControl", title: "SSOALELEAdminControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 167, PageDetControl: 115197, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEControl", title: "SSOALEControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 167, PageDetControl: 115195, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                        { field: "SSOALEUpdated", title: "SSOALEUpdated", width: 50, hidden: true, showhide: 0, PageDetPageControl: 167, PageDetControl: 115203, PageDetUserSecurityControl: 1, template: "<span title='${SSOALEUpdated}' style='white-space: nowrap'>${SSOALEUpdated}</span>", attributes: { class: "nowrap" } }],
+
+                    detailTemplate: kendo.template($("#GenericDetTemplate").html()),
+
+                    detailInit: function (d) {           // second detail init function
+
+                        var detailRow = d.detailRow;
+
+                        detailRow.find(".tabstrip").kendoTabStrip({
+
+                            animation:
+
+                                { open: { effects: "fadeIn" } }
+
+                        });
+
+                        detailRow.find(".details").kendoNGLGrid({
+
+                            dataSource:
+
+                            {
+
+                                serverSorting: false,
+
+                                serverPaging: false,
+
+                                serverFiltering: false,
+
+                                transport: {
+                                    read: {
+                                        url: "api/tblSSOAConfig\GetByParent/" + d.data.SSOACControl,
+
+                                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+
+                                        type: "GET"
+                                    },
+
+                                    parameterMap: function (options, operation) { return options; }
+                                },
+
+                                schema: {
+                                    data: "Data",
+
+                                    total: "Count",
+
+                                    model: {
+                                        id: "SSOACControl",
+
+                                        fields: {
+
+                                            SSOACControl: { type: "number" },
+
+                                            SSOACCompControl: { type: "number" },
+
+                                            SSOACControl: { type: "number" },
+
+                                            SSOACDesc: { type: "string" },
+
+                                            SSOACModDate: { type: "date" },
+
+                                            SSOACModUser: { type: "string" },
+
+                                            SSOACName: { type: "string" },
+
+                                            SSOACSSOAControl: { type: "number" },
+
+                                            SSOACSSOALEControl: { type: "number" },
+
+                                            SSOACUpdated: { type: "string" },
+
+                                            SSOACValue: { type: "string" },
+
+                                            SSOALEAdminControl: { type: "number" }
+
+                                        }
+
+                                    },
+
+                                    errors: "Errors"
+
+                                },
+
+                                error: function (xhr, textStatus, error) {
+
+                                    ngl.showErrMsg("Access tblSSOAConfigGrid Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges();
+
+                                }
+
+                            },
+
+                            resizable: true, scrollable: true, sortable: false, pageable: false, selectable: "row",
+
+                            dataBound: function (e) {
+
+                                var tObj = this;
+
+                                if (typeof (tblSSOAConfigGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(tblSSOAConfigGridDataBoundCallBack)) { tblSSOAConfigGridDataBoundCallBack(e, tObj); }
+
+                            },
+
+                            toolbar: [{ name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  onclick="return openAddNewtblSSOAConfigGridWindow(event,' + d.data.SSOACControl + ')"><span class="k-icon k-i-add"></span>Add</a>' }],
+
+                            columns: [
+
+
+                                {
+                                    command: [
+
+                                        { className: "cm-icononly-button U", name: "EdittblSSOAConfigGridCRUD", text: "", iconClass: "k-icon k-i-pencil", click: openEdittblSSOAConfigGridWindow },
+
+                                        { className: "cm-icononly-button D", name: "DeletetblSSOAConfigGridCRUD", text: "", iconClass: "k-icon k-i-trash", click: confirmDeletetblSSOAConfigGridRecord }], title: "Actions", width: 50
+                                },
+
+
+                                { field: "SSOACControl", title: "Edit", width: 50, showhide: 1, PageDetPageControl: 167, PageDetControl: 115236, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACCompControl", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115224, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACControl", title: "Primary Key", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115225, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACDesc", title: "Description", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115226, PageDetUserSecurityControl: 1, template: "<span title='${SSOACDesc}' style='white-space: nowrap'>${SSOACDesc}</span>", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACModDate", title: "SSOACModDate", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115227, PageDetUserSecurityControl: 1, template: "#= kendo.toString(kendo.parseDate(SSOACModDate, 'yyyy-MM-dd'), 'MM/dd/yyyy') #", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACModUser", title: "SSOACModUser", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115228, PageDetUserSecurityControl: 1, template: "<span title='${SSOACModUser}' style='white-space: nowrap'>${SSOACModUser}</span>", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACName", title: "SSOACName", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115229, PageDetUserSecurityControl: 1, template: "<span title='${SSOACName}' style='white-space: nowrap'>${SSOACName}</span>", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACSSOAControl", title: "SSOACSSOAControl", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115230, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACSSOALEControl", title: "SSOACSSOALEControl", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115231, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACUpdated", title: "SSOACUpdated", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115232, PageDetUserSecurityControl: 1, template: "<span title='${SSOACUpdated}' style='white-space: nowrap'>${SSOACUpdated}</span>", attributes: { class: "nowrap" } },
+
+                                { field: "SSOACValue", title: "SSOACValue", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115233, PageDetUserSecurityControl: 1, template: "<span title='${SSOACValue}' style='white-space: nowrap'>${SSOACValue}</span>", attributes: { class: "nowrap" } },
+
+                                { field: "SSOALEAdminControl", title: "SSOALEAdminControl", width: 50, hidden: true, showhide: 1, PageDetPageControl: 167, PageDetControl: 115234, PageDetUserSecurityControl: 1, format: "{0:n0}", attributes: { class: "nowrap" } }
+
+                            ]
+
+                        });
+                    } //end of second detail init function
+
+
+
+                });
+
+                tblSSOALEConfig.read();
+
+
+
+                $('#id1671202308071203252653862').kendoTooltip({ filter: '.U', content: function (e) { return 'Edit'; } }).data('kendoTooltip');
+
+
+                $('#id1671202308071203252653862').kendoTooltip({ filter: '.D', content: function (e) { return 'Delete'; } }).data('kendoTooltip');
+                //setTimeout(function () {
+                menuTreeHighlightPage(); //must be called after PageReadyJS
+                var divWait = $("#h1Wait");
+                if (typeof (divWait) !== 'undefined') {
+                    divWait.hide();
+                }
+
+
+
+
+            });
+
+
+        </script>
+        <style>
+
+            .k-grid tbody tr td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .k-tooltip {
+                max-height: 500px;
+                max-width: 450px;
+                overflow-y: auto;
+            }
+
+            .k-grid tbody .k-grid-Edit {
+                min-width: 0;
+            }
+
+                .k-grid tbody .k-grid-Edit .k-icon {
+                    margin: 0;
+                }
+        </style>
+    </div>
+
+
+</body>
+
+</html>

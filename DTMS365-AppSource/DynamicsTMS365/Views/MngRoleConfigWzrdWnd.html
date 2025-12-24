@@ -1,0 +1,578 @@
+﻿<!--
+    NOTE: THIS HTML WINDOW IS TIED TO ManageSecurity.aspx SPECIFICALLY - DID NOT MAKE IT GENERAL AND REUSABLE YET
+-->
+
+<div id="wndMngRoleConfigWzrd">
+    <a id="focusCancel" href="#"></a>
+    <div style="height:100%;">
+        <!--<div style="padding: 0px 10px 0px 10px;">-->
+
+            <div class="k-card k-card-vertical" style="height:100%;">
+                <!--<div class="k-card-header">
+                    <h5 class="k-card-title">Card Title</h5>
+                    <h6 id="lblSelectItems" class="k-card-subtitle">Card Subtitle</h6>
+                </div>-->
+                <div class="k-card-body">
+
+                    <!--Select Form/Procedure/Report-->
+                    <div id="divSelectConfigItems">
+                        <div id="divSelectConfigItemsGrid">
+                            <strong id="lblSelectItems" style="color:red;"></strong>
+                            <div id="selectConfigItemsGrid"></div>
+                        </div>
+                    </div>
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Select Groups-->
+                    <div id="divSelectConfigGroups">
+                        <div id="divSelectConfigGroupsGrid">
+                            <strong style="color:red;">Select all Group Security Types to apply the changes to</strong>
+                            <div id="selectConfigGroupsGrid"></div>
+                        </div>
+                    </div>
+
+                    <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                    <!--Select Action-->
+                    <div id="divSelectAction">
+                        <div id="divSelectActionButtons" style="height:100%;">
+                            <button id="btnAllowAccess" type="button" style="width:100%;">Allow Access To Group(s)</button>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <button id="btnRestrictAccess" type="button" style="width:100%;">Restrict Access To Group(s)</button>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <button id="btnLockChanges" type="button" style="width:100%;">Lock Changes For Future Updates</button>
+
+                            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                            <button id="btnUnlockChanges" type="button" style="width:100%;">Unlock Changes For Future Updates</button>
+                        </div>
+                    </div>     
+                                  
+                </div>
+                <div class="k-card-footer">
+                    <div class="k-card-actions k-card-actions-start k-card-actions-horizontal">
+                        <button id="btnPrevious" type="button" class="k-button k-flat">Previous</button>
+                        <button id="btnNext" type="button" class="k-button k-flat">Next</button>
+                    </div>
+                </div>
+            </div>
+
+        <!--</div>-->
+    </div>
+</div>
+
+
+<script>
+    //************************BEGIN MANAGE ROLE CONFIGURATION WIZARD SECTION************************
+
+    var wndMngRoleConfigWzrd = kendo.ui.Window;
+
+    var wzrdPage = 0; //0 = ItemSelectionDiv, 1 = GroupSelectionDiv, 2 = ActionSelectionDiv
+    var itemType = 0; //0 = Form, 1 = Procedure, 2 = Report
+    var selectedItemsData = null;
+    var selectedGroupsData = null;
+
+    /* Summary - clears selections from selectConfigItemsGrid */
+    function resetSelectConfigItemsGrid() {
+        $("#selectConfigItemsGrid").data("kendoGrid").clearSelection();      
+        $('#selectConfigItemsGrid').data('kendoGrid').dataSource.read();
+    }
+
+    /* Summary - clears selections from selectConfigGroupsGrid */
+    function resetSelectConfigGroupsGrid() {
+        $("#selectConfigGroupsGrid").data("kendoGrid").clearSelection();
+        $('#selectConfigGroupsGrid').data('kendoGrid').dataSource.read();
+    }
+
+    /* Summary - resets the window to its starting state */
+    function resetWndMngRoleConfigWzrd() {
+        resetSelectConfigItemsGrid(); //clears selections from selectConfigItemsGrid
+        resetSelectConfigGroupsGrid(); //clears selections from selectConfigGroupsGrid
+        showItemSelectionDiv(); //Show the first page of the wizard which is the ItemSelection page
+        wzrdPage = 0; //reset value to 1st page
+    }
+   
+    /* Summary - executes when the Action Menu button "Manage Configuration" is clicked */
+    function openMngRoleConfigWzrdWindow(iType) {
+        itemType = iType;
+        switch (iType) {
+            case 0: //Form
+                $("#lblSelectItems").html("Select all Forms (Screens) to manage");
+                $("#wndMngRoleConfigWzrd").data("kendoWindow").title("Manage Screen Configuration Wizard");
+                break;
+            case 1: //Procedure
+                $("#lblSelectItems").html("Select all Procedures (Actions) to manage");
+                $("#wndMngRoleConfigWzrd").data("kendoWindow").title("Manage Action Configuration Wizard");
+                break;
+            case 2: //Report
+                $("#lblSelectItems").html("Select all Reports to manage");
+                $("#wndMngRoleConfigWzrd").data("kendoWindow").title("Manage Report Configuration Wizard");
+                break;
+            default:
+                $("#lblSelectItems").html("Select all Forms/Procedures/Reports to manage");
+        }      
+        resetWndMngRoleConfigWzrd(); //resets the window to its starting state
+        wndMngRoleConfigWzrd.center().open();
+    }
+
+    /* Summary - Navigates the Wizard to the previous page */
+    function btnPrevious_Click() {
+        switch (wzrdPage) {
+            case 0: //ItemSelectionDiv
+                //This button should be disabled when on the ItemSelection Page because it is the first page
+                break;
+            case 1: //GroupSelectionDiv
+                showItemSelectionDiv(); //show the previous page (ItemSelection)
+                wzrdPage = 0; //update the variable to reflect the current visible page (which now is ItemSelection)
+                break;
+            case 2: //ActionSelectionDiv
+                showGroupSelectionDiv(); //show the previous page (GroupSelection)
+                wzrdPage = 1; //update the variable to reflect the current visible page (which now is GroupSelection)
+                break;
+            default:
+                //Show the first page as default
+                showItemSelectionDiv(); //show the first page (ItemSelection)
+                wzrdPage = 0; //update the variable to reflect the current visible page (which now is ItemSelection)
+        }
+    }
+
+    /* Summary - Navigates the Wizard to the next page */
+    function btnNext_Click() {
+        switch (wzrdPage) {
+            case 0: //ItemSelectionDiv
+                showGroupSelectionDiv(); //show the next page (GroupSelection)
+                wzrdPage = 1; //update the variable to reflect the current visible page (which now is GroupSelection)
+                break;
+            case 1: //GroupSelectionDiv
+                showActionSelectionDiv(); //show the next page (ActionSelection)
+                wzrdPage = 2; //update the variable to reflect the current visible page (which now is ActionSelection)
+                break;
+            case 2: //ActionSelectionDiv
+                //This button should be disabled when on the ActionSelection Page because it is the last page
+                break;
+            default:
+                //Show the last page as default
+                showActionSelectionDiv(); //show the last page (ActionSelection)
+                wzrdPage = 2; //update the variable to reflect the current visible page (which now is ActionSelection)
+                break;
+        }
+    }
+
+
+    /* Summary - Configures the Wizard to show the Select Items Page (Forms/Procedures/Reports) */
+    function showItemSelectionDiv() {
+        $("#divSelectConfigItems").show();
+        $("#divSelectConfigGroups").hide();
+        $("#divSelectAction").hide();
+        $("#btnPrevious").data("kendoButton").enable(false); //disable "Previous" button (this is the first page)
+        $("#btnNext").data("kendoButton").enable(true); //enable "Next" button
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().css("visibility", "visible");
+    }
+
+    /* Summary - Configures the Wizard to show the Select Groups Page */
+    function showGroupSelectionDiv() {
+        $("#divSelectConfigItems").hide();
+        $("#divSelectConfigGroups").show();
+        $("#divSelectAction").hide();
+        $("#btnPrevious").data("kendoButton").enable(true); //enable "Previous" button
+        $("#btnNext").data("kendoButton").enable(true); //enable "Next" button
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().css("visibility", "visible");
+    }
+
+    /* Summary - Configures the Wizard to show the Select Actions Page */
+    function showActionSelectionDiv() {
+        $("#divSelectConfigItems").hide();
+        $("#divSelectConfigGroups").hide();
+        $("#divSelectAction").show();
+        $("#btnPrevious").data("kendoButton").enable(true); //enable "Previous" button
+        $("#btnNext").data("kendoButton").enable(false); //disable "Next" button (this is the last page)
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().css("visibility", "hidden");
+    }
+
+
+
+    /* Summary - Calls the REST method to update the Wizard Configuration for the Groups */
+    function ConfirmExecuteWizard(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action
+        //Chose the Ok action
+        if (typeof (wizardConfigData) !== 'undefined' && wizardConfigData != null) {
+
+            //var windowWidget = $("#winItems").data("kendoWindow");
+            kendo.ui.progress(wndMngRoleConfigWzrd.element, true);
+
+            var successMsg = "Success!";
+            if (wizardConfigData.Action === 0) { successMsg = "Allow Access Success!"; }
+            if (wizardConfigData.Action === 1) { successMsg = "Restrict Access Success!"; }
+            $.ajax({
+                type: 'POST',
+                url: 'api/ManageRoleConfig/SaveWizardConfiguration',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(wizardConfigData),
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    try {
+                        kendo.ui.progress($("#wndMngRoleConfigWzrd"), false);
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Save Wizard Configuration Failure", data.Errors, null); }
+                            else { ngl.showSuccessMsg(successMsg, null); refresh(); }
+                        }
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); kendo.ui.progress($("#wndMngRoleConfigWzrd"), false); }
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Save Wizard Configuration Failure", sMsg, null); kendo.ui.progress($("#wndMngRoleConfigWzrd"), false); }
+            });
+        }
+    }
+
+    
+    var wizardConfigData = null;
+    /* Summary - Creates the title and message based on the "Allow Access" button and then calls executeWizard() */
+    function AllowAccess() {
+        var title = "", msg = "", strItemType = "";
+        switch (itemType) {
+            case 0: //Form
+                strItemType = "Screen";
+                break;
+            case 1: //Procedure
+                strItemType = "Action";
+                break;
+            case 2: //Report
+                strItemType = "Report";
+                break;
+        }
+        title = "Allow " + strItemType + " Access";
+        if (ngl.stringHasValue(strItemType)) {
+            msg = "This procedure will allow access to the selected " + strItemType + "s for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        } else {
+            msg = "This procedure will allow access to the selected Screens/Actions/Reports for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        }
+        intAction = 0; //0 = AllowAccess, 1 = RestrictAccess, 2 = Lock, 3 = Unlock
+        executeWizard(title, msg, intAction)
+    }
+
+    /* Summary - Creates the title and message based on the "Restrict Access" button and then calls executeWizard() */
+    function RestrictAccess() {
+        var title = "", msg = "", strItemType = "";
+        switch (itemType) {
+            case 0: //Form
+                strItemType = "Screen";
+                break;
+            case 1: //Procedure
+                strItemType = "Action";
+                break;
+            case 2: //Report
+                strItemType = "Report";
+                break;
+        }
+        title = "Restrict " + strItemType + " Access";
+        if (ngl.stringHasValue(strItemType)) {
+            msg = "This procedure will restrict access to the selected " + strItemType + "s for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        } else {
+            msg = "This procedure will restrict access to the selected Screens/Actions/Reports for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        }
+        intAction = 1; //0 = AllowAccess, 1 = RestrictAccess, 2 = Lock, 3 = Unlock
+        executeWizard(title, msg, intAction)
+    }
+
+    /* Summary - Creates the title and message based on the "Lock Changes" button and then calls executeWizard() */
+    function LockChanges() {
+        var title = "", msg = "", strItemType = "";
+        switch (itemType) {
+            case 0: //Form
+                strItemType = "Screen";
+                break;
+            case 1: //Procedure
+                strItemType = "Action";
+                break;
+            case 2: //Report
+                strItemType = "Report";
+                break;
+        }
+        title = "Lock " + strItemType + " Configuration";
+        if (ngl.stringHasValue(strItemType)) {
+            msg = "This procedure will lock changes to the selected " + strItemType + "s for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        } else {
+            msg = "This procedure will lock changes to the selected Screens/Actions/Reports for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        }
+        intAction = 2; //0 = AllowAccess, 1 = RestrictAccess, 2 = Lock, 3 = Unlock
+        executeWizard(title, msg, intAction)
+    }
+
+    /* Summary - Creates the title and message based on the "Unlock Changes" button and then calls executeWizard() */
+    function UnlockChanges() {
+        var title = "", msg = "", strItemType = "";
+        switch (itemType) {
+            case 0: //Form
+                strItemType = "Screen";
+                break;
+            case 1: //Procedure
+                strItemType = "Action";
+                break;
+            case 2: //Report
+                strItemType = "Report";
+                break;
+        }
+        title = "Lock " + strItemType + " Configuration";
+        if (ngl.stringHasValue(strItemType)) {
+            msg = "This procedure will unlock changes to the selected " + strItemType + "s for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        } else {
+            msg = "This procedure will unlock changes to the selected Screens/Actions/Reports for all Roles of the selected Security Types. Are you sure you want to proceed?";
+        }
+        intAction = 3; //0 = AllowAccess, 1 = RestrictAccess, 2 = Lock, 3 = Unlock
+        executeWizard(title, msg, intAction)
+    }
+
+
+    function executeWizard(title, msg, intAction) {
+        wizardConfigData = null; //clear any old values
+        var selectedItems = $("#selectConfigItemsGrid").data("kendoGrid").selectedKeyNames(); //get selected items
+        var selectedGroups = $("#selectConfigGroupsGrid").data("kendoGrid").selectedKeyNames(); //get selected groups
+        if (typeof (selectedItems) !== 'undefined' && ngl.isArray(selectedItems) && selectedItems.length > 0) {
+            if (typeof (selectedGroups) !== 'undefined' && ngl.isArray(selectedGroups) && selectedGroups.length > 0) {
+                wizardConfigData = new MultiSelectBatchObjects();
+                wizardConfigData.Controls = selectedItems;
+                wizardConfigData.SelectedBits = selectedGroups;
+                wizardConfigData.ConfigType = itemType; //0 = Form, 1 = Procedure, 2 = Report
+                wizardConfigData.Action = intAction; //0 = AllowAccess, 1 = RestrictAccess, 2 = Lock, 3 = Unlock
+                //perform confirmation
+                ngl.OkCancelConfirmation(
+                    title,
+                    msg,
+                    400,
+                    400,
+                    null,
+                    "ConfirmExecuteWizard");
+            } else { ngl.showWarningMsg("Selection Required", "Please select at least one Group", null); }
+        } else { ngl.showWarningMsg("Selection Required", "Please select at least one Item", null); }
+    }
+
+
+    function clearSelectionItemGrid() {
+        //Note: The implementation of this functionality might lead to slow Grid performance.
+        //Set the persistSelection configuration of the Grid to true
+        //Save the current page size in a global variable by using the pageSize method of the Kendo UI dataSource.
+        //Show all the rows on a single page by using the pageSize method.
+        //Unselect all the rows by using the clearSelection method of the Kendo UI Grid.
+        //Bring back the old page size by using the pageSize method.
+        var grid = $("#selectConfigItemsGrid").data("kendoGrid");
+        if (typeof (grid) !== 'undefined' && grid != null) {
+            var originalPageSize = grid.dataSource.pageSize();
+            grid.dataSource.pageSize(grid.dataSource.data().length);
+            grid.clearSelection();
+            grid.dataSource.pageSize(originalPageSize);
+        }
+    }
+
+    function clearSelectionGroupGrid() {
+        //Note: The implementation of this functionality might lead to slow Grid performance.
+        //Set the persistSelection configuration of the Grid to true
+        var grid = $("#selectConfigGroupsGrid").data("kendoGrid");
+        if (typeof (grid) !== 'undefined' && grid != null) {
+            var originalPageSize = grid.dataSource.pageSize(); //Save the current page size in a global variable by using the pageSize method of the Kendo UI dataSource.
+            grid.dataSource.pageSize(grid.dataSource.data().length); //Show all the rows on a single page by using the pageSize method.
+            grid.clearSelection(); //Unselect all the rows by using the clearSelection method of the Kendo UI Grid.
+            grid.dataSource.pageSize(originalPageSize); //Bring back the old page size by using the pageSize method.
+        }
+    }
+
+
+    /* Summary - Selects (checks) all the records in the Items Grid */
+    function selectAllItems() {
+        var grid = $("#selectConfigItemsGrid").data("kendoGrid");
+        var totalPages = grid.pager.totalPages();
+        var originalPage = grid.pager.page();
+        for (var i = 1; i < totalPages + 1; i++) {
+            grid.pager.page(i);
+            grid.select("tr");
+        }
+        grid.pager.page(originalPage);
+    }
+
+    /* Summary - Unselects (unchecks) all the records in the Items Grid */
+    function unselectAllItems() {
+        var grid = $("#selectConfigItemsGrid").data("kendoGrid");
+        var totalPages = grid.pager.totalPages();
+        var originalPage = grid.pager.page();
+        for (var i = 1; i < totalPages + 1; i++) {
+            grid.pager.page(i);
+            grid.clearSelection();
+        }
+        grid.pager.page(originalPage);
+    }
+
+    /* Summary - Click event for the checkbox in the Items Grid Toolbar */
+    function itemCheckBoxClicked(cb) {
+        if (cb.checked) { selectAllItems(); } else { unselectAllItems(); }
+    }
+
+
+    $(document).ready(function () {
+
+        $("#selectConfigItemsGrid").kendoGrid({
+            autoBind: false,
+            dataSource: {
+                pageSize: 10,
+                transport: {
+                    read: function (options) {
+                        //var s = new AllFilter();
+                        //s.page = options.data.page;
+                        //s.skip = options.data.skip;
+                        //s.take = options.data.take;
+                        //s.LEAdminControl = $("#txtLEControl").val();
+                        $.ajax({
+                            url: 'api/ManageRoleConfig/GetConfigItems/' + itemType,
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            //data: { filter: JSON.stringify(s) },
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { ngl.showErrMsg('Access Denied', data.Errors, null); }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    }
+                }
+            },
+            toolbar: "<input type='checkbox' id='chkItemSelect' class='k-checkbox' onclick='itemCheckBoxClicked(this);'><label class='k-checkbox-label' for='chkItemSelect'><strong>Select All</strong></label>",
+            pageable: { pageSizes: [5, 10, 15, 25, 50, 100] },
+            resizable: true,
+            scrollable: false,
+            persistSelection: true,
+            sortable: true,
+            columns: [
+                { selectable: true, width: 50 },
+                { field: "Name", title: "Name" },
+                { field: "Description", title: "Description", hidden: true }
+            ]
+        });
+
+        $("#selectConfigGroupsGrid").kendoGrid({
+            autoBind: false,
+            dataSource: {
+                pageSize: 10,
+                transport: {
+                    read: function (options) {
+                        //var s = new AllFilter();
+                        //s.page = options.data.page;
+                        //s.skip = options.data.skip;
+                        //s.take = options.data.take;
+                        //s.LEAdminControl = $("#txtLEControl").val();
+                        $.ajax({
+                            url: 'api/ManageRoleConfig/GetConfigSecTypes/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            //data: { filter: JSON.stringify(s) },
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { ngl.showErrMsg('Access Denied', data.Errors, null); }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    }
+                }
+            },
+            pageable: { pageSizes: [5, 10, 15, 25, 50, 100] },
+            scrollable: false,
+            persistSelection: true,
+            sortable: true,
+            columns: [
+                { selectable: true, width: 50 },
+                { field: "Name", title: "Name", hidden: true },
+                { field: "Description", title: "Description", hidden: false }
+            ]
+        });
+
+        //RULE: Each item can be assigned to any one or more types. Everyone is the default and as soon as any other security type is selected Everyone is unselected. 
+        var grid = $("#selectConfigGroupsGrid").data("kendoGrid");
+        //bind click event to the checkbox
+        grid.table.on("click", ".k-checkbox", selectRow);
+        //on click of the checkbox:
+        function selectRow() {
+            var checked = this.checked,
+            row = $(this).closest("tr"),
+            grid = $("#selectConfigGroupsGrid").data("kendoGrid"),
+            dataItem = grid.dataItem(row);
+
+            if (dataItem.Control !== 1) {
+                if (checked) {
+                    var view = grid.dataSource.view();
+                    for (var i = 0; i < view.length; i++) {
+                        if (typeof (view[i].Control) !== 'undefined' && view[i].Control != null && view[i].Control === 1) {
+                            grid.tbody.find("tr[data-uid='" + view[i].uid + "']")
+                            .removeClass("k-state-selected")
+                            .find(".k-checkbox")
+                            .removeAttr('checked');
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        ////////////wndMngRoleConfigWzrd///////////////////
+        wndMngRoleConfigWzrd = $("#wndMngRoleConfigWzrd").kendoWindow({
+            title: "Manage Security Configuration Wizard",
+            modal: true,
+            visible: false,
+            height: '80%',
+            width: '60%',
+            minWidth: 500,
+            actions: ["Minimize", "Maximize", "Close"], //'arrow-right', "save",
+            close: function (e) { clearSelectionItemGrid(); clearSelectionGroupGrid(); $("#chkItemSelect").prop('checked', false); }
+        }).data("kendoWindow");
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-i-save").parent().click(function (e) { MassUpdateSSOAs(); });
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().click(function (e) { btnNext_Click(); });
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().attr('disabled', 'disabled');
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().addClass("k-state-disabled");
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().css("color", "red");
+        //$("#wndMngRoleConfigWzrd").data("kendoWindow").wrapper.find(".k-svg-i-arrow-right").parent().css("visibility", "hidden");
+
+
+        //Navigation Buttons
+        $("#btnPrevious").kendoButton({ icon: "arrow-left", click: function (e) { btnPrevious_Click(); } });
+        $("#btnNext").kendoButton({ icon: "arrow-right", click: function (e) { btnNext_Click(); } });
+
+        //Actions
+        $("#btnAllowAccess").kendoButton({ icon: "check", click: function (e) { AllowAccess(); } });
+        $("#btnRestrictAccess").kendoButton({ icon: "cancel", click: function (e) { RestrictAccess(); } });
+        $("#btnLockChanges").kendoButton({ icon: "lock", click: function (e) { LockChanges(); } });
+        $("#btnUnlockChanges").kendoButton({ icon: "unlock", click: function (e) { UnlockChanges(); } });
+
+
+
+
+
+    });
+    //*************************END MANAGE ROLE CONFIGURATION WIZARD SECTION*************************
+</script>

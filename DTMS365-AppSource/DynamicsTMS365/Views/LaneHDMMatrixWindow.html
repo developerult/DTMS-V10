@@ -1,0 +1,718 @@
+﻿<!-- Added By RHR on 11/08/2021 for v-8.5.0.001 -->
+<div id="wndLaneHDMMatrix">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <div id="summaryInfo" class="k-block k-info-colored"></div>
+        <p>Please paste or enter the Locations for this HDM Matrix</p>
+        <hr />       
+        <div id="LaneHDMMatrixGrid" style="width: 100%"></div>
+    </div>
+    <div>
+        <div id="exportToExcelGrid" style="display: none"></div>
+    </div>
+</div>
+
+<style>
+    #LaneHDMMatrixGrid .k-tabstrip-wrapper {
+        display: none;
+    }
+
+    .k-spreadsheet .k-spreadsheet-sheets-bar {
+        display: none;
+    }
+
+    .k-spreadsheet .k-dirty {
+        display: none;
+    }
+</style>
+
+<script>
+    var dsActiveCarriers = kendo.data.DataSource;
+    var simplesource = [];
+    var datasource = kendo.data.DataSource;
+    var wndLaneHDMMatrix = kendo.ui.Window;
+    var AllRecords;
+    var AllRecordsData;
+    var HDMControl;
+    var HDMZipHDMControl;
+    var HDMName;
+
+    //Fields to map
+    //********************
+    //Private _HDMZipControl As Integer
+    //Private _HDMZipHDMControl As Integer
+    //Private _HDMZipFrom As String
+    //Private _HDMZipTo As String
+    //Private _HDMZipCity As String
+    //Private _HDMZipState As String
+    //Private _HDMZipCountry As String
+
+    var vLaneHDMMatPivotDetailDataJsonSet = (values, index) => ({         
+        HDMZipCountry: values[index][0],
+        HDMZipState: values[index][1],
+        HDMZipCity: values[index][2],
+        HDMZipFrom: values[index][3],
+        HDMZipTo: values[index][4]
+    });
+    var vLaneHDMMatvtblHDMZipJsonSet = (values, index) => ({
+        HDMZipCountry: values[index][0],
+        HDMZipState: values[index][1],
+        HDMZipCity: values[index][2],
+        HDMZipFrom: values[index][3],
+        HDMZipTo: values[index][4],
+        HDMZipControl: 0,
+        HDMZipHDMControl: HDMControl
+    });
+       
+
+
+    //var vHDMZipPivotTruckLoadDataJsonSet = (values, index) => ({
+    //    HDMZipCountry: values[index][0],
+    //    HDMZipState: values[index][1],
+    //    HDMZipCity: values[index][2],
+    //    HDMZipFrom: values[index][3],
+    //    HDMZipTo: values[index][4],
+    //    LaneNumber: values[index][5],
+    //    HDMZipMin: values[index][6],
+    //    HDMZipMaxDays: values[index][7],
+    //    Rate: values[index][8],
+    //});
+   
+    var vLaneHDMMatRowsSet = [
+        {
+            height: 25,
+            cells: [
+                {
+                    value: "Country", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                },
+                {
+                    value: "State", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                },
+                {
+                    value: "City", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                },
+                {
+                    value: "Start Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                },
+                {
+                    value: "Stop Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                }
+            ]
+        },
+    ];
+
+
+    //var dataJsonSet = {
+    //    "57": vHDMZipPivotTruckLoadDataJsonSet,
+    //    "58": vHDMZipPivotDetailDataJsonSet,
+    //    "59": vHDMZipPivotTruckLoadDataJsonSet,
+    //    "60": vHDMZipPivotDetailDataJsonSet,
+    //}
+
+    //var controllerName = {
+    //    "57": "TariffRateDistance",
+    //    "58": "TariffRateClass",
+    //    "59": "TariffRateFlat",
+    //    "60": "TariffRateUOM",
+    //}
+
+    var spreadsheetColumnSelection = {
+        "1": "A2:E10000"
+    }
+    
+    //var rowsSet = {
+    //    "57": vHDMZipPivotTruckLoadRowsSet,
+    //    "58": vHDMZipPivotDetailLoadRowsSet,
+    //    "59": vHDMZipPivotTruckLoadRowsSet,
+    //    "60": vHDMZipPivotDetailLoadRowsSet,
+    //}
+
+    //var columnsSet = {
+    //    "57": [
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        }
+    //    ],
+    //    "58": [
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        }
+    //    ],
+    //    "59": [
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        }
+    //    ],
+    //    "60": [
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        },
+    //        {
+    //            width: 150
+    //        }
+    //    ]
+    //}
+
+    function openImportLaneHDMWnd(iHDMControl) {
+        HDMControl = iHDMControl;
+        wndLaneHDMMatrix.center().open();
+        GetAllData();
+
+        //$(document).ready(function () {
+
+            $('a.k-window-action[aria-label="Save"]').prop('title', 'Save');
+            $('a.k-window-action[aria-label="Strip-all-formatting"]').prop('title', 'Delete and save');
+            $('a.k-window-action[aria-label="Excel"]').prop('title', 'Export in Excel');
+            
+            //$("#EffectiveDate").kendoDatePicker({ value: new Date() });
+            //$("#EffectiveTo").kendoDatePicker();
+
+        $('#summaryInfo').empty();
+        let NameInfo = 'Name: ' + HDMName + ' ';
+        let DescInfo = 'Desc: ' + HDMDesc + ' ';
+        let CarrierInfo = 'Carrier: ' + CarrierName + ' ';
+        $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${NameInfo}</div>`);
+        $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${DescInfo}</div>`);
+        $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${CarrierInfo}</div>`);
+
+      
+           // let summaryCellInfo = '<span>Name: ' + HDMName + '</span><span>Desc: ' + HDMDesc + '</span><span>Carrier: ' + CarrierName + '</span>'; //  $($($('[id ^=divid][id $=Summary]')[0]).find('div td')[i]).text();
+          //  $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${summaryCellInfo}</div>`);
+           
+       // });
+    }
+</script>
+
+<div id="example">
+    <div id="spreadsheet" style="width: 100%;"></div>
+    <script>
+        var values;
+        var changevariable = [];
+        var countforchange = 0;
+        function onPaste(arg) {
+            values = arg.clipboardContent.data.map(function (row) {
+                return row.map(function (cell) {
+                    return cell.value;
+                });
+            });
+        }
+
+        function onChange(arg) {
+            if (values == null) {
+                values = "";
+            }
+
+            var sheet = $("#LaneHDMMatrixGrid").data("kendoSpreadsheet");
+            changevariable.push(arg.range.value());
+        }
+
+        function GetAllData() {
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.read('LELaneHDMZip/GetByParent', HDMControl, tPage, "GetLaneHDMMatrixSuccessCallback", "getAllDataAjaxErrorCallback", true);
+        }
+
+        function GetLaneHDMMatrixSuccessCallback(data, errTitle) {
+            try {
+                var blnSuccess = false;
+                var blnErrorShown = false;
+                var strValidationMsg = "";
+
+                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                    if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg(errTitle, data.Errors, null); }
+                    else {
+                        if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                            if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                blnSuccess = true;
+                                AllRecords = data.Data;
+                                for (var i = 0; i < data.Data.length; i++) {
+                                    if (data.Data[i].HDMZipHDMControl) {
+                                        HDMZipHDMControl = data.Data[i].HDMZipHDMControl;
+                                    }
+                                    if (data.Data[i].HDMName) {
+                                        HDMName = data.Data[i].HDMName;
+                                    }
+                                    simplesource.push(data.Data[i].HDMZipControl);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (AllRecords && ngl.isArray(AllRecords) && AllRecords.length > 0) {
+
+                    AllRecordsData = AllRecords.map(row => {
+                        return {
+                            HDMZipCountry: row.HDMZipCountry,
+                            HDMZipState: row.HDMZipState,
+                            HDMZipCity: row.HDMZipCity,
+                            HDMZipFrom: row.HDMZipFrom,
+                            HDMZipTo: row.HDMZipTo
+                        }             
+                    });
+
+                    $("#exportToExcelGrid").kendoGrid({
+                        columns: vLaneHDMMatPivotDetailDataJsonSet,
+                        dataSource: AllRecordsData
+                    });
+
+                    let localDataSource = new kendo.data.DataSource({
+                        data: AllRecordsData
+                    });
+
+                    createSpreadSheet(localDataSource);
+                    removeContextMenuFromSpreadSheet();
+                }
+
+                if (blnSuccess === false && blnErrorShown === false) {
+                    if (strValidationMsg.length < 1) { strValidationMsg = errTitle; }
+                    ngl.showErrMsg(errTitle, strValidationMsg, null);
+                }
+
+                execActionClick("Refresh");
+
+            } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+        }
+
+        function removeContextMenuFromSpreadSheet() {
+            $('#LaneHDMMatrixGrid').find('.k-spreadsheet-fixed-container').off('contextmenu');
+        }
+
+        function getAllDataSuccessCallback(data) {
+            GetLaneHDMMatrixSuccessCallback(data, "Get Lane HDM Fees Failure");
+        }
+
+        function getAllDataAjaxErrorCallback(results) {
+            alert("error"); ngl.showErrMsg("Get Lane HDM Fees Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage);
+        }
+
+        function ClearSpreadsheet(obj) {
+            if (obj == 1) {
+                DeleteHDMZipRecords();
+                SaveLaneHDMFeesMatrix();
+            }
+        }
+
+        function createSpreadSheet(localDataSource) {
+            console.log(localDataSource);
+            $(function () {
+                $("#LaneHDMMatrixGrid").kendoSpreadsheet({
+                    excel: {
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    toolbar: {
+                        insert: false,
+                        data: false
+                    },
+                    pdf: {
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    paste: onPaste,
+                    rows: 10000,
+                    sheets: [
+                        {
+                            name: "Lane HDM Fees matrix",                            
+                            dataSource: localDataSource,
+                            rows: vLaneHDMMatRowsSet,
+                            columns: [
+                                {width: 150},
+                                {width: 150},
+                                {width: 150},
+                                {width: 150},
+                                {width: 150}],
+
+                        },
+                    ],
+                }).data("kendoSpreadsheet").one("render", function (e) {
+                    e.sender.sheets().forEach(function (sheet) {
+                        sheet.range(0, vLaneHDMMatRowsSet[0].cells.length, sheet._rows._count, sheet._columns._count).enable(false);
+                    })
+                });
+            });
+        }
+
+        function stripAll(e) {
+            debugger;
+            ngl.OkCancelConfirmation(
+                "Clear title",
+                "Do you want to clear and override???",
+                400,
+                400,
+                null,
+                "ClearSpreadsheet");
+            e.preventDefault();
+        }
+
+        function saveToExcel(e) {
+            debugger;
+            var grid = $("#exportToExcelGrid").data("kendoGrid");
+            grid.saveAsExcel();
+            e.preventDefault();
+        }
+
+        function SaveLaneHDMFeesMatrix() {
+            debugger;
+            var spreadsheet = $("#LaneHDMMatrixGrid").data("kendoSpreadsheet");
+            var values = spreadsheet.sheets()[0].range(spreadsheetColumnSelection[1]).values();
+            var dataJson;
+
+            if (values == null || values == "undefined" || values == undefined) {
+                ngl.showErrMsg("Update Lane HDM Fees", "Please paste the Lane HDM Fees matrix and try again", "");
+                return;
+            }
+            else {
+                if (values != "") {
+                    var result = [];
+                    for (var i = 0; i < values.length; i++) {
+                        if (values[i][0] != null) {
+                            var objectBuilder = vLaneHDMMatvtblHDMZipJsonSet;
+                            dataJson = objectBuilder(values, i);
+                            if (dataJson) {
+                                result.push(dataJson);
+                            }
+                        }
+                    }
+                    if (result.length > 0) {
+                        UpdatingLaneHDMGrid(result);
+                    }
+                }
+            }
+
+            console.log("spreadsheetColumnSelection[1]");
+            console.log(spreadsheetColumnSelection[1]);
+            spreadsheet.sheets()[0].range(spreadsheetColumnSelection[1]).clear();
+        }
+
+        function upateGridAfterUpdate() {
+            debugger;
+            ngl.showSuccessMsg("Lane HDM Fees updated successfully.", null);
+            GetAllData();
+            refreshLaneHDMGrid();
+        }
+
+        function UpdatingLaneHDMGrid(DATAJSON) {
+            debugger;
+            //let url;
+            //let from = $("#EffectiveDate").val();
+            //let to = $("#EffectiveTo").val();
+            //if (to) {
+            //    url = `api/LELaneHDMZip/PostSpreadSheet?HDMZipCarrTarControl=${HDMZipCarrTarControl}&HDMZipCarrTarMatBPControl=${HDMZipCarrTarMatBPControl}&HDMZipName=${HDMZipName}&EffectiveDate=${from}&EffectiveTo=${to}`;
+            //} else {
+            //    url = `api/LELaneHDMZip/PostSpreadSheet?HDMZipCarrTarControl=${HDMZipCarrTarControl}&HDMZipCarrTarMatBPControl=${HDMZipCarrTarMatBPControl}&HDMZipName=${HDMZipName}&EffectiveDate=${from}`;
+            //}
+            let url = 'api/LELaneHDMZip/PostSpreadSheet';
+            $.ajax({
+                type: 'POST',
+                url: url,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: JSON.stringify(DATAJSON),
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    if (data.Errors != null) {
+                        if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                        else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                    }
+                    upateGridAfterUpdate();
+                },
+                error: function (xhr, textStatus, error) {
+                    var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                    ngl.showErrMsg("Lane HDM Fees update failed", sMsg, null);
+                }
+            });
+        }
+
+        function DeleteHDMZipRecords() {
+            debugger;
+            $.ajax({
+                type: 'DELETE',
+                url: 'api/LELaneHDMZip/DELETEAll/' + HDMControl,
+                contentType: "application/json; charset=utf-8",
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    if (data.Errors != null) {
+                        if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                        else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                    }
+                },
+                error: function (xhr, textStatus, error) {
+                    var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                    ngl.showErrMsg("Delte Lane HDM Locaiton Details", sMsg, null);
+                }
+            });
+        }
+
+     
+        $(document).ready(function () {
+          
+
+            wndLaneHDMMatrix = $("#wndLaneHDMMatrix").kendoWindow({
+                title: "Import Lane HDM Fees Matrix",
+                width: "60%",
+                height: "80%",
+                actions: ["File-Excel", "Strip-all-formatting", "Save", "Minimize", "Maximize", "Close"],
+                modal: true,
+                visible: false
+            }).data("kendoWindow");
+
+            $("#wndLaneHDMMatrix").data("kendoWindow").wrapper.find(".k-svg-i-file-excel").parent().click(function (e) {
+                var grid = $("#exportToExcelGrid").data("kendoGrid");
+                grid.saveAsExcel();
+                e.preventDefault();
+            });
+
+            $("#wndLaneHDMMatrix").data("kendoWindow").wrapper.find(".k-svg-i-strip-all-formatting").parent().click(function (e) {
+                debugger;
+                ngl.OkCancelConfirmation(
+                    "Clear title",
+                    "Do you want to clear and override???",
+                    400,
+                    400,
+                    null,
+                    "ClearSpreadsheet");
+                e.preventDefault();
+            });
+
+            $("#wndLaneHDMMatrix").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) {
+                SaveLaneHDMFeesMatrix();
+            });
+
+            //function SaveLaneHDMFeesMatrix() {
+            //    var spreadsheet = $("#LaneHDMMatrixGrid").data("kendoSpreadsheet");
+            //    var values = spreadsheet.sheets()[0].range(spreadsheetColumnSelection[1]).values();
+            //    var dataJson;
+
+            //    if (values == null || values == "undefined" || values == undefined) {
+            //        ngl.showErrMsg("Update Lane HDM Fees", "Please paste the Lane HDM Fees matrix and try again", "");
+            //        return;
+            //    }
+            //    else {
+            //        if (values != "") {
+            //            var result = [];
+            //            for (var i = 0; i < values.length; i++) {
+            //                if (values[i][0] != null) {
+            //                    var objectBuilder = vLaneHDMMatvtblHDMZipJsonSet;
+            //                    dataJson = objectBuilder(values, i);
+            //                    if (dataJson) {
+            //                        result.push(dataJson);
+            //                    }
+            //                }
+            //            }
+            //            if (result.length > 0) {
+            //                UpdatingLaneHDMGrid(result);
+            //            }
+            //        }
+            //    }
+
+            //    console.log("spreadsheetColumnSelection[1]");
+            //    console.log(spreadsheetColumnSelection[1]);
+            //    spreadsheet.sheets()[0].range(spreadsheetColumnSelection[1]).clear();
+            //}
+
+            $(".k-spreadsheet-sheets-bar-add .k-button .k-button-icon").hide();
+
+            //function upateGridAfterUpdate() {
+            //    ngl.showSuccessMsg("Lane HDM Fees updated successfully.", null);
+            //    GetAllData();
+            //    refreshLaneHDMGrid();
+            //}
+
+            //function UpdatingLaneHDMGrid(DATAJSON) {
+            //    let url;
+            //    //let from = $("#EffectiveDate").val();
+            //    //let to = $("#EffectiveTo").val();
+            //    //if (to) {
+            //    //    url = `api/LELaneHDMZip/PostSpreadSheet?HDMZipCarrTarControl=${HDMZipCarrTarControl}&HDMZipCarrTarMatBPControl=${HDMZipCarrTarMatBPControl}&HDMZipName=${HDMZipName}&EffectiveDate=${from}&EffectiveTo=${to}`;
+            //    //} else {
+            //    //    url = `api/LELaneHDMZip/PostSpreadSheet?HDMZipCarrTarControl=${HDMZipCarrTarControl}&HDMZipCarrTarMatBPControl=${HDMZipCarrTarMatBPControl}&HDMZipName=${HDMZipName}&EffectiveDate=${from}`;
+            //    //}
+            //    url = `api/LELaneHDMZip/PostSpreadSheet`;
+            //    $.ajax({
+            //        type: 'POST',
+            //        url: url,
+            //        contentType: "application/json; charset=utf-8",
+            //        dataType: 'json',
+            //        data: JSON.stringify(DATAJSON),
+            //        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            //        success: function (data) {
+            //            if (data.Errors != null) {
+            //                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+            //                else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+            //            }
+            //            upateGridAfterUpdate();
+            //        },
+            //        error: function (xhr, textStatus, error) {
+            //            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+            //            ngl.showErrMsg("Lane HDM Fees update failed", sMsg, null);
+            //        }
+            //    });
+            //}
+
+            //function DeleteHDMZipRecords() {
+                
+            //    $.ajax({
+            //        type: 'DELETE',
+            //        url: 'api/LELaneHDMZip/DELETEAll/' + HDMControl,
+            //        contentType: "application/json; charset=utf-8",
+            //        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            //        success: function (data) {
+            //            if (data.Errors != null) {
+            //                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+            //                else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+            //            }
+            //        },
+            //        error: function (xhr, textStatus, error) {
+            //            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+            //            ngl.showErrMsg("Delte Lane HDM Locaiton Details", sMsg, null);
+            //        }
+            //    });
+            //}
+        });
+    </script>
+</div>

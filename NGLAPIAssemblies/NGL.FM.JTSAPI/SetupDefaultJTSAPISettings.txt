@@ -1,0 +1,199 @@
+﻿
+
+
+/* 
+Created by RHR for v-8.5.1.002 on 03/04/2022 
+Run this after the upgrade all script.
+
+RecNo	Detail_Description
+64428	Class 50 Products
+64429	Class 55 Products
+64430	Class 60 Products
+64431	Class 65 Products
+64432	Class 70 Products
+64433	Class 77.5 Products
+64434	Class 85 Products
+64435	Class 92.5 Products
+64436	Class 100 Products
+64437	Class 125 Products
+64438	Class 175 Products
+64439	Class 250 Products
+64440	Class 300 Products
+
+*/
+-- Note: update the default location id for this customer, get from JTS
+-- Add update tblSSOALEConfig set SSOALEClientID = 'NGLJTS' where SSOALEControl = 2
+
+Declare @SSOALEControl int = 0
+Declare @LowLTLWeight nvarchar(50) = '500'
+Declare @HighLTLWeight nvarchar(50)  = '15000'
+Declare @LowTLWeight nvarchar(50) = '0'
+Declare @HighTLWeight nvarchar(50) = '0'
+Declare @CarrierNumber int = 7  -- 'JTS'
+
+
+if @CarrierNumber > 0 and exists(Select * from dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = 13)
+Begin
+	if not exists(Select * From  dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = 13  and tblSingleSignOnAccount.SSOAClientID  = 'NGLJTS')
+	Begin
+		--Not set up so add the header details
+		update  dbo.tblSingleSignOnAccount set
+			tblSingleSignOnAccount.SSOAClientID  = 'NGLJTS',
+			SSOAClientSecret = '',
+			SSOAAuthCode = '5933f1ba-1609-4b44-9619-25899efeeb77',  --D711D36B-F01B-40FD-8445-5F0730FE4DB6
+			SSOALoginURL = '',
+			SSOADataURL = 'https://www.johansontrans.com/Rates/v2/LTL'			
+		where tblSingleSignOnAccount.SSOAControl = 13
+	End
+	Declare @SSOACSSOALEControl int
+	if not exists(Select * From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = 13 and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEClientID  = 'NGLJTS')
+	Begin
+		--Not set up so add the LE header details
+		Insert Into   dbo.tblSSOALEConfig (
+			SSOALESSOAControl,
+			SSOALELEAdminControl,
+			SSOALEClientID,
+			SSOALEClientSecret,
+			SSOALEAuthCode,
+			SSOALELoginURL,
+			SSOALeDataURL
+		)
+		Values(
+			13, -- JTS SSOALESSOAControl,
+			0, -- SSOALELEAdminControl,
+			'', -- SSOALEClientID,
+			'', -- SSOALEClientSecret,
+			'5933f1ba-1609-4b44-9619-25899efeeb77', -- SSOALEAuthCode,
+			'', -- SSOALELoginURL,
+			'https://test.johansontrans.com/Rates/v2/LTL' -- SSOALeDataURL
+		)
+		Select @SSOALEControl = SCOPE_IDENTITY() 
+	End
+	Else
+	Begin
+		Select @SSOALEControl = SSOALEControl  From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = 13 and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEAuthCode  = '5933f1ba-1609-4b44-9619-25899efeeb77'
+	End
+
+	
+	-- check for each of the default config settings
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl and [SSOACCompControl] = 0 and SSOACName = 'Mode')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Mode','Default Shipping Mode for All Locations','LTL',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Equipment')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Equipment','Default Shipping Equipment for All Locations','VAN',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'CarrierNumber')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'CarrierNumber','Default API Carrier Number for All Locations',Cast(@CarrierNumber as nvarchar(20)),getdate(),'System')
+	End	
+	
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowLTLWeight','Default JTS Low LTL Weight Break for All Locations',@LowLTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighLTLWeight','Default JTS High LTL Weight Break for All Locations',@HighLTLWeight,getdate(),'System')
+	End
+
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowTLWeight','Default JTS Low Truckload Weight for All Locations',@LowTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighTLWeight','Default JTS High Truckload Weight for All Locations',@HighTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 50 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 50 RecNo','Class 50 RecNo','64428',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 55 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 55 RecNo','Class 55 RecNo','64429',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 60 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 60 RecNo','Class 60 RecNo','64430',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 65 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 65 RecNo','Class 65 RecNo','64431',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 70 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 70 RecNo','Class 70 RecNo','64432',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 77.5 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 77.5 RecNo','Class 77.5 RecNo','64433',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 85 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 85 RecNo','Class 85 RecNo','64434',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 92.5 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 92.5 RecNo','Class 92.5 RecNo','64435',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 100 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 100 RecNo','Class 100 RecNo','64436',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 125 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 125 RecNo','Class 125 RecNo','64437',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 175 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 175 RecNo','Class 175 RecNo','64438',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 250 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 250 RecNo','Class 250 RecNo','64439',getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Class 300 RecNo')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Class 300 RecNo','Class 300 RecNo','64440',getdate(),'System')
+	End
+
+
+End

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGL.API.Assemblies", "NGL.API.Assemblies.csproj", "{114D41BF-BBA6-438E-9501-FA04230E3B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGL.FM.CHRAPI", "..\NGL.FM.CHRAPI\NGL.FM.CHRAPI.csproj", "{150969C9-4998-44DD-89F8-14EAAC9CBB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGL.FM.JTSAPI", "..\NGL.FM.JTSAPI\NGL.FM.JTSAPI.csproj", "{3EB68427-F5D8-400C-9131-9806E41415D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGL.FM.UPSAPI", "..\NGL.FM.UPSAP\NGL.FM.UPSAPI.csproj", "{169126FD-483F-4E6E-A8FA-71E0BD58EAEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114D41BF-BBA6-438E-9501-FA04230E3B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114D41BF-BBA6-438E-9501-FA04230E3B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114D41BF-BBA6-438E-9501-FA04230E3B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114D41BF-BBA6-438E-9501-FA04230E3B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{150969C9-4998-44DD-89F8-14EAAC9CBB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{150969C9-4998-44DD-89F8-14EAAC9CBB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{150969C9-4998-44DD-89F8-14EAAC9CBB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{150969C9-4998-44DD-89F8-14EAAC9CBB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB68427-F5D8-400C-9131-9806E41415D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB68427-F5D8-400C-9131-9806E41415D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB68427-F5D8-400C-9131-9806E41415D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB68427-F5D8-400C-9131-9806E41415D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{169126FD-483F-4E6E-A8FA-71E0BD58EAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169126FD-483F-4E6E-A8FA-71E0BD58EAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169126FD-483F-4E6E-A8FA-71E0BD58EAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169126FD-483F-4E6E-A8FA-71E0BD58EAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB40AAA9-3032-41FD-8932-AB4E67AE69F5}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dynamicstms365.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NGL.API.Assemblies.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\NGL.FM.CHRAPI\\NGL.FM.CHRAPI.csproj
+		SccProjectName2 = ../NGL.FM.CHRAPI
+		SccLocalPath2 = ..\\NGL.FM.CHRAPI
+		SccProjectUniqueName3 = ..\\NGL.FM.JTSAPI\\NGL.FM.JTSAPI.csproj
+		SccProjectName3 = ../NGL.FM.JTSAPI
+		SccLocalPath3 = ..\\NGL.FM.JTSAPI
+		SccProjectUniqueName4 = ..\\NGL.FM.UPSAP\\NGL.FM.UPSAPI.csproj
+		SccProjectName4 = ../NGL.FM.UPSAP
+		SccLocalPath4 = ..\\NGL.FM.UPSAP
+	EndGlobalSection
+EndGlobal

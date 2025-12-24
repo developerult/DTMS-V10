@@ -1,0 +1,402 @@
+﻿<!--
+    NOTE: THIS HTML WINDOW IS TIED TO LEUsers.aspx SPECIFICALLY - DID NOT MAKE IT GENERAL AND REUSABLE YET
+-->
+
+<div id="wndSSOAMassUpdate">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div style="padding: 0px 10px 0px 10px;">
+
+            <div style="padding-bottom: 5px; padding-top: 10px;">
+                <input type="checkbox" id="chkCopySSOAMU" ><label class="k-checkbox-label" for="chkCopySSOAMU"><strong>Copy Settings</strong></label>
+            </div>
+
+            <!--Copy From Grid-->
+            <div id="divSSOAMUCopyFrom">
+                <div id="divSSOAMUCopyFromGrid">
+                    <strong style="color:red;">Select a User's SSOA Account to copy from</strong>
+                    <div id="ssoamuCopyFromGrid"></div>
+                </div>                 
+                <div id="lblssoamuCopyFromName"></div>
+            </div>
+
+            <div id="divSSOAMUManualEntry">
+                <!--NEXTStop-->
+                <div style="padding-bottom: 10px; padding-top: 5px;"><input type="checkbox" id="chkNextStop" ><label class="k-checkbox-label" for="chkNextStop"><strong>NEXTStop</strong></label></div>
+                <!--P44-->
+                <div><input type="checkbox" id="chkP44" ><label class="k-checkbox-label" for="chkP44"><strong>NGL API</strong></label></div>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <!--P44 Fields-->
+            <div id="divP44" class="k-block k-info-colored" style="float: left;">                                  
+                <table id="tbDispatchDeliveryElements" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:0px; margin-bottom:0px; width:auto;">                      
+                    <tbody class="data-container" style="width: auto;">                           
+                        <tr class="data-template" style="border: none;">
+                            <td class="data-entry-label tbl-td-1">API User Name:</td>                                                          
+                            <td class="data-entry-value tbl-td-2"><input id="txtMUUserName" maxlength="100" class="in1"></td>                                                  
+                        </tr>                           
+                        <tr class="data-template" style="border: none;">                               
+                            <td class="data-entry-label tbl-td-1">Account Group:</td>                                
+                            <td class="data-entry-value tbl-td-2"><input id="txtMURefID" maxlength="100" class="in1"></td>                            
+                        </tr>                            
+                        <tr class="data-template" style="border: none;">                               
+                            <td class="data-entry-label tbl-td-1">Password:</td>                               
+                            <td class="data-entry-value tbl-td-2"><input id="txtMUNewPassword" maxlength="100" class="in1"></td>                            
+                        </tr>                            
+                        <tr class="data-template" style="border: none;">                               
+                            <td class="data-entry-label tbl-td-1">Confirm Password:</td>                                
+                            <td class="data-entry-value tbl-td-2"><input id="txtMUConfirmPassword" maxlength="100" class="in1"></td>                         
+                        </tr>                    
+                    </tbody>                  
+                </table>      
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <!--Users Grid-->
+            <div>
+                <strong>Apply To: </strong>
+                <div id="massUpdateUsersGrid"></div>
+            </div>
+
+            <input id="txtMUSSOAXControl" type="hidden">
+
+        </div>
+    </div>
+</div>
+
+<!--Template that is used by the grid "ssoamuCopyFromGrid" in wndSSOAMassUpdate-->
+<script type="text/x-kendo-template" id="ssoamuCopyFromGridDetTemplate">
+    <div class="tabstrip">
+        <ul>
+            <li class="k-active">Single Sign On Accounts</li>
+        </ul>
+        <div><div class="ssoamuCopyFromAccounts"></div></div>
+    </div>
+</script>
+
+<script>
+    //************************BEGIN MASS UPDATE SSOA SECTION************************
+
+    var wndSSOAMassUpdate = kendo.ui.Window;
+
+    /* Summary - toggles between showing the "Select Copy From Grid" and the label displaying which user was selected */
+    function showCopyFromGrid(blnShow) {
+        if (blnShow) { $("#divSSOAMUCopyFromGrid").show(); $("#lblssoamuCopyFromName").hide(); }
+        else { $("#divSSOAMUCopyFromGrid").hide(); $("#lblssoamuCopyFromName").show(); }
+    }
+
+    /* Summary - clears selections from ssoamuCopyFromGrid and label and hides all divs (grid and label) */
+    function resetDivSSOAMUCopyFrom() {
+        $("#ssoamuCopyFromGrid").data("kendoGrid").clearSelection();
+        $('#ssoamuCopyFromGrid').data('kendoGrid').dataSource.read();
+        $("#lblssoamuCopyFromName").html("");
+        $("#lblssoamuCopyFromName").hide();
+        $("#divSSOAMUCopyFromGrid").hide();
+    }
+
+    /* Summary - clears all values in P44 div and hides it, and unchecks both P44 and NextStop checkboxes */
+    function resetDivSSOAMUManualEntry() {
+        $("#txtMUNewPassword").data("kendoMaskedTextBox").value("");
+        $("#txtMUConfirmPassword").data("kendoMaskedTextBox").value("");
+        $("#txtMURefID").data("kendoMaskedTextBox").value("");
+        $("#txtMUUserName").data("kendoMaskedTextBox").value("");
+        $("#chkNextStop").prop('checked', false);
+        $("#chkP44").prop('checked', false);
+        $("#divP44").hide();
+    }
+
+    /* Summary - resets the window to its starting state */
+    function resetWndSSOAMassUpdate() {
+        resetDivSSOAMUManualEntry(); //clears all values in P44 div and hides it, and unchecks both P44 and NextStop checkboxes
+        $("#massUpdateUsersGrid").data("kendoGrid").clearSelection();
+        $('#massUpdateUsersGrid').data('kendoGrid').dataSource.read();
+        resetDivSSOAMUCopyFrom(); //clears selections from ssoamuCopyFromGrid and label and hides all divs (grid and label)
+        $("#chkCopySSOAMU").prop('checked', false);
+        $("#divSSOAMUManualEntry").show(); //shows the P44 and NextStop checkbox options 
+        $("#txtMUSSOAXControl").val(0);
+    }
+
+    /* Summary - executed when the select button is clicked inside the "Copy From" grid */
+    function selectSSOAX(e) {
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        if (typeof (item) === 'undefined' || item == null || !ngl.isObject(item)) { ngl.showErrMsg("Error", "There was a problem getting the row from the grid", null); return; } //Verify the row item is not null
+        if (!('SSOAXControl' in item)) { ngl.showErrMsg("SSOAXControl Required", "Row object does not contain property SSOAXControl.", null); return; } //Verify SSOAXControl is a column in the grid     
+        if (typeof (item.SSOAXControl) === 'undefined' || item.SSOAXControl == null || item.SSOAXControl == 0) { ngl.showErrMsg("SSOAXControl Required", "SSOAXControl cannot be 0", null); return; } //Verify that SSOAXControl is not null or 0                                       
+        $("#txtMUSSOAXControl").val(item.SSOAXControl); //Save the SSOAXControl so it can be accessed by the Save function   
+        var un = "", desc = "";
+        if ('UserName' in item && ngl.stringHasValue(item.UserName)) { un = " " + item.UserName; }
+        if ('SSOADesc' in item && ngl.stringHasValue(item.SSOADesc)) { desc = " " + item.SSOADesc; }
+        var c = "<h3>Copy From:" + un + desc + "</h3>";
+        $("#lblssoamuCopyFromName").html(c);
+        showCopyFromGrid(false); //toggles between showing the "Select Copy From Grid" and the label displaying which user was selected
+    }
+
+
+    /* Summary - executes when the Action Menu button "Mass Update SSOAs" is clicked */
+    function openSSOAMassUpdateWindow() {
+        resetWndSSOAMassUpdate(); //resets the window to its starting state
+        wndSSOAMassUpdate.center().open();
+    }
+
+    /* Summary - Calls the REST method to mass update the SSOAs */
+    function ConfirmMassUpdateSSOAs(iRet) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; } //Chose the Cancel action           
+        //Chose the Ok action
+        if (typeof (mussoaData) !== 'undefined' && ngl.isArray(mussoaData.UserControls) && mussoaData.UserControls.length > 0) {
+            $.ajax({
+                type: 'POST',
+                url: 'api/SingleSignOn/MassUpdateSingleSignOn',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(mussoaData),
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    try {
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Mass Update Single Sign On Failure", data.Errors, null); }
+                            else { wndSSOAMassUpdate.close(); refreshLEUsersGrid(); }
+                        }
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("Mass Update Single Sign On Failure", sMsg, null); }
+            });
+        }
+    }
+
+    /* Summary - Verifies that the user wants to mass update ssoas and if so calls ConfirmMassUpdateSSOAs() */
+    var mussoaData = null;
+    function MassUpdateSSOAs() {
+        mussoaData = null; //clear any old values
+        var massUpdateSSOAUsers = $("#massUpdateUsersGrid").data("kendoGrid").selectedKeyNames(); //get selected users
+        if (typeof (massUpdateSSOAUsers) !== 'undefined' && ngl.isArray(massUpdateSSOAUsers) && massUpdateSSOAUsers.length > 0) {
+            var tfNextStop = false;
+            var tfP44 = false;
+            if ($('#chkNextStop').is(":checked")) { tfNextStop = true; }
+            if ($('#chkP44').is(":checked")) { tfP44 = true; }
+            mussoaData = new MassUpdateSingleSignOn();
+            mussoaData.NEXTStop = tfNextStop;
+            mussoaData.P44 = tfP44;
+            mussoaData.SSOAXUN = $("#txtMUUserName").data("kendoMaskedTextBox").value();
+            mussoaData.SSOAXPass = $("#txtMUNewPassword").data("kendoMaskedTextBox").value();
+            mussoaData.NewPass = $("#txtMUConfirmPassword").data("kendoMaskedTextBox").value();
+            mussoaData.SSOAXRefID = $("#txtMURefID").data("kendoMaskedTextBox").value();
+            mussoaData.UserControls = massUpdateSSOAUsers;
+            mussoaData.CopyFromSSOAXCtrl = $("#txtMUSSOAXControl").val();
+            //perform confirmation
+            var title = "Mass Update User SSOAs";
+            ngl.OkCancelConfirmation(
+                title,
+                "This action will overwrite the existing Single Sign On Account configuration for the selected Users. Are you sure you want to proceed?",
+                400,
+                400,
+                null,
+                "ConfirmMassUpdateSSOAs");
+        } else { ngl.showWarningMsg("Selection Required", "Please select at least one User", null); }
+    }
+
+
+    $(document).ready(function () {
+
+        $('#chkCopySSOAMU').click(function () {
+            if ($(this).is(':checked')) {            
+                resetDivSSOAMUManualEntry(); //clears all values in P44 div and hides it, and unchecks both P44 and NextStop checkboxes
+                $("#divSSOAMUManualEntry").hide(); //hides the P44 and NextStop checkbox options 
+                showCopyFromGrid(true); //toggles between showing the "Select Copy From Grid" and the label displaying which user was selected //(show grid hide label)
+            } else {
+                $("#divSSOAMUManualEntry").show(); //shows the P44 and NextStop checkbox options 
+                resetDivSSOAMUCopyFrom(); //clears selections from ssoamuCopyFromGrid and label and hides all divs (grid and label)
+            }
+        });
+       
+        $("#txtMURefID").kendoMaskedTextBox();
+        $("#txtMUUserName").kendoMaskedTextBox();
+        $("#txtMUNewPassword").kendoMaskedTextBox();
+        $("#txtMUConfirmPassword").kendoMaskedTextBox();
+
+        $('#chkP44').click(function () {
+            if ($(this).is(':checked')) { $("#divP44").show(); } else { $("#divP44").hide(); }
+        });
+
+        $("#massUpdateUsersGrid").kendoGrid({
+            autoBind: false,
+            dataSource: {
+                pageSize: 10,
+                transport: {
+                    read: function (options) {
+                        var s = new AllFilter();
+                        s.page = options.data.page;
+                        s.skip = options.data.skip;
+                        s.take = options.data.take;
+                        s.LEAdminControl = $("#txtLEControl").val();
+                        $.ajax({
+                            url: 'api/LEUser/GetActiveLEUsers365/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            data: { filter: JSON.stringify(s) },
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { ngl.showErrMsg('Access Denied', data.Errors, null); }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "UserSecurityControl",
+                        fields: {
+                            UserSecurityControl: { type: "number" },
+                            UserName: { type: "string" },
+                            UserFriendlyName: { type: "string" },
+                            UserFirstName: { type: "string" },
+                            UserLastName: { type: "string" }
+                        }
+                    }
+                }
+            },
+            pageable: true,
+            scrollable: false,
+            persistSelection: true,
+            sortable: true,
+            columns: [
+                { selectable: true, width: 50 },
+                { field: "UserName", title: "User Name" },
+                { field: "UserFriendlyName", title: "Friendly Name", hidden: false },
+                { field: "UserFirstName", title: "First Name", hidden: true },
+                { field: "UserLastName", title: "Last Name", hidden: true },
+            ]
+        });
+
+        ////////////wndSSOAMassUpdate///////////////////
+        wndSSOAMassUpdate = $("#wndSSOAMassUpdate").kendoWindow({
+            title: "Mass Update User SSOAs",
+            modal: true,
+            visible: false,
+            height: '80%',
+            minWidth: 300,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            //close: function (e) { resetDivSSOAMUManualEntry(); }
+        }).data("kendoWindow");
+        $("#wndSSOAMassUpdate").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { MassUpdateSSOAs(); });
+
+
+        $("#ssoamuCopyFromGrid").kendoGrid({
+            autoBind: false,
+            dataSource: {
+                pageSize: 10,
+                transport: {
+                    read: function (options) {
+                        var s = new AllFilter();
+                        s.page = options.data.page;
+                        s.skip = options.data.skip;
+                        s.take = options.data.take;
+                        s.LEAdminControl = $("#txtLEControl").val();
+                        $.ajax({
+                            url: 'api/LEUser/GetActiveLEUsers365/',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            data: { filter: JSON.stringify(s) },
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                options.success(data);
+                                if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { ngl.showErrMsg('Access Denied', data.Errors, null); }
+                            },
+                            error: function (result) { options.error(result); }
+                        });
+                    },
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "UserSecurityControl",
+                        fields: {
+                            UserSecurityControl: { type: "number" },
+                            UserName: { type: "string" },
+                            UserFriendlyName: { type: "string" },
+                            UserFirstName: { type: "string" },
+                            UserLastName: { type: "string" }
+                        }
+                    }
+                }
+            },
+            pageable: true,
+            scrollable: false,
+            sortable: true,
+            columns: [
+                { field: "UserName", title: "User Name" },
+                { field: "UserFriendlyName", title: "Friendly Name" }
+            ],
+            detailTemplate: kendo.template($("#ssoamuCopyFromGridDetTemplate").html()),
+            detailInit: function (e) {
+                var detailRow = e.detailRow;
+                detailRow.find(".tabstrip").kendoTabStrip({
+                    animation: {
+                        open: { effects: "fadeIn" }
+                    }
+                });
+                //Single Sign On Accounts Tab
+                detailRow.find(".ssoamuCopyFromAccounts").kendoGrid({
+                    dataSource: {
+                        serverSorting: true,
+                        serverPaging: true,
+                        pageSize: 10,
+                        transport: {
+                            read: {
+                                url: "api/SingleSignOn/GetSingleSignOnForUser/" + e.data.UserSecurityControl,
+                                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                                type: "GET",
+                                dataType: 'json',
+                            },
+                            parameterMap: function (options, operation) { return options; }
+                        },
+                        schema: {
+                            data: "Data",
+                            total: "Count",
+                            model: {
+                                id: "SSOAXControl",
+                                fields: {
+                                    SSOAXControl: { type: "integer", editable: false },
+                                    SSOAXUN: { type: "string" },                            
+                                    SSOAName: { type: "string", editable: false },
+                                    SSOADesc: { type: "string", editable: false },
+                                    SSOAXRefID: { type: "string", editable: false },
+                                    UserName: { type: "string", editable: false }
+                                }
+                            },
+                            errors: "Errors"
+                        },
+                        error: function (xhr, textStatus, error) { ngl.showErrMsg("GetSingleSignOnForUser JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                    },
+                    pageable: { pageSizes: [5, 10] },
+                    resizable: true,
+                    groupable: false,
+                    columns: [
+                        { command: [{ className: "cm-icononly-button", name: "SelectSSOAX", text: "", iconClass: "k-icon k-i-button", click: selectSSOAX }], title: " ", width: 100 },
+                        { field: "SSOADesc", title: "Account" },
+                        { field: "SSOAXUN", title: "User Name" },
+                        { field: "SSOAXRefID", title: "Reference ID" }
+                    ]
+                });
+            }
+        });
+
+
+    });
+    //*************************END MASS UPDATE SSOA SECTION*************************
+</script>
+
+
+<style>
+    .tbl-td-1 { border: none; width: 20%; min-width: 100px; max-width: 125px; text-align:right; padding-right:4px; }
+
+    .tbl-td-2 { border: none; width: 80%; min-width: 100px; }
+
+    .in1 { display: inline; width: 100%; height: 100%; min-width: 100px; }
+</style>

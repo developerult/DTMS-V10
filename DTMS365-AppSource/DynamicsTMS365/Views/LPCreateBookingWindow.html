@@ -1,0 +1,1774 @@
+﻿<div id="winLPCreateBooking">
+    <!--<h2>Click to Create Order &nbsp;&nbsp;<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" href="#" onclick="btnSaveClick();" "><span class="k-icon k-i-save" ></span></a></h2>-->
+    <h2>Click Save to Create Order</h2>
+    <div class="fast-tab">
+        <span id="ExpandOrderInfoSpan" style="display: none;"><a onclick='expandOrderInfo();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+        <span id="CollapseOrderInfoSpan" style="display: normal;"><a onclick='collapseOrderInfo();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+        <span style="font-size:small; font-weight:bold">Origin and Destination</span>&nbsp;&nbsp;<button id='btnAddressBookPopup' class='k-button actionBarButton' type='button' onclick='btnAddressBook_Click();'><span class='k-icon k-i-book'></span>Open Address Book</button><br />
+        <div id="divOrderInfo" class="fast-tab">
+            <table id="tblOrderInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Order Number <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Ship Date <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Req Date <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Weight UOM</th>
+                    <th style="border:none;">Length UOM</th>
+                    <th style="border:none;">Total Wgt<span class="k-icon k-i-lock"></span></th>
+                    <th style="border:none;">Total Qty<span class="k-icon k-i-lock"></span></th>
+                    <th style="border:none;">Total Pkgs<span class="k-icon k-i-lock"></span></th>
+                    <th style="border:none;">Inbound</th>
+                    <th style="border:none;">Temperature</th>
+                    <th style="border:none;">Trans Type</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtOrderNo" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtShipDate" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtDeliveryDate" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtWeightUnit" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtLengthUnit" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalWgt" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalCases" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtTotalPlts" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="chkInbound" style="width: 100px;"></td>  <!--Added By LVV on 4/20/20 LBDemo-->
+                    <td style="border:none;"><input id="ddlLoadTemp" style="width: 100px;" /></td>  <!--Added By LVV on 4/20/20 LBDemo-->
+                    <td style="border:none;"><input id="ddlTransType" style="width: 100px;" /></td>  <!--Added By LVV on 4/24/20 LBDemo-->
+                </tr>
+            </table>
+            <table id="tblOrigInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Origin Location <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Postal Code <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Street</th>
+                    <th style="border:none;">City</th>
+                    <th style="border:none;">State</th>
+                    <th style="border:none;">Country</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtorigCompName" style="width: 200px;" value="Ship From" /></td>
+                    <td style="border:none;"><input id="txtorigCompPostalCode" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompAddress1" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompCity" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompState" style="width: 80px;" /></td>
+                    <td style="border:none;"><input id="txtorigCompCountry" value="US" style="width: 100px;" /></td>
+                </tr>
+            </table>
+            <table id="tblDestInfo" style="border-collapse:collapse; border-spacing:0; border:none; margin-bottom:5px; margin-top:5px;">
+                <tr>
+                    <th style="border:none;">Destination Location <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Postal Code <span class="redRequiredAsterik"> *</span></th>
+                    <th style="border:none;">Street</th>
+                    <th style="border:none;">City</th>
+                    <th style="border:none;">State</th>
+                    <th style="border:none;">Country</th>
+                </tr>
+                <tr>
+                    <td style="border:none;"><input id="txtdestCompName" style="width: 200px;" value="Ship To" /></td>
+                    <td style="border:none;"><input id="txtdestCompPostalCode" style="width: 100px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompAddress1" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompCity" style="width: 200px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompState" style="width: 80px;" /></td>
+                    <td style="border:none;"><input id="txtdestCompCountry" value="US" style="width: 100px;" /></td>
+                </tr>
+            </table>
+
+            <input id="txtorigCompAddress2" type="hidden" />
+            <input id="txtorigCompAddress3" type="hidden" />
+            <input id="txtdestCompControl" type="hidden" />
+            <input id="txtdestCompNumber" type="hidden" />
+            <input id="txtdestCompAddress2" type="hidden" />
+            <input id="txtdestCompAddress3" type="hidden" />
+            <input id="txtStopIndex" type="hidden" />
+            <input id="txtSelectedStopIndex" type="hidden" />
+            <input id="txtItemIndex" type="hidden" />
+            <input id="txtItemStopIndex" type="hidden" />
+            <input id="txtNumPieces" type="hidden" />
+            <input id="txtDescription" type="hidden" />
+            <input id="txtHazmatId" type="hidden" />
+            <input id="txtCode" type="hidden" />
+            <input id="txtHazmatClass" type="hidden" />
+            <input id="txtIsHazmat" type="hidden" />
+            <input id="txtPieces" type="hidden" />
+            <input id="txtPackageType" type="hidden" />
+            <input id="txtDensity" type="hidden" />
+            <input id="txtNMFCItem" type="hidden" />
+            <input id="txNMFCSub" type="hidden" />
+            <input id="txtOrigPhone" type="hidden" />
+            <input id="txtOrigContactName" type="hidden" />
+            <input id="txtOrigContactEmail" type="hidden" />
+            <input id="txtOrigEmergencyContactPhone" type="hidden" />
+            <input id="txtOrigEmergencyContactName" type="hidden" />
+            <input id="txtDestPhone" type="hidden" />
+            <input id="txtDestContactName" type="hidden" />
+            <input id="txtDestContactEmail" type="hidden" />
+            <input id="txtDestEmergencyContactPhone" type="hidden" />
+            <input id="txtDestEmergencyContactName" type="hidden" />
+        </div>
+    </div>
+    <p></p>
+    <div class="fast-tab">
+        <span id="ExpandCurrentItemsSpan" style="display: none;"><a onclick='expandCurrentItems();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+        <span id="CollapseCurrentItemsSpan" style="display: normal;"><a onclick='collapseCurrentItems();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+        <span style="font-size:small; font-weight:bold">Packages or Pallets</span>&nbsp;&nbsp;<br />
+        <div id="divCurrentItems" class="fast-tab">
+            <div id="Items" style="margin-top:5px;"></div>
+        </div>
+    </div>
+    <p></p>
+</div>
+
+<div id="winAddressBook">
+    <div>
+        <div style="margin-bottom:5px;">
+            <span>
+                <input id="acFilter" style="width:200px" />
+                &nbsp;
+                <button id='btnSetOrigin' class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='btnSetOrigin_Click();'><span class='k-icon k-i-map-marker-target'></span>Set Origin</button>
+                &nbsp;
+                <button id='btnSetDest' class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='btnSetDest_Click();'><span class='k-icon k-i-map-marker'></span>Set Destination</button>
+            </span>
+        </div>
+        <div id="AddressBookGrid"></div>
+    </div>
+</div>
+
+<div id="zipWin">
+    <div>
+        <input class="zipWin" id="comboZip" />
+    </div>
+    <div>
+        <button class="zipWin" type="button" id="btnZipOk" onclick="btnZipOk_Click();">Ok</button>
+    </div>
+    <input id="txtZipCity" type="hidden" />
+    <input id="txtZipState" type="hidden" />
+    <input id="txtZipLocation" type="hidden" />
+</div>
+
+<div id="dividEditItemsPopupWnd"></div>
+
+
+<script>
+    //********************** Start ItemsGrid Widget Code **********************
+    var wndItemsGridEdit = kendo.ui.Window;
+    var wdgtItemsGridEdit = new NGLEditWindCtrl();
+
+    function openAddNewItemsGridWindow(e, fk) {
+        if ((typeof (execBeforeItemsGridInsert) === 'undefined' || ngl.isFunction(execBeforeItemsGridInsert) === false) || (execBeforeItemsGridInsert(e, fk, wdgtItemsGridEdit) === true)) {
+            wdgtItemsGridEdit.data = null;
+            wdgtItemsGridEdit.show();
+        }
+    }
+
+    function openEditItemsGridWindow(e) {
+        var data = this.dataItem($(e.currentTarget).closest("tr"));
+        wdgtItemsGridEdit.data = data;
+        wdgtItemsGridEdit.show();
+    }
+
+    function deleteItemsGridRecord(iRet, data) {
+        if (iRet == 1) {
+            if (typeof (data) === 'undefined' || data === null) { return; }
+            orderitems.splice(getIndexByItemNumber(data.ItemNumber), 1);
+            $('#Items').data('kendoGrid').dataSource.read();
+        }
+    }
+
+    function confirmDeleteItemsGridRecord(e) {
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+        if (typeof (item) === 'undefined' || ngl.isObject(item) == false) { return; }
+        ngl.OkCancelConfirmation("Delete Selected Packages Record", "Warning! This action cannot be undone. Are you sure?", 400, 400, null, "deleteItemsGridRecord", item);
+    }
+
+    function NGLItemsGridClass() {
+        ItemNumber: null;
+        Description: null;
+        FreightClass: null;
+        Weight: null;
+        Quantity: null;
+        PalletCount: null;
+        PackageType: null;
+        Length: null;
+        Width: null;
+        Height: null;
+        Stackable: null;
+        ItemsPkgDescControl: null;
+    }
+
+    var objItemsGridDataFields = [
+        { fieldID: "33389", fieldTagID: "id62120181107153246430266", fieldCaption: "Item Number", fieldName: "ItemNumber", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33580", fieldTagID: "id6229201905011315073981309", fieldCaption: "Pkg Desc", fieldName: "ItemsPkgDescControl", fieldDefaultValue: "", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetUserDynamicList", fieldAPIFilterID: "37", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 1, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33382", fieldTagID: "id62120181107153246443180", fieldCaption: "Package Type", fieldName: "PackageType", fieldDefaultValue: "PLT", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetStaticListDESC", fieldAPIFilterID: "64", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 2, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" } //Modified By LVV on 5/20/20 - Change the default value for Package Type to PLT
+        , { fieldID: "33370", fieldTagID: "id62120181107153246431292", fieldCaption: "Count", fieldName: "PalletCount", fieldDefaultValue: "1", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 3, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" } //Modified By LVV on 5/20/20 - Change the default value for Weight and Count to 1
+        , { fieldID: "33371", fieldTagID: "id62120181107153246432175", fieldCaption: "Desc", fieldName: "Description", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 255, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 4, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33372", fieldTagID: "id62120181107153246433175", fieldCaption: "FAK", fieldName: "FreightClass", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 20, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 5, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33373", fieldTagID: "id62120181107153246441176", fieldCaption: "NMFC", fieldName: "NMFCItem", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 20, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33374", fieldTagID: "id62120181107153246442177", fieldCaption: "Sub Class", fieldName: "NMFCSub", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 20, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 7, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33375", fieldTagID: "id62120181107153246437178", fieldCaption: "Length", fieldName: "Length", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n4}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 8, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33376", fieldTagID: "id62120181107153246447178", fieldCaption: "Width", fieldName: "Width", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n4}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 9, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33377", fieldTagID: "id62120181107153246436176", fieldCaption: "Height", fieldName: "Height", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n4}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 10, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33378", fieldTagID: "id62120181107153246446180", fieldCaption: "Wgt", fieldName: "Weight", fieldDefaultValue: "1", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n2}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 11, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" } //Modified By LVV on 5/20/20 - Change the default value for Weight and Count to 1
+        , { fieldID: "33379", fieldTagID: "id62120181107153246444182", fieldCaption: "Stack", fieldName: "Stackable", fieldDefaultValue: "", fieldGroupSubType: 16, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "<input type='checkbox' #= Stackable ? 'checked=checked' : '' # disabled='disabled' ></input>", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 12, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+        , { fieldID: "33388", fieldTagID: "id62120181107153246429175", fieldCaption: "Qty", fieldName: "Quantity", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id621201811071350538611498", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "" }
+    ];
+
+
+    // ************** Start ItemsGrid Functions ******************
+    //Widget object is wdgtItemsGridEdit
+    var iItemsPkgDescControlID = '0';
+    var ddlItemsPkgDescControl = undefined;
+    //widget call back
+    function ItemsGridCB(oResults) {
+        if (!oResults) { return; }
+        if (oResults.source == "showWidgetCallback") {
+            iItemsPkgDescControlID = wdgtItemsGridEdit.GetFieldID("ItemsPkgDescControl");
+            ddlItemsPkgDescControl = $("#" + iItemsPkgDescControlID).data("kendoDropDownList");
+            if (ddlItemsPkgDescControl) { ddlItemsPkgDescControl.bind("change", ItemsPkgDescControl_change); }
+        } else if (oResults.source == "saveDataCB") {
+            //update the item information and reload the grid
+            var i = oResults.data
+            var intItemNumIndex = 1;
+            if (oResults.CRUD == "create") {
+                if (typeof (orderitems) === 'undefined' || orderitems === null) {
+                    orderitems = new Array();
+                    intItemNumIndex = 1;
+                } else {
+                    for (index = 0; index < orderitems.length; ++index) {
+                        var item = orderitems[index];
+                        var iItemNbr = parseInt(item.ItemNumber);
+                        if (isNaN(iItemNbr) == false && iItemNbr > intItemNumIndex) { intItemNumIndex = iItemNbr + 1; }
+                    }
+                }
+                var item = new rateReqItem();
+                if (intItemNumIndex < 1) { intItemNumIndex = 1; }
+                item.ItemNumber = intItemNumIndex + 1; // add one to the highest item number to create a unique index
+                item.Description = i.Description;
+                item.FreightClass = i.FreightClass;
+                item.Weight = i.Weight;
+                item.PackageType = i.PackageType;
+                item.PalletCount = i.PalletCount;
+                item.Quantity = i.Quantity;
+                item.Stackable = i.Stackable;
+                item.Length = i.Length;
+                item.Width = i.Width;
+                item.Height = i.Height;
+                item.NMFCItem = i.NMFCItem;
+                item.NMFCSub = i.NMFCSub;
+                orderitems.push(item)
+            } else {
+                if (orderitems.length > 0) {
+                    for (index = 0; index < orderitems.length; ++index) {
+                        var item = orderitems[index];
+                        if (item.ItemNumber == i.ItemNumber) {
+                            item.Description = i.Description;
+                            item.FreightClass = i.FreightClass;
+                            item.Weight = i.Weight;
+                            item.PackageType = i.PackageType;
+                            item.PalletCount = i.PalletCount;
+                            item.Quantity = i.Quantity;
+                            item.Stackable = i.Stackable;
+                            item.Length = i.Length;
+                            item.Width = i.Width;
+                            item.Height = i.Height;
+                            item.NMFCItem = i.NMFCItem;
+                            item.NMFCSub = i.NMFCSub;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (orderitems.length > 0) {
+                for (index = 0; index < orderitems.length; ++index) {
+                    var item = orderitems[index];
+                    TotalCases += parseInt(item.Quantity);
+                    TotalWgt += parseFloat(item.Weight);
+                    TotalPlts += parseFloat(item.PalletCount);
+                }
+            }
+            else {
+                TotalCases = 1;
+                TotalWgt = 1;
+                TotalPlts = 1;
+            }
+            $("#txtTotalWgt").data("kendoNumericTextBox").value(TotalWgt);
+            $("#txtTotalPlts").data("kendoNumericTextBox").value(TotalPlts);
+            $("#txtTotalCases").data("kendoNumericTextBox").value(TotalCases);
+
+            $('#Items').data('kendoGrid').dataSource.read();
+        }
+    }
+    //change event handler
+    function ItemsPkgDescControl_change(e) {
+        if (ddlItemsPkgDescControl) {
+            var iCodeValue = ddlItemsPkgDescControl.value();
+            if (iCodeValue) { updateSelectedItemsPkgDesc(iCodeValue); }
+        }
+    }
+    //read data to update children when list selection changes
+    function updateSelectedItemsPkgDesc(key) {
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.read("PackageDescription", key, tPage, "readItemsPkgDescCallback", "readItemsPkgDescAjaxErrorCallback", tPage);
+        return true;
+    }
+    //read selected data call back from list. used to update children when list selection changes
+    function readItemsPkgDescCallback(data) {
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                    //on error do nothing for now
+                }
+                else if (data.Data != null) {
+                    var record = data.Data[0];
+                    if (typeof (record) !== 'undefined' && record != null && ngl.isObject(record)) {
+                        //AccessorialVariableCode maps to CalcFormula List	CarrTarFeesVariableCode  DropDownList
+                        //get the id
+                        var sVal = '';
+                        var sFieldID = ''
+                        if ("PkgDescDesc" in record) {
+                            sVal = record["PkgDescDesc"];
+                            sFieldID = wdgtItemsGridEdit.GetFieldID("Description");
+                            var domItem = $("#" + sFieldID).data("kendoMaskedTextBox");
+                            if (domItem) { domItem.value(sVal); }
+                        }
+                        if ("PkgDescFAKClass" in record) {
+                            sVal = record["PkgDescFAKClass"];
+                            sFieldID = wdgtItemsGridEdit.GetFieldID("FreightClass");
+                            var domItem = $("#" + sFieldID).data("kendoMaskedTextBox");
+                            if (domItem) { domItem.value(sVal); }
+                        }
+                        if ("PkgDescNMFCClass" in record) {
+                            sVal = record["PkgDescNMFCClass"];
+                            sFieldID = wdgtItemsGridEdit.GetFieldID("NMFCItem");
+                            var domItem = $("#" + sFieldID).data("kendoMaskedTextBox");
+                            if (domItem) { domItem.value(sVal); }
+                        }
+                        if ("PkgDescNMFCSubClass" in record) {
+                            sVal = record["PkgDescNMFCSubClass"];
+                            sFieldID = wdgtItemsGridEdit.GetFieldID("NMFCSub");
+                            var domItem = $("#" + sFieldID).data("kendoMaskedTextBox");
+                            if (domItem) { domItem.value(sVal); }
+                        }
+                    }
+                }
+            }
+        } catch (err) { ngl.showErrMsg(err.name, err.message, tObj); }
+    }
+    //handle any ajax errors
+    function readItemsPkgDescAjaxErrorCallback(xhr, textStatus, error) {
+        ngl.showErrMsg("Read Package Desciption Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tObj);
+    }
+    // ************** End BookPkgGrid Functions ******************
+
+    //Start page properties
+    var orderitems = new Array()
+    var orderstops = new Array()
+    var intStopIndex = 0;
+    var intItemIndex = 0;
+    var intItemStopIndex = 0;
+    var intItemNumIndex = 0; //Doesn't get reset until after the order is complete
+    var intSelectedStopIndex = 0;
+    var intTotalStops = 0;
+
+    var dsAddressBook = kendo.data.DataSource;
+
+    var TotalCases = 0;
+    var TotalWgt = 0;
+    var TotalPlts = 0;
+    var alertMSg = "";
+    var zipWin = kendo.ui.Window;
+    var winLPBookingItems = kendo.ui.Window;
+    var winAddressBook = kendo.ui.Window;
+    var blnWinItemsClosing = false;
+    //Start Content Management Call back
+    function printwinItems() {
+        //debugger;
+        var kinWin = $("#winLPCreateBooking").kendoWindow().data("kendoWindow");
+        var winWrapper = kinWin.wrapper;
+        winWrapper.removeClass("k-window");
+        winWrapper.addClass("printable");
+        //put pring code here
+        window.print();
+        winWrapper.removeClass("printable");
+        winWrapper.addClass("k-window");
+    }
+
+
+    /*
+
+    function readGetPageSettingSuccessCallback(data) {
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        oResults.source = "readGetPageSettingSuccessCallback";
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.CRUD = "read";
+        oResults.widget = tObj;
+        var dsUserPageSettings = null;
+        try {
+            var blnSuccess = false;
+            var blnErrorShown = false;
+            var strValidationMsg = "";
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (typeof (data.Errors) !== 'undefined' && data.Errors != null && data.Errors.length > 0) {
+                    blnErrorShown = true;
+                    ngl.showErrMsg("Get User Page Settings Failure", data.Errors, null);
+                }
+                else {
+                    if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                        if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                            blnSuccess = true;
+                            dsUserPageSettings = data.Data[0];
+                            oResults.msg = "Success";
+                            if (typeof (dsUserPageSettings) !== 'undefined' && dsUserPageSettings != null && dsUserPageSettings.value != undefined) {
+                                var psData = JSON.parse(dsUserPageSettings.value);
+                                var blnLoadDefaults = true;
+                                if (!ngl.isNullOrWhitespace(psData.OrigPostalCode)) {
+                                    blnLoadDefaults = false;
+                                    $("#txtorigCompName").data("kendoMaskedTextBox").value(psData.OrigName);
+                                    $("#txtorigCompAddress1").data("kendoMaskedTextBox").value(psData.OrigAddress1);
+                                    $("#txtorigCompCountry").data("kendoMaskedTextBox").value(psData.OrigCountry);
+                                    $("#txtorigCompCity").data("kendoComboBox").value(psData.OrigCity);
+                                    $("#txtorigCompState").data("kendoComboBox").value(psData.OrigState);
+                                    $("#txtorigCompPostalCode").data("kendoComboBox").value(psData.OrigPostalCode);
+                                    SetOrigContact(psData.OrigContact);
+                                    $("#txtdestCompName").data("kendoMaskedTextBox").value(psData.DestName);
+                                    $("#txtdestCompAddress1").data("kendoMaskedTextBox").value(psData.DestAddress1);
+                                    $("#txtdestCompCountry").data("kendoMaskedTextBox").value(psData.DestCountry);
+                                    $("#txtdestCompCity").data("kendoComboBox").value(psData.DestCity);
+                                    $("#txtdestCompState").data("kendoComboBox").value(psData.DestState);
+                                    $("#txtdestCompPostalCode").data("kendoComboBox").value(psData.DestPostalCode);
+                                    SetDestContact(psData.DestContact);
+                                    $("#txtOrderNo").data("kendoMaskedTextBox").value(psData.OrderNumber);
+                                    $("#txtTotalCases").data("kendoNumericTextBox").value(psData.TotalCases);
+                                    $("#txtTotalWgt").data("kendoNumericTextBox").value(psData.TotalWgt);
+                                    $("#txtTotalPlts").data("kendoNumericTextBox").value(psData.TotalPL);
+                                    //psData.TotalCube = 0;
+                                    $("#txtShipDate").data("kendoDatePicker").value(psData.LoadDate);
+                                    $("#txtDeliveryDate").data("kendoDatePicker").value(psData.RequiredDate);
+                                    $("#txtWeightUnit").data("kendoComboBox").value(psData.WeightUnit);
+                                    $("#txtLengthUnit").data("kendoComboBox").value(psData.LengthUnit);
+                                    if (psData.Items != null && psData.Items.length > 0) {
+                                        orderitems = psData.Items;
+                                        intItemNumIndex = orderitems.length;
+                                        ngl.readDataSource($('#Items').data('kendoGrid'));
+                                    }
+                                    SetEmergencyContact(psData.EmergencyContact)
+                                }
+                                if (blnLoadDefaults == true) {
+                                    $("#txtorigCompName").data("kendoMaskedTextBox").value("Ship From");
+                                    $("#txtdestCompName").data("kendoMaskedTextBox").value("Ship To");
+                                    $("#txtOrderNo").data("kendoMaskedTextBox").value("");
+                                    $("#txtTotalCases").data("kendoNumericTextBox").value(1);
+                                    $("#txtTotalWgt").data("kendoNumericTextBox").value(500);
+                                    $("#txtTotalPlts").data("kendoNumericTextBox").value(1);
+                                    orderitems = new Array();
+                                    var item1 = new rateReqItem();
+                                    item1.ItemIndex = 1;
+                                    item1.LoadID = 0;
+                                    item1.ItemStopIndex = 1;
+                                    item1.ItemNumber = 1;
+                                    item1.Weight = 500;
+                                    item1.FreightClass = '70';
+                                    item1.PalletCount = 1;
+                                    item1.NumPieces = 1;
+                                    item1.Description = "Item 1";
+                                    item1.Quantity = "1";
+                                    item1.HazmatId = "";
+                                    item1.Code = "";
+                                    item1.HazmatClass = "";
+                                    item1.IsHazmat = false;
+                                    item1.Pieces = "";
+                                    item1.PackageType = "PLT";
+                                    item1.Length = 24;
+                                    item1.Width = 24;
+                                    item1.Height = 24;
+                                    item1.Density = "";
+                                    item1.NMFCItem = "";
+                                    item1.NMFCSub = "";
+                                    item1.Stackable = true;
+                                    orderitems.push(item1)
+                                    intItemNumIndex = orderitems.length;
+                                    //Modified by RHR for v-8.2 on 02/20/2019
+                                    ngl.readDataSource($('#Items').data('kendoGrid'));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (blnSuccess === false && blnErrorShown === false) {
+                if (strValidationMsg.length < 1) { strValidationMsg = "If this is your first time on this page your settings will be saved for your next visit, if not please contact technical support if you continue to receive this message."; }
+                ngl.showInfoNotification("Unable to Read Page Settings", strValidationMsg, null);
+            }
+        } catch (err) {
+            ngl.showErrMsg(err.name, err.description, null);
+        }
+    }
+
+    function readGetPageSettingAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        oResults.source = "readGetPageSettingAjaxErrorCallback";
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.CRUD = "read"
+        oResults.widget = tObj;
+        oResults.error = new Error();
+        oResults.error.name = "Read Page Settings Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+    }
+
+    */
+
+
+    //************* Page Functions **********************
+    function btnAddressBook_Click() {
+        var grid = $("#AddressBookGrid").data("kendoGrid");
+        var autocomplete = $("#acFilter").data("kendoAutoComplete").value("");
+        dsAddressBook.read();
+        winAddressBook.center().open();
+    }
+
+    function btnSetOrigin_Click() {
+        var grid = $("#AddressBookGrid").data("kendoGrid");
+        var item = grid.dataItem(grid.select());
+        if (item != null) {
+            $("#txtorigCompName").data("kendoMaskedTextBox").value(item.Name);
+            $("#txtorigCompAddress1").data("kendoMaskedTextBox").value(item.Address1);
+            $("#txtorigCompAddress2").val(item.Address2);
+            $("#txtorigCompAddress3").val(item.Address3);
+            $("#txtorigCompCity").data("kendoComboBox").value(item.City);
+            $("#txtorigCompState").data("kendoComboBox").value(item.State);
+            $("#txtorigCompCountry").data("kendoMaskedTextBox").value(item.Country);
+            $("#txtorigCompPostalCode").data("kendoComboBox").value(item.Zip);
+        }
+    }
+
+    function btnSetDest_Click() {
+        var grid = $("#AddressBookGrid").data("kendoGrid");
+        var item = grid.dataItem(grid.select());
+        if (item != null) {
+            $("#txtdestCompName").data("kendoMaskedTextBox").value(item.Name);
+            $("#txtdestCompAddress1").data("kendoMaskedTextBox").value(item.Address1);
+            $("#txtdestCompAddress2").val(item.Address2);
+            $("#txtdestCompAddress3").val(item.Address3);
+            $("#txtdestCompCity").data("kendoComboBox").value(item.City);
+            $("#txtdestCompState").data("kendoComboBox").value(item.State);
+            $("#txtdestCompCountry").data("kendoMaskedTextBox").value(item.Country);
+            $("#txtdestCompPostalCode").data("kendoComboBox").value(item.Zip);
+        }
+    }
+
+    function btnManageItems_Click() {
+        winLPBookingItems = $("#winLPCreateBooking").kendoWindow({
+            title: "Create Order",
+            maxHeight: $(window).height(),
+            maxWidth: $(window).width(),
+            height: ($(window).height() / 10) * 9,
+            width: ($(window).width() / 10) * 9,
+            modal: true,
+            visible: false,
+            resizable: true,
+            scrollable: true,
+            actions: ["print", "save", "Minimize", "Maximize", "Close"],
+            //close: function () { saveScreenInfo(); },
+            open: function () { btnClear_Click(); } //Added By LVV on 4/20/20 LBDemo
+        }).data("kendoWindow");
+
+        winLPBookingItems.wrapper.find(".k-svg-i-save").parent().click(function (e) {
+            e.preventDefault();
+            //btnSaveClick();
+            SaveOrder();
+        });
+        winLPBookingItems.wrapper.find(".k-svg-i-print").parent().click(function (e) {
+            e.preventDefault();
+            printwinItems();
+        });
+        blnWinItemsClosing = false;
+        winLPBookingItems.center().open();
+    }
+
+
+    function openZipWin(City, State) {
+        //load content
+        $("#txtZipCity").val(City);
+        $("#txtZipState").val(State);
+        $("#comboZip").data("kendoComboBox").dataSource.read();
+        zipWin.center().open();
+    }
+
+    function btnZipOk_Click() {
+        var combobox = $("#comboZip").data("kendoComboBox");
+        var dataItem = combobox.dataItem();
+        var zip;
+        if (dataItem == null) { zip = $("#comboZip").data("kendoComboBox").value(); } else { zip = dataItem.ZipCode; }
+        var l = $("#txtZipLocation").val();
+        if (l == "o") { $("#txtorigCompPostalCode").data("kendoComboBox").value(zip); }
+        if (l == "d") { $("#txtdestCompPostalCode").data("kendoComboBox").value(zip); }
+        combobox.value("");
+        $("#txtZipCity").val("");
+        $("#txtZipState").val("");
+        zipWin.close();
+    }
+
+    function expandOrderInfo() { $("#divOrderInfo").show(); $("#ExpandOrderInfoSpan").hide(); $("#CollapseOrderInfoSpan").show(); }
+    function collapseOrderInfo() { $("#divOrderInfo").hide(); $("#ExpandOrderInfoSpan").show(); $("#CollapseOrderInfoSpan").hide(); }
+    function expandCurrentItems() { $("#divCurrentItems").show(); $("#ExpandCurrentItemsSpan").hide(); $("#CollapseCurrentItemsSpan").show(); }
+    function collapseCurrentItems() { $("#divCurrentItems").hide(); $("#ExpandCurrentItemsSpan").show(); $("#CollapseCurrentItemsSpan").hide(); }
+
+    function fnGetPickup() {
+        var stop = new rateReqStop();
+        stop.StopIndex = 1;
+        stop.CompName = $("#txtorigCompName").data("kendoMaskedTextBox").value();
+        stop.CompAddress1 = $("#txtorigCompAddress1").data("kendoMaskedTextBox").value();
+        stop.CompAddress2 = $("#txtorigCompAddress2").val();
+        stop.CompAddress3 = $("#txtorigCompAddress3").val();
+        stop.CompCountry = $("#txtorigCompCountry").data("kendoMaskedTextBox").value();
+        stop.CompPostalCode = getOrigPC();
+        stop.CompCity = getOrigCity();
+        stop.CompState = getOrigST();
+        stop.IsPickup = true;
+        stop.StopNumber = 0;
+        stop.TotalCases = $("#txtTotalCases").data("kendoNumericTextBox").value();
+        stop.TotalWgt = $("#txtTotalWgt").data("kendoNumericTextBox").value();
+        stop.TotalPL = $("#txtTotalPlts").data("kendoNumericTextBox").value();
+        stop.TotalCube = 0;
+        stop.LoadDate = $("#txtShipDate").data("kendoDatePicker").value();
+        stop.RequiredDate = $("#txtDeliveryDate").data("kendoDatePicker").value();
+        stop.WeightUnit = $("#txtWeightUnit").data("kendoComboBox").value();
+        stop.LengthUnit = $("#txtLengthUnit").data("kendoComboBox").value();
+        return stop;
+    }
+
+    function fnGetStops() {
+        //debugger;
+        orderstops = new Array();
+        var stop = new rateReqStop();
+        stop.BookCarrOrderNumber = $("#txtOrderNo").data("kendoMaskedTextBox").value();
+        stop.CompAddress1 = $("#txtdestCompAddress1").data("kendoMaskedTextBox").value();
+        stop.CompAddress2 = $("#txtdestCompAddress2").val();
+        stop.CompAddress3 = $("#txtdestCompAddress3").val();
+        stop.CompCountry = $("#txtdestCompCountry").data("kendoMaskedTextBox").value();
+        stop.CompPostalCode = getDestPC();
+        stop.CompCity = getDestCity();
+        stop.CompState = getDestST();
+        stop.RequiredDate = $("#txtDeliveryDate").data("kendoDatePicker").value();
+        stop.StopIndex = 1;
+        //stop.CompControl = isNull(parseInt($("#txtBookCustCompControl").val()), 0); //** NEVER GETS USED **
+        stop.CompName = $("#txtdestCompName").data("kendoMaskedTextBox").value();
+        stop.IsPickup = false;
+        stop.StopNumber = 1;
+        stop.LoadDate = $("#txtShipDate").data("kendoDatePicker").value();
+        stop.TotalWgt = isNull(parseInt($("#txtTotalWgt").data("kendoNumericTextBox").value()), 500);
+        stop.TotalPL = isNull(parseInt($("#txtTotalPlts").data("kendoNumericTextBox").value()), 1);
+        stop.TotalCases = isNull(parseInt($("#txtTotalCases").data("kendoNumericTextBox").value()), 1);
+        stop.WeightUnit = $("#txtWeightUnit").data("kendoComboBox").value();
+        stop.LengthUnit = $("#txtLengthUnit").data("kendoComboBox").value();
+        stop.TotalCube = 0;
+
+        if (orderitems == null || orderitems.length < 1) {
+            stop.Items = new Array();
+            var item1 = new rateReqItem();
+            item1.ItemIndex = 1;
+            item1.ItemStopIndex = 1;
+            item1.ItemNumber = 1;
+            item1.Weight = 500;
+            item1.FreightClass = '70';
+            item1.PalletCount = 1;
+            item1.NumPieces = 1;
+            item1.Description = "Desc";
+            item1.Quantity = "1";
+            item1.HazmatId = "";
+            item1.Code = "";
+            item1.HazmatClass = "";
+            item1.IsHazmat = false;
+            item1.Pieces = "";
+            item1.PackageType = "PLT";
+            item1.Length = 0;
+            item1.Width = 0;
+            item1.Height = 0;
+            item1.Density = "";
+            item1.NMFCItem = "";
+            item1.NMFCSub = "";
+            item1.Stackable = null;
+
+            stop.Items.push(item1);
+
+            $("#txtTotalWgt").data("kendoNumericTextBox").value(500);
+        }
+        else { stop.Items = orderitems; }
+
+        orderstops.push(stop);
+        return orderstops;
+    }
+
+    function validateRequiredFields() {
+        alertMsg = ""; //clear value
+        var ret = true;
+        var fields = "";
+        var strSp = "";
+        if (ngl.isNullOrWhitespace($("#txtOrderNo").data("kendoMaskedTextBox").value())) { fields += (strSp + "Order Number"); strSp = ", "; } //Added By LVV on 5/20/20 - 5.	Turn on required field validation (Order Number, Ship Date, Required Date, Origin Location Name, Destination Location Name)
+        if (ngl.isNullOrWhitespace($("#txtShipDate").data("kendoDatePicker").value())) { fields += (strSp + "Ship Date"); strSp = ", "; } //Added By LVV on 5/20/20 - 5.	Turn on required field validation (Order Number, Ship Date, Required Date, Origin Location Name, Destination Location Name)
+        if (ngl.isNullOrWhitespace($("#txtDeliveryDate").data("kendoDatePicker").value())) { fields += (strSp + "Req Date"); strSp = ", "; } //Added By LVV on 5/20/20 - 5.	Turn on required field validation (Order Number, Ship Date, Required Date, Origin Location Name, Destination Location Name)
+        if (ngl.isNullOrWhitespace($("#txtorigCompName").data("kendoMaskedTextBox").value())) { fields += (strSp + "Origin Location"); strSp = ", "; } //Added By LVV on 5/20/20 - 5.	Turn on required field validation (Order Number, Ship Date, Required Date, Origin Location Name, Destination Location Name)
+        if (ngl.isNullOrWhitespace($("#txtorigCompCountry").data("kendoMaskedTextBox").value())) { fields += (strSp + "Orig Country"); strSp = ", "; }
+        if (ngl.isNullOrWhitespace($("#txtorigCompPostalCode").data("kendoComboBox").value())) { fields += (strSp + "Orig Postal Code"); strSp = ", "; }
+        if (ngl.isNullOrWhitespace($("#txtdestCompName").data("kendoMaskedTextBox").value())) { fields += (strSp + "Destination Location"); strSp = ", "; } //Added By LVV on 5/20/20 - 5.	Turn on required field validation (Order Number, Ship Date, Required Date, Origin Location Name, Destination Location Name)
+        if (ngl.isNullOrWhitespace($("#txtdestCompCountry").data("kendoMaskedTextBox").value())) { fields += (strSp + "Dest Country"); strSp = ", "; }
+        if (ngl.isNullOrWhitespace($("#txtdestCompPostalCode").data("kendoComboBox").value())) { fields += (strSp + "Dest Postal Code"); strSp = ", "; }
+        if (!ngl.isNullOrWhitespace(fields)) { alertMsg = fields; ret = false; }
+        return ret;
+    }
+
+
+    function GetRateReqOrder() {
+        var order = new rateReqOrder();
+        order.ShipDate = $("#txtShipDate").data("kendoDatePicker").value();  //"02-25-2017";
+        order.DeliveryDate = $("#txtDeliveryDate").data("kendoDatePicker").value();  //"03-06-2017";
+        order.CompName = $("#txtorigCompName").data("kendoMaskedTextBox").value();
+        order.TotalCases = $("#txtTotalCases").data("kendoNumericTextBox").value();
+        order.TotalWgt = $("#txtTotalWgt").data("kendoNumericTextBox").value();
+        order.TotalPL = $("#txtTotalPlts").data("kendoNumericTextBox").value();
+        //TotalCube
+        var labelText = $('#txtTotalStops').text();
+        order.TotalStops = parseInt(labelText);
+        order.Pickup = fnGetPickup();
+        order.Stops = fnGetStops();
+        order.WeightUnit = $("#txtWeightUnit").data("kendoComboBox").value();
+        order.LengthUnit = $("#txtLengthUnit").data("kendoComboBox").value();
+
+        //Added By LVV on 4/20/20 LBDemo
+        var tempCode = "U";
+        var diTmp = $("#ddlLoadTemp").data("kendoDropDownList").dataItem();
+        if (diTmp != null) { tempCode = diTmp.Name; } //else { tempCode = $("#ddlLoadTemp").data("kendoDropDownList").value(); }
+        //Added By LVV on 4/24/20 LBDemo
+        var tempTran = 4;
+        var diTrans = $("#ddlTransType").data("kendoDropDownList").dataItem();
+        if (diTrans != null) { tempTran = diTrans.Control; }
+        order.BookTransType = tempTran;
+        order.CommCodeType = tempCode;
+        order.Inbound = $("#chkInbound").data("kendoSwitch").check();
+        return order;
+    }
+
+    /*
+    function btnSaveClick() {
+        if (blnWinItemsClosing == true) { return; }
+        blnWinItemsClosing = true;
+        winLPBookingItems.close();
+        SaveOrder();
+    }
+    */
+
+
+    function CreateBookingOrderCallback(data) {
+        kendo.ui.progress($("#winLPCreateBooking"), false); //Modified By LVV on 5/19/20
+        var oResults = new nglEventParameters();
+        oResults.source = "CreateBookingOrderCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        this.rData = null;
+        var tObj = this;
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (ngl.stringHasValue(data.Errors)) { ngl.showErrMsg("Create Order Failure", data.Errors, null); }
+                else {
+                    winLPBookingItems.close();
+                    refresh(); //refresh the loadboard grid
+                }
+            } else { ngl.showErrMsg("Create Order Failure", "Save Data Failure", null); }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj); }
+    }
+
+    function CreateBookingOrderAjaxErrorCallback(xhr, textStatus, error) {
+        kendo.ui.progress($("#winLPCreateBooking"), false); //Modified By LVV on 5/19/20
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        oResults.source = "CreateBookingOrderAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Create Order Failure"
+        oResults.error.message = formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+        //blnWinItemsClosing = false;
+    }
+
+
+
+    function SaveOrder() {
+        //make sure the grid is not in edit mode
+        var tf = $('#Items').find('.k-grid-edit-row');
+        if (tf.length > 0) {
+            kendo.ui.progress($("#winLPCreateBooking"), false); //Modified By LVV on 5/19/20
+            ngl.showErrMsg("Unsaved Changes", "Cannot get rates while item grid is in edit mode", null);
+            return;
+        }
+        //make sure all required fields are populated
+        if (!validateRequiredFields()) {
+            kendo.ui.progress($("#winLPCreateBooking"), false); //Modified By LVV on 5/19/20
+            ngl.showErrMsg("Required Fields", alertMsg, null);
+            return;
+        }
+        $("#center-pane").animate({ scrollTop: 0 }, 500);
+
+        var tObj = this;
+        var windowWidget = $("#winLPCreateBooking").data("kendoWindow");
+        kendo.ui.progress(windowWidget.element, true); //Modified By LVV on 5/19/20
+        setTimeout(function () {
+            var tObj = this;
+            var order = GetRateReqOrder();
+            console.log(order);
+            var oCRUDCtrl = new nglRESTCRUDCtrl();
+            var blnRet = oCRUDCtrl.update("Book/CreateBookingOrder", order, tObj, "CreateBookingOrderCallback", "CreateBookingOrderAjaxErrorCallback");
+        }, 1000);
+    }
+
+
+
+    function clearItems_Click() {
+        intItemNumIndex = 0;
+        orderitems = new Array();
+        $('#Items').data('kendoGrid').dataSource.read();
+    }
+
+
+    OrderItemsDataSource = new kendo.data.DataSource({
+        transport: {
+            read: function (e) { e.success(orderitems); },
+            create: function (e) {
+                intItemNumIndex += 1;
+                intItemIndex += 1;
+                var item1 = new rateReqItem();
+                $("#txtItemIndex").val(intItemIndex);
+                item1.ItemIndex = intItemIndex;
+                item1.ItemStopIndex = 1;
+                item1.ItemNumber = intItemNumIndex;
+                item1.Weight = e.data.Weight;
+                item1.FreightClass = e.data.FreightClass;
+                item1.PalletCount = e.data.PalletCount;
+                item1.NumPieces = 1;
+                item1.Description = e.data.Description;
+                item1.Quantity = e.data.Quantity;
+                item1.HazmatId = $("#txtHazmatId").val();
+                item1.Code = $("#txtCode").val();
+                item1.HazmatClass = $("#txtHazmatClass").val();
+                item1.IsHazmat = $("#txtIsHazmat").val();
+                item1.Pieces = $("#txtPieces").val();
+                item1.PackageType = e.data.PackageType; //$("#txtPackageType").val();
+                item1.Length = e.data.Length;
+                item1.Width = e.data.Width;
+                item1.Height = e.data.Height;
+                item1.Density = $("#txtDensity").val();
+                item1.NMFCItem = e.data.NMFCItem; //$("#txtNMFCItem").val(); //LVV Change 12/16/18
+                item1.NMFCSub = e.data.NMFCSub; //$("#txNMFCSub").val(); //LVV Change 12/16/18
+                item1.Stackable = e.data.Stackable;
+                // save data item to the original datasource
+                orderitems.push(item1);
+                $("#txtItemIndex").val(0);
+                // on success
+                e.success(item1);
+                // on failure
+                //e.error("XHR response", "status code", "error message");
+            },
+            update: function (e) {
+                // locate item in original datasource and update it
+                orderitems[getIndexByItemNumber(e.data.ItemNumber)] = e.data;
+                // on success
+                e.success();
+                // on failure
+                //e.error("XHR response", "status code", "error message");
+            },
+            destroy: function (e) {
+                orderitems.splice(getIndexByItemNumber(e.data.ItemNumber), 1);
+                e.success(orderitems);
+                // on failure
+                //e.error("XHR response", "status code", "error message");
+            },
+            parameterMap: function (options, operation) { return options; }
+        },
+        requestEnd: function (e) {
+            var index;
+            var TotalCases = 0;
+            var TotalWgt = 0;
+            var TotalPlts = 0;
+            if (orderitems.length > 0) {
+                for (index = 0; index < orderitems.length; ++index) {
+                    var item = orderitems[index];
+                    TotalCases += parseInt(item.Quantity);
+                    TotalWgt += parseFloat(item.Weight);
+                    TotalPlts += parseFloat(item.PalletCount);
+                }
+            }
+            else {
+                TotalCases = 1;
+                TotalWgt = 1;
+                TotalPlts = 1;
+            }
+            $("#txtTotalWgt").data("kendoNumericTextBox").value(TotalWgt);
+            $("#txtTotalPlts").data("kendoNumericTextBox").value(TotalPlts);
+            $("#txtTotalCases").data("kendoNumericTextBox").value(TotalCases);
+        },
+        schema: {
+            model: {
+                id: "ItemIndex",
+                fields: {
+                    "ItemIndex": { type: "number", visible: false, editable: false, nullable: true },
+                    "ItemStopIndex": { type: "number", visible: false, editable: false, nullable: true },
+                    "LoadID": { type: "number", visible: false, editable: false, nullable: true },
+                    "ItemNumber": { type: "string", editable: false },
+                    "Weight": { type: "number", defaultValue: 1, validation: { required: true, min: 1 } },
+                    "WeightUnit": { type: "string", editable: false, nullable: true },
+                    "FreightClass": { type: "string", defaultValue: "70", editable: true, nullable: false },
+                    "PalletCount": { type: "number", defaultValue: 1, validation: { required: true, min: 1 } },
+                    "NumPieces": { type: "number", defaultValue: 1, validation: { required: true, min: 1 } },
+                    "Description": { type: "string", editable: true, nullable: true },
+                    "Quantity": { type: "string", defaultValue: 1, validation: { required: true, min: 1 } },
+                    "HazmatId": { type: "string", editable: true, nullable: true },
+                    "Code": { type: "string", editable: true, nullable: true },
+                    "HazmatClass": { type: "string", editable: true, nullable: true },
+                    "IsHazmat": { type: "boolean", editable: true, nullable: true },
+                    "Pieces": { type: "string", defaultValue: "1", editable: true, nullable: true },
+                    "PackageType": { type: "string", defaultValue: "PLT", editable: true, nullable: false },
+                    "Length": { type: "number", defaultValue: 48, validation: { required: true, min: 0 } },
+                    "Width": { type: "number", defaultValue: 40, validation: { required: true, min: 0 } },
+                    "Height": { type: "number", defaultValue: 48, validation: { required: true, min: 0 } },
+                    "Density": { type: "string", editable: true, nullable: true },
+                    "NMFCItem": { type: "string", editable: true, nullable: true },
+                    "NMFCSub": { type: "string", editable: true, nullable: true },
+                    "Stackable": { type: "boolean", editable: true, nullable: true },
+                    "PackageDescription": { type: "number", defaultValue: 0, editable: true, nullable: false }
+                }
+            }
+        },
+        error: function (e) {
+            alert(e.errorThrown + " - " + e.xhr.responseJSON.ExceptionType + ":\n\n" + e.xhr.responseJSON.ExceptionMessage + "<br\>(Source: OrderItemsDataSource)");
+            this.cancelChanges();
+        },
+    });
+
+    function loadOrderStopsDataSource() {
+        $("#Items").empty();
+        var ItemsGrid = $("#Items").kendoGrid({
+            toolbar: [
+                { name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  onclick="return openAddNewItemsGridWindow(event,0)"><span class="k-icon k-i-add"></span>Add</a>' },
+                { template: "<a class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='clearItems_Click();'><span class='k-icon k-i-minus'></span> Clear Items</a>" },
+            ],
+            selectable: "single, row",
+            scrollable: true,
+            resizable: true,
+            columns: [
+                {
+                    command: [
+                        { className: "cm-icononly-button", name: "EditBookPkgGridCRUDCtrl", text: "", iconClass: "k-icon k-i-pencil", click: openEditItemsGridWindow },
+                        { className: "cm-icononly-button", name: "DeleteBookPkgGridCRUDCtrl", text: "", iconClass: "k-icon k-i-trash", click: confirmDeleteItemsGridRecord }],
+                    title: "Actions", width: 90
+                },
+                { field: "ItemNumber", title: "Item Number", hidden: true },
+                { field: "Quantity", title: "Qty", hidden: true },
+                { field: "PackageType", title: "Package Type", width: 100 },
+                { field: "PalletCount", title: "Count" },
+                { field: "Description", title: "Desc", width: 200 },
+                { field: "FreightClass", title: "FAK", width: 100 },
+                { field: "NMFCItem", title: "NMFC" },
+                { field: "NMFCSub", title: "Sub Class" },
+                { field: "Weight", title: "Wgt" },
+                { field: "Length", title: "Length", width: 75 },
+                { field: "Width", title: "Width", width: 75 },
+                { field: "Height", title: "Height", width: 75 },
+                { field: "Stackable", title: "Stack", template: '<input type="checkbox" #= Stackable ? "checked=checked" : "" # disabled="disabled" ></input>', width: 75 }
+            ],
+            columnMenu: { columns: true },
+            dataSource: OrderItemsDataSource,
+        });
+    }
+
+    function btnClear_Click() {
+        intItemNumIndex = 0;
+        orderitems = new Array();
+        orderstops = new Array();
+
+        $('#Items').data('kendoGrid').dataSource.read();
+
+        $("#txtTotalStops").text("0");
+        $("#txtorigCompAddress2").val('');
+        $("#txtorigCompAddress3").val('');
+        $("#txtdestCompControl").val(0);
+        $("#txtdestCompNumber").val('');
+        $("#txtdestCompAddress2").val('');
+        $("#txtdestCompAddress3").val('');
+        $("#txtStopIndex").val(0);
+        $("#txtSelectedStopIndex").val(0);
+        $("#txtItemIndex").val(0);
+        $("#txtItemStopIndex").val(0);
+        $("#txtNumPieces").val(1);
+        $("#txtDescription").val('');
+        $("#txtHazmatId").val('');
+        $("#txtCode").val('');
+        $("#txtHazmatClass").val('');
+        $("#txtIsHazmat").val(0);
+        $("#txtPieces").val(0);
+        //$("#txtPackageType").val('');
+        $("#txtDensity").val(0);
+        $("#txtNMFCItem").val('');
+        $("#txNMFCSub").val('');
+        $("#txtOrigPhone").val('');
+        $("#txtOrigContactName").val('');
+        $("#txtOrigContactEmail").val('');
+        $("#txtOrigEmergencyContactPhone").val('');
+        $("#txtOrigEmergencyContactName").val('');
+        $("#txtDestPhone").val('');
+        $("#txtDestContactName").val('');
+        $("#txtDestContactEmail").val('');
+        $("#txtDestEmergencyContactPhone").val('');
+        $("#txtDestEmergencyContactName").val('');
+        $("#txtShipDate").data("kendoDatePicker").value('');
+        $("#txtDeliveryDate").data("kendoDatePicker").value('');
+        $("#txtTotalWgt").data("kendoNumericTextBox").value(1);
+        $("#txtTotalPlts").data("kendoNumericTextBox").value(1);
+        $("#txtTotalCases").data("kendoNumericTextBox").value(1);
+        $("#txtTotalStops").text("0");
+        $("#txtorigCompName").data("kendoMaskedTextBox").value('');
+        $("#txtorigCompAddress1").data("kendoMaskedTextBox").value('');
+        $("#txtorigCompCountry").data("kendoMaskedTextBox").value('US');
+        $("#txtorigCompPostalCode").data("kendoComboBox").value("");
+        $("#txtorigCompCity").data("kendoComboBox").value("");
+        $("#txtorigCompState").data("kendoComboBox").value("");
+        $("#txtdestCompName").data("kendoMaskedTextBox").value('');
+        $("#txtdestCompAddress1").data("kendoMaskedTextBox").value('');
+        $("#txtdestCompCountry").data("kendoMaskedTextBox").value('US');
+        $("#txtdestCompPostalCode").data("kendoComboBox").value("");
+        $("#txtdestCompCity").data("kendoComboBox").value("");
+        $("#txtdestCompState").data("kendoComboBox").value("");
+        $("#txtOrderNo").data("kendoMaskedTextBox").value("");
+        $("#txtWeightUnit").data("kendoComboBox").value("LB");
+        $("#txtLengthUnit").data("kendoComboBox").value("IN");
+        //loadAddressBook();
+    }
+
+    function isNull(val, def) {
+        var ret = 0;
+        if (isNaN(val)) {
+            if (isNaN(def)) { def = 0; }
+            ret = def;
+        } else { ret = val; }
+        return ret;
+    }
+
+    function getIndexByItemNumber(itemNo) {
+        var idx, l = orderitems.length;
+        for (var j = 0; j < l; j++) {
+            if (orderitems[j].ItemNumber == itemNo) { return j; }
+        }
+        return null;
+    }
+
+
+    function getOrigPC() {
+        var dataItemZ = $("#txtorigCompPostalCode").data("kendoComboBox").dataItem();
+        if (dataItemZ == null) { return $("#txtorigCompPostalCode").data("kendoComboBox").value(); } else { return dataItemZ.ZipCode; }
+    }
+    function getOrigST() {
+        var dataItemS = $("#txtorigCompState").data("kendoComboBox").dataItem();
+        if (dataItemS == null) { return $("#txtorigCompState").data("kendoComboBox").value(); } else { return dataItemS.State; }
+    }
+    function getOrigCity() {
+        var dataItemC = $("#txtorigCompCity").data("kendoComboBox").dataItem();
+        if (dataItemC == null) { return $("#txtorigCompCity").data("kendoComboBox").value(); } else { return dataItemC.City; }
+    }
+    function getDestPC() {
+        var dataItemZ = $("#txtdestCompPostalCode").data("kendoComboBox").dataItem();
+        if (dataItemZ == null) { return $("#txtdestCompPostalCode").data("kendoComboBox").value(); } else { return dataItemZ.ZipCode; }
+    }
+    function getDestST() {
+        var dataItemS = $("#txtdestCompState").data("kendoComboBox").dataItem();
+        if (dataItemS == null) { return $("#txtdestCompState").data("kendoComboBox").value(); } else { return dataItemS.State; }
+    }
+    function getDestCity() {
+        var dataItemC = $("#txtdestCompCity").data("kendoComboBox").dataItem();
+        if (dataItemC == null) { return $("#txtdestCompCity").data("kendoComboBox").value(); } else { return dataItemC.City; }
+    }
+
+    function GetOrigin() {
+        var origin = new AddressBook();
+        origin.Name = $("#txtorigCompName").data("kendoMaskedTextBox").value();
+        origin.Address1 = $("#txtorigCompAddress1").data("kendoMaskedTextBox").value();
+        origin.Address2 = $("#txtorigCompAddress2").val();
+        origin.Address3 = $("#txtorigCompAddress3").val();
+        origin.City = getOrigCity();
+        origin.State = getOrigST();
+        origin.Country = $("#txtorigCompCountry").data("kendoMaskedTextBox").value();
+        origin.Zip = getOrigPC();
+        origin.Contact = GetOrigContact();
+        return origin;
+    }
+
+    function GetDest() {
+        var dest = new AddressBook();
+        dest.Name = $("#txtdestCompName").data("kendoMaskedTextBox").value();
+        dest.Address1 = $("#txtdestCompAddress1").data("kendoMaskedTextBox").value();
+        dest.Address2 = $("#txtdestCompAddress2").val();
+        dest.Address3 = $("#txtdestCompAddress3").val();
+        dest.City = getDestCity();
+        dest.State = getDestST();
+        dest.Country = $("#txtdestCompCountry").data("kendoMaskedTextBox").value();
+        dest.Zip = getDestPC();
+        dest.Contact = GetDestContact();
+        return dest;
+    }
+
+    function GetItems() {
+        //debugger;
+        var retItems = new Array();
+        if (orderitems != null && orderitems.length > 0) {
+            for (index = 0; index < orderitems.length; ++index) {
+                var i = orderitems[index];
+                var item = new Item();
+                item.ItemNumber = i.ItemNumber;
+                item.ItemDesc = i.Description;
+                item.ItemFreightClass = i.FreightClass;
+                item.ItemWgt = i.Weight;
+                item.ItemPackageType = i.PackageType;
+                item.ItemTotalPackages = i.PalletCount;
+                item.ItemPieces = i.Quantity;
+                item.ItemStackable = i.Stackable;
+                item.ItemLength = i.Length;
+                item.ItemWidth = i.Width;
+                item.ItemHeight = i.Height;
+                item.ItemNMFCItemCode = i.NMFCItem; //""; //LVV Change 12/16/18
+                item.ItemNMFCSubCode = i.NMFCSub; //""; //LVV Change 12/16/18
+                item.ItemIsHazmat = false;
+                item.ItemHazmatID = "";
+                item.ItemHazmatClass = "";
+                item.ItemHazmatPackingGroup = "";
+                item.ItemHazmatProperShipName = "";
+
+                retItems.push(item);
+            }
+        }
+        return retItems;
+    }
+
+    function GetEmergencyContact() {
+        var cont = new Contact();
+        var OrigEmergencyContactPhone = $("txtOrigEmergencyContactPhone").val();
+        if (typeof (OrigEmergencyContactPhone) !== 'undefined' && OrigEmergencyContactPhone !== null && !ngl.isNullOrWhitespace(OrigEmergencyContactPhone)) {
+            cont.ContactControl = 0; //identifies this as the origin contact
+            cont.ContactPhone = $("#txtOrigEmergencyContactPhone").val();
+            cont.ContactName = $("#txtOrigEmergencyContactName").val();
+        } else {
+            var DestEmergencyContactPhone = $("txtDestEmergencyContactPhone").val();
+            if (typeof (DestEmergencyContactPhone) !== 'undefined' && DestEmergencyContactPhone !== null && !ngl.isNullOrWhitespace(DestEmergencyContactPhone)) {
+                cont.ContactControl = -1; //identifies this as the destination contact
+                cont.ContactPhone = $("#txtDestEmergencyContactPhone").val();
+                cont.ContactName = $("#txtDestEmergencyContactName").val();
+            }
+        }
+        return cont;
+    }
+
+    function SetEmergencyContact(cont) {
+        if (typeof (cont) === 'undefined' || cont === null || !ngl.isObject(cont)) { return; }
+        if (cont.ContactControl === -1) {
+            //identifies this as the destination contact
+            $("#txtDestEmergencyContactName").val(cont.ContactName);
+            $("#txtDestEmergencyContactPhone").val(cont.ContactPhone);
+        } else {
+            $("#txtOrigEmergencyContactName").val(cont.ContactName);
+            $("#txtOrigEmergencyContactPhone").val(cont.ContactPhone);
+        }
+    }
+
+    function GetOrigContact() {
+        var cont = new Contact();
+        cont.ContactPhone = $("#txtOrigPhone").val();
+        cont.ContactName = $("#txtOrigContactName").val();
+        cont.ContactEmail = $("#txtOrigContactEmail").val();
+        return cont;
+    }
+
+    function SetOrigContact(cont) {
+        if (typeof (cont) === 'undefined' || cont === null || !ngl.isObject(cont)) { return; }
+        $("#txtOrigContactName").val(cont.ContactName);
+        $("#txtOrigPhone").val(cont.ContactPhone);
+        $("#txtOrigContactEmail").val(cont.ContactEmail);
+    }
+
+    function GetDestContact() {
+        var cont = new Contact();
+        cont.ContactPhone = $("#txtDestPhone").val();
+        cont.ContactName = $("#txtDestContactName").val();
+        cont.ContactEmail = $("#txtDestContactEmail").val();
+        return cont;
+    }
+
+    function SetDestContact(cont) {
+        if (typeof (cont) === 'undefined' || cont === null || !ngl.isObject(cont)) { return; }
+        $("#txtDestContactName").val(cont.ContactName);
+        $("#txtDestPhone").val(cont.ContactPhone);
+        $("#txtDestContactEmail").val(cont.ContactEmail);
+    }
+
+    /*
+
+    function saveScreenInfo() {
+        var s = new rateShopSaveLast();
+        s.OrigName = $("#txtorigCompName").data("kendoMaskedTextBox").value();
+        s.OrigAddress1 = $("#txtorigCompAddress1").data("kendoMaskedTextBox").value();
+        s.OrigCountry = $("#txtorigCompCountry").data("kendoMaskedTextBox").value();
+        s.OrigCity = getOrigCity();
+        s.OrigState = getOrigST();
+        s.OrigPostalCode = getOrigPC();
+        s.OrigContact = GetOrigContact();
+        s.DestName = $("#txtdestCompName").data("kendoMaskedTextBox").value();
+        s.DestAddress1 = $("#txtdestCompAddress1").data("kendoMaskedTextBox").value();
+        s.DestCountry = $("#txtdestCompCountry").data("kendoMaskedTextBox").value();
+        s.DestCity = getDestCity();
+        s.DestState = getDestST();
+        s.DestPostalCode = getDestPC();
+        s.DestContact = GetDestContact();
+        s.OrderNumber = $("#txtOrderNo").data("kendoMaskedTextBox").value();
+        s.TotalCases = $("#txtTotalCases").data("kendoNumericTextBox").value();
+        s.TotalWgt = $("#txtTotalWgt").data("kendoNumericTextBox").value();
+        s.TotalPL = $("#txtTotalPlts").data("kendoNumericTextBox").value();
+        s.TotalCube = 0;
+        s.LoadDate = $("#txtShipDate").data("kendoDatePicker").value();
+        s.RequiredDate = $("#txtDeliveryDate").data("kendoDatePicker").value();
+        s.WeightUnit = $("#txtWeightUnit").data("kendoComboBox").value();
+        s.LengthUnit = $("#txtLengthUnit").data("kendoComboBox").value();
+        s.Items = orderitems;
+        ////s.Accessorials = orderAccessorials;
+        s.EmergencyContact = GetEmergencyContact();
+
+        var UserPageSettingsData = new PageSettingModel();
+        UserPageSettingsData.name = "LB_SavedLastOrder";
+        UserPageSettingsData.value = JSON.stringify(s);
+        postPageSetting(tPage, "LoadBoard", UserPageSettingsData, true)
+    }
+
+    function loadScreenInfo() {
+        getPageSettings(tPage, "LoadBoard", "LB_SavedLastOrder", true);
+    }
+
+    */
+
+    $(document).ready(function () {
+
+
+        setTimeout(function () {
+
+            $("#ddlLoadTemp").kendoDropDownList({
+                dataTextField: "Description",
+                dataValueField: "Name",
+                autoWidth: true,
+                filter: "contains",
+                dataSource: {
+                    serverFiltering: false,
+                    transport: {
+                        read: {
+                            async: false,
+                            url: "api/vLookupList/GetStaticList/" + nglStaticLists.TempType,
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        },
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "Control",
+                            fields: {
+                                Control: { type: "number" },
+                                Name: { type: "string" },
+                                Description: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Temp Type JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                },
+                ////select: function (e) {
+                ////    var value = e.dataItem.Control;
+                ////    if (ngl.isNullOrWhitespace(value)) { value = 0; } //Value must be int so if value is empty string or null set it to 0
+                ////    pgFrtTypeFltr = value;
+                ////    if (blnFirstLoad === false) { refreshPOHdrGrid(); }
+                ////}
+            });
+
+            $("#ddlTransType").kendoDropDownList({
+                dataTextField: "Name",
+                dataValueField: "Control",
+                autoWidth: true,
+                filter: "contains",
+                dataSource: {
+                    serverFiltering: false,
+                    transport: {
+                        read: {
+                            async: false,
+                            url: "api/vLookupList/GetStaticList/" + nglStaticLists.BookTransType,
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        },
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "Control",
+                            fields: {
+                                Control: { type: "number" },
+                                Name: { type: "string" },
+                                Description: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Trans Type JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                },
+            });
+
+            $("#btnZipOk").kendoButton();
+            $("#comboZip").kendoComboBox({
+                dataTextField: "ZipCode",
+                dataValueField: "ZipCode",
+                autoWidth: true,
+                autoBind: false,
+                template: '<span class="k-state-default"><p>#: data.ZipCode #</p></span>',
+                dataSource: {
+                    transport: {
+                        read: function (options) {
+                            var z = new zip();
+                            z.ZipCodeControl = 0;
+                            z.ZipCode = "";
+                            z.City = $("#txtZipCity").val();
+                            z.State = $("#txtZipState").val();
+                            $.ajax({
+                                async: false,
+                                type: "GET",
+                                url: "api/ZipCode/GetZipsForCityState",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: 'json',
+                                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                                data: { filter: JSON.stringify(z) },
+                                success: function (data) { options.success(data); },
+                                error: function (xhr, textStatus, error) {
+                                    var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Get Zip Code Failure");
+                                    ngl.showErrMsg("Get Zip Code", sMsg, null);
+                                }
+                            });
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+            });
+
+            zipWin = $("#zipWin").kendoWindow({
+                title: "Choose a Zip Code",
+                modal: true,
+                visible: false
+            }).data("kendoWindow");
+
+
+            winLPBookingItems = $("#winLPCreateBooking").kendoWindow({
+                title: "Shipping Information",
+                maxHeight: $(window).height(),
+                maxWidth: $(window).width(),
+                height: ($(window).height() / 10) * 9,
+                width: ($(window).width() / 10) * 9,
+                modal: true,
+                visible: false,
+                resizable: true,
+                scrollable: true,
+                actions: ["print", "save", "Minimize", "Maximize", "Close"],
+                //close: function () { SaveOrder(); }
+            }).data("kendoWindow");
+
+
+
+            winAddressBook = $("#winAddressBook").kendoWindow({
+                title: "Address Book",
+                maxWidth: 1000,
+                maxHeight: 550,
+                modal: true,
+                visible: false
+            }).data("kendoWindow");
+
+            $("#txtorigCompPostalCode").kendoComboBox({
+                dataTextField: "ZipCode",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.ZipCode # #: data.City # #: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/1",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    var item = e.dataItem;
+                    //var strText = this.value(); //strText will be populated with the value the user typed as long as the user did not hit the enter key. Enter key selection clears this value -- I haven't found a way to get it yet
+                    if (item) {
+                        $("#txtorigCompCity").data("kendoComboBox").value(item.City);
+                        $("#txtorigCompState").data("kendoComboBox").value(item.State);
+                    }
+                },
+            });
+
+            $("#txtdestCompPostalCode").kendoComboBox({
+                dataTextField: "ZipCode",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.ZipCode # #: data.City # #: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/1",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    var item = e.dataItem;
+                    //var strText = this.value(); //strText will be populated with the value the user typed as long as the user did not hit the enter key. Enter key selection clears this value -- I haven't found a way to get it yet
+                    if (item) {
+                        $("#txtdestCompCity").data("kendoComboBox").value(item.City);
+                        $("#txtdestCompState").data("kendoComboBox").value(item.State);
+                    }
+                },
+            });
+
+            $("#txtorigCompCity").kendoComboBox({
+                dataTextField: "City",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.City # #: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/2",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    var item = e.dataItem;
+                    if (item) {
+                        //$("#txtorigCompPostalCode").data("kendoComboBox").value(item.ZipCode);
+                        $("#txtorigCompState").data("kendoComboBox").value(item.State);
+                        $("#txtZipLocation").val("o");
+                        openZipWin(item.City, item.State)
+                    }
+                },
+            });
+
+            $("#txtdestCompCity").kendoComboBox({
+                dataTextField: "City",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.City # #: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/2",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    var item = e.dataItem;
+                    if (item) {
+                        //$("#txtdestCompPostalCode").data("kendoComboBox").value(item.ZipCode);
+                        $("#txtdestCompState").data("kendoComboBox").value(item.State);
+                        $("#txtZipLocation").val("d");
+                        openZipWin(item.City, item.State)
+                    }
+                },
+            });
+
+            $("#txtorigCompState").kendoComboBox({
+                dataTextField: "State",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/3",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    //var item = e.dataItem;
+                    //if (item){
+                    //    $("#txtorigCompPostalCode").data("kendoComboBox").value("");
+                    //    $("#txtorigCompCity").data("kendoComboBox").value("");
+                    //}
+                },
+            });
+
+            $("#txtdestCompState").kendoComboBox({
+                dataTextField: "State",
+                dataValueField: "ZipCodeControl",
+                autoWidth: true,
+                template: '<span class="k-state-default"><p>#: data.State #</p></span>',
+                filter: "startswith",
+                dataSource: {
+                    serverFiltering: true,
+                    serverPaging: true,
+                    transport: {
+                        read: {
+                            url: "api/ZipCode/GetZips/3",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "ZipCodeControl",
+                            fields: {
+                                ZipCodeControl: { type: "number" },
+                                ZipCode: { type: "string" },
+                                State: { type: "string" },
+                                City: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                },
+                select: function (e) {
+                    //var item = e.dataItem;
+                    //if (item){
+                    //    $("#txtorigCompPostalCode").data("kendoComboBox").value("");
+                    //    $("#txtorigCompCity").data("kendoComboBox").value("");
+                    //}
+                },
+            });
+
+            $("#txtStopIndex").val(intStopIndex);
+            $("#txtItemIndex").val(intItemIndex);
+            $("#txtItemStopIndex").val(intItemStopIndex);
+            $("#txtSelectedStopIndex").val(intSelectedStopIndex);
+            $("#txtTotalStops").text(intTotalStops);
+            //$("#txtBookCustCompControl").val(0)
+            $("#txtShipDate").kendoDatePicker();
+            $("#txtDeliveryDate").kendoDatePicker();
+            $("#txtWeightUnit").kendoComboBox({
+                index: 0,
+                dataTextField: "WeightUnit",
+                dataValueField: "WeightUnit",
+                dataSource: nglvLookupEditors.dsWgtUnit,
+                change: function (e) {
+                    //put change logic here
+                    return;
+                }
+            });
+            $("#txtLengthUnit").kendoComboBox({
+                index: 0,
+                dataTextField: "LengthUnit",
+                dataValueField: "LengthUnit",
+                dataSource: nglvLookupEditors.dsLengthUnit,
+                change: function (e) {
+                    //put change logic here
+                    return;
+                }
+            });
+
+            $("#txtTotalWgt").kendoNumericTextBox({ format: "#.00 lbs", min: 1, decimals: 0, max: 9999999, spinners: false }).data("kendoNumericTextBox").readonly();
+            $("#txtTotalCases").kendoNumericTextBox({ format: "#0", min: 1, decimals: 0, max: 999999, spinners: false }).data("kendoNumericTextBox").readonly();
+            $("#txtTotalPlts").kendoNumericTextBox({ format: "#0", min: 1, decimals: 0, max: 99, spinners: false }).data("kendoNumericTextBox").readonly();
+            $("#txtdestStopNumber").kendoNumericTextBox({ format: "#0", min: 1, decimals: 0, max: 99 });
+            $("#txtOrigZip").kendoMaskedTextBox();
+            $("#txtDestZip").kendoMaskedTextBox();
+            $("#txtFAK").kendoMaskedTextBox();
+            $("#txtOrderNo").kendoMaskedTextBox();
+            $("#txtorigCompName").kendoMaskedTextBox();
+            $("#txtorigCompAddress1").kendoMaskedTextBox();
+            $("#txtorigCompCountry").kendoMaskedTextBox({ value: "US" });
+            $("#txtdestCompName").kendoMaskedTextBox();
+            $("#txtdestCompAddress1").kendoMaskedTextBox();
+            $("#txtdestCompCountry").kendoMaskedTextBox({ value: "US" });
+            $("#txtitemNumber").kendoMaskedTextBox();
+
+            $("#chkInbound").kendoSwitch(); //Added By LVV on 4/20/20 LBDemo
+
+            loadOrderStopsDataSource();
+
+            var order = new rateReqOrder();
+
+            dsAddressBook = new kendo.data.DataSource({
+                serverFiltering: true,
+                serverPaging: true,
+                pageSize: 50,
+                transport: {
+                    read: {
+                        url: "api/AddressBook/GetAddressBookForLE",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                        type: "GET"
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Name",
+                        fields: {
+                            Name: { type: "string" },
+                            Address1: { type: "string" },
+                            Address2: { type: "string" },
+                            Address3: { type: "string" },
+                            City: { type: "string" },
+                            State: { type: "string" },
+                            Country: { type: "string" },
+                            Zip: { type: "string" }
+                            //strImg: {type:"string"}
+                        }
+                    },
+                    errors: "Errors"
+                }
+            });
+
+            dsAddressBook.read();
+
+            $("#acFilter").kendoAutoComplete({
+                placeholder: "Search...",
+                dataTextField: "Name",
+                filter: "startswith",
+                dataSource: dsAddressBook,
+                open: function (e) {
+                    //prevent drowdown list from opening
+                    e.preventDefault();
+                }
+            });
+
+            $('#AddressBookGrid').kendoGrid({
+                autoBind: false,
+                dataSource: dsAddressBook,
+                selectable: "row",
+                pageable: true,
+                resizable: true,
+                groupable: false,
+                columns: [
+                    //{   field: "strImg",
+                    //    title: " ",
+                    //    hidden: false,
+                    //    template: function(dataItem) {
+                    //        return "<span class='k-icon " + kendo.htmlEncode(dataItem.strImg) + "'></span>";
+                    //    },
+                    //    width: 25
+                    //},
+                    { field: "Name", title: "Name" },
+                    { field: "Address1", title: "Address 1" },
+                    { field: "Address2", title: "Address 2" },
+                    { field: "Address3", title: "Address 3" },
+                    { field: "City", title: "City" },
+                    { field: "State", title: "State" },
+                    { field: "Country", title: "Country" },
+                    { field: "Zip", title: "Zip" }
+                ]
+            });
+
+            //loadScreenInfo();
+        }, 10, this);
+
+        wdgtItemsGridEdit = new NGLEditWindCtrl();
+        wdgtItemsGridEdit.loadDefaults('dividEditItemsPopupWnd', wndItemsGridEdit, 'id621201811071350538611498', null, objItemsGridDataFields, 'blueopal', 'ItemsGridCB', null, 'NGLItemsGridClass', 'Packages', 'Please select a Packages record with valid data.', 'A Packages Record is Required', 'Cannot add a new Packages record because the field configuration settings are not valid, contact technical support for more information.', 'The Add New Packages Settings Are Invalid');
+
+    });
+</script>

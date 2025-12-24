@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.12/js/adal.min.js"></script>
+    <script>
+  var ADAL = new AuthenticationContext({
+      instance: 'https://login.microsoftonline.com/',
+      tenant: 'common', //COMMON OR YOUR TENANT ID
+
+        clientId: 'd90c6be8-78aa-406e-b268-453ff9b42530', //REPLACE WITH YOUR CLIENT ID
+        redirectUri: 'http://localhost:3001/', //REPLACE WITH YOUR REDIRECT URL
+
+      callback: userSignedIn,
+      popUp: true
+  });
+
+  function signIn() {
+      ADAL.login();
+  }
+
+  function userSignedIn(err, token) {
+      console.log('userSignedIn called');
+      if (!err) {
+          console.log("token: " + token);
+          showWelcomeMessage();
+      }
+      else {
+          console.error("error: " + err);
+      }
+  }
+
+  function showWelcomeMessage() {
+      var user = ADAL.getCachedUser();
+      var divWelcome = document.getElementById('WelcomeMessage');
+      divWelcome.innerHTML = "Welcome " + user.profile.name;
+        }
+
+
+
+    </script>
+    <meta charset="utf-8" />
+    <title>hi</title>
+
+</head>
+<body>
+
+    <button id="SignIn" onclick="signIn()">Sign In</button>
+    <h4 id="WelcomeMessage"></h4>
+</body>
+</html>

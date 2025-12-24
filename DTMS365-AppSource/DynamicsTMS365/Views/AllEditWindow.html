@@ -1,0 +1,1128 @@
+﻿<!--
+    NOTE: Must add refreshAllGrid() to any page which references this View (All)
+-->
+
+<div id="wndSelectLocation">
+    <div style="width:100%; height:95%;">
+
+        <div style="float:left; width:100%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Search&nbsp;<span class="k-icon k-i-search"></span></td></tr>
+                <tr><td><input id="comboLocationSearch" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:100%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Name</td></tr>
+                <tr><td><input id="txtLocationName" maxlength="100" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:100%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Street Address</td></tr>
+                <tr><td><input id="txtLocationAddress1" maxlength="40" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; width:30%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>City</td></tr>
+                <tr><td><input id="txtLocationCity" maxlength="25" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; width:10%; min-width:50px;">
+            <table class="tblFitWidth">
+                <tr><td>State</td></tr>
+                <tr><td><input id="txtLocationState" maxlength="2" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; width:20%; min-width:100px;">
+            <table class="tblFitWidth">
+                <tr><td>Postal Code</td></tr>
+                <tr><td><input id="txtLocationZip" maxlength="10" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; width:40%; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Country</td></tr>
+                <tr><td><input id="txtLocationCountry" maxlength="30" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Latitude</td></tr>
+                <tr><td><input id="txtLocationLatitude" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Longitude</td></tr>
+                <tr><td><input id="txtLocationLongitude" style="width:100%" /></td></tr>
+            </table>
+        </div>
+
+        <div style="float: none; height:0">&nbsp;</div>
+        <div style="float:left; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Date</td></tr>
+                <tr><td><input id="dtpLocationDate" style="width:100%" /></td></tr>
+            </table>
+        </div>
+        <div style="float:left; min-width:150px;">
+            <table class="tblFitWidth">
+                <tr><td>Time</td></tr>
+                <tr><td><input id="dtpLocationTime" style="width:100%" /></td></tr>
+            </table>
+        </div>
+
+        <input id="txtLocationControl" type="hidden" />
+    </div>
+</div>
+
+<div id="wndAllEdit">
+    <div>
+        <div id="Pickup-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandPickupSpan" style="display: none;"><a onclick='expandPickup();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapsePickupSpan" style="display: normal;"><a onclick='collapsePickup();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span id="spFTPickupLbl" style="font-size:small; font-weight:bold">Pickup Information</span>&nbsp;&nbsp;<br />
+                    <div id="PickupDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                        <div style="padding-bottom:10px;">
+                            <div class="k-block k-info-colored" style="display:inline-block">Changes will be applied to all stops with the same location information</div>
+                        </div>
+                        <div style="width:95%; height:95%;">
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Appointment Scheduled</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrScheduleDate" /></div><div><input id="dtpBookCarrScheduleTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check In</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrActualDate" /></div><div><input id="dtpBookCarrActualTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Start Loading</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrStartLoadingDate" /></div><div><input id="dtpBookCarrStartLoadingTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Finish Loading</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrFinishLoadingDate" /></div><div><input id="dtpBookCarrFinishLoadingTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check Out</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrActLoadComplete_Date" /></div><div><input id="dtpBookCarrActLoadCompleteTime" /></div></td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tblResponsive-wrap" style="float:none;">
+                            <table class="tblResponsive" style="float:left;">
+                                <tr><td class="tblResponsive-top">Dock Door(s) Assignment</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtBookCarrDockPUAssigment" /></td></tr>
+                            </table>
+                        </div>
+                        <hr />
+                        <div class="tblResponsive-wrap" style="float:none;">
+                            <table class="tblResponsive" style="float:left;">
+                                <tr><td class="tblResponsive-top">Whse Auth Number</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtBookWhseAuthorizationNo" /></td></tr>
+                            </table>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Delivery-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandDeliverySpan" style="display: none;"><a onclick='expandDelivery();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseDeliverySpan" style="display: normal;"><a onclick='collapseDelivery();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span id="spFTDeliveryLbl" style="font-size:small; font-weight:bold">Delivery Information</span>&nbsp;&nbsp;<br />
+                    <div id="DeliveryDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                        <div style="padding-bottom:10px;">
+                            <div class="k-block k-info-colored" style="display:inline-block">Changes will be applied to all stops with the same location information</div>
+                        </div>
+                        <div style="width:95%; height:95%;">
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Appointment Scheduled</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrApptDate" /></div><div><input id="dtpBookCarrApptTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check In</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrActDate" /></div><div><input id="dtpBookCarrActTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Start Unloading</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrStartUnloadingDate" /></div><div><input id="dtpBookCarrStartUnloadingTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Finish Unloading</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrFinishUnloadingDate" /></div><div><input id="dtpBookCarrFinishUnloadingTime" /></div></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Check Out</td></tr>
+                                    <tr><td class="tblResponsive-top"><div><input id="dtpBookCarrActUnloadCompDate" /></div><div><input id="dtpBookCarrActUnloadCompTime" /></div></td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tblResponsive-wrap" style="float:none;">
+                            <table class="tblResponsive" style="float:left;">
+                                <tr><td class="tblResponsive-top">Dock Door(s) Assignment</td></tr>
+                                <tr><td class="tblResponsive-top"><input id="txtBookCarrDockDelAssignment" /></td></tr>
+                            </table>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Trailer-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandTrailerSpan" style="display: none;"><a onclick='expandTrailer();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseTrailerSpan" style="display: normal;"><a onclick='collapseTrailer();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Trailer/Load Information</span>&nbsp;&nbsp;<br />
+                    <div id="TrailerDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                        <div style="width:95%; height:95%;">
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Trailer Number</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookCarrTrailerNo" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Trailer Seal Number</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookCarrSealNo" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Driver Number</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookCarrDriverNo" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Driver Name</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookCarrDriverName" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Carrier Pro</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtAssignedProNumber" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Carrier Name</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtAssignedCarrierName" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Carrier Num/SCAC</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtAssignedCarrierNumber" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">Load Shipped Wgt</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookFinAPActWgt" /></td></tr>
+                                </table>
+                            </div>
+                            <div style="float:left;">
+                                <table class="tblResponsive">
+                                    <tr><td class="tblResponsive-top">BOL Number</td></tr>
+                                    <tr><td class="tblResponsive-top"><input id="txtBookCarrBLNumber" /></td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Notes-pane">
+            <div class="pane-content">
+                <div class="fast-tab">
+                    <span id="ExpandNotesSpan" style="display: none;"><a onclick='expandNotes();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                    <span id="CollapseNotesSpan" style="display: normal;"><a onclick='collapseNotes();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                    <span style="font-size:small; font-weight:bold">Notes</span>&nbsp;&nbsp;<br />
+                    <div id="NotesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                        <div style="padding-bottom:10px; padding-top:10px;">
+                            <div><input type="checkbox" id="chkApplyToAll" ><label class="k-checkbox-label" for="chkApplyToAll"><strong>Apply To All Stops</strong></label></div>
+                        </div>
+                        <div style="width:100%; height:95%;">
+                            <div style="margin-bottom:5px"><strong>Comments</strong>&nbsp;<span id="spBtnOpenSLWind"><a id="btnOpenSLWnd"></a></span>&nbsp;<span id="spLocationTag"></span></div>
+                            <div style="margin-bottom:5px"><textarea id="txtComments" maxlength="255" rows="3" style="resize:vertical; height:auto; width:100%;"></textarea></div>
+
+                            <div style="margin-bottom:5px"><strong>Reason Code</strong></div>
+                            <div><input id="comboAllLoadStatusCodes" style="margin-bottom:1px; width:50%" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input id="txtControl" type="hidden" />
+    <input id="txtSHID" type="hidden" />
+    <input id="txtProNumber" type="hidden" />
+    <input id="txtCNS" type="hidden" />
+    <input id="txtOrderNumber" type="hidden" />
+    <input id="txtStopNumber" type="hidden" />
+    <input id="txtBookPickupStopNumber" type="hidden" />
+    <input id="txtAssignedCarrierContact" type="hidden" />
+    <input id="txtAssignedCarrierContactPhone" type="hidden" />
+    <input id="txtAllPurchaseOrderNumber" type="hidden" />
+    <input id="txtAllAssignedCarrier" type="hidden" />
+    <input id="txtAllDestName" type="hidden" />
+</div>
+
+
+<!--initialize all the kendo components-->
+<script>
+    var wndAllEdit = kendo.ui.Window;
+    var wndSelectLocation = kendo.ui.Window;
+
+    var LocationControl = 0;
+    var LocationName = "", LocationAddress1 = "", LocationCity = "", LocationState = "", LocationZip = "", LocationCountry = "", LocationLatitude = "", LocationLongitude = "";
+    var LocationDate = "", LocationTime = "";
+
+    function openSelectLocationWnd() {
+        $("#txtLocationControl").val(LocationControl);
+        $("#txtLocationName").data("kendoMaskedTextBox").value(LocationName);
+        $("#txtLocationAddress1").data("kendoMaskedTextBox").value(LocationAddress1);
+        $("#txtLocationCity").data("kendoMaskedTextBox").value(LocationCity);
+        $("#txtLocationState").data("kendoMaskedTextBox").value(LocationState);
+        $("#txtLocationZip").data("kendoMaskedTextBox").value(LocationZip);
+        $("#txtLocationCountry").data("kendoMaskedTextBox").value(LocationCountry);
+        $("#txtLocationLatitude").data("kendoMaskedTextBox").value(LocationLatitude);
+        $("#txtLocationLongitude").data("kendoMaskedTextBox").value(LocationLongitude);
+        $("#dtpLocationDate").data("kendoDatePicker").value(LocationDate);
+        $("#dtpLocationTime").data("kendoTimePicker").value(LocationTime);
+        wndSelectLocation.center().open();
+    }
+
+    function SaveLocation() {
+        var testLat = $("#txtLocationLatitude").data("kendoMaskedTextBox").value();
+        var testLong = $("#txtLocationLongitude").data("kendoMaskedTextBox").value();
+        if (!ngl.isNullOrWhitespace(testLat) && ngl.isNullOrWhitespace(testLong)) { ngl.showErrMsg("Required Field", "Longitude", null); return; }
+        if (!ngl.isNullOrWhitespace(testLong) && ngl.isNullOrWhitespace(testLat)) { ngl.showErrMsg("Required Field", "Latitude", null); return; }
+        LocationControl = $("#txtLocationControl").val();
+        LocationName = $("#txtLocationName").data("kendoMaskedTextBox").value();
+        LocationAddress1 = $("#txtLocationAddress1").data("kendoMaskedTextBox").value();
+        LocationCity = $("#txtLocationCity").data("kendoMaskedTextBox").value();
+        LocationState = $("#txtLocationState").data("kendoMaskedTextBox").value();
+        LocationZip = $("#txtLocationZip").data("kendoMaskedTextBox").value();
+        LocationCountry = $("#txtLocationCountry").data("kendoMaskedTextBox").value();
+        LocationLatitude = $("#txtLocationLatitude").data("kendoMaskedTextBox").value();
+        LocationLongitude = $("#txtLocationLongitude").data("kendoMaskedTextBox").value();
+        LocationDate = $("#dtpLocationDate").data("kendoDatePicker").value();
+        LocationTime = $("#dtpLocationTime").data("kendoTimePicker").value();
+        var lblLT = "", segSep = "", temp = "";
+        if (!ngl.isNullOrWhitespace(LocationName)) { temp += LocationName + " - "; }
+        if (!ngl.isNullOrWhitespace(LocationAddress1)) { temp += segSep + LocationAddress1; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(LocationCity)) { temp += segSep + LocationCity; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(LocationState)) { temp += segSep + LocationState; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(LocationZip)) { temp += segSep + LocationZip; segSep = " "; }
+        if (!ngl.isNullOrWhitespace(LocationCountry)) { temp += segSep + LocationCountry; segSep = " "; }
+        if (!ngl.isNullOrWhitespace(LocationLatitude) && !ngl.isNullOrWhitespace(LocationLongitude)) { temp += segSep + "(" + LocationLatitude + ", " + LocationLongitude + ")"; segSep = " "; }
+
+        //debugger;
+        if (!ngl.isNullOrWhitespace(LocationDate)) { temp += segSep + kendo.toString(LocationDate, 'MM/dd/yyyy'); segSep = " "; }
+        if (!ngl.isNullOrWhitespace(LocationTime)) { temp += segSep + kendo.toString(LocationTime, 'HH:mm'); segSep = " "; }
+
+        if (!ngl.isNullOrWhitespace(temp)) { lblLT = "Location Tag: " + temp; }
+        $("#spLocationTag").html(lblLT);
+        wndSelectLocation.close();
+    }
+
+    function ClearLocation() {
+        $("#txtLocationControl").val(0);
+        $("#txtLocationName").data("kendoMaskedTextBox").value("");
+        $("#txtLocationAddress1").data("kendoMaskedTextBox").value("");
+        $("#txtLocationCity").data("kendoMaskedTextBox").value("");
+        $("#txtLocationState").data("kendoMaskedTextBox").value("");
+        $("#txtLocationZip").data("kendoMaskedTextBox").value("");
+        $("#txtLocationCountry").data("kendoMaskedTextBox").value("");
+        $("#txtLocationLatitude").data("kendoMaskedTextBox").value("");
+        $("#txtLocationLongitude").data("kendoMaskedTextBox").value("");
+        $("#comboLocationSearch").data("kendoAutoComplete").value("");
+
+        $("#dtpLocationDate").data("kendoDatePicker").value(null);
+        $("#dtpLocationTime").data("kendoTimePicker").value(null);
+    }
+
+
+    function expandNotes() { $("#NotesDiv").show(); $("#ExpandNotesSpan").hide(); $("#CollapseNotesSpan").show(); }
+    function collapseNotes() { $("#NotesDiv").hide(); $("#ExpandNotesSpan").show(); $("#CollapseNotesSpan").hide(); }
+    function expandTrailer() { $("#TrailerDiv").show(); $("#ExpandTrailerSpan").hide(); $("#CollapseTrailerSpan").show(); }
+    function collapseTrailer() { $("#TrailerDiv").hide(); $("#ExpandTrailerSpan").show(); $("#CollapseTrailerSpan").hide(); }
+    function expandDelivery() { $("#DeliveryDiv").show(); $("#ExpandDeliverySpan").hide(); $("#CollapseDeliverySpan").show(); }
+    function collapseDelivery() { $("#DeliveryDiv").hide(); $("#ExpandDeliverySpan").show(); $("#CollapseDeliverySpan").hide(); }
+    function expandPickup() { $("#PickupDiv").show(); $("#ExpandPickupSpan").hide(); $("#CollapsePickupSpan").show(); }
+    function collapsePickup() { $("#PickupDiv").hide(); $("#ExpandPickupSpan").show(); $("#CollapsePickupSpan").hide(); }
+
+
+    //************* Window Functions ********************
+    function Save() {
+        debugger
+        var ApplyToAll = false;
+        var ApplyToAllDelivery = true;
+        var ApplyToAllPickup = true;
+        if ($('#chkApplyToAll').is(":checked")) { ApplyToAll = true; }
+        //Modified by RHR for v-8.5.2.004 on 07/22/2022 added logic to automatically move to a new field on the All page Edit Popup window before saving, this ensures that the last data entry values are posted.
+        var iSelected = $(document.activeElement)
+        if (iSelected.prop('id') == "txtComments") {
+            //if editing the comments change focus to WhseAuthorizationNo
+            $("#txtBookWhseAuthorizationNo").focus();
+        } else {
+            //just change focus to the comments
+            $("#txtComments").focus();
+        }
+        var item = new allGridItem();
+        item.Control = $("#txtControl").val();
+        item.ProNumber = $("#txtProNumber").val();
+        item.CnsNumber = $("#txtCNS").val();
+        item.StopNumber = $("#txtStopNumber").val();
+        item.PurchaseOrderNumber = $("#txtAllPurchaseOrderNumber").val();
+        item.OrderNumber = $("#txtOrderNumber").val();
+        item.ScheduledToLoad = "";
+        item.RequestedToArrive = "";
+        item.AssignedCarrier = $("#txtAllAssignedCarrier").val();
+        item.DestinationName = $("#txtAllDestName").val();
+        item.DestinationCity = "";
+        item.DestinationState = "";
+        item.Comments = $("#txtComments").data("kendoMaskedTextBox").value();
+        var combobox = $("#comboAllLoadStatusCodes").data("kendoComboBox");
+        var dataItem = combobox.dataItem();
+        item.Status = dataItem.Control;
+        item.BookNotes1 = "";
+        item.BookNotes2 = "";
+        item.BookNotes3 = "";
+        item.AssignedProNumber = $("#txtAssignedProNumber").data("kendoMaskedTextBox").value();
+        item.BookShipCarrierProNumberRaw = "";
+        item.BookShipCarrierProControl = 0;
+        item.AssignedCarrierNumber = $("#txtAssignedCarrierNumber").data("kendoMaskedTextBox").value();
+        item.AssignedCarrierName = $("#txtAssignedCarrierName").data("kendoMaskedTextBox").value();
+        item.AssignedCarrierContact = $("#txtAssignedCarrierContact").val();
+        item.AssignedCarrierContactPhone = $("#txtAssignedCarrierContactPhone").val();
+        item.BookPickupStopNumber = $("#txtBookPickupStopNumber").val();
+        item.ApplyToAllDestinations = ApplyToAllDelivery;
+        item.ApplyToAllPickups = ApplyToAllPickup;
+        item.ApplyCommentsToCNS = ApplyToAll;
+        item.BookAMSPickupApptControl = 0;
+        item.BookAMSDeliveryApptControl = 0;
+        item.BookLoadControl = 0;
+        item.SHID = $("#txtSHID").val();
+        item.CarrierPro = "";
+        item.BookFinAPActWgt = $("#txtBookFinAPActWgt").data("kendoMaskedTextBox").value();
+        item.BookCarrBLNumber = $("#txtBookCarrBLNumber").data("kendoMaskedTextBox").value();
+        item.BookModDate = "";
+        item.BookModUser = "";
+        ////BookControl = 0;
+        ////BookCarrFBNumber = "";
+        ////BookCarrOrderNumber = "";
+        ////BookCarrBLNumber = "";
+        ////BookCarrBookDate = "";
+        ////BookCarrBookTime = "";
+        ////BookCarrBookContact = "";
+        item.BookCarrScheduleDate = $("#dtpBookCarrScheduleDate").data("kendoDatePicker").value();
+        //item.BookCarrScheduleTime = kendo.toString($("#dtpBookCarrScheduleTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-24-2024 
+        item.BookCarrScheduleTime = $("#dtpBookCarrScheduleTime").data("kendoMaskedTextBox").value();
+        item.BookCarrActualDate = $("#dtpBookCarrActualDate").data("kendoDatePicker").value();
+        //item.BookCarrActualTime = kendo.toString($("#dtpBookCarrActualTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrActualTime = $("#dtpBookCarrActualTime").data("kendoMaskedTextBox").value();
+        item.BookCarrActLoadComplete_Date = $("#dtpBookCarrActLoadComplete_Date").data("kendoDatePicker").value();
+        //item.BookCarrActLoadCompleteTime = kendo.toString($("#dtpBookCarrActLoadCompleteTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrActLoadCompleteTime = $("#dtpBookCarrActLoadCompleteTime").data("kendoMaskedTextBox").value()
+        item.BookCarrDockPUAssigment = $("#txtBookCarrDockPUAssigment").data("kendoMaskedTextBox").value();
+        ////BookCarrPODate = "";
+        ////BookCarrPOTime = "";
+        item.BookCarrApptDate = $("#dtpBookCarrApptDate").data("kendoDatePicker").value();
+        //item.BookCarrApptTime = kendo.toString($("#dtpBookCarrApptTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrApptTime = $("#dtpBookCarrApptTime").data("kendoMaskedTextBox").value();
+        item.BookCarrActDate = $("#dtpBookCarrActDate").data("kendoDatePicker").value();       
+        //item.BookCarrActTime = kendo.toString($("#dtpBookCarrActTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrActTime = $("#dtpBookCarrActTime").data("kendoMaskedTextBox").value();
+        item.BookCarrActUnloadCompDate = $("#dtpBookCarrActUnloadCompDate").data("kendoDatePicker").value();
+        //item.BookCarrActUnloadCompTime = kendo.toString($("#dtpBookCarrActUnloadCompTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrActUnloadCompTime = $("#dtpBookCarrActUnloadCompTime").data("kendoMaskedTextBox").value();
+        item.BookCarrDockDelAssignment = $("#txtBookCarrDockDelAssignment").data("kendoMaskedTextBox").value();
+        ////BookCarrVarDay = 0;
+        ////BookCarrVarHrs = 0;
+        item.BookCarrTrailerNo = $("#txtBookCarrTrailerNo").data("kendoMaskedTextBox").value();
+        item.BookCarrSealNo = $("#txtBookCarrSealNo").data("kendoMaskedTextBox").value();
+        item.BookCarrDriverNo = $("#txtBookCarrDriverNo").data("kendoMaskedTextBox").value();
+        item.BookCarrDriverName = $("#txtBookCarrDriverName").data("kendoMaskedTextBox").value();
+        ////BookCarrRouteNo = "";
+        ////BookCarrTripNo = "";
+        item.BookWhseAuthorizationNo = $("#txtBookWhseAuthorizationNo").data("kendoMaskedTextBox").value();
+        item.BookCarrStartLoadingDate = $("#dtpBookCarrStartLoadingDate").data("kendoDatePicker").value();
+        //item.BookCarrStartLoadingTime = kendo.toString($("#dtpBookCarrStartLoadingTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrStartLoadingTime = $("#dtpBookCarrStartLoadingTime").data("kendoMaskedTextBox").value();
+        item.BookCarrFinishLoadingDate = $("#dtpBookCarrFinishLoadingDate").data("kendoDatePicker").value();
+        //item.BookCarrFinishLoadingTime = kendo.toString($("#dtpBookCarrFinishLoadingTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrFinishLoadingTime = $("#dtpBookCarrFinishLoadingTime").data("kendoMaskedTextBox").value();
+        item.BookCarrStartUnloadingDate = $("#dtpBookCarrStartUnloadingDate").data("kendoDatePicker").value();
+        //item.BookCarrStartUnloadingTime = kendo.toString($("#dtpBookCarrStartUnloadingTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrStartUnloadingTime = $("#dtpBookCarrStartUnloadingTime").data("kendoMaskedTextBox").value();
+        item.BookCarrFinishUnloadingDate = $("#dtpBookCarrFinishUnloadingDate").data("kendoDatePicker").value();
+        //item.BookCarrFinishUnloadingTime = kendo.toString($("#dtpBookCarrFinishUnloadingTime").data("kendoTimePicker").value(), 'HH:mm');
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        item.BookCarrFinishUnloadingTime = $("#dtpBookCarrFinishUnloadingTime").data("kendoMaskedTextBox").value();
+        item.Pages = 0;
+        item.RecordCount = 0;
+        item.Page = 0;
+        item.PageSize = 0;
+        item.ROW_NUMBER = 0;
+        //Added By LVV on 9/19/19 for Bing Maps - CLT aka "Comment Location Tag" (optional location to be tagged as detail with a comment)
+        item.CLTStopControl = LocationControl;
+        item.CLTStopName = LocationName;
+        item.CLTStopAddress1 = LocationAddress1;
+        item.CLTStopCity = LocationCity;
+        item.CLTStopState = LocationState;
+        item.CLTStopCountry = LocationCountry;
+        item.CLTStopZip = LocationZip;
+        item.CLTStopLatitude = LocationLatitude;
+        item.CLTStopLongitude = LocationLongitude;
+
+
+
+        //item.CLTDate = ngl.convertTimePickerToDateString(LocationDate, ngl.getShortDateString(LocationDate, ""), "");
+        //item.CLTDate = $("#dtpLocationDate").data("kendoDatePicker").value();
+        item.CLTDate = LocationDate;
+        //item.CLTDate = LocationDate;
+        item.CLTTime = ngl.convertTimePickerToDateString(LocationTime, ngl.convertDateForWindows(LocationTime, ""), "");
+
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "api/AllItem/PostSave",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify(item),
+            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            success: function (data) {
+                try {
+                    var blnSuccess = false;
+                    var blnErrorShown = false;
+                    var strValidationMsg = "";
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("All Item Save Failure", data.Errors, null); }
+                        refreshAllGrid();
+                    }
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+            },
+            error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure"); ngl.showErrMsg("All Item Save Failure", sMsg, null); }
+        });
+        wndAllEdit.close();
+    }
+
+    function convertTime(dtVal) {
+        if (dtVal) {
+            return new Date(dtVal);
+        } else {
+            return null;
+        }
+    }
+
+    function loadData(dataItem) {
+
+        debugger
+        var cns = dataItem.CnsNumber;
+        $("#txtControl").val(dataItem.Control);
+        $("#txtSHID").val(dataItem.SHID);
+        $("#txtProNumber").val(dataItem.ProNumber);
+        $("#txtCNS").val(cns);
+        $("#txtOrderNumber").val(dataItem.OrderNumber);
+        $("#txtStopNumber").val(dataItem.StopNumber);
+        $("#txtBookPickupStopNumber").val(dataItem.BookPickupStopNumber);
+        $("#txtAssignedCarrierContact").val(dataItem.AssignedCarrierContact);
+        $("#txtAssignedCarrierContactPhone").val(dataItem.AssignedCarrierContactPhone);
+        $("#txtAllPurchaseOrderNumber").val(dataItem.PurchaseOrderNumber);
+        $("#txtAllAssignedCarrier").val(dataItem.AssignedCarrier);
+        $("#txtAllDestName").val(dataItem.DestinationName);
+
+        var lblWin = "Edit"
+        var segSep = " - ";
+        if (!ngl.isNullOrWhitespace(dataItem.SHID)) { lblWin += segSep + "SHID: " + dataItem.SHID; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(cns)) { lblWin += segSep + "CNS: " + cns; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(dataItem.ProNumber)) { lblWin += segSep + "PRO: " + dataItem.ProNumber; segSep = ", "; }
+        if (!ngl.isNullOrWhitespace(dataItem.OrderNumber)) { lblWin += segSep + "ORDER: " + dataItem.OrderNumber; segSep = ", "; }
+        lblWin += segSep + "Stop #" + dataItem.StopNumber;
+
+        $("#wndAllEdit").data("kendoWindow").title(lblWin);
+        //debugger;
+        //Pickup  "#= kendo.toString(kendo.parseDate(BookCarrStartLoadingTime, 'HH:mm'), 'HH:mm') #"
+        var lblPick = "Pickup - " + dataItem.OrigName + " - " + dataItem.OrigAddress1 + " " + dataItem.OrigCity + ", " + dataItem.OrigState + ", " + dataItem.OrigZip;
+        $("#spFTPickupLbl").html(lblPick);
+        $("#dtpBookCarrScheduleDate").data("kendoDatePicker").value(dataItem.BookCarrScheduleDate);      
+        //$("#dtpBookCarrScheduleTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrScheduleTime));
+        // Modefied By MA for v-8.5.4.006 on 04-24-2024 
+        $("#dtpBookCarrScheduleTime").data("kendoMaskedTextBox").value(dataItem.BookCarrScheduleTime);
+        $("#dtpBookCarrActualDate").data("kendoDatePicker").value(dataItem.BookCarrActualDate);
+        //$("#dtpBookCarrActualTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrActualTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActualTime").data("kendoMaskedTextBox").value(dataItem.BookCarrActualTime);
+        $("#dtpBookCarrStartLoadingDate").data("kendoDatePicker").value(dataItem.BookCarrStartLoadingDate);
+        //$("#dtpBookCarrStartLoadingTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrStartLoadingTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrStartLoadingTime").data("kendoMaskedTextBox").value(dataItem.BookCarrStartLoadingTime);
+        $("#dtpBookCarrFinishLoadingDate").data("kendoDatePicker").value(dataItem.BookCarrFinishLoadingDate);
+        //$("#dtpBookCarrFinishLoadingTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrFinishLoadingTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrFinishLoadingTime").data("kendoMaskedTextBox").value(dataItem.BookCarrFinishLoadingTime);
+        $("#dtpBookCarrActLoadComplete_Date").data("kendoDatePicker").value(dataItem.BookCarrActLoadComplete_Date);
+        //$("#dtpBookCarrActLoadCompleteTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrActLoadCompleteTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActLoadCompleteTime").data("kendoMaskedTextBox").value(dataItem.BookCarrActLoadCompleteTime);
+        $("#txtBookCarrDockPUAssigment").data("kendoMaskedTextBox").value(dataItem.BookCarrDockPUAssigment);
+        //Modified by RHR for v-8.3.0.003 on 01/27/2021 fixed spelling with BookWhseAuthorizationNo
+        $("#txtBookWhseAuthorizationNo").data("kendoMaskedTextBox").value(dataItem.BookWhseAuthorizationNo);
+        //Delivery
+        var lblDel = "Delivery - " + dataItem.DestinationName + " - " + dataItem.DestinationAddress1 + " " + dataItem.DestinationCity + ", " + dataItem.DestinationState + ", " + dataItem.DestinationZip;
+        $("#spFTDeliveryLbl").html(lblDel);
+        $("#dtpBookCarrApptDate").data("kendoDatePicker").value(dataItem.BookCarrApptDate);
+        //$("#dtpBookCarrApptTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrApptTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrApptTime").data("kendoMaskedTextBox").value(dataItem.BookCarrApptTime);
+        $("#dtpBookCarrActDate").data("kendoDatePicker").value(dataItem.BookCarrActDate);        
+        //$("#dtpBookCarrActTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrActTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActTime").data("kendoMaskedTextBox").value(dataItem.BookCarrActTime);
+        $("#dtpBookCarrStartUnloadingDate").data("kendoDatePicker").value(dataItem.BookCarrStartUnloadingDate);
+        //$("#dtpBookCarrStartUnloadingTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrStartUnloadingTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrStartUnloadingTime").data("kendoMaskedTextBox").value(dataItem.BookCarrStartUnloadingTime);
+        $("#dtpBookCarrFinishUnloadingDate").data("kendoDatePicker").value(dataItem.BookCarrFinishUnloadingDate);
+        //$("#dtpBookCarrFinishUnloadingTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrFinishUnloadingTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrFinishUnloadingTime").data("kendoMaskedTextBox").value(dataItem.BookCarrFinishUnloadingTime);
+        $("#dtpBookCarrActUnloadCompDate").data("kendoDatePicker").value(dataItem.BookCarrActUnloadCompDate);
+        //$("#dtpBookCarrActUnloadCompTime").data("kendoTimePicker").value(convertTime(dataItem.BookCarrActUnloadCompTime));
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActUnloadCompTime").data("kendoMaskedTextBox").value(dataItem.BookCarrActUnloadCompTime);
+        $("#txtBookCarrDockDelAssignment").data("kendoMaskedTextBox").value(dataItem.BookCarrDockDelAssignment);
+        //Trailer
+        $("#txtBookCarrTrailerNo").data("kendoMaskedTextBox").value(dataItem.BookCarrTrailerNo);
+        $("#txtBookCarrSealNo").data("kendoMaskedTextBox").value(dataItem.BookCarrSealNo);
+        $("#txtBookCarrDriverNo").data("kendoMaskedTextBox").value(dataItem.BookCarrDriverNo);
+        $("#txtBookCarrDriverName").data("kendoMaskedTextBox").value(dataItem.BookCarrDriverName);
+        $("#txtAssignedProNumber").data("kendoMaskedTextBox").value(dataItem.AssignedProNumber);
+        $("#txtAssignedCarrierName").data("kendoMaskedTextBox").value(dataItem.AssignedCarrierName);
+        $("#txtAssignedCarrierNumber").data("kendoMaskedTextBox").value(dataItem.AssignedCarrierNumber);
+        $("#txtBookFinAPActWgt").data("kendoMaskedTextBox").value(dataItem.BookFinAPActWgt);
+        $("#txtBookCarrBLNumber").data("kendoMaskedTextBox").value(dataItem.BookCarrBLNumber);
+
+        //IsCNSCheckBoxEnabled(cns);
+        IsEnabledForPickupChanges(dataItem.BookAMSPickupApptControl);
+        IsEnabledForDeliveryChanges(dataItem.BookAMSDeliveryApptControl);
+        IsAssignedProNumberEnabled(dataItem.BookShipCarrierProControl);
+
+        wndAllEdit.center().open();
+    }
+
+
+    function GetAllItemCallback(data) {
+        var oResults = new nglEventParameters();
+        oResults.source = "GetAllItemCallback";
+        oResults.widget = this;
+        oResults.msg = "Cannot read the selected Load data. Please refresh your screen and try again."; //set default to Failed
+        var errName = "Edit Load Tracking Data";
+        var dataItem = null;
+        //var tObj = this;
+        console.log(data);
+        try {
+            if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                if (data.Errors != null) {
+                    oResults.error = new Error();
+                    if (data.StatusCode === 203) { oResults.error.name = "Authorization Timeout"; } else { oResults.error.name = "Access Denied"; }
+                    oResults.error.message = oResults.msg + '   ' + data.Errors;
+                    ngl.showErrMsg(errName, oResults.error.message, tObj);
+                }
+                else {
+
+                    if (data.Data != null) {
+                        dataItem = data.Data[0];
+                        console.log(dataItem);
+                        if (dataItem) {
+                            loadData(dataItem);
+                        } else {
+                            ngl.showErrMsg(oResults.error.name, oResults.msg, tObj);
+                        }
+                    }
+                    else {
+                        ngl.showErrMsg(oResults.error.name, oResults.msg, tObj);
+                    }
+                }
+            } else { ngl.showErrMsg(oResults.error.name, oResults.msg, tObj); }
+        } catch (err) { oResults.error = err; ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj); }
+
+    }
+
+    function GeAllItemAjaxErrorCallback(xhr, textStatus, error) {
+        var oResults = new nglEventParameters();
+        var tObj = this;
+        sBidLoadTenderControlVal = "0"
+        oResults.source = "GeAllItemAjaxErrorCallback";
+        oResults.widget = this;
+        oResults.msg = 'Failed'; //set default to Failed
+        oResults.error = new Error();
+        oResults.error.name = "Edit Load Tracking Data";
+        oResults.error.message = "Cannot read the selected Load data. Please refresh your screen and try again." + '  ' + formatAjaxJSONResponsMsgs(xhr, textStatus, error, oResults.msg);
+        ngl.showErrMsg(oResults.error.name, oResults.error.message, tObj);
+    }
+
+
+    function openEditWindow(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var proNumber = dataItem.ProNumber;
+        var tObj = this;
+        var filter = new AllFilter();
+        filter.filterName = 'OrderNumber';
+        filter.filterValue = dataItem.OrderNumber;
+        filter.page = 1;
+        filter.skip = 0;
+        filter.take = 1;
+        var fValues = filter.FilterValues;
+        if (typeof (fValues) === 'undefined' || ngl.isArray(fValues) === false) {
+            fValues = new Array();
+        };
+
+       
+        var f = new FilterDetails();
+
+        
+        f.filterID = 1;
+        f.filterCaption = 'OrderNumber';
+        f.filterName = 'OrderNumber';
+        f.filterValueFrom = dataItem.OrderNumber;
+        f.filterValueTo = dataItem.OrderNumber;
+        f.filterFrom = null;
+        f.filterTo = null;
+        fValues.push(f);
+
+        f = new FilterDetails();
+        f.filterID = 2;
+        f.filterCaption = 'ProNumber';
+        f.filterName = 'ProNumber';
+        f.filterValueFrom = dataItem.ProNumber;
+        f.filterValueTo = dataItem.ProNumber;
+        f.filterFrom = null;
+        f.filterTo = null;
+        fValues.push(f);
+
+        
+
+        filter.FilterValues = fValues;
+       
+        var oCRUDCtrl = new nglRESTCRUDCtrl();
+        var blnRet = oCRUDCtrl.filteredRead("AllItem/GetAllItems", filter, tPage, "GetAllItemCallback", "GeAllItemAjaxErrorCallback");
+
+    }
+
+    function IsAssignedProNumberEnabled(BookShipCarrierProControl) {
+        if (typeof (BookShipCarrierProControl) === 'undefined' || BookShipCarrierProControl === null || BookShipCarrierProControl === 0) {
+            $("#txtAssignedProNumber").prop("disabled", false);
+        } else { $("#txtAssignedProNumber").prop("disabled", true); }
+    }
+
+    function IsEnabledForPickupChanges(BookAMSPickupApptControl) {
+        if (BookAMSPickupApptControl != 0) {
+            $("#dtpBookCarrScheduleDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrScheduleTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-24-2024 
+            $("#dtpBookCarrScheduleTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrActualDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrActualTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActualTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrStartLoadingDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrStartLoadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrStartLoadingTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrFinishLoadingDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrFinishLoadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrFinishLoadingTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrActLoadComplete_Date").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrActLoadCompleteTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActLoadCompleteTime").data("kendoMaskedTextBox").enable(false);
+            $("#txtBookCarrDockPUAssigment").data("kendoMaskedTextBox").enable(false);
+        }
+        else {
+            $("#dtpBookCarrScheduleDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrScheduleTime").data("kendoTimePicker").enable(true);
+            // Modefied By MA for v-8.5.4.006 on 04-24-2024 
+            $("#dtpBookCarrScheduleTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrActualDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrActualTime").data("kendoTimePicker").enable(true);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActualTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrStartLoadingDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrStartLoadingTime").data("kendoTimePicker").enable(true);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrStartLoadingTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrFinishLoadingDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrFinishLoadingTime").data("kendoTimePicker").enable(true);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrFinishLoadingTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrActLoadComplete_Date").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrActLoadCompleteTime").data("kendoTimePicker").enable(true);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActLoadCompleteTime").data("kendoMaskedTextBox").enable(true);
+            $("#txtBookCarrDockPUAssigment").data("kendoMaskedTextBox").enable(true);
+        }
+    }
+
+    function IsEnabledForDeliveryChanges(BookAMSDeliveryApptControl) {
+        if (BookAMSDeliveryApptControl != 0) {
+            $("#dtpBookCarrApptDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrApptTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrApptTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrActDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrActTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrStartUnloadingDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrStartUnloadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrStartUnloadingTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrFinishUnloadingDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrFinishUnloadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrFinishUnloadingTime").data("kendoMaskedTextBox").enable(false);
+            $("#dtpBookCarrActUnloadCompDate").data("kendoDatePicker").enable(false);
+            //$("#dtpBookCarrActUnloadCompTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActUnloadCompTime").data("kendoMaskedTextBox").enable(false);
+            $("#txtBookCarrDockDelAssignment").data("kendoMaskedTextBox").enable(false);
+        }
+        else {
+            $("#dtpBookCarrApptDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrApptTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrApptTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrActDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrActTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrStartUnloadingDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrStartUnloadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrStartUnloadingTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrFinishUnloadingDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrFinishUnloadingTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrFinishUnloadingTime").data("kendoMaskedTextBox").enable(true);
+            $("#dtpBookCarrActUnloadCompDate").data("kendoDatePicker").enable(true);
+            //$("#dtpBookCarrActUnloadCompTime").data("kendoTimePicker").enable(false);
+            // Modefied By MA for v-8.5.4.006 on 04-25-2024
+            $("#dtpBookCarrActUnloadCompTime").data("kendoMaskedTextBox").enable(true);
+            $("#txtBookCarrDockDelAssignment").data("kendoMaskedTextBox").enable(true);
+        }
+    }
+
+
+    $(document).ready(function () {
+        //Pickup
+        $("#dtpBookCarrScheduleDate").kendoDatePicker();
+        //$("#dtpBookCarrScheduleTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-24-2024
+        $("#dtpBookCarrScheduleTime").kendoMaskedTextBox();
+        $("#dtpBookCarrActualDate").kendoDatePicker();
+        //$("#dtpBookCarrActualTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActualTime").kendoMaskedTextBox();
+        $("#dtpBookCarrStartLoadingDate").kendoDatePicker();
+        //$("#dtpBookCarrStartLoadingTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrStartLoadingTime").kendoMaskedTextBox();
+        $("#dtpBookCarrFinishLoadingDate").kendoDatePicker();
+        //$("#dtpBookCarrFinishLoadingTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrFinishLoadingTime").kendoMaskedTextBox();
+        $("#dtpBookCarrActLoadComplete_Date").kendoDatePicker();
+        //$("#dtpBookCarrActLoadCompleteTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActLoadCompleteTime").kendoMaskedTextBox();
+        $("#txtBookCarrDockPUAssigment").kendoMaskedTextBox();
+        $("#txtBookWhseAuthorizationNo").kendoMaskedTextBox();
+        //Delivery
+        $("#dtpBookCarrApptDate").kendoDatePicker();
+        //$("#dtpBookCarrApptTime").kendoTimePicker();
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrApptTime").kendoMaskedTextBox();
+        $("#dtpBookCarrActDate").kendoDatePicker();
+        //$("#dtpBookCarrActTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActTime").kendoMaskedTextBox();
+        $("#dtpBookCarrStartUnloadingDate").kendoDatePicker();
+        //$("#dtpBookCarrStartUnloadingTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrStartUnloadingTime").kendoMaskedTextBox();
+        $("#dtpBookCarrFinishUnloadingDate").kendoDatePicker();
+        //$("#dtpBookCarrFinishUnloadingTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrFinishUnloadingTime").kendoMaskedTextBox();
+        $("#dtpBookCarrActUnloadCompDate").kendoDatePicker();
+        //$("#dtpBookCarrActUnloadCompTime").kendoTimePicker({ interval: 5 });
+        // Modefied By MA for v-8.5.4.006 on 04-25-2024
+        $("#dtpBookCarrActUnloadCompTime").kendoMaskedTextBox();
+        $("#txtBookCarrDockDelAssignment").kendoMaskedTextBox();
+        //Trailer
+        $("#txtBookCarrTrailerNo").kendoMaskedTextBox();
+        $("#txtBookCarrSealNo").kendoMaskedTextBox();
+        $("#txtBookCarrDriverNo").kendoMaskedTextBox();
+        $("#txtBookCarrDriverName").kendoMaskedTextBox();
+        $("#txtAssignedProNumber").kendoMaskedTextBox();
+        $("#txtAssignedCarrierName").kendoMaskedTextBox();
+        $("#txtAssignedCarrierNumber").kendoMaskedTextBox();
+        //Load
+        $("#txtBookFinAPActWgt").kendoMaskedTextBox();
+        $("#txtBookCarrBLNumber").kendoMaskedTextBox();
+        //Footer
+        $("#txtComments").kendoMaskedTextBox();
+        $("#comboAllLoadStatusCodes").kendoComboBox({
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            index: 0,
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        url: "api/vLookupList/GetStaticList/" + nglStaticLists.LoadStatusCodes,
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            }
+        });
+
+        //Added By LVV on 9/19/19 for Bing Maps - CLT aka "Comment Location Tag" (optional location to be tagged as detail with a comment)
+        $("#txtLocationName").kendoMaskedTextBox();
+        $("#txtLocationAddress1").kendoMaskedTextBox();
+        $("#txtLocationCity").kendoMaskedTextBox();
+        $("#txtLocationState").kendoMaskedTextBox();
+        $("#txtLocationZip").kendoMaskedTextBox();
+        $("#txtLocationCountry").kendoMaskedTextBox();
+        $("#txtLocationLatitude").kendoMaskedTextBox();
+        $("#txtLocationLongitude").kendoMaskedTextBox();
+        $("#btnOpenSLWnd").kendoButton({ icon: "marker-pin", click: function (e) { openSelectLocationWnd(); } });
+        $("#btnOpenSLWnd").kendoTooltip({ content: "Optionally include a location along with the comment" });
+        $("#dtpLocationDate").kendoDatePicker();
+        $("#dtpLocationTime").kendoTimePicker({ format: "HH:mm", interval: 5 });
+
+
+
+        $("#comboLocationSearch").kendoAutoComplete({
+            dataTextField: "AddressString",
+            dataValueField: "StopControl",
+            autoWidth: true,
+            //template: '<span class="k-state-default"><p>#: data.StopName # - #: data.StopAddress1 # #: data.StopCity # #: data.StopState # #: data.StopZip # #: data.StopCountry # (#: data.StopLatitude #, #: data.StopLongitude #)</p></span>',
+            filter: "startswith",
+            dataSource: {
+                serverFiltering: true,
+                serverPaging: true,
+                transport: {
+                    read: {
+                        url: "api/Map/GetStops",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "StopControl",
+                        fields: {
+                            StopControl: { type: "number" },
+                            StopName: { type: "string" },
+                            StopAddress1: { type: "string" },
+                            StopCity: { type: "string" },
+                            StopState: { type: "string" },
+                            StopZip: { type: "string" },
+                            StopCountry: { type: "string" },
+                            StopLatitude: { type: "number" },
+                            StopLongitude: { type: "number" },
+                            AddressString: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                if (item) {
+                    $("#txtLocationControl").val(item.StopControl);
+                    $("#txtLocationName").data("kendoMaskedTextBox").value(item.StopName);
+                    $("#txtLocationAddress1").data("kendoMaskedTextBox").value(item.StopAddress1);
+                    $("#txtLocationCity").data("kendoMaskedTextBox").value(item.StopCity);
+                    $("#txtLocationState").data("kendoMaskedTextBox").value(item.StopState);
+                    $("#txtLocationZip").data("kendoMaskedTextBox").value(item.StopZip);
+                    $("#txtLocationCountry").data("kendoMaskedTextBox").value(item.StopCountry);
+                    $("#txtLocationLatitude").data("kendoMaskedTextBox").value(item.StopLatitude);
+                    $("#txtLocationLongitude").data("kendoMaskedTextBox").value(item.StopLongitude);
+                }
+            }
+        });
+
+
+        wndAllEdit = $("#wndAllEdit").kendoWindow({
+            title: "Edit",
+            height: '75%',
+            width: '75%',
+            modal: true,
+            scrollable: true,
+            visible: false,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                $("#txtControl").val("");
+                $("#txtSHID").val("");
+                $("#txtProNumber").val("");
+                $("#txtCNS").val("");
+                $("#txtOrderNumber").val("");
+                $("#txtStopNumber").val("");
+                $("#txtBookPickupStopNumber").val("");
+                $("#txtAssignedCarrierContact").val("");
+                $("#txtAssignedCarrierContactPhone").val("");
+                $("#txtAllPurchaseOrderNumber").val("");
+                $("#txtAllAssignedCarrier").val("");
+                $("#txtAllDestName").val("");
+                //Pickup
+                $("#dtpBookCarrScheduleDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrScheduleTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrScheduleTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrActualDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrActualTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrActualTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrStartLoadingDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrStartLoadingTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrStartLoadingTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrFinishLoadingDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrFinishLoadingTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrFinishLoadingTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrActLoadComplete_Date").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrActLoadCompleteTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrActLoadCompleteTime").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrDockPUAssigment").data("kendoMaskedTextBox").value("");
+                $("#txtBookWhseAuthorizationNo").data("kendoMaskedTextBox").value("");
+                //Delivery
+                $("#dtpBookCarrApptDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrApptTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrApptTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrActDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrActTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrActTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrStartUnloadingDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrStartUnloadingTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrStartUnloadingTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrFinishUnloadingDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrFinishUnloadingTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrFinishUnloadingTime").data("kendoMaskedTextBox").value("");
+                $("#dtpBookCarrActUnloadCompDate").data("kendoDatePicker").value(null);
+                //$("#dtpBookCarrActUnloadCompTime").data("kendoTimePicker").value(null);
+                // Modefied By MA for v-8.5.4.006 on 04-25-2024
+                $("#dtpBookCarrActUnloadCompTime").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrDockDelAssignment").data("kendoMaskedTextBox").value("");
+                //Trailer
+                $("#txtBookCarrTrailerNo").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrSealNo").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrDriverNo").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrDriverName").data("kendoMaskedTextBox").value("");
+                $("#txtAssignedProNumber").data("kendoMaskedTextBox").value("");
+                $("#txtAssignedCarrierName").data("kendoMaskedTextBox").value("");
+                $("#txtAssignedCarrierNumber").data("kendoMaskedTextBox").value("");
+                $("#txtBookFinAPActWgt").data("kendoMaskedTextBox").value("");
+                $("#txtBookCarrBLNumber").data("kendoMaskedTextBox").value("");
+                //Notes
+                $("#txtComments").data("kendoMaskedTextBox").value("");
+                $("#comboAllLoadStatusCodes").data("kendoComboBox").select(0);
+                $("#chkApplyToAll").prop('checked', false);
+                //Location
+                $("#spLocationTag").html("");
+                LocationControl = 0;
+                LocationName = ""; LocationAddress1 = ""; LocationCity = ""; LocationState = ""; LocationZip = ""; LocationCountry = "";
+                LocationLatitude = ""; LocationLongitude = "";
+                LocationDate = ""; LocationTime = "";
+            }
+        }).data("kendoWindow");
+        $("#wndAllEdit").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { Save() });
+        wndAllEdit.wrapper.find('.k-window-titlebar').css({ display: 'flex' }); //prevent the title from overflowing the window
+
+        //Added By LVV on 9/19/19 for Bing Maps - CLT aka "Comment Location Tag" (optional location to be tagged as detail with a comment)
+        wndSelectLocation = $("#wndSelectLocation").kendoWindow({
+            title: "Enter Location",
+            height: '60%',
+            width: '60%',
+            modal: true,
+            scrollable: true,
+            visible: false,
+            actions: ["filter-clear", "save", "Minimize", "Maximize", "Close"],
+            close: function (e) { ClearLocation(); }
+        }).data("kendoWindow");
+        $("#wndSelectLocation").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveLocation() });
+        $("#wndSelectLocation").data("kendoWindow").wrapper.find(".k-svg-i-filter-clear").parent().click(function (e) { ClearLocation() });
+        wndSelectLocation.wrapper.find('.k-window-titlebar').css({ display: 'flex' }); //prevent the title from overflowing the window
+
+    });
+</script>

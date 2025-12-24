@@ -1,0 +1,1591 @@
+﻿<div id="wndExtFBDataEntry">
+    <a id="focusCancelFB" href="#"></a>
+    <div>
+
+        <div style="float: left;">
+            <div style="margin-bottom:10px;">
+                <div id="divAuditFailMsg" class="k-block k-error-colored"></div>
+            </div>
+            <div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Invoice Number</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtInvoiceNumber" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Invoice Date</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtInvoiceDate" /></td></tr>
+                    </table>
+                </div>
+                <div class="tblResponsive-wrap" style="float:none;"></div>
+            </div>
+
+            <div>                
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Load Shipped Wgt</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtBookFinAPActWgt" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">BOL Number</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtBookCarrBLNumber" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Miles</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtTotalMiles" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div class="tblResponsive-wrap" style="float:none;"></div>
+            </div>
+
+            <div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Line Haul</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtLineHaul" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Fuel</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtTotalFuel" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Total Accessorial</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtTotalFees" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr><td class="tblResponsive-top">Invoice Amount</td></tr>
+                        <tr><td class="tblResponsive-top"><input id="txtTotalCost" type="number" /></td></tr>
+                    </table>
+                </div>
+                <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+            </div>
+        </div>
+
+        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+        <div style="float: left;" class="k-block k-info-colored">
+            <span id="spwndExtFBEditMsg">Enter Accessorials Below. All accessorials entered will require approval and will be marked pending until approved.</span>
+        </div>
+        <div class="tblResponsive-wrap" style="float:none;">&nbsp;</div>
+
+
+        <div class="pane-content">
+            <div class="fast-tab">
+                <span id="ExpandLoadFeesSpan" style="display: none;"><a onclick='expandLoadFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                <span id="CollapseLoadFeesSpan" style="display: normal;"><a onclick='collapseLoadFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                <span style="font-size:small; font-weight:bold">Load Specific Charges/Fees</span>&nbsp;&nbsp;<br />
+                <div id="LoadFeesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                    <div id="LoadFeesGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pane-content">
+            <div class="fast-tab">
+                <span id="ExpandOrderFeesSpan" style="display: none;"><a onclick='expandOrderFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                <span id="CollapseOrderFeesSpan" style="display: normal;"><a onclick='collapseOrderFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                <span style="font-size:small; font-weight:bold">Order Specific Charges/Fees</span>&nbsp;&nbsp;<br />
+                <div id="OrderFeesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                    <div id="OrderFeesGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pane-content">
+            <div class="fast-tab">
+                <span id="ExpandOrigFeesSpan" style="display: none;"><a onclick='expandOrigFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                <span id="CollapseOrigFeesSpan" style="display: normal;"><a onclick='collapseOrigFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                <span style="font-size:small; font-weight:bold">Origin Specific Charges/Fees</span>&nbsp;&nbsp;<br />
+                <div id="OrigFeesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                    <div id="OrigFeesGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pane-content">
+            <div class="fast-tab">
+                <span id="ExpandDestFeesSpan" style="display: none;"><a onclick='expandDestFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-down'></span></a></span>
+                <span id="CollapseDestFeesSpan" style="display: normal;"><a onclick='collapseDestFees();'><span style="font-size: small;font-weight:bold;" class='k-icon k-i-chevron-up'></span></a></span>
+                <span style="font-size:small; font-weight:bold">Destination Specific Charges/Fees</span>&nbsp;&nbsp;<br />
+                <div id="DestFeesDiv" style="padding: 10px; width:calc(100% - 20px); height:100%;">
+                    <div id="DestFeesGrid"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <input id="txtLastStopCompCtrl" type="hidden" />
+    <input id="txtLastStopCompName" type="hidden" />
+    <input id="txtLastStopCompLE" type="hidden" />
+    <input id="txtLastStopCompLECtrl" type="hidden" />
+    <input id="txtLastStopCarrierCtrl" type="hidden" />
+    <input id="txtLastStopCarrierName" type="hidden" />
+</div>
+
+
+<script>
+    var wndExtFBDataEntry = kendo.ui.Window;
+
+    var LoadFees = new Array();
+    var intLoadFeeIndex = 0;
+    var OrderFees = new Array();
+    var intOrderFeeIndex = 0;
+    var OrigFees = new Array();
+    var intOrigFeeIndex = 0;
+    var DestFees = new Array();
+    var intDestFeeIndex = 0;
+
+    /* Fast Tab Methods */
+    function expandLoadFees() { $("#LoadFeesDiv").show(); $("#ExpandLoadFeesSpan").hide(); $("#CollapseLoadFeesSpan").show(); }
+    function collapseLoadFees() { $("#LoadFeesDiv").hide(); $("#ExpandLoadFeesSpan").show(); $("#CollapseLoadFeesSpan").hide(); }
+    function expandOrderFees() { $("#OrderFeesDiv").show(); $("#ExpandOrderFeesSpan").hide(); $("#CollapseOrderFeesSpan").show(); }
+    function collapseOrderFees() { $("#OrderFeesDiv").hide(); $("#ExpandOrderFeesSpan").show(); $("#CollapseOrderFeesSpan").hide(); }
+    function expandOrigFees() { $("#OrigFeesDiv").show(); $("#ExpandOrigFeesSpan").hide(); $("#CollapseOrigFeesSpan").show(); }
+    function collapseOrigFees() { $("#OrigFeesDiv").hide(); $("#ExpandOrigFeesSpan").show(); $("#CollapseOrigFeesSpan").hide(); }
+    function expandDestFees() { $("#DestFeesDiv").show(); $("#ExpandDestFeesSpan").hide(); $("#CollapseDestFeesSpan").show(); }
+    function collapseDestFees() { $("#DestFeesDiv").hide(); $("#ExpandDestFeesSpan").show(); $("#CollapseDestFeesSpan").hide(); }
+
+    function refreshFeeGrids() {
+        ngl.readDataSource($('#LoadFeesGrid').data('kendoGrid'));
+        ngl.readDataSource($('#OrderFeesGrid').data('kendoGrid'));
+        ngl.readDataSource($('#OrigFeesGrid').data('kendoGrid'));
+        ngl.readDataSource($('#DestFeesGrid').data('kendoGrid'));
+    }
+
+    function clearFeeGrids() {
+        intLoadFeeIndex = 0;
+        LoadFees = [];
+        intOrderFeeIndex = 0;
+        OrderFees = [];
+        intOrigFeeIndex = 0;
+        OrigFees = [];
+        intDestFeeIndex = 0;
+        DestFees = [];
+}
+
+    /* Gets the Data for the FBDE Window */
+    function getSettlementFBDEData() {
+        var SHID = $("#txtSHID").val();
+        $.ajax({
+            url: 'api/Settlement/GetSettlementFBDEData',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: { filter: SHID },
+            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+            success: function (data) {
+                try {
+                    var blnSuccess = false;
+                    var blnErrorShown = false;
+                    var strValidationMsg = "";
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("GetSettlementFBDEData Failure", data.Errors, null); }
+                        else {
+                            if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined' && ngl.isObject(data.Data[0])) {
+                                    blnSuccess = true;
+                                    var res = data.Data[0];
+                                    //Get the data from the Last Stop
+                                    $("#txtLastStopCompCtrl").val(res.LastStopCompControl);
+                                    $("#txtLastStopCompName").val(res.LastStopCompName);
+                                    $("#txtLastStopCompLE").val(res.LastStopCompLE);
+                                    $("#txtLastStopCompLECtrl").val(res.LastStopCompLEControl);
+                                    $("#txtLastStopCarrierCtrl").val(res.LastStopCarrierControl);
+                                    $("#txtLastStopCarrierName").val(res.LastStopCarrierName);
+                                    //clear the rest of the values
+                                    $("#txtTotalFees").data("kendoNumericTextBox").value(0);
+                                    clearFeeGrids();
+                                    //get any existing fees from BookFees and BookFeesPending tables
+                                    LoadFees.push.apply(LoadFees, res.LoadFees);
+                                    intLoadFeeIndex = LoadFees.length;
+                                    OrderFees.push.apply(OrderFees, res.OrderFees);
+                                    intOrderFeeIndex = OrderFees.length;
+                                    OrigFees.push.apply(OrigFees, res.OrigFees);
+                                    intOrigFeeIndex = OrigFees.length;
+                                    DestFees.push.apply(DestFees, res.DestFees);
+                                    intDestFeeIndex = DestFees.length;
+                                    //Calculate the totals
+                                    calcSettlementTotals();
+                                    //GetAuditMessageVisibility  
+                                    $("#txtShowPendingFeeFailReason").val(res.ShowPendingFeeFailReason);
+                                    if (res.ShowAuditFailReason === false) {
+                                        $("#divAuditFailMsg").html("");
+                                        $("#divAuditFailMsg").hide(); //If ShowAuditFailReason = false hide the div
+                                    }
+                                    else {
+                                        //If APMessage != null show the msg and div. If APMessage = null hide the div
+                                        if (ngl.stringHasValue(res.APMessage)) { $("#divAuditFailMsg").html("<p>" + res.APMessage + "</p>"); $("#divAuditFailMsg").show(); }
+                                        else { $("#divAuditFailMsg").html(""); $("#divAuditFailMsg").hide(); }
+                                    }
+                                    refreshFeeGrids();
+                                    kendo.ui.progress(wndExtFBDataEntry.element, false);
+                                }
+                            }
+                        }
+                    }
+                    if (blnSuccess === false && blnErrorShown === false) {
+                        if (strValidationMsg.length < 1) { strValidationMsg = "Book record not found"; }
+                        ngl.showErrMsg("GetSettlementFBDEData Failure", strValidationMsg, null);
+                        kendo.ui.progress(wndExtFBDataEntry.element, false);
+                    }
+                } catch (err) { ngl.showErrMsg(err.name, err.description, null); kendo.ui.progress(wndExtFBDataEntry.element, false); }
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("GetSettlementFBDEData JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); kendo.ui.progress(wndExtFBDataEntry.element, false); }
+        });
+    }
+
+    /* Calculates the totals for the window*/
+    function calcSettlementTotals() {
+        var totalFees = 0;
+        var totalCost = 0;
+        var lineHaul = 0;
+        var totalFuel = 0;
+        var Miles = 0;
+        if (typeof (LoadFees) !== 'undefined' && ngl.isArray(LoadFees)) {
+            for (var j = 0; j < LoadFees.length; j++) { totalFees += LoadFees[j].Cost; }
+        }
+        if (typeof (OrderFees) !== 'undefined' && ngl.isArray(OrderFees)) {
+            for (var j = 0; j < OrderFees.length; j++) { totalFees += OrderFees[j].Cost; }
+        }
+        if (typeof (OrigFees) !== 'undefined' && ngl.isArray(OrigFees)) {
+            for (var j = 0; j < OrigFees.length; j++) { totalFees += OrigFees[j].Cost; }
+        }
+        if (typeof (DestFees) !== 'undefined' && ngl.isArray(DestFees)) {
+            for (var j = 0; j < DestFees.length; j++) { totalFees += DestFees[j].Cost; }
+        }
+        var lineHaulTextbox = $("#txtLineHaul").data("kendoNumericTextBox");
+        if (lineHaulTextbox && lineHaulTextbox.value() != null) { lineHaul = lineHaulTextbox.value(); }
+        var MilesTextbox = $("#txtTotalMiles").data("kendoNumericTextBox");
+        if (MilesTextbox && MilesTextbox.value() != null) { Miles = MilesTextbox.value(); }
+        
+        var FuelTextbox = $("#txtTotalFuel").data("kendoNumericTextBox");
+        if (FuelTextbox && FuelTextbox.value() != null) { totalFuel = FuelTextbox.value(); }
+        totalCost = totalFees + lineHaul + totalFuel
+        if ($("#txtTotalFees")) { $("#txtTotalFees").data("kendoNumericTextBox").value(totalFees); }
+        if ($("#txtTotalCost")) { $("#txtTotalCost").data("kendoNumericTextBox").value(totalCost); }
+        return;
+    }
+
+    /* Validates that the required fields are populated for the Fees */
+    function validateFees() {
+        var sValidationMsg = "One or more fees are missing the following required fields:";
+        var sSpacer = "", sValidationLoad = "", sValidationOrder = "", sValidationOrig = "", sValidationDest = "";
+        var blnValidated = true;
+        var oRet = new validationResults();
+        if (typeof (LoadFees) !== 'undefined' && ngl.isArray(LoadFees)) {
+            var blnMissingSHID = false, blnMissingAccessorial = false, blnMissingCost = false;
+            for (var j = 0; j < LoadFees.length; j++) {
+                var fee = LoadFees[j];
+                if (typeof (fee) !== 'undefined' && fee != null && ngl.isObject(fee)) {
+                    //For some reason if the Allocation Type is 0 we can set it here
+                    if (ngl.isNullOrUndefined(fee.FeeAllocationTypeControl) || fee.FeeAllocationTypeControl === 0) { LoadFees[j].FeeAllocationTypeControl = 4; }
+                    //check fields based on allocation type
+                    if ((isEmpty(fee.SHID) || (ngl.isNullOrUndefined(fee.BookControl) || fee.BookControl === 0)) && blnMissingSHID === false) { sValidationLoad += sSpacer + "SHID"; sSpacer = ", "; blnValidated = false; blnMissingSHID = true; }
+                    if ((ngl.isNullOrUndefined(fee.AccessorialCode) || fee.AccessorialCode === 0) && blnMissingAccessorial === false) { sValidationLoad += sSpacer + "Accessorial"; sSpacer = ", "; blnValidated = false; blnMissingAccessorial = true; }
+                    if ((ngl.isNullOrUndefined(fee.Cost) || fee.Cost === 0) && blnMissingCost === false) { sValidationLoad += sSpacer + "Cost"; sSpacer = ", "; blnValidated = false; blnMissingCost = true; }
+                }
+            }
+            if (ngl.stringHasValue(sValidationLoad)) { sValidationMsg += "</br></br><strong>Load Specific Charges/Fees</strong></br>" + sValidationLoad; }
+        }
+        sSpacer = ""; //reset
+        if (typeof (OrderFees) !== 'undefined' && ngl.isArray(OrderFees)) {
+            var blnMissingOrder = false, blnMissingAccessorial = false, blnMissingCost = false;
+            for (var j = 0; j < OrderFees.length; j++) {
+                var fee = OrderFees[j];
+                if (typeof (fee) !== 'undefined' && fee != null && ngl.isObject(fee)) {
+                    //For some reason if the Allocation Type is 0 we can set it here
+                    if (ngl.isNullOrUndefined(fee.FeeAllocationTypeControl) || fee.FeeAllocationTypeControl === 0) { OrderFees[j].FeeAllocationTypeControl = 1; }
+                    //check fields based on allocation type
+                    if ((isEmpty(fee.BookCarrOrderNumber) || (ngl.isNullOrUndefined(fee.BookControl) || fee.BookControl === 0)) && blnMissingOrder === false) { sValidationOrder += sSpacer + "Order Number"; sSpacer = ", "; blnValidated = false; blnMissingOrder = true; }
+                    if ((ngl.isNullOrUndefined(fee.AccessorialCode) || fee.AccessorialCode === 0) && blnMissingAccessorial === false) { sValidationOrder += sSpacer + "Accessorial"; sSpacer = ", "; blnValidated = false; blnMissingAccessorial = true; }
+                    if ((ngl.isNullOrUndefined(fee.Cost) || fee.Cost === 0) && blnMissingCost === false) { sValidationOrder += sSpacer + "Cost"; sSpacer = ", "; blnValidated = false; blnMissingCost = true; }
+                }
+            }
+            if (ngl.stringHasValue(sValidationOrder)) { sValidationMsg += "</br></br><strong>Order Specific Charges/Fees</strong></br>" + sValidationOrder; }
+        }
+        sSpacer = ""; //reset
+        if (typeof (OrigFees) !== 'undefined' && ngl.isArray(OrigFees)) {
+            var blnMissingOrig = false, blnMissingAccessorial = false, blnMissingCost = false;
+            for (var j = 0; j < OrigFees.length; j++) {
+                var fee = OrigFees[j];
+                if (typeof (fee) !== 'undefined' && fee != null && ngl.isObject(fee)) {
+                    //For some reason if the Allocation Type is 0 we can set it here
+                    if (ngl.isNullOrUndefined(fee.FeeAllocationTypeControl) || fee.FeeAllocationTypeControl === 0) { OrigFees[j].FeeAllocationTypeControl = 2; }
+                    //check fields based on allocation type
+                    if ((isEmpty(fee.OrigName) || (ngl.isNullOrUndefined(fee.BookControl) || fee.BookControl === 0)) && blnMissingOrig === false) { sValidationOrig += sSpacer + "Origin"; sSpacer = ", "; blnValidated = false; blnMissingOrig = true; }
+                    if ((ngl.isNullOrUndefined(fee.AccessorialCode) || fee.AccessorialCode === 0) && blnMissingAccessorial === false) { sValidationOrig += sSpacer + "Accessorial"; sSpacer = ", "; blnValidated = false; blnMissingAccessorial = true; }
+                    if ((ngl.isNullOrUndefined(fee.Cost) || fee.Cost === 0) && blnMissingCost === false) { sValidationOrig += sSpacer + "Cost"; sSpacer = ", "; blnValidated = false; blnMissingCost = true; }
+                }
+            }
+            if (ngl.stringHasValue(sValidationOrig)) { sValidationMsg += "</br></br><strong>Origin Specific Charges/Fees</strong></br>" + sValidationOrig; }
+        }
+        sSpacer = ""; //reset
+        if (typeof (DestFees) !== 'undefined' && ngl.isArray(DestFees)) {
+            var blnMissingDest = false, blnMissingAccessorial = false, blnMissingCost = false;
+            for (var j = 0; j < DestFees.length; j++) {
+                var fee = DestFees[j];
+                if (typeof (fee) !== 'undefined' && fee != null && ngl.isObject(fee)) {
+                    //For some reason if the Allocation Type is 0 we can set it here
+                    if (ngl.isNullOrUndefined(fee.FeeAllocationTypeControl) || fee.FeeAllocationTypeControl === 0) { DestFees[j].FeeAllocationTypeControl = 3; }
+                    //check fields based on allocation type
+                    if ((isEmpty(fee.DestName) || (ngl.isNullOrUndefined(fee.BookControl) || fee.BookControl === 0)) && blnMissingDest === false) { sValidationDest += sSpacer + "Destination"; sSpacer = ", "; blnValidated = false; blnMissingDest = true; }
+                    if ((ngl.isNullOrUndefined(fee.AccessorialCode) || fee.AccessorialCode === 0) && blnMissingAccessorial === false) { sValidationDest += sSpacer + "Accessorial"; sSpacer = ", "; blnValidated = false; blnMissingAccessorial = true; }
+                    if ((ngl.isNullOrUndefined(fee.Cost) || fee.Cost === 0) && blnMissingCost === false) { sValidationDest += sSpacer + "Cost"; sSpacer = ", "; blnValidated = false; blnMissingCost = true; }
+                }
+            }
+            if (ngl.stringHasValue(sValidationDest)) { sValidationMsg += "</br></br><strong>Destination Specific Charges/Fees</strong></br>" + sValidationDest; }
+        }
+        oRet.Success = blnValidated;
+        oRet.Message = sValidationMsg;
+        return oRet;
+    }
+
+    /* Array related methods */
+    function getLoadFeeByIndex(idx) {
+        if (typeof (LoadFees) !== 'undefined' && ngl.isArray(LoadFees)) {
+            for (var j = 0; j < LoadFees.length; j++) {
+                if (LoadFees[j].FeeIndex == idx) { return LoadFees[j]; }
+            }
+        }
+        return null;
+    }
+    function getIndexByFeeIndexLoad(feeIndex) {
+        if (typeof (LoadFees) !== 'undefined' && ngl.isArray(LoadFees)) {
+            for (var j = 0; j < LoadFees.length; j++) {
+                if (LoadFees[j].FeeIndex == feeIndex) { return j; }
+            }
+        }
+        return null;
+    }
+
+    function getOrderFeeByIndex(idx) {
+        if (typeof (OrderFees) !== 'undefined' && ngl.isArray(OrderFees)) {
+            for (var j = 0; j < OrderFees.length; j++) {
+                if (OrderFees[j].FeeIndex == idx) { return OrderFees[j]; }
+            }
+        }
+        return null;
+    }
+    function getIndexByFeeIndexOrder(feeIndex) {
+        if (typeof (OrderFees) !== 'undefined' && ngl.isArray(OrderFees)) {
+            for (var j = 0; j < OrderFees.length; j++) {
+                if (OrderFees[j].FeeIndex == feeIndex) { return j; }
+            }
+        }
+        return null;
+    }
+
+    function getOrigFeeByIndex(idx) {
+        if (typeof (OrigFees) !== 'undefined' && ngl.isArray(OrigFees)) {
+            for (var j = 0; j < OrigFees.length; j++) {
+                if (OrigFees[j].FeeIndex == idx) { return OrigFees[j]; }
+            }
+        }
+        return null;
+    }
+    function getIndexByFeeIndexOrig(feeIndex) {
+        if (typeof (OrigFees) !== 'undefined' && ngl.isArray(OrigFees)) {
+            for (var j = 0; j < OrigFees.length; j++) {
+                if (OrigFees[j].FeeIndex == feeIndex) { return j; }
+            }
+        }
+        return null;
+    }
+
+    function getDestFeeByIndex(idx) {
+        if (typeof (DestFees) !== 'undefined' && ngl.isArray(DestFees)) {
+            for (var j = 0; j < DestFees.length; j++) {
+                if (DestFees[j].FeeIndex == idx) { return DestFees[j]; }
+            }
+        }
+        return null;
+    }
+    function getIndexByFeeIndexDest(feeIndex) {
+        if (typeof (DestFees) !== 'undefined' && ngl.isArray(DestFees)) {
+            for (var j = 0; j < DestFees.length; j++) {
+                if (DestFees[j].FeeIndex == feeIndex) { return j; }
+            }
+        }
+        return null;
+    }
+
+    /* Fee Drop Down List Editors */
+    function LoadFeeDropDownEditor(container, options) {
+        $('<input id="ddlLoadFees" required data-text-field="Caption" data-value-field="AccessorialCode" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "Caption",
+                dataValueField: "AccessorialCode",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetLECarFeesByAllocationType",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: function () {
+                                var f = new AllFilter();
+                                f.CarrierControlFrom = $("#txtLastStopCarrierCtrl").val();
+                                f.LEAdminControl = $("#txtLastStopCompLECtrl").val();
+                                f.ParentControl = 4;
+                                return { filter: JSON.stringify(f) };
+                            }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "AccessorialCode",
+                            fields: {
+                                AccessorialCode: { type: "number" },
+                                Caption: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure");
+                        ngl.showErrMsg("GetLECarFeesByAllocationType JSON Response Error", sMsg, null);
+                        this.cancelChanges();
+                    },
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("AccessorialCode", fee.AccessorialCode);
+                    options.model.set("Caption", fee.Caption);
+                },
+                dataBound: function (e) {
+                    var ddl = this.dataSource.data();
+                    var legalEntity = $("#txtLastStopCompLE").val();
+                    var carrierName = $("#txtLastStopCarrierName").val();
+                    var compName = $("#txtLastStopCompName").val();
+                    if (ddl.length < 1) {
+                        var msg = "No Accessorials are set up for Legal Entity " + legalEntity + ", Carrier " + carrierName + ", and Allocation Type Load";
+                        if (ngl.isNullOrWhitespace(legalEntity)) { var msg = "No Accessorials are available for Company " + compName + " because the company does not have an associated Legal Entity. Please make sure the Company Legal Entity field in FM TMS is not null."; }
+                        ngl.showErrMsg("Load Charges Not Configured", msg, null);
+                        return;
+                    }
+                }
+            });
+    }
+
+    function OrderFeeDropDownEditor(container, options) {
+        $('<input id="ddlOrderFees" required data-text-field="Caption" data-value-field="AccessorialCode" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "Caption",
+                dataValueField: "AccessorialCode",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetLECarFeesByAllocationType",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: function () {
+                                var f = new AllFilter();
+                                f.CarrierControlFrom = $("#txtLastStopCarrierCtrl").val();
+                                f.LEAdminControl = $("#txtLastStopCompLECtrl").val();
+                                f.ParentControl = 1;
+                                return { filter: JSON.stringify(f) };
+                            }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "AccessorialCode",
+                            fields: {
+                                AccessorialCode: { type: "number" },
+                                Caption: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure");
+                        ngl.showErrMsg("GetLECarFeesByAllocationType JSON Response Error", sMsg, null);
+                        this.cancelChanges();
+                    },
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("AccessorialCode", fee.AccessorialCode);
+                    options.model.set("Caption", fee.Caption);
+                },
+                dataBound: function (e) {
+                    var ddl = this.dataSource.data();
+                    var legalEntity = $("#txtLastStopCompLE").val();
+                    var carrierName = $("#txtLastStopCarrierName").val();
+                    var compName = $("#txtLastStopCompName").val();
+                    if (ddl.length < 1) {
+                        var msg = "No Accessorials are set up for Legal Entity " + legalEntity + ", Carrier " + carrierName + ", and Allocation Type None";
+                        if (ngl.isNullOrWhitespace(legalEntity)) { var msg = "No Accessorials are available for Company " + compName + " because the company does not have an associated Legal Entity. Please make sure the Company Legal Entity field in FM TMS is not null."; }
+                        ngl.showErrMsg("Order Charges Not Configured", msg, null);
+                        return;
+                    }
+                }
+            });
+    }
+
+    function OrigFeeDropDownEditor(container, options) {
+        $('<input id="ddlOrigFees" required data-text-field="Caption" data-value-field="AccessorialCode" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "Caption",
+                dataValueField: "AccessorialCode",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetLECarFeesByAllocationType",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: function () {
+                                var f = new AllFilter();
+                                f.CarrierControlFrom = $("#txtLastStopCarrierCtrl").val();
+                                f.LEAdminControl = $("#txtLastStopCompLECtrl").val();
+                                f.ParentControl = 2;
+                                return { filter: JSON.stringify(f) };
+                            }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "AccessorialCode",
+                            fields: {
+                                AccessorialCode: { type: "number" },
+                                Caption: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure");
+                        ngl.showErrMsg("GetLECarFeesByAllocationType JSON Response Error", sMsg, null);
+                        this.cancelChanges();
+                    },
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("AccessorialCode", fee.AccessorialCode);
+                    options.model.set("Caption", fee.Caption);
+                },
+                dataBound: function (e) {
+                    var ddl = this.dataSource.data();
+                    var legalEntity = $("#txtLastStopCompLE").val();
+                    var carrierName = $("#txtLastStopCarrierName").val();
+                    var compName = $("#txtLastStopCompName").val();
+                    if (ddl.length < 1) {
+                        var msg = "No Accessorials are set up for Legal Entity " + legalEntity + ", Carrier " + carrierName + ", and Allocation Type Origin";
+                        if (ngl.isNullOrWhitespace(legalEntity)) { var msg = "No Accessorials are available for Company " + compName + " because the company does not have an associated Legal Entity. Please make sure the Company Legal Entity field in FM TMS is not null."; }
+                        ngl.showErrMsg("Origin Charges Not Configured", msg, null);
+                        return;
+                    }
+                }
+            });
+    }
+
+    function DestFeeDropDownEditor(container, options) {
+        $('<input id="ddlDestFees" required data-text-field="Caption" data-value-field="AccessorialCode" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "Caption",
+                dataValueField: "AccessorialCode",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetLECarFeesByAllocationType",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: function () {
+                                var f = new AllFilter();
+                                f.CarrierControlFrom = $("#txtLastStopCarrierCtrl").val();
+                                f.LEAdminControl = $("#txtLastStopCompLECtrl").val();
+                                f.ParentControl = 3;
+                                return { filter: JSON.stringify(f) };
+                            }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "AccessorialCode",
+                            fields: {
+                                AccessorialCode: { type: "number" },
+                                Caption: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure");
+                        ngl.showErrMsg("GetLECarFeesByAllocationType JSON Response Error", sMsg, null);
+                        this.cancelChanges();
+                    },
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("AccessorialCode", fee.AccessorialCode);
+                    options.model.set("Caption", fee.Caption);
+                },
+                dataBound: function (e) {
+                    var ddl = this.dataSource.data();
+                    var legalEntity = $("#txtLastStopCompLE").val();
+                    var carrierName = $("#txtLastStopCarrierName").val();
+                    var compName = $("#txtLastStopCompName").val();
+                    if (ddl.length < 1) {
+                        var msg = "No Accessorials are set up for Legal Entity " + legalEntity + ", Carrier " + carrierName + ", and Allocation Type Destination";
+                        if (ngl.isNullOrWhitespace(legalEntity)) { var msg = "No Accessorials are available for Company " + compName + " because the company does not have an associated Legal Entity. Please make sure the Company Legal Entity field in FM TMS is not null."; }
+                        ngl.showErrMsg("Destination Charges Not Configured", msg, null);
+                        return;
+                    }
+                }
+            });
+    }
+
+    /* Drop Down List Editors */
+    function OrderDropDownEditor(container, options) {
+        $('<input required data-text-field="BookCarrOrderNumber" data-value-field="BookControl" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "BookCarrOrderNumber",
+                dataValueField: "BookControl",
+                template: '<span>#: BookCarrOrderNumber # - #: BookOrderSequence #</span>',
+                optionLabel: "Select an Order",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetUniqueOrdersBySHID",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: { filter: $("#txtSHID").val() }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "BookControl",
+                            fields: {
+                                BookControl: { type: "number" },
+                                BookCarrOrderNumber: { type: "string" },
+                                BookOrderSequence: { type: "number" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Orders For SHID JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }                   
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("BookControl", fee.BookControl);
+                    options.model.set("BookCarrOrderNumber", fee.BookCarrOrderNumber);
+                    options.model.set("BookOrderSequence", fee.BookOrderSequence);
+                }
+            });
+    }
+
+    function OrigDropDownEditor(container, options) {
+        $('<input required data-text-field="BookOrigName" data-value-field="BookControl" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "BookOrigName",
+                dataValueField: "BookControl",
+                template: '<span>#: BookOrigName # - #: BookOrigZip #</span>',
+                optionLabel: "Select an Origin",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetUniqueOrigBySHID",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: { filter: $("#txtSHID").val() }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "BookControl",
+                            fields: {
+                                BookControl: { type: "number" },
+                                BookOrigName: { type: "string" },
+                                BookOrigZip: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Origins For SHID JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("BookControl", fee.BookControl);
+                    options.model.set("OrigName", fee.BookOrigName);
+                    options.model.set("OrigZip", fee.BookOrigZip);
+                }
+            });
+    }
+
+    function DestDropDownEditor(container, options) {
+        $('<input required data-text-field="BookDestName" data-value-field="BookControl" data-bind="value:' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataTextField: "BookDestName",
+                dataValueField: "BookControl",
+                template: '<span>#: BookDestName # - #: BookDestZip #</span>',
+                optionLabel: "Select a Destination",
+                autoBind: true,
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "api/Settlement/GetUniqueDestBySHID",
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            type: "GET",
+                            dataType: 'json',
+                            data: { filter: $("#txtSHID").val() }
+                        },
+                        parameterMap: function (options, operation) { return options; }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Count",
+                        model: {
+                            id: "BookControl",
+                            fields: {
+                                BookControl: { type: "number" },
+                                BookDestName: { type: "string" },
+                                BookDestZip: { type: "string" }
+                            }
+                        },
+                        errors: "Errors"
+                    },
+                    error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Destinations For SHID JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+                },
+                change: function (e) {
+                    var fee = this.dataItem(e.item);
+                    options.model.set("BookControl", fee.BookControl);
+                    options.model.set("DestName", fee.BookDestName);
+                    options.model.set("DestZip", fee.BookDestZip);
+                }
+            });
+    }
+    
+
+    function ConfirmDeleteFees(iRet, d) {
+        if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) {
+            refreshFeeGrids();
+            return;
+        }       
+        if (typeof (d) !== 'undefined' && ngl.isObject(d) && typeof (d.data.Control) !== 'undefined' && d.data.Control != null && d.data.Control > 0) {
+            var feeIndex = d.data.FeeIndex;               
+            var url = 'api/BookFee/DeleteSettlementBFP/' + d.data.Control;
+            $.ajax({
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: "DELETE",
+                data: { id: d.data.Control },
+                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                success: function (data) {
+                    try {
+                        var blnSuccess = false, blnErrorShown = false;
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg("Delete Pending Fee Failure", data.Errors, null); }
+                            else {
+                                if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                    if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                        blnSuccess = true;
+                                        getSettlementFBDEData();
+                                        //LoadFees.splice(getIndexByFeeIndexLoad(feeIndex), 1);
+                                        //d.success(LoadFees);
+                                    }
+                                }
+                            }
+                        }
+                        if (blnSuccess === false && blnErrorShown === false) { ngl.showErrMsg("Delete Pending Fee Failure", "There was a problem with the Delete", null); }
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Delete Pending Fee JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Delete Data Failure"), null); this.cancelChanges(); }
+            });
+        };
+    }
+
+    $(document).ready(function () {
+        $("#txtLastStopCompCtrl").val(0);
+        $("#txtLastStopCompName").val("");
+        $("#txtLastStopCompLE").val("");
+        $("#txtLastStopCompLECtrl").val(0);
+        $("#txtLastStopCarrierCtrl").val(0);
+        $("#txtLastStopCarrierName").val("");      
+        //initialize kendo
+        $("#txtInvoiceNumber").kendoMaskedTextBox();
+        //Modified by RHR for v-8.5.3.006 on 02/17/2023 added Invoice Date
+        $("#txtInvoiceDate").kendoDatePicker();
+        $("#txtBookCarrBLNumber").kendoMaskedTextBox();
+        $("#txtBookFinAPActWgt").kendoNumericTextBox();
+        $("#txtLineHaul").kendoNumericTextBox({ format: "{0:c2}", change: function (e) { saveExtFBDEFuel(); } });
+        $("#txtLineHaul").data("kendoNumericTextBox").readonly();        
+        $("#txtTotalMiles").kendoNumericTextBox({ format: "{0:2}", spinners: false });
+        $("#txtTotalMiles").data("kendoNumericTextBox").readonly();
+        $("#txtTotalFuel").kendoNumericTextBox({ format: "{0:c2}", change: function (e) { saveExtFBDEFuel(); } });
+        $("#txtTotalFees").kendoNumericTextBox({ format: "{0:c2}", spinners: false });
+        $("#txtTotalCost").kendoNumericTextBox({ format: "{0:c2}", spinners: false });
+        //clear all the values from the filters
+        $("#txtInvoiceNumber").data("kendoMaskedTextBox").value("");
+        //Modified by RHR for v-8.5.3.006 on 02/17/2023 added Invoice Date
+        $("#txtInvoiceDate").data("kendoDatePicker").value("");
+        $("#txtBookCarrBLNumber").data("kendoMaskedTextBox").value("");
+        $("#txtBookFinAPActWgt").data("kendoNumericTextBox").value(0);
+        $("#txtLineHaul").data("kendoNumericTextBox").value(0);
+        $("#txtTotalMiles").data("kendoNumericTextBox").value(0);
+        $("#txtTotalFees").data("kendoNumericTextBox").value(0);
+        $("#txtTotalCost").data("kendoNumericTextBox").value(0);
+        //disable the total fields
+        $("#txtTotalFees").data("kendoNumericTextBox").enable(false);
+        $("#txtTotalCost").data("kendoNumericTextBox").enable(false);
+
+        //***** BEGIN Grid CODE *****
+
+        $('#LoadFeesGrid').kendoGrid({
+            autoBind: false,
+            sortable: true,
+            resizable: true,
+            scrollable: true,
+            editable: true,
+            editable: { confirmation: false },
+            toolbar: [{ name: "create", text: "Add Fee" }],
+            columns: [
+                        { command: [{ className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" },
+                        { field: "FeeIndex", title: "FeeIndex", hidden: true },
+                        { field: "Control", title: "Control", hidden: true },
+                        { field: "BookControl", title: "Book Control", hidden: true },
+                        { field: "SHID", title: "SHID" },
+                        { field: "Caption", title: "Fee", editor: LoadFeeDropDownEditor },
+                        { field: "AccessorialCode", title: "AccessorialCode", hidden: true },
+                        { field: "Cost", title: "Cost", format: "{0:c2}" },
+                        { field: "Msg", title: "Msg", hidden: false },
+                        { field: "Minimum", title: "Minimum", format: "{0:c2}", hidden: true },
+                        { field: "AutoApprove", title: "AutoApprove", hidden: true },
+                        { field: "AllowCarrierUpdates", title: "AllowCarrierUpdates", hidden: true },
+                        { field: "Pending", title: "Fee Status", template: '#= Pending ? "Pending" : "Approved" #', hidden: true } //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 2               
+            ],
+            edit: function (e) {
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && (status.toUpperCase() === 'FAILED')) { this.closeCell(); return; } //not editable in FAILED status
+                var blnIsEditable = true;
+                //If AllowCarrierUpdates is false then the user cannot edit the record
+                var allowUpdates = e.model.AllowCarrierUpdates;
+                if (typeof (allowUpdates) !== 'undefined' && allowUpdates != null && allowUpdates === false) { this.closeCell(); }
+                else {
+                    var columnIndex = this.cellIndex(e.container);
+                    var fieldName = this.thead.find("th").eq(columnIndex).data("field");
+                    var ctrl = e.model.Control;
+                    if (typeof (ctrl) === 'undefined' || ctrl == null) { ctrl = 0; }
+                    if (ctrl > 0 && fieldName === "Caption") { this.closeCell(); blnIsEditable = false; } //If this is record that already existed in the database (Control > 0) the user cannot edit the Accessorial Code (aka the dropdown editor under "Caption" field)                   
+                    if (fieldName === "AccessorialCode") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field AccessorialCode because it can only be set through the dropdown selector                   
+                    if (fieldName === "SHID") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the SHID field (Note: We do this here because if we set editable to false in the schema then when we update the Model in beforeEdit it doesn't update the UI correctly)           
+                    if (fieldName === "BookControl") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the BookControl field (Note: We do this here because if we set editable to false in the schema then when we update the Model in beforeEdit it doesn't update the UI correctly)                  
+                    if (blnIsEditable === true) {
+                        //No restrictions on editing so execute the "Select All" code
+                        var inputColumn = e.container.find("input");
+                        inputColumn.bind("focus", function () {
+                            var input = $(this);
+                            clearTimeout(input.data("selectTimeId")); //stop started time out if any                                    
+                            var selectTimeId = setTimeout(function () { input.select(); });
+                            input.data("selectTimeId", selectTimeId);
+                        }).blur(function (e) { clearTimeout($(this).data("selectTimeId")); }); //stop started timeout
+                    }
+                }
+            },
+            dataBound: function (e) {
+                //Show/Hide fee grid Msg column based on value of ShowPendingFeeFailReason
+                var tfShowPendingFeeFailReason = $("#txtShowPendingFeeFailReason").val();
+                if (tfShowPendingFeeFailReason === "false") { this.hideColumn("Msg"); } else { this.showColumn("Msg"); }
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA
+                var ds = this.dataSource.data();
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && status.toUpperCase() === 'FAILED') {
+                    for (var j = 0; j < ds.length; j++) {
+                        var item = this.dataSource.get(ds[j].FeeIndex);
+                        this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); //Do not allow delete in FAILED Status
+                    }
+                }
+                else {
+                    //Only allow delete if BFP.AllowCarrierUpdates is true. Do not allow delete for BookFees
+                    for (var j = 0; j < ds.length; j++) {
+                        if (typeof (ds[j].Pending) !== 'undefined' && ds[j].Pending != null && ds[j].Pending === true) {
+                            if (typeof (ds[j].AllowCarrierUpdates) !== 'undefined' && ds[j].AllowCarrierUpdates != null && ds[j].AllowCarrierUpdates === false) { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                        } else { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                    }
+                }
+            },
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        //LVV Note 3/17/20 - is this temp array logic even needed? Why can't we just set it to LoadFees? It seems like the other CRUD methods are just referencing that
+                        var temp = new Array();
+                        if (typeof (LoadFees) === 'undefined' || ngl.isArray(LoadFees) === false) { LoadFees = []; } //Modified by RHR for v-8.2 on 6/6/2019 to handle null LoadFees not sure if this creates a problem with the temp array logic below
+                        for (var j = 0; j < LoadFees.length; j++) {
+                            temp.push(LoadFees[j]);
+                        }
+                        calcSettlementTotals();
+                        d.success(temp);
+                    },
+                    create: function (d) {
+                        intLoadFeeIndex += 1;
+                        var item = new SettlementFee();
+                        item.Control = 0;
+                        item.BookControl = $("#txtHeaderBookControl").val(); //Modified By LVV on 6/25/20 for v-8.2.1.008 - Task #20200506110923 - JavaScript Error
+                        item.Minimum = d.data.Minimum;
+                        item.Cost = d.data.Cost;
+                        item.AccessorialCode = d.data.AccessorialCode;
+                        item.Caption = d.data.Caption;
+                        item.AutoApprove = false;
+                        item.AllowCarrierUpdates = true;
+                        item.FeeIndex = intLoadFeeIndex;
+                        item.Pending = true;
+                        item.SHID = $("#txtSHID").val(); //Modified By LVV on 6/25/20 for v-8.2.1.008 - Task #20200506110923 - JavaScript Error 
+                        item.FeeAllocationTypeControl = 4; //Added By LVV on 3/15/20
+                        item.StopSequence = -1; //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence
+                        LoadFees.push(item); //save data item to the original datasource
+                        d.success(item); //add it to the grid datasource
+                    },
+                    update: function (d) {
+                        LoadFees[getLoadFeeByIndex(d.data.FeeIndex)] = d.data; //locate item in original datasource and update it
+                        d.success();
+                    },
+                    destroy: function (d) {
+                        if (typeof (d.data.Pending) !== 'undefined' && d.data.Pending != null && d.data.Pending === false) { return; } //Do not allow delete for BookFees
+                        if (typeof (d.data.Control) !== 'undefined' && d.data.Control != null && d.data.Control > 0) {
+                            //call the function to delete it from db - just delete the record no fancy stuff required                           
+                            ngl.OkCancelConfirmation(
+                             "Undo Pending Fees",
+                             "This action will undo any pending changes to the selected fee and replace the cost with the previously expected cost.  This process cannot be undone.  To actually remove the cost you must set the value to zero. Are you sure you want to continue?",
+                             400,
+                             400,
+                             tObj,
+                             "ConfirmDeleteFees", d);
+                        } else { LoadFees.splice(getIndexByFeeIndexLoad(d.data.FeeIndex), 1); d.success(LoadFees); }
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                sync: function (e) { calcSettlementTotals(); },
+                schema: {
+                    model: {
+                        id: "FeeIndex",
+                        fields: {
+                            FeeIndex: { type: "number", editable: false },
+                            Control: { type: "number", editable: false },
+                            BookControl: { type: "number", editable: true }, //Modified By LVV on 3/15/20 - this needs to be editable here so we can set a default value on create. We lock the field in the edit() event
+                            SHID: { type: "string", editable: true }, //Added By LVV on 3/15/20 - this needs to be editable here so we can set a default value on create. We lock the field in the edit() event
+                            Minimum: { type: "number", editable: true },
+                            Cost: { type: "number", editable: true, validation: { required: true, min: 0 } },
+                            AccessorialCode: { type: "number", editable: true },
+                            Caption: { type: "string", editable: true },
+                            AutoApprove: { type: "boolean", editable: false },
+                            AllowCarrierUpdates: { type: "boolean", editable: false },
+                            Pending: { type: "boolean", editable: false },
+                            Msg: { type: "string", editable: false },
+                            StopSequence: { type: "number", editable: false }, //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence                           
+                            BookCarrOrderNumber: { type: "string", editable: false }, //Missng (ne field Default null, When a bookcontrol exists And this Is null lookup the value In the book table) Maps To  APMassEntryHistoryFees.APMHFeesOrderNumber
+                            BFPControl: { type: "number", editable: false },
+                            EDICode: { type: "string", editable: false },
+                            BookOrderSequence: { type: "number", editable: false },
+                            MissingFee: { type: "boolean", editable: false },
+                            BilledFee: { type: "boolean", editable: false },
+                            OrigName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            DestName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            OrigZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                            DestZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                            CNS: { type: "string", editable: false }, //Added By LVV on 3/15/20                           
+                            FeeAllocationTypeControl: { type: "number", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeDesc: { type: "string", editable: false } //Added By LVV on 3/15/20
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"); ngl.showErrMsg("LoadFeesGrid DataSource Failure", sMsg, null); }
+            },
+        });
+
+        $('#OrderFeesGrid').kendoGrid({
+            autoBind: false,
+            sortable: true,
+            resizable: true,
+            scrollable: true,
+            editable: true,  
+            editable: { confirmation: false },          
+            toolbar: [{ name: "create", text: "Add Fee" }],           
+            columns: [
+                        { command: [{ className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" },
+                        { field: "FeeIndex", title: "FeeIndex", hidden: true },
+                        { field: "Control", title: "Control", hidden: true },
+                        { field: "BookControl", title: "Book Control", hidden: true },
+                        { field: "BookCarrOrderNumber", title: "Order Number - Seq", editor: OrderDropDownEditor, template: '#: BookCarrOrderNumber # - #: BookOrderSequence #' },
+                        { field: "BookOrderSequence", title: "Order Seq", hidden: true },
+                        { field: "Caption", title: "Fee", editor: OrderFeeDropDownEditor },
+                        { field: "AccessorialCode", title: "AccessorialCode", hidden: true },                        
+                        { field: "Cost", title: "Cost", format: "{0:c2}" },
+                        { field: "Msg", title: "Msg" },
+                        { field: "Minimum", title: "Minimum", format: "{0:c2}", hidden: true },
+                        { field: "AutoApprove", title: "AutoApprove", hidden: true },
+                        { field: "AllowCarrierUpdates", title: "AllowCarrierUpdates", hidden: true },
+                        { field: "Pending", title: "Fee Status", template: '#= Pending ? "Pending" : "Approved" #', hidden: true } //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 2                       
+            ],
+            edit: function (e) {
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && (status.toUpperCase() === 'FAILED')) { this.closeCell(); return; } //not editable in FAILED status 
+                var blnIsEditable = true;
+                //If AllowCarrierUpdates is false then the user cannot edit the record
+                var allowUpdates = e.model.AllowCarrierUpdates;
+                if (typeof (allowUpdates) !== 'undefined' && allowUpdates != null && allowUpdates === false) { this.closeCell(); }
+                else {
+                    var columnIndex = this.cellIndex(e.container);
+                    var fieldName = this.thead.find("th").eq(columnIndex).data("field");                    
+                    var ctrl = e.model.Control;
+                    if (typeof (ctrl) === 'undefined' || ctrl == null) { ctrl = 0; }
+                    if (ctrl > 0 && fieldName === "Caption") { this.closeCell(); blnIsEditable = false; } //If this is record that already existed in the database (Control > 0) the user cannot edit the Accessorial Code (aka the dropdown editor under "Caption" field)             
+                    if (fieldName === "AccessorialCode") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field AccessorialCode because it can only be set through the dropdown selector                  
+                    if (fieldName === "BookOrderSequence") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field BookOrderSequence because it can only be set through the dropdown selector
+                    if (fieldName === "BookControl") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field BookControl because it can only be set through the dropdown selector
+                    if (blnIsEditable === true) {
+                        //No restrictions on editing so execute the "Select All" code
+                        var inputColumn = e.container.find("input");
+                        inputColumn.bind("focus", function () {
+                            var input = $(this);
+                            clearTimeout(input.data("selectTimeId")); //stop started time out if any                                    
+                            var selectTimeId = setTimeout(function () { input.select(); });
+                            input.data("selectTimeId", selectTimeId);
+                        }).blur(function (e) { clearTimeout($(this).data("selectTimeId")); }); //stop started timeout
+                    }
+                }
+            },
+            dataBound: function (e) {
+                //Show/Hide fee grid Msg column based on value of ShowPendingFeeFailReason
+                var tfShowPendingFeeFailReason = $("#txtShowPendingFeeFailReason").val();
+                if (tfShowPendingFeeFailReason === "false") { this.hideColumn("Msg"); } else { this.showColumn("Msg"); }
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var ds = this.dataSource.data();                        
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && status.toUpperCase() === 'FAILED') {                    
+                    for (var j = 0; j < ds.length; j++) {
+                        var item = this.dataSource.get(ds[j].FeeIndex);
+                        this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); //Do not allow delete in FAILED Status
+                    }
+                }
+                else {
+                    //Only allow delete if BFP.AllowCarrierUpdates is true. Do not allow delete for BookFees
+                    for (var j = 0; j < ds.length; j++) {                        
+                        if (typeof (ds[j].Pending) !== 'undefined' && ds[j].Pending != null && ds[j].Pending === true) {
+                            if (typeof (ds[j].AllowCarrierUpdates) !== 'undefined' && ds[j].AllowCarrierUpdates != null && ds[j].AllowCarrierUpdates === false) { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                        } else { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                    }
+                }
+            },
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        var temp = new Array();                       
+                        if (typeof (OrderFees) === 'undefined' || ngl.isArray(OrderFees) === false) { OrderFees = []; } //Modified by RHR for v-8.2 on 6/6/2019 to handle null OrderFees not sure if this creates a problem with the temp array logic below
+                        for (var j = 0; j < OrderFees.length; j++) {
+                            temp.push(OrderFees[j]);
+                        }
+                        calcSettlementTotals();
+                        d.success(temp);
+                    },
+                    create: function (d) {
+                        intOrderFeeIndex += 1;
+                        var item = new SettlementFee();
+                        item.Control = 0;
+                        item.BookControl = d.data.BookControl;
+                        item.Minimum = d.data.Minimum;
+                        item.Cost = d.data.Cost;
+                        item.AccessorialCode = d.data.AccessorialCode;
+                        item.Caption = d.data.Caption;
+                        item.AutoApprove = false;
+                        item.AllowCarrierUpdates = true;
+                        item.FeeIndex = intOrderFeeIndex;
+                        item.Pending = true;
+                        item.BookCarrOrderNumber = d.data.BookCarrOrderNumber; //Missing (new field Default null, When a bookcontrol exists And this Is null lookup the value In the book table) Maps To APMassEntryHistoryFees.APMHFeesOrderNumber
+                        item.BookOrderSequence = d.data.BookOrderSequence; //Added By LVV on 3/15/20
+                        item.FeeAllocationTypeControl = 1; //Added By LVV on 3/15/20
+                        item.StopSequence = -1; //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence                   
+                        OrderFees.push(item);//save data item to the original datasource
+                        d.success(item); //update grid datasource
+                    },
+                    update: function (d) {                       
+                        OrderFees[getOrderFeeByIndex(d.data.FeeIndex)] = d.data; //locate item in original datasource and update it
+                        d.success();
+                    },
+                    destroy: function (d) {
+                        if (typeof (d.data.Pending) !== 'undefined' && d.data.Pending != null && d.data.Pending === false) { return; } //Do not allow delete for BookFees
+                        if (typeof (d.data.Control) !== 'undefined' && d.data.Control != null && d.data.Control > 0) {
+                            //call the function to delete it from db - just delete the record no fancy stuff required
+                            ngl.OkCancelConfirmation(
+                             "Undo Pending Fees",
+                             "This action will undo any pending changes to the selected fee and replace the cost with the previously expected cost.  This process cannot be undone.  To actually remove the cost you must set the value to zero. Are you sure you want to continue?",
+                             400,
+                             400,
+                             tObj,
+                             "ConfirmDeleteFees", d);                           
+                        } else { OrderFees.splice(getIndexByFeeIndexOrder(d.data.FeeIndex), 1); d.success(OrderFees); }
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                sync: function (e) { calcSettlementTotals(); },
+                schema: {
+                    model: {
+                            id: "FeeIndex",
+                            fields: {
+                                FeeIndex: { type: "number", editable: false },
+                                Control: { type: "number", editable: false },
+                                BookControl: { type: "number", editable: true, validation: { required: true, min: 0 } }, //Modified By LVV on 3/15/20- this needs to be editable here so we can set a default value on create. We lock the field in the edit() event
+                                Minimum: { type: "number", editable: true },
+                                Cost: { type: "number", editable: true, validation: { required: true, min: 0 } },
+                                AccessorialCode: { type: "number", editable: true },
+                                Caption: { type: "string", editable: true },
+                                BookCarrOrderNumber: { type: "string", editable: true, validation: { required: true } }, //Missng (new field Default null, When a bookcontrol exists And this Is null lookup the value In the book table) Maps To APMassEntryHistoryFees.APMHFeesOrderNumber
+                                BookOrderSequence: { type: "number", editable: true, validation: { required: true, min: 0 } },
+                                AutoApprove: { type: "boolean", editable: false },
+                                AllowCarrierUpdates: { type: "boolean", editable: false },
+                                Pending: { type: "boolean", editable: false },
+                                Msg: { type: "string", editable: false },
+                                StopSequence: { type: "number", editable: false }, //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence                            
+                                BFPControl: { type: "number", editable: false },
+                                EDICode: { type: "string", editable: false },
+                                MissingFee: { type: "boolean", editable: false },
+                                BilledFee: { type: "boolean", editable: false },
+                                OrigName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                                DestName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                                OrigZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                                DestZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                                CNS: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                                SHID: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                                FeeAllocationTypeControl: { type: "number", editable: false }, //Added By LVV on 3/15/20
+                                FeeAllocationTypeName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                                FeeAllocationTypeDesc: { type: "string", editable: false } //Added By LVV on 3/15/20
+                            }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"); ngl.showErrMsg("OrderFeesGrid DataSource Failure", sMsg, null); }
+            }
+        });
+
+        $('#OrigFeesGrid').kendoGrid({
+            autoBind: false,
+            sortable: true,
+            resizable: true,
+            scrollable: true,
+            editable: true,
+            editable: { confirmation: false },
+            toolbar: [{ name: "create", text: "Add Fee" }],          
+            columns: [
+                        { command: [{ className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" },
+                        { field: "FeeIndex", title: "FeeIndex", hidden: true },
+                        { field: "Control", title: "Control", hidden: true },
+                        { field: "BookControl", title: "Book Control", hidden: true },
+                        { field: "OrigName", title: "Origin", editor: OrigDropDownEditor, template: '#: OrigName # - #: OrigZip #' },
+                        { field: "OrigZip", title: "Origin Zip", hidden: true },
+                        { field: "Caption", title: "Fee", editor: OrigFeeDropDownEditor },
+                        { field: "AccessorialCode", title: "AccessorialCode", hidden: true },
+                        { field: "Cost", title: "Cost", format: "{0:c2}" },
+                        { field: "Msg", title: "Msg", hidden: false },
+                        { field: "Minimum", title: "Minimum", format: "{0:c2}", hidden: true },
+                        { field: "AutoApprove", title: "AutoApprove", hidden: true },
+                        { field: "AllowCarrierUpdates", title: "AllowCarrierUpdates", hidden: true },
+                        { field: "Pending", title: "Fee Status", template: '#= Pending ? "Pending" : "Approved" #', hidden: true } //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 2                     
+            ],
+            edit: function (e) {                
+                //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && (status.toUpperCase() === 'FAILED')) { this.closeCell(); return; } //not editable in FAILED status
+                var blnIsEditable = true;
+                //If AllowCarrierUpdates is false then the user cannot edit the record
+                var allowUpdates = e.model.AllowCarrierUpdates;
+                if (typeof (allowUpdates) !== 'undefined' && allowUpdates != null && allowUpdates === false) { this.closeCell(); }
+                else {
+                    var columnIndex = this.cellIndex(e.container);
+                    var fieldName = this.thead.find("th").eq(columnIndex).data("field");                    
+                    var ctrl = e.model.Control;
+                    if (typeof (ctrl) === 'undefined' || ctrl == null) { ctrl = 0; }
+                    if (ctrl > 0 && fieldName === "Caption") { this.closeCell(); blnIsEditable = false; } //If this is record that already existed in the database (Control > 0) the user cannot edit the Accessorial Code (aka the dropdown editor under "Caption" field)                  
+                    if (fieldName === "AccessorialCode") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field AccessorialCode because it can only be set through the dropdown selector
+                    if (fieldName === "OrigZip") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field OrigZip because it can only be set through the dropdown selector
+                    if (fieldName === "BookControl") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field BookControl because it can only be set through the dropdown selector
+                    if (blnIsEditable === true) {
+                        //No restrictions on editing so execute the "Select All" code
+                        var inputColumn = e.container.find("input");
+                        inputColumn.bind("focus", function () {
+                            var input = $(this);
+                            clearTimeout(input.data("selectTimeId")); //stop started time out if any                                    
+                            var selectTimeId = setTimeout(function () { input.select(); });
+                            input.data("selectTimeId", selectTimeId);
+                        }).blur(function (e) { clearTimeout($(this).data("selectTimeId")); }); //stop started timeout
+                    }
+                }
+            },
+            dataBound: function (e) {
+                //Show/Hide fee grid Msg column based on value of ShowPendingFeeFailReason
+                var tfShowPendingFeeFailReason = $("#txtShowPendingFeeFailReason").val();
+                if (tfShowPendingFeeFailReason === "false") { this.hideColumn("Msg"); } else { this.showColumn("Msg"); }
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var ds = this.dataSource.data();
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && status.toUpperCase() === 'FAILED') {                   
+                    for (var j = 0; j < ds.length; j++) {
+                        var item = this.dataSource.get(ds[j].FeeIndex);
+                        this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); //Do not allow delete in FAILED Status
+                    }
+                }
+                else {
+                    //Only allow delete if BFP.AllowCarrierUpdates is true. Do not allow delete for BookFees
+                    for (var j = 0; j < ds.length; j++) {
+                        if (typeof (ds[j].Pending) !== 'undefined' && ds[j].Pending != null && ds[j].Pending === true) {
+                            if (typeof (ds[j].AllowCarrierUpdates) !== 'undefined' && ds[j].AllowCarrierUpdates != null && ds[j].AllowCarrierUpdates === false) { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                        } else { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                    }
+                }
+            },
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        var temp = new Array();                        
+                        if (typeof (OrigFees) === 'undefined' || ngl.isArray(OrigFees) === false) { OrigFees = []; } //Modified by RHR for v-8.2 on 6/6/2019 to handle null OrigFees not sure if this creates a problem with the temp array logic below
+                        for (var j = 0; j < OrigFees.length; j++) {
+                            temp.push(OrigFees[j]);
+                        }
+                        calcSettlementTotals();
+                        d.success(temp);
+                    },
+                    create: function (d) {
+                        intOrigFeeIndex += 1;
+                        var item = new SettlementFee();
+                        item.Control = 0;
+                        item.BookControl = d.data.BookControl; //Modified By LVV on 3/15/20 - gets populated by the ddl editor
+                        item.Minimum = d.data.Minimum;
+                        item.Cost = d.data.Cost;
+                        item.AccessorialCode = d.data.AccessorialCode;
+                        item.Caption = d.data.Caption;
+                        item.AutoApprove = false;
+                        item.AllowCarrierUpdates = true;
+                        item.FeeIndex = intOrigFeeIndex;
+                        item.Pending = true;
+                        item.OrigName = d.data.OrigName; //Added By LVV on 3/15/20
+                        item.OrigZip = d.data.OrigZip; //Added By LVV on 4/1/20
+                        item.FeeAllocationTypeControl = 2; //Added By LVV on 3/15/20     
+                        item.StopSequence = -1; //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence                                          
+                        OrigFees.push(item); //save data item to the original datasource
+                        d.success(item);
+                    },
+                    update: function (d) {                        
+                        OrigFees[getOrigFeeByIndex(d.data.FeeIndex)] = d.data; //locate item in original datasource and update it
+                        d.success();
+                    },
+                    destroy: function (d) {
+                        if (typeof (d.data.Pending) !== 'undefined' && d.data.Pending != null && d.data.Pending === false) { return; } //Do not allow delete for BookFees
+                        if (typeof (d.data.Control) !== 'undefined' && d.data.Control != null && d.data.Control > 0) {
+                            //call the function to delete it from db - just delete the record no fancy stuff required
+                            ngl.OkCancelConfirmation(
+                            "Undo Pending Fees",
+                            "This action will undo any pending changes to the selected fee and replace the cost with the previously expected cost.  This process cannot be undone.  To actually remove the cost you must set the value to zero. Are you sure you want to continue?",
+                            400,
+                            400,
+                            tObj,
+                            "ConfirmDeleteFees", d);
+                        } else { OrigFees.splice(getIndexByFeeIndexOrig(d.data.FeeIndex), 1); d.success(OrigFees); }
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                sync: function (e) { calcSettlementTotals(); },
+                schema: {
+                    model: {
+                        id: "FeeIndex",
+                        fields: {
+                            FeeIndex: { type: "number", editable: false },
+                            Control: { type: "number", editable: false },
+                            BookControl: { type: "number", editable: true, validation: { required: true, min: 0 } }, //Modified By LVV on 3/15/20 - this needs to be editable here so we can set a default value on create. We lock the field in the edit() event
+                            Minimum: { type: "number", editable: true },
+                            Cost: { type: "number", editable: true, validation: { required: true, min: 0 } },
+                            AccessorialCode: { type: "number", editable: true },
+                            Caption: { type: "string", editable: true },
+                            OrigName: { type: "string", editable: true, validation: { required: true } }, //Added By LVV on 3/15/20
+                            OrigZip: { type: "string", editable: true, validation: { required: true } }, //Added By LVV on 4/1/20
+                            AutoApprove: { type: "boolean", editable: false },
+                            AllowCarrierUpdates: { type: "boolean", editable: false },
+                            Pending: { type: "boolean", editable: false },
+                            Msg: { type: "string", editable: false },
+                            StopSequence: { type: "number", editable: false }, //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence
+                            BookCarrOrderNumber: { type: "string", editable: false }, //Missng (ne field Default null, When a bookcontrol exists And this Is null lookup the value In the book table) Maps To  APMassEntryHistoryFees.APMHFeesOrderNumber
+                            BFPControl: { type: "number", editable: false },
+                            EDICode: { type: "string", editable: false },
+                            BookOrderSequence: { type: "number", editable: false },
+                            MissingFee: { type: "boolean", editable: false },
+                            BilledFee: { type: "boolean", editable: false },                           
+                            DestName: { type: "string", editable: false }, //Added By LVV on 3/15/20                           
+                            DestZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                            CNS: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            SHID: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeControl: { type: "number", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeDesc: { type: "string", editable: false } //Added By LVV on 3/15/20
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"); ngl.showErrMsg("GetBookFeesPendingByBookControl Failure", sMsg, null); }
+            },
+        });
+
+        $('#DestFeesGrid').kendoGrid({
+            autoBind: false,
+            sortable: true,
+            resizable: true,
+            scrollable: true,
+            editable: true,
+            editable: { confirmation: false },
+            toolbar: [{ name: "create", text: "Add Fee" }],         
+            columns: [
+                        { command: [{ className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" },
+                        { field: "FeeIndex", title: "FeeIndex", hidden: true },
+                        { field: "Control", title: "Control", hidden: true },
+                        { field: "BookControl", title: "Book Control", hidden: true },
+                        { field: "DestName", title: "Destination", editor: DestDropDownEditor, template: '#: DestName # - #: DestZip #' },
+                        { field: "DestZip", title: "Destination Zip", hidden: true },
+                        { field: "Caption", title: "Fee", editor: DestFeeDropDownEditor },
+                        { field: "AccessorialCode", title: "AccessorialCode", hidden: true },                       
+                        { field: "Cost", title: "Cost", format: "{0:c2}", hidden: false },
+                        { field: "Msg", title: "Msg", hidden: false },
+                        { field: "Minimum", title: "Minimum", format: "{0:c2}", hidden: true },
+                        { field: "AutoApprove", title: "AutoApprove", hidden: true },
+                        { field: "AllowCarrierUpdates", title: "AllowCarrierUpdates", hidden: true },
+                        { field: "Pending", title: "Fee Status", template: '#= Pending ? "Pending" : "Approved" #', hidden: true } //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 2                      
+            ],
+            edit: function (e) {
+                //Modified By LVV on 5/16/2018 for v-8.1 Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && (status.toUpperCase() === 'FAILED')) { this.closeCell(); return; } //not editable in FAILED status 
+                var blnIsEditable = true;
+                //If AllowCarrierUpdates is false then the user cannot edit the record
+                var allowUpdates = e.model.AllowCarrierUpdates;
+                if (typeof (allowUpdates) !== 'undefined' && allowUpdates != null && allowUpdates === false) { this.closeCell(); }
+                else {
+                    var columnIndex = this.cellIndex(e.container);
+                    var fieldName = this.thead.find("th").eq(columnIndex).data("field");                   
+                    var ctrl = e.model.Control;
+                    if (typeof (ctrl) === 'undefined' || ctrl == null) { ctrl = 0; }
+                    if (ctrl > 0 && fieldName === "Caption") { this.closeCell(); blnIsEditable = false; } //If this is record that already existed in the database (Control > 0) the user cannot edit the Accessorial Code (aka the dropdown editor under "Caption" field)                    
+                    if (fieldName === "AccessorialCode") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field AccessorialCode because it can only be set through the dropdown selector
+                    if (fieldName === "DestZip") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field DestZip because it can only be set through the dropdown selector
+                    if (fieldName === "BookControl") { this.closeCell(); blnIsEditable = false; } //The user cannot edit the field BookControl because it can only be set through the dropdown selector
+                    if (blnIsEditable === true) {
+                        //No restrictions on editing so execute the "Select All" code
+                        var inputColumn = e.container.find("input");
+                        inputColumn.bind("focus", function () {
+                            var input = $(this);
+                            clearTimeout(input.data("selectTimeId")); //stop started time out if any                                    
+                            var selectTimeId = setTimeout(function () { input.select(); });
+                            input.data("selectTimeId", selectTimeId);
+                        }).blur(function (e) { clearTimeout($(this).data("selectTimeId")); }); //stop started timeout
+                    }
+                }
+            },
+            dataBound: function (e) {
+                //Show/Hide fee grid Msg column based on value of ShowPendingFeeFailReason
+                var tfShowPendingFeeFailReason = $("#txtShowPendingFeeFailReason").val();
+                if (tfShowPendingFeeFailReason === "false") { this.hideColumn("Msg"); } else { this.showColumn("Msg"); }
+                //Settlement Rule 1 - Allow carrier updates to freight bill when booking record's PExp (bookpaycode) is in N or PA 
+                var ds = this.dataSource.data();
+                var status = $("#txtStatus").val();
+                if (typeof (status) !== 'undefined' && status != null && status.toUpperCase() === 'FAILED') {
+                    for (var j = 0; j < ds.length; j++) {
+                        var item = this.dataSource.get(ds[j].FeeIndex);
+                        this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); //Do not allow delete in FAILED Status
+                    }
+                }
+                else {
+                    //Only allow delete if BFP.AllowCarrierUpdates is true. Do not allow delete for BookFees
+                    for (var j = 0; j < ds.length; j++) {
+                        if (typeof (ds[j].Pending) !== 'undefined' && ds[j].Pending != null && ds[j].Pending === true) {
+                            if (typeof (ds[j].AllowCarrierUpdates) !== 'undefined' && ds[j].AllowCarrierUpdates != null && ds[j].AllowCarrierUpdates === false) { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                        } else { var item = this.dataSource.get(ds[j].FeeIndex); this.tbody.find("tr[data-uid='" + item.uid + "'] .k-grid-delete").hide(); }
+                    }
+                }
+            },
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        var temp = new Array();                       
+                        if (typeof (DestFees) === 'undefined' || ngl.isArray(DestFees) === false) { DestFees = []; } //Modified by RHR for v-8.2 on 6/6/2019 to handle null DestFees not sure if this creates a problem with the temp array logic below
+                        for (var j = 0; j < DestFees.length; j++) {
+                            temp.push(DestFees[j]);
+                        }
+                        calcSettlementTotals();
+                        d.success(temp);
+                    },
+                    create: function (d) {
+                        intDestFeeIndex += 1;
+                        var item = new SettlementFee();
+                        item.Control = 0;
+                        item.BookControl = d.data.BookControl; //Modified By LVV on 3/15/20 - gets populated by the ddl editor
+                        item.Minimum = d.data.Minimum;
+                        item.Cost = d.data.Cost;
+                        item.AccessorialCode = d.data.AccessorialCode;
+                        item.Caption = d.data.Caption;
+                        item.AutoApprove = false;
+                        item.AllowCarrierUpdates = true;
+                        item.FeeIndex = intDestFeeIndex;
+                        item.Pending = true;
+                        item.DestName = d.data.DestName; //Added By LVV on 3/15/20
+                        item.DestZip = d.data.DestZip; //Added By LVV on 4/1/20
+                        item.FeeAllocationTypeControl = 3; //Added By LVV on 3/15/20     
+                        item.StopSequence = -1; //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence                                           
+                        DestFees.push(item); //save data item to the original datasource
+                        d.success(item);
+                    },
+                    update: function (d) {                        
+                        LoadFees[getLoadFeeByIndex(d.data.FeeIndex)] = d.data; //locate item in original datasource and update it
+                        d.success();
+                    },
+                    destroy: function (d) {
+                        if (typeof (d.data.Pending) !== 'undefined' && d.data.Pending != null && d.data.Pending === false) { return; } //Do not allow delete for BookFees
+                        if (typeof (d.data.Control) !== 'undefined' && d.data.Control != null && d.data.Control > 0) {
+                            //call the function to delete it from db - just delete the record no fancy stuff required
+                            ngl.OkCancelConfirmation(
+                            "Undo Pending Fees",
+                            "This action will undo any pending changes to the selected fee and replace the cost with the previously expected cost.  This process cannot be undone.  To actually remove the cost you must set the value to zero. Are you sure you want to continue?",
+                            400,
+                            400,
+                            tObj,
+                            "ConfirmDeleteFees", d);
+                        } else { DestFees.splice(getIndexByFeeIndexDest(d.data.FeeIndex), 1); d.success(DestFees); }
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                sync: function (e) { calcSettlementTotals(); },
+                schema: {
+                    model: {
+                        id: "FeeIndex",
+                        fields: {
+                            FeeIndex: { type: "number", editable: false },
+                            Control: { type: "number", editable: false },
+                            BookControl: { type: "number", editable: true, validation: { required: true, min: 0 } }, //Modified By LVV on 3/15/20 - this needs to be editable here so we can set a default value on create. We lock the field in the edit() event
+                            Minimum: { type: "number", editable: true },
+                            Cost: { type: "number", editable: true, validation: { required: true, min: 0 } },
+                            AccessorialCode: { type: "number", editable: true },
+                            Caption: { type: "string", editable: true },
+                            DestName: { type: "string", editable: true, validation: { required: true } }, //Added By LVV on 3/15/20
+                            DestZip: { type: "string", editable: true, validation: { required: true } }, //Added By LVV on 4/1/20
+                            AutoApprove: { type: "boolean", editable: false },
+                            AllowCarrierUpdates: { type: "boolean", editable: false },
+                            Pending: { type: "boolean", editable: false },
+                            Msg: { type: "string", editable: false },
+                            StopSequence: { type: "number", editable: false }, //Missing (New field Default -1, When -1 the system must lookup Using BookControl) Maps To APMassEntryHistoryFees.APMHFeesStopSequence
+                            BookCarrOrderNumber: { type: "string", editable: false }, //Missng (ne field Default null, When a bookcontrol exists And this Is null lookup the value In the book table) Maps To  APMassEntryHistoryFees.APMHFeesOrderNumber
+                            BFPControl: { type: "number", editable: false },
+                            EDICode: { type: "string", editable: false },
+                            BookOrderSequence: { type: "number", editable: false },
+                            MissingFee: { type: "boolean", editable: false },
+                            BilledFee: { type: "boolean", editable: false },
+                            OrigName: { type: "string", editable: false }, //Added By LVV on 3/15/20    
+                            OrigZip: { type: "string", editable: false }, //Added By LVV on 4/1/20
+                            CNS: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            SHID: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeControl: { type: "number", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeName: { type: "string", editable: false }, //Added By LVV on 3/15/20
+                            FeeAllocationTypeDesc: { type: "string", editable: false } //Added By LVV on 3/15/20
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"); ngl.showErrMsg("GetBookFeesPendingByBookControl Failure", sMsg, null); }
+            }
+        });
+        //***** END Grid CODE *****
+
+
+        //***** BEGIN wndExtFBDataEntry CODE *****
+        wndExtFBDataEntry = $("#wndExtFBDataEntry").kendoWindow({
+            title: "Detailed Freight Bill Entry",
+            width: 800,
+            height: 500,
+            minWidth: 275,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            modal: true,
+            visible: false,
+            close: function (e) {
+                //clear all the values
+                $("#txtSHID").val("");
+                $("#txtHeaderBookControl").val(0);
+                $("#txtLastStopCompCtrl").val(0);
+                $("#txtLastStopCompName").val("");
+                $("#txtLastStopCompLE").val("");
+                $("#txtLastStopCompLECtrl").val(0);
+                $("#txtLastStopCarrierCtrl").val(0);
+                $("#txtLastStopCarrierName").val("");
+                $("#txtInvoiceNumber").data("kendoMaskedTextBox").value("");
+                //Modified by RHR for v-8.5.3.006 on 02/17/2023 added Invoice Date
+                $("#txtInvoiceDate").data("kendoDatePicker").value("");
+                $("#txtBookCarrBLNumber").data("kendoMaskedTextBox").value("");
+                $("#txtBookFinAPActWgt").data("kendoNumericTextBox").value(0);
+                $("#txtLineHaul").data("kendoNumericTextBox").value(0);
+                $("#txtTotalMiles").data("kendoNumericTextBox").value(0);                
+                $("#txtTotalFees").data("kendoNumericTextBox").value(0);
+                $("#txtTotalCost").data("kendoNumericTextBox").value(0);
+                clearFeeGrids();
+            }
+        }).data("kendoWindow");
+        $("#wndExtFBDataEntry").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveExtFBDE() });
+        //***** END wndExtFBDataEntry CODE *****
+    });
+</script>

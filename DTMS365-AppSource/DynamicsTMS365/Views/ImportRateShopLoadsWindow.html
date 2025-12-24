@@ -1,0 +1,686 @@
+﻿<div id="wndRateShopLoads">
+    <div>
+        <a id="focusCancel" href="#"></a>
+        <div id="processingWait" style="margin:10px; display:none; ">
+            <span style="vertical-align:middle;">Please Wait Importing Records&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif">
+            Processed <span id="spProcessing"></span> of <span id="spImportTotal"></span> rate shopping records
+            <br />
+            Imported <span id="spImportSuccess"></span> Failed <span id="spImportFailed"></span>
+            <br />
+            <button class="zipWin" type="button" id="btnCancelImport" onclick="CancelImport();">Cancel</button>
+        </div>
+        <div id="processingComplete" style="margin:10px; display:none; ">
+            Processing Complete
+            <br />
+            <span id="spProcessingMessage">Success</span>
+            <br />
+            Processed <span id="spProcessed"></span> of <span id="spImportedTotal"></span> rate shopping records
+            <br />
+            Imported <span id="spImportedSuccess"></span> Failed <span id="spImportedFailed"></span> 
+            <br />
+            Close the window to continue
+        </div>
+        <p>Please paste or enter the Rate Shop Loads</p>
+        <!--<button id="btnUCN" type="button">Preferred Carriers to the Lane</button>-->
+        <div id="RateShopLoadsGrid" style="width: 100%"></div>
+    </div>
+</div>
+<style>
+    #RateShopLoadsGrid .k-tabstrip-wrapper {
+        display: none;
+    }
+
+    .k-spreadsheet .k-spreadsheet-sheets-bar {
+        display: none;
+    }
+
+    .k-spreadsheet .k-dirty {
+        display: none;
+    }
+</style>
+
+
+
+<script>
+
+    var dsRateShopLoads= kendo.data.DataSource;
+    var simplesource = [];
+    var datasource = kendo.data.DataSource;
+    var wndRateShopLoads = kendo.ui.Window;
+    var ActivePage = 0;
+    var tWinReady;
+    var totalRecordsImported = 0;
+    var totalRecordsToImport = 0;
+    var totalRecordsFailed = 0
+    var iProcessingCounter = 0;
+    var bImportingRecords = false;
+
+
+    function CancelImport() {
+        ProcessComplete('Canceled');
+        ngl.showWarningMsg("Cancel Importing Rate Shopping", "Any remaining records will not be processed", tPage);    
+    }
+
+    function UpdateStatus() {
+        
+        $(spProcessing).text(iProcessingCounter.toString());
+        $(spImportTotal).text(totalRecordsToImport.toString());
+        $(spImportSuccess).text(totalRecordsImported.toString());
+        $(spImportFailed).text(totalRecordsFailed.toString());
+        $("#processingWait").show();
+        $("#processingComplete").hide();
+
+    }
+
+    function ProcessComplete(sMsg) {
+        bImportingRecords = false;
+        $(spProcessingMessage).text(sMsg); 
+        $(spProcessing).text('0');
+        $(spImportTotal).text('0');
+        $(spImportSuccess).text('0');
+        $(spImportFailed).text('0');
+        $(spProcessed).text(iProcessingCounter.toString());
+        $(spImportedTotal).text(totalRecordsToImport.toString());
+        $(spImportedSuccess).text(totalRecordsImported.toString());
+        $(spImportedFailed).text(totalRecordsFailed.toString());
+        $("#processingWait").hide();
+        $("#processingComplete").show();
+        iProcessingCounter = 0;
+        totalRecordsToImport = 0;
+        totalRecordsImported = 0;
+        totalRecordsFailed = 0;
+        //console.log('Processing Complete');
+        //console.log('iProcessingCounter');
+        //console.log(iProcessingCounter);
+        //console.log('totalRecordsToImport');
+        //console.log(totalRecordsToImport);
+        //console.log('totalRecordsImported');
+        //console.log(totalRecordsImported);
+        //console.log('totalRecordsFailed');
+        //console.log(totalRecordsFailed);
+
+    }
+    /* Summary - This is the function you call from the page with the Action Menu button to open the window */
+    function openImportRateShopLoadsWnd(PageControl) {
+        //If a Legal Entity is provided use that - else use the users associated LE (done in the DAL method)
+        ActivePage = PageControl;
+        //refreshAvaiableCarriersGrid();
+        wndRateShopLoads.center().open();
+    }
+</script>
+
+<div id="example">
+    <div id="spreadsheet" style="width: 100%;"></div>
+    <script>
+        var values;
+        var changevariable = [];
+        var countforchange = 0;
+        function onPaste(arg) {
+            values = arg.clipboardContent.data.map(function (row) {
+                console.log('map');
+                console.log(row);
+                return row.map(function (cell) {
+                    return cell.value;
+                });
+            });
+        }
+
+        function onChange(arg) {
+            if (values == null) {
+                values = "";
+            }
+            //console.log(arg.range.value());
+            //console.log(arg.range.value().format())
+            var sheet = $("#RateShopLoadsGrid").data("kendoSpreadsheet");
+            //var book = sheet.activeSheet();
+            //var newdateformate = book.range("A2").value(arg.range.value()).format(kendo.spreadsheet.formats.date);
+            var r2 = sheet.range("C200");
+
+            sheet.range("C200").value("00000").format("@");
+            changevariable.push(arg.range.value());
+            //console.log(changevariable + " change vairable");
+
+        }
+
+
+        function PostRateShopLoadsCallBack(data, sJSON) {
+            try {
+                iProcessingCounter = iProcessingCounter + 1;
+                //var spreadsheet = $("#RateShopLoadsGrid");
+                //var sheet = spreadsheet.activeSheet();
+                var spreadsheet = $("#RateShopLoadsGrid").data("kendoSpreadsheet");
+                var sheet = spreadsheet.sheets()[0];
+                var blnUpdateSheet = true;
+                //debugger;
+                if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                    //console.log("Data");
+                    //console.log(data);
+                    var sRange = "P1"
+                    if (data.Data != null) { sRange = "P" + data.Data[0] } else { blnUpdateSheet = false; }
+
+                    if (typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                        totalRecordsFailed = totalRecordsFailed + 1
+                        if (blnUpdateSheet == true) {
+                            if (ngl.stringHasValue(data.Errors)) {
+                                sheet.range(sRange).value("Failed " + data.Errors);
+                            } else if (ngl.stringHasValue(data.Warnings)) {
+                                sheet.range(sRange).value("Failed " + data.Warnings);
+                            } else if (ngl.stringHasValue(data.Messages)) {
+                                sheet.range(sRange).value("Failed " + data.Messages);
+                            } else {
+                                sheet.range(sRange).value("Failed No Message");
+                            }
+                        }
+
+                    }
+                    else if (data.Data != null) {
+                        totalRecordsImported = totalRecordsImported + 1
+                        if (blnUpdateSheet == true) {
+                            if (ngl.stringHasValue(data.Warnings)) {
+                                sheet.range(sRange).value("Warning " + data.Warnings);
+                            } else if (ngl.stringHasValue(data.Messages)) {
+                                sheet.range(sRange).value("Success " + data.Messages);
+                            } else {
+                                sheet.range(sRange).value("Success");
+                            }
+                        }
+
+                    }
+                }
+                //console.log("totalRecordsFailed: " + totalRecordsFailed)
+                //console.log("Processing: " + iProcessingCounter)
+                //console.log("totalRecordsToImport: " + totalRecordsToImport)
+                //console.log("bImportingRecords: " + bImportingRecords)
+                if (bImportingRecords == true) {
+                   
+                    if (iProcessingCounter >= (totalRecordsToImport + totalRecordsFailed) ) {
+                        ProcessComplete('Processing Complete');
+                    } else {
+                        UpdateStatus();
+                    }
+
+                }
+
+            } catch (err) { ngl.showErrMsg(err.name, err.message + " Processing is Canceled.", tObj); CancelImport(); }
+
+        }
+
+        function PostRateShopLoadsAjaxErrorCallback(xhr, textStatus, error, sJSON) {
+            ngl.showErrMsg("Process Rate Shopping Import Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed Processing is Canceled'), tObj);
+            CancelImport();
+
+        }
+
+
+
+        $(document).ready(function () {
+            tWinReady = this;       
+
+            $("#btnCancelImport").kendoButton();
+
+
+
+            $(function () {
+                $("#RateShopLoadsGrid").kendoSpreadsheet({
+                    excel: {
+                        // Required to enable saving files in older browsers
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    toolbar: {
+                        insert: false,
+                        //home: false,
+                        data: false
+                    },
+                    pdf: {
+                        proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                    },
+                    paste: onPaste,
+                    changing: function (e) {
+                        let sheet = e.sender.activeSheet();
+                        let dataRows = e.data.length
+                        let dataCols = e.data[0].length
+
+                        if (e.changeType == 'paste') {
+                            e.range._ref.bottomRight.row += dataRows
+                            e.range._ref.bottomRight.col += dataCols
+                            sheet.range(e.range).format("@");
+                        } else if (e.changeType == 'edit') {
+                            sheet.range(e.range).format("@");
+                        }
+                    },
+                    //change: onChange,
+                    //render: onRender,
+                    sheets: [
+                        {
+                            name: "Rate Shop Loads",
+                            cellRange: 200,
+                            dataSource: datasource,
+                            rows: [
+                                {
+                                    height: 25,
+                                    cells: [                                       
+                                        {
+                                            value: "PICK UP DATE",
+                                            background: "rgb(167,214,255)",
+                                            bold: "true",
+                                            textAlign: "center",
+                                            color: "rgb(0,62,117)",
+                                            format: "{0: MM-dd-yyyy hh:mm}"
+                                            //validation: {
+                                            //    dataType: "date",
+                                            //    type: "reject",
+                                            //    comparerType: "custom",
+                                            //    titleTemplate: "Columnn has to be in Date Format",
+                                            //    messageTemplate: "Columnn has to be in Date Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "ORIGIN CITY ",
+                                            background: "rgb(167,214,255)",
+                                            bold: "true",
+                                            textAlign: "center",
+                                            color: "rgb(0,62,117)"
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    from: "0",
+                                            //    comparerType: "greaterThan",
+                                            //    titleTemplate: "Columnn has to be in Number Format",
+                                            //    messageTemplate: "Columnn has to be in Number Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "ORIGIN POSTAL CODE",
+                                            bold: "true",
+                                            background: "rgb(167,214,255)",
+                                            textAlign: "center",
+                                            color: "rgb(0,62,117)",
+                                            format: "00000"
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    titleTemplate: "Columnn has to be in Date Format",
+                                            //    messageTemplate: "Columnn has to be in Date Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "DEST CITY ", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    from: "0",
+                                            //    comparerType: "greaterThan",
+                                            //    titleTemplate: "Columnn has to be in Number Format",
+                                            //    messageTemplate: "Columnn has to be in Number Format."
+                                            //}
+                                        },
+                                        {
+                                            value: "DEST POSTAL CODE", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                                            //validation: {
+                                            //    dataType: "number",
+                                            //    type: "reject",
+                                            //    titleTemplate: "Columnn has to be in Date Format",
+                                            //    messageTemplate: "Columnn has to be in Date Format."
+                                            //}
+                                        },                                       
+                                        {
+                                            value: "PALLETS", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                                        },
+                                        {
+                                            value: "WEIGHT", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                                        },
+                                        {
+                                            value: "EQUIP", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "FREIGHT CLASS", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "CORRECTIONAL", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "SCHOOL/UNIVERSITY", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "DRIVER UNLOAD", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "INSIDE DELIVERY", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "DESTINATION LIFTGATE", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "LOCATION WITHOUT DOCK", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                                        },
+                                        {
+                                            value: "Processed", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                                        }
+                                    ]
+                                },
+                            ],
+                            columns: [                                
+                                {
+                                    width: 100,
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 115
+                                },
+                                {
+                                    width: 200,
+                                }
+                            ],
+
+                        },
+                    ],
+                    rows: 10000,
+                }).data("kendoSpreadsheet").one("render", function (e) {
+                    e.sender.sheets().forEach(function (sheet) {
+                        sheet.reange("C1:C100").format("@");
+                        //sheet.range(0, 15, sheet._rows._count, sheet._columns._count).enable(false);
+
+                        //sheet.range(1, 100, sheet._rows._count, sheet._columns._count).enable(true);
+                    })
+
+                 
+
+                });
+
+                $('#RateShopLoadsGrid').find('.k-spreadsheet-fixed-container').off('contextmenu');
+            });
+
+
+            wndRateShopLoads = $("#wndRateShopLoads").kendoWindow({
+                title: "Import Rate Shop Loads",
+                width: "60%",
+                height: "80%",
+                actions: ["Save", "Minimize", "Maximize", "Close"],
+                modal: true,
+                visible: false,
+                close: function (e) {
+                    if (typeof (oHistQuotesGrid) !== 'undefined' && ngl.isObject(oHistQuotesGrid)) {
+                        kendo.ui.progress($(document.body), true);
+                        ngl.readDataSource(oHistQuotesGrid);
+                        var spreadsheet = $("#RateShopLoadsGrid").data("kendoSpreadsheet");
+                        spreadsheet.sheets()[0].range("A2:P200").clear();
+                        $("#processingWait").hide();
+                        $("#processingComplete").hide();
+                    }
+                }
+            }).data("kendoWindow");
+
+            $("#wndRateShopLoads").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) {
+                //debugger;
+                if (DeleteAllQuotesForUser() == false) { return; } //cannot continue if delete fails
+                var spreadsheet = $("#RateShopLoadsGrid").data("kendoSpreadsheet");
+                var values = spreadsheet.sheets()[0].range("A2:O200").values();
+                //console.log('values');
+                //console.log(values);
+                var range = spreadsheet.sheets()[0].range("A2:A200");
+                range.format('dd/MM/yyyy hh:mm');                
+                var dataJson;
+                var loadDate;
+                var loadDateNum;
+                var id;
+                var CommCodeDescription;
+                var TempType;
+                var stop;
+                var pickup;
+                var item;
+                var Accessorials = [];
+                //debugger;
+                if (values == null || values == "undefined" || values == undefined) {
+                    ngl.showErrMsg("Update Rate Shop Loads", "Please paste the Rate Shop Loads and try again", "");
+                    return;
+                }
+                else {
+                    if (values != "") {
+                        // get the totals
+                        for (var i = 0; i < values.length; i++) {
+                            if (values[i][0] != null && values[i][1] != null && values[i][2] != null && values[i][3] != null && values[i][4] != null) {
+                                totalRecordsToImport = totalRecordsToImport + 1;
+                            } else { break; }
+                        }
+                        if (totalRecordsToImport > 0) {
+                            UpdateStatus();
+                        }
+
+                      
+                        bImportingRecords = true;
+                       
+                      
+                        iProcessingCounter = 0;
+                        //console.log(values);
+                        var iCurrent = 0;
+                        for (var i = 0; i < totalRecordsToImport; i++) {
+                            iCurrent = i;
+                            //console.log("importing : " + i.toString());
+                            //console.log("importing flag : " + bImportingRecords);
+                            if (bImportingRecords == false) {
+                                //the process has been canceled
+                                break;
+                            }
+                           
+                            if (values[i][0] != null && values[i][1] != null && values[i][2] != null && values[i][3] != null && values[i][4] != null) {
+                                //console.log('Pickup Date');
+                                //console.log(values[i][0]);
+                                //if (values[i][0] != null && (values[i][0].toString().indexOf("-") > 0 || values[i][0].toString().indexOf("/") > 0)) {
+
+                                    loadDate = values[i][0];
+                                    //console.log('Temperature')
+                                    //console.log(values[i][7])
+                                    if (values[i][7] != null) {
+                                        var Equip = values[i][7].toLowerCase();
+                                        if (Equip == 'frozen' || Equip == 'frz' || Equip == 'f') {
+                                            CommCodeDescription = 'Frozen';
+                                            TempType = 2;
+                                        } else if (Equip == 'dry' || Equip == 'd') {
+                                            CommCodeDescription = 'Dry';
+                                            TempType = 1;
+
+                                        } else if (Equip == 'cooler' || Equip == 'c') {
+                                            CommCodeDescription = 'Cooler';
+                                            TempType = 3;
+
+                                        } else if (Equip == 'refrigerated' || Equip == 'ref' || Equip == 'r') {
+                                            CommCodeDescription = 'Cooler';
+                                            TempType = 3;
+                                        } else {
+                                            CommCodeDescription = 'Undefined';
+                                            TempType = 0;
+                                        }
+                                    }
+                                    //console.log('TempType = ' + TempType.toString())
+                                    item = {
+                                        ID: (i + 1),
+                                        ParentID: i + 1,
+                                        ItemNumber: 'Item ' + i + 1,
+                                        Weight: values[i][6],
+                                        WeightUnit: sWeightUnit,
+                                        FreightClass: values[i][8],
+                                        PalletCount: values[i][5],
+                                        NumPieces: 1,
+                                        Description: 'Misc Products',
+                                        Quantity: '1',
+                                        Pieces: '1',
+                                        Width: iPltWidth,
+                                        Length: iPltLength,
+                                        Height: iPltHeight,
+                                        PackageType: sPkgType,
+                                        Stackable: 'true'
+                                    };
+                                    //alert(TempType);
+                                    // alert(CommCodeDescription);
+                                    pickup = {
+                                        ParentID: i + 1,
+                                        CompCity: values[i][1],
+                                        CompPostalCode: values[i][2],
+                                        CompCountry: sCountry,
+                                        IsPickup: true,
+                                        TotalWgt: values[i][6],
+                                        TotalPL: values[i][5],
+                                        LoadDate: loadDate,
+                                        Items: [item]
+                                    };
+                                    stop = {
+                                        ParentID: i + 1,
+                                        CompCity: values[i][3],
+                                        CompPostalCode: values[i][4],
+                                        CompCountry: sCountry,
+                                        IsPickup: false,
+                                        TotalWgt: values[i][6],
+                                        TotalPL: values[i][5],
+                                        LoadDate: loadDate,
+                                        Items: [item]
+                                    };
+                                Accessorials = [];
+                                //console.log('values');
+                                //console.log(values[i]);
+                                    if (values[i][9] != null && (values[i][9] == 'X' || values[i][9] == 'x')) {
+                                        //Accessorials.push('Correctional');
+                                        Accessorials.push('ACH');
+                                    }
+                                    if (values[i][10] != null && (values[i][10] == 'X' || values[i][10] == 'x')) {
+                                        //Accessorials.push('School');
+                                        Accessorials.push('EXD');
+                                    }
+                                    if (values[i][11] != null && (values[i][11] == 'X' || values[i][11] == 'x')) {
+                                        Accessorials.push('UND');
+                                    }
+                                    if (values[i][12] != null && (values[i][12] == 'X' || values[i][12] == 'x')) {
+                                        Accessorials.push('IDL');
+                                    }
+                                    if (values[i][13] != null && (values[i][13] == 'X' || values[i][13] == 'x')) {
+                                        Accessorials.push('LFT');
+                                    }
+                                    if (values[i][14] != null && (values[i][14] == 'X' || values[i][14] == 'x')) {
+                                        //Accessorials.push('No Dock');
+                                        Accessorials.push('RES');
+                                }
+                                //console.log('Accessorials');
+                                //console.log(Accessorials);
+                                    if (Number(loadDate)) {
+                                        try {
+                                            loadDate = ngl.getJsDateFromExcel(loadDate);
+                                        } catch (e) {
+                                            loadDate = '';
+                                        }
+                                    }
+                                    dataJson = {
+                                        ID: i + 1,
+                                        ShipDate: loadDate,
+                                        CommCodeDescription: CommCodeDescription,
+                                        TariffTempType: TempType,
+                                        TotalWgt: values[i][6],
+                                        TotalPL: values[i][5],
+                                        Pickup: pickup,
+                                        Stops: [stop],
+                                        TotalCases: values[i][1],
+                                        ClassCode: values[i][8],
+                                        WeightUnit: sWeightUnit,
+                                        LengthUnit: sLengthUnit,
+                                        Accessorials: Accessorials,
+                                        TotalStops: 1
+                                    }
+                                    //console.log('JSON');
+                                    //console.log(dataJson);
+
+                                    //Adds the new Rate Shop Loads details pasted to excel
+                                    if (values[i][0] != null && values[i][1] != null && values[i][2] != null && values[i][3] != null && values[i][4] != null) {
+                                        PostRateShopLoads(dataJson); //commented here
+                                        //console.log(dataJson);
+                                    }
+                                //} else {
+                                //    console.log('Invalid Date on : ' + iCurrent);
+                                //    if (iCurrent == 0) {
+                                //        ProcessComplete('Invalid Date')
+                                //    }
+                                //    break;
+                                //}
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                }
+
+              
+            }); //Perform the save and only the save
+
+            $(".k-spreadsheet-sheets-bar-add .k-button .k-button-icon").hide();
+
+
+            function PostRateShopLoads(DATAJSON) {               
+
+                var oCRUDCtrl = new nglRESTCRUDCtrl();
+                var blnRet = oCRUDCtrl.filteredPostJSONReturnJSON("RateShopQuote/PostSpreadSheet/", DATAJSON, tPage, "PostRateShopLoadsCallBack", "PostRateShopLoadsAjaxErrorCallback", true);
+                return blnRet;
+            }
+
+
+            function DeleteAllQuotesForUser() {
+                
+                $.ajax({
+                    async: false,
+                    type: 'POST',
+                    url: 'api/RateShopQuote/DeleteAllQuotesForUser/0',
+                    contentType: "application/json; charset=utf-8",
+                    headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                    success: function (data) {
+                        if (data.Errors != null) {
+                            if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                            else { ngl.showErrMsg("Cannot Delete Active Quotes", data.Errors, null); }
+                            return false;
+                        }
+                        return true;                        
+                    },
+                    error: function (xhr, textStatus, error) {
+                        var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Delete Active Rate Shop Quotes Failure");
+                        ngl.showErrMsg("Delete Active Rate Shop Quotes failed", sMsg, null);
+                        return false;
+                    }
+                    
+                });
+            }
+        });
+    </script>
+</div>

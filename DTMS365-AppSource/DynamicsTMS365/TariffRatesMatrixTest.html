@@ -1,0 +1,2168 @@
+﻿
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DTMS Tariff Rates</title>
+    <link href="Content/kendoR32023/classic-opal.css" rel="stylesheet" />
+    <link href="Content/NGL/v-8.5.4.001/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendoR32023/kendo.all.min.js"></script>
+    <script>kendo.ui['Button'].fn.options['size'] = "small";</script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/NGLCtrls.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.4.006/SSOA.js"></script>
+
+    <div id="h1Wait" style="margin:10px; position: absolute; z-index: 99999; top:0px; left:400px;"><span style="vertical-align:middle;">Please Wait Loading&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>
+    <div id="example" style="height: 100%; width: 100%; margin-top: 2px;">
+        <div id="vertical" style="height: 98%; width: 98%;">
+            <div id="menu-pane" style="height: 100%; width: 100%; background-color: white;">
+                <div id="tab" class="menuBarTab"></div>
+            </div>
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%;">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <div><span>Menu</span></div>
+                            <div id="menuTree"></div>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+
+
+                        <!-- begin Page Content -->
+                        <div id="divid591112018090812371692756wrapper"></div><div id="id5984201809080752349238950wrapper"><div id="divid5984201809080756471569733"></div><div id="divid5984201809080752349238950filterContent"></div><div id="id5984201809080752349238950"></div></div>
+                        <!-- End Page Content -->
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-pane" class="k-block" style="height: 100%; width: 100%;">
+                <div class="pane-content">
+                    <div><span><p> <a href='https://www.nextgeneration.com'> © Copyright Next Generation Logistics, Inc. All Rights Reserved.</a> </p></span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <span id='notification' style='display:none;'></span>
+        <script id='infoTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-info-circle' title='info'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script id='errorTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-x-outline' style='color: red;' title='error'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script id='successTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-check-outline' style='color: green;' title='success'></span>&nbsp;&nbsp;<p>#= message #</p></div></script>
+        <script id='warningTemplate' type='text/x-kendo-template'><div class='k-block ngl-notification'><span class='k-icon k-i-exclamation-circle' style='color: orange;' title='warning'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script>var notification = $('#notification').kendoNotification({ position: { pinned: true, top: 30, left: function (e) { var x = ($(window).width() * .5) - 50; return x; } }, autoHideAfter: 0, stacking: 'down', templates: [{ type: 'info', template: $('#infoTemplate').html() }, { type: 'error', template: $('#errorTemplate').html() }, { type: 'success', template: $('#successTemplate').html() }, { type: 'warning', template: $('#warningTemplate').html() }] }).data('kendoNotification');</script><div id='nglAlertDialog'></div><div id='nglConfirmDialog'></div><span id='alertNotification' style='display:none;'></span>
+        <script id='alertTemplate' type='text/x-kendo-template'><div class='k-block k-error-colored ngl-notification'><span class='k-icon k-i-bell' title='alert'></span>&nbsp;&nbsp;<strong>#= title #</strong><p>#= message #</p></div></script>
+        <script>var alertNotification = $('#alertNotification').kendoNotification({ position: { pinned: true, bottom: 30, right: 30 }, autoHideAfter: 10000, stacking: 'up', templates: [{ type: 'alert', template: $('#alertTemplate').html() }] }).data('kendoNotification');</script>﻿<div id='HelpWindow'>
+            <div id='winCont'></div>
+            <div id='EditCont'>
+                <div id='E4Div'>
+                    <span id="ExpandE4" style="display:none;"><a onclick="expandE4();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE4" style="display:normal;"><a onclick="collapseE4();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE4' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE4PHCont' type='hidden' />
+                    <span id='spEditor4'><textarea id='editor4'></textarea></span>
+                </div>
+                <div id='E3Div'>
+                    <span id="ExpandE3" style="display:none;"><a onclick="expandE3();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE3" style="display:normal;"><a onclick="collapseE3();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE3' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE3PHCont' type='hidden' />
+                    <span id='spEditor3'><textarea id='editor3'></textarea></span>
+                </div>
+                <div id='E2Div'>
+                    <span id="ExpandE2" style="display:none;"><a onclick="expandE2();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE2" style="display:normal;"><a onclick="collapseE2();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE2' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE2PHCont' type='hidden' />
+                    <span id='spEditor2'><textarea id='editor2'></textarea></span>
+                </div>
+                <div id='E1Div'>
+                    <span id="ExpandE1" style="display:none;"><a onclick="expandE1();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-down"></span></a></span>
+                    <span id="CollapseE1" style="display:normal;"><a onclick="collapseE1();"><span style="font-size:small;font-weight:bold;" class="k-icon k-i-chevron-up"></span></a></span>
+                    <span id='txtE1' style='font-size:small; font-weight:bold'></span>&nbsp;&nbsp;<br />
+                    <input id='txtE1PHCont' type='hidden' />
+                    <span id='spEditor1'><textarea id='editor1'></textarea></span>
+                </div>
+
+
+
+            </div>
+        </div><div id="wndTariffRatesMatrix">
+            <div>
+                <a id="focusCancel" href="#"></a>
+                <div id="trWait" style="margin: 10px; z-index: 99999; top: 0px; left: 400px; display: none;"><span style="vertical-align:middle;">Working Please Wait&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>
+                <div id="summaryInfo" class="k-block k-info-colored"></div>
+                <p>Please enter the Tarrif Rates or enter the number of rows to import. select all rows,  copy from excel, and paste using (Ctrl + V). On error check number of rows</p>
+                <p>Note: Expect to wait for large numbers of rows; processing time may not be reported.</p>
+                <hr />
+                <div style="display: flex;">
+                    <div>From <input required id="EffectiveDate" title="datepicker" style="width: 70%" /></div>
+                    <div>To: <input id="EffectiveTo" title="datepicker" style="width: 70%" /></div>
+                    <div>Rows: <input id="txtRows" title="rowPicker" style="width: 70%" value="300"></div>
+                    <div><button type="button" id="setdRows" onclick="setSheetRows()">Set Rows</button></div>
+                </div>
+                <hr />
+                <div id="TariffRatesMatrixGrid" style="width: 100%"></div>
+            </div>
+            <div>
+                <div id="exportToExcelGrid" style="display: none"></div>
+            </div>
+        </div>
+
+        <style>
+            #TariffRatesMatrixGrid .k-tabstrip-wrapper {
+                display: none;
+            }
+
+            .k-spreadsheet .k-spreadsheet-sheets-bar {
+                display: none;
+            }
+
+            .k-spreadsheet .k-dirty {
+                display: none;
+            }
+        </style>
+
+        <script>
+            var dsActiveCarriers = kendo.data.DataSource;
+            var simplesource = [];
+            var datasource = kendo.data.DataSource;
+            var wndTariffRatesMatrix = kendo.ui.Window;
+            var AllRecords;
+            var AllRecordsData;
+            var ActPageControl;
+            var CarrTarEquipMatCarrTarControl;
+            var CarrTarEquipMatCarrTarMatBPControl;
+            var CarrTarEquipMatName;
+            var CarrTarEquipControl;
+            var iRows = 300;
+
+
+            var vCarrTarEquipMatPivotDetailDataJsonSet = (values, index) => ({
+                CarrTarEquipMatCountry: values[index][0],
+                CarrTarEquipMatState: values[index][1],
+                CarrTarEquipMatCity: values[index][2],
+                CarrTarEquipMatFromZip: values[index][3].toString(),
+                CarrTarEquipMatToZip: values[index][4].toString(),
+                LaneNumber: values[index][5],
+                CarrTarEquipMatClass: values[index][6],
+                CarrTarEquipMatMin: values[index][7],
+                CarrTarEquipMatMaxDays: values[index][8],
+                Val1: values[index][9],
+                Val2: values[index][10],
+                Val3: values[index][11],
+                Val4: values[index][12],
+                Val5: values[index][13],
+                Val6: values[index][14],
+                Val7: values[index][15],
+                Val8: values[index][16],
+                Val9: values[index][17],
+                Val10: values[index][18],
+                CarrTarEquipMatOrigZip: values[index][19] // Modified by RHR for v-8.5.4.001 on 06/14/2023 new Origin Rate shop logic
+
+            });
+
+            var vCarrTarEquipMatPivotTruckLoadDataJsonSet = (values, index) => ({
+                CarrTarEquipMatCountry: values[index][0],
+                CarrTarEquipMatState: values[index][1],
+                CarrTarEquipMatCity: values[index][2],
+                CarrTarEquipMatFromZip: values[index][3].toString(),
+                CarrTarEquipMatToZip: values[index][4].toString(),
+                LaneNumber: values[index][5],
+                CarrTarEquipMatMin: values[index][6],
+                CarrTarEquipMatMaxDays: values[index][7],
+                Rate: values[index][8],
+            });
+
+            var vCarrTarEquipMatPivotTruckLoadRowsSet = [
+                {
+                    height: 25,
+                    cells: [
+                        {
+                            value: "Country", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "State", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "City", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Start Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Stop Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Lane Number", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Min Value", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Max Trans Days", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Per Mile", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        }
+                    ]
+                },
+            ];
+            var vCarrTarEquipMatPivotDetailLoadRowsSet = [
+                {
+                    height: 25,
+                    cells: [
+                        {
+                            value: "Country", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "State", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "City", background: "rgb(167,214,255)", bold: "true", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Start Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Stop Zip/PC", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)",
+                        },
+                        {
+                            value: "Lane Number", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Class", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Min Value", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "Max Trans Days", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "500", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "1000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "5000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "10000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "20000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "50000", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        },
+                        {
+                            value: "0", bold: "true", background: "rgb(167,214,255)", textAlign: "center", color: "rgb(0,62,117)"
+                        }
+                    ]
+                },
+            ];
+
+            var dataJsonSet = {
+                "57": vCarrTarEquipMatPivotTruckLoadDataJsonSet,
+                "58": vCarrTarEquipMatPivotDetailDataJsonSet,
+                "59": vCarrTarEquipMatPivotTruckLoadDataJsonSet,
+                "60": vCarrTarEquipMatPivotDetailDataJsonSet,
+            }
+
+            var controllerName = {
+                "57": "TariffRateDistance",
+                "58": "TariffRateClass",
+                "59": "TariffRateFlat",
+                "60": "TariffRateUOM",
+            }
+
+            //var spreadsheetColumnSelection = {
+            //    "57": "A2:I10000",
+            //    "58": "A2:R10000",
+            //    "59": "A2:I10000",
+            //    "60": "A2:R10000",
+            //}
+
+            //Modified by RHR for v-8.5.0.002 on 01/05/2022 added row variable
+            var spreadsheetColumnSelection = {
+                "57": "A2:I",
+                "58": "A2:R",
+                "59": "A2:I",
+                "60": "A2:R",
+            }
+
+            var rowsSet = {
+                "57": vCarrTarEquipMatPivotTruckLoadRowsSet,
+                "58": vCarrTarEquipMatPivotDetailLoadRowsSet,
+                "59": vCarrTarEquipMatPivotTruckLoadRowsSet,
+                "60": vCarrTarEquipMatPivotDetailLoadRowsSet,
+            }
+
+            var columnsSet = {
+                "57": [
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    }
+                ],
+                "58": [
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    }
+                ],
+                "59": [
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    }
+                ],
+                "60": [
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    },
+                    {
+                        width: 150
+                    }
+                ]
+            }
+
+            function setSheetRows() {
+                var iNewRows = $("#txtRows").val();
+                if (isNaN(iNewRows)) { iNewRows = 300; }
+                iRows = iNewRows;
+                GetAllData();
+            }
+
+            function openImportTariffRatesWnd(iPageControl) {
+                ActPageControl = iPageControl;
+                wndTariffRatesMatrix.center().open();
+
+                $(document).ready(function () {
+
+                    $('a.k-window-action[aria-label="Save"]').prop('title', 'Save');
+                    $('a.k-window-action[aria-label="Delete"]').prop('title', 'Delete');
+                    $('a.k-window-action[aria-label="Strip-all-formatting"]').prop('title', 'Delete and save');
+                    $('a.k-window-action[aria-label="Excel"]').prop('title', 'Export in Excel');
+
+                    $("#EffectiveDate").kendoDatePicker({ value: new Date() });
+                    $("#EffectiveTo").kendoDatePicker();
+
+                    $('#summaryInfo').empty();
+
+                    for (var i = 0; i < 3; i++) {
+                        let summaryCellInfo = $($($('[id ^=divid][id $=Summary]')[0]).find('div td')[i]).text();
+                        $('#summaryInfo').append(`<div style="margin-right: 10px; font-weight: bold; width: 32%; display: inline-flex">${summaryCellInfo}</div>`);
+                    }
+                });
+            }
+        </script>
+
+        <div id="example">
+            <div id="spreadsheet" style="width: 100%;"></div>
+            <script>
+                var values;
+                var changevariable = [];
+                var countforchange = 0;
+
+                //function onRender(arg) {
+                //    $("#trWait").show();
+                //    var spreadsheetView = $('.k-spreadsheet-view');
+                //    spreadsheetView.unbind('select');
+                //    spreadsheetView.unbind('paste');
+
+                //    spreadsheetView.on('paste', function (e) {
+                //        var element = $('.k-spreadsheet');
+
+                //        kendo.ui.progress(element, true);
+
+                //        setTimeout(function () {
+                //            onPaste(e);
+                //            kendo.ui.progress(element, false);
+                //        }, 1000);
+                //    });
+                //    spreadsheetView.on('select', function (e) {
+                //        //var element = $('.k-spreadsheet');
+
+                //        //kendo.ui.progress(element, true);
+
+                //        //setTimeout(function () {
+                //        //    kendo.ui.progress(element, false);
+                //        //    alert("select");
+                //        //}, 1000);
+                //    });
+                //}
+
+
+                function onPaste(arg) {
+                    $("#trWait").show();
+                    //var windowWidget = $("#wndTariffRatesMatrix").data("kendoWindow");
+                    //    kendo.ui.progress(windowWidget.element, true);
+                    // alert('processing');
+                    setTimeout(function (tObj) {
+                        values = arg.clipboardContent.data.map(function (row) {
+                            return row.map(function (cell) {
+                                return cell.value;
+                            });
+                        });
+                        /*kendo.ui.progress(windowWidget.element, false);*/
+                        $("#trWait").hide();
+                    }, 100, this);
+                }
+
+                //function onPaste(e) {
+                //    e.preventDefault()
+
+                //    var currentRange = e.range;
+                //    var fullData = e.clipboardContent.data;
+                //    var mergedCells = e.clipboardContent.mergedCells;
+                //    var topLeft = currentRange.topLeft();
+                //    var initialRow = topLeft.row;
+                //    var initialCol = topLeft.col;
+                //    var origRef = e.clipboardContent.origRef;
+                //    var numberOfRows = origRef.bottomRight.row - origRef.topLeft.row + 1;
+                //    var numberOfCols = origRef.bottomRight.col - origRef.topLeft.col + 1;
+                //    var spread = e.sender;
+                //    var sheet = spread.activeSheet();
+                //    var rangeToPaste = sheet.range(initialRow, initialCol, numberOfRows, numberOfCols);
+                //    console.log('Range: ' + initialRow + ', ' + initialCol + ', ' + numberOfRows + ', ' + numberOfCols)
+                //    sheet.batch(function () {
+                //        for (var i = 0; i < fullData.length; i += 1) {
+                //            var currentFullData = fullData[i];
+
+                //            for (var j = 0; j < currentFullData.length; j += 1) {
+                //                var range = sheet.range(initialRow + i, initialCol + j);
+                //                var value = currentFullData[j].value;
+
+                //                if (value !== null) {
+                //                    range.input(value);
+                //                    range.format(null);
+                //                }
+                //            }
+                //        }
+                //    });
+
+                //    sheet.select(rangeToPaste);
+
+                //    for (var i = 0; i < mergedCells.length; i += 1) {
+                //        var initialMergedRange = sheet.range(mergedCells[i]);
+                //        var mergeTopLeft = initialMergedRange.topLeft();
+                //        var mergeInitialRow = mergeTopLeft.row + initialRow;
+                //        var mergedInitialCol = mergeTopLeft.col + initialCol;
+                //        var mergedNumberOfRows = initialMergedRange.values.length;
+                //        var mergedNumberOfCols = initialMergedRange.values()[0].length;
+
+                //        sheet.range(mergeInitialRow, mergedInitialCol, mergedNumberOfRows, mergedNumberOfCols).merge();
+                //    }
+                //}
+
+                function onChange(arg) {
+                    if (values == null) {
+                        values = "";
+                    }
+
+                    var sheet = $("#TariffRatesMatrixGrid").data("kendoSpreadsheet");
+                    changevariable.push(arg.range.value());
+                }
+
+                function GetAllData() {
+
+                    AllRecords = [
+                        {
+                            CarrTarEquipMatControl: 176727,
+                            CarrTarEquipMatName: "Flat",
+                            CarrTarEquipMatCarrTarControl: 319,
+                            CarrTarEquipMatCarrTarEquipControl: 291,
+                            CarrTarEquipName: "DRY53",
+                            CarrTarEquipDescription: "Dry 53 FT Van",
+                            CarrTarEquipMatCarrTarMatBPControl: 325,
+                            CarrTarEquipMatCountry: "USA",
+                            CarrTarEquipMatState: "",
+                            CarrTarEquipMatCity: "",
+                            CarrTarEquipMatFromZip: "37919",
+                            CarrTarEquipMatToZip: "37919",
+                            CarrTarEquipMatLaneControl: 0,
+                            CarrTarEquipMatMin: 1975,
+                            CarrTarEquipMatMaxDays: 3,
+                            CarrTarEquipMatClass: "",
+                            CarrTarEquipMatClassTypeControl: 0,
+                            CarrTarEquipMatTarRateTypeControl: 4,
+                            CarrTarEquipMatTarBracketTypeControl: 0,
+                            CarrTarEquipMatModUser: "RFCNT\\tmsadmin",
+                            CarrTarEquipMatModDate: "2022-08-22T13:05:00.647",
+                            LaneNumber: "ALL",
+                            Rate: 1975
+                        },
+                        {
+                            CarrTarEquipMatControl: 176728,
+                            CarrTarEquipMatName: "Flat",
+                            CarrTarEquipMatCarrTarControl: 319,
+                            CarrTarEquipMatCarrTarEquipControl: 291,
+                            CarrTarEquipName: "DRY53",
+                            CarrTarEquipDescription: "Dry 53 FT Van",
+                            CarrTarEquipMatCarrTarMatBPControl: 325,
+                            CarrTarEquipMatCountry: "USA",
+                            CarrTarEquipMatState: "",
+                            CarrTarEquipMatCity: "",
+                            CarrTarEquipMatFromZip: "70126",
+                            CarrTarEquipMatToZip: "70126",
+                            CarrTarEquipMatLaneControl: 0,
+                            CarrTarEquipMatMin: 2600,
+                            CarrTarEquipMatMaxDays: 3,
+                            CarrTarEquipMatClass: "",
+                            CarrTarEquipMatClassTypeControl: 0,
+                            CarrTarEquipMatTarRateTypeControl: 4,
+                            CarrTarEquipMatTarBracketTypeControl: 0,
+                            CarrTarEquipMatModUser: "RatesManualImport",
+                            CarrTarEquipMatModDate: "2022-08-22T13:04:06.997",
+                            LaneNumber: "ALL",
+                            Rate: 2600
+                        }
+                    ];
+                    console.log("Static All Data Record");
+                    console.log(AllRecords);
+
+                    for (var i = 0; i < AllRecords.length; i++) {
+                        if (AllRecords[i].CarrTarEquipMatCarrTarControl) {
+                            CarrTarEquipMatCarrTarControl = AllRecords[i].CarrTarEquipMatCarrTarControl;
+                        }
+                        if (AllRecords[i].CarrTarEquipMatCarrTarMatBPControl) {
+                            CarrTarEquipMatCarrTarMatBPControl = AllRecords[i].CarrTarEquipMatCarrTarMatBPControl;
+                        }
+                        if (AllRecords[i].CarrTarEquipMatName) {
+                            CarrTarEquipMatName = AllRecords[i].CarrTarEquipMatName;
+                        }
+                        //CarrTarEquipControl
+                        if (AllRecords[i].CarrTarEquipMatCarrTarEquipControl) {
+                            CarrTarEquipControl = AllRecords[i].CarrTarEquipMatCarrTarEquipControl;
+                        }
+                        simplesource.push(AllRecords[i].TariffRatesControl);
+                    }
+
+
+                    if (AllRecords && ngl.isArray(AllRecords) && AllRecords.length > 0) {
+                        if (iRows < AllRecords.length) {
+                            iRows = AllRecords.length;
+                            $("#txtRows").val(iRows);
+                        }
+
+
+                        AllRecordsData = AllRecords.map(row => {
+
+
+                            return {
+                                CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                                CarrTarEquipMatState: row.CarrTarEquipMatState,
+                                CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                                CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                                CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                                LaneNumber: row.LaneNumber,
+                                CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                                CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                                Rate: row.Rate
+                            }
+
+
+                        });
+
+                        $("#exportToExcelGrid").kendoGrid({
+                            columns: dataJsonSet[PageControl],
+                            dataSource: {
+                                data: AllRecordsData,
+                                schema: {
+                                    model: {
+                                        fields: {
+                                            CarrTarEquipMatControl: { type: "number" },
+                                            CarrTarEquipMatName: { type: "string" },
+                                            CarrTarEquipMatCarrTarControl: { type: "number" },
+                                            CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                            CarrTarEquipName: { type: "string" },
+                                            CarrTarEquipDescription: { type: "string" },
+                                            CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                            CarrTarEquipMatCountry: { type: "string" },
+                                            CarrTarEquipMatState: { type: "string" },
+                                            CarrTarEquipMatCity: { type: "string" },
+                                            CarrTarEquipMatFromZip: { type: "string" },
+                                            CarrTarEquipMatToZip: { type: "string" },
+                                            CarrTarEquipMatLaneControl: { type: "number" },
+                                            CarrTarEquipMatMin: { type: "number" },
+                                            CarrTarEquipMatMaxDays: { type: "number" },
+                                            CarrTarEquipMatClass: { type: "string" },
+                                            CarrTarEquipMatClassTypeControl: { type: "number" },
+                                            CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                            CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                            CarrTarEquipMatModUser: { type: "string" },
+                                            CarrTarEquipMatModDate: { type: "string" },
+                                            LaneNumber: { type: "string" },
+                                            Rate: { type: "number" }
+                                        }
+                                    }
+                                }
+                            },
+                        });
+
+                        let localDataSource = new kendo.data.DataSource({
+                            data: AllRecordsData,
+                            schema: {
+                                model: {
+                                    fields: {
+                                        CarrTarEquipMatControl: { type: "number" },
+                                        CarrTarEquipMatName: { type: "string" },
+                                        CarrTarEquipMatCarrTarControl: { type: "number" },
+                                        CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                        CarrTarEquipName: { type: "string" },
+                                        CarrTarEquipDescription: { type: "string" },
+                                        CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                        CarrTarEquipMatCountry: { type: "string" },
+                                        CarrTarEquipMatState: { type: "string" },
+                                        CarrTarEquipMatCity: { type: "string" },
+                                        CarrTarEquipMatFromZip: { type: "string" },
+                                        CarrTarEquipMatToZip: { type: "string" },
+                                        CarrTarEquipMatLaneControl: { type: "number" },
+                                        CarrTarEquipMatMin: { type: "number" },
+                                        CarrTarEquipMatMaxDays: { type: "number" },
+                                        CarrTarEquipMatClass: { type: "string" },
+                                        CarrTarEquipMatClassTypeControl: { type: "number" },
+                                        CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                        CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                        CarrTarEquipMatModUser: { type: "string" },
+                                        CarrTarEquipMatModDate: { type: "string" },
+                                        LaneNumber: { type: "string" },
+                                        Rate: { type: "number" }
+                                    }
+                                }
+                            }
+                        });
+
+                        createSpreadSheet(localDataSource);
+                        removeContextMenuFromSpreadSheet();
+                    }
+
+
+                    //    var element = $('.k-spreadsheet');
+                    //    if (element) {
+                    //        kendo.ui.progress(element, true);
+                    //    }
+
+                    //    var oCRUDCtrl = new nglRESTCRUDCtrl();
+                    //    var blnRet = oCRUDCtrl.read(`${controllerName[PageControl]}/GetCompleteRecord`, 0, tPage, "GetTariffRatesMatrixSuccessCallback", "getAllDataAjaxErrorCallback", true);
+                }
+
+                function GetTariffRatesMatrixSuccessCallback(data, errTitle) {
+                    try {
+                        var blnSuccess = false;
+                        var blnErrorShown = false;
+                        var strValidationMsg = "";
+                        var element = $('.k-spreadsheet');
+                        if (element) {
+                            kendo.ui.progress(element, false);
+                        }
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (ngl.stringHasValue(data.Errors)) { blnErrorShown = true; ngl.showErrMsg(errTitle, data.Errors, null); }
+                            else {
+                                if (typeof (data.Data) !== 'undefined' && ngl.isArray(data.Data)) {
+                                    if (data.Data.length > 0 && typeof (data.Data[0]) !== 'undefined') {
+                                        blnSuccess = true;
+                                        AllRecords = data.Data;
+                                        console.log("Get All Records");
+                                        console.log(AllRecords);
+                                        for (var i = 0; i < data.Data.length; i++) {
+                                            if (data.Data[i].CarrTarEquipMatCarrTarControl) {
+                                                CarrTarEquipMatCarrTarControl = data.Data[i].CarrTarEquipMatCarrTarControl;
+                                            }
+                                            if (data.Data[i].CarrTarEquipMatCarrTarMatBPControl) {
+                                                CarrTarEquipMatCarrTarMatBPControl = data.Data[i].CarrTarEquipMatCarrTarMatBPControl;
+                                            }
+                                            if (data.Data[i].CarrTarEquipMatName) {
+                                                CarrTarEquipMatName = data.Data[i].CarrTarEquipMatName;
+                                            }
+                                            //CarrTarEquipControl
+                                            if (data.Data[i].CarrTarEquipMatCarrTarEquipControl) {
+                                                CarrTarEquipControl = data.Data[i].CarrTarEquipMatCarrTarEquipControl;
+                                            }
+                                            simplesource.push(data.Data[i].TariffRatesControl);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (AllRecords && ngl.isArray(AllRecords) && AllRecords.length > 0) {
+                            if (iRows < AllRecords.length) {
+                                iRows = AllRecords.length;
+                                $("#txtRows").val(iRows);
+                            }
+
+                            AllRecordsData = AllRecords;
+
+                            //AllRecordsData = AllRecords.map(row => {
+
+                            //    if (PageControl == '57' || PageControl == '59') {
+                            //        return {
+                            //            CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                            //            CarrTarEquipMatState: row.CarrTarEquipMatState,
+                            //            CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                            //            CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                            //            CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                            //            LaneNumber: row.LaneNumber,
+                            //            CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                            //            CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                            //            Rate: row.Rate
+                            //        }
+                            //    }
+                            //    else {
+                            //        return {
+                            //            CarrTarEquipMatCountry: row.CarrTarEquipMatCountry,
+                            //            CarrTarEquipMatState: row.CarrTarEquipMatState,
+                            //            CarrTarEquipMatCity: row.CarrTarEquipMatCity,
+                            //            CarrTarEquipMatFromZip: row.CarrTarEquipMatFromZip.toString(),
+                            //            CarrTarEquipMatToZip: row.CarrTarEquipMatToZip.toString(),
+                            //            LaneNumber: row.LaneNumber,
+                            //            CarrTarEquipMatClass: row.CarrTarEquipMatClass,
+                            //            CarrTarEquipMatMin: row.CarrTarEquipMatMin,
+                            //            CarrTarEquipMatMaxDays: row.CarrTarEquipMatMaxDays,
+                            //            Val1: row.Val1,
+                            //            Val2: row.Val2,
+                            //            Val3: row.Val3,
+                            //            Val4: row.Val4,
+                            //            Val5: row.Val5,
+                            //            Val6: row.Val6,
+                            //            Val7: row.Val7,
+                            //            Val8: row.Val8,
+                            //            Val9: row.Val9,
+                            //            Val10: row.Val10
+                            //        }
+                            //    }
+
+                            //});
+
+                            $("#exportToExcelGrid").kendoGrid({
+                                columns: dataJsonSet[PageControl],
+                                dataSource: {
+                                    data: AllRecordsData,
+                                    schema: {
+                                        model: {
+                                            fields: {
+                                                CarrTarEquipMatControl: { type: "number" },
+                                                CarrTarEquipMatName: { type: "string" },
+                                                CarrTarEquipMatCarrTarControl: { type: "number" },
+                                                CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                                CarrTarEquipName: { type: "string" },
+                                                CarrTarEquipDescription: { type: "string" },
+                                                CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                                CarrTarEquipMatCountry: { type: "string" },
+                                                CarrTarEquipMatState: { type: "string" },
+                                                CarrTarEquipMatCity: { type: "string" },
+                                                CarrTarEquipMatFromZip: { type: "string" },
+                                                CarrTarEquipMatToZip: { type: "string" },
+                                                CarrTarEquipMatLaneControl: { type: "number" },
+                                                CarrTarEquipMatMin: { type: "number" },
+                                                CarrTarEquipMatMaxDays: { type: "number" },
+                                                CarrTarEquipMatClass: { type: "string" },
+                                                CarrTarEquipMatClassTypeControl: { type: "number" },
+                                                CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                                CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                                CarrTarEquipMatModUser: { type: "string" },
+                                                CarrTarEquipMatModDate: { type: "string" },
+                                                LaneNumber: { type: "string" },
+                                                Rate: { type: "number" }
+                                            }
+                                        }
+                                    }
+                                },
+                            });
+
+                            let localDataSource = new kendo.data.DataSource({
+                                data: AllRecordsData,
+                                schema: {
+                                    model: {
+                                        fields: {
+                                            CarrTarEquipMatControl: { type: "number" },
+                                            CarrTarEquipMatName: { type: "string" },
+                                            CarrTarEquipMatCarrTarControl: { type: "number" },
+                                            CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+                                            CarrTarEquipName: { type: "string" },
+                                            CarrTarEquipDescription: { type: "string" },
+                                            CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+                                            CarrTarEquipMatCountry: { type: "string" },
+                                            CarrTarEquipMatState: { type: "string" },
+                                            CarrTarEquipMatCity: { type: "string" },
+                                            CarrTarEquipMatFromZip: { type: "string" },
+                                            CarrTarEquipMatToZip: { type: "string" },
+                                            CarrTarEquipMatLaneControl: { type: "number" },
+                                            CarrTarEquipMatMin: { type: "number" },
+                                            CarrTarEquipMatMaxDays: { type: "number" },
+                                            CarrTarEquipMatClass: { type: "string" },
+                                            CarrTarEquipMatClassTypeControl: { type: "number" },
+                                            CarrTarEquipMatTarRateTypeControl: { type: "number" },
+                                            CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+                                            CarrTarEquipMatModUser: { type: "string" },
+                                            CarrTarEquipMatModDate: { type: "string" },
+                                            LaneNumber: { type: "string" },
+                                            Rate: { type: "number" }
+                                        }
+                                    }
+                                }
+                            });
+
+                            createSpreadSheet(localDataSource);
+                            removeContextMenuFromSpreadSheet();
+                        }
+
+                        if (blnSuccess === false && blnErrorShown === false) {
+                            if (strValidationMsg.length < 1) { strValidationMsg = errTitle; }
+                            ngl.showErrMsg(errTitle, strValidationMsg, null);
+                        }
+
+                        execActionClick("Refresh");
+
+                    } catch (err) { ngl.showErrMsg(err.name, err.description, null); }
+
+
+                    $("#trWait").hide();
+                }
+
+                function removeContextMenuFromSpreadSheet() {
+                    $('#TariffRatesMatrixGrid').find('.k-spreadsheet-fixed-container').off('contextmenu');
+                }
+
+                function getAllDataSuccessCallback(data) {
+                    GetTariffRatesMatrixSuccessCallback(data, "Get Tariff Rates Failure");
+                }
+
+                function getAllDataAjaxErrorCallback(results) {
+                    $("#trWait").hide();
+                    var element = $('.k-spreadsheet');
+                    if (element) {
+                        kendo.ui.progress(element, false);
+                    }
+                    ngl.showErrMsg("Get Tariff Rates Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage);
+                }
+                var bSaveRatesMarix = false;
+                function ClearSpreadsheet(obj) {
+                    if (obj == 1) {
+                        $("#trWait").show();
+                        bSaveRatesMarix = true;
+                        setTimeout(function () {
+                            DeleteCarrTarEquipMatRecords(true);
+                            /* SaveRatesMatrix();*/
+                            $("#trWait").hide();
+                        }, 100, tObj);
+                    }
+                }
+
+                function DeleteRates(obj) {
+                    if (obj == 1) {
+                        $("#trWait").show();
+                        bSaveRatesMarix = false;
+                        setTimeout(function () {
+                            DeleteCarrTarEquipMatRecords();
+                            /* GetAllData();*/
+                            $("#trWait").hide();
+                        }, 100, tObj);
+                    }
+                }
+
+                function createSpreadSheet(localDataSource) {
+                    $(function () {
+                        $("#TariffRatesMatrixGrid").empty();
+                        $("#TariffRatesMatrixGrid").kendoSpreadsheet({
+                            excel: {
+                                proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                            },
+                            toolbar: {
+                                insert: false,
+                                data: false
+                            },
+                            pdf: {
+                                proxyURL: "https://demos.telerik.com/kendo-ui/service/export"
+                            },
+                            render: function (e) {
+
+
+                                //alert('Column Count: ' + sheet._columns._count);
+
+                                //paste: onPaste,
+                                var spreadsheetView = $('.k-spreadsheet-view');
+
+                                spreadsheetView.unbind('select');
+
+                                spreadsheetView.unbind('paste');
+
+                                spreadsheetView.on('paste', function (e) {
+
+                                    $("#trWait").show();
+                                    var element = $('.k-spreadsheet');
+
+                                    kendo.ui.progress(element, true);
+
+                                    setTimeout(function () {
+                                        onPaste(e);
+                                        kendo.ui.progress(element, false);
+
+                                        $("#trWait").show();
+                                    }, 100, this);
+                                });
+                                spreadsheetView.on('select', function (e) {
+                                    var element = $('.k-spreadsheet');
+
+                                    kendo.ui.progress(element, true);
+
+                                    setTimeout(function () {
+                                        kendo.ui.progress(element, false);
+                                    }, 100, this);
+                                });
+                            },
+                            sheets: [
+                                {
+                                    name: "Tariff Rates matrix",
+                                    cellRange: 10000,
+                                    dataSource: localDataSource,
+                                    rows: rowsSet[PageControl],
+                                    columns: columnsSet[PageControl],
+
+                                },
+                            ],
+                            rows: iRows,
+                        }).data("kendoSpreadsheet").one("render", function (e) {
+                            //alert('Column Count: ' + sheet._columns._count);
+                            e.sender.sheets().forEach(function (sheet) {
+                                sheet.range(0, rowsSet[PageControl][0].cells.length, sheet._rows._count, sheet._columns._count).enable(false);
+                            })
+                        });
+                    });
+                }
+
+                $(document).ready(function () {
+                    GetAllData();
+
+                    wndTariffRatesMatrix = $("#wndTariffRatesMatrix").kendoWindow({
+                        title: "Import Tariff Rates",
+                        width: "60%",
+                        height: "80%",
+                        actions: ["File-Excel", "Strip-all-formatting", "Trash", "Save", "Minimize", "Maximize", "Close"],
+                        modal: true,
+                        visible: false
+                    }).data("kendoWindow");
+
+                    $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-svg-i-file-excel").parent().click(function (e) {
+                        var grid = $("#exportToExcelGrid").data("kendoGrid");
+                        grid.saveAsExcel();
+                        e.preventDefault();
+                    });
+
+                    $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-svg-i-strip-all-formatting").parent().click(function (e) {
+                        e.preventDefault();
+                        ngl.OkCancelConfirmation(
+                            "Replace all Rates",
+                            "Are you sure?  All  rates for this tariff will be replaced with the data in the spreadsheet?",
+                            400,
+                            400,
+                            tObj,
+                            "ClearSpreadsheet");
+
+                    });
+
+                    $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-svg-i-trash").parent().click(function (e) {
+                        e.preventDefault();
+                        ngl.OkCancelConfirmation(
+                            "Delete Tariff Rates",
+                            "Are you sure?  All but one rate for this tariff will be deleted?",
+                            400,
+                            400,
+                            tObj,
+                            "DeleteRates");
+
+                    });
+
+                    $("#wndTariffRatesMatrix").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) {
+                        $("#trWait").show();
+                        setTimeout(function () {
+                            Window.SaveRatesMatrix();
+                            $("#trWait").hide();
+                        }, 100, this);
+                    });
+
+                    Window.SaveRatesMatrix = function SaveRatesMatrix() {
+                        var spreadsheet = $("#TariffRatesMatrixGrid").data("kendoSpreadsheet");
+                        var values = spreadsheet.sheets()[0].range(spreadsheetColumnSelection[PageControl] + iRows.toString()).values();
+                        var dataJson;
+
+                        if (values == null || values == "undefined" || values == undefined) {
+                            ngl.showErrMsg("Update Tariff Rates", "Please paste the Tariff Rates (Ctrl + V) and try again", "");
+                            return;
+                        }
+                        else {
+                            if (values != "") {
+
+                                $("#trWait").show();
+                                //var windowWidget = $("#wndTariffRatesMatrix").data("kendoWindow");
+                                //kendo.ui.progress(windowWidget.element, false);
+                                var element = $('.k-spreadsheet');
+
+                                kendo.ui.progress(element, true);
+
+                                setTimeout(function () {
+
+
+                                    var result = [];
+                                    for (var i = 0; i < values.length; i++) {
+                                        if (values[i][0] != null) {
+                                            var objectBuilder = dataJsonSet[PageControl];
+                                            dataJson = objectBuilder(values, i);
+                                            if (dataJson) {
+                                                result.push(dataJson);
+                                            }
+                                        }
+                                    }
+                                    if (result.length > 0) {
+                                        UpdatingTariffRatesGrid(result);
+                                    }
+                                    $("#trWait").hide();
+                                }, 100, tObj);
+                            }
+                        }
+
+                        console.log("spreadsheetColumnSelection[PageControl]" + iRows.toString());
+                        console.log(PageControl);
+                        console.log(spreadsheetColumnSelection[PageControl] + iRows.toString());
+                        spreadsheet.sheets()[0].range(spreadsheetColumnSelection[PageControl] + iRows.toString()).clear();
+                    }
+
+                    $(".k-spreadsheet-sheets-bar-add .k-button .k-button-icon").hide();
+
+                    function upateGridAfterUpdate() {
+                        $("#trWait").hide();
+                        ngl.showSuccessMsg("Tariff Rates updated successfully.", null);
+                        GetAllData();
+                        refreshTariffRatesGrid();
+                    }
+
+                    function UpdatingTariffRatesGrid(DATAJSON) {
+                        let url;
+                        let from = $("#EffectiveDate").val();
+                        let to = $("#EffectiveTo").val();
+                        if (to) {
+                            url = `api/${controllerName[ActPageControl]}/PostSpreadSheet?CarrTarEquipMatCarrTarControl=${CarrTarEquipMatCarrTarControl}&CarrTarEquipMatCarrTarMatBPControl=${CarrTarEquipMatCarrTarMatBPControl}&CarrTarEquipMatName=${CarrTarEquipMatName}&EffectiveDate=${from}&EffectiveTo=${to}`;
+                        } else {
+                            url = `api/${controllerName[ActPageControl]}/PostSpreadSheet?CarrTarEquipMatCarrTarControl=${CarrTarEquipMatCarrTarControl}&CarrTarEquipMatCarrTarMatBPControl=${CarrTarEquipMatCarrTarMatBPControl}&CarrTarEquipMatName=${CarrTarEquipMatName}&EffectiveDate=${from}`;
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            contentType: "application/json; charset=utf-8",
+                            dataType: 'json',
+                            data: JSON.stringify(DATAJSON),
+                            headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+                            success: function (data) {
+                                var element = $('.k-spreadsheet');
+                                if (element) {
+                                    kendo.ui.progress(element, false);
+                                }
+
+                                if (data.Errors != null) {
+                                    if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, null); }
+                                    else { ngl.showErrMsg("Access Denied", data.Errors, null); }
+                                }
+                                $("#trWait").hide();
+                                upateGridAfterUpdate();
+                            },
+                            error: function (xhr, textStatus, error) {
+                                var element = $('.k-spreadsheet');
+                                if (element) {
+                                    kendo.ui.progress(element, false);
+                                }
+                                var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Save Data Failure");
+                                ngl.showErrMsg("Tariff Rates update failed", sMsg, null);
+                                $("#trWait").hide();
+                            }
+                        });
+                    }
+
+
+                });
+
+                function DeleteCarrTarEquipMatRecords(bDeleteAll) {
+
+
+                    var oCRUDCtrl = new nglRESTCRUDCtrl();
+                    var sURL = `${controllerName[ActPageControl]}/DeleteCarrTarEquipMatRates`;
+                    if (typeof (bDeleteAll) != 'undefined' && bDeleteAll != null && bDeleteAll == true) {
+                        var sURL = `${controllerName[ActPageControl]}/DeleteAllCarrTarEquipMatRates`;
+                    }
+                    var blnRet = oCRUDCtrl.delete(sURL, CarrTarEquipControl, tObj, "DeleteCarrTarEquipMatRecordsSuccessCallback", "DeleteCarrTarEquipMatRecordsAjaxErrorCallback", true);
+
+
+                }
+
+
+                function DeleteCarrTarEquipMatRecordsSuccessCallback(data) {
+
+                    try {
+                        if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                            if (typeof (data.Errors) !== 'undefined' && data.Errors != null && data.Errors.length > 0) {
+                                if (data.StatusCode === 203) { ngl.showErrMsg("Authorization Timeout", data.Errors, tObj); }
+                                else { ngl.showErrMsg("Access Denied", data.Errors, tObj); }
+                            } else {
+                                if (bSaveRatesMarix == true) {
+                                    //Modified by RHR for v-8.5.2.003 made SaveRatesMatrix part of the Window namespace
+                                    Window.SaveRatesMatrix();
+                                } else {
+                                    GetAllData();
+                                }
+
+                            }
+                        }
+                    } catch (err) {
+                        ngl.showErrMsg(err.name, err.message, tObj);
+                    }
+                    $("#trWait").hide();
+                }
+
+                function DeleteCarrTarEquipMatRecordsAjaxErrorCallback(xhr, textStatus, error) {
+                    ngl.showErrMsg("Delete Tariff Rates Details Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tObj);
+                    GetAllData();
+                    $("#trWait").hide();
+                }
+            </script>
+        </div>
+
+        <script>
+            var opostLogoutRedirectUri = 'http://localhost:44320/';
+
+            var oredirectUri = 'http://localhost:44320/' + getCurentFileName();
+
+            var oidaClient = 'ab8def6a-9066-4657-8118-dcb775e48a92';
+
+            var oAuth2instasnce = 'https://login.microsoftonline.com/';
+
+            var oAuth2tenant = 'common';
+
+            loadAuthContext();
+
+
+
+            var PageControl = '59';
+            var tObj = this;
+            var oTariffRatesGrid = null;
+            var tPage = this;
+
+
+            var serverUserControl = 3;
+
+            var control = localStorage.NGLvar1452;
+
+            var sRequireAuthentication = 'true';
+
+            ngl.UserValidated365(sRequireAuthentication, control, getCurentFileName(), serverUserControl);
+
+
+
+
+            function execBeforeTariffRatesGridInsert() {
+                //try to get the shared defalult values from the current selected value if available
+                //if not available the server will use the current tarriff settings by default
+                var blnRowSelected = false;
+                try {
+
+
+                    var row = oTariffRatesGrid.select();
+                    if (typeof (row) !== 'undefined' && row !== null) {
+                        var dataItem = oTariffRatesGrid.dataItem(row);
+                        if (typeof (dataItem) !== 'undefined' && dataItem !== null) {
+                            if (typeof (objTariffRatesGridDataFields) !== 'undefined' && objTariffRatesGridDataFields != null) {
+                                blnRowSelected = true;
+                                //var pdataFields = objTariffRatesGridDataFields; //wdgtTariffRatesGridEdit.dataFields
+                                $.each(objTariffRatesGridDataFields, function (index, item) {
+                                    if (item.fieldName == "CarrTarEquipMatCarrTarControl") {
+                                        if ("CarrTarEquipMatCarrTarControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatCarrTarControl;
+                                        }
+                                    } else if (item.fieldName == "CarrTarEquipMatCarrTarEquipControl") {
+                                        if ("CarrTarEquipMatCarrTarEquipControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatCarrTarEquipControl;
+                                        }
+                                    } else if (item.fieldName == "CarrTarEquipMatCarrTarMatBPControl") {
+                                        if ("CarrTarEquipMatCarrTarMatBPControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatCarrTarMatBPControl;
+                                        }
+                                    } else if (item.fieldName == "CarrTarEquipMatClassTypeControl") {
+                                        if ("CarrTarEquipMatClassTypeControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatClassTypeControl;
+                                        }
+                                    } else if (item.fieldName == "CarrTarEquipMatTarRateTypeControl") {
+                                        if ("CarrTarEquipMatTarRateTypeControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatTarRateTypeControl;
+                                        }
+                                    } else if (item.fieldName == "CarrTarEquipMatTarBracketTypeControl") {
+                                        if ("CarrTarEquipMatTarBracketTypeControl" in dataItem) {
+                                            item.fieldDefaultValue = dataItem.CarrTarEquipMatTarBracketTypeControl;
+                                        }
+                                    }
+                                });
+                            }
+
+
+                        }
+
+                    }
+                    if (blnRowSelected === false) {
+                        var wdth = ($(window).width() / 10) * 6;
+                        var hgt = ($(window).height() / 10) * 6;
+                        ngl.Alert("Read Current Rate Defaults", "We could not read the current rate default settings. Please select an existing rate from the grid, these settings will be used to set up defaults for the new rate.", wdth, hgt);
+
+                    }
+
+                } catch (err) {
+                    ngl.showErrMsg("Create new rate record Failure", err, tPage);
+                }
+                return blnRowSelected;
+            }
+            userMenuPaneSize = '100px';
+
+            userMenuCollapsed = false;
+
+            userBottomPaneSize = '35px';
+
+            userBottomPaneCollapsed = false;
+
+            userLeftPaneSize = '202.00000286102295px';
+
+            userLeftPaneCollapsed = false;
+
+
+            var wdgtvCarrierTariffSummarySummary = new NGLSummaryDataCtrl();
+
+            function NGLvCarrierTariffSummaryClass() {
+
+                CarrierName: null;
+
+                CompName: null;
+
+                CompAddress: null;
+
+                CompCSZ: null;
+
+                CarrTarName: null;
+
+                CarrTarID: null;
+
+                CarrTarRevisionNumber: null;
+
+                Mode: null;
+
+                Temp: null;
+
+                Direction: null;
+
+                CarrTarEffDateFrom: null;
+
+                CarrTarEffDateTo: null;
+
+                ContractActive: null;
+
+                CarrTarTariffModeTypeControl: null;
+
+                CarrTarTariffTypeControl: null;
+
+                CarrTarTempType: null;
+
+                CarrTarOutbound: null;
+
+                CarrTarActiveFlag: null;
+
+                CarrTarCarrierControl: null;
+
+                CarrTarCompControl: null;
+
+                CarrTarControl: null;
+
+                TariffType: null;
+
+            }
+
+
+            var objvCarrierTariffSummaryDataFields = [
+
+                { fieldID: "161583", fieldTagID: "id5911120180908123716144761", fieldCaption: "Carrier Name:", fieldName: "CarrierName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 40, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 1, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161584", fieldTagID: "id5911120180908123716166743", fieldCaption: "Comp Name:", fieldName: "CompName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 40, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 1, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161585", fieldTagID: "id5911120180908123716185757", fieldCaption: "Address:", fieldName: "CompAddress", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 40, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 2, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161586", fieldTagID: "id5911120180908123716196741", fieldCaption: "City, State Zip:", fieldName: "CompCSZ", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 79, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 3, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161587", fieldTagID: "id5911120180908123716212748", fieldCaption: "Tariff Name:", fieldName: "CarrTarName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 4, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161588", fieldTagID: "id5911120180908123716226739", fieldCaption: "Tariff ID:", fieldName: "CarrTarID", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 100, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161589", fieldTagID: "id5911120180908123716241748", fieldCaption: "Rev. No.:", fieldName: "CarrTarRevisionNumber", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: true, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161590", fieldTagID: "id5911120180908123716253752", fieldCaption: "Mode:", fieldName: "Mode", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161591", fieldTagID: "id5911120180908123716278755", fieldCaption: "Temp:", fieldName: "Temp", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 6, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 7, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161592", fieldTagID: "id5911120180908123716298763", fieldCaption: "Direction:", fieldName: "Direction", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 8, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 8, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161593", fieldTagID: "id5911120180908123716315760", fieldCaption: "Eff. From:", fieldName: "CarrTarEffDateFrom", fieldDefaultValue: "", fieldGroupSubType: 9, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "#= kendo.toString(kendo.parseDate(CarrTarEffDateFrom, 'yyyy-MM-dd'), 'MM/dd/yyyy') #", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 11, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161594", fieldTagID: "id5911120180908123716331748", fieldCaption: "Eff. To.:", fieldName: "CarrTarEffDateTo", fieldDefaultValue: "", fieldGroupSubType: 9, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "#= kendo.toString(kendo.parseDate(CarrTarEffDateTo, 'yyyy-MM-dd'), 'MM/dd/yyyy') #", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 12, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161595", fieldTagID: "id5911120180908123716338747", fieldCaption: "Active:", fieldName: "ContractActive", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 8, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 13, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161596", fieldTagID: "id5911120180908123716346759", fieldCaption: "CarrTarTariffModeTypeControl", fieldName: "CarrTarTariffModeTypeControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161597", fieldTagID: "id5911120180908123716354765", fieldCaption: "CarrTarTariffTypeControl", fieldName: "CarrTarTariffTypeControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161598", fieldTagID: "id5911120180908123716366745", fieldCaption: "CarrTarTempType", fieldName: "CarrTarTempType", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161599", fieldTagID: "id5911120180908123716376746", fieldCaption: "CarrTarOutbound", fieldName: "CarrTarOutbound", fieldDefaultValue: "", fieldGroupSubType: 16, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "<input type='checkbox' #= CarrTarOutbound ? 'checked=checked' : '' # disabled='disabled' ></input>", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161600", fieldTagID: "id5911120180908123716384751", fieldCaption: "CarrTarActiveFlag", fieldName: "CarrTarActiveFlag", fieldDefaultValue: "", fieldGroupSubType: 16, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "<input type='checkbox' #= CarrTarActiveFlag ? 'checked=checked' : '' # disabled='disabled' ></input>", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161601", fieldTagID: "id5911120180908123716426747", fieldCaption: "CarrTarCarrierControl", fieldName: "CarrTarCarrierControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161602", fieldTagID: "id5911120180908123716435766", fieldCaption: "CarrTarCompControl", fieldName: "CarrTarCompControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161603", fieldTagID: "id5911120180908123718209765", fieldCaption: "CarrTarControl", fieldName: "CarrTarControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161604", fieldTagID: "id5911120180908123718219767", fieldCaption: "Tariff Type", fieldName: "TariffType", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 7, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id591112018090812371692756", fieldSequenceNo: 99, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+            ];
+
+            var wndTariffRatesGridEdit = kendo.ui.Window;
+
+            var wdgtTariffRatesGridEdit = new NGLEditWindCtrl();
+
+            function openAddNewTariffRatesGridWindow(e, fk) {
+
+                if ((typeof (execBeforeTariffRatesGridInsert) === 'undefined' || ngl.isFunction(execBeforeTariffRatesGridInsert) === false) || (execBeforeTariffRatesGridInsert(e, fk, wdgtTariffRatesGridEdit) === true)) {
+                    wdgtTariffRatesGridEdit.data = null;
+
+                    wdgtTariffRatesGridEdit.show(fk);
+                }
+
+            }
+
+
+            function openEditTariffRatesGridWindow(e) {
+
+                var data = this.dataItem($(e.currentTarget).closest("tr"));
+
+                var parentGrid = $('#id5984201809080752349238950').data("kendoNGLGrid");
+
+                if (typeof (parentGrid) !== 'undefined' && ngl.isObject(parentGrid)) {
+
+                    kendo.ui.progress(parentGrid.element, true);
+
+                }
+
+                wdgtTariffRatesGridEdit.data = data;
+
+                wdgtTariffRatesGridEdit.read(data.CarrTarEquipMatControl);
+
+            }
+
+
+            function deleteTariffRatesGridRecord(iRet, data) {
+
+                if (typeof (iRet) === 'undefined' || iRet === null || iRet === 0) { return; }
+
+                wdgtTariffRatesGridEdit.delete(data.CarrTarEquipMatControl);
+
+            }
+
+
+            function confirmDeleteTariffRatesGridRecord(e) {
+
+                var item = this.dataItem($(e.currentTarget).closest("tr"));
+
+                if (typeof (item) === 'undefined' || ngl.isObject(item) == false) { return; }
+
+                ngl.OkCancelConfirmation("Delete Selected Flat Rate Record", "Warning! This action cannot be undone.  Are you sure?", 400, 400, null, "deleteTariffRatesGridRecord", item);
+
+            }
+
+
+            function NGLTariffRatesGridClass() {
+
+                CarrTarEquipMatCountry: null;
+
+                CarrTarEquipMatState: null;
+
+                CarrTarEquipMatCity: null;
+
+                CarrTarEquipMatFromZip: null;
+
+                CarrTarEquipMatToZip: null;
+
+                LaneNumber: null;
+
+                CarrTarEquipMatLaneControl: null;
+
+                CarrTarEquipMatMin: null;
+
+                CarrTarEquipMatMaxDays: null;
+
+                Rate: null;
+
+                CarrTarEquipMatModDate: null;
+
+                CarrTarEquipMatModUser: null;
+
+                CarrTarEquipMatName: null;
+
+                CarrTarEquipMatClass: null;
+
+                CarrTarEquipMatClassTypeControl: null;
+
+                CarrTarEquipMatControl: null;
+
+                CarrTarEquipDescription: null;
+
+                CarrTarEquipMatCarrTarControl: null;
+
+                CarrTarEquipMatCarrTarEquipControl: null;
+
+                CarrTarEquipMatCarrTarMatBPControl: null;
+
+                CarrTarEquipName: null;
+
+                CarrTarEquipMatTarBracketTypeControl: null;
+
+                CarrTarEquipMatTarRateTypeControl: null;
+
+            }
+
+
+            var objTariffRatesGridDataFields = [
+
+                { fieldID: "161607", fieldTagID: "id598420180908125735380960", fieldCaption: "Country", fieldName: "CarrTarEquipMatCountry", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 30, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 1, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161608", fieldTagID: "id598420180908125735400959", fieldCaption: "State", fieldName: "CarrTarEquipMatState", fieldDefaultValue: "", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 2, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetStaticListText", fieldAPIFilterID: "3", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 1, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161609", fieldTagID: "id598420180908125735372975", fieldCaption: "City", fieldName: "CarrTarEquipMatCity", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 2, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161610", fieldTagID: "id598420180908125735382961", fieldCaption: "Start Zip/PC", fieldName: "CarrTarEquipMatFromZip", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 10, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 3, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161611", fieldTagID: "id598420180908125735407965", fieldCaption: "Stop Zip/PC", fieldName: "CarrTarEquipMatToZip", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 10, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 4, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161612", fieldTagID: "id598420180908125735412957", fieldCaption: "Lane Number", fieldName: "LaneNumber", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161613", fieldTagID: "id598420180908125735384956", fieldCaption: "Lanes", fieldName: "CarrTarEquipMatLaneControl", fieldDefaultValue: "0", fieldGroupSubType: 11, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "vLookupList/GetUserDynamicList", fieldAPIFilterID: "34", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161614", fieldTagID: "id598420180908125735388968", fieldCaption: "Min Value", fieldName: "CarrTarEquipMatMin", fieldDefaultValue: "0", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:c2}", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161615", fieldTagID: "id598420180908125735386971", fieldCaption: "Max Trans Days", fieldName: "CarrTarEquipMatMaxDays", fieldDefaultValue: "5", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: true, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 6, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161616", fieldTagID: "id598420180908125735414949", fieldCaption: "Flat Rate", fieldName: "Rate", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:c2}", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: true, fieldRequired: true, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 7, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161617", fieldTagID: "id598420180908125735391959", fieldCaption: "Mod Date", fieldName: "CarrTarEquipMatModDate", fieldDefaultValue: "", fieldGroupSubType: 9, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "#= kendo.toString(kendo.parseDate(CarrTarEquipMatModDate, 'yyyy-MM-dd'), 'MM/dd/yyyy') #", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 8, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161618", fieldTagID: "id598420180908125735394956", fieldCaption: "Mod User", fieldName: "CarrTarEquipMatModUser", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: true, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 100, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 12, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161619", fieldTagID: "id598420180908125735396955", fieldCaption: "Name", fieldName: "CarrTarEquipMatName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 13, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161620", fieldTagID: "id598420180908125735374974", fieldCaption: "CarrTarEquipMatClass", fieldName: "CarrTarEquipMatClass", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161621", fieldTagID: "id598420180908125735376966", fieldCaption: "CarrTarEquipMatClassTypeControl", fieldName: "CarrTarEquipMatClassTypeControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161622", fieldTagID: "id598420180908125735378965", fieldCaption: "CarrTarEquipMatControl", fieldName: "CarrTarEquipMatControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161623", fieldTagID: "id598420180908125735364971", fieldCaption: "CarrTarEquipDescription", fieldName: "CarrTarEquipDescription", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 255, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161624", fieldTagID: "id598420180908125735366968", fieldCaption: "CarrTarEquipMatCarrTarControl", fieldName: "CarrTarEquipMatCarrTarControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161625", fieldTagID: "id598420180908125735368955", fieldCaption: "CarrTarEquipMatCarrTarEquipControl", fieldName: "CarrTarEquipMatCarrTarEquipControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161626", fieldTagID: "id598420180908125735370969", fieldCaption: "CarrTarEquipMatCarrTarMatBPControl", fieldName: "CarrTarEquipMatCarrTarMatBPControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161627", fieldTagID: "id598420180908125735410954", fieldCaption: "CarrTarEquipName", fieldName: "CarrTarEquipName", fieldDefaultValue: "", fieldGroupSubType: 13, fieldReadOnly: false, fieldFormat: "", fieldTemplate: "", fieldAllowNull: true, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161628", fieldTagID: "id598420180908125735403971", fieldCaption: "CarrTarEquipMatTarBracketTypeControl", fieldName: "CarrTarEquipMatTarBracketTypeControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+
+                , { fieldID: "161629", fieldTagID: "id598420180908125735405962", fieldCaption: "CarrTarEquipMatTarRateTypeControl", fieldName: "CarrTarEquipMatTarRateTypeControl", fieldDefaultValue: "", fieldGroupSubType: 15, fieldReadOnly: false, fieldFormat: "{0:n0}", fieldTemplate: "", fieldAllowNull: false, fieldMaxlength: 50, fieldVisible: false, fieldRequired: false, fieldInsertOnly: false, fieldAPIReference: "", fieldAPIFilterID: "", fieldParentTagID: "id5984201809080756471569733", fieldSequenceNo: 101, fieldCRUDTagID: "", fieldWidgetAction: "", fieldWidgetActionKey: "", fieldCssClass: "", fieldStyle: "", fieldEditWndVisibility: 0, fieldEditWndSeqNo: 0, fieldAddWndVisibility: 0, fieldAddWndSeqNo: 0 }
+
+            ];
+            function execActionClick(btn, proc) {
+                if (btn.id == "btnOpenContract") {
+                    location.href = "Tariff";
+                } else if (btn.id == "btnOpenServices") {
+                    location.href = "TariffServices";
+                } else if (btn.id == "btnAddRate") {
+                    if (typeof (execBeforeTariffRatesGridInsert) !== 'undefined' && ngl.isFunction(execBeforeTariffRatesGridInsert)) {
+
+                        if (execBeforeTariffRatesGridInsert() === true) {
+                            openAddNewTariffRatesGridWindow();
+                        }
+                    } else {
+                        openAddNewTariffRatesGridWindow();
+                    }
+                } else if (btn.id === "btnImportSpecificTariffRates") {
+                    openImportTariffRatesWnd(PageControl);
+                } else if (btn.id == "btnOpenExceptions") {
+                    location.href = "TariffExceptions";
+                } else if (btn.id == "btnOpenFees") {
+                    location.href = "TariffFees";
+                } else if (btn.id == "btnOpenFuel") {
+                    location.href = "TariffFuel";
+                } else if (btn.id == "btnOpenNoDrive") {
+                    location.href = "TariffNoDriveDays";
+                } else if (btn.id == "btnOpenHDMs") {
+                    location.href = "TariffHDMs";
+                } else if (btn.id == "btnOpenBreakPoints") {
+                    location.href = "TariffBreakPoints";
+                } else if (btn.id == "btnRefresh") {
+                    wdgtvCarrierTariffSummarySummary.read(0);
+                    oTariffRatesGrid.dataSource.read();
+                }
+                if (btn.id == "btnResetCurrentUserConfig") {
+                    resetCurrentUserConfig(PageControl);
+                }
+            }
+
+            function getBreakPointSuccessCallback(data) {
+                //debugger;
+                try {
+                    if (typeof (data) !== 'undefined' && ngl.isObject(data)) {
+                        if (typeof (data.Errors) !== 'undefined' && data.Errors != null) {
+                            ngl.showErrMsg("Read Break Point Header Failure ", data.Errors, tPage);
+                        }
+                        else {
+                            if (data.Data != null && ngl.isArray(data.Data) == true) {
+                                var container = oTariffRatesGrid.wrapper
+                                for (var i = 1; i < 11; i++) {
+                                    var sCaption = data.Data[0]["Val" + i.toString()];
+                                    if (typeof (sCaption) !== 'undefined' && sCaption != null) {
+                                        var head = container.find("[data-field='Val" + i.toString() + "'] .k-link")
+                                        if (typeof (head) !== 'undefined' && head !== null) {
+                                            head.html(sCaption);
+                                        }
+                                        //update the field array data if found
+                                        if (typeof (objTariffRatesGridDataFields) !== 'undefined' && objTariffRatesGridDataFields != null) {
+                                            //var pdataFields = objTariffRatesGridDataFields; //wdgtTariffRatesGridEdit.dataFields
+                                            $.each(objTariffRatesGridDataFields, function (index, item) {
+                                                if (item.fieldName == "Val" + i.toString()) {
+                                                    item.fieldCaption = "Break Point " + sCaption;
+                                                }
+                                            });
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                } catch (err) {
+                    ngl.showErrMsg("Read Break Point Header Failure", err, tPage);
+                }
+            }
+
+            function getBreakPointAjaxErrorCallback(results) {
+                //for now do nothing when we save the pk
+                ngl.showErrMsg("Read Break Point Header Failure", formatAjaxJSONResponsMsgs(xhr, textStatus, error, 'Failed'), tPage);
+            }
+
+            function refreshTariffRatesGrid() {
+                // TODO this one needs to be refactored since we will have a new logic for enforcing the refresh
+                wdgtvCarrierTariffSummarySummary.read(0);
+                oTariffRatesGrid.dataSource.read();
+            }
+
+            //*************  Call Back Functions ****************
+            function TariffRatesGridDataBoundCallBack(e, tGrid) {
+                oTariffRatesGrid = tGrid;
+                var CarrTarEquipMatCarrTarMatBPControl = 0;
+                var data = oTariffRatesGrid.dataSource.data();
+                //debugger;
+                if (typeof (data) !== 'undefined' && data !== null) {
+                    var row = data[0];
+                    if (typeof (row) !== 'undefined' && row !== null) {
+                        if ("CarrTarEquipMatCarrTarMatBPControl" in row) {
+                            CarrTarEquipMatCarrTarMatBPControl = row.CarrTarEquipMatCarrTarMatBPControl;
+                        }
+                    }
+
+                }
+                if (CarrTarEquipMatCarrTarMatBPControl != 0) {
+                    var oCRUDCtrl = new nglRESTCRUDCtrl();
+                    var blnRet = oCRUDCtrl.read("TariffRateClass/GetBreakPoint", CarrTarEquipMatCarrTarMatBPControl, tPage, "getBreakPointSuccessCallback", "getBreakPointAjaxErrorCallback", true);
+
+                }
+            }
+
+
+            $(document).ready(function () {
+                var PageMenuTab = $('#tab').kendoTabStrip({ animation: { open: { effects: 'fadeIn' } }, dataTextField: 'text', dataContentField: 'content', dataSource: [{ text: 'Home', content: "<div class='pane-content'><div class='wrap' style='text-align:center'><div style='float: left;'><span style='margin:6px; vertical-align: middle;'><a href='Default.aspx'><img border='0' alt='Home' src='../Content/NGL/Home32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='https://reilyproducts.com/'><img border='0' alt='NGL' src='../Content/Customer/ReilyFoods.JPG'></a></span></div><div style='float: right;'><span id='WelcomeMessage' style='margin:6px; vertical-align: middle;'></span><a id='btnSignInOut' class='k-button k-button-solid-base k-button-solid k-button-md k-rounded-md' onclick='signInOut();' href='#' style='margin:6px; vertical-align: top;'><span class='k-icon k-i-user' style='vertical-align: middle;'></span><span id='signInText' style='vertical-align: middle;'>Sign In</span></a><span style='margin:6px; vertical-align: middle;'><a href='Settings.aspx'><img border='0' alt='Settings' src='../Content/NGL/Settings32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='#' onclick='openHelpWindow();return false;'><img border='0' alt='Help (Test)' src='../Content/NGL/Help32Test.png'></a></span></div><div style='margin:0 auto !important; display:inline-block'><span><h2 style='-webkit-margin-before: 0.50em; -webkit-margin-after: 0.50em;'>Tariff Flat Rates</h2></span></div></div></div>" }, { text: 'Actions', content: "<button id='btnOpenContract' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenContract, 172);'><span class='k-icon k-i-hyperlink-open'></span>Contract</button><button id='btnOpenServices' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenServices, 162);'><span class='k-icon k-i-hyperlink-open'></span>Service</button><button id='btnOpenExceptions' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenExceptions, 164);'><span class='k-icon k-i-hyperlink-open'></span>Exceptions</button><button id='btnOpenFees' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenFees, 165);'><span class='k-icon k-i-hyperlink-open'></span>Fees</button><button id='btnOpenFuel' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenFuel, 166);'><span class='k-icon k-i-hyperlink-open'></span>Fuel</button><button id='btnOpenNoDrive' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenNoDrive, 167);'><span class='k-icon k-i-hyperlink-open'></span>Non-Drive Days</button><button id='btnOpenHDMs' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenHDMs, 168);'><span class='k-icon k-i-hyperlink-open'></span>HDMs</button><button id='btnOpenBreakPoints' class='k-button actionBarButton' type='button' onclick='execActionClick(btnOpenBreakPoints, 173);'><span class='k-icon k-i-hyperlink-open'></span>Break Points</button><button id='btnImportSpecificTariffRates' class='k-button actionBarButton' type='button' onclick='execActionClick(btnImportSpecificTariffRates, 285);'><span class='k-icon k-i-upload'></span>Import Specific Tariff Rates</button><button id='btnRefresh' class='k-button actionBarButton' type='button' onclick='execActionClick(btnRefresh, 170);'><span class='k-icon k-i-reload'></span>Refresh</button><button id='btnResetCurrentUserConfig' class='k-button actionBarButton' type='button' onclick='execActionClick(btnResetCurrentUserConfig, 193);'><span class='k-icon k-i-file-wrench'></span>Reset Page Settings</button><span style='float:right; display:inline-block;'><span style='margin:6px; vertical-align: middle;'><a href='Settings.aspx'><img border='0' alt='Settings' src='../Content/NGL/Settings32.png' width='32' height='32'></a></span><span style='margin:6px; vertical-align: middle;'><a href='#' onclick='openHelpWindow();return false;'><img border='0' alt='Help (Test)' src='../Content/NGL/Help32Test.png' ></a></span></span>" }] }).data('kendoTabStrip').select(1); if (localStorage.SignedIn == 't') { var divWelcome = document.getElementById('WelcomeMessage'); if (typeof (divWelcome) !== 'undefined' && ngl.isObject(divWelcome)) { divWelcome.innerHTML = 'Welcome ' + localStorage.NGLvar1455; } var signInMsg = document.getElementById('signInText'); if (typeof (signInMsg) !== 'undefined' && ngl.isObject(signInMsg)) { signInMsg.innerHTML = 'Sign Out'; } };
+
+                if (control != 0) {
+                    //setTimeout(function () {
+                    //    //add code here to load screen specific information this is only visible when a user is authenticated
+                    //}, 1,this);
+
+                }
+                var PageReadyJS = $('#menuTree').kendoTreeView({ dataUrlField: 'LinksTo', template: "#=item.text#", dataSource: { data: [{ text: '<span name="itemName" data-itemId="11862" data-security=3 data-order=1>Home</span>', id: '20', mtc: '11862', expanded: false, LinksTo: '../Default.aspx' }, { text: '<span name="itemName" data-itemId="11863" data-security=3 data-order=2>Company</span>', id: '123', mtc: '11863', expanded: true, LinksTo: '../CompanyDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="11863" data-itemId="11864" data-position="1">Company</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11864); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11864); return false;"></span></div>', visible: true, id: '30', LinksTo: '../LECompMaint.aspx' }, { text: '<span name="itemName" data-parentId="11863" data-itemId="11865" data-position="2">Company EDI</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11865); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11865); return false;"></span></div>', visible: true, id: '104', LinksTo: '../CompEDI.aspx' }] }, { text: '<span name="itemName" data-itemId="11866" data-security=3 data-order=3>Carrier</span>', id: '124', mtc: '11866', expanded: true, LinksTo: '../CarrierDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="11866" data-itemId="11867" data-position="1">Carrier</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11867); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11867); return false;"></span></div>', visible: true, id: '44', LinksTo: '../LECarrierMaint.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11868" data-position="2">Carrier EDI</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11868); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11868); return false;"></span></div>', visible: true, id: '105', LinksTo: '../CarrierEDI.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11869" data-position="3">Carrier Fuel Index Maint</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11869); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11869); return false;"></span></div>', visible: true, id: '106', LinksTo: '../CarrierFuelIndex.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11870" data-position="4">Fuel Zones</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11870); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11870); return false;"></span></div>', visible: true, id: '108', LinksTo: '../NatFuelZones.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11871" data-position="5">Fuel</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11871); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11871); return false;"></span></div>', visible: true, id: '107', LinksTo: '../CarrierFuel.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11872" data-position="6">Equipment</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11872); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11872); return false;"></span></div>', visible: true, id: '107', LinksTo: '../CarrierEquipment.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11873" data-position="7">Carrier Exposure All</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11873); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11873); return false;"></span></div>', visible: true, id: '140', LinksTo: '../CarrierExposureAll.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11874" data-position="8">Carrier Qualification</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11874); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11874); return false;"></span></div>', visible: true, id: '145', LinksTo: '../CarrierQualification.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11875" data-position="9">Carrier Exposure Shipment</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11875); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11875); return false;"></span></div>', visible: true, id: '139', LinksTo: '../CarrierExposureShipment.aspx' }, { text: '<span name="itemName" data-parentId="11866" data-itemId="11876" data-position="10">Carrier Insurance Expired</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11876); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11876); return false;"></span></div>', visible: true, id: '143', LinksTo: '../CarrierInsuranceExpired.aspx' }] }, { text: '<span name="itemName" data-itemId=11877 data-security=3 data-order=4>Lane</span>', id: '0', mtc: '11877', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11877" data-itemId="11878" data-position="1">Lane</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11878); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11878); return false;"></span></div>', visible: true, id: '31', LinksTo: '../LELaneMaint.aspx' }, { text: '<span name="itemName" data-parentId="11877" data-itemId="11879" data-position="2">Lane Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11879); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11879); return false;"></span></div>', visible: true, id: '99', LinksTo: '../LELaneFees.aspx' }, { text: '<span name="itemName" data-parentId="11877" data-itemId="11880" data-position="3">Lane Profile Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11880); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11880); return false;"></span></div>', visible: true, id: '100', LinksTo: '../LELaneProfileFees.aspx' }, { text: '<span name="itemName" data-parentId="11877" data-itemId="11881" data-position="4">Lane Preferred Carriers</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11881); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11881); return false;"></span></div>', visible: true, id: '101', LinksTo: '../LELanePreferredCarriers.aspx' }, { text: '<span name="itemName" data-parentId="11877" data-itemId="11882" data-position="5">Lane Trans Load</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11882); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11882); return false;"></span></div>', visible: true, id: '101', LinksTo: '../LELaneTransLoad.aspx' }, { text: '<span name="itemName" data-parentId="11877" data-itemId="11883" data-position="6">Lane HDM Fee Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11883); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11883); return false;"></span></div>', visible: true, id: '146', LinksTo: '../LELaneHDMMaint.aspx' }] }, { text: '<span name="itemName" data-itemId="11884" data-security=3 data-order=5>Planning & Execution</span>', id: '126', mtc: '11884', expanded: true, LinksTo: '../PlanningExecutionDashboard.aspx', items: [{ text: '<span name="itemName" data-parentId="11884" data-itemId="11885" data-position="1">Rate Shop</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11885); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11885); return false;"></span></div>', visible: true, id: '15', LinksTo: '../RateShopping.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11886" data-position="2">Load Board</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11886); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11886); return false;"></span></div>', visible: true, id: '62', LinksTo: '../LoadBoard.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11887" data-position="3">Fee Approval</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11887); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11887); return false;"></span></div>', visible: true, id: '43', LinksTo: '../CarrierAccessorialApproval.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11888" data-position="4">AP Frt Bill Audit Approval</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11888); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11888); return false;"></span></div>', visible: true, id: '81', LinksTo: '../APMassEntryMaint.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11889" data-position="5">Accessorials</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11889); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11889); return false;"></span></div>', visible: true, id: '32', LinksTo: '../AccessorialMaint.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11890" data-position="6">Order Preview</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11890); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11890); return false;"></span></div>', visible: true, id: '78', LinksTo: '../OrderPreview.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11891" data-position="8">Claims</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11891); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11891); return false;"></span></div>', visible: true, id: '109', LinksTo: '../Claims.aspx' }, { text: '<span name="itemName" data-parentId="11884" data-itemId="11892" data-position="9">Map Planning</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11892); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11892); return false;"></span></div>', visible: true, id: '115', LinksTo: '../MapRoutePLanning.aspx' }] }, { text: '<span name="itemName" data-itemId=11893 data-security=3 data-order=6>Tariffs</span>', id: '0', mtc: '11893', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11893" data-itemId="11894" data-position="1">Contract</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11894); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11894); return false;"></span></div>', visible: true, id: '39', LinksTo: '../Tariff.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11895" data-position="2">Services</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11895); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11895); return false;"></span></div>', visible: true, id: '48', LinksTo: '../TariffServices.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11896" data-position="3">Rates</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11896); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11896); return false;"></span></div>', visible: true, id: '57', LinksTo: '../TariffRates.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11897" data-position="4">Exceptions</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11897); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11897); return false;"></span></div>', visible: true, id: '49', LinksTo: '../TariffExceptions.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11898" data-position="5">Fuel</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11898); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11898); return false;"></span></div>', visible: true, id: '54', LinksTo: '../TariffFuel.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11899" data-position="6">HDMs</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11899); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11899); return false;"></span></div>', visible: true, id: '55', LinksTo: '../TariffHDMs.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11901" data-position="8">Package Descriptions</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11901); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11901); return false;"></span></div>', visible: true, id: '79', LinksTo: '../PackageDescriptions.aspx' }, { text: '<span name="itemName" data-parentId="11893" data-itemId="11900" data-position="8">Fees</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11900); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11900); return false;"></span></div>', visible: true, id: '53', LinksTo: '../TariffFees.aspx' }] }, { text: '<span name="itemName" data-itemId=11902 data-security=3 data-order=7>Scheduling</span>', id: '0', mtc: '11902', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11902" data-itemId="11903" data-position="1">Warehouse</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11903); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11903); return false;"></span></div>', visible: true, id: '38', LinksTo: '../Scheduler.aspx' }, { text: '<span name="itemName" data-parentId="11902" data-itemId="11904" data-position="4">Manage</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11904); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11904); return false;"></span></div>', visible: true, id: '50', LinksTo: '../ManageSchedule.aspx' }] }, { text: '<span name="itemName" data-itemId=11905 data-security=3 data-order=8>NEXTrack</span>', id: '0', mtc: '11905', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11905" data-itemId="11906" data-position="1">All</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11906); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11906); return false;"></span></div>', visible: true, id: '18', LinksTo: '../All.aspx' }, { text: '<span name="itemName" data-parentId="11905" data-itemId="11907" data-position="2">Tendered</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11907); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11907); return false;"></span></div>', visible: true, id: '45', LinksTo: '../Tendered.aspx' }, { text: '<span name="itemName" data-parentId="11905" data-itemId="11908" data-position="3">Settlement</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11908); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11908); return false;"></span></div>', visible: true, id: '24', LinksTo: '../Settlement.aspx' }, { text: '<span name="itemName" data-parentId="11905" data-itemId="11909" data-position="4">Settled</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11909); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11909); return false;"></span></div>', visible: true, id: '25', LinksTo: '../Settled.aspx' }, { text: '<span name="itemName" data-parentId="11905" data-itemId="11910" data-position="5">Reports</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11910); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11910); return false;"></span></div>', visible: true, id: '74', LinksTo: '../Reporting.aspx' }, { text: '<span name="itemName" data-parentId="11905" data-itemId="11911" data-position="6">Local Reports</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11911); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11911); return false;"></span></div>', visible: true, id: '102', LinksTo: '../LocalReports.aspx' }] }, { text: '<span name="itemName" data-itemId=11912 data-security=3 data-order=9>NEXTStop</span>', id: '0', mtc: '11912', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11912" data-itemId="11913" data-position="1">NEXTStop Ops</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11913); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11913); return false;"></span></div>', visible: true, id: '8', LinksTo: '../NSOpsStatic.aspx' }] }, { text: '<span name="itemName" data-itemId=11914 data-security=3 data-order=10>System</span>', id: '0', mtc: '11914', expanded: true, items: [{ text: '<span name="itemName" data-parentId="11914" data-itemId="11915" data-position="1">Legal Entity Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11915); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11915); return false;"></span></div>', visible: true, id: '29', LinksTo: '../LegalEntityMaint.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11916" data-position="2">User Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11916); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11916); return false;"></span></div>', visible: true, id: '47', LinksTo: '../LEUsers.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11917" data-position="5">Static List Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11917); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11917); return false;"></span></div>', visible: true, id: '112', LinksTo: '../StaticListMaint.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11918" data-position="6">Global List Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11918); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11918); return false;"></span></div>', visible: true, id: '113', LinksTo: '../GlobalListMaint.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11919" data-position="7">Manage Security</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11919); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11919); return false;"></span></div>', visible: true, id: '94', LinksTo: '../ManageSecurity.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11920" data-position="8">Manual EDI Processing</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11920); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11920); return false;"></span></div>', visible: true, id: '83', LinksTo: '../EDILogs.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11921" data-position="10">Whats New</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11921); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11921); return false;"></span></div>', visible: true, id: '89', LinksTo: '../WhatsNew.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11922" data-position="11">System Info</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11922); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11922); return false;"></span></div>', visible: true, id: '80', LinksTo: '../SystemInfo.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11923" data-position="12">NGL System Maintenance</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11923); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11923); return false;"></span></div>', visible: true, id: '110', LinksTo: '../NGLSystemMaint.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11924" data-position="13">Task Manager</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11924); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11924); return false;"></span></div>', visible: true, id: '131', LinksTo: '../TaskManager.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11925" data-position="17">Integration Log</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11925); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11925); return false;"></span></div>', visible: true, id: '137', LinksTo: '../IntegrationLog.aspx' }, { text: '<span name="itemName" data-parentId="11914" data-itemId="11926" data-position="18">Task Manager Log</span> <div class="menuItem" style ="display: none"><span title="Add to favorites" onclick="addMenuItemToFavorites(0,11926); return false;" name="Favorite" class="k-icon k-i-star"></span><span title="Remove" name="Remove" class="k-icon k-i-x-circle" onclick="toggleMenuItemVisibility(11926); return false;"></span></div>', visible: true, id: '138', LinksTo: '../TaskManagerLog.aspx' }] }, { text: '<span name="itemName" data-itemId="11928" data-security=3 data-order=12>About</span>', id: '10', mtc: '11928', expanded: false, LinksTo: '../About.aspx' }, { text: '<span name="itemName" data-itemId="11929" data-security=3 data-order=14>Contact</span>', id: '11', mtc: '11929', expanded: false, LinksTo: '../Contact.aspx' }] }, dataBound: function (e) { onMenuTreeDataBound(e); }, dragAndDrop: false, dragend: function (e) { onDragEndMenuTree(e); }, drop: function (e) { dropNodeMenuTree(e); }, drag: function (e) { dragNodeMenuTree(e); }, loadOnDemand: false, expand: function (e) { saveExpandNode(e); }, collapse: function (e) { saveCollapseNode(e); } }).data('kendoTreeView'), handleTextBox = function (callback) { return function (e) { if (e.type != 'keypress' || kendo.keys.ENTER == e.keyCode) { callback(e); } }; }; setTimeout(function () { $('#txtE4PHCont').val(0); $('#txtE3PHCont').val(0); $('#txtE2PHCont').val(0); $('#txtE1PHCont').val(0); $('#editor1').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: "save", tooltip: "Save", exec: function (e) { saveHelpEditorL1(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor2').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL2(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor3').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL3(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#editor4').kendoEditor({ resizable: { content: true, toolbar: true }, tools: [{ name: 'save', tooltip: 'Save', exec: function (e) { saveHelpEditorL4(); } }, 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'print', 'pdf'] }); $('#HelpWindow').kendoWindow({ title: "Help", modal: false, visible: false, actions: ["pencil", "Minimize", "Maximize", "Close"], maxHeight: $(window).height() * 0.8, maxWidth: $(window).width() * 0.8, minHeight: $(window).height() * 0.2, minWidth: $(window).width() * 0.2 }).data('kendoWindow'); $('#HelpWindow').data('kendoWindow').wrapper.find('.k-svg-i-pencil').parent().click(function (e) { getPageHelpNotes(PageControl, getPHNEdit); var ht = $('#HelpWindow').data('kendoWindow').title(); $('#HelpWindow').data('kendoWindow').title(ht + " : Edit Mode"); $('#winCont').hide(); $('#EditCont').show(); $('#HelpWindow').data('kendoWindow').center(); }); }, 0, this); $(document).ready(function () { $(function () { $('span[name="Remove"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-error"); }); $('span[name="Remove"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-error"); }); $('span[name="Favorite"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-warning"); }); $('span[name="Favorite"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-warning"); }); $('span[name="Restore"]').hover(function () { $(this).parents("a.k-in").removeClass("k-fab k-fab-success"); }); $('span[name="Restore"]').mouseover(function () { $(this).parents("a.k-in").addClass("k-fab k-fab-success"); }); }); });
+
+                wdgtvCarrierTariffSummarySummary = new NGLSummaryDataCtrl();
+
+                wdgtvCarrierTariffSummarySummary.loadDefaults('divid591112018090812371692756wrapper', 'id591112018090812371692756', objvCarrierTariffSummaryDataFields, 'blueopal', 'vCarrierTariffSummaryCB', 'Tariff/GetCarrierTariffSummary', 'NGLvCarrierTariffSummaryClass', 'Carrier Tariff Flat Rate Summary');
+
+                setTimeout(function () {
+
+                    wdgtvCarrierTariffSummarySummary.read(0);
+                }, 0, this);
+
+                wdgtTariffRatesGridEdit = new NGLEditWindCtrl();
+
+                wdgtTariffRatesGridEdit.loadDefaults('divid5984201809080756471569733', wndTariffRatesGridEdit, 'id5984201809080756471569733', 'id5984201809080752349238950', objTariffRatesGridDataFields, 'blueopal', 'TariffRatesGridCB', 'TariffRateFlat', 'NGLTariffRatesGridClass', 'Flat Rate', 'Please select a Flat Rate record with valid data.', 'A Flat Rate Record is Required', 'Cannot add a new Flat Rate record because the field configuration settings are not valid, contact technical support for more information.', 'The Add New Flat Rate Settings Are Invalid', 'wdgtTariffRatesGridEdit');
+
+                var arrid5984201809080752349238950GroupBy = [];
+
+                var objid5984201809080752349238950Filters = new AllFiltersCtrl('True', 'TariffRateFlat'); var objid5984201809080752349238950FilterData = [{ filterCaption: "Country", filterName: "CarrTarEquipMatCountry", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "State", filterName: "CarrTarEquipMatState", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "City", filterName: "CarrTarEquipMatCity", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Start Zip/PC", filterName: "CarrTarEquipMatFromZip", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Stop Zip/PC", filterName: "CarrTarEquipMatToZip", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Lane Number", filterName: "LaneNumber", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Min Value", filterName: "CarrTarEquipMatMin", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Max Trans Days", filterName: "CarrTarEquipMatMaxDays", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Flat Rate", filterName: "Rate", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Mod Date", filterName: "CarrTarEquipMatModDate", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: true }, { filterCaption: "Mod User", filterName: "CarrTarEquipMatModUser", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }, { filterCaption: "Name", filterName: "CarrTarEquipMatName", filterValueFrom: "", filterValueTo: "", filterFrom: "", filterTo: "", filterIsDate: false }];; objid5984201809080752349238950Filters.loadDefaults("divid5984201809080752349238950filterContent", "id5984201809080752349238950", objid5984201809080752349238950FilterData, 'blueopal', function (results) { var oKendoGrid = $('#id5984201809080752349238950').data("kendoNGLGrid"); if (typeof (oKendoGrid) !== 'undefined' && ngl.isObject(oKendoGrid)) { oKendoGrid.dataSource.read(); } return; }, 'Flat Rate Filters'); objid5984201809080752349238950Filters.show(); objid5984201809080752349238950Filters.addSavedFilters();
+
+                vCarrTarEquipMatPivotTruckLoad = new kendo.data.DataSource({
+
+                    serverSorting: true,
+
+                    serverPaging: true,
+
+                    pageSize: 10,
+
+                    transport: {
+
+                        read: function (options) {
+
+                            var s = objid5984201809080752349238950Filters.data;
+
+                            s.Groups = arrid5984201809080752349238950GroupBy;
+
+                            s.sortName = $("#txtid5984201809080752349238950SortField").val(); s.sortDirection = $("#txtid5984201809080752349238950SortDirection").val();
+
+                            s.page = options.data.page;
+
+                            s.skip = options.data.skip;
+
+                            s.take = options.data.take;
+
+                            if (typeof (TariffRatesGridGetStringData) !== 'undefined' && ngl.isFunction(TariffRatesGridGetStringData)) { s.Data = TariffRatesGridGetStringData(s); } else { s.Data = ''; };
+
+
+
+                            $.ajax({
+
+                                url: 'api/TariffRateFlat/GetRecords/' + s,
+
+                                contentType: 'application/json; charset=utf-8',
+
+                                dataType: 'json',
+
+                                data: { filter: JSON.stringify(s) },
+
+                                headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },
+
+                                success: function (data) {
+
+                                    options.success(data);
+
+                                    if (typeof (data) !== 'undefined' && ngl.isObject(data) && typeof (data.Errors) !== 'undefined' && data.Errors != null) { }
+                                },
+
+                                error: function (result) {
+
+                                    options.error(result);
+
+                                }
+
+                            });
+
+                        },
+
+                        parameterMap: function (options, operation) { return options; }
+
+                    },
+
+                    schema: {
+
+                        data: "Data",
+
+                        total: "Count",
+
+                        model: {
+
+                            id: "CarrTarEquipMatControl",
+
+                            fields: {
+
+                                CarrTarEquipMatCountry: { type: "string" },
+
+                                CarrTarEquipMatState: { type: "string" },
+
+                                CarrTarEquipMatCity: { type: "string" },
+
+                                CarrTarEquipMatFromZip: { type: "string" },
+
+                                CarrTarEquipMatToZip: { type: "string" },
+
+                                LaneNumber: { type: "string" },
+
+                                CarrTarEquipMatLaneControl: { type: "number" },
+
+                                CarrTarEquipMatMin: { type: "number" },
+
+                                CarrTarEquipMatMaxDays: { type: "number" },
+
+                                Rate: { type: "number" },
+
+                                CarrTarEquipMatModDate: { type: "date" },
+
+                                CarrTarEquipMatModUser: { type: "string" },
+
+                                CarrTarEquipMatName: { type: "string" },
+
+                                CarrTarEquipMatClass: { type: "string" },
+
+                                CarrTarEquipMatClassTypeControl: { type: "number" },
+
+                                CarrTarEquipMatControl: { type: "number" },
+
+                                CarrTarEquipDescription: { type: "string" },
+
+                                CarrTarEquipMatCarrTarControl: { type: "number" },
+
+                                CarrTarEquipMatCarrTarEquipControl: { type: "number" },
+
+                                CarrTarEquipMatCarrTarMatBPControl: { type: "number" },
+
+                                CarrTarEquipName: { type: "string" },
+
+                                CarrTarEquipMatTarBracketTypeControl: { type: "number" },
+
+                                CarrTarEquipMatTarRateTypeControl: { type: "number" }
+
+                            }
+
+                        },
+
+                        errors: "Errors"
+
+                    },
+
+                    group: [],
+
+                    aggregate: [],
+
+                    error: function (xhr, textStatus, error) {
+
+                        ngl.showErrMsg("Access vCarrTarEquipMatPivotTruckLoad Data Failed", formatAjaxJSONResponsMsgs(xhr, textStatus, error, " cannot complete your request"), null); this.cancelChanges();
+
+                    }
+
+                });
+
+
+
+
+                $('#id5984201809080752349238950').kendoNGLGrid({
+
+                    autoBind: false, theme: "blueopal",
+
+                    toolbarColumnMenu: true,
+
+                    dataSource: vCarrTarEquipMatPivotTruckLoad,
+
+                    selectable: "row",
+
+                    pageable: { pageSizes: [5, 10, 15, 20, 25, 50] },
+
+                    sortable: {
+
+                        mode: "single",
+
+                        allowUnsort: true
+
+                    },
+
+                    sort: function (e) {
+
+                        if (!e.sort.dir) { e.sort.dir == ""; e.sort.field == ""; }
+
+                        if (!e.sort.field) { e.sort.field == ""; }
+
+                        $("#txtid5984201809080752349238950SortDirection").val(e.sort.dir);
+
+                        $("#txtid5984201809080752349238950SortField").val(e.sort.field);
+
+                    },
+
+                    dataBound: function (e) {
+
+                        var tObj = this;
+
+                        if (typeof (TariffRatesGridDataBoundCallBack) !== 'undefined' && ngl.isFunction(TariffRatesGridDataBoundCallBack)) { TariffRatesGridDataBoundCallBack(e, tObj); }
+
+                    },
+
+                    resizable: true,
+
+                    reorderable: true,
+
+                    nglCustomDragAndDrop: 'true',
+
+                    nglDragStart: function (dsO, e) {
+                        if (typeof (TariffRatesGridDragStartCallBack) !== 'undefined' && ngl.isFunction(TariffRatesGridDragStartCallBack)) { TariffRatesGridDragStartCallBack(dsO, e); }
+
+                    },
+
+                    nglDragEnd: function (dsO, ddO, isDraggingUp) {
+                        if (typeof (TariffRatesGridDropCallBack) !== 'undefined' && ngl.isFunction(TariffRatesGridDropCallBack)) { TariffRatesGridDropCallBack(dsO, ddO, isDraggingUp); }
+
+                    },
+
+                    columnResize: function (e) { this._captureColumnResize(e); },
+
+                    columnReorder: function (e) { this._captureColumnReorder(e); },
+
+                    groupable: true,
+
+                    group: function (e) {
+
+                        arrid5984201809080752349238950GroupBy = new Array();
+
+                        if (e.groups.length) {
+
+                            for (let i = 0; i < e.groups.length; i++) {
+
+                                arrid5984201809080752349238950GroupBy.push(e.groups[i].field);
+
+                            }
+
+                        }
+
+                    },
+
+                    toolbar: [{ name: "excel", excel: { fileName: "vCarrTarEquipMatPivotTruckLoad-8-22-2022-13-4-15.xlsx", allPages: true } }, { name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  onclick="return openAddNewTariffRatesGridWindow(event,' + null + ')"><span class="k-icon k-i-add"></span>Add</a>' }]
+
+                    , columns: [
+
+                        {
+                            command: [
+
+                                { className: "cm-icononly-button U", name: "EditTariffRatesGridCRUDCtrl", text: "", iconClass: "k-icon k-i-pencil", click: openEditTariffRatesGridWindow },
+
+                                { className: "cm-icononly-button D", name: "DeleteTariffRatesGridCRUDCtrl", text: "", iconClass: "k-icon k-i-trash", click: confirmDeleteTariffRatesGridRecord }], title: "Actions", width: 95
+                        },
+
+
+                        { field: "CarrTarEquipMatCountry", title: "Country", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161607, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatCountry}'>${CarrTarEquipMatCountry}</span>" },
+
+                        { field: "CarrTarEquipMatState", title: "State", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161608, PageDetUserSecurityControl: 0 },
+
+                        { field: "CarrTarEquipMatCity", title: "City", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161609, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatCity}'>${CarrTarEquipMatCity}</span>" },
+
+                        { field: "CarrTarEquipMatFromZip", title: "Start Zip/PC", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161610, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatFromZip}'>${CarrTarEquipMatFromZip}</span>" },
+
+                        { field: "CarrTarEquipMatToZip", title: "Stop Zip/PC", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161611, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatToZip}'>${CarrTarEquipMatToZip}</span>" },
+
+                        { field: "LaneNumber", title: "Lane Number", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161612, PageDetUserSecurityControl: 0, template: "<span title='${LaneNumber}'>${LaneNumber}</span>" },
+
+                        { field: "CarrTarEquipMatLaneControl", title: "Lanes", width: 50, hidden: true, showhide: 1, PageDetPageControl: 59, PageDetControl: 161613, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipMatMin", title: "Min Value", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161614, PageDetUserSecurityControl: 0, format: "{0:c2}" },
+
+                        { field: "CarrTarEquipMatMaxDays", title: "Max Trans Days", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161615, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "Rate", title: "Flat Rate", width: 50, showhide: 1, PageDetPageControl: 59, PageDetControl: 161616, PageDetUserSecurityControl: 0, format: "{0:c2}" },
+
+                        { field: "CarrTarEquipMatModDate", title: "Mod Date", width: 50, hidden: true, showhide: 1, PageDetPageControl: 59, PageDetControl: 161617, PageDetUserSecurityControl: 0, template: "#= kendo.toString(kendo.parseDate(CarrTarEquipMatModDate, 'yyyy-MM-dd'), 'MM/dd/yyyy') #" },
+
+                        { field: "CarrTarEquipMatModUser", title: "Mod User", width: 50, hidden: true, showhide: 1, PageDetPageControl: 59, PageDetControl: 161618, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatModUser}'>${CarrTarEquipMatModUser}</span>" },
+
+                        { field: "CarrTarEquipMatName", title: "Name", width: 50, hidden: true, showhide: 1, PageDetPageControl: 59, PageDetControl: 161619, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatName}'>${CarrTarEquipMatName}</span>" },
+
+                        { field: "CarrTarEquipMatClass", title: "CarrTarEquipMatClass", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161620, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipMatClass}'>${CarrTarEquipMatClass}</span>" },
+
+                        { field: "CarrTarEquipMatClassTypeControl", title: "CarrTarEquipMatClassTypeControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161621, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipMatControl", title: "CarrTarEquipMatControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161622, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipDescription", title: "CarrTarEquipDescription", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161623, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipDescription}'>${CarrTarEquipDescription}</span>" },
+
+                        { field: "CarrTarEquipMatCarrTarControl", title: "CarrTarEquipMatCarrTarControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161624, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipMatCarrTarEquipControl", title: "CarrTarEquipMatCarrTarEquipControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161625, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipMatCarrTarMatBPControl", title: "CarrTarEquipMatCarrTarMatBPControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161626, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipName", title: "CarrTarEquipName", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161627, PageDetUserSecurityControl: 0, template: "<span title='${CarrTarEquipName}'>${CarrTarEquipName}</span>" },
+
+                        { field: "CarrTarEquipMatTarBracketTypeControl", title: "CarrTarEquipMatTarBracketTypeControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161628, PageDetUserSecurityControl: 0, format: "{0:n0}" },
+
+                        { field: "CarrTarEquipMatTarRateTypeControl", title: "CarrTarEquipMatTarRateTypeControl", width: 50, hidden: true, showhide: 0, PageDetPageControl: 59, PageDetControl: 161629, PageDetUserSecurityControl: 0, format: "{0:n0}" }],
+
+                });
+
+                vCarrTarEquipMatPivotTruckLoad.read();
+
+
+
+                $('#id5984201809080752349238950').kendoTooltip({ filter: '.U', content: function (e) { return 'Edit'; } }).data('kendoTooltip');
+
+
+                $('#id5984201809080752349238950').kendoTooltip({ filter: '.D', content: function (e) { return 'Delete'; } }).data('kendoTooltip');
+
+                menuTreeHighlightPage(); //must be called after PageReadyJS
+                var divWait = $("#h1Wait");
+                if (typeof (divWait) !== 'undefined') {
+                    divWait.hide();
+                }
+
+            });
+
+
+        </script>
+        <style>
+            .k-grid tbody tr td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .k-tooltip {
+                max-height: 500px;
+                max-width: 450px;
+                overflow-y: auto;
+            }
+
+            .k-grid tbody .k-grid-Edit {
+                min-width: 0;
+            }
+
+                .k-grid tbody .k-grid-Edit .k-icon {
+                    margin: 0;
+                }
+        </style>
+
+    </div>
+</body>
+</html>

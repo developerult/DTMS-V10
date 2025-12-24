@@ -1,0 +1,759 @@
+﻿<div id="wndAddUser">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div style="padding: 0px 10px 10px 10px;">
+            
+            <div style="float: left;">
+                <!--User Email-->
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Email<span class="redRequiredAsterik"> *</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="txtUserEmail" maxlength="100" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="divChkMicosoft" style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input type="checkbox" id="chkLoginWithMicrosoft" ><label class="k-checkbox-label" for="chkLoginWithMicrosoft"><strong>Log in using Microsoft Account</strong></label></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--User Name-->
+                <div id="divLegacyUN" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">User Name<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLegacyUserName" maxlength="100" style="width: 250px;" /></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input type="checkbox" id="chkAutoGeneratePwd" ><label class="k-checkbox-label" for="chkAutoGeneratePwd"><strong>Auto Generate Password</strong></label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <div id="divLegacyPwd" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Password<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLegacyPwd" maxlength="100" style="width: 250px;" /></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input type="checkbox" id="chkSendUserPwdEmail" ><label class="k-checkbox-label" for="chkSendUserPwdEmail"><strong>Send Password to User</strong></label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--First/Last/Friendly Names-->
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">First Name<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtFirstName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Last Name<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtLastName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Friendly Name</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtFriendlyName" maxlength="100" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <!--Work Phone-->
+                <div id="divWorkPhone" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Work Phone</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtWorkPhone" maxlength="20" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Work Phone Ext</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="txtWorkPhoneExt" maxlength="20" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Culture Info & Time Zone-->
+                <div id="divCultureTime" style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Culture Info</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top">
+                                    <input id="cultureDropdown" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Time Zone</td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top">
+                                    <input id="timeZoneDropdown" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <!--User Fields-->
+            <div id="divUser" style="float: left;">
+                <!--User Group-->
+                <div style="float: left;">
+                    <table class="tblResponsive">
+                        <tr>
+                            <td class="tblResponsive-top">Role<span class="redRequiredAsterik"> *</span></td>
+                        </tr>
+                        <tr>
+                            <td class="tblResponsive-top"><input id="ddlUserGroupsByLE" style="width: 250px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+                <div id="divAccountOptions">
+                    <div style="padding-bottom: 10px; padding-top: 10px;">
+                        <div style="margin-left: 5px;">
+                            <input type="checkbox" id="chkAllowNGLAPI" ><label class="k-checkbox-label" for="chkAllowNGLAPI"><strong>Allow NGL API</strong></label>
+                        </div>
+                    </div>
+
+                    <div id="divAccountGroup" style="float: left;">
+                        <div style="float: left;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top">Account Group<span class="redRequiredAsterik"> *</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><input id="txtAccountGroup" maxlength="100" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+                
+                <div id="divAddUserCarriers" style="float: left;">
+                    <div id="addUserAssocCarrGrid"></div>
+                </div>                     
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+            <!--Carrier Fields-->
+            <div id="divCarrier" style="float: left;">
+                <div style="float: left;">
+                    <div style="float: left;">
+                        <table class="tblResponsive">
+                            <tr>
+                                <td class="tblResponsive-top">Carrier<span class="redRequiredAsterik"> *</span></td>
+                            </tr>
+                            <tr>
+                                <td class="tblResponsive-top"><input id="ddlAddCarUserCarriers" style="width: 200px;" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="padding-bottom: 10px; padding-top: 10px;">
+                    <div style="margin-left: 5px;">
+                        <input type="checkbox" id="chkCarrierAccounting" ><label class="k-checkbox-label" for="chkCarrierAccounting"><strong>Accounting</strong></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+               
+            <input id="txtIsAdd" type="hidden" />
+            <input id="txtIsCarrierUser" type="hidden" />
+            
+        </div>
+    </div>
+</div>
+
+
+<div id="wndAddUserAssocCarrEA">
+    <div style="padding: 0px 10px 10px 10px;">
+        <div style="float: left;">
+            
+            <div style="float: left;">                   
+                <table class="tblResponsive">                     
+                    <tr>                          
+                        <td class="tblResponsive-top">Carrier</td>                   
+                    </tr>                        
+                    <tr>
+                        <td class="tblResponsive-top"><input id="ddlAddUserNCUAssocCarrs" style="width: 200px;" /></td>                      
+                    </tr>                  
+                </table>              
+            </div>
+                   
+            <div style="padding-bottom: 10px; padding-top: 10px;">
+                <div style="margin-left: 5px;">
+                    <input type="checkbox" id="chkAddUserAssocCarrAccounting" ><label class="k-checkbox-label" for="chkAddUserAssocCarrAccounting"><strong>Accounting</strong></label>                  
+                </div>
+            </div>
+            
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+            
+            <input id="txtAddUserUSCControl" type="hidden" />
+            <input id="txtAddUserUSC" type="hidden" />
+        </div>
+    </div>
+</div>
+
+<!--initialize all the kendo components-->
+<script>
+
+    var wndAddUserAssocCarrEA = kendo.ui.Window;
+    var UserAddCars = new Array();
+    var intCarIndex = 0;
+
+    function getRecordByUSCControl(idx) {
+        var l = UserAddCars.length;
+        for (var j = 0; j < l; j++) {
+            if (UserAddCars[j].USCControl == idx) { return UserAddCars[j]; }
+        }
+        return null;
+    }
+
+    function getIndexByUSCControl(control) {
+        var l = UserAddCars.length;
+        for (var j = 0; j < l; j++) {
+            if (UserAddCars[j].USCControl == control) { return j; }
+        }
+        return null;
+    }
+
+    //returns the USCControl if true, else 0 if false
+    function doesCarrierRecordExist(carrierControl) {
+        var l = UserAddCars.length;
+        for (var j = 0; j < l; j++) {
+            if (UserAddCars[j].USCCarrierControl == carrierControl) { return UserAddCars[j].USCControl; }
+        }
+        return 0;
+    }
+
+    function openAddUserAddAssocCarrWnd() {
+        $("#txtAddUserUSCControl").val(0);
+        $("#chkAddUserAssocCarrAccounting").prop('checked', false);     
+        wndAddUserAssocCarrEA.center().open();
+    }
+
+    function openAddUserEditAssocCarrWnd(e) {
+        var item = this.dataItem($(e.currentTarget).closest("tr"));
+
+        if (typeof (item) === 'undefined' || item == null || !ngl.isObject(item)) { ngl.showErrMsg("Error", "There was a problem getting the row from the grid", null); return; } //Verify the row item is not null                 
+        if (!('USCCarrierControl' in item)) { ngl.showErrMsg("USCCarrierControl Required", "Row object does not contain property USCCarrierControl.", null); return; } //Verify USCCarrierControl is a column in the grid                 
+        if (typeof (item.USCCarrierControl) === 'undefined' || item.USCCarrierControl == null || item.USCCarrierControl == 0) { ngl.showErrMsg("USCCarrierControl Required", "USCCarrierControl cannot be 0", null); return; } //Verify USCCarrierControl is not null or 0                            
+        if (!('USCControl' in item)) { ngl.showErrMsg("USCControl Required", "Row object does not contain property USCControl.", null); return; } //Verify USCControl is a column in the grid                 
+        if (typeof (item.USCControl) === 'undefined' || item.USCControl == null || item.USCControl == 0) { ngl.showErrMsg("USCControl Required", "USCControl cannot be 0", null); return; } //Verify USCControl is not null or 0                            
+
+        var dropdownlist = $("#ddlAddUserNCUAssocCarrs").data("kendoDropDownList");
+        dropdownlist.select(function (dataItem) { return dataItem.Control === item.USCCarrierControl; });       
+        if (item.USCCarrierAccounting === "Y") { $("#chkAddUserAssocCarrAccounting").prop('checked', true); } else { $("#chkAddUserAssocCarrAccounting").prop('checked', false); }
+        $("#txtAddUserUSCControl").val(item.USCControl);
+
+        wndAddUserAssocCarrEA.center().open();
+    }
+
+    function SaveAddUserAssocCarrRecord() {
+        var uscControl = $("#txtAddUserUSCControl").val();
+        var carrierAccounting = "N";
+        var carrierControl = 0;
+        var carrierNumber;
+        var carrierName = "";       
+        if ($('#chkAddUserAssocCarrAccounting').is(":checked")) { carrierAccounting = "Y"; } else { carrierAccounting = "N"; }
+        var dataItem = $("#ddlAddUserNCUAssocCarrs").data("kendoDropDownList").dataItem();
+        carrierControl = dataItem.Control;
+        carrierNumber = dataItem.Description;
+        carrierName = dataItem.Name;
+
+        var duplicateControl = doesCarrierRecordExist(carrierControl);
+
+        if (uscControl == 0) {
+            //Add
+            if (duplicateControl !== 0) { ngl.showErrMsg("Duplicate Record", "A record already exists for this carrier", null); return; }
+            intCarIndex += 1; //increase counter by 1
+            var item = new vUserSecurityCarrier();      
+            item.USCControl = intCarIndex; 
+            item.USCCarrierControl = carrierControl;
+            item.USCCarrierNumber = carrierNumber;
+            item.CarrierName = carrierName;
+            item.USCCarrierAccounting = carrierAccounting;
+            item.USCCarrierContControl = 0;
+            UserAddCars.push(item);
+        } else {
+            //Edit
+            var l = UserAddCars.length;
+            for (var j = 0; j < l; j++) {
+                if (UserAddCars[j].USCControl == uscControl) {
+                    //if a record exists for the carrier with a USCControl different from the record being edited don't save
+                    if (duplicateControl != 0 && duplicateControl != uscControl) { ngl.showErrMsg("Duplicate Record", "A record already exists for this carrier", null); return; }
+                    UserAddCars[j].USCCarrierControl = carrierControl;
+                    UserAddCars[j].USCCarrierNumber = carrierNumber;
+                    UserAddCars[j].CarrierName = carrierName;               
+                    UserAddCars[j].USCCarrierAccounting = carrierAccounting;
+                    UserAddCars[j].USCCarrierContControl = 0;
+                }
+            }
+        }
+        $('#addUserAssocCarrGrid').data('kendoGrid').dataSource.read();
+        wndAddUserAssocCarrEA.close();
+    }
+
+    $(document).ready(function () {
+
+        var kmask = new kendoMasks();
+        kmask.loadDefaultMasks();
+        var phoneMask = kmask.getMask("phone_number");
+
+        $("#txtUserEmail").kendoMaskedTextBox();
+        $("#txtFirstName").kendoMaskedTextBox();
+        $("#txtLastName").kendoMaskedTextBox();
+        $("#txtFriendlyName").kendoMaskedTextBox();
+        $("#txtWorkPhone").kendoMaskedTextBox({ mask: phoneMask });
+        $("#txtWorkPhoneExt").kendoMaskedTextBox();
+        $("#cultureDropdown").kendoComboBox(); // Added Culture Info dropdown
+        $("#timeZoneDropdown").kendoComboBox(); // Added Time Zone dropdown
+        $("#txtLegacyUserName").kendoMaskedTextBox();
+        $("#txtLegacyPwd").kendoMaskedTextBox();
+        $("#txtAccountGroup").kendoMaskedTextBox();
+
+        //initialize values
+        $("#txtUserEmail").data("kendoMaskedTextBox").value("");
+        $("#txtFirstName").data("kendoMaskedTextBox").value("");
+        $("#txtLastName").data("kendoMaskedTextBox").value("");
+        $("#txtFriendlyName").data("kendoMaskedTextBox").value("");
+        $("#txtWorkPhone").data("kendoMaskedTextBox").value("");
+        $("#txtWorkPhoneExt").data("kendoMaskedTextBox").value("");
+        $("#cultureDropdown").data("kendoComboBox").value(""); // Initialize Culture Info dropdown
+        $("#timeZoneDropdown").data("kendoComboBox").value(""); // Initialize Time Zone dropdown
+        $("#txtLegacyUserName").data("kendoMaskedTextBox").value("");
+        $("#txtLegacyPwd").data("kendoMaskedTextBox").value("");
+        $("#txtAccountGroup").data("kendoMaskedTextBox").value(""); //User only
+        $("#chkLoginWithMicrosoft").prop('checked', false); //Uncheck "Login With Microsoft Account"     
+        $("#chkAutoGeneratePwd").prop('checked', false); //Uncheck "Auto Generate Password"          
+        $("#chkSendUserPwdEmail").prop('checked', false); //Uncheck "Send Password to User"
+        $("#chkAllowNGLAPI").prop('checked', false); //Uncheck "Allow NGL API"   User only
+        $("#chkCarrierAccounting").prop('checked', false); //Uncheck "Account"   Carrier only
+
+        //configureWndUIAddUser();
+
+        $('#addUserAssocCarrGrid').kendoGrid({
+            autoBind: false,
+            dataSource: {
+                autoSync: true,
+                serverPaging: false,
+                serverSorting: false,
+                serverFiltering: false,
+                transport: {
+                    read: function (d) {
+                        d.success(UserAddCars);
+                    },
+                    destroy: function (d) {
+                        UserAddCars.splice(getIndexByUSCControl(d.data.USCControl), 1);
+                        d.success(UserAddCars);
+                    },
+                    parameterMap: function (options, operation) { return options; }
+                },
+                schema: {
+                    model: {
+                        id: "USCControl",
+                        fields: {
+                            USCControl: { type: "number" },
+                            USCCarrierControl: { type: "number" },
+                            USCCarrierNumber: { type: "number" },
+                            CarrierName: { type: "string" },
+                            USCCarrierContControl: { type: "number" },
+                            USCCarrierAccounting: { type: "bool" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) {
+                    var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure");
+                    ngl.showErrMsg("addUserAssocCarrGrid Failure", sMsg, null);
+                }
+            },
+            toolbar: [{ name: "Custom", template: '<a class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md"  onclick="return openAddUserAddAssocCarrWnd()"><span class="k-icon k-i-add"></span>Add</a>' }],
+            resizeable: true,
+            groupable: false,
+            scrollable: true,
+            sortable: false,
+            pageable: false,
+            editable: true,
+            columns: [
+                        { field: "USCControl", title: "USCControl", hidden: true },
+                        { field: "USCCarrierControl", title: "Carrier Control", hidden: false },
+                        { field: "USCCarrierNumber", title: "Carrier Number", hidden: false },
+                        { field: "CarrierName", title: "Carrier Name" },
+                        { field: "USCCarrierContControl", title: "USCCarrierContControl", hidden: true },
+                        { field: "USCCarrierAccounting", title: "Accounting" },
+                        { command: [{ className: "cm-icononly-button", name: "EditAsscCar", text: "", iconClass: "k-icon k-i-pencil", click: openAddUserEditAssocCarrWnd }, { className: "cm-icononly-button", name: "destroy", text: "", iconClass: "k-icon k-i-trash" }], title: "Actions", width: "75px" }                                   
+            ],
+        });
+
+
+
+        //////ASSOCIATED CARRIERS DDL////////// 
+        dsAddUserNCUAssocCarrs = new kendo.data.DataSource({
+            serverSorting: true,
+            serverPaging: true,
+            pageSize: 10,
+            transport: {
+                read: function(options) {
+                    var v = new  vLookupListCriteria();
+                    v.id = nglGlobalDynamicLists.LECarrier;
+                    v.sortKey  = 1;
+                    v.criteria = $("#txtLEControl").val(); //NOTE: txtLEControl IS FROM THE LEUSERS PAGE
+                    $.ajax({
+                        url: "api/vLookupList/GetGlobalDynamicListFiltered",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        data: {filter: JSON.stringify(v)},
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 },                                        
+                        success: function (data) { options.success(data); },
+                        error: function (xhr, textStatus, error) {
+                            var sMsg = formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Get Assigned LECarrier Failure");
+                            ngl.showErrMsg("Get Assigned LECarrier", sMsg, null);                        
+                        }
+                    });
+                },
+                parameterMap: function (options, operation) { return options; }
+            },
+            schema: {
+                data: "Data",
+                total: "Count",
+                model: {
+                    id: "Control",
+                    fields: {
+                        Control: { type: "number" },
+                        Name: { type: "string" },
+                        Description: { type: "string" }
+                    }
+                },
+                errors: "Errors"
+            },
+            error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Associated Carriers (Non-Carrier User) Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+        });
+
+        $("#ddlAddUserNCUAssocCarrs").kendoDropDownList({
+            autoBind: false,
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: dsAddUserNCUAssocCarrs
+        });
+
+
+        ////////////wndAddUserAssocCarrEA///////////////
+        wndAddUserAssocCarrEA = $("#wndAddUserAssocCarrEA").kendoWindow({
+            title: "Add Associated Carrier",
+            modal: true,
+            visible: false,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                //reset values
+                $("#chkAddUserAssocCarrAccounting").prop('checked', false); //Uncheck "Account"
+            }
+        }).data("kendoWindow");
+        $("#wndAddUserAssocCarrEA").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveAddUserAssocCarrRecord(); });
+       
+
+        //////////CARRIERS DDL//////////
+        $("#ddlAddCarUserCarriers").kendoDropDownList({
+            dataTextField: "Name",
+            dataValueField: "Control",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: false,
+                transport: {
+                    read: {
+                        url: "api/vLookupList/GetStaticList/" + nglStaticLists.AllCarriers,
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Count",
+                    model: {
+                        id: "Control",
+                        fields: {
+                            Control: { type: "number" },
+                            Name: { type: "string" },
+                            Description: { type: "string" }
+                        }
+                    },
+                    errors: "Errors"
+                },
+                error: function (xhr, textStatus, error) { ngl.showErrMsg("Get Comps JSON Response Error", formatAjaxJSONResponsMsgs(xhr, textStatus, error, "Read Data Failure"), null); this.cancelChanges(); }
+            }
+        });
+
+        ////////////wndAddUser///////////////
+        wndAddUser = $("#wndAddUser").kendoWindow({
+            title: "Add New User",
+            modal: true,
+            visible: false,
+            height: '75%',
+            width: '75%',
+            scrollable: true,
+            actions: ["save", "Minimize", "Maximize", "Close"],
+            close: function (e) {
+                //reset values
+                $("#txtUserEmail").data("kendoMaskedTextBox").value("");
+                $("#txtFirstName").data("kendoMaskedTextBox").value("");
+                $("#txtLastName").data("kendoMaskedTextBox").value("");
+                $("#txtFriendlyName").data("kendoMaskedTextBox").value("");
+                $("#txtWorkPhone").data("kendoMaskedTextBox").value("");
+                $("#txtWorkPhoneExt").data("kendoMaskedTextBox").value("");
+                $("#cultureDropdown").data("kendoComboBox").value(""); // Initialize Culture Info dropdown
+                $("#timeZoneDropdown").data("kendoComboBox").value("");
+                $("#txtLegacyUserName").data("kendoMaskedTextBox").value("");
+                $("#txtLegacyPwd").data("kendoMaskedTextBox").value("");
+                $("#txtAccountGroup").data("kendoMaskedTextBox").value(""); //User only
+                $("#chkLoginWithMicrosoft").prop('checked', false); //Uncheck "Login With Microsoft Account"     
+                $("#chkAutoGeneratePwd").prop('checked', false); //Uncheck "Auto Generate Password"          
+                $("#chkSendUserPwdEmail").prop('checked', false); //Uncheck "Send Password to User"
+                $("#chkAllowNGLAPI").prop('checked', false); //Uncheck "Allow NGL API"   User only
+                $("#chkCarrierAccounting").prop('checked', false); //Uncheck "Account"   Carrier only
+                UserAddCars = [];
+                UserAddCars = new Array();
+                intCarIndex = 0;
+                $('#addUserAssocCarrGrid').data('kendoGrid').dataSource.read();
+                dsAddUserNCUAssocCarrs.read();
+            }
+        }).data("kendoWindow");
+        $("#wndAddUser").data("kendoWindow").wrapper.find(".k-svg-i-save").parent().click(function (e) { SaveNewUser(); });
+
+        $("#cultureDropdown").kendoComboBox({
+            dataTextField: "DisplayName",
+            dataValueField: "CultureId",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: true,
+                transport: {
+                    read: {
+                        url: "api/Users/GetCultureInfo",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    errors: "Errors"
+                }
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                if (item) {
+                    // If you need to do anything upon selecting a culture, you can do it here
+                }
+            }
+        });
+
+        $("#timeZoneDropdown").kendoComboBox({
+            dataTextField: "value",
+            dataValueField: "value",
+            autoWidth: true,
+            filter: "contains",
+            dataSource: {
+                serverFiltering: true,
+                transport: {
+                    read: {
+                        url: "api/Users/GetTimeZoneInfo",
+                        headers: { "Authorization": localStorage.NGLvar1454, "USC": localStorage.NGLvar1452 }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    errors: "Errors"
+                }
+            },
+            select: function (e) {
+                var item = e.dataItem;
+                if (item) {
+                    // If you need to do anything upon selecting a culture, you can do it here
+                }
+            }
+        });
+
+    });
+
+    $('#chkAllowNGLAPI').click(function () {
+        if ($(this).is(':checked')) {
+            $("#divAccountGroup").show();
+        } else {
+            $("#divAccountGroup").hide();
+        }
+    });
+
+    $('#chkAutoGeneratePwd').click(function () {
+        if ($(this).is(':checked')) {
+            $("#divLegacyPwd").hide();
+        } else {
+            $("#divLegacyPwd").show();
+        }
+    });
+
+    $('#chkLoginWithMicrosoft').click(function () {
+        if ($(this).is(':checked')) {
+            $("#divLegacyUN").hide();
+            $("#divLegacyPwd").hide();
+        } else {
+            $("#divLegacyUN").show();
+            $("#divLegacyPwd").show();
+        }
+    });
+
+    function configureWndUIAddShared() {
+        $("#txtIsAdd").val(1); //Set IsAdd to true           
+        //Show fields that are only used for Add     
+        $("#divWorkPhone").show();
+        $("#divCultureTime").show();
+        $("#divChkMicosoft").show();
+        $("#divLegacyUN").show();
+        $("#divLegacyPwd").show();
+        //Make sure editable fields are not readonly
+        $("#txtUserEmail").data("kendoMaskedTextBox").readonly(false);
+        $("#txtFirstName").data("kendoMaskedTextBox").readonly(false);
+        $("#txtLastName").data("kendoMaskedTextBox").readonly(false);
+        $("#txtFriendlyName").data("kendoMaskedTextBox").readonly(false);
+     
+        $(".redRequiredAsterik").show(); //Show all the red "required field" * on Add
+    }
+    function configureWndUIEditShared() {
+        $("#txtIsAdd").val(0); //Set IsAdd to false           
+        //Hide fields that are only used for Add          
+        $("#divWorkPhone").hide();
+        $("#divCultureTime").hide();
+        $("#divChkMicosoft").hide();
+        $("#divLegacyUN").hide();
+        $("#divLegacyPwd").hide();
+        //Set non-editable fields to readonly
+        $("#txtUserEmail").data("kendoMaskedTextBox").readonly();
+        $("#txtFirstName").data("kendoMaskedTextBox").readonly();
+        $("#txtLastName").data("kendoMaskedTextBox").readonly();
+        $("#txtFriendlyName").data("kendoMaskedTextBox").readonly();
+
+        $(".redRequiredAsterik").hide(); //Hide all the red "required field" * on Add
+    }
+
+    function configureWndUIAddUser() {
+        configureWndUIAddShared();
+        $("#wndAddUser").data("kendoWindow").title("Add New User");
+        $("#divAccountOptions").show(); //User only
+        $("#divAccountGroup").hide(); //hide divAccountGroup  User only
+        $("#txtIsCarrierUser").val(0); //Set IsCarrierUser to false
+        $("#divUser").show(); //show user only section
+        $("#divCarrier").hide(); //hide Carrier only section
+        $("#divAddUserCarriers").show(); //show Add Associated Carrier grid (only on Add)
+    }
+    function configureWndUIEditUser() {
+        configureWndUIEditShared();
+        $("#wndAddUser").data("kendoWindow").title("Edit User");
+        $("#divAccountOptions").hide(); //user
+        $("#txtIsCarrierUser").val(0);
+        $("#divUser").show(); //show user only section
+        $("#divCarrier").hide(); //hide Carrier only section
+        $("#divAddUserCarriers").hide(); //hide Add Associated Carrier grid (only on Add)      
+    }
+
+    function configureWndUIAddCarrierUser() {
+        configureWndUIAddShared();
+        $("#wndAddUser").data("kendoWindow").title("Add New Carrier User");          
+        $("#txtIsCarrierUser").val(1); //Set IsCarrierUser to true
+        $("#divCarrier").show(); //show Carrier only section
+        $("#divUser").hide(); //hide user only section
+    }
+    function configureWndUIEditCarrierUser() {
+        configureWndUIEditShared();              
+        $("#wndAddUser").data("kendoWindow").title("Edit Carrier User");
+        $("#txtIsCarrierUser").val(1);
+        $("#divCarrier").show(); //show Carrier only section
+        $("#divUser").hide(); //hide user only section
+    }
+
+</script>
+
+

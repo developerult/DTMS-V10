@@ -1,0 +1,160 @@
+﻿<!--Added By SRP on 3/15/18 MasterDocStructLoopAddExample -->
+<div id="wndAddMasterDocStructLoop">
+    <a id="focusCancel" href="#"></a>
+    <div>
+        <div id="EditDiv" style="padding: 0px 10px 10px 10px;">
+
+            <input id="txtMDSSegControl" type="hidden" />
+            <input id="txtMDSSegMDSLoopControl" type="hidden" />
+            <input id="falge" type="hidden" />
+            <input id="lblMDSLoopLoopControl" type="hidden" />
+
+            <div style="float: left;">
+
+                <b><label id="LoopName" maxlength="50" style="font-size:15px; margin:8px; margin-bottom:12px;"></label></b>
+                <div>
+                    <div style="float:left;width:74%">
+                        <div style="float: left;">
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Segments</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top"><input id="ddlSegmentType" style="width: 225px;" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+
+                                            <span id="segment-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">Please Select Segment</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Segment Length</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="txtSegmentLength" type="number" min="1" step="1"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="50" style="width:120px;" />
+                                            <button id="btnAddElememts" style="margin-left:8px;"><b>Add Elements</b></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <span id="SegmentLength-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">segment length can't less then or eqal to current length</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                        </div>
+                        <div style="float: left;">
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Usage</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="ddlSegUsage" maxlength="50" style="width:200px;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Minimum Count</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="txtSegmentMinCount" type="number" min="1" step="1"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:200px;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Maximum Count</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="txtSegmentMaxCount" type="number" min="1" step="1"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:200px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <span id="eminmax-validation" class="hide-display" style="color: red;position: relative;bottom: 5px;">MaxCount should be greater or equal to MinCount</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div style="float: left;">
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Segment Desc</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="txtSegmentDesc" maxlength="50" style="width:200px;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="float: left;">
+                                <table class="tblResponsive">
+                                    <tr>
+                                        <td class="tblResponsive-top">Segment Seq Index</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tblResponsive-top">
+                                            <input id="txtSegmentSeqIndex" type="number" min="1" step="1"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:200px;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style="float:left;width:25%">
+                        <div style="width: 100%;">
+                            <table class="tblResponsive">
+                                <tr>
+                                    <td class="tblResponsive-top">Associated Segments</td>
+                                </tr>
+                                <tr>
+                                    <td class="tblResponsive-top"><div id="listBox"></div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!--Grid-->
+                <div id="SegElementsGrid" style="margin-top:250px"></div><br />
+
+            </div>
+            <div class="tblResponsive-wrap" style="float: none;">&nbsp;</div>
+
+        </div>
+    </div>
+</div>

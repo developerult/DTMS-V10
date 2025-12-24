@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{114D41BF-BBA6-438E-9501-FA04230E3B51}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGL.API.Assemblies</RootNamespace>
+    <AssemblyName>NGL.API.Assemblies</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>%24/Dynamics TMS 365/Dynamics TMS-Source/NGLAPIAssemblies/NGL.API.Assemblies</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://dynamicstms365.visualstudio.com</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BingMapsRESTToolkit, Version=1.1.4.0, Culture=neutral, PublicKeyToken=376b89ff14d77107, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\BingMapsRESTToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DLinq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=682c74bbea503ba4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\DLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.Core, Version=8.5.0.2, Culture=neutral, PublicKeyToken=64e6dd2f8ae4c669, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Ngl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker, Version=7.0.0.0, Culture=neutral, PublicKeyToken=03722aec40eaa15f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.Bing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27944237566c8144, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.Bing.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.BLL, Version=8.5.3.6, Culture=neutral, PublicKeyToken=2139ac5e1874413d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.CarTar, Version=8.5.3.6, Culture=neutral, PublicKeyToken=5cb7a63c83566ee5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.CarTar.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.DAT, Version=8.0.0.0, Culture=neutral, PublicKeyToken=dc2e49996bb88d14, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.DAT.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.ERE, Version=7.0.5.110, Culture=neutral, PublicKeyToken=3a485aee4c9a2c08, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.ERE.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.ERE.Transform, Version=7.0.5.110, Culture=neutral, PublicKeyToken=2752cd73f2e2aa7b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.ERE.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.NGLRestIntegrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73d295540b281467, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.NGLRestIntegrations.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.P44, Version=8.2.0.117, Culture=neutral, PublicKeyToken=3d3a06cd23c00982, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FM.P44.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Core, Version=7.0.5.110, Culture=neutral, PublicKeyToken=13e92b1b890554af, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Ngl.FreightMaster.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Data, Version=8.5.3.6, Culture=neutral, PublicKeyToken=39c8a788a282ceb2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Ngl.FreightMaster.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FreightMaster.PCMiler, Version=8.5.0.1, Culture=neutral, PublicKeyToken=672701308194c961, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.FreightMaster.PCMiler.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Interfaces, Version=6.3.0.0, Culture=neutral, PublicKeyToken=69eb64ee9c34eab8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Optimization, Version=8.4.0.3, Culture=neutral, PublicKeyToken=5286d3f0bf89debd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGL.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="NGLTrimbleServices, Version=8.5.1.2, Culture=neutral, PublicKeyToken=9c99f5de6fa3df30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\NGLTrimbleServices.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Libraries\BingMapsRESTToolkit.dll" />
+    <Content Include="Libraries\DLinq.dll" />
+    <Content Include="Libraries\Newtonsoft.Json.dll" />
+    <Content Include="Libraries\NGL.Core.ChangeTracker.dll" />
+    <Content Include="Libraries\Ngl.Core.dll" />
+    <Content Include="Libraries\NGL.FM.Bing.dll" />
+    <Content Include="Libraries\NGL.FM.BLL.dll" />
+    <Content Include="Libraries\NGL.FM.CarTar.dll" />
+    <Content Include="Libraries\NGL.FM.DAT.dll" />
+    <Content Include="Libraries\NGL.FM.ERE.dll" />
+    <Content Include="Libraries\NGL.FM.ERE.Transform.dll" />
+    <Content Include="Libraries\NGL.FM.NGLRestIntegrations.dll" />
+    <Content Include="Libraries\NGL.FM.P44.dll" />
+    <Content Include="Libraries\Ngl.FreightMaster.Core.dll" />
+    <Content Include="Libraries\Ngl.FreightMaster.Data.dll" />
+    <Content Include="Libraries\NGL.FreightMaster.PCMiler.dll" />
+    <Content Include="Libraries\NGL.Interfaces.dll" />
+    <Content Include="Libraries\NGL.Optimization.dll" />
+    <Content Include="Libraries\NGLTrimbleServices.dll" />
+    <Content Include="Libraries\RestSharp.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamics TMS 365 Rate Shopping</title>
+    <link href="Content/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="Content/kendo/kendo.blueopal.min.css" rel="stylesheet" />
+
+    <link href="Content/kendo/kendo.blueopal.mobile.min.css" rel="stylesheet" />
+
+    <link href="Content/NGL/v-8.5.2.006/common.css" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="Scripts/kendo/jquery.min.js"></script>
+    <script src="Scripts/Stuk-jszip/dist/jszip.min.js"></script>
+    <script src="Scripts/kendo/kendo.all.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.14/js/adal.min.js"></script>
+    <script src="Scripts/NGL/v-8.5.2.006/core.js"></script>
+    <script src="Scripts/NGL/v-8.5.2.006/NGLobjects.js"></script>
+    <script src="Scripts/NGL/v-8.5.2.006/splitter2.js"></script>
+    <script src="Scripts/NGL/v-8.5.2.006/SSOA.js"></script>
+
+    <div id="h1Wait" style="margin:10px; position: absolute; z-index: 99999; top:0px; left:200px;"><span style="vertical-align:middle;">Please Wait Loading&nbsp;</span><img style="vertical-align:middle;" border="0" alt="Waiting" src="../Content/NGL/loading5.gif"></div>
+    <div id="example" style="height: 100%; width: 100%;  margin-top: 2px;">
+
+        <div id="vertical" style="height: 98%; width: 98%; ">
+
+            <div id="menu-pane" style="height: 100%; width: 100%;">
+                <div id="tab" class="menuBarTab"></div>
+            </div>
+            <div id="top-pane">
+                <div id="horizontal" style="height: 100%; width: 100%;">
+                    <div id="left-pane">
+                        <div class="pane-content">
+                            <div><span>Menu</span></div>
+                            <div id="menuTree"></div>
+                        </div>
+                    </div>
+                    <div id="center-pane">
+
+                        <div id="order-pane">
+                            <div class="pane-content">
+
+                                
+                                <h4>Show notification:</h4>
+                                <p>                                    
+                                    <button id="showErrorNotification" class="k-button" onclick="ngl.showErrMsg('Title', sBadNews, tObj); sBadNews = longBadNews;">Error</button><br />
+                                    <button id="showSuccessNotification" class="k-button" onclick="ngl.showSuccessMsg(sGoodNews, tObj);">Sucess</button><br />
+
+                                </p>
+                               
+                               
+                                <span id='notification' style='display:none;'></span>
+
+                                <script id='infoTemplate' type='text/x-kendo-template'>
+                                    <div class='k-block ngl-notification'>
+                                        <span class='k-icon k-i-information' title='info'></span>&nbsp;&nbsp;<strong>#= title #</strong>
+                                        <div style='margin:.5rem 0;'>#= message #</div>
+                                    </div>
+                                </script>
+                                <script id='errorTemplate' type='text/x-kendo-template'>
+                                    <div class='k-block ngl-notification'>
+                                        <span class='k-icon k-i-close-outline' style='color: red;' title='error'></span>&nbsp;&nbsp;<strong>#= title #</strong>
+                                        <p>#= message #</p>
+                                        <!--<div style='margin:.5rem 0;'>#= message #</div>-->
+                                    </div>
+                                </script>
+                                <script id='successTemplate' type='text/x-kendo-template'>
+                                    <div class='k-block ngl-notification'>
+                                        <span class='k-icon k-i-check-outline' style='color: green;' title='success'></span>&nbsp;&nbsp;
+                                        <p>#= message #</p>
+                                        <!--<div style='margin:.5rem 0;'>#= message #</div>-->
+                                    </div>
+                                </script>
+                                <script id='warningTemplate' type='text/x-kendo-template'>
+                                    <div class='k-block ngl-notification'>
+                                        <span class='k-icon k-i-warning' style='color: orange;' title='warning'></span>&nbsp;&nbsp;<strong>#= title #</strong>
+                                        <div style='margin:.5rem 0;'>#= message #</div>
+                                    </div>
+                                </script>
+                                <script>
+                                    //var notification = $('#notification').kendoNotification({ position: { pinned: true, top: 30, left: function (e) { var x = ($(window).width() * .5) - 250; return x; } }, autoHideAfter: 0, stacking: 'down', templates: [{ type: 'info', template: $('#infoTemplate').html() }, { type: 'error', template: $('#errorTemplate').html() }, { type: 'success', template: $('#successTemplate').html() }, { type: 'warning', template: $('#warningTemplate').html() }] }).data('kendoNotification');
+
+                                    var notification = $('#notification').kendoNotification({ position: { pinned: true, top: 30, left: function (e) { var x = ($(window).width() * .5) - 50; return x; } }, autoHideAfter: 0, stacking: 'down', templates: [{ type: 'info', template: $('#infoTemplate').html() }, { type: 'error', template: $('#errorTemplate').html() }, { type: 'success', template: $('#successTemplate').html() }, { type: 'warning', template: $('#warningTemplate').html() }] }).data('kendoNotification');
+                                </script>
+                                <div id='nglAlertDialog'></div>
+                                <div id='nglConfirmDialog'></div>
+                                <span id='alertNotification' style='display:none;'></span>
+                                <script id='alertTemplate' type='text/x-kendo-template'>
+                                    <div class='k-block k-error-colored ngl-notification'>
+                                        <span class='k-icon k-i-bell' title='alert'></span>&nbsp;&nbsp;<strong>#= title #</strong>
+                                        <div style='margin:.5rem 0;'>#= message #</div>
+                                    </div>
+                                </script>
+                                <script>
+                                    var alertNotification = $('#alertNotification').kendoNotification({ position: { pinned: true, bottom: 30, right: 30 }, autoHideAfter: 10000, stacking: 'up', templates: [{ type: 'alert', template: $('#alertTemplate').html() }] }).data('kendoNotification');
+                                </script>";
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-pane" class="k-block" style="height: 100%; width: 100%;">
+                <div class="pane-content">
+                    <div><span><p> <a href='https://www.nextgeneration.com'> © Copyright Next Generation Logistics, Inc. All Rights Reserved.</a></p></span></div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        var tObj = this;
+        var longBadNews = 'We are Sorry we have some bad news.  We are Sorry we have some bad news. We are Sorry we have some bad news.We are Sorry we have some bad news.  <br> We are Sorry we have some bad news. We are Sorry we have some bad news.We are Sorry we have some bad news. <br>  We are Sorry we have some bad news. We are Sorry we have some bad news. We are Sorry we have some bad news.  We are Sorry we have some bad news. We are Sorry we have some bad news.We are Sorry we have some bad news.  <br> We are Sorry we have some bad news. We are Sorry we have some bad news.We are Sorry we have some bad news. <br>  We are Sorry we have some bad news. We are Sorry we have some bad news.';
+        var sGoodNews = 'Congratulations we have some good news. <br> Congratulations we have some good news. <br> Congratulations we have some good news.';
+        var shortBadNews = 'We are Sorry we have some bad news.';
+        var sBadNews = shortBadNews;
+        $(document).ready(function () {
+
+        var divWait = $("#h1Wait");
+        if  (typeof (divWait) !== 'undefined' ) {
+            divWait.hide();
+        }
+
+
+        });
+
+    </script>
+
+    <style>
+
+        
+    .ngl-notification {
+        width: 50vw;
+         max-height: 275px;
+        /*max-height: 250px;*/
+        text-align: center;
+        overflow:auto;
+        /*overflow-wrap: normal;*/
+        /*border:  1px solid;*/
+    }
+
+     .ngl-tst-err {
+            width: 50vw;
+            height: auto;
+        }
+
+        .zipWin {
+            width: 98%;
+            margin: 5px;
+        }
+
+
+
+        /*
+                        .k-grid tbody .k-button  {
+                              min-width: 18px;
+                               width: 28px;
+                          }
+
+                        .k-grid tbody .cm-button  {
+                            color: red;
+                            min-width: 200px;
+                              width: 200px;
+                          }
+                            */
+
+        #AddressBookGrid .k-grid-content {
+            min-height: 50px;
+            max-height: 400px;
+        }
+
+        .my-custom-icon-class:before {
+            content: "\e13a"; /* Adds a glyph using the Unicode character number */
+        }
+
+        .form-control {
+            font-family: append($font-family-sans-serif, "FontAwesome", "comma");
+        }
+
+
+        /*.k-grid-header {
+                padding-right: 0 !important;
+            }
+
+            .no-scrollbar .k-grid-header
+            {
+            padding: 0 !important;
+            }
+
+            .no-scrollbar .k-grid-content
+            {
+            overflow-y: visible;
+            }*/
+    </style>
+
+
+    </div>
+
+</body>
+</html>
