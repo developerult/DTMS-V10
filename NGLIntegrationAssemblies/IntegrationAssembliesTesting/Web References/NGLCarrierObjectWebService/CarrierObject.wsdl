@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierHeaders" type="tns:ArrayOfClsCarrierHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierContacts" type="tns:ArrayOfClsCarrierContactObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCarrierHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCarrierHeaderObject" nillable="true" type="tns:clsCarrierHeaderObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCarrierHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierMailZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierSCAC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierWebSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierQualInsuranceDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CarrierQualQualified" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierQualAuthority" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CarrierQualContract" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierQualSignedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierQualContractExpiresDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsCarrierContactObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCarrierContactObject" nillable="true" type="tns:clsCarrierContactObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCarrierContactObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContactPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContactFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContact800" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierContactEMail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierHeaders" type="tns:ArrayOfClsCarrierHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierContacts" type="tns:ArrayOfClsCarrierContactObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierHeaders" type="tns:ArrayOfClsCarrierHeaderObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierContacts" type="tns:ArrayOfClsCarrierContactObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCarrierHeaderObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCarrierHeaderObject70" nillable="true" type="tns:clsCarrierHeaderObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCarrierHeaderObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierStreetZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierMailZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierTypeCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierSCAC" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierWebSite" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierQualInsuranceDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarrierQualQualified" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierQualAuthority" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarrierQualContract" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierQualSignedDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierQualContractExpiresDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierCurrencyType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierUser1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierUser2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierUser3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierUser4" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsImportDataBase" />
+      <s:complexType name="clsCarrierContactObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContTitle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContactPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContPhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContactFax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContact800" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierContactEMail" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsCarrierContactObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCarrierContactObject70" nillable="true" type="tns:clsCarrierContactObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessData70Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData70Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData70" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData70Response" />
+  </wsdl:message>
+  <wsdl:portType name="CarrierObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <wsdl:input message="tns:ProcessData70SoapIn" />
+      <wsdl:output message="tns:ProcessData70SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarrierObjectSoap" type="tns:CarrierObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CarrierObjectSoap12" type="tns:CarrierObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarrierObject">
+    <wsdl:port name="CarrierObjectSoap" binding="tns:CarrierObjectSoap">
+      <soap:address location="http://nglwsdev70.nextgeneration.com/CarrierObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CarrierObjectSoap12" binding="tns:CarrierObjectSoap12">
+      <soap12:address location="http://nglwsdev70.nextgeneration.com/CarrierObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

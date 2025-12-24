@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsBookHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookHeaderObject" nillable="true" type="tns:clsBookHeaderObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POVendor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POBuyer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POFrt" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="POTotalFrt" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POTotalCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POWgt" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POCube" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POPallets" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POLines" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POConfirm" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PODefaultCustomer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PODefaultCarrier" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="POReqDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipInstructions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POCooler" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="POFrozen" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PODry" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="POTemp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipVia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipViaType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POConsigneeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCustomerPO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOtherCosts" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POStatusFlag" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="POChepGLID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarrierEquipmentCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarrierTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POPalletPositions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POScheduleDelDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSCheduleDelTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActPUDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActPUTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActDelDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActDelTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookDetailObject" nillable="true" type="tns:clsBookDetailObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ItemPONumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixOffInvAllow" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixFrtAllow" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyOrdered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreightCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cube" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pack" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hazmat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustItemNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData60">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject60" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject60" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsBookHeaderObject60">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookHeaderObject60" nillable="true" type="tns:clsBookHeaderObject60" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookHeaderObject60">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="PONumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POVendor" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POdate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POShipdate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POBuyer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POFrt" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="POTotalFrt" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POTotalCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POWgt" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POCube" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="POQty" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="POPallets" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="POLines" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POConfirm" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODefaultCustomer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PODefaultCarrier" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="POReqDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POShipInstructions" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POCooler" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="POFrozen" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PODry" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="POTemp" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCarType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POShipVia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POShipViaType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POConsigneeNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCustomerPO" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POOtherCosts" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POStatusFlag" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="POChepGLID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCarrierEquipmentCodes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCarrierTypeCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POPalletPositions" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POScheduleDelDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POSCheduleDelTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POActPUDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POActPUTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POActDelDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POActDelTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigCompNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigContactPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigContactPhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POOrigContactFax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestCompNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestContactPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestContactPhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODestContactFax" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POInbound" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="POPalletExchange" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="POPalletType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POComments" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCommentsConfidential" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PODefaultRouteSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PORouteGuideNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsImportDataBase" />
+      <s:complexType name="clsBookDetailObject60">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ItemPONumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FixOffInvAllow" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="FixFrtAllow" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtyOrdered" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FreightCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cube" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Pack" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Hazmat" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CostCenter" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustItemNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemHazmatTypeCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItem49CFRCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemIATACode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemDOTCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemMarineCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemNMFCClass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemFAKClass" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemLimitedQtyFlag" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemPallets" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemTies" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemHighs" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemQtyPalletPercentage" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemQtyLength" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemQtyWidth" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemQtyHeight" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemStackable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="POItemLevelOfDensity" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookDetailObject60">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookDetailObject60" nillable="true" type="tns:clsBookDetailObject60" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessData60Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData60Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70WithSeals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderSeals" type="tns:ArrayOfClsBookSeal" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderTrailer" type="tns:ArrayOfClsBookTrailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsBookHeaderObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookHeaderObject70" nillable="true" type="tns:clsBookHeaderObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookHeaderObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsBookHeaderObject60">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="POCompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCompAlphaCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POModeTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="POMustLeaveByDateTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POUser1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POUser2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POUser3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POUser4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POAPGLNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookDetailObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookDetailObject70" nillable="true" type="tns:clsBookDetailObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookDetailObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsBookDetailObject60">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="POItemCompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemCompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemNMFCSubClass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemUser1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemUser2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemUser3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemUser4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemWeightUnitOfMeasure" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemCubeUnitOfMeasure" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POItemDimensionUnitOfMeasure" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookSeal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookSeal" nillable="true" type="tns:clsBookSeal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookSeal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="POCompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODefaultCustomer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PONumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="SealNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User4" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookTrailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookTrailer" nillable="true" type="tns:clsBookTrailer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookTrailer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="POCompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PODefaultCustomer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="POCompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PONumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TrailerNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="User4" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ProcessData70WithSealsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData70WithSealsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData70Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData60SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData60" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData60SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData60Response" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70WithSealsSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData70WithSeals" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70WithSealsSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData70WithSealsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData70" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData70Response" />
+  </wsdl:message>
+  <wsdl:portType name="BookObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData60">
+      <wsdl:input message="tns:ProcessData60SoapIn" />
+      <wsdl:output message="tns:ProcessData60SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70WithSeals">
+      <wsdl:input message="tns:ProcessData70WithSealsSoapIn" />
+      <wsdl:output message="tns:ProcessData70WithSealsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <wsdl:input message="tns:ProcessData70SoapIn" />
+      <wsdl:output message="tns:ProcessData70SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookObjectSoap" type="tns:BookObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData60">
+      <soap:operation soapAction="http://tempuri.org/ProcessData60" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70WithSeals">
+      <soap:operation soapAction="http://tempuri.org/ProcessData70WithSeals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookObjectSoap12" type="tns:BookObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData60">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData60" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70WithSeals">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData70WithSeals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookObject">
+    <wsdl:port name="BookObjectSoap" binding="tns:BookObjectSoap">
+      <soap:address location="http://nglwsdev70.nextgeneration.com/BookObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BookObjectSoap12" binding="tns:BookObjectSoap12">
+      <soap12:address location="http://nglwsdev70.nextgeneration.com/BookObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

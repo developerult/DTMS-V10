@@ -1,0 +1,11 @@
+-u:msftest -p:msf396test  -k:MSFTest -d
+
+-u:msftest -p:msf396test  -k:NGLTest -d
+
+-u:nglweb -p:5529  -k:Shields -d
+
+-u:hlfcatest -p:hlf327test  -k:HLFCATest -d
+
+-u:nglweb -p:5529  -k:ShieldsPROD -d
+
+-u:nglweb -p:5529  -k:NGL -d

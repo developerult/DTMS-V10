@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="NGL_FM_NAVIntegration_NAVService_DynamicsTMSWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglnav2018.ngl.local:7047/DynamicsNAV110/WS/CRONUS%20USA%252C%20Inc./Codeunit/DynamicsTMSWebServices</Value>
+    </Setting>
+    <Setting Name="NGL_FM_NAVIntegration_TMSIntegrationSettings_DTMSIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.dynamicstms365.com/ws/DTMSIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_FM_NAVIntegration_TMSIntegrationServices_DTMSERPIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.dynamicstms365.com/ws/DTMSERPIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_FM_NAVIntegration_NAV2016Services_DynamicsTMSWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglnav2013r2.ngl.local:9147/DynamicsTMS90/WS/CRONUS%20USA%252C%20Inc./Codeunit/DynamicsTMSWebServices</Value>
+    </Setting>
+    <Setting Name="NGL_FM_NAVIntegration_king_dynamics_businesscentral_api_DynamicsTMSWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://api.businesscentral.dynamics.com/v2.0/b2334402-9468-47b2-9cb9-eab5fe40066f/SANDBOX030321/WS/King%20Juice,%20Inc./Codeunit/DynamicsTMSWebServices?tenant=msft1a6720t01960071&amp;aid=FIN</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://api.businesscentral.dynamics.com/v2.0/b2334402-9468-47b2-9cb9-eab5fe40066f/SANDBOX030321/WS/King Juice%2C Inc./Codeunit/DynamicsTMSWebServices" filename="DynamicsTMSWebServices.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

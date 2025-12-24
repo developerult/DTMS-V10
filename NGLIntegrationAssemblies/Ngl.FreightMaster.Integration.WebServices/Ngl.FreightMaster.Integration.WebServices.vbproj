@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A91EA8A-2872-4344-9DDD-1BEBA1413863}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ngl.FreightMaster.Integration.WebServices</RootNamespace>
+    <AssemblyName>Ngl.FreightMaster.Integration.WebServices</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Ngl.FreightMaster.Integration.WebServices.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Ngl.FreightMaster.Integration.WebServices.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ngl.Core, Version=6.1.0.0, Culture=neutral, PublicKeyToken=64e6dd2f8ae4c669, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\Ngl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker">
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Data, Version=8.4.0.3, Culture=neutral, PublicKeyToken=39c8a788a282ceb2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGL.DataAssemblies\Ngl.FreightMaster.Data\bin\Debug\net48\Ngl.FreightMaster.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Interfaces, Version=6.3.0.0, Culture=neutral, PublicKeyToken=69eb64ee9c34eab8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\NGL.FreightMaster.PCMiler\bin\Debug\NGL.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Service.PCMiler64, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e15229f082f14c46, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\NGLPCMilerAssemblies\bin\Debug\NGL.Service.PCMiler64.dll</HintPath>
+    </Reference>
+    <Reference Include="PCMDLLINT64, Version=6.3.0.0, Culture=neutral, PublicKeyToken=5e150a07fc6a0581, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\PCMDLLINT64\bin\Debug\PCMDLLINT64.dll</HintPath>
+    </Reference>
+    <Reference Include="PCMDLLTONET64, Version=6.3.0.0, Culture=neutral, PublicKeyToken=4a028737ec7ce21c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\NGLPCMilerAssemblies\bin\Debug\PCMDLLTONET64.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApExportData.asmx" />
+    <Content Include="APExportObject.asmx" />
+    <Content Include="ApFreightBillExport.asmx" />
+    <Content Include="APFreightBillExportObject.asmx" />
+    <Content Include="App_Data\Config.xml" />
+    <Content Include="BiztalkServices.asmx" />
+    <Content Include="Book.asmx" />
+    <Content Include="BookObject.asmx" />
+    <Content Include="Carrier.asmx" />
+    <Content Include="CarrierObject.asmx" />
+    <Content Include="Company.asmx" />
+    <Content Include="CompanyObject.asmx" />
+    <Content Include="Default.htm" />
+    <Content Include="DTMSERPIntegration.asmx" />
+    <Content Include="DTMSIntegration.asmx" />
+    <Content Include="EDI204Output.asmx" />
+    <Content Include="EDIInput.asmx" />
+    <Content Include="FreightBill.asmx" />
+    <Content Include="FreightBillObject.asmx" />
+    <Content Include="HazmatObject.asmx" />
+    <Content Include="Lane.asmx" />
+    <Content Include="LaneObject.asmx" />
+    <Content Include="LegacyFreightBill.asmx" />
+    <Content Include="LegacyFreightBillObject.asmx" />
+    <Content Include="PalletTypeObject.asmx" />
+    <Content Include="Payables.asmx" />
+    <Content Include="PayablesObject.asmx" />
+    <Content Include="PCMiler32.asmx" />
+    <Content Include="PCMiler.asmx" />
+    <Content Include="Picklist.asmx" />
+    <Content Include="PickListObject.asmx" />
+    <Content Include="Schedule.asmx" />
+    <Content Include="ScheduleObject.asmx" />
+    <Content Include="TestAutoImport.aspx" />
+    <Content Include="TestCompIntegration.aspx" />
+    <Content Include="TestLaneIntegration.aspx" />
+    <Content Include="TestPCMiler.aspx" />
+    <Content Include="TestUnpaidFreightBills.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="My Project\PublishProfiles\NGLWSROB.pubxml" />
+    <None Include="Web.Bongards.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.CPF WS PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Demo 70 Laptop.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.EchoLakeDev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApExportData.asmx.vb">
+      <DependentUpon>ApExportData.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="APExportObject.asmx.vb">
+      <DependentUpon>APExportObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ApFreightBillExport.asmx.vb">
+      <DependentUpon>ApFreightBillExport.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="APFreightBillExportObject.asmx.vb">
+      <DependentUpon>APFreightBillExportObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BiztalkServices.asmx.vb">
+      <DependentUpon>BiztalkServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Book.asmx.vb">
+      <DependentUpon>Book.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BookObject.asmx.vb">
+      <DependentUpon>BookObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Carrier.asmx.vb">
+      <DependentUpon>Carrier.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CarrierObject.asmx.vb">
+      <DependentUpon>CarrierObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Company.asmx.vb">
+      <DependentUpon>Company.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CompanyObject.asmx.vb">
+      <DependentUpon>CompanyObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DTMSERPIntegration.asmx.vb">
+      <DependentUpon>DTMSERPIntegration.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DTMSIntegration.asmx.vb">
+      <DependentUpon>DTMSIntegration.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EDI204Output.asmx.vb">
+      <DependentUpon>EDI204Output.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EDIInput.asmx.vb">
+      <DependentUpon>EDIInput.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FreightBill.asmx.vb">
+      <DependentUpon>FreightBill.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FreightBillObject.asmx.vb">
+      <DependentUpon>FreightBillObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HazmatObject.asmx.vb">
+      <DependentUpon>HazmatObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Lane.asmx.vb">
+      <DependentUpon>Lane.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LaneObject.asmx.vb">
+      <DependentUpon>LaneObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LegacyFreightBill.asmx.vb">
+      <DependentUpon>LegacyFreightBill.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LegacyFreightBillObject.asmx.vb">
+      <DependentUpon>LegacyFreightBillObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PalletTypeObject.asmx.vb">
+      <DependentUpon>PalletTypeObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Payables.asmx.vb">
+      <DependentUpon>Payables.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PayablesObject.asmx.vb">
+      <DependentUpon>PayablesObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PCMiler32.asmx.vb">
+      <DependentUpon>PCMiler32.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PCMiler.asmx.vb">
+      <DependentUpon>PCMiler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Picklist.asmx.vb">
+      <DependentUpon>Picklist.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PickListObject.asmx.vb">
+      <DependentUpon>PickListObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Schedule.asmx.vb">
+      <DependentUpon>Schedule.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScheduleObject.asmx.vb">
+      <DependentUpon>ScheduleObject.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="TestAutoImport.aspx.designer.vb">
+      <DependentUpon>TestAutoImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestAutoImport.aspx.vb">
+      <DependentUpon>TestAutoImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCompIntegration.aspx.designer.vb">
+      <DependentUpon>TestCompIntegration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCompIntegration.aspx.vb">
+      <DependentUpon>TestCompIntegration.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TestLaneIntegration.aspx.designer.vb">
+      <DependentUpon>TestLaneIntegration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestLaneIntegration.aspx.vb">
+      <DependentUpon>TestLaneIntegration.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TestPCMiler.aspx.designer.vb">
+      <DependentUpon>TestPCMiler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPCMiler.aspx.vb">
+      <DependentUpon>TestPCMiler.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TestUnpaidFreightBills.aspx.designer.vb">
+      <DependentUpon>TestUnpaidFreightBills.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestUnpaidFreightBills.aspx.vb">
+      <DependentUpon>TestUnpaidFreightBills.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FreightMaster.Integration\NGL.FreightMaster.Integration.vbproj">
+      <Project>{75697B46-061C-48CB-BB6E-FC85BBB0F75C}</Project>
+      <Name>NGL.FreightMaster.Integration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assemblies\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56526</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

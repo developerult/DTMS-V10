@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 15.625" name="LTSIntegrationData">
+  <DataContextMoniker Name="/LTSIntegrationDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d1b24f41-5296-41ea-b501-b15c6ca82a3d" absoluteBounds="0.75, 0.5, 2, 14.847394205729165">
+      <DataClassMoniker Name="/LTSIntegrationDataDataContext/tblPickList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87d51e91-1a32-4c0d-8dba-dde029f80879" absoluteBounds="0.76500000000000012, 0.96, 1.9700000000000002, 14.287394205729166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8ea93ac4-b1f8-4482-bc7d-e0f3355ef41e" absoluteBounds="3.25, 0.625, 2, 8.3091455078125">
+      <DataClassMoniker Name="/LTSIntegrationDataDataContext/vIntegrationItemDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="947435de-e6ee-4e55-98e8-d3fee178d235" absoluteBounds="3.265, 1.085, 1.9700000000000002, 7.7491455078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9fa33313-e7c8-4b95-a5a8-83119aec5187" absoluteBounds="6, 0.75, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/LTSIntegrationDataDataContext/Hazmat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84a70f26-5417-4b48-b401-8133c1eb6bfd" absoluteBounds="6.015, 1.21, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

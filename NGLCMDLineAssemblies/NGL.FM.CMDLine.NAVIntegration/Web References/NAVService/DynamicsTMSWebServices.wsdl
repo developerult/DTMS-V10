@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Hazmat">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="HazRegulation" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazItem" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazClass" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazID" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazDesc01" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazDesc02" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazDesc03" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazUnit" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazPackingGroup" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazPackingDesc" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="HazShipInst" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazLtdQ" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazMarPoll" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="HazMarStorCat" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="HazNMFCSub" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="HazNMFC" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="HazFrtClass" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazFdxGndOK" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazFdxAirOK" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazUPSgndOK" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="HazUPSAirOK" type="boolean" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSHazmat" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Hazmat" type="tns:Hazmat" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSHazmat" type="tns:DynamicsTMSHazmat" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="PalletType">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="PalletType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PalletTypeDescription" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PalletTypeWeight" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PalletTypeWidth" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PalletTypeDepth" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PalletTypeVolume" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="PalletTypeContainer" type="boolean" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSPalletTypes" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="PalletType" type="tns:PalletType" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSPalletTypes" type="tns:DynamicsTMSPalletTypes" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSLane" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSLane" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Lane">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="LaneNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneNumberMaster" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneNameMaster" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneCompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDefaultCarrierUse" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneDefaultCarrierNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigCompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigContactPhone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigContactPhoneExt" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigContactFax" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestCompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestContactPhone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestContactPhoneExt" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestContactFax" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneConsigneeNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneRecMinIn" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneRecMinUnload" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneRecMinOut" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneAppt" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePalletExchange" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="LanePalletType" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneBenchMiles" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneBFC" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="LaneBFCType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneRecHourStart" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneRecHourStop" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestHourStop" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneComments" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneCommentsConfidential" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneLatitude" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneLongitude" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LaneTempType" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="LanePrimairyBuyer" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneAptDelivery" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="BrokerNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BrokerName" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneOriginAddressUse" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="LaneCarrierEquipmentCodes" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneChepGLID" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneCarrierTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupMon" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupTue" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupWed" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupThu" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupFri" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupSat" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LanePickupSun" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffMon" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffTue" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffWed" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffThu" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffFri" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffSat" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneDropOffSun" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LandDefaultRouteSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="LaneRouteGuideNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="LaneIsCrossDockFacility" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="LaneCompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneOrigCompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneDestCompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneLegalEntity" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSLanes" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Lane" type="tns:Lane" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSLanes" type="tns:DynamicsTMSLanes" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSShipment" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSShipment" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Items">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="ItemPONumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FixOffInvAllow" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FixFrtAllow" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="ItemNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="QtyOrdered" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FreightCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="ItemCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Weight" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Cube" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Pack" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Size" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="Description" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Hazmat" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Brand" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CostCenter" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LotNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LotExpirationDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="GTIN" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CustItemNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POOrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="PalletType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemHazmatTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItem49CFRCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemIATACode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemDOTCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemMarineCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemNMFCCClass" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemFAKClass" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POItemLimitedQtyFlag" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemPallets" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemTies" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemHighs" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemQtyPalletPercentage" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemQtyLength" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemQtyWidth" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemQtyHeight" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POItemStackable" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POItemLevelOfDensity" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="POItemCompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POItemCompLegalEntity" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="Booking">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="Type" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="No" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="ChangeNo" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="PONumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POVendor" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POdate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POShipdate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POBuyer" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POFrt" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POTotalFrt" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POTotalCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POWgt" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POCube" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POQty" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POPallets" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POLines" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POConfirm" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="PODefaultCustomer" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODefaultCarrier" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POReqDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POShipInstructions" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POCooler" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POFrozen" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="PODry" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POTemp" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="POCarType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POShipVia" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POShipViaType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POConsigneeNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCustomerPO" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POOtherCosts" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POStatusFlag" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="POOrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="POChepGLID" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCarrierEquipmentCodes" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCarrierTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POPalletPositions" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POSchedulePUDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POSchedulePUTime" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POScheduleDelDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POScheduleDelTime" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POActPUDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POActPUTime" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POActDelDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POActDelTime" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigCompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigContactPhone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigContactPhoneExt" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigContactFax" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POOrigContactNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestContactPhone" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestContactPhoneExt" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PODestContactFax" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POPalletExchange" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="POPalletType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POComments" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCommentsConfidential" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="POInbound" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PODefaultRouteSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="PORouteGudieNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="POCompLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="Items" type="tns:Items" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSBookings" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Booking" type="tns:Booking" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSBookings" type="tns:DynamicsTMSBookings" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPick" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPick" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Lines">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="BookCarrOrderNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="ItemNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="QtyOrdered" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FreightCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="ItemCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Weight" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Cube" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Pack" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Size" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="Description" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="CustomerItemNumber" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="OrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Hazmat" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="Brand" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CostCenter" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LotNumber" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="GTIN" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BFC" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="CountryOfOrigin" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CustomerPONumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="HST" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="PalletType" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="PLControl" type="long" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompNatNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="BookRouteConsFlag" type="boolean" />
+          <element minOccurs="0" maxOccurs="1" name="BookAlternateAddressLaneNumber" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="Pick">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" default="0" name="PLControl" type="long" />
+          <element minOccurs="1" maxOccurs="1" name="BookCarrOrderNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookConsPrefix" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CarrierNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevTotalCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="LoadOrder" type="int" />
+          <element minOccurs="0" maxOccurs="1" name="BookDateLoad" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="BookDateRequired" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookLoadCom" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookRouteFinalCode" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="BookRouteFinalDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTotalCases" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTotalWgt" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTotalPL" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTotalCube" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTotalBFC" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookStopNo" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CompName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookTypeCode" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="BookDateOrdered" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOrigZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookDestZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookLoadPONumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CommCodeDescription" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookMilesFrom" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookCommCompControl" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevCommCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevGrossRevenue" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinCommStd" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="BookDoNotInvoice" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookOrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierEquipmentCodes" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookCarrierTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookWarehouseNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompNatNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="BookTransType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneComments" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FuelSurCharge" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevCarrierCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevOtherCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevNetCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevFreightTax" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinServiceFee" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevLoadSavings" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="TotalNonFuelFees" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookPickNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookPickStopNumber" type="int" />
+          <element minOccurs="0" maxOccurs="1" default="0" name="PLExportRetry" type="int" />
+          <element minOccurs="0" maxOccurs="1" name="PLExportDate" type="string" />
+          <element minOccurs="0" maxOccurs="1" default="false" name="PLExported" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOriginalLaneNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookAlternateAddressLaneNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookSHID" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookOriginalLaneLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookWhseAuthorizationNo" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierDetails" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierDetails" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookRevNonTaxable" type="decimal" />
+          <element minOccurs="1" maxOccurs="unbounded" name="Lines" type="tns:Lines" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSPicks" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Pick" type="tns:Pick" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSPicks" type="tns:DynamicsTMSPicks" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSAP" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSAP" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Details">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="OrderNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="ItemNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="QtyOrdered" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="FreightCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="ItemCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Weight" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Cube" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="Pack" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Size" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="Description" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="CustomerItemNumber" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="OrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="Hazmat" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="Brand" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CostCenter" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LotNumber" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="GTIN" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CountryOfOrigin" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CustomerPONumber" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="AP">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" default="0" name="APControl" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CarrierNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPBillNumber" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="BookFinAPBillInvDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookCarrOrderNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookItemCostCenterNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPActCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookCarrBLNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPActWeight" type="int" />
+          <element minOccurs="0" maxOccurs="1" name="BookAPBillNoDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPActTax" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPExportRetry" type="int" />
+          <element minOccurs="0" maxOccurs="1" name="BookFinAPExportDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompanyNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookOrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierEquipmentCodes" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookCarrierTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree1" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree2" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree3" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree4" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree5" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APFree6" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="OtherCosts" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookWarehouseNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookMilesFrom" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompNatNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="BookReasonCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookTransType" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APTaxDetail1" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APTaxDetail2" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APTaxDetail3" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APTaxDetail4" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="APTaxDetail5" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="CompLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="LaneLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookConsPrefix" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="BookRouteConsFlag" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookShipCarrierDetails" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPStdCost" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPTotalTaxableFees" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPTotalTaxes" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPNonTaxableFees" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookWhseAuthorizationNo" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPGLNumber" type="string" />
+          <element minOccurs="1" maxOccurs="unbounded" name="Details" type="tns:Details" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSAP" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="AP" type="tns:AP" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSAP" type="tns:DynamicsTMSAP" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCompany" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCompany" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Company">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="CompAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompName" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompNatNumber" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CompNatName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompStreetZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompWeb" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompEmail" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompDirections" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompAbrev" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CompActive" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="CompNEXTrack" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompNEXTStopAcctNo" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompNEXTStopPsw" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CompNEXTStopSubmitRFP" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="CompFAAShipID" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFAAShipDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinDuns" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinTaxID" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinPaymentForm" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinSIC" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinPaymentDiscount" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinPaymentDays" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinPaymentDays" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCommTerms" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinCommTermsPer" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinCreditLimit" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinCreditUsed" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CompFinInvPrnCode" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CompFinInvEMailCode" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinCurType" type="int" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinFBToleranceHigh" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinFBToleranceLow" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCustomerSince" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCardType" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCardName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCardExpires" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCardAuthorizor" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompFinCardAuthPassword" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CompFinUseImportFrtCost" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompFinBkhlCostPerc" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompLatitude" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="CompLongitude" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="CompMailTo" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSCompanies" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Company" type="tns:Company" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSCompanies" type="tns:DynamicsTMSCompanies" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCarrier" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCarrier" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Carrier">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierName" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierStreetZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailAddress1" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailAddress2" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailAddress3" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailCity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailState" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailCountry" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierMailZip" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierTypeCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierSCAC" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierWebsite" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierEmail" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierQualInsturanceDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CarrierQualQualified" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierQualAuthority" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="false" name="CarrierQualContract" type="boolean" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierQualSignedDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierQualContractExpiresDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierAlphaCode" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CarrierCurrencyType" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSCarriers" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Carrier" type="tns:Carrier" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSCarriers" type="tns:DynamicsTMSCarriers" />
+    </schema>
+    <schema xmlns:tns="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPayment" elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPayment" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="Payment">
+        <sequence>
+          <element minOccurs="1" maxOccurs="1" name="BookCarrOrderNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPPayAmt" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookFinAPActWgt" type="decimal" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPCheck" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPPayDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPBillNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookFinAPGLNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="APGLDescription" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="BookFinAPBillInvDate" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="BookProNumber" type="string" />
+          <element minOccurs="1" maxOccurs="1" default="0" name="BookOrderSequence" type="int" />
+          <element minOccurs="1" maxOccurs="1" name="CompLegalEntity" type="string" />
+          <element minOccurs="1" maxOccurs="1" name="CompAlphaCode" type="string" />
+        </sequence>
+      </complexType>
+      <complexType name="DynamicsTMSPayments" mixed="true">
+        <sequence>
+          <element minOccurs="1" maxOccurs="unbounded" name="Payment" type="tns:Payment" />
+        </sequence>
+      </complexType>
+      <element name="DynamicsTMSPayments" type="tns:DynamicsTMSPayments" />
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="GetTestingStatus">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetTestingStatus_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHazmat">
+        <complexType>
+          <sequence>
+            <element xmlns:q1="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" minOccurs="1" maxOccurs="1" name="dynamicsTMSHazmats" type="q1:DynamicsTMSHazmat" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetHazmat_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q2="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" minOccurs="1" maxOccurs="1" name="dynamicsTMSHazmats" type="q2:DynamicsTMSHazmat" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendHazmat">
+        <complexType>
+          <sequence>
+            <element xmlns:q3="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" minOccurs="1" maxOccurs="1" name="dynamicsTMSHazmats" type="q3:DynamicsTMSHazmat" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendHazmat_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q4="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSHazmat" minOccurs="1" maxOccurs="1" name="dynamicsTMSHazmats" type="q4:DynamicsTMSHazmat" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPalletType">
+        <complexType>
+          <sequence>
+            <element xmlns:q5="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" minOccurs="1" maxOccurs="1" name="dynamicsTMSPalletTypes" type="q5:DynamicsTMSPalletTypes" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPalletType_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q6="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" minOccurs="1" maxOccurs="1" name="dynamicsTMSPalletTypes" type="q6:DynamicsTMSPalletTypes" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendPalletType">
+        <complexType>
+          <sequence>
+            <element xmlns:q7="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" minOccurs="1" maxOccurs="1" name="dynamicsTMSPalletTypes" type="q7:DynamicsTMSPalletTypes" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendPalletType_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q8="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPalletType" minOccurs="1" maxOccurs="1" name="dynamicsTMSPalletTypes" type="q8:DynamicsTMSPalletTypes" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLanes">
+        <complexType>
+          <sequence>
+            <element xmlns:q9="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSLane" minOccurs="1" maxOccurs="1" name="dynamicsTMSLanes" type="q9:DynamicsTMSLanes" />
+            <element minOccurs="1" maxOccurs="1" name="readAllHistory" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="flagRead" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetLanes_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q10="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSLane" minOccurs="1" maxOccurs="1" name="dynamicsTMSLanes" type="q10:DynamicsTMSLanes" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBookings">
+        <complexType>
+          <sequence>
+            <element xmlns:q11="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSShipment" minOccurs="1" maxOccurs="1" name="dynamicsTMSBookings" type="q11:DynamicsTMSBookings" />
+            <element minOccurs="1" maxOccurs="1" name="readAllHistory" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="flagRead" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBookings_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q12="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSShipment" minOccurs="1" maxOccurs="1" name="dynamicsTMSBookings" type="q12:DynamicsTMSBookings" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendPicks">
+        <complexType>
+          <sequence>
+            <element xmlns:q13="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPick" minOccurs="1" maxOccurs="1" name="dynamicsTMSPicks" type="q13:DynamicsTMSPicks" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendPicks_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SendAP">
+        <complexType>
+          <sequence>
+            <element xmlns:q14="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSAP" minOccurs="1" maxOccurs="1" name="dynamicsTMSAPs" type="q14:DynamicsTMSAP" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendAP_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetCompanies">
+        <complexType>
+          <sequence>
+            <element xmlns:q15="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCompany" minOccurs="1" maxOccurs="1" name="dynamicsTMSCompanies" type="q15:DynamicsTMSCompanies" />
+            <element minOccurs="1" maxOccurs="1" name="readAllHistory" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="flagRead" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCompanies_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q16="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCompany" minOccurs="1" maxOccurs="1" name="dynamicsTMSCompanies" type="q16:DynamicsTMSCompanies" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCarriers">
+        <complexType>
+          <sequence>
+            <element xmlns:q17="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCarrier" minOccurs="1" maxOccurs="1" name="dynamicsTMSCarriers" type="q17:DynamicsTMSCarriers" />
+            <element minOccurs="1" maxOccurs="1" name="readAllHistory" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="flagRead" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCarriers_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q18="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSCarrier" minOccurs="1" maxOccurs="1" name="dynamicsTMSCarriers" type="q18:DynamicsTMSCarriers" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPayables">
+        <complexType>
+          <sequence>
+            <element xmlns:q19="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPayment" minOccurs="1" maxOccurs="1" name="dynamicsTMSPayables" type="q19:DynamicsTMSPayments" />
+            <element minOccurs="1" maxOccurs="1" name="readAllHistory" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="flagRead" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetPayables_Result">
+        <complexType>
+          <sequence>
+            <element xmlns:q20="urn:microsoft-dynamics-nav/xmlports/DynamicsTMSPayment" minOccurs="1" maxOccurs="1" name="dynamicsTMSPayables" type="q20:DynamicsTMSPayments" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="GetTestingStatus">
+    <part name="parameters" element="tns:GetTestingStatus" />
+  </message>
+  <message name="GetTestingStatus_Result">
+    <part name="parameters" element="tns:GetTestingStatus_Result" />
+  </message>
+  <message name="GetHazmat">
+    <part name="parameters" element="tns:GetHazmat" />
+  </message>
+  <message name="GetHazmat_Result">
+    <part name="parameters" element="tns:GetHazmat_Result" />
+  </message>
+  <message name="SendHazmat">
+    <part name="parameters" element="tns:SendHazmat" />
+  </message>
+  <message name="SendHazmat_Result">
+    <part name="parameters" element="tns:SendHazmat_Result" />
+  </message>
+  <message name="GetPalletType">
+    <part name="parameters" element="tns:GetPalletType" />
+  </message>
+  <message name="GetPalletType_Result">
+    <part name="parameters" element="tns:GetPalletType_Result" />
+  </message>
+  <message name="SendPalletType">
+    <part name="parameters" element="tns:SendPalletType" />
+  </message>
+  <message name="SendPalletType_Result">
+    <part name="parameters" element="tns:SendPalletType_Result" />
+  </message>
+  <message name="GetLanes">
+    <part name="parameters" element="tns:GetLanes" />
+  </message>
+  <message name="GetLanes_Result">
+    <part name="parameters" element="tns:GetLanes_Result" />
+  </message>
+  <message name="GetBookings">
+    <part name="parameters" element="tns:GetBookings" />
+  </message>
+  <message name="GetBookings_Result">
+    <part name="parameters" element="tns:GetBookings_Result" />
+  </message>
+  <message name="SendPicks">
+    <part name="parameters" element="tns:SendPicks" />
+  </message>
+  <message name="SendPicks_Result">
+    <part name="parameters" element="tns:SendPicks_Result" />
+  </message>
+  <message name="SendAP">
+    <part name="parameters" element="tns:SendAP" />
+  </message>
+  <message name="SendAP_Result">
+    <part name="parameters" element="tns:SendAP_Result" />
+  </message>
+  <message name="GetCompanies">
+    <part name="parameters" element="tns:GetCompanies" />
+  </message>
+  <message name="GetCompanies_Result">
+    <part name="parameters" element="tns:GetCompanies_Result" />
+  </message>
+  <message name="GetCarriers">
+    <part name="parameters" element="tns:GetCarriers" />
+  </message>
+  <message name="GetCarriers_Result">
+    <part name="parameters" element="tns:GetCarriers_Result" />
+  </message>
+  <message name="GetPayables">
+    <part name="parameters" element="tns:GetPayables" />
+  </message>
+  <message name="GetPayables_Result">
+    <part name="parameters" element="tns:GetPayables_Result" />
+  </message>
+  <portType name="DynamicsTMSWebServices_Port">
+    <operation name="GetTestingStatus">
+      <input name="GetTestingStatus" message="tns:GetTestingStatus" />
+      <output name="GetTestingStatus_Result" message="tns:GetTestingStatus_Result" />
+    </operation>
+    <operation name="GetHazmat">
+      <input name="GetHazmat" message="tns:GetHazmat" />
+      <output name="GetHazmat_Result" message="tns:GetHazmat_Result" />
+    </operation>
+    <operation name="SendHazmat">
+      <input name="SendHazmat" message="tns:SendHazmat" />
+      <output name="SendHazmat_Result" message="tns:SendHazmat_Result" />
+    </operation>
+    <operation name="GetPalletType">
+      <input name="GetPalletType" message="tns:GetPalletType" />
+      <output name="GetPalletType_Result" message="tns:GetPalletType_Result" />
+    </operation>
+    <operation name="SendPalletType">
+      <input name="SendPalletType" message="tns:SendPalletType" />
+      <output name="SendPalletType_Result" message="tns:SendPalletType_Result" />
+    </operation>
+    <operation name="GetLanes">
+      <input name="GetLanes" message="tns:GetLanes" />
+      <output name="GetLanes_Result" message="tns:GetLanes_Result" />
+    </operation>
+    <operation name="GetBookings">
+      <input name="GetBookings" message="tns:GetBookings" />
+      <output name="GetBookings_Result" message="tns:GetBookings_Result" />
+    </operation>
+    <operation name="SendPicks">
+      <input name="SendPicks" message="tns:SendPicks" />
+      <output name="SendPicks_Result" message="tns:SendPicks_Result" />
+    </operation>
+    <operation name="SendAP">
+      <input name="SendAP" message="tns:SendAP" />
+      <output name="SendAP_Result" message="tns:SendAP_Result" />
+    </operation>
+    <operation name="GetCompanies">
+      <input name="GetCompanies" message="tns:GetCompanies" />
+      <output name="GetCompanies_Result" message="tns:GetCompanies_Result" />
+    </operation>
+    <operation name="GetCarriers">
+      <input name="GetCarriers" message="tns:GetCarriers" />
+      <output name="GetCarriers_Result" message="tns:GetCarriers_Result" />
+    </operation>
+    <operation name="GetPayables">
+      <input name="GetPayables" message="tns:GetPayables" />
+      <output name="GetPayables_Result" message="tns:GetPayables_Result" />
+    </operation>
+  </portType>
+  <binding name="DynamicsTMSWebServices_Binding" type="tns:DynamicsTMSWebServices_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetTestingStatus">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetTestingStatus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetTestingStatus">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetTestingStatus_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetHazmat">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetHazmat" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetHazmat">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetHazmat_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendHazmat">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:SendHazmat" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendHazmat">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendHazmat_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPalletType">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetPalletType" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPalletType">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPalletType_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendPalletType">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:SendPalletType" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendPalletType">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendPalletType_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetLanes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetLanes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetLanes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetLanes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetBookings">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetBookings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetBookings">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetBookings_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendPicks">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:SendPicks" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendPicks">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendPicks_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendAP">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:SendAP" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendAP">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendAP_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCompanies">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetCompanies" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCompanies">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCompanies_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCarriers">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetCarriers" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCarriers">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCarriers_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetPayables">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/DynamicsTMSWebServices:GetPayables" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetPayables">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetPayables_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DynamicsTMSWebServices">
+    <port name="DynamicsTMSWebServices_Port" binding="tns:DynamicsTMSWebServices_Binding">
+      <address location="http://nglnav2013r2.ngl.local:7147/DynamicsTMS71/WS/CRONUS%20USA,%20Inc./Codeunit/DynamicsTMSWebServices" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

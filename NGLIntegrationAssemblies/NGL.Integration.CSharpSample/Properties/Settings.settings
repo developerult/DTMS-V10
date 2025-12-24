@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NGL.Integration.CSharpSample.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NGL_Integration_CSharpSample_NGLBookData_BookObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev70.nextgeneration.com/BookObject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLCompanyData_CompanyObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev704.nextgeneration.com/companyobject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLCarrierData_CarrierObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev704.nextgeneration.com/CarrierObject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLLaneData_LaneObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev704.nextgeneration.com/LaneObject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLPickListData_PickListObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev704.nextgeneration.com/PickListObject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLAPExportData_APExportObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev704.nextgeneration.com/apexportobject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_NGLBookData6044m_BookObject" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:55503/bookobject.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_Integration_CSharpSample_DTMSIntegration_DTMSERPIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:44320/ws/DTMSERPIntegration.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

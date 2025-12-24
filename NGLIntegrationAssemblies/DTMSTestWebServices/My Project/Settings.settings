@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="DTMSTestWebServices_NGLBookObjectWS_BookObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/BookObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLLaneObjectWS_LaneObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/LaneObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLCarrierObjectWS_CarrierObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/CarrierObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLCompanyObjectWS_CompanyObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/CompanyObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLAPExportObjectWS_APExportObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/APExportObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLPayablesObjectWS_PayablesObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/PayablesObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLPickListObjectWS_PickListObject" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/PickListObject.asmx</Value>
+    </Setting>
+    <Setting Name="DTMSTestWebServices_NGLDTMSERPIntegrationWS_DTMSERPIntegration" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://07dws.nextgeneration.com/DTMSERPIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="AuthCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NGLWSTEST</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

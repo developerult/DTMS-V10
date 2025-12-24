@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://nglwsdev70.nextgeneration.com/APExportObject.asmx?wsdl" docRef="http://nglwsdev70.nextgeneration.com/APExportObject.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://nglwsdev70.nextgeneration.com/APExportObject.asmx" xmlns:q1="http://tempuri.org/" binding="q1:APExportObjectSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://nglwsdev70.nextgeneration.com/APExportObject.asmx" xmlns:q2="http://tempuri.org/" binding="q2:APExportObjectSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

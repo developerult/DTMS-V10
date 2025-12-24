@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Config>
+  <ImportSettings>
+    <AuthCode>ABCDE</AuthCode>
+    <AdminEMail>rramsey@nextgeneration.com</AdminEMail>
+    <EMailFrom>system@nextgeneration.com</EMailFrom>
+    <GroupEMail>rramsey@nextgeneration.com</GroupEMail>
+    <OrderNotification>rramsey@nextgeneration.com</OrderNotification>
+    <Retries>0</Retries>
+    <SmtpMailServer>mail.ngl.local</SmtpMailServer>
+    <ValidateOrderUniqueness>False</ValidateOrderUniqueness>
+  </ImportSettings>
+</Config>

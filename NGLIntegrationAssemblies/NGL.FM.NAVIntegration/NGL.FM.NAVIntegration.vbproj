@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9150F10C-4D11-45E9-8278-B7A880771C17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NGL.FM.NAVIntegration</RootNamespace>
+    <AssemblyName>NGL.FM.NAVIntegration</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NGL.FM.NAVIntegration.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NGL.FM.NAVIntegration.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ngl.Core">
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\Ngl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker">
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.DTMS.CMDLine.BCIntegration">
+      <HintPath>..\..\NGLCMDLineAssemblies\NGL.DTMS.CMDLine.BCIntegration\bin\Debug\NGL.DTMS.CMDLine.BCIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.BLL, Version=6.3.0.0, Culture=neutral, PublicKeyToken=2139ac5e1874413d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGL.DataAssemblies\NGL.FM.BLL\bin\Debug\net48\NGL.FM.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Core">
+      <HintPath>..\..\NGL.DataAssemblies\NGL.FreightMaster.Core\bin\Debug\net48\Ngl.FreightMaster.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Data">
+      <HintPath>..\..\NGL.DataAssemblies\Ngl.FreightMaster.Data\bin\Debug\net48\Ngl.FreightMaster.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsApplication.vb" />
+    <Compile Include="clsDefaultIntegrationConfiguration.vb" />
+    <Compile Include="clsErrorMessages.vb" />
+    <Compile Include="clsUnitTestKeys.vb" />
+    <Compile Include="DTMSBCWebServices.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\king.dynamics.businesscentral.api\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NAV2016Services\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NAVService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TMSIntegrationServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TMSIntegrationSettings\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSBookings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSCarriers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSCompanies.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSHazmat.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSLanes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSPalletTypes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSPayments.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\king.dynamics.businesscentral.api\DynamicsTMSWebServices.wsdl" />
+    <None Include="Web References\king.dynamics.businesscentral.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSBookings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSCarriers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSCompanies.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSHazmat.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSLanes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSPalletTypes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSPayments.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAV2016Services\DynamicsTMSWebServices.wsdl" />
+    <None Include="Web References\NAV2016Services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSBookings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSCarriers.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSCompanies.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSHazmat.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSLanes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSPalletTypes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSPayments.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\NAVService\DynamicsTMSWebServices.wsdl" />
+    <None Include="Web References\NAVService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\APExportRecordsAggregated.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\APUnpaidFreightBills.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsAPExportData70.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsAPExportData80.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsAPExportData85.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsIntegrationUpdateResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsPickListData70.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsPickListData80.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\clsPickListData85.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationServices\DTMSERPIntegration.wsdl" />
+    <None Include="Web References\TMSIntegrationServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\DTMSIntegration.wsdl" />
+    <None Include="Web References\TMSIntegrationSettings\ERPSetting.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\GlobalTaskParameters.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\Integration.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\tblERPType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\tblIntegrationType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TMSIntegrationSettings\vERPIntegrationSetting.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FreightMaster.Integration\NGL.FreightMaster.Integration.vbproj">
+      <Project>{75697b46-061c-48cb-bb6e-fc85bbb0f75c}</Project>
+      <Name>NGL.FreightMaster.Integration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.0.0.133:7047/DynamicsNAV110/WS/CRONUS%2520USA%252C%2520Inc./Codeunit/DynamicsTMSWebServices">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NAVService\</RelPath>
+      <UpdateFromURL>http://10.0.0.133:7047/DynamicsNAV110/WS/CRONUS%2520USA%252C%2520Inc./Codeunit/DynamicsTMSWebServices</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NGL_FM_NAVIntegration_NAVService_DynamicsTMSWebServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://nglnav2013r2.ngl.local:9147/DynamicsTMS90/WS/CRONUS%2520USA%252C%2520Inc./Codeunit/DynamicsTMSWebServices">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NAV2016Services\</RelPath>
+      <UpdateFromURL>http://nglnav2013r2.ngl.local:9147/DynamicsTMS90/WS/CRONUS%2520USA%252C%2520Inc./Codeunit/DynamicsTMSWebServices</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NGL_FM_NAVIntegration_NAV2016Services_DynamicsTMSWebServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.dynamicstms365.com/ws/DTMSERPIntegration.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TMSIntegrationServices\</RelPath>
+      <UpdateFromURL>https://www.dynamicstms365.com/ws/DTMSERPIntegration.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NGL_FM_NAVIntegration_TMSIntegrationServices_DTMSERPIntegration</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.dynamicstms365.com/ws/DTMSIntegration.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TMSIntegrationSettings\</RelPath>
+      <UpdateFromURL>https://www.dynamicstms365.com/ws/DTMSIntegration.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NGL_FM_NAVIntegration_TMSIntegrationSettings_DTMSIntegration</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.businesscentral.dynamics.com/v2.0/b2334402-9468-47b2-9cb9-eab5fe40066f/SANDBOX030321/WS/King%2520Juice%252C%2520Inc./Codeunit/DynamicsTMSWebServices">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\king.dynamics.businesscentral.api\</RelPath>
+      <UpdateFromURL>https://api.businesscentral.dynamics.com/v2.0/b2334402-9468-47b2-9cb9-eab5fe40066f/SANDBOX030321/WS/King%2520Juice%252C%2520Inc./Codeunit/DynamicsTMSWebServices</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>NGL_FM_NAVIntegration_king_dynamics_businesscentral_api_DynamicsTMSWebServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TMSIntegrationSettings\DTMSIntegration.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TMSIntegrationServices\DTMSERPIntegration.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

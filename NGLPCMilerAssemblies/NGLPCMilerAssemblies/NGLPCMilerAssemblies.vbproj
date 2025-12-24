@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1B7AFA5-2CC7-445C-8279-164B40C7D64B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>NGLPCMilerAssemblies.Module1</StartupObject>
+    <RootNamespace>NGLPCMilerAssemblies</RootNamespace>
+    <AssemblyName>NGLPCMilerAssemblies</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Console</MyType>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NGLPCMilerAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NGLPCMilerAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PCMDLLINT64, Version=7.0.0.0, Culture=neutral, PublicKeyToken=5e150a07fc6a0581, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PCMDLLINT64\bin\Debug\PCMDLLINT64.dll</HintPath>
+    </Reference>
+    <Reference Include="PCMDLLTONET64, Version=7.0.0.0, Culture=neutral, PublicKeyToken=4a028737ec7ce21c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PCMDLLTONET64\bin\Debug\PCMDLLTONET64.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\NGL.FreightMaster.PCMiler.dll.config" />
+    <None Include="bin\Debug\NGLPCMilerAssemblies.exe.config" />
+    <None Include="bin\Debug\NGLPCMilerAssemblies.vshost.exe.config" />
+    <None Include="bin\Debug\NGLPCMilerAssemblies.vshost.exe.manifest" />
+    <None Include="bin\Debug\NGLTrimbleServices.dll.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="NGL.Service.PCMiler64.tlb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\Ngl.Core.dll" />
+    <Content Include="bin\Debug\Ngl.Core.pdb" />
+    <Content Include="bin\Debug\Ngl.Core.xml" />
+    <Content Include="bin\Debug\NGL.FreightMaster.PCMiler.dll" />
+    <Content Include="bin\Debug\NGL.FreightMaster.PCMiler.pdb" />
+    <Content Include="bin\Debug\NGL.FreightMaster.PCMiler.xml" />
+    <Content Include="bin\Debug\NGL.Interfaces.dll" />
+    <Content Include="bin\Debug\NGL.Interfaces.pdb" />
+    <Content Include="bin\Debug\NGL.Interfaces.xml" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler.dll" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler.pdb" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler.xml" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler64.dll" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler64.pdb" />
+    <Content Include="bin\Debug\NGL.Service.PCMiler64.xml" />
+    <Content Include="bin\Debug\NGLPCMilerAssemblies.exe" />
+    <Content Include="bin\Debug\NGLPCMilerAssemblies.pdb" />
+    <Content Include="bin\Debug\NGLPCMilerAssemblies.vshost.exe" />
+    <Content Include="bin\Debug\NGLPCMilerAssemblies.xml" />
+    <Content Include="bin\Debug\NGLTrimbleServices.dll" />
+    <Content Include="bin\Debug\NGLTrimbleServices.pdb" />
+    <Content Include="bin\Debug\PCMDLLINT.dll" />
+    <Content Include="bin\Debug\PCMDLLINT.pdb" />
+    <Content Include="bin\Debug\PCMDLLINT64.dll" />
+    <Content Include="bin\Debug\PCMDLLINT64.pdb" />
+    <Content Include="bin\Debug\PCMDLLTONET.dll" />
+    <Content Include="bin\Debug\PCMDLLTONET.pdb" />
+    <Content Include="bin\Debug\PCMDLLTONET64.dll" />
+    <Content Include="bin\Debug\PCMDLLTONET64.pdb" />
+    <Content Include="bin\Debug\RestSharp.dll" />
+    <Content Include="bin\Debug\RestSharp.xml" />
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FreightMaster.PCMiler\NGL.FreightMaster.PCMiler.vbproj">
+      <Project>{baf2a9a2-6584-44f5-9683-e040e241522a}</Project>
+      <Name>NGL.FreightMaster.PCMiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.Service.PCMiler64\NGL.Service.PCMiler64.vbproj">
+      <Project>{b349d21b-5320-4838-a93b-32b7d4cc6ba7}</Project>
+      <Name>NGL.Service.PCMiler64</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.Service.PCMiler\NGL.Service.PCMiler.vbproj">
+      <Project>{4188df0e-05d8-4599-a73a-f15483ab37cf}</Project>
+      <Name>NGL.Service.PCMiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGLTrimbleServices\NGLTrimbleServices.csproj">
+      <Project>{ad3ff944-e434-4ced-b9aa-81b1e2c2e606}</Project>
+      <Name>NGLTrimbleServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCMDLLINT\PCMDLLINT.csproj">
+      <Project>{4d71a3c4-f247-4c40-ac9c-8b722a60154e}</Project>
+      <Name>PCMDLLINT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCMDLLTONET\PCMDLLTONET.csproj">
+      <Project>{ee478733-cbc0-4d04-b066-3b01a1b5ceca}</Project>
+      <Name>PCMDLLTONET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="obj\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

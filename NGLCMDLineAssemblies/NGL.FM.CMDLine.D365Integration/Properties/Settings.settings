@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NGL.FM.CMDLine.D365Integration.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NGL_FM_CMDLine_D365Integration_TMSIntegrationSettings_DTMSIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.dynamicstms365.com/ws/DTMSIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="NGL_FM_CMDLine_D365Integration_TMSIntegrationServices_DTMSERPIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.dynamicstms365.com/ws/DTMSERPIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="D365_URL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ngl-dev015e64cfd23d55673cdevaos.axcloud.dynamics.com/</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryTenant" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://sts.windows.net/2518be7e-c933-4905-af64-24ad0157202f</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryClientAppId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">f065bd6b-2455-4963-a00b-d205c095c461</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryClientAppSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0bF7Q~mPdDfMJfC9FkJf4N.fM5NTUrzVJaz45</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryResource" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ngl-dev015e64cfd23d55673cdevaos.axcloud.dynamics.com</Value>
+    </Setting>
+    <Setting Name="LegalEntities" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">USMF</Value>
+    </Setting>
+    <Setting Name="DTMSAuthCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WSPROD</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

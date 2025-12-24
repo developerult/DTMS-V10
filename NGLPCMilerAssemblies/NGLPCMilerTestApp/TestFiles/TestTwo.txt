@@ -1,0 +1,69 @@
+
+    Private Function AddStopEx(ByVal intTrip1 As Integer, _
+                               ByRef oFMStop As clsFMStopData, _
+                               ByRef objGlobalStopData As clsGlobalStopData) As Boolean
+        Dim blnRet As Boolean = True
+        Dim Ret As Long = 0
+        Dim strAddressType As String = "Destination"
+        With oFMStop
+            If .LocationisOrigin Then strAddressType = "Origin"
+            .AddressValid = False
+            .Warning = ""
+            If validateAddressEx(intTrip1, oFMStop) Then
+                Ret = PCMSAddStop(intTrip1, .StopName)
+                If Ret < 1 Then
+                    'The stopname cannot be found so reset to zipcode only
+                    If .StopName = .Zip Then
+                        'This is a total failure
+                        blnRet = False
+                        objGlobalStopData.FailedAddressMessage = objGlobalStopData.FailedAddressMessage & "The " & strAddressType & " address cannot be found and the postal code is not valid.  Cannot route load."
+                        .PCMilerStreet = "** Address Does Not Exist **"
+                        .PCMilerCity = ""
+                        .PCMilerState = ""
+                        .PCMilerZip = ""
+                    Else
+                        'try to use the zip code
+                        .StopName = .Zip
+                        .PCMilerStreet = "** Address Does Not Exist **"
+                        .PCMilerCity = ""
+                        .PCMilerState = ""
+                        .PCMilerZip = .Zip
+                        Ret = PCMSAddStop(intTrip1, .StopName)
+                        If Ret < 1 Then
+                            'Give up
+                            .PCMilerZip = ""
+                            blnRet = False
+                            objGlobalStopData.FailedAddressMessage = objGlobalStopData.FailedAddressMessage & "The " & strAddressType & " address cannot be found and the postal code is not valid.  Cannot route load."
+                        Else
+                            .AddressValid = True
+                        End If
+                    End If
+                Else
+                    .AddressValid = True
+                End If
+                If Len(Trim(.Warning)) > 0 Then
+                    If InStr(1, .Warning, "(Please Correct)") > 0 And objGlobalStopData.AutoCorrectBadLaneZipCodes = 1 Then
+                        If Len(Trim(.PCMilerZip)) > 0 Then
+                            If .LocationisOrigin Then
+                                objGlobalStopData.OriginZip = .PCMilerZip
+                            Else
+                                objGlobalStopData.DestZip = .PCMilerZip
+                            End If
+                            .Warning = ""
+                        Else
+                            .LogBadAddress = True
+                        End If
+                    Else
+                        .LogBadAddress = True
+                    End If
+                End If
+            Else
+                .LogBadAddress = True
+                .AddressValid = False
+                blnRet = False
+                objGlobalStopData.FailedAddressMessage &= .Warning
+            End If
+        End With
+        Return blnRet
+
+    End Function

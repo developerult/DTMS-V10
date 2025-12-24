@@ -1,0 +1,1 @@
+﻿-c "Data Source=NGLRDP06D;Initial Catalog=NGLMAS2013DEV;Integrated Security=True" -d -l "CRONUS USA, Inc."

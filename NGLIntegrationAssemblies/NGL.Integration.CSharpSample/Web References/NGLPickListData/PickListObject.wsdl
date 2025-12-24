@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRetry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetryMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult" type="tns:clsPickListData" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsPickListData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Headers" type="tns:ArrayOfClsPickListObject" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfClsPickDetailObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickListObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickListObject" nillable="true" type="tns:clsPickListObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickListObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookConsPrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRevTotalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateLoad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookLoadCom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalCases" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalWgt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalPL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalCube" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalBFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookStopNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateOrdered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookLoadPONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommCodeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookMilesFrom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookCommCompControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevCommCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevGrossRevenue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookFinCommStd" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookDoNotInvoice" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierEquipmentCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrierTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookWarehouseNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneComments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelSurCharge" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevCarrierCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevOtherCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevNetCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevFreightTax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookFinServiceFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevLoadSavings" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNonFuelFees" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookPickNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookPickupStopNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickDetailObject" nillable="true" type="tns:clsPickDetailObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickDetailObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QtyOrdered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreightCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Weight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cube" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pack" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustItemNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hazmat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryOfOrigin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerPONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRetry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetryMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRowsReturned" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoConfirmation" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataExResult" type="tns:clsPickListData" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData60">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRetry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetryMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRowsReturned" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoConfirmation" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData60Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetData60Result" type="tns:clsPickListData60" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsPickListData60">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Headers" type="tns:ArrayOfClsPickListObject60" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfClsPickDetailObject60" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickListObject60">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickListObject60" nillable="true" type="tns:clsPickListObject60" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickListObject60">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookConsPrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRevTotalCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateLoad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookLoadCom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalCases" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalWgt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalPL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalCube" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTotalBFC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookStopNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDateOrdered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookLoadPONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommCodeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookMilesFrom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookCommCompControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevCommCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevGrossRevenue" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookFinCommStd" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookDoNotInvoice" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierEquipmentCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrierTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookWarehouseNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookTransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneComments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelSurCharge" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevCarrierCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevOtherCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevNetCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevFreightTax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookFinServiceFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRevLoadSavings" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNonFuelFees" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookPickNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookPickupStopNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookRouteConsFlag" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookAlternateAddressLaneNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickDetailObject60">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickDetailObject60" nillable="true" type="tns:clsPickDetailObject60" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickDetailObject60">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsIntegrationItemDetailObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsIntegrationItemDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyOrdered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreightCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cube" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pack" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hazmat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustItemNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BFC" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryOfOrigin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HazmatTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hazmat49CFRCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IATACode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOTCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NMFCClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FAKClass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LimitedQtyFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pallets" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ties" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Highs" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyPalletPercentage" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyLength" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyWidth" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyHeight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stackable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LevelOfDensity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerPONumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataByOrderSequence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRetry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetryMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderSequence" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRowsReturned" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoConfirmation" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataByOrderSequenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataByOrderSequenceResult" type="tns:clsPickListData" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlControl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmExportResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData70">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRetry" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetryMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxRowsReturned" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AutoConfirmation" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData70Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetData70Result" type="tns:clsPickListData70" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsPickListData70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Headers" type="tns:ArrayOfClsPickListObject70" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfClsPickDetailObject70" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="tns:ArrayOfClsPickListFeeObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickListObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickListObject70" nillable="true" type="tns:clsPickListObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickListObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookSHID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CarrierNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LaneLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LaneNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOriginalLaneNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOriginalLaneLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookAlternateAddressLaneNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookConsPrefix" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRouteConsFlag" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoadOrder" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDateLoad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDateRequired" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookLoadCom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookRouteFinalDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTotalCases" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTotalWgt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTotalPL" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTotalCube" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookStopNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTypeCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDateOrdered" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookOrigZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookDestZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookLoadPONumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CommCodeDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookMilesFrom" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookCommCompControl" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookFinCommStd" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookDoNotInvoice" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CarrierEquipmentCodes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrierTypeCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookWarehouseNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookWhseAuthorizationNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTransType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierProNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierDetails" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LaneComments" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FuelSurCharge" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookTotalBFC" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookRevTotalCost" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevCommCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevGrossRevenue" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevCarrierCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevOtherCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevNetCost" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevNonTaxable" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevFreightTax" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookFinServiceFee" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookRevLoadSavings" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalNonFuelFees" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookPickNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookPickupStopNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookFinAPGLNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsImportDataBase" />
+      <s:complexType name="clsPickListFeeObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessorialCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialCaption" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialEDICode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessorialTaxable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessorialTaxSortOrder" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessorialIsTax" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialBOLText" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialBOLPlacement" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessorialAmount" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="AccessorialGroupType" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickDetailObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickDetailObject70" nillable="true" type="tns:clsPickDetailObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPickDetailObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsIntegrationItemDetailObject70">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PLControl" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsIntegrationItemDetailObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsIntegrationItemDetailObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemDiscount" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemLineHaul" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemTaxableFees" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemTaxes" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemNonTaxableFees" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookItemWeightBreak" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRated49CFRCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedIATACode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedDOTCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedMarineCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedNMFCClass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedNMFCSubClass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookItemRatedFAKClass" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderSequence" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPickListFeeObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPickListFeeObject70" nillable="true" type="tns:clsPickListFeeObject70" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataEx" />
+  </wsdl:message>
+  <wsdl:message name="GetDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetData60SoapIn">
+    <wsdl:part name="parameters" element="tns:GetData60" />
+  </wsdl:message>
+  <wsdl:message name="GetData60SoapOut">
+    <wsdl:part name="parameters" element="tns:GetData60Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDataByOrderSequenceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataByOrderSequence" />
+  </wsdl:message>
+  <wsdl:message name="GetDataByOrderSequenceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataByOrderSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmExportSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmExport" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmExportSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetData70SoapIn">
+    <wsdl:part name="parameters" element="tns:GetData70" />
+  </wsdl:message>
+  <wsdl:message name="GetData70SoapOut">
+    <wsdl:part name="parameters" element="tns:GetData70Response" />
+  </wsdl:message>
+  <wsdl:portType name="PickListObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEx">
+      <wsdl:input message="tns:GetDataExSoapIn" />
+      <wsdl:output message="tns:GetDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData60">
+      <wsdl:input message="tns:GetData60SoapIn" />
+      <wsdl:output message="tns:GetData60SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataByOrderSequence">
+      <wsdl:input message="tns:GetDataByOrderSequenceSoapIn" />
+      <wsdl:output message="tns:GetDataByOrderSequenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmExport">
+      <wsdl:input message="tns:ConfirmExportSoapIn" />
+      <wsdl:output message="tns:ConfirmExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData70">
+      <wsdl:input message="tns:GetData70SoapIn" />
+      <wsdl:output message="tns:GetData70SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PickListObjectSoap" type="tns:PickListObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEx">
+      <soap:operation soapAction="http://tempuri.org/GetDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData60">
+      <soap:operation soapAction="http://tempuri.org/GetData60" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataByOrderSequence">
+      <soap:operation soapAction="http://tempuri.org/GetDataByOrderSequence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmExport">
+      <soap:operation soapAction="http://tempuri.org/ConfirmExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData70">
+      <soap:operation soapAction="http://tempuri.org/GetData70" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PickListObjectSoap12" type="tns:PickListObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataEx">
+      <soap12:operation soapAction="http://tempuri.org/GetDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData60">
+      <soap12:operation soapAction="http://tempuri.org/GetData60" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataByOrderSequence">
+      <soap12:operation soapAction="http://tempuri.org/GetDataByOrderSequence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmExport">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData70">
+      <soap12:operation soapAction="http://tempuri.org/GetData70" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PickListObject">
+    <wsdl:port name="PickListObjectSoap" binding="tns:PickListObjectSoap">
+      <soap:address location="http://nglwsdev704.nextgeneration.com/PickListObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PickListObjectSoap12" binding="tns:PickListObjectSoap12">
+      <soap12:address location="http://nglwsdev704.nextgeneration.com/PickListObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0964E448-90F3-4C90-9B7E-EB3CB74B6FAC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>NGLCMDLineAssemblies.Module1</StartupObject>
+    <RootNamespace>NGLCMDLineAssemblies</RootNamespace>
+    <AssemblyName>NGLCMDLineAssemblies</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Console</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NGLCMDLineAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NGLCMDLineAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.DTMS.CMDLine.BCIntegration\NGL.DTMS.CMDLine.BCIntegration.csproj">
+      <Project>{67b0cbe9-c1d8-45b6-9e98-496121a37f5f}</Project>
+      <Name>NGL.DTMS.CMDLine.BCIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.FuelIndexUpdater\NGL.FM.CMDLine.FuelIndexUpdater.vbproj">
+      <Project>{653859fd-edeb-445f-a1b2-77a034eebb03}</Project>
+      <Name>NGL.FM.CMDLine.FuelIndexUpdater</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.ImportCarrierRates\NGL.FM.CMDLine.ImportCarrierRates.vbproj">
+      <Project>{95725857-510a-4a42-9e29-6b520924180d}</Project>
+      <Name>NGL.FM.CMDLine.ImportCarrierRates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.MailServer\NGL.FM.CMDLine.MailServer.vbproj">
+      <Project>{a14e5a48-b68e-4627-9115-4131403e8a6b}</Project>
+      <Name>NGL.FM.CMDLine.MailServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.NAVIntegration\NGL.FM.CMDLine.NAVIntegration.vbproj">
+      <Project>{3193722a-ec4b-4620-8f5c-2af5545526db}</Project>
+      <Name>NGL.FM.CMDLine.NAVIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.NewAlertNotifcation\NGL.FM.CMDLine.NewAlertNotifcation.vbproj">
+      <Project>{3e649eb7-20b2-4f5f-92a3-605c4108ea7f}</Project>
+      <Name>NGL.FM.CMDLine.NewAlertNotifcation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.ProcessDistanceCue\NGL.FM.CMDLine.ProcessDistanceQueue.vbproj">
+      <Project>{989bbe5c-dc94-4402-b0c1-470aabccdfe4}</Project>
+      <Name>NGL.FM.CMDLine.ProcessDistanceQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.ProcessExpiredLoads\NGL.FM.CMDLine.ProcessExpiredLoads.vbproj">
+      <Project>{d8f99f52-db4f-4d11-80f0-1f3c67a36938}</Project>
+      <Name>NGL.FM.CMDLine.ProcessExpiredLoads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.SystemAlert\NGL.FM.CMDLine.SystemAlert.vbproj">
+      <Project>{debae26b-c280-4b59-9db3-51c699a82e3d}</Project>
+      <Name>NGL.FM.CMDLine.SystemAlert</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.CMDLine.UpdateAuthNbr\NGL.FM.CMDLine.UpdateAuthNbr.vbproj">
+      <Project>{5b41b3ca-a82a-45c1-92ec-dc13b970f9cb}</Project>
+      <Name>NGL.FM.CMDLine.UpdateAuthNbr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.Archive\NGL.FreightMaster.CommandLine.Archive.vbproj">
+      <Project>{f437eff1-4144-4868-97c5-64f17146a261}</Project>
+      <Name>NGL.FreightMaster.CommandLine.Archive</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.EDIIntegration\NGL.FreightMaster.CommandLine.EDIIntegration.vbproj">
+      <Project>{0432eded-6fca-493f-b344-686abe060fb5}</Project>
+      <Name>NGL.FreightMaster.CommandLine.EDIIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.EmailAlertSystem\NGL.FreightMaster.CommandLine.EmailAlertSystem.vbproj">
+      <Project>{1094df00-a073-431a-9c78-48b00ee9cde8}</Project>
+      <Name>NGL.FreightMaster.CommandLine.EmailAlertSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.HotLoadEmail\NGL.FreightMaster.CommandLine.HotLoadEmail.vbproj">
+      <Project>{a8e0aa51-e30b-4533-9ef0-bc8851b2a1ae}</Project>
+      <Name>NGL.FreightMaster.CommandLine.HotLoadEmail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.NewPONotification\NGL.FreightMaster.CommandLine.NewPONotification.vbproj">
+      <Project>{20af702b-39c2-4885-8e05-ad05c3139b90}</Project>
+      <Name>NGL.FreightMaster.CommandLine.NewPONotification</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.CommandLine.PODownload\NGL.FreightMaster.CommandLine.PODownload.vbproj">
+      <Project>{59301ec3-47cc-4050-9ac5-fc7f3087c16e}</Project>
+      <Name>NGL.FreightMaster.CommandLine.PODownload</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF4A3A74-831D-45AD-BE61-FD5D782DB9BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGL.GPWorkers</RootNamespace>
+    <AssemblyName>NGL.GPWorkers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\svcDynamicsGP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\svcDynamicsGP\DynamicsGP.wsdl" />
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Applicant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantApplication.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantApplicationSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantEducation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantInterview.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantInterviewSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantReference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantReferenceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantSkill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantTest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ApplicantWorkHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.BackOfficeRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.BackOfficeRoleAssignment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Bank.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Batch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.BusinessObjectSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.BusinessObjectUserAssignment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CashReceipt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CashReceiptSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedCurrencyKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedCustomerAddressKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedCustomerKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedInternetAddressKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedItemKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedPriceLevelKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedPricingKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedSalesInvoiceKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedSalesOrderKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedSalespersonKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedShippingMethodKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedTaxDetailKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedTaxScheduleDetailKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ChangedUofMScheduleKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Company.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CompanyAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CorporateAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CountryRegionCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Currency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CurrencyAccess.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CurrencyPostingAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CustomerAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CustomerAddressSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CustomerReceivablesSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.CustomerSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.DynamicsOnlineConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.EmployeeAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.EmployeeAddressSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.EmployeePayCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.EmployeePayCodeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.EmployeeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Fee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.FeeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLAccountCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLAccountFormat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLAccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLFixedAllocationAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLFixedAllocationAccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLPostingAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLPostingAccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLTransactionSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLUnitAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLUnitAccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLVariableAllocationAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.GLVariableAllocationAccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.HRRequisition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.HRRequisitionSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoriedItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoriedItemSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryAdjustment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryAdjustmentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryTransfer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryTransferSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryVariance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.InventoryVarianceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Item.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemCurrency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemVendor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemVendorSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemWarehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ItemWarehouseSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.LoggedExceptionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.LoggedExceptionDataSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ManufacturingOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ManufacturingOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.MulticurrencySetup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesCreditMemo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesCreditMemoSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesDocumentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesFinanceCharge.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesFinanceChargeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesInvoiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesMiscellaneousCharge.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesMiscellaneousChargeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PayablesReturnSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PaymentCardType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PaymentTerms.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PlannedOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PlannedOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Policy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PolicySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PostedPayablesVendorPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PostedPayablesVendorPaymentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PriceLevel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Pricing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PricingSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectBudget.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectBudgetSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectChangeOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectChangeOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectContractSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectEmployeeExpense.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectEmployeeExpenseSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectMiscellaneousLog.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectMiscellaneousLogSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectTimesheet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ProjectTimesheetSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseInvoiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseReceipt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.PurchaseReceiptSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesCreditMemo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesCreditMemoSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesDebitMemo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesDebitMemoSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesDocumentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesFinanceCharge.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesFinanceChargeSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesInvoiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesReturnSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesServiceRepair.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesServiceRepairSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesWarranty.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReceivablesWarrantySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReturnMaterialAuthorization.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ReturnMaterialAuthorizationSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.RoleKey.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesBackorder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesBackorderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesDocumentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesFulfillmentOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesFulfillmentOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesInvoiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Salesperson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalespersonCommissions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalespersonCommissionsSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalespersonSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesProcessHoldSetup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesQuote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesQuoteSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesReturn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesReturnSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesTerritory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SalesTerritorySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Service.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceCall.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceCallSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceEquipment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceEquipmentSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceQuote.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceQuoteSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ServiceSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ShippingMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Skill.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SkillSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.SkillSetSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.TaxDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.TaxSchedule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.TaxScheduleDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Tenant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.UofMSchedule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.UofMScheduleSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.UserAssignableBusinessObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.ValidationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Vendor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorAddressSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorManufacturingOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorManufacturingOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorPlannedOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorPlannedOrderSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.VendorSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.Warehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\svcDynamicsGP\NGL.GPWorkers.svcDynamicsGP.WarehouseSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\svcDynamicsGP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\svcDynamicsGP\GPService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\svcDynamicsGP\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\svcDynamicsGP\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\svcDynamicsGP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

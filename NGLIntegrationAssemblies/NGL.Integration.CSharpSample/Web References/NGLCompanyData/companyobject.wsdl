@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyHeaders" type="tns:ArrayOfClsCompanyHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyContacts" type="tns:ArrayOfClsCompanyContactObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCompanyHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyHeaderObject" nillable="true" type="tns:clsCompanyHeaderObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCompanyHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNatName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompStreetZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompWeb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompDirections" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompAbrev" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNEXTrack" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNEXTStopAcctNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNEXTStopPsw" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompNextstopSubmitRFP" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFAAShipID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFAAShipDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinDuns" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinTaxID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentForm" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinSIC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentDiscount" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentDays" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentNetDays" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCommTerms" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinCommTermsPer" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinCreditLimit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinCreditUsed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinInvPrnCode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinInvEMailCode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinCurType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinFBToleranceHigh" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinFBToleranceLow" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCustomerSince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCardExpires" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCardAuthorizor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompFinCardAuthPassword" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinUseImportFrtCost" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinBkhlFlatFee" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompFinBkhlCostPerc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompLatitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompLongitude" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompMailTo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsCompanyContactObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyContactObject" nillable="true" type="tns:clsCompanyContactObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCompanyContactObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompContName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompContTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompCont800" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompContPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompContFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompContEmail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyHeaders" type="tns:ArrayOfClsCompanyHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyContacts" type="tns:ArrayOfClsCompanyContactObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataWCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyHeaders" type="tns:ArrayOfClsCompanyHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyContacts" type="tns:ArrayOfClsCompanyContactObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyCalendar" type="tns:ArrayOfClsCompanyCalendarObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCompanyCalendarObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyCalendarObject" nillable="true" type="tns:clsCompanyCalendarObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCompanyCalendarObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Open" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHoliday" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataWCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataWCalendarResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyHeaders" type="tns:ArrayOfClsCompanyHeaderObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyContacts" type="tns:ArrayOfClsCompanyContactObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyCalendar" type="tns:ArrayOfClsCompanyCalendarObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCompanyHeaderObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyHeaderObject70" nillable="true" type="tns:clsCompanyHeaderObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsCompanyHeaderObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNatNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompNatName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompStreetZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailAddress3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailCountry" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompWeb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompDirections" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAbrev" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompActive" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNEXTrack" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompNEXTStopAcctNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompNEXTStopPsw" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNextstopSubmitRFP" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFAAShipID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFAAShipDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinDuns" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinTaxID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinPaymentForm" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinSIC" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentDiscount" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentDays" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinPaymentNetDays" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCommTerms" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinCommTermsPer" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinCreditLimit" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinCreditUsed" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinInvPrnCode" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinInvEMailCode" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinCurType" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompCurrencyType" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinFBToleranceHigh" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinFBToleranceLow" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCustomerSince" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCardType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCardName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCardExpires" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCardAuthorizor" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompFinCardAuthPassword" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinUseImportFrtCost" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinBkhlFlatFee" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompFinBkhlCostPerc" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompLatitude" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompLongitude" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompMailTo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompTimeZone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompRailStationName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompRailSPLC" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompRailFSAC" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompRail333" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompRailR260" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompIsTransLoad" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompUser1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompUser2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompUser3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompUser4" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsImportDataBase" />
+      <s:complexType name="clsCompanyCalendarObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Open" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsHoliday" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsCompanyContactObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContTitle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompCont800" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContPhoneExt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContFax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompContEmail" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsCompanyContactObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyContactObject70" nillable="true" type="tns:clsCompanyContactObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsCompanyCalendarObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsCompanyCalendarObject70" nillable="true" type="tns:clsCompanyCalendarObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessData70Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData70Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataWCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataWCalendar" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataWCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataWCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData70" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData70Response" />
+  </wsdl:message>
+  <wsdl:portType name="CompanyObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <wsdl:input message="tns:ProcessDataWCalendarSoapIn" />
+      <wsdl:output message="tns:ProcessDataWCalendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <wsdl:input message="tns:ProcessData70SoapIn" />
+      <wsdl:output message="tns:ProcessData70SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CompanyObjectSoap" type="tns:CompanyObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataWCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CompanyObjectSoap12" type="tns:CompanyObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataWCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CompanyObject">
+    <wsdl:port name="CompanyObjectSoap" binding="tns:CompanyObjectSoap">
+      <soap:address location="http://nglwsdev704.nextgeneration.com/companyobject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CompanyObjectSoap12" binding="tns:CompanyObjectSoap12">
+      <soap12:address location="http://nglwsdev704.nextgeneration.com/companyobject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

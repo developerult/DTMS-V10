@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ALK.Common.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ALK.Common.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd0" namespace="http://pcmiler.alk.com/APIs/v1.0" />
+  <xs:complexType name="AFExtraInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsBorder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaxAddress" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="MinAddress" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="RoadClass" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="RouteNum1" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="RouteNum2" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="RouteNum3" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AFExtraInfo" nillable="true" type="tns:AFExtraInfo" />
+  <xs:complexType name="ArrayOfPlaceSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlaceSet" nillable="true" type="tns:PlaceSet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlaceSet" nillable="true" type="tns:ArrayOfPlaceSet" />
+  <xs:complexType name="PlaceSet">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AddPlaceSet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Places" nillable="true" type="tns:ArrayOfPlace" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlaceSet" nillable="true" type="tns:PlaceSet" />
+  <xs:complexType name="AddPlaceSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddPlaceSet" nillable="true" type="tns:AddPlaceSet" />
+  <xs:complexType name="ArrayOfPlace">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Place" nillable="true" type="tns:Place" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlace" nillable="true" type="tns:ArrayOfPlace" />
+  <xs:complexType name="Place">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AddPlace">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedOn" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Place" nillable="true" type="tns:Place" />
+  <xs:complexType name="AddPlace">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://pcmiler.alk.com/APIs/v1.0" base="q1:Location">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Heading" nillable="true" type="xs:short" />
+          <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersistentId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SetId" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddPlace" nillable="true" type="tns:AddPlace" />
+  <xs:complexType name="ArrayOfPlaceCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlaceCategory" nillable="true" type="tns:PlaceCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlaceCategory" nillable="true" type="tns:ArrayOfPlaceCategory" />
+  <xs:complexType name="PlaceCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AddPlaceCategory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlaceCategory" nillable="true" type="tns:PlaceCategory" />
+  <xs:complexType name="AddPlaceCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IconURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddPlaceCategory" nillable="true" type="tns:AddPlaceCategory" />
+  <xs:simpleType name="TollRoadsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AlwaysAvoid">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AvoidIfPossible">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Use">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TollRoadsType" nillable="true" type="tns:TollRoadsType" />
+</xs:schema>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Schedules" type="tns:ArrayOfClsScheduleObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsScheduleObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsScheduleObject" nillable="true" type="tns:clsScheduleObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsScheduleObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrDockPUAssigment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrScheduleDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrScheduleTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActualDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActualTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActLoadCompleteDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActLoadCompleteTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookPRONumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartLoadingDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartLoadingTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishLoadingDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishLoadingTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrDockDelAssignment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrApptDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrApptTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartUnloadingDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartUnloadingTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishUnloadingDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishUnloadingTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActUnloadCompDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookCarrActUnloadCompTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierProNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Schedules" type="tns:ArrayOfClsScheduleObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData70">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Schedule" type="tns:ArrayOfClsScheduleObject70" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsScheduleObject70">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsScheduleObject70" nillable="true" type="tns:clsScheduleObject70" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsScheduleObject70">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:clsImportDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrOrderNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrDockPUAssigment" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrScheduleDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrScheduleTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActualDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActualTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActLoadCompleteDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActLoadCompleteTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookPRONumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookOrderSequence" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartLoadingDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartLoadingTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishLoadingDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishLoadingTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrDockDelAssignment" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrApptDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrApptTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartUnloadingDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrStartUnloadingTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishUnloadingDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrFinishUnloadingTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActUnloadCompDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookCarrActUnloadCompTime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierProNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BookShipCarrierNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompLegalEntity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompAlphaCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="clsImportDataBase" />
+      <s:element name="ProcessData70Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessData70Result" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData70" />
+  </wsdl:message>
+  <wsdl:message name="ProcessData70SoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessData70Response" />
+  </wsdl:message>
+  <wsdl:portType name="ScheduleObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <wsdl:input message="tns:ProcessData70SoapIn" />
+      <wsdl:output message="tns:ProcessData70SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScheduleObjectSoap" type="tns:ScheduleObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleObjectSoap12" type="tns:ScheduleObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData70">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData70" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScheduleObject">
+    <wsdl:port name="ScheduleObjectSoap" binding="tns:ScheduleObjectSoap">
+      <soap:address location="http://nglwsdev70.nextgeneration.com/ScheduleObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleObjectSoap12" binding="tns:ScheduleObjectSoap12">
+      <soap12:address location="http://nglwsdev70.nextgeneration.com/ScheduleObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

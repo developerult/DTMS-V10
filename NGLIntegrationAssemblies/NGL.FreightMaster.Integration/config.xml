@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Config>
+  <WCFSettings>
+    <WCFAuthCode>WCFDEV</WCFAuthCode>
+    <SQLAuthUser>nglweb</SQLAuthUser>
+    <SQLAuthPass>5529</SQLAuthPass>
+  </WCFSettings>
+</Config>

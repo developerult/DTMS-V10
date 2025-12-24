@@ -1,0 +1,2 @@
+﻿-c "Data Source=NGLRDP05D;Initial Catalog=NGLMAS2010DEV;Integrated Security=True" -d
+-c "Data Source=NGLRDP05D;Initial Catalog=SECPRD;Integrated Security=True" -d

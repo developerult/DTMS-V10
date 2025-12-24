@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLMASPROD" Class="LTSIntegrationDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NGLRDP07D;Initial Catalog=NGLMASPROD;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Ngl.FreightMaster.Integration.My.MySettings" SettingsPropertyName="NGLMASPRODConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblPickList" Member="tblPickLists">
+    <Type Name="tblPickList">
+      <Column Name="PLControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PLExportDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PLExportRetry" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PLExported" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BookCarrOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookRevTotalCost" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LoadOrder" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="BookDateLoad" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookDateRequired" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookLoadCom" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookRouteFinalCode" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookRouteFinalDate" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookTotalCases" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="BookTotalWgt" Type="System.String" DbType="NVarChar(22)" CanBeNull="true" />
+      <Column Name="BookTotalPL" Type="System.String" DbType="NVarChar(22)" CanBeNull="true" />
+      <Column Name="BookTotalCube" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="BookTotalBFC" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookStopNo" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="BookTypeCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookDateOrdered" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookOrigName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BookOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookDestZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BookLoadPONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookMilesFrom" Type="System.String" DbType="NVarChar(22)" CanBeNull="true" />
+      <Column Name="BookCommCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookRevCommCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookRevGrossRevenue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookFinCommStd" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookDoNotInvoice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookOrderSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierEquipmentCodes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookCarrierTypeCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookWarehouseNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookShipCarrierProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookTransType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookShipCarrierNumber" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="LaneComments" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FuelSurCharge" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookRevCarrierCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookRevOtherCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookRevNetCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookRevFreightTax" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookFinServiceFee" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookRevLoadSavings" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TotalNonFuelFees" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BookPickNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookPickupStopNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PLUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="BookRouteConsFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookAlternateAddressLaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vIntegrationItemDetail" Member="vIntegrationItemDetails">
+    <Type Name="vIntegrationItemDetail">
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BookItemItemNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemQtyOrdered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookItemFreightCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookItemItemCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookItemWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookItemCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookItemPack" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BookItemSize" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookItemDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookCustItemNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemHazmat" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="BookItemBrand" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookItemCostCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemLotNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemLotExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookItemGTIN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemBFC" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookItemCountryOfOrigin" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookItemHST" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PalletType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemHazmatTypeCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItem49CFRCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemIATACode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemDOTCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemMarineCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemNMFCClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemFAKClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemLimitedQtyFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemPallets" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemTies" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemHighs" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemQtyPalletPercentage" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemQtyLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemQtyWidth" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemQtyHeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemStackable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemLevelOfDensity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookLoadPONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hazmat" Member="Hazmats">
+    <Type Name="Hazmat">
+      <Column Name="HazControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HazRegulation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HazItem" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HazClass" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HazID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HazDesc01" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc02" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc03" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazUnit" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazPackingGroup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HazPackingDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazShipInst" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazLtdQ" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarPoll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarStorCat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazNMFCSub" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazNMFC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFrtClass" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxGndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSgndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HazUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spUpdate210StatusEDI" Method="spUpdate210StatusEDI">
+    <Parameter Name="TotalCost" Parameter="totalCost" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="FreightBillNumber" Parameter="freightBillNumber" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="BookSHID" Parameter="bookSHID" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spUpdate210StatusEDIResult">
+      <Column Name="Success" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoadStatusControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spgetEDI204ItemDetails" Method="spgetEDI204ItemDetails">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spgetEDI204ItemDetailsResult">
+      <Column Name="BookItemControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemBookLoadControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookItemItemNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemQtyOrdered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookItemFreightCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookItemItemCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookItemWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookItemCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookItemPack" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BookItemSize" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookItemDescription" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookItemHazmat" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="BookItemBrand" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookItemCostCenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookItemHazmatTypeCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookItemPallets" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="BookLoadCom" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetEDI204BySHID" Method="spGetEDI204BySHID">
+    <Parameter Name="SHID" Parameter="sHID" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="spGetEDI204BySHIDResult">
+      <Column Name="ControlNbr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierSCAC" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookStopNo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BookCarrOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookOrderSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookRouteFinalCode" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookTransactionPurpose" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookTotalCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookTotalWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookTotalPL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookTotalCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookDateLoad" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookDateRequired" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookCarrScheduleDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookCarrScheduleTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookCarrApptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookCarrApptTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookOrigName" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookOrigAddress1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookOrigAddress2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookOrigAddress3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BookOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookOrigPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookOrigIDENTIFICATIONCODEQUALIFIER" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookOrigCompanyNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookDestName" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookDestAddress1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookDestAddress2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookDestAddress3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BookDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookDestZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BookDestPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="BookDestIDENTIFICATIONCODEQUALIFIER" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookDestCompanyNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookLoadPONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookLoadCom" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneComments" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneOriginAddressUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BookTrackDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompEDISecurityQual" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="CompEDISecurityCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CompEDIPartnerQual" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="CompEDIPartnerCode" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CompEDIEmailNotificationOn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompEDIEmailAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompEDIAcknowledgementRequested" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompEDIMethodOfPayment" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookRouteConsFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BookRevTotalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BillToCompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BillToCompNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillToCompAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BillToCompAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BillToCompCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BillToCompState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BillToCompZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BillToCompCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="EDICombineOrdersForStops" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookCustCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookSHID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookNotesVisable1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BookWhseAuthorizationNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,86 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestDynamicsTMSWebServices
+{
+    using DynamicsTMS;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            DynamicsTMSWebServices ws = init();
+
+            DoMasterData(ws);
+
+            accrual accrual = new Program.accrual()
+                {
+                    Amount = 200,
+                    DocumentNo = "Mark2",
+                    Description = "Descr",
+                    DocumentType = "Shipment",
+                    LegNo = 1
+                };
+            
+            //DoAccrual(ws, accrual);
+
+        }
+
+        static DynamicsTMSWebServices init()
+        {
+            DynamicsTMSWebServices ws = new DynamicsTMSWebServices();
+
+            ws.UseDefaultCredentials = true;
+            ws.Url = "http://mark-pc1:7547/DynamicsTMS71/WS/CRONUS%20International%20Ltd./Codeunit/DynamicsTMSWebServices";
+            return (ws);
+        }
+
+        static void DoMasterData(DynamicsTMSWebServices ws)
+        {
+            DynamicsTMSMasterData MasterData2 = new DynamicsTMSMasterData();
+
+            ws.GetMasterData(ref MasterData2, false, true);
+            foreach (MasterData md in MasterData2.MasterData)
+            {
+                Console.WriteLine(md.No + " " + md.Address);
+            }
+            Console.ReadKey();
+        }
+
+        static void DoAccrual(DynamicsTMSWebServices ws, accrual accrual)
+        {
+            DynamicsTMS.Accrual test = new Accrual
+            {
+                Amount = accrual.Amount,
+                DocumentNo = accrual.DocumentNo,
+                DocumentType = accrual.DocumentType,
+                Description = accrual.Description,
+                LegNo = accrual.LegNo
+            };
+
+            DynamicsTMSAccrual theaccrual = new DynamicsTMSAccrual()
+            {
+                Accrual = new Accrual[] { test }
+            };
+
+            ws.SendAccrual(theaccrual);
+            //Console.WriteLine(ws.TryPostAccrual());
+            Console.ReadKey();
+
+        }
+
+    public class accrual
+    {
+        public decimal Amount { get; set; }
+        public string DocumentNo { get; set; }
+        public string DocumentType { get; set; }
+        public string Description{ get; set; }
+        public int LegNo { get; set; }
+    }
+
+    }
+}
+

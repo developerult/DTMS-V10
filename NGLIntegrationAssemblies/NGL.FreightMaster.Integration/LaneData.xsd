@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LaneData" targetNamespace="http://nextgeneration.com/LaneData.xsd" xmlns:mstns="http://nextgeneration.com/LaneData.xsd" xmlns="http://nextgeneration.com/LaneData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LaneData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="LaneData" msprop:Generator_DataSetName="LaneData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LaneHeader" msprop:Generator_UserTableName="LaneHeader" msprop:Generator_RowDeletedName="LaneHeaderRowDeleted" msprop:Generator_RowChangedName="LaneHeaderRowChanged" msprop:Generator_RowClassName="LaneHeaderRow" msprop:Generator_RowChangingName="LaneHeaderRowChanging" msprop:Generator_RowEvArgName="LaneHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="LaneHeaderRowChangeEventHandler" msprop:Generator_TableClassName="LaneHeaderDataTable" msprop:Generator_TableVarName="tableLaneHeader" msprop:Generator_RowDeletingName="LaneHeaderRowDeleting" msprop:Generator_TablePropName="LaneHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LaneNumber" msprop:Generator_UserColumnName="LaneNumber" msprop:Generator_ColumnVarNameInTable="columnLaneNumber" msprop:Generator_ColumnPropNameInRow="LaneNumber" msprop:Generator_ColumnPropNameInTable="LaneNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneName" msprop:Generator_UserColumnName="LaneName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneName" msprop:Generator_ColumnPropNameInTable="LaneNameColumn" msprop:Generator_ColumnPropNameInRow="LaneName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneNumberMaster" msprop:Generator_UserColumnName="LaneNumberMaster" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneNumberMaster" msprop:Generator_ColumnPropNameInTable="LaneNumberMasterColumn" msprop:Generator_ColumnPropNameInRow="LaneNumberMaster" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneNameMaster" msprop:Generator_UserColumnName="LaneNameMaster" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneNameMaster" msprop:Generator_ColumnPropNameInTable="LaneNameMasterColumn" msprop:Generator_ColumnPropNameInRow="LaneNameMaster" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneCompNumber" msprop:Generator_UserColumnName="LaneCompNumber" msprop:Generator_ColumnVarNameInTable="columnLaneCompNumber" msprop:Generator_ColumnPropNameInRow="LaneCompNumber" msprop:Generator_ColumnPropNameInTable="LaneCompNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDefaultCarrierUse" msprop:Generator_UserColumnName="LaneDefaultCarrierUse" msprop:Generator_ColumnVarNameInTable="columnLaneDefaultCarrierUse" msprop:Generator_ColumnPropNameInRow="LaneDefaultCarrierUse" msprop:Generator_ColumnPropNameInTable="LaneDefaultCarrierUseColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="LaneDefaultCarrierNumber" msprop:Generator_UserColumnName="LaneDefaultCarrierNumber" msprop:Generator_ColumnVarNameInTable="columnLaneDefaultCarrierNumber" msprop:Generator_ColumnPropNameInRow="LaneDefaultCarrierNumber" msprop:Generator_ColumnPropNameInTable="LaneDefaultCarrierNumberColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LaneOrigCompNumber" msprop:Generator_UserColumnName="LaneOrigCompNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigCompNumber" msprop:Generator_ColumnPropNameInTable="LaneOrigCompNumberColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigCompNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigName" msprop:Generator_UserColumnName="LaneOrigName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigName" msprop:Generator_ColumnPropNameInTable="LaneOrigNameColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigAddress1" msprop:Generator_UserColumnName="LaneOrigAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigAddress1" msprop:Generator_ColumnPropNameInTable="LaneOrigAddress1Column" msprop:Generator_ColumnPropNameInRow="LaneOrigAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigAddress2" msprop:Generator_UserColumnName="LaneOrigAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigAddress2" msprop:Generator_ColumnPropNameInTable="LaneOrigAddress2Column" msprop:Generator_ColumnPropNameInRow="LaneOrigAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigAddress3" msprop:Generator_UserColumnName="LaneOrigAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigAddress3" msprop:Generator_ColumnPropNameInTable="LaneOrigAddress3Column" msprop:Generator_ColumnPropNameInRow="LaneOrigAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigCity" msprop:Generator_UserColumnName="LaneOrigCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigCity" msprop:Generator_ColumnPropNameInTable="LaneOrigCityColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigState" msprop:Generator_UserColumnName="LaneOrigState" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigState" msprop:Generator_ColumnPropNameInTable="LaneOrigStateColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigCountry" msprop:Generator_UserColumnName="LaneOrigCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigCountry" msprop:Generator_ColumnPropNameInTable="LaneOrigCountryColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigZip" msprop:Generator_UserColumnName="LaneOrigZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigZip" msprop:Generator_ColumnPropNameInTable="LaneOrigZipColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigContactPhone" msprop:Generator_UserColumnName="LaneOrigContactPhone" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigContactPhone" msprop:Generator_ColumnPropNameInTable="LaneOrigContactPhoneColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigContactPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigContactPhoneExt" msprop:Generator_UserColumnName="LaneOrigContactPhoneExt" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigContactPhoneExt" msprop:Generator_ColumnPropNameInTable="LaneOrigContactPhoneExtColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigContactPhoneExt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOrigContactFax" msprop:Generator_UserColumnName="LaneOrigContactFax" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneOrigContactFax" msprop:Generator_ColumnPropNameInTable="LaneOrigContactFaxColumn" msprop:Generator_ColumnPropNameInRow="LaneOrigContactFax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestCompNumber" msprop:Generator_UserColumnName="LaneDestCompNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestCompNumber" msprop:Generator_ColumnPropNameInTable="LaneDestCompNumberColumn" msprop:Generator_ColumnPropNameInRow="LaneDestCompNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestName" msprop:Generator_UserColumnName="LaneDestName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestName" msprop:Generator_ColumnPropNameInTable="LaneDestNameColumn" msprop:Generator_ColumnPropNameInRow="LaneDestName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestAddress1" msprop:Generator_UserColumnName="LaneDestAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestAddress1" msprop:Generator_ColumnPropNameInTable="LaneDestAddress1Column" msprop:Generator_ColumnPropNameInRow="LaneDestAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestAddress2" msprop:Generator_UserColumnName="LaneDestAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestAddress2" msprop:Generator_ColumnPropNameInTable="LaneDestAddress2Column" msprop:Generator_ColumnPropNameInRow="LaneDestAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestAddress3" msprop:Generator_UserColumnName="LaneDestAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestAddress3" msprop:Generator_ColumnPropNameInTable="LaneDestAddress3Column" msprop:Generator_ColumnPropNameInRow="LaneDestAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestCity" msprop:Generator_UserColumnName="LaneDestCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestCity" msprop:Generator_ColumnPropNameInTable="LaneDestCityColumn" msprop:Generator_ColumnPropNameInRow="LaneDestCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestState" msprop:Generator_UserColumnName="LaneDestState" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestState" msprop:Generator_ColumnPropNameInTable="LaneDestStateColumn" msprop:Generator_ColumnPropNameInRow="LaneDestState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestCountry" msprop:Generator_UserColumnName="LaneDestCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestCountry" msprop:Generator_ColumnPropNameInTable="LaneDestCountryColumn" msprop:Generator_ColumnPropNameInRow="LaneDestCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestZip" msprop:Generator_UserColumnName="LaneDestZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestZip" msprop:Generator_ColumnPropNameInTable="LaneDestZipColumn" msprop:Generator_ColumnPropNameInRow="LaneDestZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestContactPhone" msprop:Generator_UserColumnName="LaneDestContactPhone" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestContactPhone" msprop:Generator_ColumnPropNameInTable="LaneDestContactPhoneColumn" msprop:Generator_ColumnPropNameInRow="LaneDestContactPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestContactPhoneExt" msprop:Generator_UserColumnName="LaneDestContactPhoneExt" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestContactPhoneExt" msprop:Generator_ColumnPropNameInTable="LaneDestContactPhoneExtColumn" msprop:Generator_ColumnPropNameInRow="LaneDestContactPhoneExt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneDestContactFax" msprop:Generator_UserColumnName="LaneDestContactFax" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneDestContactFax" msprop:Generator_ColumnPropNameInTable="LaneDestContactFaxColumn" msprop:Generator_ColumnPropNameInRow="LaneDestContactFax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneConsigneeNumber" msprop:Generator_UserColumnName="LaneConsigneeNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="LaneConsigneeNumber" msprop:Generator_ColumnPropNameInTable="LaneConsigneeNumberColumn" msprop:Generator_ColumnVarNameInTable="columnLaneConsigneeNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneRecMinIn" msprop:Generator_UserColumnName="LaneRecMinIn" msprop:Generator_ColumnVarNameInTable="columnLaneRecMinIn" msprop:Generator_ColumnPropNameInRow="LaneRecMinIn" msprop:Generator_ColumnPropNameInTable="LaneRecMinInColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LaneRecMinUnload" msprop:Generator_UserColumnName="LaneRecMinUnload" msprop:Generator_ColumnVarNameInTable="columnLaneRecMinUnload" msprop:Generator_ColumnPropNameInRow="LaneRecMinUnload" msprop:Generator_ColumnPropNameInTable="LaneRecMinUnloadColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LaneRecMinOut" msprop:Generator_UserColumnName="LaneRecMinOut" msprop:Generator_ColumnVarNameInTable="columnLaneRecMinOut" msprop:Generator_ColumnPropNameInRow="LaneRecMinOut" msprop:Generator_ColumnPropNameInTable="LaneRecMinOutColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LaneAppt" msprop:Generator_UserColumnName="LaneAppt" msprop:Generator_ColumnVarNameInTable="columnLaneAppt" msprop:Generator_ColumnPropNameInRow="LaneAppt" msprop:Generator_ColumnPropNameInTable="LaneApptColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="LanePalletExchange" msprop:Generator_UserColumnName="LanePalletExchange" msprop:Generator_ColumnVarNameInTable="columnLanePalletExchange" msprop:Generator_ColumnPropNameInRow="LanePalletExchange" msprop:Generator_ColumnPropNameInTable="LanePalletExchangeColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="LanePalletType" msprop:Generator_UserColumnName="LanePalletType" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLanePalletType" msprop:Generator_ColumnPropNameInTable="LanePalletTypeColumn" msprop:Generator_ColumnPropNameInRow="LanePalletType" default="N" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneBenchMiles" msprop:Generator_UserColumnName="LaneBenchMiles" msprop:Generator_ColumnVarNameInTable="columnLaneBenchMiles" msprop:Generator_ColumnPropNameInRow="LaneBenchMiles" msprop:Generator_ColumnPropNameInTable="LaneBenchMilesColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LaneBFC" msprop:Generator_UserColumnName="LaneBFC" msprop:Generator_ColumnVarNameInTable="columnLaneBFC" msprop:Generator_ColumnPropNameInRow="LaneBFC" msprop:Generator_ColumnPropNameInTable="LaneBFCColumn" type="xs:double" default="100" minOccurs="0" />
+              <xs:element name="LaneBFCType" msprop:Generator_UserColumnName="LaneBFCType" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneBFCType" msprop:Generator_ColumnPropNameInTable="LaneBFCTypeColumn" msprop:Generator_ColumnPropNameInRow="LaneBFCType" default="PERC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneRecHourStart" msprop:Generator_UserColumnName="LaneRecHourStart" msprop:Generator_ColumnVarNameInTable="columnLaneRecHourStart" msprop:Generator_ColumnPropNameInRow="LaneRecHourStart" msprop:Generator_ColumnPropNameInTable="LaneRecHourStartColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LaneRecHourStop" msprop:Generator_UserColumnName="LaneRecHourStop" msprop:Generator_ColumnVarNameInTable="columnLaneRecHourStop" msprop:Generator_ColumnPropNameInRow="LaneRecHourStop" msprop:Generator_ColumnPropNameInTable="LaneRecHourStopColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LaneDestHourStart" msprop:Generator_UserColumnName="LaneDestHourStart" msprop:Generator_ColumnVarNameInTable="columnLaneDestHourStart" msprop:Generator_ColumnPropNameInRow="LaneDestHourStart" msprop:Generator_ColumnPropNameInTable="LaneDestHourStartColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LaneDestHourStop" msprop:Generator_UserColumnName="LaneDestHourStop" msprop:Generator_ColumnVarNameInTable="columnLaneDestHourStop" msprop:Generator_ColumnPropNameInRow="LaneDestHourStop" msprop:Generator_ColumnPropNameInTable="LaneDestHourStopColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LaneComments" msprop:Generator_UserColumnName="LaneComments" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneComments" msprop:Generator_ColumnPropNameInTable="LaneCommentsColumn" msprop:Generator_ColumnPropNameInRow="LaneComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneCommentsConfidential" msprop:Generator_UserColumnName="LaneCommentsConfidential" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLaneCommentsConfidential" msprop:Generator_ColumnPropNameInTable="LaneCommentsConfidentialColumn" msprop:Generator_ColumnPropNameInRow="LaneCommentsConfidential" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneLatitude" msprop:Generator_UserColumnName="LaneLatitude" msprop:Generator_ColumnVarNameInTable="columnLaneLatitude" msprop:Generator_ColumnPropNameInRow="LaneLatitude" msprop:Generator_ColumnPropNameInTable="LaneLatitudeColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LaneLongitude" msprop:Generator_UserColumnName="LaneLongitude" msprop:Generator_ColumnVarNameInTable="columnLaneLongitude" msprop:Generator_ColumnPropNameInRow="LaneLongitude" msprop:Generator_ColumnPropNameInTable="LaneLongitudeColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="LaneTempType" msprop:Generator_UserColumnName="LaneTempType" msprop:Generator_ColumnVarNameInTable="columnLaneTempType" msprop:Generator_ColumnPropNameInRow="LaneTempType" msprop:Generator_ColumnPropNameInTable="LaneTempTypeColumn" type="xs:short" default="3" minOccurs="0" />
+              <xs:element name="LaneTransType" msprop:Generator_UserColumnName="LaneTransType" msprop:Generator_ColumnVarNameInTable="columnLaneTransType" msprop:Generator_ColumnPropNameInRow="LaneTransType" msprop:Generator_ColumnPropNameInTable="LaneTransTypeColumn" type="xs:short" default="4" minOccurs="0" />
+              <xs:element name="LanePrimaryBuyer" msprop:Generator_UserColumnName="LanePrimaryBuyer" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnLanePrimaryBuyer" msprop:Generator_ColumnPropNameInTable="LanePrimaryBuyerColumn" msprop:Generator_ColumnPropNameInRow="LanePrimaryBuyer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneAptDelivery" msprop:Generator_UserColumnName="LaneAptDelivery" msprop:Generator_ColumnVarNameInTable="columnLaneAptDelivery" msprop:Generator_ColumnPropNameInRow="LaneAptDelivery" msprop:Generator_ColumnPropNameInTable="LaneAptDeliveryColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="BrokerNumber" msprop:Generator_UserColumnName="BrokerNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBrokerNumber" msprop:Generator_ColumnPropNameInTable="BrokerNumberColumn" msprop:Generator_ColumnPropNameInRow="BrokerNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BrokerName" msprop:Generator_UserColumnName="BrokerName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBrokerName" msprop:Generator_ColumnPropNameInTable="BrokerNameColumn" msprop:Generator_ColumnPropNameInRow="BrokerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneOriginAddressUse" msprop:Generator_UserColumnName="LaneOriginAddressUse" msprop:Generator_ColumnPropNameInRow="LaneOriginAddressUse" msprop:Generator_ColumnVarNameInTable="columnLaneOriginAddressUse" msprop:Generator_ColumnPropNameInTable="LaneOriginAddressUseColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="LaneCarrierEquipmentCodes" msprop:Generator_UserColumnName="LaneCarrierEquipmentCodes" msprop:Generator_ColumnVarNameInTable="columnLaneCarrierEquipmentCodes" msprop:Generator_ColumnPropNameInRow="LaneCarrierEquipmentCodes" msprop:Generator_ColumnPropNameInTable="LaneCarrierEquipmentCodesColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneChepGLID" msdata:Caption="POChepGLID" msprop:Generator_UserColumnName="LaneChepGLID" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnLaneChepGLID" msprop:Generator_ColumnPropNameInTable="LaneChepGLIDColumn" msprop:Generator_ColumnPropNameInRow="LaneChepGLID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneCarrierTypeCode" msprop:Generator_UserColumnName="LaneCarrierTypeCode" msprop:Generator_ColumnVarNameInTable="columnLaneCarrierTypeCode" msprop:Generator_ColumnPropNameInRow="LaneCarrierTypeCode" msprop:Generator_ColumnPropNameInTable="LaneCarrierTypeCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LanePickUpMon" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpMon" msprop:Generator_ColumnVarNameInTable="columnLanePickUpMon" msprop:Generator_ColumnPropNameInRow="LanePickUpMon" msprop:Generator_ColumnPropNameInTable="LanePickUpMonColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpTue" msprop:Generator_UserColumnName="LanePickUpTue" msprop:Generator_ColumnVarNameInTable="columnLanePickUpTue" msprop:Generator_ColumnPropNameInRow="LanePickUpTue" msprop:Generator_ColumnPropNameInTable="LanePickUpTueColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpWed" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpWed" msprop:Generator_ColumnVarNameInTable="columnLanePickUpWed" msprop:Generator_ColumnPropNameInRow="LanePickUpWed" msprop:Generator_ColumnPropNameInTable="LanePickUpWedColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpThu" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpThu" msprop:Generator_ColumnVarNameInTable="columnLanePickUpThu" msprop:Generator_ColumnPropNameInRow="LanePickUpThu" msprop:Generator_ColumnPropNameInTable="LanePickUpThuColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpFri" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpFri" msprop:Generator_ColumnVarNameInTable="columnLanePickUpFri" msprop:Generator_ColumnPropNameInRow="LanePickUpFri" msprop:Generator_ColumnPropNameInTable="LanePickUpFriColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpSat" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpSat" msprop:Generator_ColumnVarNameInTable="columnLanePickUpSat" msprop:Generator_ColumnPropNameInRow="LanePickUpSat" msprop:Generator_ColumnPropNameInTable="LanePickUpSatColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LanePickUpSun" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LanePickUpSun" msprop:Generator_ColumnVarNameInTable="columnLanePickUpSun" msprop:Generator_ColumnPropNameInRow="LanePickUpSun" msprop:Generator_ColumnPropNameInTable="LanePickUpSunColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffMon" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffMon" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffMon" msprop:Generator_ColumnPropNameInRow="LaneDropOffMon" msprop:Generator_ColumnPropNameInTable="LaneDropOffMonColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffTue" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffTue" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffTue" msprop:Generator_ColumnPropNameInRow="LaneDropOffTue" msprop:Generator_ColumnPropNameInTable="LaneDropOffTueColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffWed" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffWed" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffWed" msprop:Generator_ColumnPropNameInRow="LaneDropOffWed" msprop:Generator_ColumnPropNameInTable="LaneDropOffWedColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffThu" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffThu" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffThu" msprop:Generator_ColumnPropNameInRow="LaneDropOffThu" msprop:Generator_ColumnPropNameInTable="LaneDropOffThuColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffFri" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffFri" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffFri" msprop:Generator_ColumnPropNameInRow="LaneDropOffFri" msprop:Generator_ColumnPropNameInTable="LaneDropOffFriColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffSat" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffSat" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffSat" msprop:Generator_ColumnPropNameInRow="LaneDropOffSat" msprop:Generator_ColumnPropNameInTable="LaneDropOffSatColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="LaneDropOffSun" msdata:Caption="PickUp" msprop:Generator_UserColumnName="LaneDropOffSun" msprop:Generator_ColumnVarNameInTable="columnLaneDropOffSun" msprop:Generator_ColumnPropNameInRow="LaneDropOffSun" msprop:Generator_ColumnPropNameInTable="LaneDropOffSunColumn" type="xs:boolean" default="true" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LaneCalendar" msprop:Generator_UserTableName="LaneCalendar" msprop:Generator_RowDeletedName="LaneCalendarRowDeleted" msprop:Generator_RowChangedName="LaneCalendarRowChanged" msprop:Generator_RowClassName="LaneCalendarRow" msprop:Generator_RowChangingName="LaneCalendarRowChanging" msprop:Generator_RowEvArgName="LaneCalendarRowChangeEvent" msprop:Generator_RowEvHandlerName="LaneCalendarRowChangeEventHandler" msprop:Generator_TableClassName="LaneCalendarDataTable" msprop:Generator_TableVarName="tableLaneCalendar" msprop:Generator_RowDeletingName="LaneCalendarRowDeleting" msprop:Generator_TablePropName="LaneCalendar">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LaneNumber" msprop:Generator_UserColumnName="LaneNumber" msprop:Generator_ColumnVarNameInTable="columnLaneNumber" msprop:Generator_ColumnPropNameInRow="LaneNumber" msprop:Generator_ColumnPropNameInTable="LaneNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Month" msprop:Generator_UserColumnName="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Day" msprop:Generator_UserColumnName="Day" msprop:Generator_ColumnVarNameInTable="columnDay" msprop:Generator_ColumnPropNameInRow="Day" msprop:Generator_ColumnPropNameInTable="DayColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Open" msprop:Generator_UserColumnName="Open" msprop:Generator_ColumnVarNameInTable="columnOpen" msprop:Generator_ColumnPropNameInRow="Open" msprop:Generator_ColumnPropNameInTable="OpenColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="StartTime" msprop:Generator_UserColumnName="StartTime" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="StartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn" msprop:Generator_ColumnVarNameInTable="columnStartTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndTime" msprop:Generator_UserColumnName="EndTime" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="EndTime" msprop:Generator_ColumnPropNameInTable="EndTimeColumn" msprop:Generator_ColumnVarNameInTable="columnEndTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsHoliday" msprop:Generator_UserColumnName="IsHoliday" msprop:Generator_ColumnVarNameInTable="columnIsHoliday" msprop:Generator_ColumnPropNameInRow="IsHoliday" msprop:Generator_ColumnPropNameInTable="IsHolidayColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="ApplyToOrigin" msprop:Generator_UserColumnName="ApplyToOrigin" msprop:Generator_ColumnVarNameInTable="columnApplyToOrigin" msprop:Generator_ColumnPropNameInRow="ApplyToOrigin" msprop:Generator_ColumnPropNameInTable="ApplyToOriginColumn" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

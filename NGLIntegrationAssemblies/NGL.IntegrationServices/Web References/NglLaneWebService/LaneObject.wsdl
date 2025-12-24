@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lanes" type="tns:ArrayOfClsLaneObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsLaneObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsLaneObject" nillable="true" type="tns:clsLaneObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsLaneObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNumberMaster" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNameMaster" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneCompNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDefaultCarrierUse" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDefaultCarrierNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigCompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigContactPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigContactPhoneExt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneOrigContactFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestCompNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestContactPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestContactPhoneExt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestContactFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneConsigneeNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneRecMinIn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneRecMinUnload" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneRecMinOut" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneAppt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePalletExchange" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanePalletType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneBenchMiles" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneBFC" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneBFCType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneRecHourStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneRecHourStop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestHourStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneDestHourStop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneComments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneCommentsConfidential" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneLatitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneLongitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneTempType" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneTransType" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanePrimaryBuyer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneAptDelivery" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrokerNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrokerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneOriginAddressUse" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneCarrierEquipmentCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneChepGLID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaneCarrierTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpMon" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpTue" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpWed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpThu" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpFri" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpSat" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanePickUpSun" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffMon" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffTue" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffWed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffThu" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffFri" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffSat" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneDropOffSun" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lanes" type="tns:ArrayOfClsLaneObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataWCalendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lanes" type="tns:ArrayOfClsLaneObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="Calendar" type="tns:ArrayOfClsLaneCalendarObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsLaneCalendarObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsLaneCalendarObject" nillable="true" type="tns:clsLaneCalendarObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsLaneCalendarObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LaneNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Open" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHoliday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplyToOrigin" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataWCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataWCalendarResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataWCalendarSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataWCalendar" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataWCalendarSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataWCalendarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LaneObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <wsdl:input message="tns:ProcessDataWCalendarSoapIn" />
+      <wsdl:output message="tns:ProcessDataWCalendarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LaneObjectSoap" type="tns:LaneObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataWCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LaneObjectSoap12" type="tns:LaneObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataWCalendar">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataWCalendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LaneObject">
+    <wsdl:port name="LaneObjectSoap" binding="tns:LaneObjectSoap">
+      <soap:address location="http://localhost:8086/LaneObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LaneObjectSoap12" binding="tns:LaneObjectSoap12">
+      <soap12:address location="http://localhost:8086/LaneObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

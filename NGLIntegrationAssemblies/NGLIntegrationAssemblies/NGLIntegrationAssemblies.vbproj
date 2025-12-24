@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A83FBAAA-20B5-4361-A427-1F14E3014D76}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>NGLIntegrationAssemblies.Module1</StartupObject>
+    <RootNamespace>NGLIntegrationAssemblies</RootNamespace>
+    <AssemblyName>NGLIntegrationAssemblies</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Console</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NGLIntegrationAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NGLIntegrationAssemblies.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Dynamics.GP.eConnect, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NGL.FM.GPIntegration\Econnect\Microsoft.Dynamics.GP.eConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.GP.eConnect.Serialization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NGL.FM.GPIntegration\Econnect\Microsoft.Dynamics.GP.eConnect.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker, Version=6.1.0.0, Culture=neutral, PublicKeyToken=03722aec40eaa15f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FM.GPIntegration\NGL.FM.GPIntegration.vbproj">
+      <Project>{c83bdc47-08e7-4f06-a0b3-4e05887e4fde}</Project>
+      <Name>NGL.FM.GPIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FM.NAVIntegration\NGL.FM.NAVIntegration.vbproj">
+      <Project>{9150f10c-4d11-45e9-8278-b7a880771c17}</Project>
+      <Name>NGL.FM.NAVIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ngl.FreightMaster.Integration.WebServices\Ngl.FreightMaster.Integration.WebServices.vbproj">
+      <Project>{5a91ea8a-2872-4344-9ddd-1beba1413863}</Project>
+      <Name>Ngl.FreightMaster.Integration.WebServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.FreightMaster.Integration\NGL.FreightMaster.Integration.vbproj">
+      <Project>{75697b46-061c-48cb-bb6e-fc85bbb0f75c}</Project>
+      <Name>NGL.FreightMaster.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.IntegrationServices.GDF\NGL.IntegrationServices.GDF.vbproj">
+      <Project>{56e147cc-1dfa-47ca-9d05-2fa266bbdacd}</Project>
+      <Name>NGL.IntegrationServices.GDF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NGL.IntegrationServices\NGL.IntegrationServices.vbproj">
+      <Project>{5cf45989-81e6-489b-8187-d11065d3b9a3}</Project>
+      <Name>NGL.IntegrationServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Econnect2013\Microsoft.Dynamics.GP.eConnect.dll" />
+    <Content Include="Econnect2013\Microsoft.Dynamics.GP.eConnect.Serialization.dll" />
+    <Content Include="Econnect2015\Microsoft.Dynamics.GP.eConnect.dll" />
+    <Content Include="Econnect2015\Microsoft.Dynamics.GP.eConnect.Serialization.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

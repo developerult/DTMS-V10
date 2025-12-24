@@ -1,0 +1,2 @@
+-c "Data Source=NglSqlServer;Initial Catalog=NglMas2002;Integrated Security=SSPI" 
+-c "Data Source=NGLRDP05D;Initial Catalog=NGLMAS2010DEV;Integrated Security=True" -d

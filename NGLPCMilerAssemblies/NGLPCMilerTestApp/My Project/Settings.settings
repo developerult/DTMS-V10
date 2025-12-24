@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="OrigAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3001 East Main Street</Value>
+    </Setting>
+    <Setting Name="OrigCity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Humboldt</Value>
+    </Setting>
+    <Setting Name="OrigState" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TN</Value>
+    </Setting>
+    <Setting Name="OrigZip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">38343</Value>
+    </Setting>
+    <Setting Name="DestAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3003 SOUTH COUTRY CLUB ROAD</Value>
+    </Setting>
+    <Setting Name="DestCity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TUCSON</Value>
+    </Setting>
+    <Setting Name="DestState" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AZ</Value>
+    </Setting>
+    <Setting Name="DestZip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">85713</Value>
+    </Setting>
+    <Setting Name="UseCom" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Route_Type" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Dist_Type" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

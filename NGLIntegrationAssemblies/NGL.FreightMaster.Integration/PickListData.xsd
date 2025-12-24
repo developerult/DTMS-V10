@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PickListData" targetNamespace="http://nextgeneration.com/PickListData.xsd" xmlns:mstns="http://nextgeneration.com/PickListData.xsd" xmlns="http://nextgeneration.com/PickListData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PickListData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="PickListData" msprop:Generator_UserDSName="PickListData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PickList" msprop:Generator_UserTableName="PickList" msprop:Generator_RowEvArgName="PickListRowChangeEvent" msprop:Generator_TableVarName="tablePickList" msprop:Generator_TablePropName="_PickList" msprop:Generator_RowDeletingName="PickListRowDeleting" msprop:Generator_RowChangingName="PickListRowChanging" msprop:Generator_RowDeletedName="PickListRowDeleted" msprop:Generator_RowEvHandlerName="PickListRowChangeEventHandler" msprop:Generator_TableClassName="PickListDataTable" msprop:Generator_RowChangedName="PickListRowChanged" msprop:Generator_RowClassName="PickListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BookCarrOrderNumber" msprop:Generator_ColumnVarNameInTable="columnBookCarrOrderNumber" msprop:Generator_ColumnPropNameInRow="BookCarrOrderNumber" msprop:Generator_ColumnPropNameInTable="BookCarrOrderNumberColumn" msprop:Generator_UserColumnName="BookCarrOrderNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookConsPrefix" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookConsPrefix" msprop:Generator_ColumnVarNameInTable="columnBookConsPrefix" msprop:Generator_ColumnPropNameInTable="BookConsPrefixColumn" msprop:Generator_UserColumnName="BookConsPrefix" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierNumber" msprop:Generator_ColumnVarNameInTable="columnCarrierNumber" msprop:Generator_ColumnPropNameInRow="CarrierNumber" msprop:Generator_ColumnPropNameInTable="CarrierNumberColumn" msprop:Generator_UserColumnName="CarrierNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookRevTotalCost" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookRevTotalCost" msprop:Generator_ColumnVarNameInTable="columnBookRevTotalCost" msprop:Generator_ColumnPropNameInTable="BookRevTotalCostColumn" msprop:Generator_UserColumnName="BookRevTotalCost" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LoadOrder" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="LoadOrder" msprop:Generator_ColumnVarNameInTable="columnLoadOrder" msprop:Generator_ColumnPropNameInTable="LoadOrderColumn" msprop:Generator_UserColumnName="LoadOrder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDateLoad" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDateLoad" msprop:Generator_ColumnVarNameInTable="columnBookDateLoad" msprop:Generator_ColumnPropNameInTable="BookDateLoadColumn" msprop:Generator_UserColumnName="BookDateLoad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDateRequired" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDateRequired" msprop:Generator_ColumnVarNameInTable="columnBookDateRequired" msprop:Generator_ColumnPropNameInTable="BookDateRequiredColumn" msprop:Generator_UserColumnName="BookDateRequired" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookLoadCom" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookLoadCom" msprop:Generator_ColumnVarNameInTable="columnBookLoadCom" msprop:Generator_ColumnPropNameInTable="BookLoadComColumn" msprop:Generator_UserColumnName="BookLoadCom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookProNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookProNumber" msprop:Generator_ColumnVarNameInTable="columnBookProNumber" msprop:Generator_ColumnPropNameInTable="BookProNumberColumn" msprop:Generator_UserColumnName="BookProNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookRouteFinalCode" msprop:nullValue="(Throw exception)" msprop:Generator_ColumnPropNameInRow="BookRouteFinalCode" msprop:Generator_ColumnVarNameInTable="columnBookRouteFinalCode" msprop:Generator_ColumnPropNameInTable="BookRouteFinalCodeColumn" msprop:Generator_UserColumnName="BookRouteFinalCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookRouteFinalDate" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookRouteFinalDate" msprop:Generator_ColumnVarNameInTable="columnBookRouteFinalDate" msprop:Generator_ColumnPropNameInTable="BookRouteFinalDateColumn" msprop:Generator_UserColumnName="BookRouteFinalDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTotalCases" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTotalCases" msprop:Generator_ColumnVarNameInTable="columnBookTotalCases" msprop:Generator_ColumnPropNameInTable="BookTotalCasesColumn" msprop:Generator_UserColumnName="BookTotalCases" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTotalWgt" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTotalWgt" msprop:Generator_ColumnVarNameInTable="columnBookTotalWgt" msprop:Generator_ColumnPropNameInTable="BookTotalWgtColumn" msprop:Generator_UserColumnName="BookTotalWgt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTotalPL" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTotalPL" msprop:Generator_ColumnVarNameInTable="columnBookTotalPL" msprop:Generator_ColumnPropNameInTable="BookTotalPLColumn" msprop:Generator_UserColumnName="BookTotalPL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTotalCube" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTotalCube" msprop:Generator_ColumnVarNameInTable="columnBookTotalCube" msprop:Generator_ColumnPropNameInTable="BookTotalCubeColumn" msprop:Generator_UserColumnName="BookTotalCube" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTotalBFC" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTotalBFC" msprop:Generator_ColumnVarNameInTable="columnBookTotalBFC" msprop:Generator_ColumnPropNameInTable="BookTotalBFCColumn" msprop:Generator_UserColumnName="BookTotalBFC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookStopNo" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookStopNo" msprop:Generator_ColumnVarNameInTable="columnBookStopNo" msprop:Generator_ColumnPropNameInTable="BookStopNoColumn" msprop:Generator_UserColumnName="BookStopNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompName" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CompName" msprop:Generator_ColumnVarNameInTable="columnCompName" msprop:Generator_ColumnPropNameInTable="CompNameColumn" msprop:Generator_UserColumnName="CompName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNumber" msprop:Generator_ColumnVarNameInTable="columnCompNumber" msprop:Generator_ColumnPropNameInRow="CompNumber" msprop:Generator_ColumnPropNameInTable="CompNumberColumn" msprop:Generator_UserColumnName="CompNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTypeCode" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookTypeCode" msprop:Generator_ColumnVarNameInTable="columnBookTypeCode" msprop:Generator_ColumnPropNameInTable="BookTypeCodeColumn" msprop:Generator_UserColumnName="BookTypeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDateOrdered" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDateOrdered" msprop:Generator_ColumnVarNameInTable="columnBookDateOrdered" msprop:Generator_ColumnPropNameInTable="BookDateOrderedColumn" msprop:Generator_UserColumnName="BookDateOrdered" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigName" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigName" msprop:Generator_ColumnVarNameInTable="columnBookOrigName" msprop:Generator_ColumnPropNameInTable="BookOrigNameColumn" msprop:Generator_UserColumnName="BookOrigName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigAddress1" msprop:Generator_ColumnVarNameInTable="columnBookOrigAddress1" msprop:Generator_ColumnPropNameInTable="BookOrigAddress1Column" msprop:Generator_UserColumnName="BookOrigAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigAddress2" msprop:Generator_ColumnVarNameInTable="columnBookOrigAddress2" msprop:Generator_ColumnPropNameInTable="BookOrigAddress2Column" msprop:Generator_UserColumnName="BookOrigAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigAddress3" msprop:Generator_ColumnVarNameInTable="columnBookOrigAddress3" msprop:Generator_ColumnPropNameInTable="BookOrigAddress3Column" msprop:Generator_UserColumnName="BookOrigAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigCity" msprop:Generator_ColumnVarNameInTable="columnBookOrigCity" msprop:Generator_ColumnPropNameInTable="BookOrigCityColumn" msprop:Generator_UserColumnName="BookOrigCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigState" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigState" msprop:Generator_ColumnVarNameInTable="columnBookOrigState" msprop:Generator_ColumnPropNameInTable="BookOrigStateColumn" msprop:Generator_UserColumnName="BookOrigState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigCountry" msprop:Generator_ColumnVarNameInTable="columnBookOrigCountry" msprop:Generator_ColumnPropNameInTable="BookOrigCountryColumn" msprop:Generator_UserColumnName="BookOrigCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrigZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookOrigZip" msprop:Generator_ColumnVarNameInTable="columnBookOrigZip" msprop:Generator_ColumnPropNameInTable="BookOrigZipColumn" msprop:Generator_UserColumnName="BookOrigZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestName" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestName" msprop:Generator_ColumnVarNameInTable="columnBookDestName" msprop:Generator_ColumnPropNameInTable="BookDestNameColumn" msprop:Generator_UserColumnName="BookDestName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestAddress1" msprop:Generator_ColumnVarNameInTable="columnBookDestAddress1" msprop:Generator_ColumnPropNameInTable="BookDestAddress1Column" msprop:Generator_UserColumnName="BookDestAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestAddress2" msprop:Generator_ColumnVarNameInTable="columnBookDestAddress2" msprop:Generator_ColumnPropNameInTable="BookDestAddress2Column" msprop:Generator_UserColumnName="BookDestAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestAddress3" msprop:Generator_ColumnVarNameInTable="columnBookDestAddress3" msprop:Generator_ColumnPropNameInTable="BookDestAddress3Column" msprop:Generator_UserColumnName="BookDestAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestCity" msprop:Generator_ColumnVarNameInTable="columnBookDestCity" msprop:Generator_ColumnPropNameInTable="BookDestCityColumn" msprop:Generator_UserColumnName="BookDestCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestState" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestState" msprop:Generator_ColumnVarNameInTable="columnBookDestState" msprop:Generator_ColumnPropNameInTable="BookDestStateColumn" msprop:Generator_UserColumnName="BookDestState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestCountry" msprop:Generator_ColumnVarNameInTable="columnBookDestCountry" msprop:Generator_ColumnPropNameInTable="BookDestCountryColumn" msprop:Generator_UserColumnName="BookDestCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookDestZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookDestZip" msprop:Generator_ColumnVarNameInTable="columnBookDestZip" msprop:Generator_ColumnPropNameInTable="BookDestZipColumn" msprop:Generator_UserColumnName="BookDestZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookLoadPONumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookLoadPONumber" msprop:Generator_ColumnVarNameInTable="columnBookLoadPONumber" msprop:Generator_ColumnPropNameInTable="BookLoadPONumberColumn" msprop:Generator_UserColumnName="BookLoadPONumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierName" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierName" msprop:Generator_ColumnVarNameInTable="columnCarrierName" msprop:Generator_ColumnPropNameInTable="CarrierNameColumn" msprop:Generator_UserColumnName="CarrierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="LaneNumber" msprop:Generator_ColumnVarNameInTable="columnLaneNumber" msprop:Generator_ColumnPropNameInTable="LaneNumberColumn" msprop:Generator_UserColumnName="LaneNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CommCodeDescription" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CommCodeDescription" msprop:Generator_ColumnVarNameInTable="columnCommCodeDescription" msprop:Generator_ColumnPropNameInTable="CommCodeDescriptionColumn" msprop:Generator_UserColumnName="CommCodeDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookMilesFrom" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="BookMilesFrom" msprop:Generator_ColumnVarNameInTable="columnBookMilesFrom" msprop:Generator_ColumnPropNameInTable="BookMilesFromColumn" msprop:Generator_UserColumnName="BookMilesFrom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PLControl" msprop:Generator_ColumnVarNameInTable="columnPLControl" msprop:Generator_ColumnPropNameInRow="PLControl" msprop:Generator_ColumnPropNameInTable="PLControlColumn" msprop:Generator_UserColumnName="PLControl" type="xs:long" default="0" />
+              <xs:element name="BookCommCompControl" msprop:Generator_ColumnVarNameInTable="columnBookCommCompControl" msprop:Generator_ColumnPropNameInRow="BookCommCompControl" msprop:Generator_ColumnPropNameInTable="BookCommCompControlColumn" msprop:Generator_UserColumnName="BookCommCompControl" type="xs:int" minOccurs="0" />
+              <xs:element name="BookRevCommCost" msprop:Generator_ColumnVarNameInTable="columnBookRevCommCost" msprop:Generator_ColumnPropNameInRow="BookRevCommCost" msprop:Generator_ColumnPropNameInTable="BookRevCommCostColumn" msprop:Generator_UserColumnName="BookRevCommCost" type="xs:double" minOccurs="0" />
+              <xs:element name="BookRevGrossRevenue" msprop:Generator_ColumnVarNameInTable="columnBookRevGrossRevenue" msprop:Generator_ColumnPropNameInRow="BookRevGrossRevenue" msprop:Generator_ColumnPropNameInTable="BookRevGrossRevenueColumn" msprop:Generator_UserColumnName="BookRevGrossRevenue" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookFinCommStd" msprop:Generator_ColumnVarNameInTable="columnBookFinCommStd" msprop:Generator_ColumnPropNameInRow="BookFinCommStd" msprop:Generator_ColumnPropNameInTable="BookFinCommStdColumn" msprop:Generator_UserColumnName="BookFinCommStd" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookOrderSequence" msprop:Generator_ColumnVarNameInTable="columnBookOrderSequence" msprop:Generator_ColumnPropNameInRow="BookOrderSequence" msprop:Generator_ColumnPropNameInTable="BookOrderSequenceColumn" msprop:Generator_UserColumnName="BookOrderSequence" type="xs:int" minOccurs="0" />
+              <xs:element name="CarrierEquipmentCodes" msprop:Generator_ColumnVarNameInTable="columnCarrierEquipmentCodes" msprop:Generator_ColumnPropNameInRow="CarrierEquipmentCodes" msprop:Generator_ColumnPropNameInTable="CarrierEquipmentCodesColumn" msprop:Generator_UserColumnName="CarrierEquipmentCodes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrierTypeCode" msprop:Generator_ColumnVarNameInTable="columnBookCarrierTypeCode" msprop:Generator_ColumnPropNameInRow="BookCarrierTypeCode" msprop:Generator_ColumnPropNameInTable="BookCarrierTypeCodeColumn" msprop:Generator_UserColumnName="BookCarrierTypeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookWarehouseNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookWarehouseNumber" msprop:Generator_ColumnVarNameInTable="columnBookWarehouseNumber" msprop:Generator_ColumnPropNameInTable="BookWarehouseNumberColumn" msprop:Generator_UserColumnName="BookWarehouseNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookShipCarrierProNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookShipCarrierProNumber" msprop:Generator_ColumnVarNameInTable="columnBookShipCarrierProNumber" msprop:Generator_ColumnPropNameInTable="BookShipCarrierProNumberColumn" msprop:Generator_UserColumnName="BookShipCarrierProNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNatNumber" msprop:Generator_ColumnVarNameInTable="columnCompNatNumber" msprop:Generator_ColumnPropNameInRow="CompNatNumber" msprop:Generator_ColumnPropNameInTable="CompNatNumberColumn" msprop:Generator_UserColumnName="CompNatNumber" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="BookDoNotInvoice" msprop:Generator_ColumnVarNameInTable="columnBookDoNotInvoice" msprop:Generator_ColumnPropNameInRow="BookDoNotInvoice" msprop:Generator_ColumnPropNameInTable="BookDoNotInvoiceColumn" msprop:Generator_UserColumnName="BookDoNotInvoice" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="BookShipCarrierNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookShipCarrierNumber" msprop:Generator_ColumnVarNameInTable="columnBookShipCarrierNumber" msprop:Generator_ColumnPropNameInTable="BookShipCarrierNumberColumn" msprop:Generator_UserColumnName="BookShipCarrierNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookTransType" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookTransType" msprop:Generator_ColumnVarNameInTable="columnBookTransType" msprop:Generator_ColumnPropNameInTable="BookTransTypeColumn" msprop:Generator_UserColumnName="BookTransType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LaneComments" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="LaneComments" msprop:Generator_ColumnVarNameInTable="columnLaneComments" msprop:Generator_ColumnPropNameInTable="LaneCommentsColumn" msprop:Generator_UserColumnName="LaneComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FuelSurCharge" msprop:Generator_ColumnVarNameInTable="columnFuelSurCharge" msprop:Generator_ColumnPropNameInRow="FuelSurCharge" msprop:Generator_ColumnPropNameInTable="FuelSurChargeColumn" msprop:Generator_UserColumnName="FuelSurCharge" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookRevCarrierCost" msprop:Generator_ColumnVarNameInTable="columnBookRevCarrierCost" msprop:Generator_ColumnPropNameInRow="BookRevCarrierCost" msprop:Generator_ColumnPropNameInTable="BookRevCarrierCostColumn" msprop:Generator_UserColumnName="BookRevCarrierCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookRevOtherCost" msprop:Generator_ColumnVarNameInTable="columnBookRevOtherCost" msprop:Generator_ColumnPropNameInRow="BookRevOtherCost" msprop:Generator_ColumnPropNameInTable="BookRevOtherCostColumn" msprop:Generator_UserColumnName="BookRevOtherCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookRevNetCost" msprop:Generator_ColumnVarNameInTable="columnBookRevNetCost" msprop:Generator_ColumnPropNameInRow="BookRevNetCost" msprop:Generator_ColumnPropNameInTable="BookRevNetCostColumn" msprop:Generator_UserColumnName="BookRevNetCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookRevFreightTax" msprop:Generator_ColumnVarNameInTable="columnBookRevFreightTax" msprop:Generator_ColumnPropNameInRow="BookRevFreightTax" msprop:Generator_ColumnPropNameInTable="BookRevFreightTaxColumn" msprop:Generator_UserColumnName="BookRevFreightTax" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookFinServiceFee" msprop:Generator_ColumnVarNameInTable="columnBookFinServiceFee" msprop:Generator_ColumnPropNameInRow="BookFinServiceFee" msprop:Generator_ColumnPropNameInTable="BookFinServiceFeeColumn" msprop:Generator_UserColumnName="BookFinServiceFee" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookRevLoadSavings" msprop:Generator_ColumnVarNameInTable="columnBookRevLoadSavings" msprop:Generator_ColumnPropNameInRow="BookRevLoadSavings" msprop:Generator_ColumnPropNameInTable="BookRevLoadSavingsColumn" msprop:Generator_UserColumnName="BookRevLoadSavings" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="TotalNonFuelFees" msprop:Generator_ColumnVarNameInTable="columnTotalNonFuelFees" msprop:Generator_ColumnPropNameInRow="TotalNonFuelFees" msprop:Generator_ColumnPropNameInTable="TotalNonFuelFeesColumn" msprop:Generator_UserColumnName="TotalNonFuelFees" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="BookPickNumber" msprop:Generator_ColumnVarNameInTable="columnBookPickNumber" msprop:Generator_ColumnPropNameInRow="BookPickNumber" msprop:Generator_ColumnPropNameInTable="BookPickNumberColumn" msprop:Generator_UserColumnName="BookPickNumber" type="xs:int" default="0" />
+              <xs:element name="BookPickupStopNumber" msprop:Generator_ColumnVarNameInTable="columnBookPickupStopNumber" msprop:Generator_ColumnPropNameInRow="BookPickupStopNumber" msprop:Generator_ColumnPropNameInTable="BookPickupStopNumberColumn" msprop:Generator_UserColumnName="BookPickupStopNumber" type="xs:int" default="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PickDetail" msprop:Generator_UserTableName="PickDetail" msprop:Generator_RowEvArgName="PickDetailRowChangeEvent" msprop:Generator_TableVarName="tablePickDetail" msprop:Generator_TablePropName="PickDetail" msprop:Generator_RowDeletingName="PickDetailRowDeleting" msprop:Generator_RowChangingName="PickDetailRowChanging" msprop:Generator_RowDeletedName="PickDetailRowDeleted" msprop:Generator_RowEvHandlerName="PickDetailRowChangeEventHandler" msprop:Generator_TableClassName="PickDetailDataTable" msprop:Generator_RowChangedName="PickDetailRowChanged" msprop:Generator_RowClassName="PickDetailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BookCarrOrderNumber" msprop:Generator_ColumnVarNameInTable="columnBookCarrOrderNumber" msprop:Generator_ColumnPropNameInRow="BookCarrOrderNumber" msprop:Generator_ColumnPropNameInTable="BookCarrOrderNumberColumn" msprop:Generator_UserColumnName="BookCarrOrderNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="ItemNumber" msprop:Generator_ColumnVarNameInTable="columnItemNumber" msprop:Generator_ColumnPropNameInTable="ItemNumberColumn" msprop:Generator_UserColumnName="ItemNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QtyOrdered" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="QtyOrdered" msprop:Generator_ColumnVarNameInTable="columnQtyOrdered" msprop:Generator_ColumnPropNameInTable="QtyOrderedColumn" msprop:Generator_UserColumnName="QtyOrdered" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FreightCost" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="FreightCost" msprop:Generator_ColumnVarNameInTable="columnFreightCost" msprop:Generator_ColumnPropNameInTable="FreightCostColumn" msprop:Generator_UserColumnName="FreightCost" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="21" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemCost" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="ItemCost" msprop:Generator_ColumnVarNameInTable="columnItemCost" msprop:Generator_ColumnPropNameInTable="ItemCostColumn" msprop:Generator_UserColumnName="ItemCost" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="21" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Weight" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_UserColumnName="Weight" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cube" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Cube" msprop:Generator_ColumnVarNameInTable="columnCube" msprop:Generator_ColumnPropNameInTable="CubeColumn" msprop:Generator_UserColumnName="Cube" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pack" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Pack" msprop:Generator_ColumnVarNameInTable="columnPack" msprop:Generator_ColumnPropNameInTable="PackColumn" msprop:Generator_UserColumnName="Pack" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustItemNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CustItemNumber" msprop:Generator_ColumnVarNameInTable="columnCustItemNumber" msprop:Generator_ColumnPropNameInTable="CustItemNumberColumn" msprop:Generator_UserColumnName="CustItemNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerNumber" msprop:Generator_ColumnVarNameInTable="columnCustomerNumber" msprop:Generator_ColumnPropNameInRow="CustomerNumber" msprop:Generator_ColumnPropNameInTable="CustomerNumberColumn" msprop:Generator_UserColumnName="CustomerNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PLControl" msprop:Generator_ColumnVarNameInTable="columnPLControl" msprop:Generator_ColumnPropNameInRow="PLControl" msprop:Generator_ColumnPropNameInTable="PLControlColumn" msprop:Generator_UserColumnName="PLControl" type="xs:long" default="0" />
+              <xs:element name="OrderSequence" msprop:Generator_ColumnVarNameInTable="columnOrderSequence" msprop:Generator_ColumnPropNameInRow="OrderSequence" msprop:Generator_ColumnPropNameInTable="OrderSequenceColumn" msprop:Generator_UserColumnName="OrderSequence" type="xs:int" minOccurs="0" />
+              <xs:element name="Hazmat" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Hazmat" msprop:Generator_ColumnVarNameInTable="columnHazmat" msprop:Generator_ColumnPropNameInTable="HazmatColumn" msprop:Generator_UserColumnName="Hazmat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_ColumnPropNameInTable="BrandColumn" msprop:Generator_UserColumnName="Brand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CostCenter" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CostCenter" msprop:Generator_ColumnVarNameInTable="columnCostCenter" msprop:Generator_ColumnPropNameInTable="CostCenterColumn" msprop:Generator_UserColumnName="CostCenter" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LotNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="LotNumber" msprop:Generator_ColumnVarNameInTable="columnLotNumber" msprop:Generator_ColumnPropNameInTable="LotNumberColumn" msprop:Generator_UserColumnName="LotNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LotExpirationDate" msprop:Generator_ColumnVarNameInTable="columnLotExpirationDate" msprop:Generator_ColumnPropNameInRow="LotExpirationDate" msprop:Generator_ColumnPropNameInTable="LotExpirationDateColumn" msprop:Generator_UserColumnName="LotExpirationDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="GTIN" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="GTIN" msprop:Generator_ColumnVarNameInTable="columnGTIN" msprop:Generator_ColumnPropNameInTable="GTINColumn" msprop:Generator_UserColumnName="GTIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryOfOrigin" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CountryOfOrigin" msprop:Generator_ColumnVarNameInTable="columnCountryOfOrigin" msprop:Generator_ColumnPropNameInTable="CountryOfOriginColumn" msprop:Generator_UserColumnName="CountryOfOrigin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerPONumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CustomerPONumber" msprop:Generator_ColumnVarNameInTable="columnCustomerPONumber" msprop:Generator_ColumnPropNameInTable="CustomerPONumberColumn" msprop:Generator_UserColumnName="CustomerPONumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HST" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="HST" msprop:Generator_ColumnVarNameInTable="columnHST" msprop:Generator_ColumnPropNameInTable="HSTColumn" msprop:Generator_UserColumnName="HST" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BFC" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BFC" msprop:Generator_ColumnVarNameInTable="columnBFC" msprop:Generator_ColumnPropNameInTable="BFCColumn" msprop:Generator_UserColumnName="BFC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="21" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookProNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookProNumber" msprop:Generator_ColumnVarNameInTable="columnBookProNumber" msprop:Generator_ColumnPropNameInTable="BookProNumberColumn" msprop:Generator_UserColumnName="BookProNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PalletType" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="PalletType" msprop:Generator_ColumnVarNameInTable="columnPalletType" msprop:Generator_ColumnPropNameInTable="PalletTypeColumn" msprop:Generator_UserColumnName="PalletType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNatNumber" msprop:Generator_ColumnVarNameInTable="columnCompNatNumber" msprop:Generator_ColumnPropNameInRow="CompNatNumber" msprop:Generator_ColumnPropNameInTable="CompNatNumberColumn" msprop:Generator_UserColumnName="CompNatNumber" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://pcmiler.alk.com/APIs/v1.0" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pcmiler.alk.com/APIs/v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://pcmiler.alk.com/APIs/v1.0/Imports">
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd0" namespace="http://pcmiler.alk.com/APIs/v1.0" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ALK.PCM.Model" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ALK.Common.Model" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/ALK.PCM.Model.BusinessModels" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRestService_GetGeofenceSets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofenceSets" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofenceSets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofenceSetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofences" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofencesRouteIntersection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofencesRouteIntersection" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofencesRouteIntersection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofencesRouteIntersectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofencesPointsIntersection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofencesPointsIntersection" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetGeofencesPointsIntersection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeofencesPointsIntersectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetAdd" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetDelete" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceSetDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceSetDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceAdd" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceDelete" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeofenceDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeofenceDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAFSets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAFSets" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAFSets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAFSetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateAvoidFavorSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAvoidFavorSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateAvoidFavorSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAvoidFavorSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavor" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorGridLinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorGridLinks" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorGridLinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorGridLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorGroupLinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorGroupLinks" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddAvoidFavorGroupLinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAvoidFavorGroupLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavor" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ImportFlattenedAFSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFlattenedAFSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ImportFlattenedAFSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportFlattenedAFSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavors_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavors" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_CreateAFGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAFGroup" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_CreateAFGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAFGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAFGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAFGroups" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAFGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAFGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateAvoidFavorGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAvoidFavorGroup" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateAvoidFavorGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAvoidFavorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorGroup" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorGroups" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteAvoidFavorGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAvoidFavorGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetPlaceSets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceSets" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetPlaceSets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceSetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomPlaceSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomPlaceSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomPlaceSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomPlaceSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomPlaceSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomPlaceSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomPlaceSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomPlaceSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteCustomPlaceSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomPlaceSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteCustomPlaceSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomPlaceSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DeleteCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetCustomCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomCategories" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetCustomCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_AddCustomCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_UpdateCustomCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMap" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapRoutes_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapRoutes" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapRoutes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapTile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapTile" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapTile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapTileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapTileRTS_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapTileRTS" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawMapTileRTS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawMapTileRTSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawOverlayTile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawOverlayTile" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawOverlayTile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawOverlayTileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawTraffic_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawTraffic" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawTraffic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawTrafficResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawTrafficTile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawTrafficTile" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawTrafficTile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawTrafficTileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawRoadSurfaceTile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawRoadSurfaceTile" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawRoadSurfaceTile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawRoadSurfaceTileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawWeather_InputMessage">
+    <wsdl:part name="parameters" element="tns:DrawWeather" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_DrawWeather_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DrawWeatherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetDriveTimePolygon_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDriveTimePolygon" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetDriveTimePolygon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDriveTimePolygonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_CountyPolygons_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountyPolygons" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_CountyPolygons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountyPolygonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_StatePolygons_InputMessage">
+    <wsdl:part name="parameters" element="tns:StatePolygons" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_StatePolygons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StatePolygonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ZipPolygons_InputMessage">
+    <wsdl:part name="parameters" element="tns:ZipPolygons" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ZipPolygons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ZipPolygonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_Locations_InputMessage">
+    <wsdl:part name="parameters" element="tns:Locations" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_Locations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeoBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeoBatch" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GeoBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeoBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ReverseGeo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeo" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ReverseGeo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ReverseGeoBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoBatch" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_ReverseGeoBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReverseGeoBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_States_InputMessage">
+    <wsdl:part name="parameters" element="tns:States" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_States_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetPOIByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOIByID" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetPOIByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOIByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_POIRadiusSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:POIRadiusSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_POIRadiusSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:POIRadiusSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_FindPoisAlongRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPoisAlongRoute" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_FindPoisAlongRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPoisAlongRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRestrictions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestrictions" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRestrictions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestrictionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_About_InputMessage">
+    <wsdl:part name="parameters" element="tns:About" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_About_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AboutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficIncidentsBox_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficIncidentsBox" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficIncidentsBox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficIncidentsBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRoutePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutePath" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRoutePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRoutePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRoutePath" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRoutePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRoutePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostTrafficRoutePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostTrafficRoutePath" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostTrafficRoutePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostTrafficRoutePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRoutePathPLIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutePathPLIDs" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRoutePathPLIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutePathPLIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRouteReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteReports" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRouteReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteReports" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRteMatrix_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRteMatrix" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRteMatrix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRteMatrixResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteMatrix_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteMatrix" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteMatrix_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteMatrixResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetDerivedRoutePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDerivedRoutePath" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetDerivedRoutePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDerivedRoutePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostDerivedRoutePath_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostDerivedRoutePath" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostDerivedRoutePath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostDerivedRoutePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostDerivedRouteReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostDerivedRouteReports" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostDerivedRouteReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostDerivedRouteReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRouteSyncMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteSyncMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetRouteSyncMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteSyncMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteSyncMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteSyncMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostRouteSyncMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRouteSyncMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_WeatherAlerts_InputMessage">
+    <wsdl:part name="parameters" element="tns:WeatherAlerts" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_WeatherAlerts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WeatherAlertsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetWeatherAlertsPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeatherAlertsPoints" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetWeatherAlertsPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeatherAlertsPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_OptimizeTimeWindowSequence_InputMessage">
+    <wsdl:part name="parameters" element="tns:OptimizeTimeWindowSequence" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_OptimizeTimeWindowSequence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OptimizeTimeWindowSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCamerasBox_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCamerasBox" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCamerasBox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCamerasBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCameraMeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCameraMeta" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCameraMeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCameraMetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCameraImg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCameraImg" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetTrafficCameraImg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficCameraImgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_RoadSurfaceRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:RoadSurfaceRoute" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_RoadSurfaceRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RoadSurfaceRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinksSlim_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinksSlim" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinksSlim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinksSlimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinks" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinksForPLIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinksForPLIDs" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureLinksForPLIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureLinksForPLIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureConstants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureConstants" />
+  </wsdl:message>
+  <wsdl:message name="IRestMapSureService_GetMapSureConstants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapSureConstantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateAvoidFavorSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateAvoidFavorSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateAvoidFavorSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateAvoidFavorSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteAvoidFavorSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteAvoidFavorSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteAvoidFavorSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteAvoidFavorSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddAvoidFavor_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddAvoidFavor" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddAvoidFavor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddAvoidFavorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteAvoidFavor_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteAvoidFavor" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteAvoidFavor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteAvoidFavorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomPlaceSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomPlaceSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomPlaceSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomPlaceSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteCustomPlaceSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteCustomPlaceSet" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteCustomPlaceSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteCustomPlaceSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteCustomPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteCustomPlace" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRDeleteCustomPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRDeleteCustomPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddCustomCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddCustomCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRAddCustomCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRAddCustomCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomCategory" />
+  </wsdl:message>
+  <wsdl:message name="IRestXDRService_XDRUpdateCustomCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XDRUpdateCustomCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_RemoveFromCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCache" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_RemoveFromCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_FlushAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FlushAll" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_FlushAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FlushAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_ItemCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ItemCount" />
+  </wsdl:message>
+  <wsdl:message name="IRestApiKeyCacheService_ItemCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ItemCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRestService">
+    <wsdl:operation name="GetGeofenceSets">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofenceSets" message="tns:IRestService_GetGeofenceSets_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofenceSetsResponse" message="tns:IRestService_GetGeofenceSets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeofences">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofences" message="tns:IRestService_GetGeofences_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofencesResponse" message="tns:IRestService_GetGeofences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeofencesRouteIntersection">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofencesRouteIntersection" message="tns:IRestService_GetGeofencesRouteIntersection_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofencesRouteIntersectionResponse" message="tns:IRestService_GetGeofencesRouteIntersection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeofencesPointsIntersection">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofencesPointsIntersection" message="tns:IRestService_GetGeofencesPointsIntersection_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GetGeofencesPointsIntersectionResponse" message="tns:IRestService_GetGeofencesPointsIntersection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceSetAdd">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetAdd" message="tns:IRestService_GeofenceSetAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetAddResponse" message="tns:IRestService_GeofenceSetAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceSetUpdate">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetUpdate" message="tns:IRestService_GeofenceSetUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetUpdateResponse" message="tns:IRestService_GeofenceSetUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceSetDelete">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetDelete" message="tns:IRestService_GeofenceSetDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceSetDeleteResponse" message="tns:IRestService_GeofenceSetDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceAdd">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceAdd" message="tns:IRestService_GeofenceAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceAddResponse" message="tns:IRestService_GeofenceAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceUpdate">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceUpdate" message="tns:IRestService_GeofenceUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceUpdateResponse" message="tns:IRestService_GeofenceUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeofenceDelete">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceDelete" message="tns:IRestService_GeofenceDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeofenceService/GeofenceDeleteResponse" message="tns:IRestService_GeofenceDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAvoidFavorSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorSet" message="tns:IRestService_AddAvoidFavorSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorSetResponse" message="tns:IRestService_AddAvoidFavorSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAFSets">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/GetAFSets" message="tns:IRestService_GetAFSets_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/GetAFSetsResponse" message="tns:IRestService_GetAFSets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAvoidFavorSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/UpdateAvoidFavorSet" message="tns:IRestService_UpdateAvoidFavorSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/UpdateAvoidFavorSetResponse" message="tns:IRestService_UpdateAvoidFavorSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAvoidFavorSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorSet" message="tns:IRestService_DeleteAvoidFavorSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorSetResponse" message="tns:IRestService_DeleteAvoidFavorSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAvoidFavor">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavor" message="tns:IRestService_AddAvoidFavor_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorResponse" message="tns:IRestService_AddAvoidFavor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAvoidFavorGridLinks">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorGridLinks" message="tns:IRestService_AddAvoidFavorGridLinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorGridLinksResponse" message="tns:IRestService_AddAvoidFavorGridLinks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAvoidFavorGroupLinks">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorGroupLinks" message="tns:IRestService_AddAvoidFavorGroupLinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/AddAvoidFavorGroupLinksResponse" message="tns:IRestService_AddAvoidFavorGroupLinks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAvoidFavor">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavor" message="tns:IRestService_DeleteAvoidFavor_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorResponse" message="tns:IRestService_DeleteAvoidFavor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportFlattenedAFSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/ImportFlattenedAFSet" message="tns:IRestService_ImportFlattenedAFSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/ImportFlattenedAFSetResponse" message="tns:IRestService_ImportFlattenedAFSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAvoidFavors">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavors" message="tns:IRestService_DeleteAvoidFavors_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorsResponse" message="tns:IRestService_DeleteAvoidFavors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAFGroup">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/CreateAFGroup" message="tns:IRestService_CreateAFGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/CreateAFGroupResponse" message="tns:IRestService_CreateAFGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAFGroups">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/GetAFGroups" message="tns:IRestService_GetAFGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/GetAFGroupsResponse" message="tns:IRestService_GetAFGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAvoidFavorGroup">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/UpdateAvoidFavorGroup" message="tns:IRestService_UpdateAvoidFavorGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/UpdateAvoidFavorGroupResponse" message="tns:IRestService_UpdateAvoidFavorGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAvoidFavorGroup">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorGroup" message="tns:IRestService_DeleteAvoidFavorGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorGroupResponse" message="tns:IRestService_DeleteAvoidFavorGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAvoidFavorGroups">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorGroups" message="tns:IRestService_DeleteAvoidFavorGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAvoidFavorService/DeleteAvoidFavorGroupsResponse" message="tns:IRestService_DeleteAvoidFavorGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceSets">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/GetPlaceSets" message="tns:IRestService_GetPlaceSets_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/GetPlaceSetsResponse" message="tns:IRestService_GetPlaceSets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomPlaceSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomPlaceSet" message="tns:IRestService_AddCustomPlaceSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomPlaceSetResponse" message="tns:IRestService_AddCustomPlaceSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomPlaceSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomPlaceSet" message="tns:IRestService_UpdateCustomPlaceSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomPlaceSetResponse" message="tns:IRestService_UpdateCustomPlaceSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomPlaceSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/DeleteCustomPlaceSet" message="tns:IRestService_DeleteCustomPlaceSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/DeleteCustomPlaceSetResponse" message="tns:IRestService_DeleteCustomPlaceSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomPlace" message="tns:IRestService_AddCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomPlaceResponse" message="tns:IRestService_AddCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomPlace" message="tns:IRestService_UpdateCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomPlaceResponse" message="tns:IRestService_UpdateCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/DeleteCustomPlace" message="tns:IRestService_DeleteCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/DeleteCustomPlaceResponse" message="tns:IRestService_DeleteCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomCategories">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/GetCustomCategories" message="tns:IRestService_GetCustomCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/GetCustomCategoriesResponse" message="tns:IRestService_GetCustomCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomCategory">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomCategory" message="tns:IRestService_AddCustomCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/AddCustomCategoryResponse" message="tns:IRestService_AddCustomCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomCategory">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomCategory" message="tns:IRestService_UpdateCustomCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestCustomPlaceService/UpdateCustomCategoryResponse" message="tns:IRestService_UpdateCustomCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawMap">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMap" message="tns:IRestService_DrawMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapResponse" message="tns:IRestService_DrawMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawMapRoutes">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapRoutes" message="tns:IRestService_DrawMapRoutes_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapRoutesResponse" message="tns:IRestService_DrawMapRoutes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawMapTile">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapTile" message="tns:IRestService_DrawMapTile_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapTileResponse" message="tns:IRestService_DrawMapTile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawMapTileRTS">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapTileRTS" message="tns:IRestService_DrawMapTileRTS_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawMapTileRTSResponse" message="tns:IRestService_DrawMapTileRTS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawOverlayTile">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawOverlayTile" message="tns:IRestService_DrawOverlayTile_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawOverlayTileResponse" message="tns:IRestService_DrawOverlayTile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawTraffic">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawTraffic" message="tns:IRestService_DrawTraffic_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawTrafficResponse" message="tns:IRestService_DrawTraffic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawTrafficTile">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawTrafficTile" message="tns:IRestService_DrawTrafficTile_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawTrafficTileResponse" message="tns:IRestService_DrawTrafficTile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawRoadSurfaceTile">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawRoadSurfaceTile" message="tns:IRestService_DrawRoadSurfaceTile_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawRoadSurfaceTileResponse" message="tns:IRestService_DrawRoadSurfaceTile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawWeather">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawWeather" message="tns:IRestService_DrawWeather_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapService/DrawWeatherResponse" message="tns:IRestService_DrawWeather_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDriveTimePolygon">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/GetDriveTimePolygon" message="tns:IRestService_GetDriveTimePolygon_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/GetDriveTimePolygonResponse" message="tns:IRestService_GetDriveTimePolygon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountyPolygons">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/CountyPolygons" message="tns:IRestService_CountyPolygons_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/CountyPolygonsResponse" message="tns:IRestService_CountyPolygons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StatePolygons">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/StatePolygons" message="tns:IRestService_StatePolygons_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/StatePolygonsResponse" message="tns:IRestService_StatePolygons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipPolygons">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/ZipPolygons" message="tns:IRestService_ZipPolygons_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPolygonService/ZipPolygonsResponse" message="tns:IRestService_ZipPolygons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Locations">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/Locations" message="tns:IRestService_Locations_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/LocationsResponse" message="tns:IRestService_Locations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeoBatch">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/GeoBatch" message="tns:IRestService_GeoBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/GeoBatchResponse" message="tns:IRestService_GeoBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReverseGeo">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/ReverseGeo" message="tns:IRestService_ReverseGeo_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/ReverseGeoResponse" message="tns:IRestService_ReverseGeo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReverseGeoBatch">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/ReverseGeoBatch" message="tns:IRestService_ReverseGeoBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/ReverseGeoBatchResponse" message="tns:IRestService_ReverseGeoBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="States">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/States" message="tns:IRestService_States_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestGeocodeService/StatesResponse" message="tns:IRestService_States_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOIByID">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/GetPOIByID" message="tns:IRestService_GetPOIByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/GetPOIByIDResponse" message="tns:IRestService_GetPOIByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="POIRadiusSearch">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/POIRadiusSearch" message="tns:IRestService_POIRadiusSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/POIRadiusSearchResponse" message="tns:IRestService_POIRadiusSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPoisAlongRoute">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/FindPoisAlongRoute" message="tns:IRestService_FindPoisAlongRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestPOIService/FindPoisAlongRouteResponse" message="tns:IRestService_FindPoisAlongRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRestrictions">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestLinkAttributesService/GetRestrictions" message="tns:IRestService_GetRestrictions_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestLinkAttributesService/GetRestrictionsResponse" message="tns:IRestService_GetRestrictions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAccountInformationService/GetAccountInfo" message="tns:IRestService_GetAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestAccountInformationService/GetAccountInfoResponse" message="tns:IRestService_GetAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="About">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/About" message="tns:IRestService_About_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/AboutResponse" message="tns:IRestService_About_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficIncidentsBox">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficIncidentsBox" message="tns:IRestService_GetTrafficIncidentsBox_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficIncidentsBoxResponse" message="tns:IRestService_GetTrafficIncidentsBox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutePath">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRoutePath" message="tns:IRestService_GetRoutePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRoutePathResponse" message="tns:IRestService_GetRoutePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRoutePath">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRoutePath" message="tns:IRestService_PostRoutePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRoutePathResponse" message="tns:IRestService_PostRoutePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostTrafficRoutePath">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostTrafficRoutePath" message="tns:IRestService_PostTrafficRoutePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostTrafficRoutePathResponse" message="tns:IRestService_PostTrafficRoutePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutePathPLIDs">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRoutePathPLIDs" message="tns:IRestService_GetRoutePathPLIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRoutePathPLIDsResponse" message="tns:IRestService_GetRoutePathPLIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteReports">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRouteReports" message="tns:IRestService_GetRouteReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRouteReportsResponse" message="tns:IRestService_GetRouteReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRouteReports">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteReports" message="tns:IRestService_PostRouteReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteReportsResponse" message="tns:IRestService_PostRouteReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRteMatrix">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRteMatrix" message="tns:IRestService_GetRteMatrix_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRteMatrixResponse" message="tns:IRestService_GetRteMatrix_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRouteMatrix">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteMatrix" message="tns:IRestService_PostRouteMatrix_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteMatrixResponse" message="tns:IRestService_PostRouteMatrix_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDerivedRoutePath">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetDerivedRoutePath" message="tns:IRestService_GetDerivedRoutePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetDerivedRoutePathResponse" message="tns:IRestService_GetDerivedRoutePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostDerivedRoutePath">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostDerivedRoutePath" message="tns:IRestService_PostDerivedRoutePath_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostDerivedRoutePathResponse" message="tns:IRestService_PostDerivedRoutePath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostDerivedRouteReports">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostDerivedRouteReports" message="tns:IRestService_PostDerivedRouteReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostDerivedRouteReportsResponse" message="tns:IRestService_PostDerivedRouteReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteSyncMessage">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRouteSyncMessage" message="tns:IRestService_GetRouteSyncMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetRouteSyncMessageResponse" message="tns:IRestService_GetRouteSyncMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRouteSyncMessage">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteSyncMessage" message="tns:IRestService_PostRouteSyncMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/PostRouteSyncMessageResponse" message="tns:IRestService_PostRouteSyncMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WeatherAlerts">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/WeatherAlerts" message="tns:IRestService_WeatherAlerts_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/WeatherAlertsResponse" message="tns:IRestService_WeatherAlerts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeatherAlertsPoints">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetWeatherAlertsPoints" message="tns:IRestService_GetWeatherAlertsPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetWeatherAlertsPointsResponse" message="tns:IRestService_GetWeatherAlertsPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OptimizeTimeWindowSequence">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/OptimizeTimeWindowSequence" message="tns:IRestService_OptimizeTimeWindowSequence_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/OptimizeTimeWindowSequenceResponse" message="tns:IRestService_OptimizeTimeWindowSequence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficCamerasBox">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCamerasBox" message="tns:IRestService_GetTrafficCamerasBox_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCamerasBoxResponse" message="tns:IRestService_GetTrafficCamerasBox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficCameraMeta">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCameraMeta" message="tns:IRestService_GetTrafficCameraMeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCameraMetaResponse" message="tns:IRestService_GetTrafficCameraMeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficCameraImg">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCameraImg" message="tns:IRestService_GetTrafficCameraImg_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/GetTrafficCameraImgResponse" message="tns:IRestService_GetTrafficCameraImg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RoadSurfaceRoute">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/RoadSurfaceRoute" message="tns:IRestService_RoadSurfaceRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestService/RoadSurfaceRouteResponse" message="tns:IRestService_RoadSurfaceRoute_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRestMapSureService">
+    <wsdl:operation name="GetMapSureLinksSlim">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinksSlim" message="tns:IRestMapSureService_GetMapSureLinksSlim_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinksSlimResponse" message="tns:IRestMapSureService_GetMapSureLinksSlim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapSureLinks">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinks" message="tns:IRestMapSureService_GetMapSureLinks_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinksResponse" message="tns:IRestMapSureService_GetMapSureLinks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapSureLinksForPLIDs">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinksForPLIDs" message="tns:IRestMapSureService_GetMapSureLinksForPLIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureLinksForPLIDsResponse" message="tns:IRestMapSureService_GetMapSureLinksForPLIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapSureConstants">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureConstants" message="tns:IRestMapSureService_GetMapSureConstants_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestMapSureService/GetMapSureConstantsResponse" message="tns:IRestMapSureService_GetMapSureConstants_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRestXDRService">
+    <wsdl:operation name="XDRUpdateAvoidFavorSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateAvoidFavorSet" message="tns:IRestXDRService_XDRUpdateAvoidFavorSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateAvoidFavorSetResponse" message="tns:IRestXDRService_XDRUpdateAvoidFavorSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRDeleteAvoidFavorSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteAvoidFavorSet" message="tns:IRestXDRService_XDRDeleteAvoidFavorSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteAvoidFavorSetResponse" message="tns:IRestXDRService_XDRDeleteAvoidFavorSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRAddAvoidFavor">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddAvoidFavor" message="tns:IRestXDRService_XDRAddAvoidFavor_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddAvoidFavorResponse" message="tns:IRestXDRService_XDRAddAvoidFavor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRDeleteAvoidFavor">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteAvoidFavor" message="tns:IRestXDRService_XDRDeleteAvoidFavor_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteAvoidFavorResponse" message="tns:IRestXDRService_XDRDeleteAvoidFavor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRUpdateCustomPlaceSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomPlaceSet" message="tns:IRestXDRService_XDRUpdateCustomPlaceSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomPlaceSetResponse" message="tns:IRestXDRService_XDRUpdateCustomPlaceSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRDeleteCustomPlaceSet">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteCustomPlaceSet" message="tns:IRestXDRService_XDRDeleteCustomPlaceSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteCustomPlaceSetResponse" message="tns:IRestXDRService_XDRDeleteCustomPlaceSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRAddCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddCustomPlace" message="tns:IRestXDRService_XDRAddCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddCustomPlaceResponse" message="tns:IRestXDRService_XDRAddCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRUpdateCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomPlace" message="tns:IRestXDRService_XDRUpdateCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomPlaceResponse" message="tns:IRestXDRService_XDRUpdateCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRDeleteCustomPlace">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteCustomPlace" message="tns:IRestXDRService_XDRDeleteCustomPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRDeleteCustomPlaceResponse" message="tns:IRestXDRService_XDRDeleteCustomPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRAddCustomCategory">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddCustomCategory" message="tns:IRestXDRService_XDRAddCustomCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRAddCustomCategoryResponse" message="tns:IRestXDRService_XDRAddCustomCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XDRUpdateCustomCategory">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomCategory" message="tns:IRestXDRService_XDRUpdateCustomCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestXDRService/XDRUpdateCustomCategoryResponse" message="tns:IRestXDRService_XDRUpdateCustomCategory_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRestApiKeyCacheService">
+    <wsdl:operation name="RemoveFromCache">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/RemoveFromCache" message="tns:IRestApiKeyCacheService_RemoveFromCache_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/RemoveFromCacheResponse" message="tns:IRestApiKeyCacheService_RemoveFromCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FlushAll">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/FlushAll" message="tns:IRestApiKeyCacheService_FlushAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/FlushAllResponse" message="tns:IRestApiKeyCacheService_FlushAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemCount">
+      <wsdl:input wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/ItemCount" message="tns:IRestApiKeyCacheService_ItemCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://pcmiler.alk.com/APIs/v1.0/IRestApiKeyCacheService/ItemCountResponse" message="tns:IRestApiKeyCacheService_ItemCount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

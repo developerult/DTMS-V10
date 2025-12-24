@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="EIADieselPricesURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://tonto.eia.doe.gov/oog/info/wohdp/diesel_detail_report_combined.asp</Value>
+    </Setting>
+    <Setting Name="GetFuelByXLS" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EIADieselPricesURL_XLS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.eia.gov/petroleum/gasdiesel/xls/psw18vwall.xls</Value>
+    </Setting>
+    <Setting Name="WorkSheetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data 1</Value>
+    </Setting>
+    <Setting Name="WklyUSKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_NUS_DPG</Value>
+    </Setting>
+    <Setting Name="WklyEastCoastKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R10_DPG</Value>
+    </Setting>
+    <Setting Name="WklyNewEnglandKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R1X_DPG</Value>
+    </Setting>
+    <Setting Name="WklyCentralAtlanticKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R1Y_DPG</Value>
+    </Setting>
+    <Setting Name="WklyLowerAtlanticKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R1Z_DPG</Value>
+    </Setting>
+    <Setting Name="WklyMidWestKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R20_DPG</Value>
+    </Setting>
+    <Setting Name="WklyGulfCoastKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R30_DPG</Value>
+    </Setting>
+    <Setting Name="WklyRockeyMTNKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R40_DPG</Value>
+    </Setting>
+    <Setting Name="WklyWestCoastKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_R50_DPG</Value>
+    </Setting>
+    <Setting Name="WklkCaliforniaKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMD_EPD2D_PTE_SCA_DPG</Value>
+    </Setting>
+    <Setting Name="SourceKeyStr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sourcekey</Value>
+    </Setting>
+    <Setting Name="GetWeeksBack" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="AdminEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">info@maxximu.com</Value>
+    </Setting>
+    <Setting Name="GroupEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">info@maxximu.com</Value>
+    </Setting>
+    <Setting Name="FromEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">info@maxximu.com</Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="SaveOldLog" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KeepLogDays" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="GlobalFuelIndexUpdateEmailNotification" Type="System.String" Scope="User">
+      <Value Profile="(Default)">info@maxximu.com</Value>
+    </Setting>
+    <Setting Name="GlobalFuelIndexUpdateEmailNotificationValue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Use48Mode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

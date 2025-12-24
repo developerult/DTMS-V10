@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ScheduleData" targetNamespace="http://nextgeneration.com/ScheduleData.xsd" xmlns:mstns="http://nextgeneration.com/ScheduleData.xsd" xmlns="http://nextgeneration.com/ScheduleData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ScheduleData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ScheduleData" msprop:Generator_DataSetName="ScheduleData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ScheduleHeader" msprop:Generator_UserTableName="ScheduleHeader" msprop:Generator_RowDeletedName="ScheduleHeaderRowDeleted" msprop:Generator_RowChangedName="ScheduleHeaderRowChanged" msprop:Generator_RowClassName="ScheduleHeaderRow" msprop:Generator_RowChangingName="ScheduleHeaderRowChanging" msprop:Generator_RowEvArgName="ScheduleHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="ScheduleHeaderRowChangeEventHandler" msprop:Generator_TableClassName="ScheduleHeaderDataTable" msprop:Generator_TableVarName="tableScheduleHeader" msprop:Generator_RowDeletingName="ScheduleHeaderRowDeleting" msprop:Generator_TablePropName="ScheduleHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BookCarrOrderNumber" msprop:Generator_UserColumnName="BookCarrOrderNumber" msprop:nullValue="(Throw exception)" msprop:Generator_ColumnVarNameInTable="columnBookCarrOrderNumber" msprop:Generator_ColumnPropNameInTable="BookCarrOrderNumberColumn" msprop:Generator_ColumnPropNameInRow="BookCarrOrderNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrDockPUAssigment" msprop:Generator_UserColumnName="BookCarrDockPUAssigment" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBookCarrDockPUAssigment" msprop:Generator_ColumnPropNameInTable="BookCarrDockPUAssigmentColumn" msprop:Generator_ColumnPropNameInRow="BookCarrDockPUAssigment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrScheduleDate" msprop:Generator_UserColumnName="BookCarrScheduleDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrScheduleDate" msprop:Generator_ColumnPropNameInRow="BookCarrScheduleDate" msprop:Generator_ColumnPropNameInTable="BookCarrScheduleDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrScheduleTime" msprop:Generator_UserColumnName="BookCarrScheduleTime" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBookCarrScheduleTime" msprop:Generator_ColumnPropNameInTable="BookCarrScheduleTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrScheduleTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrActualDate" msprop:Generator_UserColumnName="BookCarrActualDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrActualDate" msprop:Generator_ColumnPropNameInRow="BookCarrActualDate" msprop:Generator_ColumnPropNameInTable="BookCarrActualDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrActualTime" msprop:Generator_UserColumnName="BookCarrActualTime" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBookCarrActualTime" msprop:Generator_ColumnPropNameInTable="BookCarrActualTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrActualTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrActLoadCompleteDate" msprop:Generator_UserColumnName="BookCarrActLoadCompleteDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrActLoadCompleteDate" msprop:Generator_ColumnPropNameInRow="BookCarrActLoadCompleteDate" msprop:Generator_ColumnPropNameInTable="BookCarrActLoadCompleteDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrActLoadCompleteTime" msprop:Generator_UserColumnName="BookCarrActLoadCompleteTime" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnBookCarrActLoadCompleteTime" msprop:Generator_ColumnPropNameInTable="BookCarrActLoadCompleteTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrActLoadCompleteTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNumber" msprop:Generator_UserColumnName="CompNumber" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompNumber" msprop:Generator_ColumnPropNameInTable="CompNumberColumn" msprop:Generator_ColumnPropNameInRow="CompNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookProNumber" msprop:Generator_UserColumnName="BookProNumber" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookProNumber" msprop:Generator_ColumnPropNameInTable="BookProNumberColumn" msprop:Generator_ColumnPropNameInRow="BookProNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookOrderSequence" msprop:Generator_UserColumnName="BookOrderSequence" msprop:Generator_ColumnVarNameInTable="columnBookOrderSequence" msprop:Generator_ColumnPropNameInRow="BookOrderSequence" msprop:Generator_ColumnPropNameInTable="BookOrderSequenceColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="BookCarrStartLoadingDate" msprop:Generator_UserColumnName="BookCarrStartLoadingDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrStartLoadingDate" msprop:Generator_ColumnPropNameInRow="BookCarrStartLoadingDate" msprop:Generator_ColumnPropNameInTable="BookCarrStartLoadingDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrStartLoadingTime" msprop:Generator_UserColumnName="BookCarrStartLoadingTime" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookCarrStartLoadingTime" msprop:Generator_ColumnPropNameInTable="BookCarrStartLoadingTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrStartLoadingTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrFinishLoadingDate" msprop:Generator_UserColumnName="BookCarrFinishLoadingDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrFinishLoadingDate" msprop:Generator_ColumnPropNameInRow="BookCarrFinishLoadingDate" msprop:Generator_ColumnPropNameInTable="BookCarrFinishLoadingDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrFinishLoadingTime" msprop:Generator_UserColumnName="BookCarrFinishLoadingTime" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookCarrFinishLoadingTime" msprop:Generator_ColumnPropNameInTable="BookCarrFinishLoadingTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrFinishLoadingTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrDockDelAssignment" msprop:Generator_UserColumnName="BookCarrDockDelAssignment" msprop:Generator_ColumnVarNameInTable="columnBookCarrDockDelAssignment" msprop:Generator_ColumnPropNameInRow="BookCarrDockDelAssignment" msprop:Generator_ColumnPropNameInTable="BookCarrDockDelAssignmentColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrApptDate" msprop:Generator_UserColumnName="BookCarrApptDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrApptDate" msprop:Generator_ColumnPropNameInRow="BookCarrApptDate" msprop:Generator_ColumnPropNameInTable="BookCarrApptDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrApptTime" msprop:Generator_UserColumnName="BookCarrApptTime" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookCarrApptTime" msprop:Generator_ColumnPropNameInTable="BookCarrApptTimeColumn" msprop:Generator_ColumnPropNameInRow="BookCarrApptTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrActDate" msprop:Generator_UserColumnName="BookCarrActDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrActDate" msprop:Generator_ColumnPropNameInRow="BookCarrActDate" msprop:Generator_ColumnPropNameInTable="BookCarrActDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrActTime" msprop:Generator_UserColumnName="BookCarrActTime" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookCarrActTime" msprop:Generator_ColumnPropNameInTable="BookCarrActTimeColumn" msprop:Generator_ColumnVarNameInTable="columnBookCarrActTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrStartUnloadingDate" msprop:Generator_UserColumnName="BookCarrStartUnloadingDate" msprop:Generator_ColumnPropNameInRow="BookCarrStartUnloadingDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrStartUnloadingDate" msprop:Generator_ColumnPropNameInTable="BookCarrStartUnloadingDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrStartUnloadingTime" msprop:Generator_UserColumnName="BookCarrStartUnloadingTime" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookCarrStartUnloadingTime" msprop:Generator_ColumnPropNameInTable="BookCarrStartUnloadingTimeColumn" msprop:Generator_ColumnVarNameInTable="columnBookCarrStartUnloadingTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrFinishUnloadingDate" msprop:Generator_UserColumnName="BookCarrFinishUnloadingDate" msprop:Generator_ColumnPropNameInRow="BookCarrFinishUnloadingDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrFinishUnloadingDate" msprop:Generator_ColumnPropNameInTable="BookCarrFinishUnloadingDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrFinishUnloadingTime" msprop:Generator_UserColumnName="BookCarrFinishUnloadingTime" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookCarrFinishUnloadingTime" msprop:Generator_ColumnPropNameInTable="BookCarrFinishUnloadingTimeColumn" msprop:Generator_ColumnVarNameInTable="columnBookCarrFinishUnloadingTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookCarrActUnloadCompDate" msprop:Generator_UserColumnName="BookCarrActUnloadCompDate" msprop:Generator_ColumnPropNameInRow="BookCarrActUnloadCompDate" msprop:Generator_ColumnVarNameInTable="columnBookCarrActUnloadCompDate" msprop:Generator_ColumnPropNameInTable="BookCarrActUnloadCompDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BookCarrActUnloadCompTime" msprop:Generator_UserColumnName="BookCarrActUnloadCompTime" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="BookCarrActUnloadCompTime" msprop:Generator_ColumnPropNameInTable="BookCarrActUnloadCompTimeColumn" msprop:Generator_ColumnVarNameInTable="columnBookCarrActUnloadCompTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookShipCarrierProNumber" msprop:Generator_UserColumnName="BookShipCarrierProNumber" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookShipCarrierProNumber" msprop:Generator_ColumnPropNameInTable="BookShipCarrierProNumberColumn" msprop:Generator_ColumnPropNameInRow="BookShipCarrierProNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookShipCarrierNumber" msprop:Generator_UserColumnName="BookShipCarrierNumber" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnBookShipCarrierNumber" msprop:Generator_ColumnPropNameInTable="BookShipCarrierNumberColumn" msprop:Generator_ColumnPropNameInRow="BookShipCarrierNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookShipCarrierName" msprop:Generator_UserColumnName="BookShipCarrierName" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnBookShipCarrierName" msprop:Generator_ColumnPropNameInTable="BookShipCarrierNameColumn" msprop:Generator_ColumnPropNameInRow="BookShipCarrierName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

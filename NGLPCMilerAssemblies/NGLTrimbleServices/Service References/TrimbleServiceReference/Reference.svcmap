@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1c5c13a-06b1-4a7a-ae55-0dd404ea5c99" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://pcmiler.alk.com/apis/rest/v1.0/Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="32aa970e-02f9-431d-ae00-1e36bb8c64de" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?wsdl" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="9db3962e-df01-4f56-8c19-22d84ee218c0" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="9bb110be-1dae-4903-89f0-8af89b1396a7" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?disco" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="ef7dffbc-b031-4a76-9054-4c3e6911bb52" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd8" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="4c78ac30-c99c-4d98-a827-3437f094fce9" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="d7fea39c-88ac-4390-b50f-49323cd6cf74" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="384b9467-742b-4ebf-9017-a956d713b1b7" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="01869e61-e9aa-4edc-8a2c-35b1892abea7" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd7" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="c841ca26-4b20-4ee6-8433-9f327a62bb80" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="8d916b50-99c6-4b11-a7d8-231094907790" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="6d735ba9-5e43-4214-8285-581df66c590c" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service8.xsd" MetadataType="Schema" ID="37953b51-82de-4056-bfb1-85a843578b7e" SourceId="1" SourceUrl="https://pcmiler.alk.com/APIs/REST/v1.0/Service.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

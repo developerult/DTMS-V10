@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsBookHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookHeaderObject" nillable="true" type="tns:clsBookHeaderObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookHeaderObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POVendor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POBuyer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POFrt" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="POTotalFrt" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POTotalCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POWgt" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POCube" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POPallets" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POLines" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POConfirm" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PODefaultCustomer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PODefaultCarrier" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="POReqDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipInstructions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POCooler" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="POFrozen" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PODry" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="POTemp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipVia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POShipViaType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POConsigneeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCustomerPO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOtherCosts" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="POStatusFlag" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="POChepGLID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarrierEquipmentCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POCarrierTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POPalletPositions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSchedulePUTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POScheduleDelDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSCheduleDelTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActPUDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActPUTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActDelDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POActDelTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsBookDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsBookDetailObject" nillable="true" type="tns:clsBookDetailObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsBookDetailObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ItemPONumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixOffInvAllow" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixFrtAllow" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyOrdered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreightCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cube" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pack" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hazmat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustItemNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="POOrderSequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderHeaders" type="tns:ArrayOfClsBookHeaderObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetails" type="tns:ArrayOfClsBookDetailObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessDataExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessDataExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessDataEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessDataExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessDataExResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BookObjectSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <wsdl:input message="tns:ProcessDataSoapIn" />
+      <wsdl:output message="tns:ProcessDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <wsdl:input message="tns:ProcessDataExSoapIn" />
+      <wsdl:output message="tns:ProcessDataExSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookObjectSoap" type="tns:BookObjectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookObjectSoap12" type="tns:BookObjectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://tempuri.org/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataEx">
+      <soap12:operation soapAction="http://tempuri.org/ProcessDataEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookObject">
+    <wsdl:port name="BookObjectSoap" binding="tns:BookObjectSoap">
+      <soap:address location="http://localhost:8086/BookObject.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BookObjectSoap12" binding="tns:BookObjectSoap12">
+      <soap12:address location="http://localhost:8086/BookObject.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

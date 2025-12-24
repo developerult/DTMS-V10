@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C10EAF27-A54B-4392-AAE7-E1A602DB079F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGL.FM.DATIntegration</RootNamespace>
+    <AssemblyName>NGL.FM.DATIntegration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ngl.Core, Version=7.0.5.0, Culture=neutral, PublicKeyToken=64e6dd2f8ae4c669, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\Ngl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker">
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Data, Version=7.0.5.1, Culture=neutral, PublicKeyToken=39c8a788a282ceb2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLDataAssemblies\NGLDataAssemblies\bin\Debug\Ngl.FreightMaster.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alarm.cs" />
+    <Compile Include="DAT.cs" />
+    <Compile Include="DisplayHelpers\DisplayExtensions.cs" />
+    <Compile Include="DisplayHelpers\DisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupCarrierDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupDobCarriersDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupDobEventsDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupDobSignedCarriersDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupHistoricContractDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupHistoricSpotDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\LookupRateDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\PostDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\SearchDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\ServiceErrorDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\UpdateAlarmUrlDisplayHelper.cs" />
+    <Compile Include="Infrastructure\CommandLineInput.cs" />
+    <Compile Include="Infrastructure\ConfiguredProperties.cs" />
+    <Compile Include="Infrastructure\Feature.cs" />
+    <Compile Include="Infrastructure\SampleFactory.cs" />
+    <Compile Include="Infrastructure\ServiceFacade.cs" />
+    <Compile Include="Infrastructure\SessionFacade.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="LookupCarrier.cs" />
+    <Compile Include="LookupDobCarriers.cs" />
+    <Compile Include="LookupDobEvents.cs" />
+    <Compile Include="LookupRates.cs" />
+    <Compile Include="LookupSignedCarriers.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.cs" />
+    <Compile Include="TFMIProxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

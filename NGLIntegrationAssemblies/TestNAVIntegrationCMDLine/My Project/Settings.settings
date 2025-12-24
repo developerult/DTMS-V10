@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestNAVIntegrationCMDLine_NAVService_DynamicsTMSWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglnav2013r2.ngl.local:7557/DynamicsTMS704/WS/CRONUS%20USA%252C%20Inc./Codeunit/DynamicsTMSWebServices</Value>
+    </Setting>
+    <Setting Name="TestNAVIntegrationCMDLine_TMSIntegrationServices_DTMSERPIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev70.nextgeneration.com/DTMSERPIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="TestNAVIntegrationCMDLine_TMSIntegrationSettings_DTMSIntegration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglwsdev70.nextgeneration.com/DTMSIntegration.asmx</Value>
+    </Setting>
+    <Setting Name="TMSSettingsAuthCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WSPROD</Value>
+    </Setting>
+    <Setting Name="TMSRunLegalEntity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TRACHTE-LIVE</Value>
+    </Setting>
+    <Setting Name="DBServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TBS-TMSdB</Value>
+    </Setting>
+    <Setting Name="Database" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NGLMASPROD</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

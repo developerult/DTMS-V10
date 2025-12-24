@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75697B46-061C-48CB-BB6E-FC85BBB0F75C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ngl.FreightMaster.Integration</RootNamespace>
+    <AssemblyName>Ngl.FreightMaster.Integration</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NGL.FreightMaster.Integration.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionInfer>On</OptionInfer>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NGL.FreightMaster.Integration.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NGL.FreightMaster.Integration.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.Core">
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\Ngl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Core.ChangeTracker, Version=6.1.0.0, Culture=neutral, PublicKeyToken=03722aec40eaa15f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLCoreAssemblies\NGLCoreAssemblies\bin\Debug\NGL.Core.ChangeTracker.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FM.BLL">
+      <HintPath>..\..\NGL.DataAssemblies\NGL.FM.BLL\bin\Debug\net48\NGL.FM.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FMWCFProxy, Version=6.3.0.0, Culture=neutral, PublicKeyToken=f0d8c84d25f82fdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLProxyAssemblies\NGLProxyAssemblies\bin\Debug\NGL.FMWCFProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Core">
+      <HintPath>..\..\NGL.DataAssemblies\NGL.FreightMaster.Core\bin\Debug\net48\Ngl.FreightMaster.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ngl.FreightMaster.Data">
+      <HintPath>..\..\NGL.DataAssemblies\Ngl.FreightMaster.Data\bin\Debug\net48\Ngl.FreightMaster.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.FreightMaster.PCMiler, Version=7.0.5.100, Culture=neutral, PublicKeyToken=672701308194c961, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\NGLPCMilerAssemblies\bin\Debug\NGL.FreightMaster.PCMiler.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Interfaces">
+      <HintPath>..\..\NGLPCMilerAssemblies\NGL.FreightMaster.PCMiler\bin\Debug\NGL.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NGL.Service.PCMiler64, Version=7.0.5.100, Culture=neutral, PublicKeyToken=e15229f082f14c46, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NGLPCMilerAssemblies\NGL.Service.PCMiler64\bin\Debug\NGL.Service.PCMiler64.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APExport.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>APExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="APExport.vb">
+      <DependentUpon>APExport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="APFreightBill.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>APFreightBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="APFreightBill.vb">
+      <DependentUpon>APFreightBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BookData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BookData.vb">
+      <DependentUpon>BookData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CarrierData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarrierData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CarrierData.vb">
+      <DependentUpon>CarrierData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cls210O.vb" />
+    <Compile Include="cls214Data.vb" />
+    <Compile Include="clsAPExport.vb" />
+    <Compile Include="clsAPExportDetailObject.vb" />
+    <Compile Include="clsAPExportFeeObject.vb" />
+    <Compile Include="clsAPExportObject.vb" />
+    <Compile Include="clsAPFreightBillObject.vb" />
+    <Compile Include="clsBook.vb" />
+    <Compile Include="clsBookDetailObject.vb" />
+    <Compile Include="clsBookHeaderObject.vb" />
+    <Compile Include="clsBookSeal.vb" />
+    <Compile Include="clsBookTrailer.vb" />
+    <Compile Include="clsCarrier.vb" />
+    <Compile Include="clsCarrierContactObject.vb" />
+    <Compile Include="clsCarrierEDIBLL.vb" />
+    <Compile Include="clsCarrierHeaderObject.vb" />
+    <Compile Include="clsCompany.vb" />
+    <Compile Include="clsCompanyCalendarObject.vb" />
+    <Compile Include="clsCompanyContactObject.vb" />
+    <Compile Include="clsCompanyHeaderObject.vb" />
+    <Compile Include="clsDTMSIntegration.vb" />
+    <Compile Include="clsEDI204.vb" />
+    <Compile Include="clsEDIGSBLL.vb" />
+    <Compile Include="clsEDIInput.vb" />
+    <Compile Include="clsEDIISABLL.vb" />
+    <Compile Include="clsEDIObjects.vb" />
+    <Compile Include="clsEDI214Object-old.vb" />
+    <Compile Include="clsEDISettings.vb" />
+    <Compile Include="clsHazmat.vb" />
+    <Compile Include="clsHazmatObject.vb" />
+    <Compile Include="clsImportDataBase.vb" />
+    <Compile Include="clsIntegrationUpdateResults.vb" />
+    <Compile Include="clsPalermos210Out.vb" />
+    <Compile Include="clsPalletType.vb" />
+    <Compile Include="clsPalletTypeObject.vb" />
+    <Compile Include="clsPickLIstFeeObject.vb" />
+    <Compile Include="CompXrefs.vb" />
+    <Compile Include="clsDownload.vb" />
+    <Compile Include="clsAPFreightBillExport.vb" />
+    <Compile Include="clsFreightBillImport.vb" />
+    <Compile Include="clsFreightBillObject.vb" />
+    <Compile Include="clsLaneCalendarObject.vb" />
+    <Compile Include="clsLegacyFreightBillImport.vb" />
+    <Compile Include="clsImportExport.vb" />
+    <Compile Include="clsImportField.vb" />
+    <Compile Include="clsImportFields.vb" />
+    <Compile Include="clsLane.vb" />
+    <Compile Include="clsLaneObject.vb" />
+    <Compile Include="clsLegacyFreightBillObject.vb" />
+    <Compile Include="clsLog.vb" />
+    <Compile Include="clsPayables.vb" />
+    <Compile Include="clsPayablesObject.vb" />
+    <Compile Include="clsPickDetailObject.vb" />
+    <Compile Include="clsIntegrationItemDetailObject.vb" />
+    <Compile Include="clsPickList.vb" />
+    <Compile Include="clsPickListObject.vb" />
+    <Compile Include="clsSchedule.vb" />
+    <Compile Include="clsScheduleObject.vb" />
+    <Compile Include="clsUpload.vb" />
+    <Compile Include="CompanyData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.vb" />
+    <Compile Include="EDI204.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDI204.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EDI204.vb">
+      <DependentUpon>EDI204.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExistingLanes.vb" />
+    <Compile Include="FKLookups.vb" />
+    <Compile Include="FMData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FMData.vb">
+      <DependentUpon>FMData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FMDataPartial.vb" />
+    <Compile Include="FreightBillData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FreightBillData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ImportFieldFlags.vb" />
+    <Compile Include="LaneData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaneData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LaneData.vb">
+      <DependentUpon>LaneData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LegacyFreightBillData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LegacyFreightBillData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LegacyFreightBillData.vb">
+      <DependentUpon>LegacyFreightBillData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LTSIntegrationData.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LTSIntegrationData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PayablesData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayablesData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PayablesData.vb">
+      <DependentUpon>PayablesData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PickListData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PickListData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PickListData.vb">
+      <DependentUpon>PickListData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WCFResult.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LTSIntegrationData.dbml.layout">
+      <DependentUpon>LTSIntegrationData.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="APExport.xsc">
+      <DependentUpon>APExport.xsd</DependentUpon>
+    </None>
+    <None Include="APExport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>APExport.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="APExport.xss">
+      <DependentUpon>APExport.xsd</DependentUpon>
+    </None>
+    <None Include="APFreightBill.xsc">
+      <DependentUpon>APFreightBill.xsd</DependentUpon>
+    </None>
+    <None Include="APFreightBill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>APFreightBill.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="APFreightBill.xss">
+      <DependentUpon>APFreightBill.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="BookData.xsc">
+      <DependentUpon>BookData.xsd</DependentUpon>
+    </None>
+    <None Include="BookData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="BookData.xss">
+      <DependentUpon>BookData.xsd</DependentUpon>
+    </None>
+    <None Include="CarrierData.xsc">
+      <DependentUpon>CarrierData.xsd</DependentUpon>
+    </None>
+    <None Include="CarrierData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarrierData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="CarrierData.xss">
+      <DependentUpon>CarrierData.xsd</DependentUpon>
+    </None>
+    <None Include="CarrierData.xsx">
+      <DependentUpon>CarrierData.xsd</DependentUpon>
+    </None>
+    <None Include="CompanyData.xsc">
+      <DependentUpon>CompanyData.xsd</DependentUpon>
+    </None>
+    <None Include="CompanyData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CompanyData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="CompanyData.xss">
+      <DependentUpon>CompanyData.xsd</DependentUpon>
+    </None>
+    <None Include="EDI204.xsc">
+      <DependentUpon>EDI204.xsd</DependentUpon>
+    </None>
+    <None Include="EDI204.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EDI204.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="EDI204.xss">
+      <DependentUpon>EDI204.xsd</DependentUpon>
+    </None>
+    <None Include="FMData.xsc">
+      <DependentUpon>FMData.xsd</DependentUpon>
+    </None>
+    <None Include="FMData.xsd">
+      <SubType>
+      </SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FMData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="FMData.xss">
+      <DependentUpon>FMData.xsd</DependentUpon>
+    </None>
+    <None Include="FreightBillData.xsc">
+      <DependentUpon>FreightBillData.xsd</DependentUpon>
+    </None>
+    <None Include="FreightBillData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FreightBillData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="FreightBillData.xss">
+      <DependentUpon>FreightBillData.xsd</DependentUpon>
+    </None>
+    <None Include="LaneData.xsc">
+      <DependentUpon>LaneData.xsd</DependentUpon>
+    </None>
+    <None Include="LaneData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LaneData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="LaneData.xss">
+      <DependentUpon>LaneData.xsd</DependentUpon>
+    </None>
+    <None Include="LegacyFreightBillData.xsc">
+      <DependentUpon>LegacyFreightBillData.xsd</DependentUpon>
+    </None>
+    <None Include="LegacyFreightBillData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LegacyFreightBillData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="LegacyFreightBillData.xss">
+      <DependentUpon>LegacyFreightBillData.xsd</DependentUpon>
+    </None>
+    <None Include="LTSIntegrationData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LTSIntegrationData.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="NGL.FreightMaster.Integration.snk" />
+    <None Include="packages.config" />
+    <None Include="PayablesData.xsc">
+      <DependentUpon>PayablesData.xsd</DependentUpon>
+    </None>
+    <None Include="PayablesData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PayablesData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="PayablesData.xss">
+      <DependentUpon>PayablesData.xsd</DependentUpon>
+    </None>
+    <None Include="PickListData.xsc">
+      <DependentUpon>PickListData.xsd</DependentUpon>
+    </None>
+    <None Include="PickListData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PickListData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="PickListData.xss">
+      <DependentUpon>PickListData.xsd</DependentUpon>
+    </None>
+    <None Include="ScheduleData.xsc">
+      <DependentUpon>ScheduleData.xsd</DependentUpon>
+    </None>
+    <None Include="ScheduleData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScheduleData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ScheduleData.xss">
+      <DependentUpon>ScheduleData.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EDIConfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

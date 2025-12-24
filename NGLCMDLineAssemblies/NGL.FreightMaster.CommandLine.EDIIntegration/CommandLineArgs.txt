@@ -1,0 +1,18 @@
+-c "Data Source=NGLRDP05D;Initial Catalog=NGLMAS2010DEV;Integrated Security=True" -d
+-c "Data Source=NGLRDP05D;Initial Catalog=SECPRD;Integrated Security=True" -d
+-c "Data Source=NGLRDP06D;Initial Catalog=NGLMAS2013DEV;Integrated Security=True" -d -v
+-c "Data Source=NGLRDP07D;Initial Catalog=NGLMASPRODPQ;Integrated Security=True" -d -v
+
+-c "Data Source=NGLRDP06D;Initial Catalog=NGLMASTBS;Integrated Security=True" -d -v
+
+-c "Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASDEV;Integrated Security=True" -d -v
+
+-c "Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASTEST;Integrated Security=True" -d -v
+
+-c "Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASColorTech-Rob;Integrated Security=True" -d -v
+
+-c "Data Source=MT-IRIS-SQL01;User ID=nglweb;Password=5529;Database=NGLMASPROD" -d -v
+
+-c "Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASTreeTop;Integrated Security=True" -d -v
+
+-c "Data Source=DESKTOP-0R0EJUB\SQLEXPRESS01;Initial Catalog=NGLMASColorTech;Integrated Security=True" -d -v

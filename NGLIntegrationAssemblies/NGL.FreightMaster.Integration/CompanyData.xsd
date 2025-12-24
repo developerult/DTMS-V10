@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CompanyData" targetNamespace="http://nextgeneration.com/CompanyData.xsd" xmlns:mstns="http://nextgeneration.com/CompanyData.xsd" xmlns="http://nextgeneration.com/CompanyData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CompanyData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CompanyData" msprop:Generator_DataSetName="CompanyData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CompanyHeader" msprop:Generator_UserTableName="CompanyHeader" msprop:Generator_RowDeletedName="CompanyHeaderRowDeleted" msprop:Generator_RowChangedName="CompanyHeaderRowChanged" msprop:Generator_RowClassName="CompanyHeaderRow" msprop:Generator_RowChangingName="CompanyHeaderRowChanging" msprop:Generator_RowEvArgName="CompanyHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="CompanyHeaderRowChangeEventHandler" msprop:Generator_TableClassName="CompanyHeaderDataTable" msprop:Generator_TableVarName="tableCompanyHeader" msprop:Generator_RowDeletingName="CompanyHeaderRowDeleting" msprop:Generator_TablePropName="CompanyHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompNumber" msprop:Generator_UserColumnName="CompNumber" msprop:Generator_ColumnVarNameInTable="columnCompNumber" msprop:Generator_ColumnPropNameInRow="CompNumber" msprop:Generator_ColumnPropNameInTable="CompNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompName" msprop:Generator_UserColumnName="CompName" msprop:Generator_ColumnVarNameInTable="columnCompName" msprop:Generator_ColumnPropNameInRow="CompName" msprop:Generator_ColumnPropNameInTable="CompNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNatNumber" msprop:Generator_UserColumnName="CompNatNumber" msprop:Generator_ColumnVarNameInTable="columnCompNatNumber" msprop:Generator_ColumnPropNameInRow="CompNatNumber" msprop:Generator_ColumnPropNameInTable="CompNatNumberColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CompNatName" msprop:Generator_UserColumnName="CompNatName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompNatName" msprop:Generator_ColumnPropNameInTable="CompNatNameColumn" msprop:Generator_ColumnPropNameInRow="CompNatName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetAddress1" msprop:Generator_UserColumnName="CompStreetAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetAddress1" msprop:Generator_ColumnPropNameInTable="CompStreetAddress1Column" msprop:Generator_ColumnPropNameInRow="CompStreetAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetAddress2" msprop:Generator_UserColumnName="CompStreetAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetAddress2" msprop:Generator_ColumnPropNameInTable="CompStreetAddress2Column" msprop:Generator_ColumnPropNameInRow="CompStreetAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetAddress3" msprop:Generator_UserColumnName="CompStreetAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetAddress3" msprop:Generator_ColumnPropNameInTable="CompStreetAddress3Column" msprop:Generator_ColumnPropNameInRow="CompStreetAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetCity" msprop:Generator_UserColumnName="CompStreetCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetCity" msprop:Generator_ColumnPropNameInTable="CompStreetCityColumn" msprop:Generator_ColumnPropNameInRow="CompStreetCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetState" msprop:Generator_UserColumnName="CompStreetState" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetState" msprop:Generator_ColumnPropNameInTable="CompStreetStateColumn" msprop:Generator_ColumnPropNameInRow="CompStreetState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetCountry" msprop:Generator_UserColumnName="CompStreetCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetCountry" msprop:Generator_ColumnPropNameInTable="CompStreetCountryColumn" msprop:Generator_ColumnPropNameInRow="CompStreetCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompStreetZip" msprop:Generator_UserColumnName="CompStreetZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompStreetZip" msprop:Generator_ColumnPropNameInTable="CompStreetZipColumn" msprop:Generator_ColumnPropNameInRow="CompStreetZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailAddress1" msprop:Generator_UserColumnName="CompMailAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailAddress1" msprop:Generator_ColumnPropNameInTable="CompMailAddress1Column" msprop:Generator_ColumnPropNameInRow="CompMailAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailAddress2" msprop:Generator_UserColumnName="CompMailAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailAddress2" msprop:Generator_ColumnPropNameInTable="CompMailAddress2Column" msprop:Generator_ColumnPropNameInRow="CompMailAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailAddress3" msprop:Generator_UserColumnName="CompMailAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailAddress3" msprop:Generator_ColumnPropNameInTable="CompMailAddress3Column" msprop:Generator_ColumnPropNameInRow="CompMailAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailCity" msprop:Generator_UserColumnName="CompMailCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailCity" msprop:Generator_ColumnPropNameInTable="CompMailCityColumn" msprop:Generator_ColumnPropNameInRow="CompMailCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailState" msprop:Generator_UserColumnName="CompMailState" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailState" msprop:Generator_ColumnPropNameInTable="CompMailStateColumn" msprop:Generator_ColumnPropNameInRow="CompMailState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailCountry" msprop:Generator_UserColumnName="CompMailCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailCountry" msprop:Generator_ColumnPropNameInTable="CompMailCountryColumn" msprop:Generator_ColumnPropNameInRow="CompMailCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompMailZip" msprop:Generator_UserColumnName="CompMailZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailZip" msprop:Generator_ColumnPropNameInTable="CompMailZipColumn" msprop:Generator_ColumnPropNameInRow="CompMailZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompWeb" msprop:Generator_UserColumnName="CompWeb" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompWeb" msprop:Generator_ColumnPropNameInTable="CompWebColumn" msprop:Generator_ColumnPropNameInRow="CompWeb" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompEmail" msprop:Generator_UserColumnName="CompEmail" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompEmail" msprop:Generator_ColumnPropNameInTable="CompEmailColumn" msprop:Generator_ColumnPropNameInRow="CompEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompDirections" msprop:Generator_UserColumnName="CompDirections" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompDirections" msprop:Generator_ColumnPropNameInTable="CompDirectionsColumn" msprop:Generator_ColumnPropNameInRow="CompDirections" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompAbrev" msprop:Generator_UserColumnName="CompAbrev" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompAbrev" msprop:Generator_ColumnPropNameInTable="CompAbrevColumn" msprop:Generator_ColumnPropNameInRow="CompAbrev" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompActive" msprop:Generator_UserColumnName="CompActive" msprop:Generator_ColumnVarNameInTable="columnCompActive" msprop:Generator_ColumnPropNameInRow="CompActive" msprop:Generator_ColumnPropNameInTable="CompActiveColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="CompNEXTrack" msprop:Generator_UserColumnName="CompNEXTrack" msprop:Generator_ColumnVarNameInTable="columnCompNEXTrack" msprop:Generator_ColumnPropNameInRow="CompNEXTrack" msprop:Generator_ColumnPropNameInTable="CompNEXTrackColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CompNEXTStopAcctNo" msprop:Generator_UserColumnName="CompNEXTStopAcctNo" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompNEXTStopAcctNo" msprop:Generator_ColumnPropNameInTable="CompNEXTStopAcctNoColumn" msprop:Generator_ColumnPropNameInRow="CompNEXTStopAcctNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNEXTStopPsw" msprop:Generator_UserColumnName="CompNEXTStopPsw" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompNEXTStopPsw" msprop:Generator_ColumnPropNameInTable="CompNEXTStopPswColumn" msprop:Generator_ColumnPropNameInRow="CompNEXTStopPsw" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompNextstopSubmitRFP" msprop:Generator_UserColumnName="CompNextstopSubmitRFP" msprop:Generator_ColumnVarNameInTable="columnCompNextstopSubmitRFP" msprop:Generator_ColumnPropNameInRow="CompNextstopSubmitRFP" msprop:Generator_ColumnPropNameInTable="CompNextstopSubmitRFPColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CompFAAShipID" msprop:Generator_UserColumnName="CompFAAShipID" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFAAShipID" msprop:Generator_ColumnPropNameInTable="CompFAAShipIDColumn" msprop:Generator_ColumnPropNameInRow="CompFAAShipID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFAAShipDate" msprop:Generator_UserColumnName="CompFAAShipDate" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFAAShipDate" msprop:Generator_ColumnPropNameInTable="CompFAAShipDateColumn" msprop:Generator_ColumnPropNameInRow="CompFAAShipDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinDuns" msprop:Generator_UserColumnName="CompFinDuns" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinDuns" msprop:Generator_ColumnPropNameInTable="CompFinDunsColumn" msprop:Generator_ColumnPropNameInRow="CompFinDuns" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinTaxID" msprop:Generator_UserColumnName="CompFinTaxID" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinTaxID" msprop:Generator_ColumnPropNameInTable="CompFinTaxIDColumn" msprop:Generator_ColumnPropNameInRow="CompFinTaxID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinPaymentForm" msprop:Generator_UserColumnName="CompFinPaymentForm" msprop:Generator_ColumnVarNameInTable="columnCompFinPaymentForm" msprop:Generator_ColumnPropNameInRow="CompFinPaymentForm" msprop:Generator_ColumnPropNameInTable="CompFinPaymentFormColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="CompFinSIC" msprop:Generator_UserColumnName="CompFinSIC" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinSIC" msprop:Generator_ColumnPropNameInTable="CompFinSICColumn" msprop:Generator_ColumnPropNameInRow="CompFinSIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinPaymentDiscount" msprop:Generator_UserColumnName="CompFinPaymentDiscount" msprop:Generator_ColumnVarNameInTable="columnCompFinPaymentDiscount" msprop:Generator_ColumnPropNameInRow="CompFinPaymentDiscount" msprop:Generator_ColumnPropNameInTable="CompFinPaymentDiscountColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="CompFinPaymentDays" msprop:Generator_UserColumnName="CompFinPaymentDays" msprop:Generator_ColumnVarNameInTable="columnCompFinPaymentDays" msprop:Generator_ColumnPropNameInRow="CompFinPaymentDays" msprop:Generator_ColumnPropNameInTable="CompFinPaymentDaysColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="CompFinPaymentNetDays" msprop:Generator_UserColumnName="CompFinPaymentNetDays" msprop:Generator_ColumnVarNameInTable="columnCompFinPaymentNetDays" msprop:Generator_ColumnPropNameInRow="CompFinPaymentNetDays" msprop:Generator_ColumnPropNameInTable="CompFinPaymentNetDaysColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="CompFinCommTerms" msprop:Generator_UserColumnName="CompFinCommTerms" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinCommTerms" msprop:Generator_ColumnPropNameInTable="CompFinCommTermsColumn" msprop:Generator_ColumnPropNameInRow="CompFinCommTerms" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinCommTermsPer" msprop:Generator_UserColumnName="CompFinCommTermsPer" msprop:Generator_ColumnVarNameInTable="columnCompFinCommTermsPer" msprop:Generator_ColumnPropNameInRow="CompFinCommTermsPer" msprop:Generator_ColumnPropNameInTable="CompFinCommTermsPerColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompFinCreditLimit" msprop:Generator_UserColumnName="CompFinCreditLimit" msprop:Generator_ColumnVarNameInTable="columnCompFinCreditLimit" msprop:Generator_ColumnPropNameInRow="CompFinCreditLimit" msprop:Generator_ColumnPropNameInTable="CompFinCreditLimitColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CompFinCreditUsed" msprop:Generator_UserColumnName="CompFinCreditUsed" msprop:Generator_ColumnVarNameInTable="columnCompFinCreditUsed" msprop:Generator_ColumnPropNameInRow="CompFinCreditUsed" msprop:Generator_ColumnPropNameInTable="CompFinCreditUsedColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CompFinInvPrnCode" msprop:Generator_UserColumnName="CompFinInvPrnCode" msprop:Generator_ColumnVarNameInTable="columnCompFinInvPrnCode" msprop:Generator_ColumnPropNameInRow="CompFinInvPrnCode" msprop:Generator_ColumnPropNameInTable="CompFinInvPrnCodeColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CompFinInvEMailCode" msprop:Generator_UserColumnName="CompFinInvEMailCode" msprop:Generator_ColumnVarNameInTable="columnCompFinInvEMailCode" msprop:Generator_ColumnPropNameInRow="CompFinInvEMailCode" msprop:Generator_ColumnPropNameInTable="CompFinInvEMailCodeColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CompFinCurType" msprop:Generator_UserColumnName="CompFinCurType" msprop:Generator_ColumnVarNameInTable="columnCompFinCurType" msprop:Generator_ColumnPropNameInRow="CompFinCurType" msprop:Generator_ColumnPropNameInTable="CompFinCurTypeColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CompFinFBToleranceHigh" msprop:Generator_UserColumnName="CompFinFBToleranceHigh" msprop:Generator_ColumnVarNameInTable="columnCompFinFBToleranceHigh" msprop:Generator_ColumnPropNameInRow="CompFinFBToleranceHigh" msprop:Generator_ColumnPropNameInTable="CompFinFBToleranceHighColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompFinFBToleranceLow" msprop:Generator_UserColumnName="CompFinFBToleranceLow" msprop:Generator_ColumnVarNameInTable="columnCompFinFBToleranceLow" msprop:Generator_ColumnPropNameInRow="CompFinFBToleranceLow" msprop:Generator_ColumnPropNameInTable="CompFinFBToleranceLowColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompFinCustomerSince" msprop:Generator_UserColumnName="CompFinCustomerSince" msprop:Generator_ColumnVarNameInTable="columnCompFinCustomerSince" msprop:Generator_ColumnPropNameInRow="CompFinCustomerSince" msprop:Generator_ColumnPropNameInTable="CompFinCustomerSinceColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CompFinCardType" msprop:Generator_UserColumnName="CompFinCardType" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CompFinCardType" msprop:Generator_ColumnPropNameInTable="CompFinCardTypeColumn" msprop:Generator_ColumnVarNameInTable="columnCompFinCardType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinCardName" msprop:Generator_UserColumnName="CompFinCardName" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinCardName" msprop:Generator_ColumnPropNameInTable="CompFinCardNameColumn" msprop:Generator_ColumnPropNameInRow="CompFinCardName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinCardExpires" msprop:Generator_UserColumnName="CompFinCardExpires" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinCardExpires" msprop:Generator_ColumnPropNameInTable="CompFinCardExpiresColumn" msprop:Generator_ColumnPropNameInRow="CompFinCardExpires" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinCardAuthorizor" msprop:Generator_UserColumnName="CompFinCardAuthorizor" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinCardAuthorizor" msprop:Generator_ColumnPropNameInTable="CompFinCardAuthorizorColumn" msprop:Generator_ColumnPropNameInRow="CompFinCardAuthorizor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinCardAuthPassword" msprop:Generator_UserColumnName="CompFinCardAuthPassword" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompFinCardAuthPassword" msprop:Generator_ColumnPropNameInTable="CompFinCardAuthPasswordColumn" msprop:Generator_ColumnPropNameInRow="CompFinCardAuthPassword" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompFinUseImportFrtCost" msprop:Generator_UserColumnName="CompFinUseImportFrtCost" msprop:Generator_ColumnVarNameInTable="columnCompFinUseImportFrtCost" msprop:Generator_ColumnPropNameInRow="CompFinUseImportFrtCost" msprop:Generator_ColumnPropNameInTable="CompFinUseImportFrtCostColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CompFinBkhlFlatFee" msprop:Generator_UserColumnName="CompFinBkhlFlatFee" msprop:Generator_ColumnVarNameInTable="columnCompFinBkhlFlatFee" msprop:Generator_ColumnPropNameInRow="CompFinBkhlFlatFee" msprop:Generator_ColumnPropNameInTable="CompFinBkhlFlatFeeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="CompFinBkhlCostPerc" msprop:Generator_UserColumnName="CompFinBkhlCostPerc" msprop:Generator_ColumnVarNameInTable="columnCompFinBkhlCostPerc" msprop:Generator_ColumnPropNameInRow="CompFinBkhlCostPerc" msprop:Generator_ColumnPropNameInTable="CompFinBkhlCostPercColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompLatitude" msprop:Generator_UserColumnName="CompLatitude" msprop:Generator_ColumnVarNameInTable="columnCompLatitude" msprop:Generator_ColumnPropNameInRow="CompLatitude" msprop:Generator_ColumnPropNameInTable="CompLatitudeColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompLongitude" msprop:Generator_UserColumnName="CompLongitude" msprop:Generator_ColumnVarNameInTable="columnCompLongitude" msprop:Generator_ColumnPropNameInRow="CompLongitude" msprop:Generator_ColumnPropNameInTable="CompLongitudeColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="CompMailTo" msprop:Generator_UserColumnName="CompMailTo" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompMailTo" msprop:Generator_ColumnPropNameInTable="CompMailToColumn" msprop:Generator_ColumnPropNameInRow="CompMailTo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CompanyContact" msprop:Generator_UserTableName="CompanyContact" msprop:Generator_RowDeletedName="CompanyContactRowDeleted" msprop:Generator_RowChangedName="CompanyContactRowChanged" msprop:Generator_RowClassName="CompanyContactRow" msprop:Generator_RowChangingName="CompanyContactRowChanging" msprop:Generator_RowEvArgName="CompanyContactRowChangeEvent" msprop:Generator_RowEvHandlerName="CompanyContactRowChangeEventHandler" msprop:Generator_TableClassName="CompanyContactDataTable" msprop:Generator_TableVarName="tableCompanyContact" msprop:Generator_RowDeletingName="CompanyContactRowDeleting" msprop:Generator_TablePropName="CompanyContact">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompNumber" msprop:Generator_UserColumnName="CompNumber" msprop:Generator_ColumnVarNameInTable="columnCompNumber" msprop:Generator_ColumnPropNameInRow="CompNumber" msprop:Generator_ColumnPropNameInTable="CompNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompContName" msprop:Generator_UserColumnName="CompContName" msprop:Generator_ColumnVarNameInTable="columnCompContName" msprop:Generator_ColumnPropNameInRow="CompContName" msprop:Generator_ColumnPropNameInTable="CompContNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompContTitle" msprop:Generator_UserColumnName="CompContTitle" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompContTitle" msprop:Generator_ColumnPropNameInTable="CompContTitleColumn" msprop:Generator_ColumnPropNameInRow="CompContTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompContPhone" msprop:Generator_UserColumnName="CompContPhone" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompContPhone" msprop:Generator_ColumnPropNameInTable="CompContPhoneColumn" msprop:Generator_ColumnPropNameInRow="CompContPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompContFax" msprop:Generator_UserColumnName="CompContFax" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompContFax" msprop:Generator_ColumnPropNameInTable="CompContFaxColumn" msprop:Generator_ColumnPropNameInRow="CompContFax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompCont800" msprop:Generator_UserColumnName="CompCont800" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompCont800" msprop:Generator_ColumnPropNameInTable="CompCont800Column" msprop:Generator_ColumnPropNameInRow="CompCont800" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompContEmail" msprop:Generator_UserColumnName="CompContEmail" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCompContEmail" msprop:Generator_ColumnPropNameInTable="CompContEmailColumn" msprop:Generator_ColumnPropNameInRow="CompContEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CompanyCalendar" msprop:Generator_UserTableName="CompanyCalendar" msprop:Generator_RowDeletedName="CompanyCalendarRowDeleted" msprop:Generator_RowChangedName="CompanyCalendarRowChanged" msprop:Generator_RowClassName="CompanyCalendarRow" msprop:Generator_RowChangingName="CompanyCalendarRowChanging" msprop:Generator_RowEvArgName="CompanyCalendarRowChangeEvent" msprop:Generator_RowEvHandlerName="CompanyCalendarRowChangeEventHandler" msprop:Generator_TableClassName="CompanyCalendarDataTable" msprop:Generator_TableVarName="tableCompanyCalendar" msprop:Generator_RowDeletingName="CompanyCalendarRowDeleting" msprop:Generator_TablePropName="CompanyCalendar">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompNumber" msdata:Caption="LaneNumber" msprop:Generator_UserColumnName="CompNumber" msprop:Generator_ColumnPropNameInRow="CompNumber" msprop:Generator_ColumnVarNameInTable="columnCompNumber" msprop:Generator_ColumnPropNameInTable="CompNumberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Month" msprop:Generator_UserColumnName="Month" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInTable="MonthColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Day" msprop:Generator_UserColumnName="Day" msprop:Generator_ColumnPropNameInRow="Day" msprop:Generator_ColumnVarNameInTable="columnDay" msprop:Generator_ColumnPropNameInTable="DayColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Open" msprop:Generator_UserColumnName="Open" msprop:Generator_ColumnPropNameInRow="Open" msprop:Generator_ColumnVarNameInTable="columnOpen" msprop:Generator_ColumnPropNameInTable="OpenColumn" type="xs:boolean" default="true" minOccurs="0" />
+              <xs:element name="StartTime" msprop:Generator_UserColumnName="StartTime" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnStartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn" msprop:Generator_ColumnPropNameInRow="StartTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndTime" msprop:Generator_UserColumnName="EndTime" msprop:nullValue="_throw" msprop:Generator_ColumnVarNameInTable="columnEndTime" msprop:Generator_ColumnPropNameInTable="EndTimeColumn" msprop:Generator_ColumnPropNameInRow="EndTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsHoliday" msprop:Generator_UserColumnName="IsHoliday" msprop:Generator_ColumnPropNameInRow="IsHoliday" msprop:Generator_ColumnVarNameInTable="columnIsHoliday" msprop:Generator_ColumnPropNameInTable="IsHolidayColumn" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

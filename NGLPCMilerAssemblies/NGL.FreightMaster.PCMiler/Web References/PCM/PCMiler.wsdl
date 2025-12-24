@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nextgeneration.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://nextgeneration.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nextgeneration.com/">
+      <s:element name="CityToLatLong">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityZip" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CityToLatLongResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityToLatLongResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cityStateZipLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cityStateZipLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cityStateZipLookupResult" type="tns:ArrayOfClsAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsAddress" nillable="true" type="tns:clsAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strZip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FullName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityNameOrZipCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FullNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FullNameResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGeoCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblLat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblLong" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGeoCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getGeoCodeResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblLat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblLong" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LatLongToCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="latlong" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LatLongToCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LatLongToCityResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPracticalMiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objOrig" type="tns:clsAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="objDest" type="tns:clsAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="Route_Type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dist_Type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCompControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBookControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intLaneControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strItemNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strItemType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblAutoCorrectBadLaneZipCodes" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblBatchID" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnBatch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsPCMBadAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPCMBadAddress" nillable="true" type="tns:clsPCMBadAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPCMBadAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BookControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneControl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="objOrig" type="tns:clsAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="objDest" type="tns:clsAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="objPCMOrig" type="tns:clsAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="objPCMDest" type="tns:clsAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BatchID" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPracticalMilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPracticalMilesResult" type="tns:clsGlobalStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsGlobalStopData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FailedAddressMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BadAddressCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalMiles" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestZip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AutoCorrectBadLaneZipCodes" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BatchID" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPracticalMilesEX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objOrig" type="tns:clsAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="objDest" type="tns:clsAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="Route_Type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dist_Type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCompControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intBookControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intLaneControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strItemNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strItemType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblAutoCorrectBadLaneZipCodes" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblBatchID" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnBatch" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseZipOnly" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPracticalMilesEXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPracticalMilesEXResult" type="tns:clsGlobalStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Miles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MilesResult" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zipcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zipcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zipcodeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCMReSync">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrStopData" type="tns:ArrayOfClsPCMDataStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConsNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblBatchID" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnKeepStopNumbers" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrAllStops" type="tns:ArrayOfClsAllStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsPCMDataStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPCMDataStop" nillable="true" type="tns:clsPCMDataStop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPCMDataStop">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BookControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookCustCompControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookLoadControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookODControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookStopNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestZip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookOrigState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookDestState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneOriginAddressUse" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsAllStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsAllStop" nillable="true" type="tns:clsAllStop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsAllStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConsNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistToPrev" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalRouteCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeqNbr" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="TruckDesignator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TruckNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stopname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PCMReSyncResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PCMReSyncResult" type="tns:clsGlobalStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrAllStops" type="tns:ArrayOfClsAllStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCMReSyncEX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrStopData" type="tns:ArrayOfClsPCMDataStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConsNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblBatchID" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnKeepStopNumbers" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrAllStops" type="tns:ArrayOfClsAllStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseZipOnly" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCMReSyncEXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PCMReSyncEXResult" type="tns:clsGlobalStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrAllStops" type="tns:ArrayOfClsAllStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrBaddAddresses" type="tns:ArrayOfClsPCMBadAddress" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCMReSyncMultiStop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oIFMStops" type="tns:ArrayOfClsFMStopData" />
+            <s:element minOccurs="1" maxOccurs="1" name="dblBatchID" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnKeepStopNumbers" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="oPCMReportRecords" type="tns:ArrayOfClsPCMReportRecord" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseZipOnly" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsFMStopData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsFMStopData" nillable="true" type="tns:clsFMStopData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsFMStopData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BookControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookCustCompControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookLoadControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookODControl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BookProNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaneOriginAddressUse" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeqNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCost" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="LegTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegTolls" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTolls" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegESTCHG" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalESTCHG" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StopName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PCMilerStreet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PCMilerState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PCMilerCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PCMilerZip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Matched" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationisOrigin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogBadAddress" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warning" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPCMReportRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPCMReportRecord" nillable="true" type="tns:clsPCMReportRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPCMReportRecord">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StopNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeqNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCost" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="LegTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegTolls" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTolls" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegESTCHG" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalESTCHG" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StopName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PCMReSyncMultiStopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PCMReSyncMultiStopResult" type="tns:clsGlobalStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="oIFMStops" type="tns:ArrayOfClsFMStopData" />
+            <s:element minOccurs="0" maxOccurs="1" name="oPCMReportRecords" type="tns:ArrayOfClsPCMReportRecord" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRouteMiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRoute" type="tns:ArrayOfClsSimpleStop" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsSimpleStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsSimpleStop" nillable="true" type="tns:clsSimpleStop" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsSimpleStop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegMiles" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegHours" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalHours" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRouteMilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRouteMilesResult" type="tns:clsPCMReturn" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRoute" type="tns:ArrayOfClsSimpleStop" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsPCMReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PCMValidateAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DebugMode" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoggingOn" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="KeepLogDays" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaveOldLog" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LogFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCMValidateAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PCMValidateAddressResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CityToLatLongSoapIn">
+    <wsdl:part name="parameters" element="tns:CityToLatLong" />
+  </wsdl:message>
+  <wsdl:message name="CityToLatLongSoapOut">
+    <wsdl:part name="parameters" element="tns:CityToLatLongResponse" />
+  </wsdl:message>
+  <wsdl:message name="cityStateZipLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:cityStateZipLookup" />
+  </wsdl:message>
+  <wsdl:message name="cityStateZipLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:cityStateZipLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="FullNameSoapIn">
+    <wsdl:part name="parameters" element="tns:FullName" />
+  </wsdl:message>
+  <wsdl:message name="FullNameSoapOut">
+    <wsdl:part name="parameters" element="tns:FullNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGeoCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getGeoCode" />
+  </wsdl:message>
+  <wsdl:message name="getGeoCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getGeoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LatLongToCitySoapIn">
+    <wsdl:part name="parameters" element="tns:LatLongToCity" />
+  </wsdl:message>
+  <wsdl:message name="LatLongToCitySoapOut">
+    <wsdl:part name="parameters" element="tns:LatLongToCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPracticalMilesSoapIn">
+    <wsdl:part name="parameters" element="tns:getPracticalMiles" />
+  </wsdl:message>
+  <wsdl:message name="getPracticalMilesSoapOut">
+    <wsdl:part name="parameters" element="tns:getPracticalMilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPracticalMilesEXSoapIn">
+    <wsdl:part name="parameters" element="tns:getPracticalMilesEX" />
+  </wsdl:message>
+  <wsdl:message name="getPracticalMilesEXSoapOut">
+    <wsdl:part name="parameters" element="tns:getPracticalMilesEXResponse" />
+  </wsdl:message>
+  <wsdl:message name="MilesSoapIn">
+    <wsdl:part name="parameters" element="tns:Miles" />
+  </wsdl:message>
+  <wsdl:message name="MilesSoapOut">
+    <wsdl:part name="parameters" element="tns:MilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="zipcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:zipcode" />
+  </wsdl:message>
+  <wsdl:message name="zipcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:zipcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncSoapIn">
+    <wsdl:part name="parameters" element="tns:PCMReSync" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncSoapOut">
+    <wsdl:part name="parameters" element="tns:PCMReSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncEXSoapIn">
+    <wsdl:part name="parameters" element="tns:PCMReSyncEX" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncEXSoapOut">
+    <wsdl:part name="parameters" element="tns:PCMReSyncEXResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncMultiStopSoapIn">
+    <wsdl:part name="parameters" element="tns:PCMReSyncMultiStop" />
+  </wsdl:message>
+  <wsdl:message name="PCMReSyncMultiStopSoapOut">
+    <wsdl:part name="parameters" element="tns:PCMReSyncMultiStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteMilesSoapIn">
+    <wsdl:part name="parameters" element="tns:getRouteMiles" />
+  </wsdl:message>
+  <wsdl:message name="getRouteMilesSoapOut">
+    <wsdl:part name="parameters" element="tns:getRouteMilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCMValidateAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:PCMValidateAddress" />
+  </wsdl:message>
+  <wsdl:message name="PCMValidateAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:PCMValidateAddressResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PCMilerSoap">
+    <wsdl:operation name="CityToLatLong">
+      <wsdl:input message="tns:CityToLatLongSoapIn" />
+      <wsdl:output message="tns:CityToLatLongSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cityStateZipLookup">
+      <wsdl:input message="tns:cityStateZipLookupSoapIn" />
+      <wsdl:output message="tns:cityStateZipLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FullName">
+      <wsdl:input message="tns:FullNameSoapIn" />
+      <wsdl:output message="tns:FullNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGeoCode">
+      <wsdl:input message="tns:getGeoCodeSoapIn" />
+      <wsdl:output message="tns:getGeoCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LatLongToCity">
+      <wsdl:input message="tns:LatLongToCitySoapIn" />
+      <wsdl:output message="tns:LatLongToCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMiles">
+      <wsdl:input message="tns:getPracticalMilesSoapIn" />
+      <wsdl:output message="tns:getPracticalMilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMilesEX">
+      <wsdl:input message="tns:getPracticalMilesEXSoapIn" />
+      <wsdl:output message="tns:getPracticalMilesEXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Miles">
+      <wsdl:input message="tns:MilesSoapIn" />
+      <wsdl:output message="tns:MilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zipcode">
+      <wsdl:input message="tns:zipcodeSoapIn" />
+      <wsdl:output message="tns:zipcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSync">
+      <wsdl:input message="tns:PCMReSyncSoapIn" />
+      <wsdl:output message="tns:PCMReSyncSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncEX">
+      <wsdl:input message="tns:PCMReSyncEXSoapIn" />
+      <wsdl:output message="tns:PCMReSyncEXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncMultiStop">
+      <wsdl:input message="tns:PCMReSyncMultiStopSoapIn" />
+      <wsdl:output message="tns:PCMReSyncMultiStopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouteMiles">
+      <wsdl:input message="tns:getRouteMilesSoapIn" />
+      <wsdl:output message="tns:getRouteMilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCMValidateAddress">
+      <wsdl:input message="tns:PCMValidateAddressSoapIn" />
+      <wsdl:output message="tns:PCMValidateAddressSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PCMilerSoap" type="tns:PCMilerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CityToLatLong">
+      <soap:operation soapAction="http://nextgeneration.com/CityToLatLong" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cityStateZipLookup">
+      <soap:operation soapAction="http://nextgeneration.com/cityStateZipLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullName">
+      <soap:operation soapAction="http://nextgeneration.com/FullName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoCode">
+      <soap:operation soapAction="http://nextgeneration.com/getGeoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatLongToCity">
+      <soap:operation soapAction="http://nextgeneration.com/LatLongToCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMiles">
+      <soap:operation soapAction="http://nextgeneration.com/getPracticalMiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMilesEX">
+      <soap:operation soapAction="http://nextgeneration.com/getPracticalMilesEX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Miles">
+      <soap:operation soapAction="http://nextgeneration.com/Miles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zipcode">
+      <soap:operation soapAction="http://nextgeneration.com/zipcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSync">
+      <soap:operation soapAction="http://nextgeneration.com/PCMReSync" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncEX">
+      <soap:operation soapAction="http://nextgeneration.com/PCMReSyncEX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncMultiStop">
+      <soap:operation soapAction="http://nextgeneration.com/PCMReSyncMultiStop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteMiles">
+      <soap:operation soapAction="http://nextgeneration.com/getRouteMiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMValidateAddress">
+      <soap:operation soapAction="http://nextgeneration.com/PCMValidateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PCMilerSoap12" type="tns:PCMilerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CityToLatLong">
+      <soap12:operation soapAction="http://nextgeneration.com/CityToLatLong" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cityStateZipLookup">
+      <soap12:operation soapAction="http://nextgeneration.com/cityStateZipLookup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullName">
+      <soap12:operation soapAction="http://nextgeneration.com/FullName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGeoCode">
+      <soap12:operation soapAction="http://nextgeneration.com/getGeoCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatLongToCity">
+      <soap12:operation soapAction="http://nextgeneration.com/LatLongToCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMiles">
+      <soap12:operation soapAction="http://nextgeneration.com/getPracticalMiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPracticalMilesEX">
+      <soap12:operation soapAction="http://nextgeneration.com/getPracticalMilesEX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Miles">
+      <soap12:operation soapAction="http://nextgeneration.com/Miles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zipcode">
+      <soap12:operation soapAction="http://nextgeneration.com/zipcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSync">
+      <soap12:operation soapAction="http://nextgeneration.com/PCMReSync" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncEX">
+      <soap12:operation soapAction="http://nextgeneration.com/PCMReSyncEX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMReSyncMultiStop">
+      <soap12:operation soapAction="http://nextgeneration.com/PCMReSyncMultiStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteMiles">
+      <soap12:operation soapAction="http://nextgeneration.com/getRouteMiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCMValidateAddress">
+      <soap12:operation soapAction="http://nextgeneration.com/PCMValidateAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PCMiler">
+    <wsdl:port name="PCMilerSoap" binding="tns:PCMilerSoap">
+      <soap:address location="http://nglwsdev70.nextgeneration.com/PCMiler.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PCMilerSoap12" binding="tns:PCMilerSoap12">
+      <soap12:address location="http://nglwsdev70.nextgeneration.com/PCMiler.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

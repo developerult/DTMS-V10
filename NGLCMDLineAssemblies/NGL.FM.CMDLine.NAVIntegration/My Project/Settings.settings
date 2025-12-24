@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="PicklistMaxRetry" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="PicklistRetryMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="PicklistMaxRowsReturned" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="PicklistAutoConfirmation" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="APExportMaxRetry" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="APExportRetryMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="APExportMaxRowsReturned" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="APExportAutoConfirmation" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NGL_FM_CMDLine_NAVIntegration_NAVService_DynamicsTMSWebServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://nglnav2013r2.ngl.local:7147/DynamicsTMS71/WS/CRONUS%20USA,%20Inc./Codeunit/DynamicsTMSWebServices</Value>
+    </Setting>
+    <Setting Name="WSAuthCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NGLWSDEV</Value>
+    </Setting>
+    <Setting Name="WCFURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://nglwcfdev.nextgeneration.com</Value>
+    </Setting>
+    <Setting Name="WCFAuthCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NGLWCFDEV</Value>
+    </Setting>
+    <Setting Name="WCFTCPURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">net.tcp://nglwcfdev.nextgeneration.com:808</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

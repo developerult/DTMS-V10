@@ -1,0 +1,9 @@
+﻿--rates examples
+-c "Data Source=NGLRDP06D;Initial Catalog=NGLMAS2013dev;Integrated Security=True" -d -fn "retl_98902_rates_ngl_PaulTest.csv" -type "ImportFromCSVRates"
+--retl_98902_rates_ngl_UOMcsv
+
+--interline example
+-c "Data Source=NGLRDP06D;Initial Catalog=NGLMAS2013dev;Integrated Security=True" -d -fn "retl_interlines_ngl.csv" -type "ImportFromCSVInterline"
+
+--non service example
+-c "Data Source=NGLRDP06D;Initial Catalog=NGLMAS2013dev;Integrated Security=True" -d -fn "retl_nonservice_ngl.csv" -type "ImportFromCSVNonService"

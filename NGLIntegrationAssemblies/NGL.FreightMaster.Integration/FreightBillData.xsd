@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FreightBillData" targetNamespace="http://nextgeneration.com/FreightBillData.xsd" xmlns:mstns="http://nextgeneration.com/FreightBillData.xsd" xmlns="http://nextgeneration.com/FreightBillData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FreightBillData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="FreightBillData" msprop:Generator_UserDSName="FreightBillData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FreightBill" msprop:Generator_UserTableName="FreightBill" msprop:Generator_RowEvArgName="FreightBillRowChangeEvent" msprop:Generator_TableVarName="tableFreightBill" msprop:Generator_TablePropName="_FreightBill" msprop:Generator_RowDeletingName="FreightBillRowDeleting" msprop:Generator_RowChangingName="FreightBillRowChanging" msprop:Generator_RowDeletedName="FreightBillRowDeleted" msprop:Generator_RowEvHandlerName="FreightBillRowChangeEventHandler" msprop:Generator_TableClassName="FreightBillDataTable" msprop:Generator_RowChangedName="FreightBillRowChanged" msprop:Generator_RowClassName="FreightBillRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="APPONumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APPONumber" msprop:Generator_ColumnVarNameInTable="columnAPPONumber" msprop:Generator_ColumnPropNameInTable="APPONumberColumn" msprop:Generator_UserColumnName="APPONumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APPRONumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APPRONumber" msprop:Generator_ColumnVarNameInTable="columnAPPRONumber" msprop:Generator_ColumnPropNameInTable="APPRONumberColumn" msprop:Generator_UserColumnName="APPRONumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APCNSNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APCNSNumber" msprop:Generator_ColumnVarNameInTable="columnAPCNSNumber" msprop:Generator_ColumnPropNameInTable="APCNSNumberColumn" msprop:Generator_UserColumnName="APCNSNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APCarrierNumber" msprop:Generator_ColumnVarNameInTable="columnAPCarrierNumber" msprop:Generator_ColumnPropNameInRow="APCarrierNumber" msprop:Generator_ColumnPropNameInTable="APCarrierNumberColumn" msprop:Generator_UserColumnName="APCarrierNumber" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="APBillNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APBillNumber" msprop:Generator_ColumnVarNameInTable="columnAPBillNumber" msprop:Generator_ColumnPropNameInTable="APBillNumberColumn" msprop:Generator_UserColumnName="APBillNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APBillDate" msprop:Generator_ColumnVarNameInTable="columnAPBillDate" msprop:Generator_ColumnPropNameInRow="APBillDate" msprop:Generator_ColumnPropNameInTable="APBillDateColumn" msprop:Generator_UserColumnName="APBillDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="APCustomerID" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APCustomerID" msprop:Generator_ColumnVarNameInTable="columnAPCustomerID" msprop:Generator_ColumnPropNameInTable="APCustomerIDColumn" msprop:Generator_UserColumnName="APCustomerID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APCostCenterNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APCostCenterNumber" msprop:Generator_ColumnVarNameInTable="columnAPCostCenterNumber" msprop:Generator_ColumnPropNameInTable="APCostCenterNumberColumn" msprop:Generator_UserColumnName="APCostCenterNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APTotalCost" msprop:Generator_ColumnVarNameInTable="columnAPTotalCost" msprop:Generator_ColumnPropNameInRow="APTotalCost" msprop:Generator_ColumnPropNameInTable="APTotalCostColumn" msprop:Generator_UserColumnName="APTotalCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APBLNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="APBLNumber" msprop:Generator_ColumnVarNameInTable="columnAPBLNumber" msprop:Generator_ColumnPropNameInTable="APBLNumberColumn" msprop:Generator_UserColumnName="APBLNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APBilledWeight" msprop:Generator_ColumnVarNameInTable="columnAPBilledWeight" msprop:Generator_ColumnPropNameInRow="APBilledWeight" msprop:Generator_ColumnPropNameInTable="APBilledWeightColumn" msprop:Generator_UserColumnName="APBilledWeight" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="APTotalTax" msprop:Generator_ColumnVarNameInTable="columnAPTotalTax" msprop:Generator_ColumnPropNameInRow="APTotalTax" msprop:Generator_ColumnPropNameInTable="APTotalTaxColumn" msprop:Generator_UserColumnName="APTotalTax" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee1" msprop:Generator_ColumnVarNameInTable="columnAPFee1" msprop:Generator_ColumnPropNameInRow="APFee1" msprop:Generator_ColumnPropNameInTable="APFee1Column" msprop:Generator_UserColumnName="APFee1" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee2" msprop:Generator_ColumnVarNameInTable="columnAPFee2" msprop:Generator_ColumnPropNameInRow="APFee2" msprop:Generator_ColumnPropNameInTable="APFee2Column" msprop:Generator_UserColumnName="APFee2" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee3" msprop:Generator_ColumnVarNameInTable="columnAPFee3" msprop:Generator_ColumnPropNameInRow="APFee3" msprop:Generator_ColumnPropNameInTable="APFee3Column" msprop:Generator_UserColumnName="APFee3" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee4" msprop:Generator_ColumnVarNameInTable="columnAPFee4" msprop:Generator_ColumnPropNameInRow="APFee4" msprop:Generator_ColumnPropNameInTable="APFee4Column" msprop:Generator_UserColumnName="APFee4" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee5" msprop:Generator_ColumnVarNameInTable="columnAPFee5" msprop:Generator_ColumnPropNameInRow="APFee5" msprop:Generator_ColumnPropNameInTable="APFee5Column" msprop:Generator_UserColumnName="APFee5" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APFee6" msprop:Generator_ColumnVarNameInTable="columnAPFee6" msprop:Generator_ColumnPropNameInRow="APFee6" msprop:Generator_ColumnPropNameInTable="APFee6Column" msprop:Generator_UserColumnName="APFee6" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APOtherCost" msprop:Generator_ColumnVarNameInTable="columnAPOtherCost" msprop:Generator_ColumnPropNameInRow="APOtherCost" msprop:Generator_ColumnPropNameInTable="APOtherCostColumn" msprop:Generator_UserColumnName="APOtherCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APCarrierCost" msprop:Generator_ColumnVarNameInTable="columnAPCarrierCost" msprop:Generator_ColumnPropNameInRow="APCarrierCost" msprop:Generator_ColumnPropNameInTable="APCarrierCostColumn" msprop:Generator_UserColumnName="APCarrierCost" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="APOrderSequence" msprop:Generator_ColumnVarNameInTable="columnAPOrderSequence" msprop:Generator_ColumnPropNameInRow="APOrderSequence" msprop:Generator_ColumnPropNameInTable="APOrderSequenceColumn" msprop:Generator_UserColumnName="APOrderSequence" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="APSHID" msprop:Generator_ColumnVarNameInTable="columnAPSHID" msprop:Generator_ColumnPropNameInRow="APSHID" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="APSHIDColumn" msprop:Generator_UserColumnName="APSHID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

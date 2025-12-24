@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsBook" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgABAgkBAQBgQAAAAAAEwCQAAAVAAAACEAgQIAJQgAE=</HashCode>
+      <FileName>clsBook.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsPOHeader" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAIAABACUQAEgSAAIgDAAAAAiAAICAAgAEwAaCU=</HashCode>
+      <FileName>clsBook.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsPOItem" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAABAgBAAggAQAAAAAhgCAACAAAAAAAAAJQgABAcA=</HashCode>
+      <FileName>clsBook.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsBookold" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgABAgkBAQBgQAAAAAAEwCQAAAVAAAACEAgQIAJQgAE=</HashCode>
+      <FileName>clsBookold.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsCarrier" Collapsed="true">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABCAAABAAQAAAAABA=</HashCode>
+      <FileName>clsCarrier.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsCompany" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAFCAAABEAQAAAAABA=</HashCode>
+      <FileName>clsCompany.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsDownload" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAECAEAAAcBAAACABAASAAAAAQAAAAAAAQABAAAAAA=</HashCode>
+      <FileName>clsDownload.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsHashTotals" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEABAQAgAIAAAAAAgAIgAAEABAAAEAAAAAFCAAA=</HashCode>
+      <FileName>clsHashTotals.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsImportExport" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAIMBo4J2AAooBCAABFAgBkugiAdAQAJogMAikQSAA=</HashCode>
+      <FileName>clsImportExport.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsImportField" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAGACAIABAQAAAAIAARAAkAEDAAAgAIgCgAAAAA=</HashCode>
+      <FileName>clsImportField.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsImportFields" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAAAAAABAQEAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clsImportFields.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsLane" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>clsLane.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsPayables" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAACAAABAAQAAAAAAA=</HashCode>
+      <FileName>clsPayables.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.clsSchedule" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAQAAAAAAA=</HashCode>
+      <FileName>clsSchedule.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.PODownload" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBEAAhEIAKAEgkQAQAIMMpAAIKJCQAVAAIBohAVDYBA=</HashCode>
+      <FileName>PODownload.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NGL.FreightMaster.CommandLine.PODownload.My.MySettings" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="NGL.FreightMaster.CommandLine.PODownload.My.Resources.Resources" Collapsed="true">
+    <Position X="18.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="NGL.FreightMaster.CommandLine.PODownload.My.MySettingsProperty" Collapsed="true">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

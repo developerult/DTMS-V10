@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CarrierData" targetNamespace="http://nextgeneration.com/CarrierData.xsd" xmlns:mstns="http://nextgeneration.com/CarrierData.xsd" xmlns="http://nextgeneration.com/CarrierData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CarrierData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CarrierData" msprop:Generator_DataSetName="CarrierData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CarrierHeader" msprop:Generator_UserTableName="CarrierHeader" msprop:Generator_RowDeletedName="CarrierHeaderRowDeleted" msprop:Generator_RowChangedName="CarrierHeaderRowChanged" msprop:Generator_RowClassName="CarrierHeaderRow" msprop:Generator_RowChangingName="CarrierHeaderRowChanging" msprop:Generator_RowEvArgName="CarrierHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="CarrierHeaderRowChangeEventHandler" msprop:Generator_TableClassName="CarrierHeaderDataTable" msprop:Generator_TableVarName="tableCarrierHeader" msprop:Generator_RowDeletingName="CarrierHeaderRowDeleting" msprop:Generator_TablePropName="CarrierHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CarrierNumber" msprop:Generator_UserColumnName="CarrierNumber" msprop:Generator_ColumnPropNameInRow="CarrierNumber" msprop:Generator_ColumnVarNameInTable="columnCarrierNumber" msprop:Generator_ColumnPropNameInTable="CarrierNumberColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CarrierName" msprop:Generator_UserColumnName="CarrierName" msprop:Generator_ColumnPropNameInRow="CarrierName" msprop:Generator_ColumnVarNameInTable="columnCarrierName" msprop:Generator_ColumnPropNameInTable="CarrierNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetAddress1" msprop:Generator_UserColumnName="CarrierStreetAddress1" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierStreetAddress1" msprop:Generator_ColumnPropNameInTable="CarrierStreetAddress1Column" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetAddress2" msprop:Generator_UserColumnName="CarrierStreetAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetAddress2" msprop:Generator_ColumnPropNameInTable="CarrierStreetAddress2Column" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetAddress3" msprop:Generator_UserColumnName="CarrierStreetAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetAddress3" msprop:Generator_ColumnPropNameInTable="CarrierStreetAddress3Column" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetCity" msprop:Generator_UserColumnName="CarrierStreetCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetCity" msprop:Generator_ColumnPropNameInTable="CarrierStreetCityColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetState" msprop:Generator_UserColumnName="CarrierStreetState" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetState" msprop:Generator_ColumnPropNameInTable="CarrierStreetStateColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetCountry" msprop:Generator_UserColumnName="CarrierStreetCountry" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetCountry" msprop:Generator_ColumnPropNameInTable="CarrierStreetCountryColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierStreetZip" msprop:Generator_UserColumnName="CarrierStreetZip" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierStreetZip" msprop:Generator_ColumnPropNameInTable="CarrierStreetZipColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierStreetZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailAddress1" msprop:Generator_UserColumnName="CarrierMailAddress1" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierMailAddress1" msprop:Generator_ColumnPropNameInTable="CarrierMailAddress1Column" msprop:Generator_ColumnVarNameInTable="columnCarrierMailAddress1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailAddress2" msprop:Generator_UserColumnName="CarrierMailAddress2" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierMailAddress2" msprop:Generator_ColumnPropNameInTable="CarrierMailAddress2Column" msprop:Generator_ColumnVarNameInTable="columnCarrierMailAddress2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailAddress3" msprop:Generator_UserColumnName="CarrierMailAddress3" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierMailAddress3" msprop:Generator_ColumnPropNameInTable="CarrierMailAddress3Column" msprop:Generator_ColumnVarNameInTable="columnCarrierMailAddress3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailCity" msprop:Generator_UserColumnName="CarrierMailCity" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierMailCity" msprop:Generator_ColumnPropNameInTable="CarrierMailCityColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierMailCity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailState" msprop:Generator_UserColumnName="CarrierMailState" msprop:nullValue="(Empty)" msprop:Generator_ColumnPropNameInRow="CarrierMailState" msprop:Generator_ColumnPropNameInTable="CarrierMailStateColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierMailState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailCountry" msprop:Generator_UserColumnName="CarrierMailCountry" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierMailCountry" msprop:Generator_ColumnPropNameInTable="CarrierMailCountryColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierMailCountry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierMailZip" msprop:Generator_UserColumnName="CarrierMailZip" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierMailZip" msprop:Generator_ColumnPropNameInTable="CarrierMailZipColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierMailZip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierTypeCode" msprop:Generator_UserColumnName="CarrierTypeCode" msprop:Generator_ColumnPropNameInRow="CarrierTypeCode" msprop:Generator_ColumnVarNameInTable="columnCarrierTypeCode" msprop:Generator_ColumnPropNameInTable="CarrierTypeCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierSCAC" msprop:Generator_UserColumnName="CarrierSCAC" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierSCAC" msprop:Generator_ColumnPropNameInTable="CarrierSCACColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierSCAC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierWebSite" msprop:Generator_UserColumnName="CarrierWebSite" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierWebSite" msprop:Generator_ColumnPropNameInTable="CarrierWebSiteColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierWebSite" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierEmail" msprop:Generator_UserColumnName="CarrierEmail" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierEmail" msprop:Generator_ColumnPropNameInTable="CarrierEmailColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierQualInsuranceDate" msprop:Generator_UserColumnName="CarrierQualInsuranceDate" msprop:Generator_ColumnPropNameInRow="CarrierQualInsuranceDate" msprop:Generator_ColumnVarNameInTable="columnCarrierQualInsuranceDate" msprop:Generator_ColumnPropNameInTable="CarrierQualInsuranceDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CarrierQualQualified" msprop:Generator_UserColumnName="CarrierQualQualified" msprop:Generator_ColumnPropNameInRow="CarrierQualQualified" msprop:Generator_ColumnVarNameInTable="columnCarrierQualQualified" msprop:Generator_ColumnPropNameInTable="CarrierQualQualifiedColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CarrierQualAuthority" msprop:Generator_UserColumnName="CarrierQualAuthority" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CarrierQualAuthority" msprop:Generator_ColumnPropNameInTable="CarrierQualAuthorityColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierQualAuthority" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierQualContract" msprop:Generator_UserColumnName="CarrierQualContract" msprop:Generator_ColumnPropNameInRow="CarrierQualContract" msprop:Generator_ColumnVarNameInTable="columnCarrierQualContract" msprop:Generator_ColumnPropNameInTable="CarrierQualContractColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CarrierQualSignedDate" msprop:Generator_UserColumnName="CarrierQualSignedDate" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="CarrierQualSignedDate" msprop:Generator_ColumnPropNameInTable="CarrierQualSignedDateColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierQualSignedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CarrierQualContractExpiresDate" msprop:Generator_UserColumnName="CarrierQualContractExpiresDate" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="CarrierQualContractExpiresDate" msprop:Generator_ColumnPropNameInTable="CarrierQualContractExpiresDateColumn" msprop:Generator_ColumnVarNameInTable="columnCarrierQualContractExpiresDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CarrierContact" msprop:Generator_UserTableName="CarrierContact" msprop:Generator_RowDeletedName="CarrierContactRowDeleted" msprop:Generator_RowChangedName="CarrierContactRowChanged" msprop:Generator_RowClassName="CarrierContactRow" msprop:Generator_RowChangingName="CarrierContactRowChanging" msprop:Generator_RowEvArgName="CarrierContactRowChangeEvent" msprop:Generator_RowEvHandlerName="CarrierContactRowChangeEventHandler" msprop:Generator_TableClassName="CarrierContactDataTable" msprop:Generator_TableVarName="tableCarrierContact" msprop:Generator_RowDeletingName="CarrierContactRowDeleting" msprop:Generator_TablePropName="CarrierContact">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CarrierNumber" msprop:Generator_UserColumnName="CarrierNumber" msprop:Generator_ColumnPropNameInRow="CarrierNumber" msprop:Generator_ColumnVarNameInTable="columnCarrierNumber" msprop:Generator_ColumnPropNameInTable="CarrierNumberColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="CarrierContName" msprop:Generator_UserColumnName="CarrierContName" msprop:Generator_ColumnPropNameInRow="CarrierContName" msprop:Generator_ColumnVarNameInTable="columnCarrierContName" msprop:Generator_ColumnPropNameInTable="CarrierContNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierContTitle" msprop:Generator_UserColumnName="CarrierContTitle" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCarrierContTitle" msprop:Generator_ColumnPropNameInTable="CarrierContTitleColumn" msprop:Generator_ColumnPropNameInRow="CarrierContTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierContactPhone" msprop:Generator_UserColumnName="CarrierContactPhone" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCarrierContactPhone" msprop:Generator_ColumnPropNameInTable="CarrierContactPhoneColumn" msprop:Generator_ColumnPropNameInRow="CarrierContactPhone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierContactFax" msprop:Generator_UserColumnName="CarrierContactFax" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCarrierContactFax" msprop:Generator_ColumnPropNameInTable="CarrierContactFaxColumn" msprop:Generator_ColumnPropNameInRow="CarrierContactFax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierContact800" msprop:Generator_UserColumnName="CarrierContact800" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCarrierContact800" msprop:Generator_ColumnPropNameInTable="CarrierContact800Column" msprop:Generator_ColumnPropNameInRow="CarrierContact800" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarrierContactEMail" msprop:Generator_UserColumnName="CarrierContactEMail" msprop:nullValue="(Empty)" msprop:Generator_ColumnVarNameInTable="columnCarrierContactEMail" msprop:Generator_ColumnPropNameInTable="CarrierContactEMailColumn" msprop:Generator_ColumnPropNameInRow="CarrierContactEMail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

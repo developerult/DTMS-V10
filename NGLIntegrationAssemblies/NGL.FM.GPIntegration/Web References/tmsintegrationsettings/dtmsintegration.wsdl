@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dtmsintegration.nextgeneration.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dtmsintegration.nextgeneration.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dtmsintegration.nextgeneration.com/">
+      <s:element name="LastError">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPSettingControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetERPSettingResult" type="tns:ERPSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ERPSetting">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DTOBaseClass">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ERPSettingControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPAuth" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPCertificate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPSettingModDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPSettingModUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPSettingUpdated" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportMaxRetry" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportRetryMinutes" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportMaxRowsReturned" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportAutoConfirmation" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DTOBaseClass" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TrackingState" type="tns:TrackingInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parameters" type="tns:WCFParameters" />
+          <s:element minOccurs="1" maxOccurs="1" name="Page" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pages" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TrackingInfo">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unchanged" />
+          <s:enumeration value="Created" />
+          <s:enumeration value="Updated" />
+          <s:enumeration value="Deleted" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WCFParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DBServer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnectionString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserRemotePassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WCFAuthCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WCFServiceURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompControl" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FormControl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcedureControl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportControl" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateAccess" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseToken" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSOAName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSOAClientSecret" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USATToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USATUserID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseExceptionEvents" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetERPSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetERPSettingsResult" type="tns:ArrayOfERPSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfERPSetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERPSetting" nillable="true" type="tns:ERPSetting" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetERPSettingsByLegalEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSettingsByLegalEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetERPSettingsByLegalEntityResult" type="tns:ArrayOfERPSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSettingsByLegalEntityAndERPType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPSettingsByLegalEntityAndERPTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetERPSettingsByLegalEntityAndERPTypeResult" type="tns:ArrayOfERPSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntegrationControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIntegrationResult" type="tns:Integration" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Integration">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DTOBaseClass">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationControl" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPSettingControl" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSURI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSSpec">
+                <s:complexType>
+                  <s:sequence>
+                    <s:any processContents="lax" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="TMSNotes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPURI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPNotes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationModDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegrationModUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegrationUpdated" type="s:base64Binary" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPSpec">
+                <s:complexType>
+                  <s:sequence>
+                    <s:any processContents="lax" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetIntegrations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIntegrationsResult" type="tns:ArrayOfIntegration" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIntegration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Integration" nillable="true" type="tns:Integration" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIntegrationsByERPSetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPSettingControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationsByERPSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIntegrationsByERPSettingResult" type="tns:ArrayOfIntegration" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationsByERPSettingAndIntegrationType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPSettingControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationsByERPSettingAndIntegrationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIntegrationsByERPSettingAndIntegrationTypeResult" type="tns:ArrayOfIntegration" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getvERPIntegrationSettingsResult" type="tns:ArrayOfVERPIntegrationSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVERPIntegrationSetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="vERPIntegrationSetting" nillable="true" type="tns:vERPIntegrationSetting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="vERPIntegrationSetting">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DTOBaseClass">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportMaxRetry" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportRetryMinutes" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportMaxRowsReturned" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPExportAutoConfirmation" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPSettingDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPSettingVersion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPAuth" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPCertificate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPTypeName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegrationTypeName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPURI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPAuthCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPNotes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSURI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthPassword" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSAuthCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSNotes" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="getvERPIntegrationSettingsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ERPTypeName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettingsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getvERPIntegrationSettingsByNameResult" type="tns:ArrayOfVERPIntegrationSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getvERPIntegrationSettingResult" type="tns:vERPIntegrationSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettingByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalEntity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ERPTypeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IntegrationTypeName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getvERPIntegrationSettingByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getvERPIntegrationSettingByNameResult" type="tns:vERPIntegrationSetting" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GettblERPType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GettblERPTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GettblERPTypeResult" type="tns:tblERPType" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="tblERPType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DTOBaseClass">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ERPTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartVersion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndVersion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ERPTypeModDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPTypeModUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ERPTypeUpdated" type="s:base64Binary" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GettblERPTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GettblERPTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GettblERPTypesResult" type="tns:ArrayOfTblERPType" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTblERPType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tblERPType" nillable="true" type="tns:tblERPType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GettblIntegrationType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GettblIntegrationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GettblIntegrationTypeResult" type="tns:tblIntegrationType" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="tblIntegrationType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DTOBaseClass">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeControl" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSFirstVersion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TMSEndVersion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IntegrationTypeModDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegrationTypeModUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IntegrationTypeUpdated" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GettblIntegrationTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GettblIntegrationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GettblIntegrationTypesResult" type="tns:ArrayOfTblIntegrationType" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetVal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTblIntegrationType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tblIntegrationType" nillable="true" type="tns:tblIntegrationType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGlobalTaskParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGlobalTaskParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGlobalTaskParametersResult" type="tns:GlobalTaskParameters" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GlobalTaskParameters">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalAutoRetry" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalAdminEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalGroupEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalFromEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalSMTPServer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalSaveOldLogs" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalKeepLogDays" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalDefaultLoadAcceptAllowedMinutes" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalDebugMode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalFuelIndexUpdateEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalFuelIndexUpdateEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalCarrierContractExpiredEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalCarrierContractExpiredEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalCarrierExposureAllEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalCarrierExposureAllEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalCarrierExposurePerShipmentEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalCarrierExposurePerShipmentEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalCarrierInsuranceExpiredEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalCarrierInsuranceExpiredEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalOutdatedNoLanePOEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalOutdatedNoLanePOEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalOutdatedNStatusEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalOutdatedNStatusEmailNotification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalPOsWaitingEmailNotificationValue" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalPOsWaitingEmailNotification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopAcctNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopHotLoadAccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopHotLoadContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopHotLoadURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTStopURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTrackURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTRackDatabase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXTRackDatabaseServer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalSMTPUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalSMTPPass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportServerURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportServerUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportServerPass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportServerDomain" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalSMTPUseDefaultCredentials" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalSMTPEnableSSL" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GlobalSMTPTargetName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GlobalSMTPPort" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LastError" />
+  </wsdl:message>
+  <wsdl:message name="LastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LastErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetERPSetting" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetERPSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetERPSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetERPSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsByLegalEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetERPSettingsByLegalEntity" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsByLegalEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetERPSettingsByLegalEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsByLegalEntityAndERPTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetERPSettingsByLegalEntityAndERPType" />
+  </wsdl:message>
+  <wsdl:message name="GetERPSettingsByLegalEntityAndERPTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetERPSettingsByLegalEntityAndERPTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIntegration" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIntegrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIntegrations" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIntegrationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsByERPSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIntegrationsByERPSetting" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsByERPSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIntegrationsByERPSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsByERPSettingAndIntegrationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIntegrationsByERPSettingAndIntegrationType" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationsByERPSettingAndIntegrationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIntegrationsByERPSettingAndIntegrationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettings" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingsByName" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSetting" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingByName" />
+  </wsdl:message>
+  <wsdl:message name="getvERPIntegrationSettingByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getvERPIntegrationSettingByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GettblERPTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GettblERPType" />
+  </wsdl:message>
+  <wsdl:message name="GettblERPTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GettblERPTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GettblERPTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GettblERPTypes" />
+  </wsdl:message>
+  <wsdl:message name="GettblERPTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GettblERPTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GettblIntegrationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GettblIntegrationType" />
+  </wsdl:message>
+  <wsdl:message name="GettblIntegrationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GettblIntegrationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GettblIntegrationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GettblIntegrationTypes" />
+  </wsdl:message>
+  <wsdl:message name="GettblIntegrationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GettblIntegrationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalTaskParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGlobalTaskParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalTaskParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGlobalTaskParametersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DTMSIntegrationSoap">
+    <wsdl:operation name="LastError">
+      <wsdl:input message="tns:LastErrorSoapIn" />
+      <wsdl:output message="tns:LastErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSetting">
+      <wsdl:input message="tns:GetERPSettingSoapIn" />
+      <wsdl:output message="tns:GetERPSettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettings">
+      <wsdl:input message="tns:GetERPSettingsSoapIn" />
+      <wsdl:output message="tns:GetERPSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntity">
+      <wsdl:input message="tns:GetERPSettingsByLegalEntitySoapIn" />
+      <wsdl:output message="tns:GetERPSettingsByLegalEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntityAndERPType">
+      <wsdl:input message="tns:GetERPSettingsByLegalEntityAndERPTypeSoapIn" />
+      <wsdl:output message="tns:GetERPSettingsByLegalEntityAndERPTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegration">
+      <wsdl:input message="tns:GetIntegrationSoapIn" />
+      <wsdl:output message="tns:GetIntegrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrations">
+      <wsdl:input message="tns:GetIntegrationsSoapIn" />
+      <wsdl:output message="tns:GetIntegrationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSetting">
+      <wsdl:input message="tns:GetIntegrationsByERPSettingSoapIn" />
+      <wsdl:output message="tns:GetIntegrationsByERPSettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSettingAndIntegrationType">
+      <wsdl:input message="tns:GetIntegrationsByERPSettingAndIntegrationTypeSoapIn" />
+      <wsdl:output message="tns:GetIntegrationsByERPSettingAndIntegrationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettings">
+      <wsdl:input message="tns:getvERPIntegrationSettingsSoapIn" />
+      <wsdl:output message="tns:getvERPIntegrationSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingsByName">
+      <wsdl:input message="tns:getvERPIntegrationSettingsByNameSoapIn" />
+      <wsdl:output message="tns:getvERPIntegrationSettingsByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSetting">
+      <wsdl:input message="tns:getvERPIntegrationSettingSoapIn" />
+      <wsdl:output message="tns:getvERPIntegrationSettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingByName">
+      <wsdl:input message="tns:getvERPIntegrationSettingByNameSoapIn" />
+      <wsdl:output message="tns:getvERPIntegrationSettingByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPType">
+      <wsdl:input message="tns:GettblERPTypeSoapIn" />
+      <wsdl:output message="tns:GettblERPTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPTypes">
+      <wsdl:input message="tns:GettblERPTypesSoapIn" />
+      <wsdl:output message="tns:GettblERPTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationType">
+      <wsdl:input message="tns:GettblIntegrationTypeSoapIn" />
+      <wsdl:output message="tns:GettblIntegrationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationTypes">
+      <wsdl:input message="tns:GettblIntegrationTypesSoapIn" />
+      <wsdl:output message="tns:GettblIntegrationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalTaskParameters">
+      <wsdl:input message="tns:GetGlobalTaskParametersSoapIn" />
+      <wsdl:output message="tns:GetGlobalTaskParametersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DTMSIntegrationSoap" type="tns:DTMSIntegrationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/LastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSetting">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettings">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntity">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettingsByLegalEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntityAndERPType">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettingsByLegalEntityAndERPType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegration">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrations">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSetting">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrationsByERPSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSettingAndIntegrationType">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrationsByERPSettingAndIntegrationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettings">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingsByName">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettingsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSetting">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingByName">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettingByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPType">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblERPType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPTypes">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblERPTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationType">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblIntegrationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationTypes">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblIntegrationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalTaskParameters">
+      <soap:operation soapAction="http://dtmsintegration.nextgeneration.com/GetGlobalTaskParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DTMSIntegrationSoap12" type="tns:DTMSIntegrationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LastError">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/LastError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSetting">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettings">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntity">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettingsByLegalEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPSettingsByLegalEntityAndERPType">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetERPSettingsByLegalEntityAndERPType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegration">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrations">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSetting">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrationsByERPSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationsByERPSettingAndIntegrationType">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetIntegrationsByERPSettingAndIntegrationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettings">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingsByName">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettingsByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSetting">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getvERPIntegrationSettingByName">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/getvERPIntegrationSettingByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPType">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblERPType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblERPTypes">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblERPTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationType">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblIntegrationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GettblIntegrationTypes">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GettblIntegrationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalTaskParameters">
+      <soap12:operation soapAction="http://dtmsintegration.nextgeneration.com/GetGlobalTaskParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DTMSIntegration">
+    <wsdl:port name="DTMSIntegrationSoap" binding="tns:DTMSIntegrationSoap">
+      <soap:address location="http://07dws.nextgeneration.com/dtmsintegration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DTMSIntegrationSoap12" binding="tns:DTMSIntegrationSoap12">
+      <soap12:address location="http://07dws.nextgeneration.com/dtmsintegration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
