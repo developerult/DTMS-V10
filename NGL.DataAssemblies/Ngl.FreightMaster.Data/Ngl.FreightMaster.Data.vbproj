@@ -1,0 +1,390 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Ngl.FreightMaster.Data.snk</AssemblyOriginatorKeyFile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>$(AssemblyName)</Title>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>Ngl.FreightMaster.Data.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DefineDebug>True</DefineDebug>
+    <DebugType>full</DebugType>
+	<DebugSymbols>true</DebugSymbols>
+	<Optimize>false</Optimize>
+	<DefineTrace>true</DefineTrace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineDebug>True</DefineDebug>
+    <DocumentationFile>Ngl.FreightMaster.Data.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+	<DebugSymbols>true</DebugSymbols>
+	<Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Update="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Update="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ApplicationData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationData.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="EmailAlertsByCompany.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailAlertsByCompany.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASAMS.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASAMS.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMasBook.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMasBook.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMasBook.vb">
+      <DependentUpon>NGLMasBook.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASCarrier.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASCarrier.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASCarrier.vb">
+      <DependentUpon>NGLMASCarrier.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASClaim.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASClaim.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASComp.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASComp.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASComp.vb">
+      <DependentUpon>NGLMASComp.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASEDIMaint.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASEDIMaint.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASIntegration.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASIntegration.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASIntegration.vb">
+      <DependentUpon>NGLMASIntegration.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASLane.designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NGLMASLane.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASLane.vb">
+      <DependentUpon>NGLMASLane.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASLookup.designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NGLMASLookup.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASLookup.vb">
+      <DependentUpon>NGLMASLookup.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASSecurity.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASSecurity.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASSecurity.vb">
+      <DependentUpon>NGLMASSecurity.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="LTS\NGLMASSYS.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NGLMASSYS.dbml</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Update="SystemSecurityData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemSecurityData.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="UserAdmin.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserAdmin.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="LTS\NGLMASAMS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASAMS.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASClaim.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASClaim.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASEDIMaint.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASEDIMaint.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASSYS.dbml.layout">
+      <DependentUpon>NGLMASSYS.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASLookup.dbml.layout">
+      <DependentUpon>NGLMASLookup.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASSecurity.dbml.layout">
+      <DependentUpon>NGLMASSecurity.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASComp.dbml.layout">
+      <DependentUpon>NGLMASComp.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASCarrier.dbml.layout">
+      <DependentUpon>NGLMASCarrier.dbml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASLane.dbml.layout">
+      <DependentUpon>NGLMASLane.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASIntegration.dbml.layout">
+      <DependentUpon>NGLMASIntegration.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMasBook.dbml.layout">
+      <DependentUpon>NGLMasBook.dbml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASClaim.dbml.layout">
+      <DependentUpon>NGLMASClaim.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASAMS.dbml.layout">
+      <DependentUpon>NGLMASAMS.dbml</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMASEDIMaint.dbml.layout">
+      <DependentUpon>NGLMASEDIMaint.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="ApplicationData.xsc">
+      <DependentUpon>ApplicationData.xsd</DependentUpon>
+    </None>
+    <None Update="ApplicationData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationData.Designer.vb</LastGenOutput>
+    </None>
+    <None Update="ApplicationData.xss">
+      <DependentUpon>ApplicationData.xsd</DependentUpon>
+    </None>
+    <None Update="EmailAlertsByCompany.xsc">
+      <DependentUpon>EmailAlertsByCompany.xsd</DependentUpon>
+    </None>
+    <None Update="EmailAlertsByCompany.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmailAlertsByCompany.Designer.vb</LastGenOutput>
+    </None>
+    <None Update="EmailAlertsByCompany.xss">
+      <DependentUpon>EmailAlertsByCompany.xsd</DependentUpon>
+    </None>
+    <None Update="LTS\NGLMasBook.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMasBook.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASCarrier.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASCarrier.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASComp.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASComp.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASIntegration.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASIntegration.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASLookup.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASLookup.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASSecurity.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASSecurity.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="LTS\NGLMASSYS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NGLMASSYS.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Update="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <None Update="SystemSecurityData.xsc">
+      <DependentUpon>SystemSecurityData.xsd</DependentUpon>
+    </None>
+    <None Update="SystemSecurityData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SystemSecurityData.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="SystemSecurityData.xss">
+      <DependentUpon>SystemSecurityData.xsd</DependentUpon>
+    </None>
+    <None Update="UserAdmin.xsc">
+      <DependentUpon>UserAdmin.xsd</DependentUpon>
+    </None>
+    <None Update="UserAdmin.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserAdmin.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="UserAdmin.xss">
+      <DependentUpon>UserAdmin.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FM.Bing\NGL.FM.Bing.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Destructurama.Attributed" Version="4.0.0" />
+    <PackageReference Include="DLinq" Version="8.5.4.3" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer" Version="2.22.0" />
+    <PackageReference Include="NGL.API.Mapping" Version="1.0.124" />
+    <PackageReference Include="Ngl.Core" Version="8.5.4.3" />
+    <PackageReference Include="NGL.Core.ChangeTracker" Version="8.5.4.3" />
+    <PackageReference Include="NGL.FM.CHRAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.Estes" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.JTSAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.P44" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.UPSAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FreightMaster.PCMiler" Version="1.0.2" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="SerilogTracing" Version="2.3.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\RateRequestItem.vb" />
+    <Compile Remove="Models\RateRequestOrder.vb" />
+    <Compile Remove="Models\RateRequestStop.vb" />
+    <Compile Remove="Models\UserSecuritySettings.vb" />
+    <Compile Remove="NGLBookDataProviderOld.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="LTS\NGLMASLane.dbml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LTS\NGLMASLane.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>NGLMASLane.designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

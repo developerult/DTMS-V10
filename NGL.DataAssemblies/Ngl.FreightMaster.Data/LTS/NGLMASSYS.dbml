@@ -1,0 +1,1089 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLMASPROD" EntityNamespace="LTS" Class="NGLMASSYSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASPROD;Integrated Security=True" SettingsObjectName="Ngl.FreightMaster.Data.My.MySettings" SettingsPropertyName="NGLMASPRODConnectionString8" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AppErrors" Member="AppErrors">
+    <Type Name="AppError">
+      <Column Name="Message" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ErrTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ErrUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ErrControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompParameter" Member="CompParameterRefSystems">
+    <Type Name="CompParameterRefSystem">
+      <Column Name="CompParControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompParCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompParKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CompParValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompParText" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompParDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompParOLE" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="CompParCategoryControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompParUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="msrepl_tran_version" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="tblParCategory_CompParameterRefSystem" Member="tblParCategory" ThisKey="CompParCategoryControl" OtherKey="ParCatControl" Type="tblParCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Parameter_CompParameterRefSystem" Member="Parameter" ThisKey="CompParKey" OtherKey="ParKey" Type="Parameter" IsForeignKey="true" />
+      <Association Name="CompRefSystem_CompParameterRefSystem" Member="CompRefSystem" ThisKey="CompParCompControl" OtherKey="CompControl" Type="CompRefSystem" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Parameter" Member="Parameters">
+    <Type Name="Parameter">
+      <Column Name="ParKey" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ParText" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParOLE" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="ParUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="msrepl_tran_version" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ParCategoryControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParIsGlobal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Parameter_CompParameterRefSystem" Member="CompParameterRefSystems" ThisKey="ParKey" OtherKey="CompParKey" Type="CompParameterRefSystem" />
+      <Association Name="tblParCategory_Parameter" Member="tblParCategory" ThisKey="ParCategoryControl" OtherKey="ParCatControl" Type="tblParCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblParCategories" Member="tblParCategories">
+    <Type Name="tblParCategory">
+      <Column Name="ParCatControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParCatName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParCatDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParCatUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblParCategory_CompParameterRefSystem" Member="CompParameterRefSystems" ThisKey="ParCatControl" OtherKey="CompParCategoryControl" Type="CompParameterRefSystem" />
+      <Association Name="tblParCategory_Parameter" Member="Parameters" ThisKey="ParCatControl" OtherKey="ParCategoryControl" Type="Parameter" />
+      <Association Name="tblParCategory_tblParProcess" Member="tblParProcesses" ThisKey="ParCatControl" OtherKey="ParProcCategoryControl" Type="tblParProcess" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBatchProcessRunning" Member="tblBatchProcessRunnings">
+    <Type Name="tblBatchProcessRunning">
+      <Column Name="BPRControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BPRUserName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BPRProcessName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="BPRStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BPREndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BPRRunning" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BPHHadErrors" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BPHErrMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BPHErrTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BPRUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Auth" Member="Auths">
+    <Type Name="Auth">
+      <Column Name="AuthKey" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthCity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="net_address" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDataEntryFields" Member="tblDataEntryFields">
+    <Type Name="tblDataEntryField">
+      <Column Name="DEControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DEFieldName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DEFileType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DEFieldDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DEGLNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DEFieldMapCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DEUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblExportFields" Member="tblExportFields">
+    <Type Name="tblExportField">
+      <Column Name="ExportControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExportFieldName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ExportFileType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExportFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExportFieldDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ExportUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblExportFileSettings" Member="tblExportFileSettings">
+    <Type Name="tblExportFileSetting">
+      <Column Name="EFSControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EFSFileName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EFSFileType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EFSFolder" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EFSDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EFSUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comp" Member="CompRefSystems">
+    <Type Name="CompRefSystem">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompStreetState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompStreetCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompStreetZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompMailAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompMailState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompMailCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompMailZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompWeb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompDirections" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="CompAbrev" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CompActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTrack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTStopAcctNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNEXTStopPsw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNextstopSubmitRFP" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTypeCategory" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFAAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFAAShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CompBudControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompBudSeasMo1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo5" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo6" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo8" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo9" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo10" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo11" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo12" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinDuns" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="CompFinTaxID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompFinPaymentForm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinSIC" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompFinPaymentDiscount" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentNetDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinCommTerms" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CompFinCommTermsPer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinCommCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditUsed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditAvail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesCur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsCurr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinInvPrnCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinInvEMailCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUser5" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCustomerSince" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompFinCardType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardExpires" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthorizor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUseImportFrtCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinBkhlFlatFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompFinBkhlCostPerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompMailTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompFDAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAMS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompPayTolPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolWgtFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolWgtTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinBillToCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompSilentTender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CompRefSystem_CompParameterRefSystem" Member="CompParameterRefSystems" ThisKey="CompControl" OtherKey="CompParCompControl" Type="CompParameterRefSystem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vAbout" Member="vAbouts">
+    <Type Name="vAbout">
+      <Column Name="AuthKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AuthNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthCity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="version" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="xactversion" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="masversion" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="claimversion" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ServerLastMod" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLog" Member="tblLogs">
+    <Type Name="tblLog">
+      <Column Name="LogControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LogMessage" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LogTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LogUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LogSource" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRunTask" Member="tblRunTasks">
+    <Type Name="tblRunTask">
+      <Column Name="RunTaskControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RunTaskName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RunTaskDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskCommand" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskMinutes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskMonths" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskWeekDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RunTaskModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskHold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskRunning" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskAppPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskRunNow" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RunTaskPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RunTaskIniKey" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RunTaskLastRanOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskLastEndOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskHadErrors" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskLastError" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RunTaskInstructions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RunTaskNextRunOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSystemErrors" Member="tblSystemErrors">
+    <Type Name="tblSystemError">
+      <Column Name="ErrID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Record" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CurrentUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CurrentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ErrorNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorSeverity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorProcedure" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ErrorLineNbr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorAlertSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorAlertSentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTaskLog" Member="tblTaskLogs">
+    <Type Name="tblTaskLog">
+      <Column Name="TaskControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TaskName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaskDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TaskType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TaskCommand" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TaskLastRanOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaskRanOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaskMessage" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mail" Member="Mails">
+    <Type Name="Mail">
+      <Column Name="MailControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailFrom" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MailTo" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="MailCc" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Type="System.String" DbType="VarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReadyToSend" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateSent" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Result" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="SubjectLocalized" Type="System.String" DbType="nvarchar(100)" CanBeNull="true" />
+      <Column Name="BodyLocalized" Type="System.String" DbType="nvarchar(100)" CanBeNull="true" />
+      <Column Name="SubjectKeys" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="BodyKeys" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="RefIDType" Type="System.Int32" DbType="INT" CanBeNull="true" />
+      <Column Name="RefID" Type="System.String" DbType="NVARCHAR(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailAttachments" Member="MailAttachments">
+    <Type Name="MailAttachment">
+      <Column Name="MailAttachmentControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FilePath" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Result" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailReports" Member="MailReports">
+    <Type Name="MailReport">
+      <Column Name="MailReportControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Format" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Parameters" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Result" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="AttachAsFileName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vEDITransactions" Member="vEDITransactions">
+    <Type Name="vEDITransaction">
+      <Column Name="tblEDITransControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tblEDITransDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookCarrOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookOrderSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookOrigName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BookOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BookDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BookDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BookDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="tblEDITransXaction" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="tblEDITransSenderCode" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="tblEDITransReceiverCode" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="tblEDITransISASequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tblEDITransGSSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tblEDITransCarrierSCAC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tblEDITransLoadNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tblEDITransMessage" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStopDistance" Member="tblStopDistances">
+    <Type Name="tblStopDistance">
+      <Column Name="StopDistanceControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StopDistanceFromStopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StopDistanceToStopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StopDistanceRoadMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StopDistanceDirectMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StopDistanceModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StopDistanceModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StopDistanceUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblStop_tblStopDistance" Member="tblStop" ThisKey="StopDistanceFromStopControl" OtherKey="StopControl" Type="tblStop" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDistanceQueueDetail" Member="tblDistanceQueueDetails">
+    <Type Name="tblDistanceQueueDetail">
+      <Column Name="DistanceQueueDetailControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DistanceQueueDetailDistanceQueueControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DistanceQueueDetailStopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DistanceQueueDetailModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DistanceQueueDetailModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DistanceQueueDetailUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblDistanceQueue_tblDistanceQueueDetail" Member="tblDistanceQueue" ThisKey="DistanceQueueDetailDistanceQueueControl" OtherKey="DistanceQueueControl" Type="tblDistanceQueue" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblStop_tblDistanceQueueDetail" Member="tblStop" ThisKey="DistanceQueueDetailStopControl" OtherKey="StopControl" Type="tblStop" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDistanceQueue" Member="tblDistanceQueues">
+    <Type Name="tblDistanceQueue">
+      <Column Name="DistanceQueueControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DistanceQueueStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DistanceQueueEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DistanceQueueComplete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DistanceQueueMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="DistanceQueueRunAll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DistanceQueueUseLatLong" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DistanceQueueModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DistanceQueueModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DistanceQueueUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblDistanceQueue_tblDistanceQueueDetail" Member="tblDistanceQueueDetails" ThisKey="DistanceQueueControl" OtherKey="DistanceQueueDetailDistanceQueueControl" Type="tblDistanceQueueDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vElmtDataType" Member="vElmtDataTypes">
+    <Type Name="vElmtDataType">
+      <Column Name="ElmtFieldName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NBR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TXT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DAT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStop" Member="tblStops">
+    <Type Name="tblStop">
+      <Column Name="StopControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StopAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="StopCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="StopState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="StopCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="StopZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="StopLatitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StopLongitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StopModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StopModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StopUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="StopName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tblStop_tblStopDistance" Member="tblStopDistances" ThisKey="StopControl" OtherKey="StopDistanceFromStopControl" Type="tblStopDistance" />
+      <Association Name="tblStop_tblDistanceQueueDetail" Member="tblDistanceQueueDetails" ThisKey="StopControl" OtherKey="DistanceQueueDetailStopControl" Type="tblDistanceQueueDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Version" Member="Versions">
+    <Type Name="Version">
+      <Column Name="Version" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VersionDescription" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="VersionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Version_tblWhatsNew" Member="tblWhatsNews" ThisKey="Version" OtherKey="WhatsNewVersion" Type="tblWhatsNew" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblWhatsNew" Member="tblWhatsNews">
+    <Type Name="tblWhatsNew">
+      <Column Name="WhatsNewControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WhatsNewVersion" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewFeatureTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewTitle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewTitleLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewNoteLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WhatsNewModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="WhatsNewUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="WhatsNewSeqNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Version_tblWhatsNew" Member="Version" ThisKey="WhatsNewVersion" OtherKey="Version" Type="Version" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWhatsNew" Member="vWhatsNews">
+    <Type Name="vWhatsNew">
+      <Column Name="WhatsNewControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewVersion" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="VersionDescription" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="VersionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WhatsNewFeatureTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeatureTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FeatureTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="WhatsNewTitle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewTitleLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewNoteLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WhatsNewSeqNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WhatsNewModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WhatsNewModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="WhatsNewUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tmpOptMsg" Member="tmpOptMsgs">
+    <Type Name="tmpOptMsg">
+      <Column Name="OptMsgControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OptMsgUSC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OptMsgType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OptMsgStep" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OptMsgText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="OptMsgSubText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="OptMsgProgress" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OptMsgComplete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OptMsgModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OptMsgModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OptMsgUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="OptMsgCompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OptMsgCompInbound" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTblRunTask" Member="vTblRunTasks">
+    <Type Name="vTblRunTask">
+      <Column Name="RunTaskControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RunTaskName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RunTaskDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskCommand" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskMinutes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskMonths" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskWeekDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RunTaskModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskHold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskRunning" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskAppPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RunTaskRunNow" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RunTaskPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RunTaskIniKey" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RunTaskLastRanOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskLastEndOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskHadErrors" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskLastError" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RunTaskInstructions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RunTaskNextRunOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunTaskTaskDateMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskMinutesMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskHoursMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskDaysMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskMonthsMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="RunTaskWeekDaysMessage" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserAdminWithCompControl" Member="vUserAdminWithCompControlRefSYS">
+    <Type Name="vUserAdminWithCompControlRefSYS">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminCompControl" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCMAlert" Member="vCMAlerts">
+    <Type Name="vCMAlert">
+      <Column Name="BookControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Exposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookDateLoad" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlertDate1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlertDate2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BookModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BookTotalCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookTotalCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookTotalPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookTotalWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BookRevTotalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BookLoadPONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookCarrOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTempCMAlert" Member="tblTempCMAlerts">
+    <Type Name="tblTempCMAlert">
+      <Column Name="TmpCMAlertControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TmpCMAlertUserControl" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TmpCMAlertCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertCompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertCompName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertCarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertCarrierName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertExposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookConsPrefix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookProNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertProductValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TmpCMAlertMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="TmpCMAlertAlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TmpCMAlertAlertDate1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TmpCMAlertAlertDate2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookTotalCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookTotalCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookTotalPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookTotalWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookRevTotalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookLoadPONumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookCarrOrderNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertVendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TmpCMAlertBookModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TmpCMAlerteModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TmpCMAlerteModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWorkflowLeadTimeParameters" Member="vWorkflowLeadTimeParameters">
+    <Type Name="vWorkflowLeadTimeParameter">
+      <Column Name="ParKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ParText" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblParProcess" Member="tblParProcesses">
+    <Type Name="tblParProcess">
+      <Column Name="ParProcControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParProcCategoryControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcDescription" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ParProcModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParProcModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ParProcUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblParProcess_tblParProcessOption" Member="tblParProcessOptions" ThisKey="ParProcControl" OtherKey="ParProcOptParProcControl" Type="tblParProcessOption" />
+      <Association Name="tblParCategory_tblParProcess" Member="tblParCategory" ThisKey="ParProcCategoryControl" OtherKey="ParCatControl" Type="tblParCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblParProcessOption" Member="tblParProcessOptions">
+    <Type Name="tblParProcessOption">
+      <Column Name="ParProcOptControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParProcOptParProcControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptParKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptParKeyValueType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptParKeyTextType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptDescription" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ParProcOptModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParProcOptModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ParProcOptUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblParProcessOption_tblParProcOptValItem" Member="tblParProcOptValItems" ThisKey="ParProcOptControl" OtherKey="ParProcOptVIParProcOptControl" Type="tblParProcOptValItem" />
+      <Association Name="tblParProcessOption_tblParProcOptTxtItem" Member="tblParProcOptTxtItems" ThisKey="ParProcOptControl" OtherKey="ParProcOptTIParProcOptControl" Type="tblParProcOptTxtItem" />
+      <Association Name="tblParProcess_tblParProcessOption" Member="tblParProcess" ThisKey="ParProcOptParProcControl" OtherKey="ParProcControl" Type="tblParProcess" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblParProcOptValItem" Member="tblParProcOptValItems">
+    <Type Name="tblParProcOptValItem">
+      <Column Name="ParProcOptVIControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParProcOptVIParProcOptControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptVIName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptVIDesc" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ParProcOptVIModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParProcOptVIModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ParProcOptVIUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblParProcessOption_tblParProcOptValItem" Member="tblParProcessOption" ThisKey="ParProcOptVIParProcOptControl" OtherKey="ParProcOptControl" Type="tblParProcessOption" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblParProcOptTxtItem" Member="tblParProcOptTxtItems">
+    <Type Name="tblParProcOptTxtItem">
+      <Column Name="ParProcOptTIControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParProcOptTIParProcOptControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptTIName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ParProcOptTIDesc" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ParProcOptTIModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParProcOptTIModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ParProcOptTIUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblParProcessOption_tblParProcOptTxtItem" Member="tblParProcessOption" ThisKey="ParProcOptTIParProcOptControl" OtherKey="ParProcOptControl" Type="tblParProcessOption" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spValidateAlertsBeforeFinalize" Method="spValidateAlertsBeforeFinalize">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spValidateAlertsBeforeFinalizeResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PerShipmentValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TotalExposueValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PerShipmentExposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AllShipmentExposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="InsuranceMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContractExpiresMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ExposureAllMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ExposuerPerShipmentMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InsuranceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ContractExpiresDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetSystemAlertNodes" Method="spGetSystemAlertNodes">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGetSystemAlertNodesResult">
+      <Column Name="ATID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ATAlertCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsCarrierContractExpiredCompFilter50" Method="udfAlertsCarrierContractExpiredCompFilter50" IsComposable="true">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsCarrierContractExpiredCompFilter50Result">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualContractExpiresDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsOutdatedNStatusOrders50" Method="udfAlertsOutdatedNStatusOrders50" IsComposable="true">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsOutdatedNStatusOrders50Result">
+      <Column Name="BookControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookDateLoad" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QueryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsOutdatedStagingOrders50" Method="udfAlertsOutdatedStagingOrders50" IsComposable="true">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsOutdatedStagingOrders50Result">
+      <Column Name="PONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PRONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DefaultCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultCustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultCarrier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Warnings" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImportType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsCarrInsExpired" Method="udfAlertsCarrInsExpired" IsComposable="true">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsCarrInsExpiredResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualInsuranceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsOutdatedNoLanes" Method="udfAlertsOutdatedNoLanes" IsComposable="true">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsOutdatedNoLanesResult">
+      <Column Name="POHNLOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="POHNLvendor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POHNLnumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="POHNLPOdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="POHNLShipdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="POHNLCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="POHNLDefaultCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POHNLReqDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ItemNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QtyOrdered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGenerateEmail70" Method="spGenerateEmail70">
+    <Parameter Name="MailFrom" Parameter="mailFrom" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="EmailTo" Parameter="emailTo" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CCEmail" Parameter="cCEmail" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Subject" Parameter="subject" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="SubjectLocalized" Parameter="subjectLocalized" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="BodyLocalized" Parameter="bodyLocalized" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SubjectKeys" Parameter="subjectKeys" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="BodyKeys" Parameter="bodyKeys" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGenerateEmail70Result">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spValidateCarrierQualBeforeFinalize" Method="spValidateCarrierQualBeforeFinalize">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spValidateCarrierQualBeforeFinalizeResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGenerateEmailFromSystem" Method="spGenerateEmailFromSystem">
+    <Parameter Name="EmailTo" Parameter="emailTo" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CCEmail" Parameter="cCEmail" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Subject" Parameter="subject" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="SubjectLocalized" Parameter="subjectLocalized" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="BodyLocalized" Parameter="bodyLocalized" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SubjectKeys" Parameter="subjectKeys" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="BodyKeys" Parameter="bodyKeys" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGenerateEmailFromSystemResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetPCMParameters" Method="spGetPCMParameters">
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetPCMParametersResult">
+      <Column Name="NGLPCMSearchCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGLPCMParameterCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGLPCMRouteType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGLPCMDistType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGLPCMWebServiceURL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NGLPCMLoggingOn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGLPCMLogFile" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NGLPCMDebugMode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGLPCMKeepLogDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGLPCMSaveOldLog" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGLPCMilerShowResynAddressWarnings" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGLPCMUseZipOnly" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGLUsePCMiler" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUtilityRemoveAllTestDataByLegalEntity" Method="spUtilityRemoveAllTestDataByLegalEntity">
+    <Parameter Name="LegalEntity" Parameter="legalEntity" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUtilityMassUpdateAllTestFreightBills" Method="spUtilityMassUpdateAllTestFreightBills">
+    <Parameter Name="LegalEntity" Parameter="legalEntity" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spUtilityMassUpdateAllTestFreightBillsResult">
+      <Column Name="BookControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BookFinAPBillNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUtilityAllowSilentTender" Method="spUtilityAllowSilentTender">
+    <Parameter Name="LegalEntity" Parameter="legalEntity" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGenerateExportDoc" Method="spGenerateExportDoc">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGenerateExportDocResult">
+      <Column Name="FACILITY" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="REFERENCE" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTOMER" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTNAME" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTORDNUM" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTADDRS1" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTADDRS2" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTADDRS3" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTADDRS4" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CUPOSTCODE" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPNAME" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPADDRS1" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPADDRS2" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPADDRS3" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPADDRS4" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SHPOSTCODE" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPORTER" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPADDRS1" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPADDRS2" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPADDRS3" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPADDRS4" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpZip" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpTel" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpFax" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpContact" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CURR_CODE" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CURRRATE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ENTRYDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="INV_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PRIC_DEC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QNTY_DEC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WGT_DEC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NO_LINES" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENTS1" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Column Name="COMMENTS2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="COM_TERMS" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="INCO_TERMS" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="FOB_POINT" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MODE" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PORT_ENTRY" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LOCAL_CAR" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
+      <Column Name="EXPORT_CAR" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="INV_NUMBER" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PACKING" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="OCEAN" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMESTIC" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="INSURANCE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="COMMISSION" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ASSIST" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTAINER" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MISC" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TAXTYPE1" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TAX1_CHRG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TAXTYPE2" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TAX2_CHRG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="INVOICEAMT" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIP" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPPERSBN" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="BUYERSBN" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="ISONUMBER" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CUST_2" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ITEM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ITEMREV" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LINE_NO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTORDLN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="SHPUM" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DETAILS1" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="DETAILS2" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="QNTYSHP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WEIGHT" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WTUM" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CUBE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CUBEUM" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="INVOICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="HSCODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ITEMCOST" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spAddNewParameter" Method="spAddNewParameter">
+    <Parameter Name="ParKey" Parameter="parKey" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ParValue" Parameter="parValue" Type="System.Double" DbType="Float" />
+    <Parameter Name="ParText" Parameter="parText" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ParDescription" Parameter="parDescription" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ParCategoryControl" Parameter="parCategoryControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ParIsGlobal" Parameter="parIsGlobal" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetCarrInsExpAllShipAlerts" Method="spGetCarrInsExpAllShipAlerts">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGetCarrInsExpAllShipAlertsResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Exposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProductValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetCarrInsExpPerShipAlerts" Method="spGetCarrInsExpPerShipAlerts">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGetCarrInsExpPerShipAlertsResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Exposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ProductValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsPOsWaiting365" Method="udfAlertsPOsWaiting365" IsComposable="true">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsPOsWaiting365Result">
+      <Column Name="POHDRControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PRONumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DefaultCustomer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultCustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultCarrier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Warnings" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ImportType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfAlertsCarrInsExpired365" Method="udfAlertsCarrInsExpired365" IsComposable="true">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="udfAlertsCarrInsExpired365Result">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AlertDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualInsuranceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+<PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <Nullable>disable</Nullable>
+	<ImplicitUsings>disable</ImplicitUsings>
+</PropertyGroup>
+
+<PropertyGroup>
+  <SignAssembly>true</SignAssembly>
+  <AssemblyOriginatorKeyFile>NGL.Test.Core.snk</AssemblyOriginatorKeyFile>
+  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+</PropertyGroup>
+</Project>

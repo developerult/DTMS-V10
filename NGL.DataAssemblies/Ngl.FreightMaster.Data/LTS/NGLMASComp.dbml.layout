@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 31.875, 43" name="NGLMASComp">
+  <DataContextMoniker Name="/NGLMASCompDataContext" />
+  <nestedChildShapes>
+    <classShape Id="df8e85d5-e1e6-41be-89d3-6620ea6d6797" absoluteBounds="5.75, 1.375, 2, 2.6570663006107011">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompCal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1859788e-8d0b-4739-9994-4cb3261b52f7" absoluteBounds="5.765, 1.835, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c71dc1b6-7c87-4924-9022-dc7408b4c3ed" absoluteBounds="5.75, 4.375, 2, 3.028566961586475">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompCont" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74667131-c6b3-4db4-8189-7216c6c373a2" absoluteBounds="5.765, 4.835, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9fb018e-228c-4435-a4b5-834b27f64fac" isExpanded="false" absoluteBounds="5.75, 11.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompGoal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c310b68c-9181-46af-a0f4-23a6e2c0edde" absoluteBounds="5.7650000000000006, 12.085, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efbf29e7-0ae8-449d-9fa4-2913ed12f9da" absoluteBounds="5.75, 18.75, 2, 3.4000676225622506">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd3f9c67-6c9c-49fa-8127-119a6b08bd65" absoluteBounds="5.765, 19.21, 1.9700000000000002, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e4cdc04-1d53-4ccb-9317-20dfc45c5237" absoluteBounds="5.75, 15.625, 2, 2.8428166310985894">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompParameter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc58bc90-3960-4891-bb32-ace169dbb36d" absoluteBounds="5.765, 16.085, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1175e6e7-6e28-464d-bc32-1af03c79784f" absoluteBounds="8.25, 15.5, 2, 1.5425643176833823">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblParCategoryRefComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9be0e9a9-28a0-4420-9742-960ce952f3e1" absoluteBounds="8.265, 15.96, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 16.3337821588417); (7.75 : 16.3337821588417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/tblParCategoryRefComp/tblParCategoryRefComp_CompParameter" />
+      <nodes>
+        <classShapeMoniker Id="1175e6e7-6e28-464d-bc32-1af03c79784f" />
+        <classShapeMoniker Id="2e4cdc04-1d53-4ccb-9317-20dfc45c5237" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="91691017-5c98-4463-a20e-a276d917ac46" isExpanded="false" absoluteBounds="0.5, 15.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vUserAdminWithCompControlRefComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf55e7e5-0691-41be-a736-d7e1806482a2" absoluteBounds="0.51500000000000012, 15.96, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3ed9dd9-0971-4e33-ae01-bd15d8e3d225" isExpanded="false" absoluteBounds="0.5, 14.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/UserAdminAsNvarcharRefComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f77cb520-12a1-41b9-b4a1-ec69be3f652a" absoluteBounds="0.515, 15.335, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d11cce26-da90-4bb9-9ecf-e7f466003e6d" isExpanded="false" absoluteBounds="0.5, 14.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8af36ab2-b05d-4df4-afdd-db2903f97d7a" absoluteBounds="0.51500000000000057, 14.71, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ed8cf0a-f301-4523-96e2-7b7666e5da2b" isExpanded="false" absoluteBounds="0.625, 5.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompAMSApptTrackingSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4f26553-9673-457a-ad60-b7b876e55a35" absoluteBounds="0.63999999999999968, 5.7100000000000009, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d098644-b99a-4b18-8ae6-34b046b2c849" absoluteBounds="0.625, 7, 2, 2.6570663006107011">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompAMSColorCodeSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2247a5c3-ae2f-4f22-a246-4599b257daa8" absoluteBounds="0.64, 7.4600000000000009, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8741355c-dfae-4f8e-a35c-10b073478158" absoluteBounds="0.625, 10, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompAMSUserFieldSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2dd9a79a-cf72-46c1-8357-c670a49c0ad1" absoluteBounds="0.64, 10.46, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7ac4845-561f-47c1-a132-f21fbb742dfb" isExpanded="false" absoluteBounds="0.5, 12.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/DynamicsTMSIntegrationLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf5ce767-e1ed-4b74-8473-c6b5a7707a92" absoluteBounds="0.51500000000000057, 13.335, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e0eaa85-37f2-470c-b6f8-66e3b5635008" isExpanded="false" absoluteBounds="0.5, 13.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/DynamicsTMSSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a2d29f5-ec7b-4491-b4c8-db80851ff9b9" absoluteBounds="0.51500000000000057, 14.085, 1.9700000000000002, 5.8120729103684425" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0667e6bc-6dc9-424e-9408-273a11b25a6c" isExpanded="false" absoluteBounds="0.5, 16.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/AlphaCompanyXrefRefComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea576e55-3473-412e-95dc-dd3f48d10f84" absoluteBounds="0.515, 17.21, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22da1734-6ca9-4c46-a854-3d42d1297213" absoluteBounds="3.25, 0.75, 2, 42.036136364042761">
+      <DataClassMoniker Name="/NGLMASCompDataContext/Comp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a665817-ff20-4e22-97e3-d39f29891db3" absoluteBounds="3.265, 1.21, 1.9700000000000002, 41.476136364042759" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 2.74120198567708); (5.75 : 2.74120198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompCal" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="df8e85d5-e1e6-41be-89d3-6620ea6d6797" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 5.93350341796875); (5.75 : 5.93350341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompCont" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="c71dc1b6-7c87-4924-9022-dc7408b4c3ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 11.85); (5.75 : 11.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompGoal" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="e9fb018e-228c-4435-a4b5-834b27f64fac" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 20.5008048502604); (5.75 : 20.5008048502604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompTrack" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="efbf29e7-0ae8-449d-9fa4-2913ed12f9da" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 17.0873527018229); (5.75 : 17.0873527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompParameter" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="2e4cdc04-1d53-4ccb-9317-20dfc45c5237" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 5.475); (2.625 : 5.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompAMSApptTrackingSetting" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="5ed8cf0a-f301-4523-96e2-7b7666e5da2b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 8.32853315030535); (2.625 : 8.32853315030535)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompAMSColorCodeSetting" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="0d098644-b99a-4b18-8ae6-34b046b2c849" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 11.0499076545735); (2.625 : 11.0499076545735)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompAMSUserFieldSetting" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="8741355c-dfae-4f8e-a35c-10b073478158" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="18798024-a5a5-4d89-8201-7dfafbd958d0" absoluteBounds="13.125, 0.625, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblSubscriptionRequestPending" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd875513-505a-4c5a-9cbb-39d9cbb18770" absoluteBounds="13.14, 1.085, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 0.75); (5.625 : 0.375); (5.625 : 0.25); (12.751509152494 : 0.25); (13.126509152494 : 0.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_tblSubscriptionRequestPending" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="18798024-a5a5-4d89-8201-7dfafbd958d0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d32932d9-7126-42cc-92f5-a7d35a4795b0" absoluteBounds="13.125, 2.875, 2, 3.5858179530501362">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vSubscriptionRequest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10352ecb-9fab-40d1-8cf6-192354be001e" absoluteBounds="13.14, 3.335, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1b11a56-e405-426f-a784-bfd5143a7191" absoluteBounds="20.25, 0.625, 2, 3.95731861402591">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblDockBlockOutPeriod" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2db37ee5-4950-43ee-878b-19172c5c5349" absoluteBounds="20.265, 1.085, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2de11a58-bd32-4af3-af97-bb9ab302a8ac" absoluteBounds="20.25, 5, 2, 2.6570663006107011">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblDockBlockOutPeriodRule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a927ca4f-0c9c-4ade-af83-b4d334647fcb" absoluteBounds="20.265, 5.46, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(21.25 : 4.70351399739583); (21.25 : 5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/tblDockBlockOutPeriod/tblDockBlockOutPeriod_tblDockBlockOutPeriodRule" />
+      <nodes>
+        <classShapeMoniker Id="e1b11a56-e405-426f-a784-bfd5143a7191" />
+        <classShapeMoniker Id="2de11a58-bd32-4af3-af97-bb9ab302a8ac" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e47c88e5-6da1-43f1-aad8-e1d580d01b3b" absoluteBounds="15.375, 0.625, 2, 3.4000676225622488">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblDockSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e53b23b6-a7b4-4a61-9568-83fc7800a7cc" absoluteBounds="15.39, 1.085, 1.9700000000000002, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2fa826e-5b3e-4fc7-b88a-ba8383e6e87a" absoluteBounds="15.375, 4.375, 2, 3.028566961586475">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblDockTimeCalcFactor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f387b0e6-63ae-4090-a9c2-cd6cab487b68" absoluteBounds="15.39, 4.835, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13132b90-138a-4dbe-b975-1501ec183d63" absoluteBounds="10.625, 6.625, 2, 3.0285669615864759">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblLegalEntityCompCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8a3fd78-2e82-41c4-a1ef-43131b346c57" absoluteBounds="10.64, 7.085, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 8.9125); (10.625 : 8.9125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_tblLegalEntityCompCarrier" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="13132b90-138a-4dbe-b975-1501ec183d63" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fbc9e7d3-2ebf-45d4-9405-b3d0056eb6fd" absoluteBounds="22.75, 0.625, 2, 3.0285669615864754">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompRefPalletType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad1c87d3-4b9d-48f0-9ee2-485102f9df52" absoluteBounds="22.765, 1.085, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f877534-5e4a-4512-b6c1-5a00011a37d1" absoluteBounds="25, 0.625, 2, 2.4713159701228142">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompRefTempType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a24cbf8-6c10-4810-9f28-16797c701428" absoluteBounds="25.015, 1.085, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="431df272-d6cf-4b87-971f-07ce7f7fdc72" absoluteBounds="12.875, 6.75, 2, 3.95731861402591">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLECompCar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82695fcb-d1a8-49e3-a71b-955246d538b2" absoluteBounds="12.89, 7.2100000000000009, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="758c0fb6-8e09-45be-90ef-6eb8e5e42d85" isExpanded="false" absoluteBounds="8.25, 7.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLECompAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f4d3e94-07f3-4e2e-a697-34bb7a18c979" absoluteBounds="8.265, 8.335, 1.9700000000000002, 7.6695762152473126" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0bf12d0-6fe9-4460-8fc5-4936ed4a5eaa" isExpanded="false" absoluteBounds="8.25, 7.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblLECompAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b42cd3a5-c01c-4b64-b83b-65027a22841d" absoluteBounds="8.265, 7.71, 1.9700000000000002, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 7.62725341796875); (8.25 : 7.62725341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_tblLECompAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="a0bf12d0-6fe9-4460-8fc5-4936ed4a5eaa" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3ff086ed-2ba3-43fe-93f7-aa700ea74bc3" isExpanded="false" absoluteBounds="0.5, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/AKARefComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df7bf306-e3a0-4108-ad1d-c531a9914a71" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c5b68ec-ad92-416d-bce3-f3d9a703be55" absoluteBounds="17.875, 0.625, 2, 3.4000676225622488">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompDockDoor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee3c26da-e081-434d-9f2b-68b3204e5b79" absoluteBounds="17.89, 1.085, 1.9700000000000002, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(19.875 : 2.37580485026042); (20.25 : 2.37580485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/CompDockDoor/CompDockDoor_tblDockBlockOutPeriod" />
+      <nodes>
+        <classShapeMoniker Id="1c5b68ec-ad92-416d-bce3-f3d9a703be55" />
+        <classShapeMoniker Id="e1b11a56-e405-426f-a784-bfd5143a7191" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.875 : 2.37580485026042); (17.375 : 2.37580485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/CompDockDoor/CompDockDoor_tblDockSetting" />
+      <nodes>
+        <classShapeMoniker Id="1c5b68ec-ad92-416d-bce3-f3d9a703be55" />
+        <classShapeMoniker Id="e47c88e5-6da1-43f1-aad8-e1d580d01b3b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.875 : 4.12660970052083); (17.375 : 4.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/CompDockDoor/CompDockDoor_tblDockTimeCalcFactor" />
+      <nodes>
+        <classShapeMoniker Id="1c5b68ec-ad92-416d-bce3-f3d9a703be55" />
+        <classShapeMoniker Id="b2fa826e-5b3e-4fc7-b88a-ba8383e6e87a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 33.2822086588542); (18.9062525 : 33.2822086588542); (18.9062525 : 4.12660970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompDockDoor" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="1c5b68ec-ad92-416d-bce3-f3d9a703be55" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7841aede-154e-45a0-bbec-0f44a3cdf7dc" absoluteBounds="29.625, 0.625, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLoadBoardAdjustCredit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f692afc-1747-48d3-8587-f3ba7ac18e46" absoluteBounds="29.64, 1.085, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4eeed321-eb6b-464c-9d89-1e0e0bd2a673" isExpanded="false" absoluteBounds="5.75, 7.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompEDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="365649ca-195a-4991-9f6c-254174c49534" absoluteBounds="5.765, 8.335, 1.9700000000000002, 3.5830689445137978" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 8.1); (5.75 : 8.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/Comp/Comp_CompEDI" />
+      <nodes>
+        <classShapeMoniker Id="22da1734-6ca9-4c46-a854-3d42d1297213" />
+        <classShapeMoniker Id="4eeed321-eb6b-464c-9d89-1e0e0bd2a673" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c11eb9cc-f76f-44d9-9834-f6f667500298" isExpanded="false" absoluteBounds="0.5, 16.125, 2.375, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/CompMasterEDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28388d6d-c68d-4f70-8201-7fe7cbe3e987" absoluteBounds="0.515, 16.585, 2.3449999999999998, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4d72e31-5f4e-4021-a180-60c42770d55d" absoluteBounds="27.25, 0.75, 2, 11.944582825005055">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vCompFin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="247a2958-1887-4962-a367-213b32043b70" absoluteBounds="27.265, 1.21, 1.9700000000000002, 11.384582825005054" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="658dec82-bee7-4940-a4c3-ebef3b8be0f9" isExpanded="false" absoluteBounds="0.5, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vCompEDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49e68d39-a844-44d1-b921-119d1f2a1c56" absoluteBounds="0.51500000000000012, 2.335, 1.9700000000000002, 3.5830689445137978" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3326bc8-4cf7-4daf-bb9e-e8d5ce7a28cf" isExpanded="false" absoluteBounds="8.25, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLegalEntityAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ad45eb5-5574-4466-b10c-2eb38c55c042" absoluteBounds="8.265, 1.21, 1.9700000000000002, 5.069071588416894" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a2b5d09-f1ac-40dd-a270-e7158bc633c7" absoluteBounds="10.75, 0.875, 2, 5.4433212579290062">
+      <DataClassMoniker Name="/NGLMASCompDataContext/tblLegalEntityAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e74394fb-11dd-43e2-9685-9326e1e16048" absoluteBounds="10.765, 1.335, 1.9700000000000002, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.6875 : 6.49192545572917); (11.6875 : 6.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/tblLegalEntityAdmin/tblLegalEntityAdmin_tblLegalEntityCompCarrier" />
+      <nodes>
+        <classShapeMoniker Id="8a2b5d09-f1ac-40dd-a270-e7158bc633c7" />
+        <classShapeMoniker Id="13132b90-138a-4dbe-b975-1501ec183d63" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 3.84596322786458); (9.25 : 3.84596322786458); (9.25 : 7.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCompDataContext/tblLegalEntityAdmin/tblLegalEntityAdmin_tblLECompAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="8a2b5d09-f1ac-40dd-a270-e7158bc633c7" />
+        <classShapeMoniker Id="a0bf12d0-6fe9-4460-8fc5-4936ed4a5eaa" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9eaba95f-fd85-4c53-af1a-745c4d2f2ffa" isExpanded="false" absoluteBounds="0.5, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vCompDashboard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b94dc30-2b68-4d6c-afcb-3c98d2cfda63" absoluteBounds="0.515, 3.21, 1.9700000000000002, 5.4405722493926678" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f96ee460-811b-49df-b327-fe657d763579" isExpanded="false" absoluteBounds="0.5, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vPlanningDashboard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0038533-142a-4818-8689-b24ef73b1814" absoluteBounds="0.515, 3.96, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="685e6766-60aa-4b9f-94ce-ae3d31bd543c" isExpanded="false" absoluteBounds="0.5, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLoadsDeliveredDashboard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="866464e6-42aa-4fae-b934-a0d33cfe443c" absoluteBounds="0.515, 4.71, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aeb11f13-366b-4404-84a7-28567ddd0770" isExpanded="false" absoluteBounds="0.625, 20.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCompDataContext/vLEComp365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88b60160-987a-4b5c-b8f7-62dcf8d8b68f" absoluteBounds="0.64, 20.585, 1.9700000000000002, 16.399841748178005" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

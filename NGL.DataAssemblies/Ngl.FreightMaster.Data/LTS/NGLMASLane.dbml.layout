@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.875, 38.375" name="NGLMASLane">
+  <DataContextMoniker Name="/NGLMASLaneDataContext" />
+  <nestedChildShapes>
+    <classShape Id="733de835-5d9c-43ce-97be-f2032bc21edc" isExpanded="false" absoluteBounds="5, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneCal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d95c53a-e7a7-4779-a5d7-be910be436b9" absoluteBounds="5.015, 1.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e29f913-a813-4bab-b002-a49dfee41190" isExpanded="false" absoluteBounds="4.875, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneCarr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b8e94a6-8061-48b5-84a7-4954827bbd04" absoluteBounds="4.89, 1.835, 1.9700000000000002, 12.9412841796875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0942000-ecac-470e-bc5e-b18c3b2738e8" isExpanded="false" absoluteBounds="4.875, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41d3a336-5acf-4630-bf88-d5bcef211273" absoluteBounds="4.89, 2.5850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71e714f0-7103-41bb-ae44-1e5e8c03134c" isExpanded="false" absoluteBounds="4.875, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneSec" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9498270f-d685-417b-94e5-451c3575c280" absoluteBounds="4.89, 4.2100000000000009, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6fe36aa6-9052-4e9f-9f47-4e9c759bc505" isExpanded="false" absoluteBounds="7.25, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblBadLaneAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6643a0f-94a4-4c11-8569-4b2f0e4401eb" absoluteBounds="7.2650000000000006, 1.085, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9feebfc-fb3b-480e-b8c2-5d06d785c621" isExpanded="false" absoluteBounds="7.375, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/UserAdminAsNvarcharRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="335b05bc-65af-4cc0-ba22-cff313d823c8" absoluteBounds="7.3900000000000006, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5858af34-7dc8-4a89-9c1a-c0432c1038a0" isExpanded="false" absoluteBounds="7.375, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vUserAdminWithCompControlRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c29e22e-d2b5-4bc9-867d-b53575034d64" absoluteBounds="7.3900000000000006, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f81c764-a537-41a9-9ae3-d4ad78393258" isExpanded="false" absoluteBounds="7.625, 13.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblStaticRouteEquip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82e6b8e7-0ca9-4f9a-9a54-a5e1ebaf78d8" absoluteBounds="7.6400000000000006, 13.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd038f72-b4ee-4b35-99a6-7e79b33ab4ad" isExpanded="false" absoluteBounds="7.75, 19.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CompRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f03d3c84-1814-4a05-a4ff-145340e0de3e" absoluteBounds="7.7650000000000006, 19.585, 1.9700000000000002, 39.671183268229164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fff49677-6a8f-4762-8ede-198097582f5d" isExpanded="false" absoluteBounds="7.5, 14.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CarrierRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6a16c20-b5b6-432a-bbce-c5ec529960d1" absoluteBounds="7.5150000000000006, 15.335, 1.9700000000000002, 15.056599934895832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3b9707c-3aad-49ca-8b59-1e599d102c1f" isExpanded="false" absoluteBounds="7.625, 12.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CarrierTruckRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03d2535e-579f-4687-ad6f-642515f6b029" absoluteBounds="7.6400000000000006, 13.085, 1.9700000000000002, 14.0950927734375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.625 : 13.075); (8.625 : 13.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierTruckRefLane/CarrierTruckRefLane_tblStaticRouteEquip" />
+      <nodes>
+        <classShapeMoniker Id="b3b9707c-3aad-49ca-8b59-1e599d102c1f" />
+        <classShapeMoniker Id="2f81c764-a537-41a9-9ae3-d4ad78393258" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ec5cd52c-304c-4299-9223-04187347f292" isExpanded="false" absoluteBounds="7.625, 14.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblStaticRouteCarr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8de1515b-c8ba-4733-94aa-107590687780" absoluteBounds="7.6400000000000006, 14.585, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.625 : 14.125); (8.625 : 13.825)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblStaticRouteCarr/tblStaticRouteCarr_tblStaticRouteEquip" />
+      <nodes>
+        <classShapeMoniker Id="ec5cd52c-304c-4299-9223-04187347f292" />
+        <classShapeMoniker Id="2f81c764-a537-41a9-9ae3-d4ad78393258" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5625 : 14.875); (8.5625 : 14.575)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierRefLane/CarrierRefLane_tblStaticRouteCarr" />
+      <nodes>
+        <classShapeMoniker Id="fff49677-6a8f-4762-8ede-198097582f5d" />
+        <classShapeMoniker Id="ec5cd52c-304c-4299-9223-04187347f292" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ad8b7e54-dee2-4d6d-858f-5ad803c3bf58" isExpanded="false" absoluteBounds="4.875, 14, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblStaticRoute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72d0c540-3a74-4cb8-8385-8ad36ede3980" absoluteBounds="4.8900000000000006, 14.46, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 14.2875); (7.625 : 14.2875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblStaticRoute/tblStaticRoute_tblStaticRouteCarr" />
+      <nodes>
+        <classShapeMoniker Id="ad8b7e54-dee2-4d6d-858f-5ad803c3bf58" />
+        <classShapeMoniker Id="ec5cd52c-304c-4299-9223-04187347f292" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3b87eef5-d7b9-4dc7-afa6-60aa5006d08f" isExpanded="false" absoluteBounds="4.875, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c150ce41-28b0-4099-9294-10cc8f95027f" absoluteBounds="4.89, 3.3350000000000009, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1664d4d8-0d3b-4bd5-94b2-92b8bab26d5b" isExpanded="false" absoluteBounds="0.5, 28.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneTransLoadXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3e661ce-f79b-44fa-8508-d6818a3bf996" absoluteBounds="0.51500000000000012, 28.71, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40741159-3aa8-4568-a9bb-8fec6185b0f6" isExpanded="false" absoluteBounds="1.75, 29.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblModeTypeRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74ffea75-bad0-4c08-a30f-4a7408576993" absoluteBounds="1.7650000000000006, 29.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5390e39-738e-4fb3-a220-cdb641b407cc" isExpanded="false" absoluteBounds="5.125, 28.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneTranRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30c80fd6-e98d-416f-b1b1-76f7e5030ff7" absoluteBounds="5.14, 28.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e3e17c93-ae0a-4754-b7b5-33c2348ac145" isExpanded="false" absoluteBounds="10, 18.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CarrierTariffRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff81b51b-0ed1-44c3-b7b3-ce4bb738f545" absoluteBounds="10.015, 18.71, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9d4be1e-0362-48d0-b421-6557bfa36be1" isExpanded="false" absoluteBounds="4.875, 14.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CarrierContRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cb16f32a-8026-44fb-9f57-8ac110d405d9" absoluteBounds="4.8900000000000006, 15.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71250878-603d-4900-a6dd-e8e7241db09a" isExpanded="false" absoluteBounds="2.75, 28.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LaneTransLoadXrefDet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ec617fb-974d-4452-a966-e31c9c155bc8" absoluteBounds="2.765, 28.835, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 28.5818637365627); (2.75 : 28.5818637365627)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/LaneTransLoadXref/LaneTransLoadXref_LaneTransLoadXrefDet" />
+      <nodes>
+        <classShapeMoniker Id="1664d4d8-0d3b-4bd5-94b2-92b8bab26d5b" />
+        <classShapeMoniker Id="71250878-603d-4900-a6dd-e8e7241db09a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 29.6); (1.62712 : 29.6); (1.62712 : 29.25212); (2.62712 : 29.25212); (2.62712 : 28.7346838682813); (2.75 : 28.7346838682813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblModeTypeRefLane/tblModeTypeRefLane_LaneTransLoadXrefDet" />
+      <nodes>
+        <classShapeMoniker Id="40741159-3aa8-4568-a9bb-8fec6185b0f6" />
+        <classShapeMoniker Id="71250878-603d-4900-a6dd-e8e7241db09a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 28.5687475); (4.75 : 28.5687475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/LaneTranRefLane/LaneTranRefLane_LaneTransLoadXrefDet" />
+      <nodes>
+        <classShapeMoniker Id="c5390e39-738e-4fb3-a220-cdb641b407cc" />
+        <classShapeMoniker Id="71250878-603d-4900-a6dd-e8e7241db09a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6cdc5c4b-70af-477f-9c38-fda8a6f3e48d" isExpanded="false" absoluteBounds="7.75, 27.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/TempTypeRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="db7a5602-326e-4bbd-a274-2b6d74db74e5" absoluteBounds="7.765, 28.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.125 : 29.375); (2.125 : 28.7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblModeTypeRefLane/tblModeTypeRefLane_LaneTransLoadXref" />
+      <nodes>
+        <classShapeMoniker Id="40741159-3aa8-4568-a9bb-8fec6185b0f6" />
+        <classShapeMoniker Id="1664d4d8-0d3b-4bd5-94b2-92b8bab26d5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 15.325); (8.5 : 18.475); (10 : 18.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierRefLane/CarrierRefLane_CarrierTariffRefLane" />
+      <nodes>
+        <classShapeMoniker Id="fff49677-6a8f-4762-8ede-198097582f5d" />
+        <classShapeMoniker Id="e3e17c93-ae0a-4754-b7b5-33c2348ac145" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.75 : 19.125); (10 : 18.7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CompRefLane/CompRefLane_CarrierTariffRefLane" />
+      <nodes>
+        <classShapeMoniker Id="dd038f72-b4ee-4b35-99a6-7e79b33ab4ad" />
+        <classShapeMoniker Id="e3e17c93-ae0a-4754-b7b5-33c2348ac145" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 15.1); (6.875 : 15.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierRefLane/CarrierRefLane_CarrierContRefLane" />
+      <nodes>
+        <classShapeMoniker Id="fff49677-6a8f-4762-8ede-198097582f5d" />
+        <classShapeMoniker Id="f9d4be1e-0362-48d0-b421-6557bfa36be1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="deb3ab29-98a9-45d6-b95f-4454a82f4417" isExpanded="false" absoluteBounds="10.125, 15.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblHDMZip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ae1c861-0418-4e0e-b3c1-47bce5f6bf34" absoluteBounds="10.14, 16.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ab681e9-de8c-41bd-a008-a53bdf50612f" isExpanded="false" absoluteBounds="10, 17.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblHDMTariffXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d1e5809-106e-4931-8f04-d899faf8c136" absoluteBounds="10.015, 17.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.0312525 : 15.325); (9.0312525 : 17.725); (10 : 17.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierRefLane/CarrierRefLane_tblHDMTariffXref" />
+      <nodes>
+        <classShapeMoniker Id="fff49677-6a8f-4762-8ede-198097582f5d" />
+        <classShapeMoniker Id="4ab681e9-de8c-41bd-a008-a53bdf50612f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 18.25); (11 : 17.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierTariffRefLane/CarrierTariffRefLane_tblHDMTariffXref" />
+      <nodes>
+        <classShapeMoniker Id="e3e17c93-ae0a-4754-b7b5-33c2348ac145" />
+        <classShapeMoniker Id="4ab681e9-de8c-41bd-a008-a53bdf50612f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d96d2060-4362-4cce-b1d0-66e9ab221d4e" isExpanded="false" absoluteBounds="0.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/LimitLaneToCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="893b6d0a-5cce-41fe-8da5-69bb014a343b" absoluteBounds="0.515, 2.96, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efab27fa-0f56-4cd8-882d-31428c33f994" isExpanded="false" absoluteBounds="0.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLimitLaneToCarrTar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1aa7b573-d6f6-4fd4-9920-8024431ed14a" absoluteBounds="0.515, 4.085, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4fe52ec3-1206-4139-aab4-623347594f13" isExpanded="false" absoluteBounds="0.5, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/AKARefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13c0ec14-07d4-49cf-a4d6-9c4f69732c47" absoluteBounds="0.515, 4.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9695e2bc-ff1a-42cf-a93c-07ae628428f0" isExpanded="false" absoluteBounds="14.625, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLELaneFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96d14661-c457-4bc6-b49f-60eac005157f" absoluteBounds="14.64, 2.835, 3.3449999999999998, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a2654e8-9fea-4cdc-a4b6-f10008b1060a" isExpanded="false" absoluteBounds="7.25, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLaneProfileSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ef0a691-01f0-4b74-a2ea-8d253557e158" absoluteBounds="7.265, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f25f196-9e11-46be-bf90-cf11fa86ed48" isExpanded="false" absoluteBounds="7.375, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLimitLaneToCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ee687e9-4245-4f3d-a2f4-4045022b4c21" absoluteBounds="7.3900000000000006, 3.96, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="902527c8-a64f-4874-b89c-2388aadbf44b" isExpanded="false" absoluteBounds="7.625, 5.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLELaneActiveCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="785c09e7-4253-46ef-accf-c353cfe5163e" absoluteBounds="7.64, 6.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bc3592f-b66d-4cac-aa86-317715e3cda8" isExpanded="false" absoluteBounds="7.5, 5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLaneLESummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1833b7c5-694d-4144-a7cd-94579f3334e2" absoluteBounds="7.515, 5.46, 1.9700000000000002, 12.172078450520832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="114dcdd9-df69-4229-9f66-85c079f1c884" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLaneTransLoadXrefDet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3619daf9-9735-4692-94a7-59f6b1d388c1" absoluteBounds="0.51500000000000012, 2.21, 1.9700000000000002, 7.7491455078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c1806a28-1aab-48f1-b46f-6a49e19c1d3e" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLaneTransLoadXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac62e4de-041f-4a45-81c0-e231b93df8a9" absoluteBounds="0.515, 1.46, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 1.45); (1.5 : 1.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/vLaneTransLoadXref/vLaneTransLoadXref_vLaneTransLoadXrefDet" />
+      <nodes>
+        <classShapeMoniker Id="c1806a28-1aab-48f1-b46f-6a49e19c1d3e" />
+        <classShapeMoniker Id="114dcdd9-df69-4229-9f66-85c079f1c884" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3f325f29-23be-4a69-86aa-aacc46df1233" absoluteBounds="2.75, 0.5, 2, 37.346661783854167">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/Lane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aae75cc0-9069-4d03-8a59-ac1c858e7a22" absoluteBounds="2.765, 0.96, 1.9700000000000002, 36.786661783854164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 0.85); (5 : 0.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneCal" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="733de835-5d9c-43ce-97be-f2032bc21edc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 1.6); (4.875 : 1.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneCarr" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="8e29f913-a813-4bab-b002-a49dfee41190" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 2.35); (4.875 : 2.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneCode" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="f0942000-ecac-470e-bc5e-b18c3b2738e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 3.975); (4.875 : 3.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneSec" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="71e714f0-7103-41bb-ae44-1e5e8c03134c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 3.1); (4.875 : 3.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneFee" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="3b87eef5-d7b9-4dc7-afa6-60aa5006d08f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 28.3534318682813); (2.5 : 28.3534318682813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneTransLoadXref" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="1664d4d8-0d3b-4bd5-94b2-92b8bab26d5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 37.8279117838542); (2.75 : 28.825)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LaneTransLoadXrefDet" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="71250878-603d-4900-a6dd-e8e7241db09a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.725); (2.5 : 2.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/Lane/Lane_LimitLaneToCarrier" />
+      <nodes>
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+        <classShapeMoniker Id="d96d2060-4362-4cce-b1d0-66e9ab221d4e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0990b2e4-3a02-4a1d-8b63-8c43582bc2d3" isExpanded="false" absoluteBounds="10.125, 16.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblHDM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3fdd3243-92d9-4d62-ab2f-6826b539fa14" absoluteBounds="10.14, 17.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.125 : 16.75); (11.125 : 16.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblHDM/tblHDM_tblHDMZip" />
+      <nodes>
+        <classShapeMoniker Id="0990b2e4-3a02-4a1d-8b63-8c43582bc2d3" />
+        <classShapeMoniker Id="deb3ab29-98a9-45d6-b95f-4454a82f4417" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.0625 : 17.2); (11.0625 : 17.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblHDM/tblHDM_tblHDMTariffXref" />
+      <nodes>
+        <classShapeMoniker Id="0990b2e4-3a02-4a1d-8b63-8c43582bc2d3" />
+        <classShapeMoniker Id="4ab681e9-de8c-41bd-a008-a53bdf50612f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="28967ec6-65b7-4907-bd14-1d33f652e2c1" isExpanded="false" absoluteBounds="12.875, 15.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vtblHDM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d969fe8d-be6e-4553-b548-8568734498d2" absoluteBounds="12.89, 16.335, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ba96180-0ddc-4f29-bbaa-0bdf419effaf" isExpanded="false" absoluteBounds="12.875, 16.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vtblHDMLocation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c051e0a7-6acb-4f15-92e9-c39474b81978" absoluteBounds="12.89, 17.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7a2d864-24dd-4845-896d-494c1c453367" isExpanded="false" absoluteBounds="12.875, 17.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vtblHDMTariffAvailable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdc4c5af-0827-45ed-9b10-6e5e7dd90b3c" absoluteBounds="12.89, 18.085, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2516deec-3c85-42d7-8e14-e0f8e7c16bec" isExpanded="false" absoluteBounds="12.875, 18.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vtblHDMTariffXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fe91a32-f737-43ec-a521-e10753300545" absoluteBounds="12.89, 18.96, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7262ae0-3aef-403e-a1d6-b3d79d0fd57f" isExpanded="false" absoluteBounds="12.875, 19.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vtblHDMZip" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e78cc59-7825-4226-8b60-2b2ce5aff49c" absoluteBounds="12.89, 19.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff68a1a0-930e-4301-915b-f3d7f9bde20e" isExpanded="false" absoluteBounds="0.5, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/tblRouteTypeRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c02ade3-8bb2-402e-b727-fd389b3e6d7d" absoluteBounds="0.515, 6.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 6.406252); (2.6875 : 6.406252); (2.6875 : 0.4375); (9.5625 : 0.4375); (9.5625 : 5.6875); (7.5625 : 5.6875); (7.5625 : 14.03125); (8.625 : 14.03125); (8.625 : 14.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblRouteTypeRefLane/tblRouteTypeRefLane_tblStaticRouteCarr" />
+      <nodes>
+        <classShapeMoniker Id="ff68a1a0-930e-4301-915b-f3d7f9bde20e" />
+        <classShapeMoniker Id="ec5cd52c-304c-4299-9223-04187347f292" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 6.203126); (2.75 : 6.203126)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/tblRouteTypeRefLane/tblRouteTypeRefLane_Lane" />
+      <nodes>
+        <classShapeMoniker Id="ff68a1a0-930e-4301-915b-f3d7f9bde20e" />
+        <classShapeMoniker Id="3f325f29-23be-4a69-86aa-aacc46df1233" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2a284fca-c0b0-4ee5-bb8a-7897d4c6b654" isExpanded="false" absoluteBounds="7.875, 20.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/CarrierTariffEquipmentRefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a79a67b-a336-48bc-8d75-309514e7dbfe" absoluteBounds="7.89, 20.585, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.0312525 : 18.7); (11.0312525 : 20.35); (9.875 : 20.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASLaneDataContext/CarrierTariffRefLane/CarrierTariffRefLane_CarrierTariffEquipmentRefLane" />
+      <nodes>
+        <classShapeMoniker Id="e3e17c93-ae0a-4754-b7b5-33c2348ac145" />
+        <classShapeMoniker Id="2a284fca-c0b0-4ee5-bb8a-7897d4c6b654" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9e325677-07d8-4ba8-a81e-ab7973292130" isExpanded="false" absoluteBounds="14.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLELane365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="891d5d2a-71f5-4b10-95fb-4d28394d0e3b" absoluteBounds="14.515, 2.21, 1.9700000000000002, 21.979451497395832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb0afee4-4813-4571-84a8-ca197c5462bf" isExpanded="false" absoluteBounds="0.5, 36.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASLaneDataContext/vLEComp365RefLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af89daa7-cfe1-43d6-8918-fbecfe6cb60e" absoluteBounds="0.515, 37.21, 1.9700000000000002, 16.9796142578125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

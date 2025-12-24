@@ -1,0 +1,108 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>NGL.FM.BLL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineDebug>false</DefineDebug>
+    <DocumentationFile>NGL.FM.BLL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>NGL.FM.BLL.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>$(AssemblyName)</Title>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Assemblies\**" />
+    <EmbeddedResource Remove="Assemblies\**" />
+    <None Remove="Assemblies\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Assemblies\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGL.FM.CarTar\NGL.FM.CarTar.csproj" />
+    <ProjectReference Include="..\NGL.FM.DAT\NGL.FM.DAT.csproj" />
+    <ProjectReference Include="..\NGL.FM.ERE.Transform\NGL.FM.ERE.Transform.csproj" />
+    <ProjectReference Include="..\NGL.FM.NGLRestIntegrations\NGL.FM.NGLRestIntegrations.csproj" />
+    <ProjectReference Include="..\Ngl.FreightMaster.Data\Ngl.FreightMaster.Data.vbproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Destructurama.Attributed" Version="4.0.0" />
+    <PackageReference Include="DTMS.API.FFE" Version="1.0.124" />
+    <PackageReference Include="DTMS.API.GTZ" Version="1.0.124" />
+    <PackageReference Include="DTMS.API.HMBay" Version="1.0.124" />
+    <PackageReference Include="DTMS.API.MainFreight" Version="1.0.124" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer" Version="2.22.0" />
+    <PackageReference Include="NGL.API.Mapping" Version="1.0.124" />
+    <PackageReference Include="Ngl.Core" Version="8.5.4.3" />
+    <PackageReference Include="NGL.Core.ChangeTracker" Version="8.5.4.3" />
+    <PackageReference Include="NGL.FM.CHRAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.Estes" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.JTSAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.P44" Version="1.0.124" />
+    <PackageReference Include="NGL.FM.UPSAPI" Version="1.0.124" />
+    <PackageReference Include="NGL.FreightMaster.PCMiler" Version="1.0.2" />
+    <PackageReference Include="NGL.Optimization" Version="8.5.4.3" />
+    <PackageReference Include="NGLTrimbleServices" Version="1.0.2" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
+    <PackageReference Include="SerilogTracing" Version="2.3.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

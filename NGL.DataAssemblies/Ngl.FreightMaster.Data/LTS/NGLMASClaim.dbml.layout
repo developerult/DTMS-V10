@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 66.75" name="NGLMASClaim">
+  <DataContextMoniker Name="/NGLMASClaimDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4924a240-fea5-487a-b691-ec073832ebef" absoluteBounds="3.375, 0.75, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/ClaimLoad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="532bea7e-6f49-4cc1-983b-6d8669a6e7e3" absoluteBounds="3.39, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbfbec93-3327-44bc-ac41-8c1b66b7bb54" absoluteBounds="3.375, 3.875, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/ClaimTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bdb1c5f3-8e50-4a44-b75d-08f786430c47" absoluteBounds="3.39, 4.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37f4e2e5-26f5-4b7e-8624-26161d83f46b" absoluteBounds="6, 0.875, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/ClaimLoadTypeCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01637135-244b-4983-b67a-e969857c16e1" absoluteBounds="6.015, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91746612-4e4d-4e8a-90a8-e05af7e72728" absoluteBounds="6.125, 2.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/ClaimVersion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e63e66f5-9110-42e2-958c-8526b000593c" absoluteBounds="6.14, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2b2be72-0a5f-469b-ba4a-1fa111644565" absoluteBounds="6.375, 5.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/vLookupClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f70a869-4d1d-47d9-9b10-c6ab72befb06" absoluteBounds="6.39, 6.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b570641d-a050-43e0-9321-2ece672c954b" absoluteBounds="3.5, 6.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/vUserAdminWithCompControlRefClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf692871-e8fb-4655-87a5-49282b781822" absoluteBounds="3.515, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fbe5ea2d-54da-49d4-b1e0-d6b98ce70efa" absoluteBounds="3.875, 9, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/UserAdminAsNvarcharRefClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8aa21d6d-8367-4033-b37a-2a092db5eb38" absoluteBounds="3.89, 9.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="83e3ec1e-4bf0-4cf3-b01b-9ef3a4dad0a3" absoluteBounds="0.75, 1.25, 2, 11.962872721354165">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/Claim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6237c79-e26e-468e-88d1-255f37edba4b" absoluteBounds="0.765, 1.71, 1.9700000000000002, 11.402872721354166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00b09043-6b85-494a-bbde-57b37bbddabc" absoluteBounds="3.875, 11.125, 2, 55.422996419270831">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/BookRefClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c829528-26bf-48c6-89cf-2396cc37a09b" absoluteBounds="3.89, 11.585, 1.9700000000000002, 54.862996419270829" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="008e3552-fd15-489f-88ca-94fbbabfe20b" absoluteBounds="6.5, 8.375, 2, 13.308982747395833">
+      <DataClassMoniker Name="/NGLMASClaimDataContext/vLEClaims365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c0329d7-fd06-41ff-b940-d4b243c55cd0" absoluteBounds="6.515, 8.835, 1.9700000000000002, 12.748982747395832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

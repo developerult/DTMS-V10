@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24.375, 46.5" name="NGLMASSYS">
+  <DataContextMoniker Name="/NGLMASSYSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4ce33f48-5b5d-4abc-bd77-16dec0feef92" isExpanded="false" absoluteBounds="10.5, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/AppError" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f6ccd26-dfe5-4d9b-b8ec-4d9691020740" absoluteBounds="10.515, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5f577d42-b53e-42f9-97fe-6be3173cd7f5" isExpanded="false" absoluteBounds="5.25, 2, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/CompParameterRefSystem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f32136c8-f3a6-4642-9b3f-810b72a3fa41" absoluteBounds="5.265, 2.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32001a6b-b05c-43c7-816d-af49d1983b13" isExpanded="false" absoluteBounds="2.75, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/Parameter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7966b2f-cd96-4658-ab13-493a1b3c0c78" absoluteBounds="2.765, 1.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43c3bb11-8106-48d9-9eca-57fa26183454" isExpanded="false" absoluteBounds="2.75, 2, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblParCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="285aa2bd-8119-43cf-af68-ea845e6dea3a" absoluteBounds="2.765, 2.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 2.2562525); (5.25 : 2.2562525)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParCategory/tblParCategory_CompParameterRefSystem" />
+      <nodes>
+        <classShapeMoniker Id="43c3bb11-8106-48d9-9eca-57fa26183454" />
+        <classShapeMoniker Id="5f577d42-b53e-42f9-97fe-6be3173cd7f5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 2); (3.75 : 1.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParCategory/tblParCategory_Parameter" />
+      <nodes>
+        <classShapeMoniker Id="43c3bb11-8106-48d9-9eca-57fa26183454" />
+        <classShapeMoniker Id="32001a6b-b05c-43c7-816d-af49d1983b13" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4eaf8cb7-7136-4ac3-9e2e-8ffe422d8857" isExpanded="false" absoluteBounds="10.5, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblBatchProcessRunning" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec241f22-e98e-424a-9d4a-ce7ef42c2259" absoluteBounds="10.515, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 1.325); (5.25 : 2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/Parameter/Parameter_CompParameterRefSystem" />
+      <nodes>
+        <classShapeMoniker Id="32001a6b-b05c-43c7-816d-af49d1983b13" />
+        <classShapeMoniker Id="5f577d42-b53e-42f9-97fe-6be3173cd7f5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8efaeb3d-ead1-4d15-b529-6c983e73f81b" isExpanded="false" absoluteBounds="10.5, 2.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/Auth" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1ee541a-36ed-415f-b326-ac32171325ff" absoluteBounds="10.515, 3.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2897804e-dde9-4677-845e-df5de2d969e9" absoluteBounds="6, 5.5, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblDataEntryField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99d00778-5b8b-4eea-843a-37c69447ac2c" absoluteBounds="6.015, 5.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43bc27eb-02cf-4900-b507-0f6fd49b6691" absoluteBounds="6, 8.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblExportField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56b990d6-41b3-499a-be71-0c5a356a2622" absoluteBounds="6.015, 8.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6385d803-c325-4a3b-9685-683a7d7f913d" absoluteBounds="5.75, 10.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblExportFileSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="539b89db-349e-449d-ba1a-ba082bf26563" absoluteBounds="5.765, 10.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8fe5080-3670-4bbd-a017-e50868b4b88d" isExpanded="false" absoluteBounds="5.25, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/CompRefSystem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e27386e-0d9e-40a8-91ff-123b7918c3c4" absoluteBounds="5.2650000000000006, 3.585, 1.9700000000000002, 36.786661783854164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.25 : 3.125); (6.25 : 2.45)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/CompRefSystem/CompRefSystem_CompParameterRefSystem" />
+      <nodes>
+        <classShapeMoniker Id="d8fe5080-3670-4bbd-a017-e50868b4b88d" />
+        <classShapeMoniker Id="5f577d42-b53e-42f9-97fe-6be3173cd7f5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="63a2259b-e86f-4360-81ee-a9a6bb05bebf" absoluteBounds="8.125, 1.25, 2, 3.1170068359374996">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vAbout" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6e1a73b-1f72-4b98-b3e4-fdcc58a6d805" absoluteBounds="8.14, 1.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0392f633-9e92-4acf-8af2-0583c988912f" absoluteBounds="8.25, 4.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89de2fba-a945-4041-80f2-f8cafb3eb0c6" absoluteBounds="8.265, 4.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a88b314-63cd-4d7d-a834-671be4881e7c" absoluteBounds="8.25, 6.5, 2, 5.8092268880208326">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblRunTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c50ce6d-4d2e-41f0-876e-6b9ae298d41d" absoluteBounds="8.265, 6.96, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="be432030-b114-4493-a5d2-46a125c2fd33" absoluteBounds="10.625, 4.5, 2, 3.1170068359374996">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblSystemError" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ecd24117-e675-44f0-9ab2-a9cec42bc8ab" absoluteBounds="10.64, 4.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd1fbc6c-833d-4cbf-a55f-00a4396682cf" absoluteBounds="10.625, 7.5, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblTaskLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="630133e8-4284-4e7c-89d4-e6865ec31059" absoluteBounds="10.64, 7.9600000000000009, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="152a193c-32cf-47a9-a230-35046437fde0" absoluteBounds="13.125, 10.25, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/Mail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7857f9c-ef71-4ef4-9945-d65dd9ba4352" absoluteBounds="13.14, 10.71, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7181343a-a3e8-4e54-91a9-2712a522509c" absoluteBounds="10.75, 12.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/MailAttachment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2abf4023-5b17-4305-9b0b-773396c2b516" absoluteBounds="10.765, 13.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b821530d-8af2-4ba8-9fa3-2b347bcb75ec" absoluteBounds="10.75, 14.625, 2, 2.15549967447917">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/MailReport" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06adadfc-432a-42fc-89d8-6b85e3c663e7" absoluteBounds="10.765, 15.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c017522e-935c-4f5b-ba3c-94e3cd9fc26e" isExpanded="false" absoluteBounds="0.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vEDITransaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45852944-b12f-4f2e-b3e8-532fead299f3" absoluteBounds="0.51499999999999968, 4.085, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8108d26c-b6a6-4e83-91e2-12684b640a66" absoluteBounds="14.625, 4.25, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblStopDistance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cceee80-1635-418c-87d6-153964db0d2e" absoluteBounds="14.64, 4.71, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6c514c2a-cdcc-4bd7-83e3-15de72c9eacf" absoluteBounds="15.375, 10.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblDistanceQueueDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f906900-72b5-47f1-a812-29c2e695a571" absoluteBounds="15.39, 10.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66e06821-ca5e-4499-ba11-3d05ceaaa8cb" absoluteBounds="14.625, 6.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblDistanceQueue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="403e2153-a17b-4cbd-b48c-82efc60eeb74" absoluteBounds="14.64, 7.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16 : 9.16093180338542); (16 : 10.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblDistanceQueue/tblDistanceQueue_tblDistanceQueueDetail" />
+      <nodes>
+        <classShapeMoniker Id="66e06821-ca5e-4499-ba11-3d05ceaaa8cb" />
+        <classShapeMoniker Id="6c514c2a-cdcc-4bd7-83e3-15de72c9eacf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="77061085-626b-45c9-9e6a-66d18ab4ddbd" absoluteBounds="3.625, 44.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vElmtDataType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7301b846-d2a7-489a-a1c5-c8d187fe5dec" absoluteBounds="3.64, 45.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ada9bdf-a655-4e28-bf0d-53a6146f26a8" absoluteBounds="14.625, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblStop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93488d48-c3e5-4a3a-acc1-7cfeca147d2f" absoluteBounds="14.64, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.625 : 3.8670068359375); (15.625 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblStop/tblStop_tblStopDistance" />
+      <nodes>
+        <classShapeMoniker Id="0ada9bdf-a655-4e28-bf0d-53a6146f26a8" />
+        <classShapeMoniker Id="8108d26c-b6a6-4e83-91e2-12684b640a66" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.625 : 2.30850341796875); (16.9687505 : 2.30850341796875); (16.9687505 : 10.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblStop/tblStop_tblDistanceQueueDetail" />
+      <nodes>
+        <classShapeMoniker Id="0ada9bdf-a655-4e28-bf0d-53a6146f26a8" />
+        <classShapeMoniker Id="6c514c2a-cdcc-4bd7-83e3-15de72c9eacf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b895a88f-2037-4057-8a43-9fcaf4720289" absoluteBounds="22.125, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/Version" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e54737ba-a6a5-4b6c-87b7-f6e898eacfba" absoluteBounds="22.14, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d2e9390f-fa85-432f-aae5-65bf262af5f8" absoluteBounds="17.625, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblWhatsNew" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5463181c-f468-4645-a421-78edb116905b" absoluteBounds="17.64, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(22.125 : 0.75); (21.75 : 0.375); (20.0015374615385 : 0.375); (19.625 : 0.751537461538462)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/Version/Version_tblWhatsNew" />
+      <nodes>
+        <classShapeMoniker Id="b895a88f-2037-4057-8a43-9fcaf4720289" />
+        <classShapeMoniker Id="d2e9390f-fa85-432f-aae5-65bf262af5f8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3cfd0982-6b64-4e51-8251-cbd7ddf9ebf3" absoluteBounds="19.875, 0.75, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vWhatsNew" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24176f34-e060-492a-94e0-627e0e7309f2" absoluteBounds="19.89, 1.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9a75622-1924-47b4-b498-aafa63c765d2" absoluteBounds="17.375, 4.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tmpOptMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e54872f-5aac-4c73-9d8d-db0512e30460" absoluteBounds="17.39, 4.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44b0a580-cb1f-4aea-8372-6fb9a3dfcf73" isExpanded="false" absoluteBounds="0.5, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vTblRunTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d31d6f5-c204-4c11-aa5c-57e67e9b024e" absoluteBounds="0.515, 4.71, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc016fea-f7af-47d4-b336-be87a9617846" isExpanded="false" absoluteBounds="0.5, 15.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vUserAdminWithCompControlRefSYS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fd17f28-4909-4376-bd2c-f3ceca76eeaa" absoluteBounds="0.51500000000000012, 15.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed4d72e0-dc3d-4044-be43-561fc75b8585" isExpanded="false" absoluteBounds="0.5, 14.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vCMAlert" />
+      <nestedChildShapes>
+        <elementListCompartment Id="169eb33d-af4b-4d41-a2b8-76ac54261d6e" absoluteBounds="0.51500000000000012, 15.21, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1ef004e-342a-4e47-be40-81ff83ace92a" absoluteBounds="0.625, 16.625, 2.125, 6.3861311848958326">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblTempCMAlert" />
+      <nestedChildShapes>
+        <elementListCompartment Id="797857f5-13a6-4fd0-873d-bb5978effb6a" absoluteBounds="0.64, 17.085, 2.0949999999999998, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="636b5a45-a64f-4333-a164-859ec322d8ca" isExpanded="false" absoluteBounds="0.5, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/vWorkflowLeadTimeParameter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="11c22ac1-f36f-492f-8621-40c5dc4cee02" absoluteBounds="0.51500000000000012, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="62e73f1f-f7aa-4ca7-908e-15f2de1862b5" isExpanded="false" absoluteBounds="2.75, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblParProcess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="227654c4-6414-4a7b-9d00-399b278bd16b" absoluteBounds="2.765, 3.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.75 : 2.45); (3.75 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParCategory/tblParCategory_tblParProcess" />
+      <nodes>
+        <classShapeMoniker Id="43c3bb11-8106-48d9-9eca-57fa26183454" />
+        <classShapeMoniker Id="62e73f1f-f7aa-4ca7-908e-15f2de1862b5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1cfb4d32-0177-459a-88c5-d680e10a2898" isExpanded="false" absoluteBounds="2.75, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblParProcessOption" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bbd6b435-1de5-4df4-a7f4-354b9e2da43d" absoluteBounds="2.765, 4.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.75 : 3.325); (3.75 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParProcess/tblParProcess_tblParProcessOption" />
+      <nodes>
+        <classShapeMoniker Id="62e73f1f-f7aa-4ca7-908e-15f2de1862b5" />
+        <classShapeMoniker Id="1cfb4d32-0177-459a-88c5-d680e10a2898" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="58157e83-7f4b-455c-bb13-686c338f8d77" isExpanded="false" absoluteBounds="1.75, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblParProcOptValItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71fd9d38-f0d3-4957-816f-9fb90685617e" absoluteBounds="1.7650000000000001, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 4.2); (3.25 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParProcessOption/tblParProcessOption_tblParProcOptValItem" />
+      <nodes>
+        <classShapeMoniker Id="1cfb4d32-0177-459a-88c5-d680e10a2898" />
+        <classShapeMoniker Id="58157e83-7f4b-455c-bb13-686c338f8d77" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3f02bf1d-a63a-4b5a-85ab-1b65bffc4996" isExpanded="false" absoluteBounds="3.875, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSYSDataContext/tblParProcOptTxtItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b25f9904-60f0-484e-bb91-02d04019a997" absoluteBounds="3.8899999999999997, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.3125 : 4.2); (4.3125 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSYSDataContext/tblParProcessOption/tblParProcessOption_tblParProcOptTxtItem" />
+      <nodes>
+        <classShapeMoniker Id="1cfb4d32-0177-459a-88c5-d680e10a2898" />
+        <classShapeMoniker Id="3f02bf1d-a63a-4b5a-85ab-1b65bffc4996" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

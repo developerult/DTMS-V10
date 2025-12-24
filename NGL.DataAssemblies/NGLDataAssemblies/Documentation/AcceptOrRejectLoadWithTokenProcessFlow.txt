@@ -1,0 +1,64 @@
+﻿AcceptOrRejectLoadWithToken Process Flow
+1. Set up workflow settings by Legal Entity then Carrier
+	(a) Select the Carrier to configure: 
+		(i) Logon to your Dynamics TMS as an Administrator or a TMS Operations Specialist.  
+		(ii) Navigate to the Legal Entity Carrier Maintenance Page.  
+		(ii) Select the desired carrier from the list. 
+	(b) Allow Carrier to Accept or Reject by Token: 
+		(i) Click the Edit Pencil on the selected carrier row.  
+		(ii) Scroll down in the Edit Popup Window and locate the Allow Carrier Accept/Reject By Token setting.  
+		(iii) Check to turn on; uncheck to turn off
+	(c) Require Dual Authentication Mode:  
+		(i) To activate dual authentication mode locate the Require Login for Carrier Accept/Reject By Token Setting.  
+		(ii) Check to turn on; uncheck to turn off.  
+		(iii) Typically, this option is turned off. 
+	(d) Configure Expiration Minutes:  
+		(i) A Global Expiration Parameter Setting, AutoExpireTenderTokenMin, is used as a default,  typically 120 minutes.  
+		(ii) Each carrier can be configured with their own expiration minutes.  
+		(iii) Locate the Carrier Specific Accept/Reject By Token Expiration Minutes setting.  
+		(iv) Enter the desired value in minutes.
+2. Tender Load to Carrier 
+3. NGLBookBLL.AcceptOrRejectLoad 
+	(a) AcceptRejectCode  must equal AcceptRejectEnum.Tendered
+	(b) Configure Service Token Data
+		(i) Check if Active using NGLLegalEntityCarrierData.AllowLECarAcceptRejectTokenByEmail
+			(1) Read settings for carrier from tblLegalEntityCarriers
+			(2) LECarAllowCarrierAcceptRejectByEmail must be true
+			(3) Return LECarCarrierAuthCarrierAcceptRejectExpMin when not equal zero
+			(4) When LECarCarrierAuthCarrierAcceptRejectExpMin equal zero return AutoExpireTenderTokenMin (default)
+		(ii) When active create a new tblServiceToken record
+			(1) Set ServiceTokenBookControl = oSelectedBooking.BookControl
+			(2) Set ServiceTokenCarrierControl = CarrierControl
+			(3) Set ServiceTokenCompControl = oSelectedBooking.BookCustCompControl
+			(4) Set ServiceTokenExpirationDate = Date.Now.AddMinutes(iExpMin)
+			(5) Set ServiceTokenServiceTypeControl = DAL.NGLtblServiceTokenData.TokenServiceType.CarrierAcceptLoadWithToken
+            (6) Save and return token data with NGLtblServiceTokenData.InsertOrUpdatetblServiceToken
+				(I) Auto generates token and saves to database
+				(II) Returns updated or created tblServiceToken record
+			(7) When service token is created successfully 
+				(I) Create Accept URL link using parameter formula
+					(a)NGLtblServiceTokenData.GetParText("NEXTrackURL", oSelectedBooking.BookCustCompControl) & "/CarrierAcceptRejectLoad?token=" & oTokenData.ServiceToken
+				(II) Generate Email Body text using fomate
+					(a) Format("{0}{1}Click or copy the link below into your browser to Accept or Reject this Load {0}{1}{2}", vbCrLf, "<br><br>", sAcceptUrl)
+	(c) Call NGLBatchProcessData.executeGenerateTenderEmailProcedure to send the email
+		(i) Parameters:
+			(1) BookControl: = Selected Booking Primary Key
+			(2) CarrierControl: = Selected Carrier Primary Key
+			(3) BookProNumber: Select Book Pro Number
+			(4) BookConsPrefix: Selected Booking Consolidation Number
+			(5) EmailTo: Carrier Contact Email
+				(I) Call NGLCarrierData.GetCarrierContactInformation for selected booking record
+					(a) Call spGetCarrierContactInfo for selected booking
+						(i) Reads Carrier and Carrier Contact keys from book table
+						(ii) Call udfGetCarrierContNotifyEmails
+							(1) if Carrier Contact key exists return CarrierCont.CarrierContactEMail
+							(2) if blank return Carrier.CarrierEmail
+			(6) CCEmail: Warehouse/Company contact email
+				(II) Generated using Company Contact Notification Email Address Rules
+			(7) Subject: Formatted Subject 
+			(8) Body: Email Body
+		(ii) Calls spGenerateTenderEmail
+			(1) Formats email message
+			(2) writes to Mail table
+			(3) writes link to Load Tender Report to MailReport table
+4. FM Task Email Service runs as scheduled and sends email with attached Load Tender Report

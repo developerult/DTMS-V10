@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 34, 25.625" name="NGLMASCarrier">
+  <DataContextMoniker Name="/NGLMASCarrierDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b424885f-9243-4872-ae76-fb31169cdb1e" isExpanded="false" absoluteBounds="1.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f2777aa-83e0-4a81-bb8c-455f67ba5d31" absoluteBounds="1.7650000000000001, 0.96, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca0d3a39-0f25-461b-9ef9-10c6f0f191f4" isExpanded="false" absoluteBounds="1.75, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierBudget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="573c3304-a372-49d9-b29a-4ed4e10953e5" absoluteBounds="1.7650000000000001, 2.335, 1.9700000000000002, 6.1835735713442164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22881548-8c16-4fb3-a52a-74ed40987b93" isExpanded="false" absoluteBounds="1.875, 8.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="219b1ea2-0107-495e-9932-aefd833ebd74" absoluteBounds="1.8900000000000001, 9.085, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="828a8920-e5e4-40d7-9d9f-3589a90e7a6d" isExpanded="false" absoluteBounds="21.375, 5.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierDropLoad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8406e18-dc2a-4269-a48c-8ebdb1ec40d1" absoluteBounds="21.39, 6.335, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35409db6-c311-4e1f-ae91-045cae15fa84" absoluteBounds="6.75, 8, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierFuel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b97c3d9f-493a-455c-a12f-ea173663ff03" absoluteBounds="6.765, 8.46, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="404eafa6-69ef-4c03-90e1-2c6566279540" absoluteBounds="12.375, 13.5, 2, 2.6570663006107011">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierFuelAdRate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="428e7d36-48f1-48cc-9b22-66a1620afd1d" absoluteBounds="12.39, 13.96, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5f4935f5-b831-479a-87c9-7e6d446b1232" absoluteBounds="9.5, 8.125, 2, 1.9140649786591535">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierFuelState" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a51d4d86-66b9-4894-820d-24f34946a719" absoluteBounds="9.515, 8.585, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 9.10659912109375); (9.5 : 9.10659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierFuel/CarrierFuel_CarrierFuelState" />
+      <nodes>
+        <classShapeMoniker Id="35409db6-c311-4e1f-ae91-045cae15fa84" />
+        <classShapeMoniker Id="5f4935f5-b831-479a-87c9-7e6d446b1232" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ebb06b32-2c79-4519-9f93-f2cc979f7036" isExpanded="false" absoluteBounds="2, 14, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierSCAC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5160fd82-7deb-459a-9bc0-dfbf7f11bb68" absoluteBounds="2.0149999999999997, 14.46, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="50c4eebd-89c1-476c-afcb-6d85955173dc" isExpanded="false" absoluteBounds="2, 15.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="797904cf-2c31-4516-898a-359d8ec1df0d" absoluteBounds="2.015, 15.96, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d15ce193-3dab-40cc-9e22-43b9ba4fc6c3" isExpanded="false" absoluteBounds="23.75, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrAdHoc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c63dcb1-9624-4043-bf2d-6d278bd025c1" absoluteBounds="23.765, 1.21, 1.9700000000000002, 11.756083485980827" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75d4b9be-463c-434a-9f36-b9602a0f5282" isExpanded="false" absoluteBounds="26.25, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrAdHocBudget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6ba022a-fbc8-441a-b4c5-02f969d35559" absoluteBounds="26.265, 1.21, 1.9700000000000002, 5.997823240856329" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c55ac887-4868-43cb-8d5d-806776d8f186" isExpanded="false" absoluteBounds="23.75, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrAdHocCont" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da8e3185-3208-47d8-b423-63a6ab3ca54c" absoluteBounds="23.765, 1.835, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(24.75 : 1.2); (24.75 : 1.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrAdHoc/CarrAdHoc_CarrAdHocCont" />
+      <nodes>
+        <classShapeMoniker Id="d15ce193-3dab-40cc-9e22-43b9ba4fc6c3" />
+        <classShapeMoniker Id="c55ac887-4868-43cb-8d5d-806776d8f186" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.75 : 0.975); (26.25 : 0.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrAdHoc/CarrAdHoc_CarrAdHocBudget" />
+      <nodes>
+        <classShapeMoniker Id="d15ce193-3dab-40cc-9e22-43b9ba4fc6c3" />
+        <classShapeMoniker Id="75d4b9be-463c-434a-9f36-b9602a0f5282" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b954543c-7557-4151-b83d-d06888c99eb6" isExpanded="false" absoluteBounds="21.375, 5.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/UserAdminAsNvarcharRefCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75f9d01f-6dbd-4a8e-aab0-78a821ea3196" absoluteBounds="21.39, 5.71, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40d039f9-da6e-42cd-9fc6-61578cfb98b4" isExpanded="false" absoluteBounds="21.375, 7.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vUserAdminWithCompControlRefCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="104469ee-ddff-42b2-93e1-5d8ec54213f2" absoluteBounds="21.39, 7.7100000000000009, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e99325e-3eae-4b53-b790-2ca9601c3c6a" isExpanded="false" absoluteBounds="21.375, 6.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vSecureCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76e8a3b9-6123-4c55-bc79-11d740af0a72" absoluteBounds="21.39, 6.96, 1.9700000000000002, 0.61106365670760465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b70192f-549c-4470-91aa-49c1fc59cd46" isExpanded="false" absoluteBounds="21.375, 8, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09543132-05f2-494f-b8ec-a57fe49b9009" absoluteBounds="21.39, 8.46, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73bfa40b-c839-4435-998e-f292fbbfe493" isExpanded="false" absoluteBounds="2, 21.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffBreakPoint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c6de1f5-ddc7-4871-adc4-d85ed8703fb3" absoluteBounds="2.015, 22.085, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f83ea45-1426-42d2-ada5-5c233f58a233" isExpanded="false" absoluteBounds="2, 19.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrix" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05457915-e734-4d84-87dd-0fad98ad1084" absoluteBounds="2.015, 20.085, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acfd1d5d-2ba8-4fce-89f0-3c9b07593f98" isExpanded="false" absoluteBounds="2, 20.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrixDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12dacf5c-e052-4a71-9e6f-b305582be136" absoluteBounds="2.0149999999999997, 20.835, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 20.075); (3 : 20.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrix/CarrierTariffMatrix_CarrierTariffMatrixDetail" />
+      <nodes>
+        <classShapeMoniker Id="4f83ea45-1426-42d2-ada5-5c233f58a233" />
+        <classShapeMoniker Id="acfd1d5d-2ba8-4fce-89f0-3c9b07593f98" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8a71132f-2947-40fd-a4db-42d45e8c094d" isExpanded="false" absoluteBounds="10.375, 18.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblPointTypeRefCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a59e63f3-f270-48e1-b89a-b5917c001528" absoluteBounds="10.39, 18.71, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5da0ab40-e80d-4ed6-9ae2-a101664db218" isExpanded="false" absoluteBounds="7.75, 22.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffBPTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06c6c1e4-5682-4d84-833e-d061eb012a52" absoluteBounds="7.7650000000000006, 22.835, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b54da566-d4c0-4b7a-a39c-2102f47b49f4" isExpanded="false" absoluteBounds="7.75, 23.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffBPTemplateDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53023243-5c76-4bff-9339-b7734516a190" absoluteBounds="7.7650000000000006, 23.71, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 22.825); (8.75 : 23.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariffBPTemplate/CarrierTariffBPTemplate_CarrierTariffBPTemplateDetail" />
+      <nodes>
+        <classShapeMoniker Id="5da0ab40-e80d-4ed6-9ae2-a101664db218" />
+        <classShapeMoniker Id="b54da566-d4c0-4b7a-a39c-2102f47b49f4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="648c8e04-1a11-4e8c-a021-50dac69cd1cd" isExpanded="false" absoluteBounds="21.375, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrTarEquipMatBPPivot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8f7e4b4-9f13-4b4a-832b-4997a51885dd" absoluteBounds="21.39, 11.71, 1.9700000000000002, 7.6695762152473126" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" absoluteBounds="5, 16.25, 2, 7.3008245628078789">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d28608d9-c280-42b0-8bce-50d92d2c6c04" absoluteBounds="5.015, 16.71, 1.9700000000000002, 6.7408245628078776" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 21.85); (4 : 21.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffBreakPoint" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="73bfa40b-c839-4435-998e-f292fbbfe493" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5 : 19.85); (4 : 19.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffMatrix" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="4f83ea45-1426-42d2-ada5-5c233f58a233" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="86e04928-4259-4af7-acab-6fe085544eae" isExpanded="false" absoluteBounds="7.625, 15.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffDiscount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="649d2a6b-bdeb-4d83-adef-4bcb55b98d14" absoluteBounds="7.64, 16.085, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 16.25); (7.625 : 16.075)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffDiscount" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="86e04928-4259-4af7-acab-6fe085544eae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.09375 : 18.25); (11.09375 : 15.9974519856771); (9.625 : 15.9974519856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblPointTypeRefCarrier/tblPointTypeRefCarrier_CarrierTariffDiscount" />
+      <nodes>
+        <classShapeMoniker Id="8a71132f-2947-40fd-a4db-42d45e8c094d" />
+        <classShapeMoniker Id="86e04928-4259-4af7-acab-6fe085544eae" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="945a28fb-dc70-43f0-b4c2-b29c01741ca1" isExpanded="false" absoluteBounds="7.75, 16.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2622c6fb-a2f1-4457-98ab-f16bb1b1d4a3" absoluteBounds="7.7650000000000006, 16.835, 1.9700000000000002, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 16.6); (7.75 : 16.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffFee" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="945a28fb-dc70-43f0-b4c2-b29c01741ca1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="688325b7-2ad8-4662-a709-e5928c7655df" isExpanded="false" absoluteBounds="7.75, 17, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffInterline" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35da9342-7b55-46b7-a008-38d03a098d1f" absoluteBounds="7.765, 17.46, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 17.225); (7.75 : 17.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffInterline" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="688325b7-2ad8-4662-a709-e5928c7655df" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b9dd3fce-dabe-44d0-b98b-23ed79c6338c" isExpanded="false" absoluteBounds="7.75, 18.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMinCharge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f99e060-a6cc-4f6c-844c-8deaec291f54" absoluteBounds="7.7650000000000006, 18.71, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 18.5982006835938); (7.75 : 18.5982006835938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffMinCharge" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="b9dd3fce-dabe-44d0-b98b-23ed79c6338c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.375 : 18.475); (9.75 : 18.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblPointTypeRefCarrier/tblPointTypeRefCarrier_CarrierTariffMinCharge" />
+      <nodes>
+        <classShapeMoniker Id="8a71132f-2947-40fd-a4db-42d45e8c094d" />
+        <classShapeMoniker Id="b9dd3fce-dabe-44d0-b98b-23ed79c6338c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="afca3703-c85b-4706-9926-add874f5207f" isExpanded="false" absoluteBounds="7.75, 19, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffNonService" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e158f393-8f20-4081-87b9-e2a1756009fc" absoluteBounds="7.765, 19.46, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 19.225); (7.75 : 19.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffNonService" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="afca3703-c85b-4706-9926-add874f5207f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cf5f64bb-ba8d-462b-a388-2e3b1b39592f" isExpanded="false" absoluteBounds="7.75, 21.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffEquipMatrixDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="988454b5-47db-4fe9-9160-afad41abc3b8" absoluteBounds="7.765, 21.96, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbdab40a-bec7-4eae-97a9-395bfd11029e" isExpanded="false" absoluteBounds="5.125, 24.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrixBP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e9699dc-36af-403f-8d6f-913b35392373" absoluteBounds="5.14, 24.71, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.0625 : 23.7899397786458); (6.0625 : 24.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffMatrixBP" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="bbdab40a-bec7-4eae-97a9-395bfd11029e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1b209f87-62f2-425e-b80d-bc1d63d6373a" isExpanded="false" absoluteBounds="5.125, 24.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrixBPDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efb6eed3-0b90-4b28-b270-2c3bc36154e3" absoluteBounds="5.14, 25.335, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.125 : 24.7); (6.125 : 24.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMatrixBP/CarrierTariffMatrixBP_CarrierTariffMatrixBPDetail" />
+      <nodes>
+        <classShapeMoniker Id="bbdab40a-bec7-4eae-97a9-395bfd11029e" />
+        <classShapeMoniker Id="1b209f87-62f2-425e-b80d-bc1d63d6373a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5c89b79b-2d61-449c-aada-37984946a3aa" isExpanded="false" absoluteBounds="7.75, 17.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffClassXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b654f39b-4073-4248-9bf7-d2bcab6cdcec" absoluteBounds="7.765, 18.085, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 17.85); (7.75 : 17.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffClassXref" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="5c89b79b-2d61-449c-aada-37984946a3aa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.375 : 18.25); (9.74999999999999 : 18.075)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblPointTypeRefCarrier/tblPointTypeRefCarrier_CarrierTariffClassXref" />
+      <nodes>
+        <classShapeMoniker Id="8a71132f-2947-40fd-a4db-42d45e8c094d" />
+        <classShapeMoniker Id="5c89b79b-2d61-449c-aada-37984946a3aa" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f9bf46da-1747-48a4-be90-81849dd486ed" isExpanded="false" absoluteBounds="4.375, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/Carrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ffc96d53-9dde-47b2-9501-d8eaec9b1158" absoluteBounds="4.39, 0.96, 1.9700000000000002, 14.542338443299133" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.375 : 0.725); (3.75 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrFee" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="b424885f-9243-4872-ae76-fb31169cdb1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.83583424278846 : 0.95); (4.83583424278846 : 9.07774983723958); (5.35998852063302 : 9.07774983723958 : JumpStart); (5.52665518729968 : 9.07774983723958 : JumpEnd); (5.60853430714143 : 9.07774983723958 : JumpStart); (5.77520097380809 : 9.07774983723958 : JumpEnd); (5.87270384364984 : 9.07774983723958 : JumpStart); (6.03937051031651 : 9.07774983723958 : JumpEnd); (6.13687338015826 : 9.07774983723958 : JumpStart); (6.30354004682492 : 9.07774983723958 : JumpEnd); (6.75 : 9.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierFuel" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="35409db6-c311-4e1f-ae91-045cae15fa84" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.44332185396635 : 0.95); (5.44332185396635 : 16.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierTariff" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.13957804837741 : 0.95); (5.13957804837741 : 2.1); (3.75 : 2.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierBudget" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="ca0d3a39-0f25-461b-9ef9-10c6f0f191f4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f76e5922-f161-4648-ac5c-616f01bad5ec" absoluteBounds="9.25, 10.375, 2, 2.8428166310985876">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierFuelAddendum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9db60d95-4924-4de4-8b42-edc0bad63171" absoluteBounds="9.265, 10.835, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.890625 : 13.2178166310986); (10.890625 : 13.90625); (12.375 : 13.90625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierFuelAddendum/CarrierFuelAddendum_CarrierFuelAdRate" />
+      <nodes>
+        <classShapeMoniker Id="f76e5922-f161-4648-ac5c-616f01bad5ec" />
+        <classShapeMoniker Id="404eafa6-69ef-4c03-90e1-2c6566279540" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.69186764047476 : 0.95); (5.69186764047476 : 11.8873527018229); (6.13687338015826 : 11.8873527018229 : JumpStart); (6.30354004682492 : 11.8873527018229 : JumpEnd); (9.25 : 11.8873527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierFuelAddendum" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="f76e5922-f161-4648-ac5c-616f01bad5ec" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0b8e7443-f7e9-46fa-b164-c727c1114f74" isExpanded="false" absoluteBounds="5.875, 14.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierProNumber" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79151601-f133-4ad2-a2cb-324b1111d97a" absoluteBounds="5.89, 14.835, 1.9700000000000002, 8.2268272067109738" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.22020671349159 : 0.95); (6.22020671349159 : 14.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierProNumber" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="0b8e7443-f7e9-46fa-b164-c727c1114f74" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7f420b37-b8f2-46ea-86ea-7e7584946e56" isExpanded="false" absoluteBounds="2, 21, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffNoDriveDay" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e4ec2ca-947e-4756-81bd-0db00cc63090" absoluteBounds="2.0149999999999997, 21.46, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 21.225); (4 : 21.225)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffNoDriveDay" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="7f420b37-b8f2-46ea-86ea-7e7584946e56" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5c456c5d-b3b0-478d-85d8-d14eedf4e5d1" isExpanded="false" absoluteBounds="1.75, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierQual" />
+      <nestedChildShapes>
+        <elementListCompartment Id="39d41a48-549a-4c06-aa6d-813eb94dcb82" absoluteBounds="1.7650000000000001, 1.585, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddc0372e-5fe4-4f7a-9071-37c2a3f9f49c" isExpanded="false" absoluteBounds="1.75, 2.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblEDIStatusCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4503e2a-1e96-4326-b204-f1a63e332506" absoluteBounds="1.7649999999999997, 3.085, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0be23375-7a25-4add-811a-f2d9dd56d2f4" isExpanded="false" absoluteBounds="1.75, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblEDIAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d37ee4fb-aa4e-4141-b0e3-b9922bed3349" absoluteBounds="1.7650000000000001, 3.71, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="72e96dca-3edc-41cd-ab62-b0e40279411a" isExpanded="false" absoluteBounds="1.75, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblEDIElement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17da9834-79dc-44c2-95e4-78eb53907721" absoluteBounds="1.7650000000000001, 4.335, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="355da67c-d055-4b98-b07d-23999eb1a4cc" isExpanded="false" absoluteBounds="13, 18.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffMinWeight" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff494a93-7e17-41d1-b417-def9bd508d95" absoluteBounds="13.015, 18.71, 1.9700000000000002, 3.9545696054895716" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7 : 16.28125); (11.0104166666667 : 16.28125 : JumpStart); (11.1770833333333 : 16.28125 : JumpEnd); (14 : 16.28125); (14 : 18.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffMinWeight" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="355da67c-d055-4b98-b07d-23999eb1a4cc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 18.475); (13 : 18.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblPointTypeRefCarrier/tblPointTypeRefCarrier_CarrierTariffMinWeight" />
+      <nodes>
+        <classShapeMoniker Id="8a71132f-2947-40fd-a4db-42d45e8c094d" />
+        <classShapeMoniker Id="355da67c-d055-4b98-b07d-23999eb1a4cc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9b795f9e-59a4-4efe-802e-03c620de11b6" isExpanded="false" absoluteBounds="8.25, 14.375, 2.375, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierProNumberBlock" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ded0b5e6-a65c-4dd9-b4f6-f5bd82ca4ef6" absoluteBounds="8.265, 14.835, 2.3449999999999998, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 14.6); (8.25 : 14.6)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierProNumber/CarrierProNumber_CarrierProNumberBlock" />
+      <nodes>
+        <classShapeMoniker Id="0b8e7443-f7e9-46fa-b164-c727c1114f74" />
+        <classShapeMoniker Id="9b795f9e-59a4-4efe-802e-03c620de11b6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cf8883bf-92ed-4b90-9ea6-755bfe13934a" isExpanded="false" absoluteBounds="21.375, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vLECarCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7aeb3bc4-1bac-4868-8045-72cf898a4868" absoluteBounds="21.39, 1.835, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c09ed29-4d45-4cd3-8eab-b498aec1ea7e" isExpanded="false" absoluteBounds="18.875, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblLECarrierAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f82ba9b5-7596-4175-8f1c-3287c914e3e6" absoluteBounds="18.89, 1.71, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0870529c-a0cd-452a-8bb4-494a296564b1" isExpanded="false" absoluteBounds="21.375, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vAccByLegalEntityCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5599c5b3-17b1-402b-8ca8-46bdf7e61807" absoluteBounds="21.39, 3.335, 1.9700000000000002, 6.55507423231999" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="446898ff-6eab-4858-b087-98e80c9a181a" isExpanded="false" absoluteBounds="21.375, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierContract" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56027a0b-34ad-462a-bc0d-a033c72fad47" absoluteBounds="21.39, 4.085, 1.9700000000000002, 8.2268272067109738" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d44f83c0-5adc-424f-a7f4-7da279021d34" isExpanded="false" absoluteBounds="21.375, 9.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f492503-1882-4994-a018-f7c4d8572ccc" absoluteBounds="21.39, 10.21, 1.9700000000000002, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60dafe61-5912-4861-b56a-2967660f633e" isExpanded="false" absoluteBounds="21.375, 12.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffClassXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29eaffd2-db4f-4462-bd31-cce5712812c1" absoluteBounds="21.39, 13.335, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74ca9c78-599e-4043-b6c8-01e848e90497" isExpanded="false" absoluteBounds="21.375, 13.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffDiscount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77585805-47ce-4489-ace0-09fd173daf2d" absoluteBounds="21.39, 14.085, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bdc18b34-3241-4be8-91a5-059cccc8a02a" isExpanded="false" absoluteBounds="21.375, 14.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffMinCharge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="424ad010-7d11-4bf7-8aa5-70ceb945bb00" absoluteBounds="21.39, 14.835, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57c11db1-3f28-41d1-b0ce-c769ca10dc64" isExpanded="false" absoluteBounds="21.375, 15.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffMinWeight" />
+      <nestedChildShapes>
+        <elementListCompartment Id="035f6196-2a23-4f28-9868-9453d30494ee" absoluteBounds="21.39, 15.585, 1.9700000000000002, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4596bf1-0a13-4e17-9ea0-ee2670af0cf4" isExpanded="false" absoluteBounds="21.375, 15.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffNonService" />
+      <nestedChildShapes>
+        <elementListCompartment Id="202e2add-8566-4490-b24a-52f39e8db7a1" absoluteBounds="21.39, 16.335, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d337d03-b71a-48e6-bb92-159d28f092da" isExpanded="false" absoluteBounds="23.75, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrTarEquipMatBreakPoint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0f00232-30a1-4876-bbc6-b3d13b5aa1cc" absoluteBounds="23.765, 2.585, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4428adcf-8c8f-4610-af39-e7a5d4a05484" isExpanded="false" absoluteBounds="1.875, 10.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierCont" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78bcebfb-8c97-4aac-ba8b-2f7129520482" absoluteBounds="1.8900000000000001, 10.71, 1.9700000000000002, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.95603717698318 : 0.95); (5.95603717698318 : 10.475); (5.77520097380809 : 10.475 : JumpStart); (5.60853430714143 : 10.475 : JumpEnd); (5.52665518729968 : 10.475 : JumpStart); (5.35998852063302 : 10.475 : JumpEnd); (3.875 : 10.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierCont" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="4428adcf-8c8f-4610-af39-e7a5d4a05484" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="44885767-e840-466d-999c-0432a30c1582" absoluteBounds="21.5, 16.625, 2, 6.1863225798805566">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b711976c-061a-4d45-b9c3-7a390c739a7c" absoluteBounds="21.515, 17.085, 1.9700000000000002, 5.6263225798805552" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0842860-d957-4f50-b215-994a994ddb0d" absoluteBounds="28.875, 0.875, 2, 5.25757092744112">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblAccessorialRefCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0414ffa9-c12e-4bea-abfd-1af9bffc64d8" absoluteBounds="28.89, 1.335, 1.9700000000000002, 4.69757092744112" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(29.875 : 0.875); (29.875 : 0.25); (4.125 : 0.25); (4.125 : 0.725); (3.75 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblAccessorialRefCarrier/tblAccessorialRefCarrier_CarrFee" />
+      <nodes>
+        <classShapeMoniker Id="e0842860-d957-4f50-b215-994a994ddb0d" />
+        <classShapeMoniker Id="b424885f-9243-4872-ae76-fb31169cdb1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(29.875 : 6.13257092744112); (29.875 : 19.4235867908597); (23.75 : 19.4235867908597); (23.75 : 16.575); (14.0833333333333 : 16.575 : JumpStart); (13.9166666666667 : 16.575 : JumpEnd); (11.1770833333333 : 16.575 : JumpStart); (11.0104166666667 : 16.575 : JumpEnd); (10.125 : 16.575); (10.125 : 16.6); (9.75 : 16.6)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblAccessorialRefCarrier/tblAccessorialRefCarrier_CarrierTariffFee" />
+      <nodes>
+        <classShapeMoniker Id="e0842860-d957-4f50-b215-994a994ddb0d" />
+        <classShapeMoniker Id="945a28fb-dc70-43f0-b4c2-b29c01741ca1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(28.875 : 1.28125); (20.875 : 1.28125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblAccessorialRefCarrier/tblAccessorialRefCarrier_tblLECarrierAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="e0842860-d957-4f50-b215-994a994ddb0d" />
+        <classShapeMoniker Id="2c09ed29-4d45-4cd3-8eab-b498aec1ea7e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="da5e94b4-0d65-4e9a-9b27-d6df91941850" absoluteBounds="31.75, 0.875, 2, 8.0438258847594266">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCMAddCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1212130-93bb-420c-9f22-144643b234ff" absoluteBounds="31.765, 1.335, 1.9700000000000002, 7.4838258847594261" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ec9581f8-1dd2-4b3c-896d-71d658a11ab7" isExpanded="false" absoluteBounds="21.375, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vLECarrierAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06b897ee-add4-4679-b29d-a0b0b9169c39" absoluteBounds="21.39, 1.21, 1.9700000000000002, 5.6263225798805552" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74c6171f-de03-47bb-87d5-937c299439c3" isExpanded="false" absoluteBounds="9.625, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierEDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d1a22f1-68d9-444b-a216-2d3dc457b844" absoluteBounds="9.64, 1.835, 1.9700000000000002, 7.6695762152473126" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 0.725); (10.625 : 0.725); (10.625 : 1.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierEDI" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="74c6171f-de03-47bb-87d5-937c299439c3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b886e1c1-a7fc-4306-b8cb-97e542e44476" isExpanded="false" absoluteBounds="7.5, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vNatFuelCrossTab" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5079a0d8-2c55-4d9c-bd00-87d35e2cdf42" absoluteBounds="7.5150000000000006, 2.585, 1.9700000000000002, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f49495dd-533b-4067-bb1a-d010f38792b5" absoluteBounds="25.375, 5, 2, 14.173586790859702">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTruck" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c1fb36f-f4bf-442b-9908-0f979bcbd208" absoluteBounds="25.39, 5.4600000000000009, 1.9700000000000002, 13.6135867908597" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4b4cadd-2fec-4621-8a43-138dee94d167" isExpanded="false" absoluteBounds="7, 4.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierEDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef082d52-2d01-4b35-8f05-f6fd84c4b3d4" absoluteBounds="7.015, 4.585, 1.9700000000000002, 7.6695762152473126" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db1a9ba3-c1fc-42ab-ae40-a6fb6ba15dc1" isExpanded="false" absoluteBounds="7.625, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vMasterTruckList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73fa054b-fdce-420d-be56-46d50c96cd7a" absoluteBounds="7.64, 3.335, 1.9700000000000002, 14.728088773787022" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="333d1298-b77d-4613-979a-7ea05251bfa9" isExpanded="false" absoluteBounds="2, 18.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CompRefCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f98dc14e-fd4b-4cc8-a10f-08a1cd63f7ff" absoluteBounds="2.015, 19.335, 1.9700000000000002, 41.476136364042759" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4 : 19.1); (5 : 19.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CompRefCarrier/CompRefCarrier_CarrierTariff" />
+      <nodes>
+        <classShapeMoniker Id="333d1298-b77d-4613-979a-7ea05251bfa9" />
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4 : 18.875); (4.375 : 18.5); (4.375 : 14.6); (5.875 : 14.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CompRefCarrier/CompRefCarrier_CarrierProNumber" />
+      <nodes>
+        <classShapeMoniker Id="333d1298-b77d-4613-979a-7ea05251bfa9" />
+        <classShapeMoniker Id="0b8e7443-f7e9-46fa-b164-c727c1114f74" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fa8db15f-8edc-454d-9bfa-b0a0de7c181b" isExpanded="false" absoluteBounds="13, 19.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierEquipCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="400dd4b2-1a67-4010-8a54-a9ef7b51434a" absoluteBounds="13.015, 19.585, 1.9700000000000002, 4.140319935977459" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ec225ea-3457-435f-a699-082cc1bd0cc1" isExpanded="false" absoluteBounds="13, 19.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierEquipCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="434cf240-19dd-4fac-bebe-65029866c777" absoluteBounds="13.015, 20.335, 1.9700000000000002, 4.140319935977459" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aef42632-af8f-4c01-8e06-9f91cdd9004d" isExpanded="false" absoluteBounds="7, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierNoDriveDay" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7c49977-8b9e-4bba-ac42-bebe255c3142" absoluteBounds="7.015, 1.835, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 0.95); (7 : 1.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_CarrierNoDriveDay" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="aef42632-af8f-4c01-8e06-9f91cdd9004d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9c05260e-e491-495a-80ea-7db4a6b1377d" isExpanded="false" absoluteBounds="10.375, 19.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffEquipment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e3ea70c-b0ab-455d-a7ca-57f8e8049eba" absoluteBounds="10.39, 20.335, 1.9700000000000002, 7.2980755542715388" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13 : 20.1); (12.375 : 20.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierEquipCode/CarrierEquipCode_CarrierTariffEquipment" />
+      <nodes>
+        <classShapeMoniker Id="0ec225ea-3457-435f-a699-082cc1bd0cc1" />
+        <classShapeMoniker Id="9c05260e-e491-495a-80ea-7db4a6b1377d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7 : 20.1); (10.375 : 20.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariff/CarrierTariff_CarrierTariffEquipment" />
+      <nodes>
+        <classShapeMoniker Id="15570ebb-39a8-4637-a0a0-95ce62cb0acc" />
+        <classShapeMoniker Id="9c05260e-e491-495a-80ea-7db4a6b1377d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0b3830f1-acc8-4496-b9f8-785ebd317854" isExpanded="false" absoluteBounds="7.75, 20.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierTariffEquipMatrix" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12d05002-3763-4532-bba6-22f53e83d23d" absoluteBounds="7.765, 21.21, 1.9700000000000002, 4.69757092744112" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 21.2); (8.75 : 21.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariffEquipMatrix/CarrierTariffEquipMatrix_CarrierTariffEquipMatrixDetail" />
+      <nodes>
+        <classShapeMoniker Id="0b3830f1-acc8-4496-b9f8-785ebd317854" />
+        <classShapeMoniker Id="cf5f64bb-ba8d-462b-a388-2e3b1b39592f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.375 : 20.325); (9.75 : 20.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierTariffEquipment/CarrierTariffEquipment_CarrierTariffEquipMatrix" />
+      <nodes>
+        <classShapeMoniker Id="9c05260e-e491-495a-80ea-7db4a6b1377d" />
+        <classShapeMoniker Id="0b3830f1-acc8-4496-b9f8-785ebd317854" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="00de4efb-d32c-4a29-875b-40478b6d419b" isExpanded="false" absoluteBounds="21.375, 8.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierTariffService" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0f3f662-c377-4435-96c3-9962694ac162" absoluteBounds="21.39, 9.21, 1.9700000000000002, 10.455831172565619" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a1b61d00-f152-428a-953f-1958afb87afe" isExpanded="false" absoluteBounds="21.375, 12, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrTarEquipMatPivot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e1561cd-a109-4f6a-9b97-b2e4e83213b8" absoluteBounds="21.39, 12.46, 1.9700000000000002, 6.55507423231999" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="700d39e3-7b49-40c2-a657-d74bbb954635" isExpanded="false" absoluteBounds="23.75, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrTarEquipMatPivotDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2292876-0371-4863-b46e-a32f00cf9b70" absoluteBounds="23.765, 3.335, 1.9700000000000002, 6.55507423231999" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd780860-63d9-4b1f-9ced-5a9f498d8ca2" isExpanded="false" absoluteBounds="23.75, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrTarEquipMatPivotTruckLoad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21a03606-a7ff-499a-be49-fa6e20c05ede" absoluteBounds="23.765, 4.085, 1.9700000000000002, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2ddc322-4a9e-49cd-8b06-2ce82074d498" isExpanded="false" absoluteBounds="21.375, 4.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vTariffRate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="776d592e-da45-4aef-aa6e-82e61d749dd4" absoluteBounds="21.39, 4.835, 1.9700000000000002, 8.5983278676867485" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23b2311e-6ca1-4419-8467-8db48e8c618a" isExpanded="false" absoluteBounds="15.75, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/tblLegalEntityCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c05ff98b-9fb7-440a-b878-04926e0036ac" absoluteBounds="15.765, 1.585, 1.9700000000000002, 7.8553265457352" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(17.75 : 1.4125); (18.875 : 1.4125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/tblLegalEntityCarrier/tblLegalEntityCarrier_tblLECarrierAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="23b2311e-6ca1-4419-8467-8db48e8c618a" />
+        <classShapeMoniker Id="2c09ed29-4d45-4cd3-8eab-b498aec1ea7e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 0.5812475); (16.75 : 0.5812475); (16.75 : 1.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/Carrier/Carrier_tblLegalEntityCarrier" />
+      <nodes>
+        <classShapeMoniker Id="f9bf46da-1747-48a4-be90-81849dd486ed" />
+        <classShapeMoniker Id="23b2311e-6ca1-4419-8467-8db48e8c618a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bf16bf25-cb31-4014-b488-97d07fd06bf9" isExpanded="false" absoluteBounds="21.375, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vLegalEntityCarrierByLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="877de1e1-31c8-4df3-9b5f-78f9e03bad78" absoluteBounds="21.39, 2.585, 1.9700000000000002, 10.084330511589844" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="019e0063-bc51-4280-90e0-6ca712b30996" absoluteBounds="12.75, 8.625, 2, 4.5145696054895712">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/CarrierFuelAdEx" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6bba0eda-aae3-46c4-9198-49b0714a18dc" absoluteBounds="12.765, 9.085, 1.9700000000000002, 3.9545696054895716" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 11.71875); (12.75 : 11.71875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASCarrierDataContext/CarrierFuelAddendum/CarrierFuelAddendum_CarrierFuelAdEx" />
+      <nodes>
+        <classShapeMoniker Id="f76e5922-f161-4648-ac5c-616f01bad5ec" />
+        <classShapeMoniker Id="019e0063-bc51-4280-90e0-6ca712b30996" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="122954b2-7588-4aee-837e-17e7c14d08c5" isExpanded="false" absoluteBounds="1.875, 4.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASCarrierDataContext/vCarrierFuelAdEx" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3cea30ef-5553-44d3-adb3-77eb78cdd45c" absoluteBounds="1.8900000000000001, 5.085, 1.9700000000000002, 7.6695762152473135" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,2051 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLTMSPROD" EntityNamespace="LTS" ContextNamespace="LTS" Class="NGLMASLaneDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SAGAR-PC;Initial Catalog=NGLTMSPROD;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="Ngl.FreightMaster.Data.My.MySettings" SettingsPropertyName="NGLMASPRODConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LaneCal" Member="LaneCals">
+    <Type Name="LaneCal">
+      <Column Name="LaneCalControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneCalLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalOpen" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalStartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneCalEndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneCalIsHoliday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalApplyToOrigin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="Lane_LaneCal" Member="Lane" ThisKey="LaneCalLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneCarr" Member="LaneCarrs">
+    <Type Name="LaneCarr">
+      <Column Name="LaneCarrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneCarrLaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrWgtFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrWgtTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrRateStarts" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneCarrRateExpires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneCarrTL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrLTL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrEquipment" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneCarrMileRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrCwtRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrCaseRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrFlatRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrPltRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrCubeRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrTLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrTMode" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="LaneCarrFAK" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LaneCarrDisc" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="LaneCarrPUMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPUSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrDLSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrPayTolPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrPayTolPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrPayTolCurLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrPayTolCurHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneCarrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneCarrRoute" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LaneCarrPltsOpen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrPltsCommitted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrPltsAvailable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrMiles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="msrepl_tran_version" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrBkhlCostPerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrPalletCostPer" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneCarrFuelSurChargePerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrStopCharge" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneCarrDropCost" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrUnloadDiff" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCasesAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCasesOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCasesCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrWgtAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrWgtOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrWgtCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCubesAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCubesOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCubesCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrCarrierTruckControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneCarrLockSettings" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCarrUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="Lane_LaneCarr" Member="Lane" ThisKey="LaneCarrLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneCodes" Member="LaneCodes">
+    <Type Name="LaneCode">
+      <Column Name="LaneCodesControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneCodesLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCodesSpecialCodesControl" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Lane_LaneCode" Member="Lane" ThisKey="LaneCodesLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneSec" Member="LaneSecs">
+    <Type Name="LaneSec">
+      <Column Name="LaneSecControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneSecLaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSecPUNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneSecPUName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecPUAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecPUAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecPUAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecPUCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneSecPUState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LaneSecPUCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneSecPUZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LaneSecPUContactPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneSecPUContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerZip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerContactPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerContactFax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerContactName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneSecBrokerOpHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneSecBrokerOpHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneSecComment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneSecModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneSecModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="msrepl_tran_version" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneSecUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="Lane_LaneSec" Member="Lane" ThisKey="LaneSecLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBadLaneAddress" Member="tblBadLaneAddresses">
+    <Type Name="tblBadLaneAddress">
+      <Column Name="BLAControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BLALaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BLALaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BLABookProNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLALaneOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BLALaneOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BLALaneOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BLALaneOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BLALaneOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLALaneDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BLALaneDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BLALaneDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BLALaneDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BLALaneDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLAPCMilerOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BLAPCMilerOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BLAPCMilerOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="BLAPCMilerOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BLAPCMilerOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLAPCMilerDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="BLAPCMilerDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BLAPCMilerDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="BLAPCMilerDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BLAPCMilerDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BLAMessage" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="BLAModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BLAModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BLAUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="BatchID" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAdminAsNvarchar" Member="UserAdminAsNvarcharRefLanes">
+    <Type Name="UserAdminAsNvarcharRefLane">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserAdminCompControl" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserAdminWithCompControl" Member="vUserAdminWithCompControlRefLanes">
+    <Type Name="vUserAdminWithCompControlRefLane">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminCompControl" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStaticRouteEquip" Member="tblStaticRouteEquips">
+    <Type Name="tblStaticRouteEquip">
+      <Column Name="StaticRouteEquipControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StaticRouteEquipStaticRouteCarrControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteEquipCarrierTruckControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteEquipCarrierTruckDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaticRouteEquipName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StaticRouteEquipDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaticRouteEquipModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StaticRouteEquipModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StaticRouteEquipUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="CarrierTruckRefLane_tblStaticRouteEquip" Member="CarrierTruckRefLane" ThisKey="StaticRouteEquipCarrierTruckControl" OtherKey="CarrierTruckControl" Type="CarrierTruckRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblStaticRouteCarr_tblStaticRouteEquip" Member="tblStaticRouteCarr" ThisKey="StaticRouteEquipStaticRouteCarrControl" OtherKey="StaticRouteCarrControl" Type="tblStaticRouteCarr" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comp" Member="CompRefLanes">
+    <Type Name="CompRefLane">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompStreetState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompStreetCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompStreetZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompMailAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompMailState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompMailCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompMailZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompWeb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompDirections" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="CompAbrev" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CompActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTrack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTStopAcctNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNEXTStopPsw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNextstopSubmitRFP" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTypeCategory" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFAAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFAAShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CompBudControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompBudSeasMo1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo5" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo6" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo8" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo9" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo10" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo11" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo12" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinDuns" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="CompFinTaxID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompFinPaymentForm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinSIC" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompFinPaymentDiscount" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentNetDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinCommTerms" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CompFinCommTermsPer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinCommCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditUsed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditAvail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesCur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsCurr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinInvPrnCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinInvEMailCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUser5" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCustomerSince" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompFinCardType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardExpires" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthorizor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUseImportFrtCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinBkhlFlatFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompFinBkhlCostPerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompMailTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompFDAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAMS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompPayTolPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolWgtFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolWgtTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinBillToCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompSilentTender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTimeZone" Type="System.String" DbType="nvarchar(100)" CanBeNull="true" />
+      <Column Name="CompRailStationName" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompRailSPLC" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompRailFSAC" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompRail333" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompRailR260" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompIsTransLoad" Type="System.Boolean" DbType="BIT NOT NULL" CanBeNull="false" />
+      <Column Name="CompUser1" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CompUser2" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CompUser3" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CompUser4" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CompAlphaCode" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompLegalEntity" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CompFinFBToleranceHigh" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinFBToleranceLow" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="CompRefLane_CarrierTariffRefLane" Member="CarrierTariffRefLanes" ThisKey="CompControl" OtherKey="CarrTarCompControl" Type="CarrierTariffRefLane" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Carrier" Member="CarrierRefLanes">
+    <Type Name="CarrierRefLane">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierStreetState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CarrierStreetCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CarrierStreetZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierMailAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierMailAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierMailAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierMailCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierMailState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CarrierMailCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CarrierMailZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrierSCAC" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="CarrierAccountNo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CarrierTypeCode" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CarrierGeneralInfo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierWebSite" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierNEXTStopAcct" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierNEXTStopPwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierGradControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradReliability" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradBillingAccuracy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradFinancialStrength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradEquipmentCondition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradContactAttitude" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradDriverAttitude" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradClaimFrequency" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradClaimPayment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradGeographicCoverage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradCustomerService" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradPriceChangeNotification" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradPriceChangeFrequency" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradPriceAggressiveness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierGradAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierQualControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierQualInsuranceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualQualified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierQualAuthority" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierQualContract" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierQualSignedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualContractExpiresDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierQualMaxPerShipment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierQualMaxAllShipments" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierQualCurAllExposure" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierCodeVal1" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CarrierCodeVal2" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CarrierTruckDefault" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierAllowWebTender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierIgnoreTariff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierSmartWayPartnerType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierSmartWayScore" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="CarrierSmartWayPartner" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="CarrierAutoFinalize" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierUseStdFuelAddendum" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierAutoAssignProNumber" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierQualUSDot" Type="System.String" DbType="nvarchar(15)" CanBeNull="true" />
+      <Column Name="CarrierQualCSAScore" Type="System.String" DbType="nvarchar(15)" CanBeNull="true" />
+      <Column Name="CarrierCalcOnTimeServiceLevel" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierCalcOnTimeNoMonthsUsed" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierAssignedOnTimeServiceLevel" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierUser1" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CarrierUser2" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CarrierUser3" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CarrierUser4" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Name="CarrierLegalEntity" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Column Name="CarrierAlphaCode" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+      <Association Name="CarrierRefLane_tblStaticRouteCarr" Member="tblStaticRouteCarrs" ThisKey="CarrierControl" OtherKey="StaticRouteCarrCarrierControl" Type="tblStaticRouteCarr" />
+      <Association Name="CarrierRefLane_CarrierTariffRefLane" Member="CarrierTariffRefLanes" ThisKey="CarrierControl" OtherKey="CarrTarCarrierControl" Type="CarrierTariffRefLane" />
+      <Association Name="CarrierRefLane_CarrierContRefLane" Member="CarrierContRefLanes" ThisKey="CarrierControl" OtherKey="CarrierContCarrierControl" Type="CarrierContRefLane" />
+      <Association Name="CarrierRefLane_tblHDMTariffXref" Member="tblHDMTariffXrefs" ThisKey="CarrierControl" OtherKey="HDMTariffXrefCarrierControl" Type="tblHDMTariffXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarrierTruck" Member="CarrierTruckRefLanes">
+    <Type Name="CarrierTruckRefLane">
+      <Column Name="CarrierTruckControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrierTruckCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierTruckDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierTruckWgtFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierTruckWgtTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierTruckRateStarts" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierTruckRateExpires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierTruckTL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckLTL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckEquipment" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierTruckMileRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckCwtRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckCaseRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckFlatRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckPltRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckCubeRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckTLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierTruckTMode" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CarrierTruckFAK" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CarrierTruckDisc" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CarrierTruckPUMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPUSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckDLSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPayTolPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckPayTolPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckPayTolCurLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckPayTolCurHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierTruckModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrierTruckModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierTruckRoute" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CarrierTruckMiles" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckBkhlCostPerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckPalletCostPer" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrierTruckFuelSurChargePerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckStopCharge" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrierTruckDropCost" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckUnloadDiff" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCasesAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCasesOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCasesCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckWgtAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckWgtOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckWgtCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCubesAvailable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCubesOpen" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckCubesCommitted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPltsAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPltsOpen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckPltsCommitted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckTrucksAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckMaxLoadsByWeek" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckMaxLoadsByMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckTotalLoadsForWeek" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckTotalLoadsForMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierTruckWeekDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierTruckMonthDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrierTruckUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="CarrierTruckTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierTruckHazmat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CarrierTruckRefLane_tblStaticRouteEquip" Member="tblStaticRouteEquips" ThisKey="CarrierTruckControl" OtherKey="StaticRouteEquipCarrierTruckControl" Type="tblStaticRouteEquip" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStaticRouteCarr" Member="tblStaticRouteCarrs">
+    <Type Name="tblStaticRouteCarr">
+      <Column Name="StaticRouteCarrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StaticRouteCarrStaticRouteControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrCarrierName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StaticRouteCarrName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StaticRouteCarrDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaticRouteCarrRouteTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrAutoTenderFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrTendLeadTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrMaxStops" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrHazmatFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrTransType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrRouteSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrRequireAutoTenderApproval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrAutoAcceptLoads" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCarrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StaticRouteCarrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StaticRouteCarrUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="StaticRouteStateFilter" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaticRouteCarrURI" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="tblStaticRouteCarr_tblStaticRouteEquip" Member="tblStaticRouteEquips" ThisKey="StaticRouteCarrControl" OtherKey="StaticRouteEquipStaticRouteCarrControl" Type="tblStaticRouteEquip" />
+      <Association Name="CarrierRefLane_tblStaticRouteCarr" Member="CarrierRefLane" ThisKey="StaticRouteCarrCarrierControl" OtherKey="CarrierControl" Type="CarrierRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblStaticRoute_tblStaticRouteCarr" Member="tblStaticRoute" ThisKey="StaticRouteCarrStaticRouteControl" OtherKey="StaticRouteControl" Type="tblStaticRoute" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblRouteTypeRefLane_tblStaticRouteCarr" Member="tblRouteTypeRefLane" ThisKey="StaticRouteCarrRouteTypeCode" OtherKey="RouteTypeControl" Type="tblRouteTypeRefLane" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStaticRoute" Member="tblStaticRoutes">
+    <Type Name="tblStaticRoute">
+      <Column Name="StaticRouteControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StaticRouteNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StaticRouteName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StaticRouteDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaticRouteCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="StaticRouteCompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="StaticRouteCompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteAutoTenderFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteUseShipDateFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteGuideDateSelectionDaysBefore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteGuideDateSelectionDaysAfter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteSplitOversizedLoads" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteCapacityPreference" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteRequireAutoTenderApproval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StaticRouteModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StaticRouteUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="StaticRouteFillLargestFirst" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRoutePlaceOnHold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StaticRouteURI" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="tblStaticRoute_tblStaticRouteCarr" Member="tblStaticRouteCarrs" ThisKey="StaticRouteControl" OtherKey="StaticRouteCarrStaticRouteControl" Type="tblStaticRouteCarr" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneFees" Member="LaneFees">
+    <Type Name="LaneFee">
+      <Column Name="LaneFeesControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneFeesLaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneFeesMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneFeesVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneFeesAccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneFeesVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneFeesVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneFeesEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneFeesTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneFeesBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneFeesAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneFeesModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneFeesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="Lane_LaneFee" Member="Lane" ThisKey="LaneFeesLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneTransLoadXref" Member="LaneTransLoadXrefs">
+    <Type Name="LaneTransLoadXref">
+      <Column Name="LaneTranXControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTranXLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTranXMinCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXBenchMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneTranXModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="LaneTransLoadXref_LaneTransLoadXrefDet" Member="LaneTransLoadXrefDets" ThisKey="LaneTranXControl" OtherKey="LaneTranXDetLaneTranXControl" Type="LaneTransLoadXrefDet" />
+      <Association Name="tblModeTypeRefLane_LaneTransLoadXref" Member="tblModeTypeRefLane" ThisKey="LaneTranXModeTypeControl" OtherKey="ModeTypeControl" Type="tblModeTypeRefLane" IsForeignKey="true" />
+      <Association Name="Lane_LaneTransLoadXref" Member="Lane" ThisKey="LaneTranXLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblModeType" Member="tblModeTypeRefLanes">
+    <Type Name="tblModeTypeRefLane">
+      <Column Name="ModeTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModeTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModeTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModeTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModeTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblModeTypeRefLane_LaneTransLoadXref" Member="LaneTransLoadXrefs" ThisKey="ModeTypeControl" OtherKey="LaneTranXModeTypeControl" Type="LaneTransLoadXref" />
+      <Association Name="tblModeTypeRefLane_LaneTransLoadXrefDet" Member="LaneTransLoadXrefDets" ThisKey="ModeTypeControl" OtherKey="LaneTranXDetModeTypeControl" Type="LaneTransLoadXrefDet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneTrans" Member="LaneTranRefLanes">
+    <Type Name="LaneTranRefLane">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTransNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTransTypeDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTransServiceFeeMin" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeFlat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeePerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTransUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="LaneTranRefLane_LaneTransLoadXrefDet" Member="LaneTransLoadXrefDets" ThisKey="LaneTransNumber" OtherKey="LaneTranXDetTransType" Type="LaneTransLoadXrefDet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarrierTariff" Member="CarrierTariffRefLanes">
+    <Type Name="CarrierTariffRefLane">
+      <Column Name="CarrTarControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrTarCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarBPBracketType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTLCapacityType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTariffType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarDefWgt" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarModDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="CarrTarEffDateFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarEffDateTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarAutoAssignPro" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTariffTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTariffModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarRevisionNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarApprovedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarApprovedBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarRejected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarRejectedBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarRejectedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarOutbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarAgentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarIssuedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CarrTarUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CarrTarUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CarrTarUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CarrTarPreCloneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarrierTariffRefLane_tblHDMTariffXref" Member="tblHDMTariffXrefs" ThisKey="CarrTarControl" OtherKey="HDMTariffXrefCarrTarControl" Type="tblHDMTariffXref" />
+      <Association Name="CarrierTariffRefLane_CarrierTariffEquipmentRefLane" Member="CarrierTariffEquipmentRefLanes" ThisKey="CarrTarControl" OtherKey="CarrTarEquipCarrTarControl" Type="CarrierTariffEquipmentRefLane" />
+      <Association Name="CarrierRefLane_CarrierTariffRefLane" Member="CarrierRefLane" ThisKey="CarrTarCarrierControl" OtherKey="CarrierControl" Type="CarrierRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="CompRefLane_CarrierTariffRefLane" Member="CompRefLane" ThisKey="CarrTarCompControl" OtherKey="CompControl" Type="CompRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarrierCont" Member="CarrierContRefLanes">
+    <Type Name="CarrierContRefLane">
+      <Column Name="CarrierContControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrierContCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierContTitle" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierContPhoneExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CarrierContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContact800" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContactEMail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="CarrierRefLane_CarrierContRefLane" Member="CarrierRefLane" ThisKey="CarrierContCarrierControl" OtherKey="CarrierControl" Type="CarrierRefLane" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneTransLoadXrefDet" Member="LaneTransLoadXrefDets">
+    <Type Name="LaneTransLoadXrefDet">
+      <Column Name="LaneTranXDetControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTranXDetLaneTranXControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrTarEquipControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetRule11Required" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetBilledSeperately" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetConsolidateSplits" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetTransType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTranXDetBFC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTranXDetBFCType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetBenchMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneTranXDetModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LaneTranXDetTransitHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetTransferHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LaneTransLoadXref_LaneTransLoadXrefDet" Member="LaneTransLoadXref" ThisKey="LaneTranXDetLaneTranXControl" OtherKey="LaneTranXControl" Type="LaneTransLoadXref" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblModeTypeRefLane_LaneTransLoadXrefDet" Member="tblModeTypeRefLane" ThisKey="LaneTranXDetModeTypeControl" OtherKey="ModeTypeControl" Type="tblModeTypeRefLane" IsForeignKey="true" />
+      <Association Name="LaneTranRefLane_LaneTransLoadXrefDet" Member="LaneTranRefLane" ThisKey="LaneTranXDetTransType" OtherKey="LaneTransNumber" Type="LaneTranRefLane" IsForeignKey="true" />
+      <Association Name="Lane_LaneTransLoadXrefDet" Member="Lane" ThisKey="LaneTranXDetLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TempType" Member="TempTypeRefLanes">
+    <Type Name="TempTypeRefLane">
+      <Column Name="CommCodeType" Type="System.String" DbType="NVarChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblHDMZip" Member="tblHDMZips">
+    <Type Name="tblHDMZip">
+      <Column Name="HDMZipControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HDMZipHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipFrom" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipTo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HDMZipModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDMZipModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HDMZipUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="HDMZipCity" Type="System.String" DbType="nvarchar(25)" CanBeNull="true" />
+      <Column Name="HDMZipState" Type="System.String" DbType="nvarchar(8)" CanBeNull="true" />
+      <Column Name="HDMZipCountry" Type="System.String" DbType="nvarchar(30)" CanBeNull="true" />
+      <Association Name="tblHDM_tblHDMZip" Member="tblHDM" ThisKey="HDMZipHDMControl" OtherKey="HDMControl" Type="tblHDM" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblHDMTariffXref" Member="tblHDMTariffXrefs">
+    <Type Name="tblHDMTariffXref">
+      <Column Name="HDMTariffXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HDMTariffXrefCarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMTariffXrefHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMTariffXrefCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarrierRefLane_tblHDMTariffXref" Member="CarrierRefLane" ThisKey="HDMTariffXrefCarrierControl" OtherKey="CarrierControl" Type="CarrierRefLane" IsForeignKey="true" />
+      <Association Name="CarrierTariffRefLane_tblHDMTariffXref" Member="CarrierTariffRefLane" ThisKey="HDMTariffXrefCarrTarControl" OtherKey="CarrTarControl" Type="CarrierTariffRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblHDM_tblHDMTariffXref" Member="tblHDM" ThisKey="HDMTariffXrefHDMControl" OtherKey="HDMControl" Type="tblHDM" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LimitLaneToCarrier" Member="LimitLaneToCarriers">
+    <Type Name="LimitLaneToCarrier">
+      <Column Name="LLTCControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LLTCCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LLTCLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LimitLaneToCarrierUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LLTCModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSequenceNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTariffControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTariffName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCTariffEquip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCMinAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCAllowAutoAssignment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCIgnoreTariff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LLTCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LLTCCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Lane_LimitLaneToCarrier" Member="Lane" ThisKey="LLTCLaneControl" OtherKey="LaneControl" Type="Lane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLimitLaneToCarrTar" Member="vLimitLaneToCarrTars">
+    <Type Name="vLimitLaneToCarrTar">
+      <Column Name="LLTCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LLTCLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LimitLaneToCarrierUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LLTCModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSequenceNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTariffControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCTariffName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCTariffEquip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCMinAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCAllowAutoAssignment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCIgnoreTariff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LLTCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierContact800" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContactDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContactEMail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierContPhoneExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AKA" Member="AKARefLanes">
+    <Type Name="AKARefLane">
+      <Column Name="AKAControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AKAValue" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AKA1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA4" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA5" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA6" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA7" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA8" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA9" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKA10" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AKAUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLELaneFee" Member="vLELaneFees">
+    <Type Name="vLELaneFee">
+      <Column Name="LaneFeesControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesLaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneFeesCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneFeesEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneFeesAccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialFeeAllocationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeCalcTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TarBracketTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneFeesVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneFeesVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneFeesBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneFeesAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneFeesVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialVariableCodesName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneFeesModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneFeesModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneFeesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLaneProfileSettings" Member="vLaneProfileSettings">
+    <Type Name="vLaneProfileSetting">
+      <Column Name="LaneProfileSettingsLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneProfileSettingsLaneNumber" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneProfileSettingsLaneName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneProfileSettingsAccessorialCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneProfileSettingsAccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneProfileSettingsSelected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLimitLaneToCarrier" Member="vLimitLaneToCarriers">
+    <Type Name="vLimitLaneToCarrier">
+      <Column Name="LLTCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LLTCLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LimitLaneToCarrierUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LLTCModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSequenceNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCSActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTariffControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTariffName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCTariffEquip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCMinAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCMaxAllowedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCAllowAutoAssignment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCIgnoreTariff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LLTCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierContact800" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContactDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContactEMail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CarrierContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierContPhoneExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="LLTCModeTypeName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LLTCTempTypeName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLELaneActiveCarriers" Member="vLELaneActiveCarriers">
+    <Type Name="vLELaneActiveCarrier">
+      <Column Name="CarrierNumber" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeTypeControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeTypeName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TariffControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TariffName" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TariffEquip" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierIgnoreTariff" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="BookModeTypeControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTempType" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="BookCarrTarControl" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLaneLESummary" Member="vLaneLESummaries">
+    <Type Name="vLaneLESummary">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CompProabrev" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneOriginAddressUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTransType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TransType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneComments" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCommentsConfidential" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneOrigCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrigName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="LaneOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigCSZ" Type="System.String" DbType="NVarChar(47) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneOrigContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneAppt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneRecHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneRecHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LaneDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestCSZ" Type="System.String" DbType="NVarChar(41) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDestContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneAptDelivery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneDestHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LaneTLWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTLCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLaneTransLoadXrefDet" Member="vLaneTransLoadXrefDets">
+    <Type Name="vLaneTransLoadXrefDet">
+      <Column Name="LaneTranXDetControl" Type="System.Int32" DbType="Int NOT NULL" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTranXDetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetLaneTranXControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetLaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetLaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneTranXDetCarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTranXDetCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneTranXDetContPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneTranXDetContExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="LaneTranXDetCont800" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneTranXDetModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetModeTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrTarName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTranXDetCarrTarEquipControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetCarrTarEquipName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTranXDetRule11Required" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetBilledSeperately" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetConsolidateSplits" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTranXDetTransType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTranXDetTransTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTranXDetBFC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTranXDetBFCType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetBenchMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXDetTransitHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetTransferHours" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXDetModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneTranXDetModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXDetUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="TransLoadName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="vLaneTransLoadXref_vLaneTransLoadXrefDet" Member="vLaneTransLoadXref" ThisKey="LaneTranXDetLaneTranXControl" OtherKey="LaneTranXControl" Type="vLaneTransLoadXref" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLaneTransLoadXref" Member="vLaneTransLoadXrefs">
+    <Type Name="vLaneTransLoadXref">
+      <Column Name="LaneTranXControl" Type="System.Int32" DbType="Int NOT NULL" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTranXName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXLaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXLaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXModeTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXTempTypeName" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="LaneTranXTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTranXMinCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMinPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxCases" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxWgt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxCube" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXMaxPL" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXBenchMiles" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTranXUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneTranXModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneTranXModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneTranXUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="vLaneTransLoadXref_vLaneTransLoadXrefDet" Member="vLaneTransLoadXrefDets" ThisKey="LaneTranXControl" OtherKey="LaneTranXDetLaneTranXControl" Type="vLaneTransLoadXrefDet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lane" Member="Lanes">
+    <Type Name="Lane">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumberMaster" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneNameMaster" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDefaultCarrierUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierContact" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrigName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="LaneOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigContactPhoneExt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneDestCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LaneDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestContactPhoneExt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestContactFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LaneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneConsigneeNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneRecMinIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneRecMinUnload" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneRecMinOut" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneAppt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LanePalletExchange" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LanePalletType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneBenchMiles" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneBFC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneBFCType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneRecHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneRecHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneComments" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCommentsConfidential" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneTransType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LanePrimaryBuyer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOLTBenchmark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLTBenchmark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneAptDelivery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LaneOrderControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDWgt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCubes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDPUAllow" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderSTDAllowType" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneOrderSTDAllowValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderSTDMonthlyOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDYearlyFRT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCostMile" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCostCWT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderSTDCostFlat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTWgt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderACTCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderACTCubes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderACTPUAllow" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTAllowType" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneOrderACTAllowValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTMonthlyOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderACTYearlyFRT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrderACTCostMile" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTCostFlat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneOrderACTCostCWT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneStops" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneFixedTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOriginAddressUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneSDFUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneSDFSRZone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFMRZone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFFixedTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay1" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay3" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay4" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay5" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay6" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFEarlyTM7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFLateTM7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneSDFDay7" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="LaneSDFUnldRate1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LaneSDFUnldRate2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LaneSDFUnldRate3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LaneSDFUnldRate4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LaneSDFUnldRate5" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LaneAutoTenderFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCascadingDispatchingFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePortofEntry" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneDoNotInvoice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTLCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTLCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneChepGLID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneCarrierTypeCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneCarrierEquipmentCodes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LanePickUpMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LanePickUpSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDropOffSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneOrigStopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDestStopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRouteTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDefaultRouteSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRouteGuideControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRouteGuideNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneIsCrossDockFacility" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRequiredOnTimeServiceLevel" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalcOnTimeServiceLevel" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCalcOnTimeNoMonthsUsed" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneIsTransLoad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneAllowInterline" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRestrictedAtCompLevel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneOrigContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneWeightUnit" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneLengthUnit" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneAllowCarrierBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneRequireCarrierAuthBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneUseCarrieContEmailForBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenFailEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenFailPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneTransLeadTimeCalcType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTransLeadTimeUseMasterLane" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTransLeadTimeLocationOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrigTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneDestTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReferenceLaneNumber" Type="System.String" DbType="NVarChar(150)" CanBeNull="false" />
+      <Association Name="Lane_LaneCal" Member="LaneCals" ThisKey="LaneControl" OtherKey="LaneCalLaneControl" Type="LaneCal" />
+      <Association Name="Lane_LaneCarr" Member="LaneCarrs" ThisKey="LaneControl" OtherKey="LaneCarrLaneControl" Type="LaneCarr" />
+      <Association Name="Lane_LaneCode" Member="LaneCodes" ThisKey="LaneControl" OtherKey="LaneCodesLaneControl" Type="LaneCode" />
+      <Association Name="Lane_LaneSec" Member="LaneSecs" ThisKey="LaneControl" OtherKey="LaneSecLaneControl" Type="LaneSec" />
+      <Association Name="Lane_LaneFee" Member="LaneFees" ThisKey="LaneControl" OtherKey="LaneFeesLaneControl" Type="LaneFee" />
+      <Association Name="Lane_LaneTransLoadXref" Member="LaneTransLoadXrefs" ThisKey="LaneControl" OtherKey="LaneTranXLaneControl" Type="LaneTransLoadXref" />
+      <Association Name="Lane_LaneTransLoadXrefDet" Member="LaneTransLoadXrefDets" ThisKey="LaneControl" OtherKey="LaneTranXDetLaneControl" Type="LaneTransLoadXrefDet" />
+      <Association Name="Lane_LimitLaneToCarrier" Member="LimitLaneToCarriers" ThisKey="LaneControl" OtherKey="LLTCLaneControl" Type="LimitLaneToCarrier" />
+      <Association Name="tblRouteTypeRefLane_Lane" Member="tblRouteTypeRefLane" ThisKey="LaneRouteTypeCode" OtherKey="RouteTypeControl" Type="tblRouteTypeRefLane" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblHDM" Member="tblHDMs">
+    <Type Name="tblHDM">
+      <Column Name="HDMControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HDMCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HDMMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HDMVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMMaximum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDMModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HDMUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="HDMLEAdminControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HDMCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblHDM_tblHDMZip" Member="tblHDMZips" ThisKey="HDMControl" OtherKey="HDMZipHDMControl" Type="tblHDMZip" />
+      <Association Name="tblHDM_tblHDMTariffXref" Member="tblHDMTariffXrefs" ThisKey="HDMControl" OtherKey="HDMTariffXrefHDMControl" Type="tblHDMTariffXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblHDM" Member="vtblHDMs">
+    <Type Name="vtblHDM">
+      <Column Name="HDMControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HDMCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HDMMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HDMVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMMaximum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDMModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HDMUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="HDMLEAdminControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HDMCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="VariableCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblHDMLocation" Member="vtblHDMLocations">
+    <Type Name="vtblHDMLocation">
+      <Column Name="HDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HDMMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HDMVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMMaximum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMZipControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipFrom" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipTo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HDMZipCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="HDMZipState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="HDMZipCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblHDMTariffAvailable" Member="vtblHDMTariffAvailables">
+    <Type Name="vtblHDMTariffAvailable">
+      <Column Name="HDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HDMMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HDMVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMMaximum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMLEAdminControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HDMCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="VariableCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Available" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblHDMTariffXref" Member="vtblHDMTariffXrefs">
+    <Type Name="vtblHDMTariffXref">
+      <Column Name="HDMTariffXrefControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMTariffXrefCarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMTariffXrefHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMTariffXrefCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarRevisionNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEffDateFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarEffDateTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HDMMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HDMVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMMaximum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HDMLEAdminControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDMActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HDMCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="VariableCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblHDMZip" Member="vtblHDMZips">
+    <Type Name="vtblHDMZip">
+      <Column Name="HDMZipControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HDMZipHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipFrom" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HDMZipTo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HDMZipCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="HDMZipState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="HDMZipCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="HDMZipModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HDMZipModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HDMZipUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRouteType" Member="tblRouteTypeRefLanes">
+    <Type Name="tblRouteTypeRefLane">
+      <Column Name="RouteTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RouteTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteTypeDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RouteTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblRouteTypeRefLane_tblStaticRouteCarr" Member="tblStaticRouteCarrs" ThisKey="RouteTypeControl" OtherKey="StaticRouteCarrRouteTypeCode" Type="tblStaticRouteCarr" />
+      <Association Name="tblRouteTypeRefLane_Lane" Member="Lanes" ThisKey="RouteTypeControl" OtherKey="LaneRouteTypeCode" Type="Lane" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarrierTariffEquipment" Member="CarrierTariffEquipmentRefLanes">
+    <Type Name="CarrierTariffEquipmentRefLane">
+      <Column Name="CarrTarEquipControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrTarEquipCarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCarrierEquipControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarEquipDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrTarEquipPUMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPUSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLMon" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLTue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLWed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLThu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLFri" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLSat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDLSun" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCasesMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCasesConsiderFull" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCasesMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipWgtMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipWgtConsiderFull" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipWgtMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCubesMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCubesConsiderFull" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCubesMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPltsMinimum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPltsConsiderFull" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPltsMaximum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCarrProName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarEquipModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarEquipModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarEquipUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="CarrTarEquipPreCloneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipMultiOrigRating" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="CarrierTariffRefLane_CarrierTariffEquipmentRefLane" Member="CarrierTariffRefLane" ThisKey="CarrTarEquipCarrTarControl" OtherKey="CarrTarControl" Type="CarrierTariffRefLane" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLELane365" Member="vLELane365s">
+    <Type Name="vLELane365">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneOriginAddressUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTransType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TransType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneComments" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCommentsConfidential" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneOrigCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrigName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneOrigCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneOrigState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="LaneOrigCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneOrigZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneOrigEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneAppt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneRecHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneRecHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LaneDestCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LaneDestState" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="LaneDestCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneDestZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneDestEmergencyContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneAptDelivery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneDestHourStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneDestHourStop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LaneTLWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTLCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneNumberMaster" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneNameMaster" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneCarrierEquipmentCodes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="txtLaneDefaultCarrier" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierContact" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneStops" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneDefaultCarrierUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneAutoTenderFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDoNotInvoice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneAllowInterline" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneCascadingDispatchingFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LaneUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="LanePalletExchange" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LanePalletType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneOLTBenchmark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTLTBenchmark" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LanePrimaryBuyer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneRecMinIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneRecMinUnload" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneRecMinOut" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneConsigneeNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneBFC" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneBFCType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanePortofEntry" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneBenchMiles" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneIsTransLoad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneIsCrossDockFacility" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRouteGuideControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneDefaultRouteSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneRouteTypeCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneWeightUnit" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneLengthUnit" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LaneAllowCarrierBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneRequireCarrierAuthBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneUseCarrieContEmailForBookApptByEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenFailEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LaneCarrierBookApptviaTokenFailPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LaneRestrictedAtCompLevel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTransLeadTimeCalcType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTransLeadTimeUseMasterLane" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LaneTransLeadTimeLocationOption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneOrigTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LaneDestTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReferenceLaneNumber" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLEComp365" Member="vLEComp365RefLanes">
+    <Type Name="vLEComp365RefLane">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAlphaCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAbrev" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CompWeb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetCity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompStreetState" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompStreetCountry" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompStreetZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddressLong" Type="System.String" DbType="NVarChar(435) NOT NULL" CanBeNull="false" />
+      <Column Name="StreetAddressShort" Type="System.String" DbType="NVarChar(293) NOT NULL" CanBeNull="false" />
+      <Column Name="StreetCSZ" Type="System.String" DbType="NVarChar(252) NOT NULL" CanBeNull="false" />
+      <Column Name="CompModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="CompPayTolPerLo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CompPayTolPerHi" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CompPayTolCurLo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CompPayTolCurHi" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompFAAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFDAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompTypeCategory" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompNEXTStopAcctNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNEXTStopPsw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNextstopSubmitRFP" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTrack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompAMS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinUseImportFrtCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompSilentTender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompMailAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailCity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompMailState" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompMailZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompMailCountry" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MailAddressLong" Type="System.String" DbType="NVarChar(435) NOT NULL" CanBeNull="false" />
+      <Column Name="MailAddressShort" Type="System.String" DbType="NVarChar(293) NOT NULL" CanBeNull="false" />
+      <Column Name="MailCSZ" Type="System.String" DbType="NVarChar(252) NOT NULL" CanBeNull="false" />
+      <Column Name="CompRailStationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailSPLC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailFSAC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRail333" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailR260" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="NewContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="NewContTitle" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="NewCont800" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewContPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="NewContPhoneExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="NewContFax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="NewContEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewContTendered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompNotifyEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompFax" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompCarrierLoadAcceptanceAllowedMinutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompRejectedLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompRejectedLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompExpiredLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompExpiredLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAcceptedLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAcceptedLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompHeaderLogo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompHeaderLogoLink" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAMSApptDetFieldsVisible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompWillLoadOnSunday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWillLoadOnSaturday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spAddBadAddress50" Method="spAddBadAddress50">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BLALaneControl" Parameter="bLALaneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BLALaneOrigAddress1" Parameter="bLALaneOrigAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="BLALaneOrigCity" Parameter="bLALaneOrigCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="BLALaneOrigState" Parameter="bLALaneOrigState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="BLALaneOrigZip" Parameter="bLALaneOrigZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="BLALaneOrigCountry" Parameter="bLALaneOrigCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BLALaneDestAddress1" Parameter="bLALaneDestAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="BLALaneDestCity" Parameter="bLALaneDestCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="BLALaneDestState" Parameter="bLALaneDestState" Type="System.String" DbType="NVarChar(2)" />
+    <Parameter Name="BLALaneDestZip" Parameter="bLALaneDestZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="BLALaneDestCountry" Parameter="bLALaneDestCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BLAPCMilerOrigAddress1" Parameter="bLAPCMilerOrigAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="BLAPCMilerOrigCity" Parameter="bLAPCMilerOrigCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="BLAPCMilerOrigState" Parameter="bLAPCMilerOrigState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="BLAPCMilerOrigZip" Parameter="bLAPCMilerOrigZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="BLAPCMilerOrigCountry" Parameter="bLAPCMilerOrigCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BLAPCMilerDestAddress1" Parameter="bLAPCMilerDestAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="BLAPCMilerDestCity" Parameter="bLAPCMilerDestCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="BLAPCMilerDestState" Parameter="bLAPCMilerDestState" Type="System.String" DbType="NVarChar(2)" />
+    <Parameter Name="BLAPCMilerDestZip" Parameter="bLAPCMilerDestZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="BLAPCMilerDestCountry" Parameter="bLAPCMilerDestCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="BLAMessage" Parameter="bLAMessage" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="BatchID" Parameter="batchID" Type="System.Double" DbType="Float" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spAddBadAddress50Result">
+      <Column Name="BLAControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getCarrierTruckCodeString" Method="getCarrierTruckCodeStringRefLane" IsComposable="true">
+    <Parameter Name="intCarrierTruckControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.spGetLaneProfileSettings" Method="spGetLaneProfileSettings">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Selected" Parameter="selected" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spGetLaneProfileSettingsResult">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Selected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateLaneProfileXref" Method="spUpdateLaneProfileXref">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AccessorialCode" Parameter="accessorialCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Selected" Parameter="selected" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spUpdateLaneProfileXrefResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdateLaneCal70" Method="spInsertOrUpdateLaneCal70">
+    <Parameter Name="LaneLegalEntity" Parameter="laneLegalEntity" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LaneNumber" Parameter="laneNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LaneCompAlphaCode" Parameter="laneCompAlphaCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Month" Parameter="month" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MonthAllowUpdate" Parameter="monthAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Day" Parameter="day" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DayAllowUpdate" Parameter="dayAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Open" Parameter="open" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="OpenAllowUpdate" Parameter="openAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="StartTimeAllowUpdate" Parameter="startTimeAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="EndTime" Parameter="endTime" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="EndTimeAllowUpdate" Parameter="endTimeAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsHoliday" Parameter="isHoliday" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsHolidayAllowUpdate" Parameter="isHolidayAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ApplyToOrigin" Parameter="applyToOrigin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ApplyToOriginAllowUpdate" Parameter="applyToOriginAllowUpdate" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spInsertOrUpdateLaneCal70Result">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spHasLaneAddressInfoChanged" Method="spHasLaneAddressInfoChanged">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LaneOrigCity" Parameter="laneOrigCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="LaneOrigState" Parameter="laneOrigState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="LaneOrigCountry" Parameter="laneOrigCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LaneOrigZip" Parameter="laneOrigZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="LaneDestCity" Parameter="laneDestCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="LaneDestState" Parameter="laneDestState" Type="System.String" DbType="NVarChar(2)" />
+    <Parameter Name="LaneDestCountry" Parameter="laneDestCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="LaneDestZip" Parameter="laneDestZip" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="spHasLaneAddressInfoChangedResult">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateLaneHDMFees" Method="spUpdateLaneHDMFees">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spUpdateLaneHDMFeesResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateHDMZipRange" Method="spUpdateHDMZipRange">
+    <Parameter Name="HDMControl" Parameter="hDMControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMZipControl" Parameter="hDMZipControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMZipFrom" Parameter="hDMZipFrom" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="HDMZipTo" Parameter="hDMZipTo" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="HDMZipCity" Parameter="hDMZipCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="HDMZipState" Parameter="hDMZipState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="HDMZipCountry" Parameter="hDMZipCountry" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteHDM" Method="spDeleteHDM">
+    <Parameter Name="HDMControl" Parameter="hDMControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteHDMZipRange" Method="spDeleteHDMZipRange">
+    <Parameter Name="HDMZipControl" Parameter="hDMZipControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spAddLaneCarrierRestriction" Method="spAddLaneCarrierRestriction">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCModeTypeControl" Parameter="lLTCModeTypeControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCSequenceNumber" Parameter="lLTCSequenceNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCSActive" Parameter="lLTCSActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LLTCTempType" Parameter="lLTCTempType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCMaxCases" Parameter="lLTCMaxCases" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCMaxWgt" Parameter="lLTCMaxWgt" Type="System.Double" DbType="Float" />
+    <Parameter Name="LLTCMaxCube" Parameter="lLTCMaxCube" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LLTCMaxPL" Parameter="lLTCMaxPL" Type="System.Double" DbType="Float" />
+    <Parameter Name="LLTCTariffName" Parameter="lLTCTariffName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LLTCTariffEquip" Parameter="lLTCTariffEquip" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LLTCMinAllowedCost" Parameter="lLTCMinAllowedCost" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="LLTCMaxAllowedCost" Parameter="lLTCMaxAllowedCost" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="LLTCAllowAutoAssignment" Parameter="lLTCAllowAutoAssignment" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LLTCIgnoreTariff" Parameter="lLTCIgnoreTariff" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spAddLaneCarrierRestrictionResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSetPreferredCarriersInactive" Method="spSetPreferredCarriersInactive">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSetPreferredCarriersInactiveResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spActivatePreferredCarriers" Method="spActivatePreferredCarriers">
+    <Parameter Name="strControls" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spActivatePreferredCarriersResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spRestrictOrWarnLaneNPC" Method="spRestrictOrWarnLaneNPC">
+    <Parameter Name="strControls" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Action" Parameter="action" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Value" Parameter="value" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spRestrictOrWarnLaneNPCResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateLaneRestrictedAtCompLevel" Method="spUpdateLaneRestrictedAtCompLevel">
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Value" Parameter="value" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spUpdateLaneRestrictedAtCompLevelResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spLookupLaneActiveCarriers" Method="spLookupLaneActiveCarriers">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spLookupLaneActiveCarriersResult">
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModeTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModeTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TempTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TariffControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TariffName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TariffEquip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierIgnoreTariff" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetPreferredCarriersForUser" Method="spGetPreferredCarriersForUser">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGetPreferredCarriersForUserResult">
+      <Column Name="blnHasCompRestrictions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LLTCControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCCarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCCarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCCarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LLTCLaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LLTCModeTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCSequenceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCSActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LLTCTempType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCMaxCases" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCMaxWgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LLTCMaxCube" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCMaxPL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LLTCTariffControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LLTCTariffName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCTariffEquip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LLTCMinAllowedCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LLTCMaxAllowedCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LLTCAllowAutoAssignment" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LLTCIgnoreTariff" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateLaneDefaultUsingPreferredCarrier" Method="spUpdateLaneDefaultUsingPreferredCarrier">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spUpdateLaneDefaultUsingPreferredCarrierResult">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetAddressBookForLE" Method="spGetAddressBookForLE">
+    <Parameter Name="LEAdminControl" Parameter="lEAdminControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="filter" Type="System.String" DbType="NVarChar(40)" />
+    <ElementType Name="spGetAddressBookForLEResult">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Address3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCreateLaneNumber365" Method="spCreateLaneNumber365">
+    <Parameter Name="LTTransType" Parameter="lTTransType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrigCompControl" Parameter="origCompControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrigName" Parameter="origName" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="OrigAddress1" Parameter="origAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="OrigCity" Parameter="origCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="OrigState" Parameter="origState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="OrigZip" Parameter="origZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="DestCompControl" Parameter="destCompControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DestName" Parameter="destName" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="DestAddress1" Parameter="destAddress1" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="DestCity" Parameter="destCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="DestState" Parameter="destState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="DestZip" Parameter="destZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="LEControl" Parameter="lEControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spCreateLaneNumber365Result">
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdateTariffHDM" Method="spInsertOrUpdateTariffHDM">
+    <Parameter Name="HDMControl" Parameter="hDMControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMCarrierControl" Parameter="hDMCarrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMName" Parameter="hDMName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="HDMDesc" Parameter="hDMDesc" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CarrTarControl" Parameter="carrTarControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Selected" Parameter="selected" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="HDMMinimum" Parameter="hDMMinimum" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="HDMVariable" Parameter="hDMVariable" Type="System.Double" DbType="Float" />
+    <Parameter Name="HDMVariableCode" Parameter="hDMVariableCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMMaximum" Parameter="hDMMaximum" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="HDMLEAdminControl" Parameter="hDMLEAdminControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HDMActive" Parameter="hDMActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="HDMCompControl" Parameter="hDMCompControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spInsertOrUpdateTariffHDMResult">
+      <Column Name="HDMControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteHDMZipRangesForCarrierTariffs" Method="spDeleteHDMZipRangesForCarrierTariffs">
+    <Parameter Name="HDMControl" Parameter="hDMControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,106 @@
+﻿/* 
+Created by RHR for v-8.5.1.002 on 03/04/2022 
+Run this after the upgrade all script.
+*/
+-- Note: update the default location id for this customer, get from CHR
+Declare @LocationID nvarchar(100) = 'C377465'
+Declare @SSOALEControl int = 0
+Declare @LowLTLWeight nvarchar(50) = '500'
+Declare @HighLTLWeight nvarchar(50)  = '5000'
+Declare @LowTLWeight nvarchar(50) = '5000'
+Declare @HighTLWeight nvarchar(50) = '45000'
+Declare @CarrierNumber int = 0
+Select top 1 @CarrierNumber = CarrierNumber From Carrier where CarrierName like 'CH R%'
+
+if @CarrierNumber > 0 and exists(Select * from dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = 10)
+Begin
+	if not exists(Select * From  dbo.tblSingleSignOnAccount where tblSingleSignOnAccount.SSOAControl = 10  and tblSingleSignOnAccount.SSOAClientID  = '0oa9kmcecjIeC1Rgn357')
+	Begin
+		--Not set up so add the header details
+		-- Note: production API for CHR https://api.navisphere.com/v1/quotes 
+		update  dbo.tblSingleSignOnAccount set
+			tblSingleSignOnAccount.SSOAClientID  = '0oa9kmcecjIeC1Rgn357',
+			SSOAClientSecret = 'Wy9DFX_AQRoVlC4rMIcqUdgVcFJ0SpgcvoRnolKY',
+			SSOAAuthCode = 'client_credentials',
+			SSOALoginURL = 'https://inavisphere.chrobinson.com',
+			SSOADataURL = 'https://sandbox-api.navisphere.com/v1/quotes'			
+		where tblSingleSignOnAccount.SSOAControl = 10 
+	End
+	Declare @SSOACSSOALEControl int
+	if not exists(Select * From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = 10 and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEClientID  = '0oa9kmcecjIeC1Rgn357')
+	Begin
+		--Not set up so add the LE header details
+		Insert Into   dbo.tblSSOALEConfig (
+			SSOALESSOAControl,
+			SSOALELEAdminControl,
+			SSOALEClientID,
+			SSOALEClientSecret,
+			SSOALEAuthCode,
+			SSOALELoginURL,
+			SSOALeDataURL
+		)
+		Values(
+			10, -- SSOALESSOAControl,
+			0, -- SSOALELEAdminControl,
+			'0oa9kmcecjIeC1Rgn357', -- SSOALEClientID,
+			'Wy9DFX_AQRoVlC4rMIcqUdgVcFJ0SpgcvoRnolKY', -- SSOALEClientSecret,
+			'client_credentials', -- SSOALEAuthCode,
+			'https://inavisphere.chrobinson.com', -- SSOALELoginURL,
+			'https://sandbox-api.navisphere.com/v1/quotes' -- SSOALeDataURL
+		)
+		Select @SSOALEControl = SCOPE_IDENTITY() 
+	End
+	Else
+	Begin
+		Select @SSOALEControl = SSOALEControl  From  dbo.tblSSOALEConfig where tblSSOALEConfig.SSOALESSOAControl = 10 and tblSSOALEConfig.SSOALELEAdminControl = 0 and tblSSOALEConfig.SSOALEClientID  = '0oa9kmcecjIeC1Rgn357'
+	End
+
+	
+	-- check for each of the default config settings
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl and [SSOACCompControl] = 0 and SSOACName = 'Mode')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Mode','Default Shipping Mode for All Locations','TL',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where  SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'Equipment')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'Equipment','Default Shipping Equipment for All Locations','VAN',getdate(),'System')
+	End
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'CarrierNumber')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'CarrierNumber','Default API Carrier Number for All Locations',Cast(@CarrierNumber as nvarchar(20)),getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LocationID')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LocationID','Default CHR LocationID for All Locations',@LocationID,getdate(),'System')
+	End	
+	
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowLTLWeight','Default CHR Low LTL Weight Break for All Locations',@LowLTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighLTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighLTLWeight','Default CHR High LTL Weight Break for All Locations',@HighLTLWeight,getdate(),'System')
+	End
+
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'LowTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'LowTLWeight','Default CHR Low Truckload Weight for All Locations',@LowTLWeight,getdate(),'System')
+	End
+
+	If not exists(Select * from dbo.tblSSOAConfig where SSOACSSOALEControl = @SSOALEControl  and [SSOACCompControl] = 0 and SSOACName = 'HighTLWeight')
+	Begin 
+		Insert Into dbo.tblSSOAConfig ([SSOACSSOALEControl],[SSOACCompControl],[SSOACName],[SSOACDesc] ,[SSOACValue] ,[SSOACModDate],[SSOACModUser] )
+		Values (@SSOALEControl,0,'HighTLWeight','Default CHR High Truckload Weight for All Locations',@HighTLWeight,getdate(),'System')
+	End
+End

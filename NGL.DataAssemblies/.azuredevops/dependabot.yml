@@ -1,0 +1,14 @@
+version: 2
+registries:
+  nuget-azure-devops:
+    type: nuget-feed
+    url: https://pkgs.dev.azure.com/DynamicsTMS365/8b7c74d8-234d-460c-b2f5-c9f56f673a39/_packaging/nglinternal/nuget/v3/index.json
+    token: PAT:${{ArtifactsPat}}
+
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - nuget-azure-devops

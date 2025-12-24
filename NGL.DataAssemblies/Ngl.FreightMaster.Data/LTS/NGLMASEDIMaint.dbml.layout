@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 24, 31.375" name="NGLMASEDIMaint">
+  <DataContextMoniker Name="/NGLMASEDIMaintDataContext" />
+  <nestedChildShapes>
+    <classShape Id="91827706-7efa-47f7-aef9-dac692a8cada" absoluteBounds="0.75, 9.25, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d407638e-f10b-42c1-a8c9-d1c50763aef9" absoluteBounds="0.765, 9.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="85cfd165-0871-44d1-86db-46e0156262dc" absoluteBounds="1.5, 19.875, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22e4f7e9-0644-442d-bcd6-cc0dcacd64b8" absoluteBounds="1.5150000000000001, 20.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd15f78c-cca5-43b1-ae72-e99574bd71d7" absoluteBounds="0.75, 14.75, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIElmnt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9460f5a-87d2-4cd3-9140-71e1512ceb6d" absoluteBounds="0.765, 15.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e41ec556-dfa6-40dd-8703-efd1e4ff519c" absoluteBounds="1.5, 22.625, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIValidationType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8dbcb51-fa15-485b-91c3-d47684dd9e61" absoluteBounds="1.5150000000000001, 23.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="921b0b42-9ccb-4d07-9ec3-23d101e4fdbc" absoluteBounds="1.5, 25.25, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIFormattingFunction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9aebb7d-d02a-4889-af7d-28b88ccec24d" absoluteBounds="1.5150000000000001, 25.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="249174f4-6d50-41f2-989f-efb787db64dc" absoluteBounds="0.75, 5.125, 2, 2.9247054036458335">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDISegment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ed1f476-df96-4054-a76e-28d62f15293c" absoluteBounds="0.765, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4975e9ba-e5bd-45b4-b1cf-3f6f0cb8e08b" absoluteBounds="3.5, 28.25, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDILoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b76f26c1-6422-46a0-868b-caa054c17edf" absoluteBounds="3.515, 28.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed913e38-52e9-4695-86d8-e8faa2c26fa4" absoluteBounds="3.5, 2.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocSegmentElement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fd36d2a-4d9d-40a5-867f-b6a52930553f" absoluteBounds="3.515, 3.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="246e929e-9a52-45d2-b4ae-635a3ed2eb48" absoluteBounds="6.5, 12, 2, 2.9247054036458344">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataMapField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58c465be-98b0-493e-a3cb-d25b860760be" absoluteBounds="6.515, 12.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="55325ecc-189f-478e-be01-c659991b266e" absoluteBounds="3.5, 7.25, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocument" />
+      <nestedChildShapes>
+        <elementListCompartment Id="105a3af9-c542-46cc-93af-d41c2099e1b6" absoluteBounds="3.515, 7.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39026621-e0e8-41f5-ad86-a63e99ab1a84" absoluteBounds="6.25, 6.875, 2, 3.5016097005208318">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructLoops" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c51f70c9-d5e6-4724-9100-6c0618ff31f4" absoluteBounds="6.265, 7.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="650ba4cd-a827-422d-ba03-08fed8bf6178" absoluteBounds="11, 4.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDITransformationType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bad967b7-b1f4-44d4-b9f3-c796adc74cc9" absoluteBounds="11.015, 4.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bd57ca1-549b-4d44-8dc6-31c5cbc9e11a" absoluteBounds="6.25, 16.125, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructLoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ed1d94c-5a73-4a61-9c12-d4216ea17c3a" absoluteBounds="6.265, 16.585, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c3d9c11-3879-4197-98d9-b92f0564af35" absoluteBounds="2.625, 0.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetCompany" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0fac0947-63e8-4579-922b-3d909b0c8297" absoluteBounds="2.6399999999999997, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f7f227a-74f5-42cf-ad5d-d889eb577517" absoluteBounds="4.75, 0.5, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetCompCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9912c436-94cf-4813-8780-1174fc3dc2b8" absoluteBounds="4.7650000000000006, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7e0a3d9b-5a54-4ec2-bc74-d98c0bd352b4" absoluteBounds="3.5, 14.5, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDITPDocument" />
+      <nestedChildShapes>
+        <elementListCompartment Id="785360c3-9e22-42ce-a8f2-8c1402938e19" absoluteBounds="3.515, 14.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8509295-b953-40e0-8719-a767067add19" absoluteBounds="9, 6.875, 2, 3.5016097005208318">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructSegment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c09ee2a7-e7e1-447a-9ec3-b6070b897342" absoluteBounds="9.015, 7.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9f655f5-5fc6-4779-83ee-6a14d528ee5e" absoluteBounds="11.75, 6.875, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructElement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63150b02-17de-4d43-814f-9b82fd06a71f" absoluteBounds="11.765, 7.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6970ee90-b907-4500-a567-32939fd84bee" absoluteBounds="6.875, 0.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetElementsBySegmentLoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea0a8b00-0a34-46fa-b6d4-a915d855237d" absoluteBounds="6.8900000000000006, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddabf298-ba10-4b32-a4cf-e511dac58b6a" absoluteBounds="15.375, 0.5, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vw_GetMasterDocument" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da7eaed6-76f5-4aa9-a7ab-ca0259c27329" absoluteBounds="15.39, 0.96000000000000085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a07290ea-8405-4ab9-86eb-0b34e73125e2" absoluteBounds="9, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetSegmentByMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ad29523-561a-4707-b2ad-d216c551824b" absoluteBounds="9.015, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="90286d1c-ef0d-4d78-867c-2679c22d01e4" absoluteBounds="11.125, 0.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetMDocSegmentsByLoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="177d2932-56c7-4dca-b4db-19b6660e87c0" absoluteBounds="11.14, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b79fede-64da-4dbe-8545-41df35fd8313" absoluteBounds="17.5, 0.5, 2, 2.9247054036458335">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vwGetSegmentElementsBySegmentLoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afe755af-03d8-434b-8316-e22485f9ccfd" absoluteBounds="17.515, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8cede2c-3a7f-4182-8aa3-12a4f441618c" absoluteBounds="11.75, 16.125, 2, 3.6939111328125023">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructElement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ec74d28-d25d-4d6c-82be-625516f07efc" absoluteBounds="11.765, 16.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e5e9530-f352-4a29-b3d8-fee65d55d3fb" absoluteBounds="19.625, 0.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vw_GetSegmentByLoop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b42ebd8e-839e-4d01-9c21-36b908a397e8" absoluteBounds="19.64, 0.96000000000000085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4b1bb7d-070a-4d5a-bb60-621f29722a4c" absoluteBounds="9, 16.125, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructSegment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e7e86ec-46ec-4bc0-87f6-d05d745a1b47" absoluteBounds="9.015, 16.585, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="567c6773-e892-4ef0-b929-88e32357a497" absoluteBounds="21.75, 0.5, 2, 4.6554182942708309">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vw_tblEDIDocStructElmntAttribute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bddbe24c-1e78-45cb-a9ea-4a449bbc45aa" absoluteBounds="21.765, 0.96000000000000085, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab9fd9fe-db65-4e0d-bd88-70403442a3f2" absoluteBounds="13.25, 0.5, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vw_tblEDIMasterDocStructElmntAttribute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bf4327a-c56a-4909-82d1-82afb9e8962c" absoluteBounds="13.265, 0.96, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4feab071-db21-40fc-8b61-f10c846d40ea" absoluteBounds="14.5, 6.375, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructElmntAttribute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f44582e-c6aa-4a80-8bb7-7be297fe4112" absoluteBounds="14.515, 6.835, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46be70e4-30b2-43a3-8793-01d1b0e2dcea" absoluteBounds="14.5, 15.75, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructElmntAttribute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cf888f1-af1a-4287-8bdd-eebb9f233741" absoluteBounds="14.515, 16.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42bcf37c-f754-41c1-b2b7-c15b80592ef2" absoluteBounds="0.5, 0.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/NGLMASEDIMaintDataContext/vw_tblEDIDataMapField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b16ad5a-be36-4d99-bd70-66a7a598f8ba" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.125 : 19.875); (2.125 : 18.2516097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataType/tblEDIDataType_tblEDIElmnt" />
+      <nodes>
+        <classShapeMoniker Id="85cfd165-0871-44d1-86db-46e0156262dc" />
+        <classShapeMoniker Id="dd15f78c-cca5-43b1-ae72-e99574bd71d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 23.6065991210938); (1.1249995 : 23.6065991210938); (1.1249995 : 18.2516097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIValidationType/tblEDIValidationType_tblEDIElmnt" />
+      <nodes>
+        <classShapeMoniker Id="e41ec556-dfa6-40dd-8703-efd1e4ff519c" />
+        <classShapeMoniker Id="dd15f78c-cca5-43b1-ae72-e99574bd71d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 26.2315991210938); (0.90624725 : 26.2315991210938); (0.90624725 : 18.2516097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIFormattingFunction/tblEDIFormattingFunction_tblEDIElmnt" />
+      <nodes>
+        <classShapeMoniker Id="921b0b42-9ccb-4d07-9ec3-23d101e4fdbc" />
+        <classShapeMoniker Id="dd15f78c-cca5-43b1-ae72-e99574bd71d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 14.7515374615385); (3.125 : 14.3765374615385); (3.125 : 4.50080485026042); (3.5 : 4.50080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIElmnt/tblEDIElmnt_tblEDIDocSegmentElement" />
+      <nodes>
+        <classShapeMoniker Id="dd15f78c-cca5-43b1-ae72-e99574bd71d7" />
+        <classShapeMoniker Id="ed913e38-52e9-4695-86d8-e8faa2c26fa4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 26.2315991210938); (4.5 : 26.2315991210938); (4.5 : 17.6747054036458); (3.25 : 17.6747054036458); (3.25 : 6.62660970052083); (4.5 : 6.62660970052083); (4.5 : 6.25160970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIFormattingFunction/tblEDIFormattingFunction_tblEDIDocSegmentElement" />
+      <nodes>
+        <classShapeMoniker Id="921b0b42-9ccb-4d07-9ec3-23d101e4fdbc" />
+        <classShapeMoniker Id="ed913e38-52e9-4695-86d8-e8faa2c26fa4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.68830485026042); (3.04166666666667 : 5.68830485026042 : JumpStart); (3.20833333333333 : 5.68830485026042 : JumpEnd); (3.5 : 5.68830485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDISegment/tblEDISegment_tblEDIDocSegmentElement" />
+      <nodes>
+        <classShapeMoniker Id="249174f4-6d50-41f2-989f-efb787db64dc" />
+        <classShapeMoniker Id="ed913e38-52e9-4695-86d8-e8faa2c26fa4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.96875 : 19.875); (2.96875 : 13.21875); (3.04166666666667 : 13.21875 : JumpStart); (3.33333333333333 : 13.21875 : JumpEnd); (6.5 : 13.21875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataType/tblEDIDataType_tblEDIDataMapField" />
+      <nodes>
+        <classShapeMoniker Id="85cfd165-0871-44d1-86db-46e0156262dc" />
+        <classShapeMoniker Id="246e929e-9a52-45d2-b4ae-635a3ed2eb48" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 28.25); (5.875 : 27.875); (5.875 : 8.62580485026042); (6.25 : 8.62580485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDILoop/tblEDILoop_tblEDIMasterDocStructLoops" />
+      <nodes>
+        <classShapeMoniker Id="4975e9ba-e5bd-45b4-b1cf-3f6f0cb8e08b" />
+        <classShapeMoniker Id="39026621-e0e8-41f5-ad86-a63e99ab1a84" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.87540242513021); (6.25 : 7.87540242513021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocument/tblEDIMasterDocument_tblEDIMasterDocStructLoops" />
+      <nodes>
+        <classShapeMoniker Id="55325ecc-189f-478e-be01-c659991b266e" />
+        <classShapeMoniker Id="39026621-e0e8-41f5-ad86-a63e99ab1a84" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 29.7436052018229); (7.25 : 29.7436052018229); (7.25 : 19.6266097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDILoop/tblEDILoop_tblEDIDocStructLoop" />
+      <nodes>
+        <classShapeMoniker Id="4975e9ba-e5bd-45b4-b1cf-3f6f0cb8e08b" />
+        <classShapeMoniker Id="0bd57ca1-549b-4d44-8dc6-31c5cbc9e11a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 16.7748527018229); (6.25 : 16.7748527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDITPDocument/tblEDITPDocument_tblEDIDocStructLoop" />
+      <nodes>
+        <classShapeMoniker Id="7e0a3d9b-5a54-4ec2-bc74-d98c0bd352b4" />
+        <classShapeMoniker Id="0bd57ca1-549b-4d44-8dc6-31c5cbc9e11a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 8.62580485026042); (8.66666666666667 : 8.62580485026042 : JumpStart); (8.83333333333333 : 8.62580485026042 : JumpEnd); (9 : 8.62580485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructLoops/tblEDIMasterDocStructLoops_tblEDIMasterDocStructSegment" />
+      <nodes>
+        <classShapeMoniker Id="39026621-e0e8-41f5-ad86-a63e99ab1a84" />
+        <classShapeMoniker Id="c8509295-b953-40e0-8719-a767067add19" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.47035970052083); (3.04166666666667 : 6.47035970052083 : JumpStart); (3.20833333333333 : 6.47035970052083 : JumpEnd); (10 : 6.47035970052083); (10 : 6.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDISegment/tblEDISegment_tblEDIMasterDocStructSegment" />
+      <nodes>
+        <classShapeMoniker Id="249174f4-6d50-41f2-989f-efb787db64dc" />
+        <classShapeMoniker Id="c8509295-b953-40e0-8719-a767067add19" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 20.3345475605469); (4.41666666666667 : 20.3345475605469 : JumpStart); (4.58333333333333 : 20.3345475605469 : JumpEnd); (7.16666666666667 : 20.3345475605469 : JumpStart); (7.33333333333333 : 20.3345475605469 : JumpEnd); (11.5 : 20.3345475605469); (11.5 : 10.9439111328125); (12.75 : 10.9439111328125); (12.75 : 10.5689111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataType/tblEDIDataType_tblEDIMasterDocStructElement" />
+      <nodes>
+        <classShapeMoniker Id="85cfd165-0871-44d1-86db-46e0156262dc" />
+        <classShapeMoniker Id="b9f655f5-5fc6-4779-83ee-6a14d528ee5e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 8.62580485026042); (11.1979166666667 : 8.62580485026042 : JumpStart); (11.3645833333333 : 8.62580485026042 : JumpEnd); (11.75 : 8.62580485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructSegment/tblEDIMasterDocStructSegment_tblEDIMasterDocStructElement" />
+      <nodes>
+        <classShapeMoniker Id="c8509295-b953-40e0-8719-a767067add19" />
+        <classShapeMoniker Id="b9f655f5-5fc6-4779-83ee-6a14d528ee5e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 20.8565991210938); (12.78125 : 20.8565991210938); (12.78125 : 19.8189111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDataType/tblEDIDataType_tblEDIDocStructElement" />
+      <nodes>
+        <classShapeMoniker Id="85cfd165-0871-44d1-86db-46e0156262dc" />
+        <classShapeMoniker Id="f8cede2c-3a7f-4182-8aa3-12a4f441618c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 17.8758048502604); (11.75 : 17.8758048502604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructSegment/tblEDIDocStructSegment_tblEDIDocStructElement" />
+      <nodes>
+        <classShapeMoniker Id="f4b1bb7d-070a-4d5a-bb60-621f29722a4c" />
+        <classShapeMoniker Id="f8cede2c-3a7f-4182-8aa3-12a4f441618c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 17.8758048502604); (9 : 17.8758048502604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructLoop/tblEDIDocStructLoop_tblEDIDocStructSegment" />
+      <nodes>
+        <classShapeMoniker Id="0bd57ca1-549b-4d44-8dc6-31c5cbc9e11a" />
+        <classShapeMoniker Id="f4b1bb7d-070a-4d5a-bb60-621f29722a4c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.71955485026042); (3.04166666666667 : 6.71955485026042 : JumpStart); (3.20833333333333 : 6.71955485026042 : JumpEnd); (8.75 : 6.71955485026042); (8.75 : 15.75); (10 : 15.75); (10 : 16.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDISegment/tblEDISegment_tblEDIDocStructSegment" />
+      <nodes>
+        <classShapeMoniker Id="249174f4-6d50-41f2-989f-efb787db64dc" />
+        <classShapeMoniker Id="f4b1bb7d-070a-4d5a-bb60-621f29722a4c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 25.251509152494); (3.87650915249399 : 24.875); (4.41666666666667 : 24.875 : JumpStart); (4.58333333333333 : 24.875 : JumpEnd); (7.16666666666667 : 24.875 : JumpStart); (7.33333333333333 : 24.875 : JumpEnd); (14.25 : 24.875); (14.25 : 11.1219620158253); (14.5338451538462 : 10.8381168619792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIFormattingFunction/tblEDIFormattingFunction_tblEDIMasterDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="921b0b42-9ccb-4d07-9ec3-23d101e4fdbc" />
+        <classShapeMoniker Id="4feab071-db21-40fc-8b61-f10c846d40ea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 8.72195556640625); (14.5 : 8.72195556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIMasterDocStructElement/tblEDIMasterDocStructElement_tblEDIMasterDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="b9f655f5-5fc6-4779-83ee-6a14d528ee5e" />
+        <classShapeMoniker Id="4feab071-db21-40fc-8b61-f10c846d40ea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13 : 5.79645864713542); (15.90625 : 5.79645864713542); (15.90625 : 6.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDITransformationType/tblEDITransformationType_tblEDIMasterDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="650ba4cd-a827-422d-ba03-08fed8bf6178" />
+        <classShapeMoniker Id="4feab071-db21-40fc-8b61-f10c846d40ea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 22.626509152494); (3.87650915249399 : 22.25); (4.41666666666667 : 22.25 : JumpStart); (4.58333333333333 : 22.25 : JumpEnd); (7.16666666666667 : 22.25 : JumpStart); (7.33333333333333 : 22.25 : JumpEnd); (14.125 : 22.25); (14.125 : 11.1808091696715); (14.5 : 10.8058091696715)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIValidationType/tblEDIValidationType_tblEDIMasterDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="e41ec556-dfa6-40dd-8703-efd1e4ff519c" />
+        <classShapeMoniker Id="4feab071-db21-40fc-8b61-f10c846d40ea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 26.7536511816406); (15.5 : 26.7536511816406); (15.5 : 20.2131168619792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIFormattingFunction/tblEDIFormattingFunction_tblEDIDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="921b0b42-9ccb-4d07-9ec3-23d101e4fdbc" />
+        <classShapeMoniker Id="46be70e4-30b2-43a3-8793-01d1b0e2dcea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 17.9719555664063); (14.5 : 17.9719555664063)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIDocStructElement/tblEDIDocStructElement_tblEDIDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="f8cede2c-3a7f-4182-8aa3-12a4f441618c" />
+        <classShapeMoniker Id="46be70e4-30b2-43a3-8793-01d1b0e2dcea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.28125 : 6.4631982421875); (11.28125 : 20.0472639973958); (12.6979166666667 : 20.0472639973958 : JumpStart); (12.8645833333333 : 20.0472639973958 : JumpEnd); (14.5 : 20.0472639973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDITransformationType/tblEDITransformationType_tblEDIDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="650ba4cd-a827-422d-ba03-08fed8bf6178" />
+        <classShapeMoniker Id="46be70e4-30b2-43a3-8793-01d1b0e2dcea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 23.2472213710938); (4.41666666666667 : 23.2472213710938 : JumpStart); (4.58333333333333 : 23.2472213710938 : JumpEnd); (7.16666666666667 : 23.2472213710938 : JumpStart); (7.33333333333333 : 23.2472213710938 : JumpEnd); (14.1666666666667 : 23.2472213710938 : JumpStart); (14.3333333333333 : 23.2472213710938 : JumpEnd); (14.9687475 : 23.2472213710938); (14.9687475 : 20.2131168619792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIValidationType/tblEDIValidationType_tblEDIDocStructElmntAttribute" />
+      <nodes>
+        <classShapeMoniker Id="e41ec556-dfa6-40dd-8703-efd1e4ff519c" />
+        <classShapeMoniker Id="46be70e4-30b2-43a3-8793-01d1b0e2dcea" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.25153746153846); (3.06607443490112 : 8.93546302663734 : JumpStart); (3.18392556509888 : 8.81761189643958 : JumpEnd); (3.19107443490112 : 8.81046302663734 : JumpStart); (3.30892556509888 : 8.69261189643958 : JumpEnd); (3.375 : 8.62653746153846); (3.375 : 4.50080485026042); (3.5 : 4.50080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIType/tblEDIType_tblEDIDocSegmentElement" />
+      <nodes>
+        <classShapeMoniker Id="91827706-7efa-47f7-aef9-dac692a8cada" />
+        <classShapeMoniker Id="ed913e38-52e9-4695-86d8-e8faa2c26fa4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.1146061197917); (8.40625 : 11.1146061197917); (8.40625 : 12)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIType/tblEDIType_tblEDIDataMapField" />
+      <nodes>
+        <classShapeMoniker Id="91827706-7efa-47f7-aef9-dac692a8cada" />
+        <classShapeMoniker Id="246e929e-9a52-45d2-b4ae-635a3ed2eb48" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.64822321644631); (3.04166666666667 : 9.64822321644631 : JumpStart); (3.33333333333333 : 9.64822321644631 : JumpEnd); (3.5 : 9.64822321644631)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIType/tblEDIType_tblEDIMasterDocument" />
+      <nodes>
+        <classShapeMoniker Id="91827706-7efa-47f7-aef9-dac692a8cada" />
+        <classShapeMoniker Id="55325ecc-189f-478e-be01-c659991b266e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.728563077524); (3.06607443490112 : 12.0446375124251 : JumpStart); (3.18392556509888 : 12.1624886426229 : JumpEnd); (3.1875 : 12.166063077524); (3.1875 : 15.9623527018229); (3.5 : 15.9623527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASEDIMaintDataContext/tblEDIType/tblEDIType_tblEDITPDocument" />
+      <nodes>
+        <classShapeMoniker Id="91827706-7efa-47f7-aef9-dac692a8cada" />
+        <classShapeMoniker Id="7e0a3d9b-5a54-4ec2-bc74-d98c0bd352b4" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

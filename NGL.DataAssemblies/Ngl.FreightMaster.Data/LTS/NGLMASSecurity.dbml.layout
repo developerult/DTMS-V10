@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 38.25, 51.125" name="NGLMASSecurity">
+  <DataContextMoniker Name="/NGLMASSecurityDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f767c24f-5310-4793-a05a-4fa63368b96e" absoluteBounds="10.5, 0.5, 2, 1.3568139871954918">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblFormSecurityXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00740472-c853-4f07-99e4-98be25f315dc" absoluteBounds="10.515, 0.96, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="862dcd8e-72af-430c-a77d-6ac129a9a60f" absoluteBounds="7.875, 5.875, 2, 1.3568139871954914">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblProcedureSecurityXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f5aa991-1e1c-4522-a425-c8a2de8bf218" absoluteBounds="7.8900000000000006, 6.335, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="21dc7cf2-cc9b-49fc-b462-d8e9e5023ac2" absoluteBounds="7.875, 7.25, 2, 1.3568139871954923">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportSecurityXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6b9d30a-695e-4865-a5cf-3dda5bcf145c" absoluteBounds="7.89, 7.71, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="782a9c64-55cc-4808-b356-b23767e71e97" absoluteBounds="5.375, 9.25, 2, 3.0285669615864759">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportPar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="883d7e70-0bb2-4339-8e3c-9d9d65fc06c8" absoluteBounds="5.3900000000000006, 9.71, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="47d67a5c-2425-41ea-b294-a44379b791ab" absoluteBounds="7.875, 9.25, 2, 1.5425643176833788">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportParType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d789e122-1f88-4916-9014-e6e692a63716" absoluteBounds="7.89, 9.71, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 10.0392976888021); (7.375 : 10.0392976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblReportParType/tblReportParType_tblReportPar" />
+      <nodes>
+        <classShapeMoniker Id="47d67a5c-2425-41ea-b294-a44379b791ab" />
+        <classShapeMoniker Id="782a9c64-55cc-4808-b356-b23767e71e97" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1b64385a-2c3f-4936-b32f-6ac08c162e4b" absoluteBounds="1, 1.25, 2, 1.3568139871954918">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblFormSecurityGroupXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d54859aa-4a79-4dd2-8590-81032167515c" absoluteBounds="1.0150000000000001, 1.71, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfce5604-460d-4ba9-a2db-d0195a5f9093" absoluteBounds="2.25, 3.375, 2, 1.3568139871954914">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblProcedureSecurityGroupXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fe9187d-f83a-4d7d-a742-4d9ab8b459ae" absoluteBounds="2.265, 3.835, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f00f9696-c3f5-416f-93a1-1b72ab604e66" absoluteBounds="1.5, 7.5, 2, 1.3568139871954923">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportSecurityGroupXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed053b0c-47f6-4306-a8ca-010a0e4919a1" absoluteBounds="1.5150000000000001, 7.9600000000000009, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ed5ef1b-041c-41c9-bfc0-3dbc99598be9" absoluteBounds="2.75, 5.5, 2, 1.7283146481712652">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportMenu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21be90a3-b2c6-4b4c-82a4-6681475f4862" absoluteBounds="2.7650000000000006, 5.96, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e17c1b4c-8aec-4076-b77a-927571fe7b19" absoluteBounds="3.25, 0.5, 2, 1.7283146481712657">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblFormMenu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f6b6524-f286-4136-9838-e67bc40f9802" absoluteBounds="3.2650000000000006, 0.96, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df4fe3b6-f7d2-4966-ab21-e01b483b7a24" isExpanded="false" absoluteBounds="14.625, 7.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b568465d-3ffd-4470-9cf4-f97a17c653f2" absoluteBounds="14.64, 8.335, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc63a2ce-64d1-4a8a-8a30-661a5c34e0e9" absoluteBounds="11.625, 5.375, 2, 1.7283146481712652">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblProcAlertUserXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="611cc174-296a-4dc1-a270-3089088e18e8" absoluteBounds="11.64, 5.835, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3eb73ca0-4eab-46f2-a661-67c665fbfea7" absoluteBounds="8.25, 1, 2, 4.5145696054895712">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblAlertMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09d8ff5a-4827-46b3-85dc-25780efe7d6a" absoluteBounds="8.265, 1.46, 1.9700000000000002, 3.9545696054895716" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d322858-9288-4c18-9583-0e2060c0b75d" absoluteBounds="8.625, 11, 2, 2.4713159701228147">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurityAccessToken" />
+      <nestedChildShapes>
+        <elementListCompartment Id="247259b8-ed63-43ba-9fa5-cb70907e21b7" absoluteBounds="8.64, 11.46, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4bd09c3f-4e76-4d58-8f24-9af921d53efc" absoluteBounds="20.875, 0.5, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmGroupType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14d91b54-85d6-44cb-a587-443f975ffeeb" absoluteBounds="20.89, 0.96, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c99ba01-e2d9-4332-be18-d61989f33ad6" absoluteBounds="12.75, 3, 2, 1.9140649786591526">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmMenuType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6bfa31ef-1b57-4a45-bb96-af37c981ffa6" absoluteBounds="12.765, 3.46, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7283244-afec-4567-8dcb-8c5f78f16200" absoluteBounds="19.375, 3.125, 2, 6.0005722493926665">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmPageMenu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f3039ef-3ef5-4187-8443-ac2e8955583c" absoluteBounds="19.39, 3.585, 1.9700000000000002, 5.4405722493926678" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(21.203126 : 2.4631982421875); (21.203126 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmGroupType/cmGroupType_cmPageMenu" />
+      <nodes>
+        <classShapeMoniker Id="4bd09c3f-4e76-4d58-8f24-9af921d53efc" />
+        <classShapeMoniker Id="a7283244-afec-4567-8dcb-8c5f78f16200" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.125 : 4.91406497865915); (14.125 : 7.42665732408563); (18.7916666666667 : 7.42665732408563 : JumpStart); (18.9583333333333 : 7.42665732408563 : JumpEnd); (19.375 : 7.42665732408563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmMenuType/cmMenuType_cmPageMenu" />
+      <nodes>
+        <classShapeMoniker Id="9c99ba01-e2d9-4332-be18-d61989f33ad6" />
+        <classShapeMoniker Id="a7283244-afec-4567-8dcb-8c5f78f16200" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="47d68791-0315-4910-a32e-449644119808" absoluteBounds="19.5, 9.875, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmPageTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="849dff34-c721-4860-a921-f77980729177" absoluteBounds="19.515, 10.335, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a496748-b058-460a-a732-3c88b26354e8" absoluteBounds="22, 10.625, 2, 1.9140649786591535">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmPageTemplateXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5113e9b6-e269-4883-adf6-3b16aac64478" absoluteBounds="22.015, 11.085, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(21.5 : 11.3277498372396); (22 : 11.3277498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmPageTemplate/cmPageTemplate_cmPageTemplateXref" />
+      <nodes>
+        <classShapeMoniker Id="47d68791-0315-4910-a32e-449644119808" />
+        <classShapeMoniker Id="9a496748-b058-460a-a732-3c88b26354e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="76fb963b-7cc3-4165-9830-4f8f993ba59e" absoluteBounds="23.875, 0.625, 2, 2.2855656396349273">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmGroupSubType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c34521d7-9be5-4449-8f1a-d067896bc911" absoluteBounds="23.89, 1.085, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(23.875 : 2.47052124023438); (20.375 : 2.47052124023438); (20.375 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmGroupSubType/cmGroupSubType_cmPageMenu" />
+      <nodes>
+        <classShapeMoniker Id="76fb963b-7cc3-4165-9830-4f8f993ba59e" />
+        <classShapeMoniker Id="a7283244-afec-4567-8dcb-8c5f78f16200" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.875 : 1.43927124023438); (23.875 : 1.43927124023438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmGroupType/cmGroupType_cmGroupSubType" />
+      <nodes>
+        <classShapeMoniker Id="4bd09c3f-4e76-4d58-8f24-9af921d53efc" />
+        <classShapeMoniker Id="76fb963b-7cc3-4165-9830-4f8f993ba59e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6f831240-a798-40d5-ba01-0be3c942bae4" absoluteBounds="13, 0.5, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmDataType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ad637d1-172a-43f3-9470-5b8040c8b288" absoluteBounds="13.015, 0.96, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71a3f571-78bc-4fc0-8d33-3ef28bca13cc" absoluteBounds="18.25, 0.5, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmDataElement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c84ed17c-7c27-4687-95d8-16e4baa1dcb0" absoluteBounds="18.265, 0.96, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="20cca430-2295-4c01-be50-c328f89200e6" absoluteBounds="22, 6.5, 2, 3.95731861402591">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmPage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c01b42ad-6a7b-40c1-81e7-14a2aa506a8b" absoluteBounds="22.015, 6.96, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(22 : 7.90941487630208); (21.375 : 7.90941487630208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmPage/cmPage_cmPageMenu" />
+      <nodes>
+        <classShapeMoniker Id="20cca430-2295-4c01-be50-c328f89200e6" />
+        <classShapeMoniker Id="a7283244-afec-4567-8dcb-8c5f78f16200" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23 : 10.5785139973958); (23 : 10.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmPage/cmPage_cmPageTemplateXref" />
+      <nodes>
+        <classShapeMoniker Id="20cca430-2295-4c01-be50-c328f89200e6" />
+        <classShapeMoniker Id="9a496748-b058-460a-a732-3c88b26354e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7d199fef-bb32-464b-949a-23e50c17310e" absoluteBounds="26.125, 0.625, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmLocalizeKeyValuePair" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d23a3a4f-ce5d-47b5-8ed2-e95aec3c64a8" absoluteBounds="26.14, 1.085, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc9bd568-fada-4ddc-8d0f-f0479aca7147" absoluteBounds="8.25, 14.25, 2, 2.4713159701228165">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurityAltAuthAcct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77311c91-aa66-43cc-b4e1-5d30c2a4043d" absoluteBounds="8.265, 14.71, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96a541dd-55e2-4d70-b8c1-2d061b642b2b" absoluteBounds="24.5, 12.875, 2, 4.1430689445138">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmMenuTree" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00a87a18-287b-4d38-9efa-be735935ef30" absoluteBounds="24.515, 13.335, 1.9700000000000002, 3.5830689445137978" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e34c455-4a25-4b94-93b1-a40eb0fd03c4" absoluteBounds="0.5, 9, 2, 1.9140649786591535">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserGroupCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="563efe8d-86d4-463d-97a2-40659282a9e9" absoluteBounds="0.51500000000000012, 9.46, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="28e8287d-0202-4970-80d9-4c92f65727d6" absoluteBounds="1.875, 12.25, 2, 2.4713159701228147">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurityCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="335a47ff-e232-4490-a621-806dedf96769" absoluteBounds="1.8899999999999997, 12.71, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f9389a6-fbbb-4fcc-814c-9a21cb5f12d4" absoluteBounds="0.625, 14.875, 2, 1.9140649786591553">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurityLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9f08621-8d11-4d78-89e7-1e4360cea027" absoluteBounds="0.64000000000000012, 15.335, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53dc8441-0cae-44b0-807c-2b0599255fa9" absoluteBounds="3.375, 15.25, 2, 4.7003199359774612">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecuritySetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a57249fd-68f0-4b52-9994-ae13791642b5" absoluteBounds="3.39, 15.71, 1.9700000000000002, 4.140319935977459" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40ceb4e6-558d-44bf-b8a9-636794387c1b" absoluteBounds="0.5, 17.125, 2, 1.5425643176833823">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserSecurityLane" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50b13684-da58-45fc-ba5e-96852743a991" absoluteBounds="0.51500000000000012, 17.585, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="129fced6-420f-4798-b32c-14476ac42433" absoluteBounds="4.125, 12.5, 2, 2.2855656396349282">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurityLegalEntity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b75687b-8231-40d9-aab9-2ea80b34f561" absoluteBounds="4.14, 12.96, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="950d21ca-bb09-4ba1-ae65-8ef9f1c482cc" absoluteBounds="2.875, 9, 2, 1.9140649786591535">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/SecRefLEAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7247ba67-1dfc-4e3d-a4ca-c933ad5a8264" absoluteBounds="2.8899999999999997, 9.46, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 10.9631982421875); (4.5 : 12.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/SecRefLEAdmin/SecRefLEAdmin_tblUserSecurityLegalEntity" />
+      <nodes>
+        <classShapeMoniker Id="950d21ca-bb09-4ba1-ae65-8ef9f1c482cc" />
+        <classShapeMoniker Id="129fced6-420f-4798-b32c-14476ac42433" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8f19b4cf-c21f-4799-950d-155eca96f5b8" isExpanded="false" absoluteBounds="26.75, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vSSOA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2441a7e5-24f2-4b3f-86f7-6c1c469dd7e7" absoluteBounds="26.765, 3.835, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc2bb81d-f16d-419f-b886-0d8bef8810e9" isExpanded="false" absoluteBounds="6.75, 19.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblSSOASecurityXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3056fbff-2b7f-4cd9-aacf-ecc1caac9136" absoluteBounds="6.7650000000000006, 19.96, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d30940b4-b2b4-4ca7-a51d-0c30ecc739c1" absoluteBounds="15.75, 0.875, 2, 5.0718205969532324">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmElementField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72bac44d-ab1c-408a-bcaf-d34c3819f31c" absoluteBounds="15.765, 1.335, 1.9700000000000002, 4.5118205969532328" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(18.25 : 1.66909912109375); (17.75 : 1.66909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmDataElement/cmDataElement_cmElementField" />
+      <nodes>
+        <classShapeMoniker Id="71a3f571-78bc-4fc0-8d33-3ef28bca13cc" />
+        <classShapeMoniker Id="d30940b4-b2b4-4ca7-a51d-0c30ecc739c1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15 : 1.66909912109375); (15.75 : 1.66909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmDataType/cmDataType_cmElementField" />
+      <nodes>
+        <classShapeMoniker Id="6f831240-a798-40d5-ba01-0be3c942bae4" />
+        <classShapeMoniker Id="d30940b4-b2b4-4ca7-a51d-0c30ecc739c1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="63ac824f-828d-4192-89c1-f682b5e575b6" absoluteBounds="10.375, 2.75, 2, 1.9140649786591526">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tbl365DisplayedAlertMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7427197a-65e5-4aeb-bbd3-af9bb282badb" absoluteBounds="10.39, 3.21, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.25 : 3.73159912109375); (10.375 : 3.73159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblAlertMessage/tblAlertMessage_tbl365DisplayedAlertMessage" />
+      <nodes>
+        <classShapeMoniker Id="3eb73ca0-4eab-46f2-a661-67c665fbfea7" />
+        <classShapeMoniker Id="63ac824f-828d-4192-89c1-f682b5e575b6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1f792370-36d8-4aa3-b8ec-34fa661106f4" absoluteBounds="21.875, 3.25, 2, 2.4713159701228138">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserPageSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fde8a425-1a9b-4f79-8aa8-3a40184c3a25" absoluteBounds="21.89, 3.71, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(22.4375 : 6.5); (22.4375 : 5.72131597012281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmPage/cmPage_tblUserPageSetting" />
+      <nodes>
+        <classShapeMoniker Id="20cca430-2295-4c01-be50-c328f89200e6" />
+        <classShapeMoniker Id="1f792370-36d8-4aa3-b8ec-34fa661106f4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="11c137db-54cf-4bad-8b07-93596e006f74" isExpanded="false" absoluteBounds="29.125, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserSecurityCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a1ed7f0b-1325-46ff-b009-2a3ff2a19cf1" absoluteBounds="29.14, 1.835, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aceed20e-98f5-4de2-b323-9c8aff67fbdb" isExpanded="false" absoluteBounds="31.5, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53801a20-0580-4917-8718-fdd81116cbc4" absoluteBounds="31.515, 1.085, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f50c8e10-a5ec-41a9-8446-9c7a0e3509d3" absoluteBounds="33.75, 0.625, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserAdmin365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72ac8b71-33e4-4560-98ef-d2470f3f796e" absoluteBounds="33.765, 1.085, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49af9f49-b6d2-4d8a-8402-b184af8cdc72" isExpanded="false" absoluteBounds="31.5, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vRestrictedReportsByGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ba42a3d-eb90-46ed-86a6-68a517683655" absoluteBounds="31.515, 2.335, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ec97e859-3c30-4f3a-a850-cede18ee7d52" isExpanded="false" absoluteBounds="31.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vRestrictedProceduresByGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f2cf9e6-f471-4ee9-8542-144b1dd172d6" absoluteBounds="31.515, 2.96, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ee3ddb6-7b2a-484b-9514-523dbb36c0e8" isExpanded="false" absoluteBounds="31.5, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vRestrictedFormsByGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98f620ac-3a75-4fe5-b9e1-006b580b2ae5" absoluteBounds="31.515, 1.71, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3ec02d2-da3e-4a6c-9b52-0e51e50c25e8" absoluteBounds="24.25, 3.375, 2, 8.97257753719886">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/cmPageDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f76c382-50f6-4eda-9cd9-00875b9e0c83" absoluteBounds="24.265, 3.835, 1.9700000000000002, 8.41257753719886" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(25.0625 : 2.97280110677083); (25.0625 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmGroupSubType/cmGroupSubType_cmPageDetail" />
+      <nodes>
+        <classShapeMoniker Id="76fb963b-7cc3-4165-9830-4f8f993ba59e" />
+        <classShapeMoniker Id="d3ec02d2-da3e-4a6c-9b52-0e51e50c25e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.875 : 0.53125); (26 : 0.53125); (26 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmGroupType/cmGroupType_cmPageDetail" />
+      <nodes>
+        <classShapeMoniker Id="4bd09c3f-4e76-4d58-8f24-9af921d53efc" />
+        <classShapeMoniker Id="d3ec02d2-da3e-4a6c-9b52-0e51e50c25e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24 : 8.53925699869792); (24.25 : 8.53925699869792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/cmPage/cmPage_cmPageDetail" />
+      <nodes>
+        <classShapeMoniker Id="20cca430-2295-4c01-be50-c328f89200e6" />
+        <classShapeMoniker Id="d3ec02d2-da3e-4a6c-9b52-0e51e50c25e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="187c1022-603b-4968-b8f8-8c0d9118b98f" absoluteBounds="29.75, 3.25, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblEnumGroupSecurityType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4fe80af8-5fe7-4389-90f4-1595dced7373" absoluteBounds="29.765, 3.71, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8dad31f-97ca-4e8a-bf36-08ddc32d764e" absoluteBounds="32, 3.25, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserGroupsSec365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e1e732a-70ae-4938-ae1e-15345b1f9873" absoluteBounds="32.015, 3.71, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3481f860-2e50-4a07-987d-33b551086b35" absoluteBounds="0.5, 5.125, 2, 1.9140649786591526">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41656888-28ee-4fe5-8696-db63a7ce85df" absoluteBounds="0.51500000000000012, 5.585, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.59375 : 5.125); (1.59375 : 2.60681398719549)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserGroup/tblUserGroup_tblFormSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="3481f860-2e50-4a07-987d-33b551086b35" />
+        <classShapeMoniker Id="1b64385a-2c3f-4936-b32f-6ac08c162e4b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.015623 : 5.125); (1.015623 : 4.05340699359775); (1.51041666666667 : 4.05340699359774 : JumpStart); (1.67708333333333 : 4.05340699359775 : JumpEnd); (2.25 : 4.05340699359775)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserGroup/tblUserGroup_tblProcedureSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="3481f860-2e50-4a07-987d-33b551086b35" />
+        <classShapeMoniker Id="bfce5604-460d-4ba9-a2db-d0195a5f9093" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2 : 7.03906497865915); (2 : 7.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserGroup/tblUserGroup_tblReportSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="3481f860-2e50-4a07-987d-33b551086b35" />
+        <classShapeMoniker Id="f00f9696-c3f5-416f-93a1-1b72ab604e66" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e999583f-ab88-4e2b-9142-137fe04154af" absoluteBounds="5.75, 0.5, 2, 2.2855656396349273">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblFormList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96dae8d3-54de-49e7-b4b0-b8d14d4dc7b5" absoluteBounds="5.765, 0.96, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.75 : 0.71875); (10.5 : 0.71875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblFormList/tblFormList_tblFormSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="e999583f-ab88-4e2b-9142-137fe04154af" />
+        <classShapeMoniker Id="f767c24f-5310-4793-a05a-4fa63368b96e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 2.44881431768338); (3 : 2.44881431768338)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblFormList/tblFormList_tblFormSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="e999583f-ab88-4e2b-9142-137fe04154af" />
+        <classShapeMoniker Id="1b64385a-2c3f-4936-b32f-6ac08c162e4b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 1.64278281981746); (8 : 1.64278281981746); (8 : 5.625); (10.125 : 5.625); (10.125 : 5.63956960548957); (10.8229166666667 : 5.63956960548957 : JumpStart); (10.9895833333333 : 5.63956960548957 : JumpEnd); (11.125 : 5.63956960548957); (11.125 : 5.16406497865915); (13.7916666666667 : 5.16406497865915 : JumpStart); (13.9583333333333 : 5.16406497865915 : JumpEnd); (14.0416666666667 : 5.16406497865915 : JumpStart); (14.2083333333333 : 5.16406497865915 : JumpEnd); (15.5 : 5.16406497865915); (15.5 : 6.19682059695323); (18.7916666666667 : 6.19682059695323 : JumpStart); (18.9583333333333 : 6.19682059695323 : JumpEnd); (19.125 : 6.19682059695323); (19.125 : 2.875); (20.2916666666667 : 2.875 : JumpStart); (20.4583333333333 : 2.875 : JumpEnd); (21.1197926666667 : 2.875 : JumpStart); (21.2864593333333 : 2.875 : JumpEnd); (23.625 : 2.875); (23.625 : 3.16056563963493); (24.125 : 3.16056563963493); (24.125 : 6.125); (23 : 6.125); (23 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblFormList/tblFormList_cmPage" />
+      <nodes>
+        <classShapeMoniker Id="e999583f-ab88-4e2b-9142-137fe04154af" />
+        <classShapeMoniker Id="20cca430-2295-4c01-be50-c328f89200e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e632b628-92ad-4340-bd8c-59268bd5e859" absoluteBounds="5.125, 3, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblProcedureList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77f67380-6c0c-4974-a550-deeafc7a123f" absoluteBounds="5.14, 3.46, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 5.15549967447917); (7.5 : 5.51219986979167); (7.5 : 6.56814697265625); (7.875 : 6.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblProcedureList/tblProcedureList_tblProcedureSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="e632b628-92ad-4340-bd8c-59268bd5e859" />
+        <classShapeMoniker Id="862dcd8e-72af-430c-a77d-6ac129a9a60f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 4.06814697265625); (4.25 : 4.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblProcedureList/tblProcedureList_tblProcedureSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="e632b628-92ad-4340-bd8c-59268bd5e859" />
+        <classShapeMoniker Id="bfce5604-460d-4ba9-a2db-d0195a5f9093" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.093748 : 5.15549967447917); (6.093748 : 5.21799967447917); (7.10737310671912 : 5.21799967447917 : JumpStart); (7.27403977338579 : 5.21799967447917 : JumpEnd); (7.8125 : 5.21799967447917); (7.8125 : 5.8125); (10.8229166666667 : 5.8125 : JumpStart); (10.9895833333333 : 5.8125 : JumpEnd); (11.46875 : 5.8125); (11.46875 : 6.43190705208333); (11.625 : 6.43190705208333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblProcedureList/tblProcedureList_tblProcAlertUserXref" />
+      <nodes>
+        <classShapeMoniker Id="e632b628-92ad-4340-bd8c-59268bd5e859" />
+        <classShapeMoniker Id="dc63a2ce-64d1-4a8a-8a30-661a5c34e0e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.125 : 3.45312525); (7.91666666666667 : 3.45312525 : JumpStart); (8.08333333333333 : 3.45312525 : JumpEnd); (8.25 : 3.45312525)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblProcedureList/tblProcedureList_tblAlertMessage" />
+      <nodes>
+        <classShapeMoniker Id="e632b628-92ad-4340-bd8c-59268bd5e859" />
+        <classShapeMoniker Id="3eb73ca0-4eab-46f2-a661-67c665fbfea7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="dfe2a656-3cb2-4180-bf0d-9efbf160ee16" absoluteBounds="5.125, 5.25, 2, 3.5858179530501371">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblReportList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c70001d-4c71-4bc5-b84a-1b14584c10ee" absoluteBounds="5.14, 5.71, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 7.94314697265625); (7.875 : 7.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblReportList/tblReportList_tblReportSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="dfe2a656-3cb2-4180-bf0d-9efbf160ee16" />
+        <classShapeMoniker Id="21dc7cf2-cc9b-49fc-b462-d8e9e5023ac2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 8.9439111328125); (6.25 : 9.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblReportList/tblReportList_tblReportPar" />
+      <nodes>
+        <classShapeMoniker Id="dfe2a656-3cb2-4180-bf0d-9efbf160ee16" />
+        <classShapeMoniker Id="782a9c64-55cc-4808-b356-b23767e71e97" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 8.19314697265625); (3.5 : 8.19314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblReportList/tblReportList_tblReportSecurityGroupXref" />
+      <nodes>
+        <classShapeMoniker Id="dfe2a656-3cb2-4180-bf0d-9efbf160ee16" />
+        <classShapeMoniker Id="f00f9696-c3f5-416f-93a1-1b72ab604e66" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c52a5d86-1569-474c-ab60-93cd00469cce" absoluteBounds="14.75, 8.875, 2, 42.036136364042761">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/CompRefSecurity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88c5a90c-6749-4c12-81bf-01dddebedef7" absoluteBounds="14.765, 9.335, 1.9700000000000002, 41.476136364042759" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.75 : 17.3582019042969); (13.1145858333333 : 17.3582019042969 : JumpStart); (12.9479191666667 : 17.3582019042969 : JumpEnd); (11.2083333333333 : 17.3582019042969 : JumpStart); (11.0416666666667 : 17.3582019042969 : JumpEnd); (10.5520833333333 : 17.3582019042969 : JumpStart); (10.3854166666667 : 17.3582019042969 : JumpEnd); (10.1458333333333 : 17.3582019042969 : JumpStart); (9.97916666666667 : 17.3582019042969 : JumpEnd); (5.375 : 17.3582019042969)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/CompRefSecurity/CompRefSecurity_tblUserSecuritySetting" />
+      <nodes>
+        <classShapeMoniker Id="c52a5d86-1569-474c-ab60-93cd00469cce" />
+        <classShapeMoniker Id="53dc8441-0cae-44b0-807c-2b0599255fa9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.6875 : 8.875); (15.6875 : 8.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/CompRefSecurity/CompRefSecurity_tblUserAdmin" />
+      <nodes>
+        <classShapeMoniker Id="c52a5d86-1569-474c-ab60-93cd00469cce" />
+        <classShapeMoniker Id="df4fe3b6-f7d2-4966-ab21-e01b483b7a24" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="725ec92e-a98b-4c93-bf2a-64ef8ee320d1" absoluteBounds="36, 0.625, 2, 2.4713159701228142">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vUserLane365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bad88b2b-b1e8-44e3-a5ea-8f2d21dcaff9" absoluteBounds="36.015, 1.085, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c170f0f7-799c-4543-b274-db4c9354dc73" isExpanded="false" absoluteBounds="9.375, 20.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblSSOAConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff23e5c9-458d-43e2-ba12-4b8ba684cb91" absoluteBounds="9.39, 21.085, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4259241d-04a9-400f-ab4e-ccb80263308f" isExpanded="false" absoluteBounds="6, 15.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblLegalEntityAdminRefSecurity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3fc36ecf-c11d-4d85-92cf-3d425f3d9692" absoluteBounds="6.015, 16.085, 1.9700000000000002, 4.69757092744112" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.09375 : 15.625); (7.09375 : 13.0513012695313); (6.125 : 13.0513012695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblLegalEntityAdminRefSecurity/tblLegalEntityAdminRefSecurity_tblUserSecurityLegalEntity" />
+      <nodes>
+        <classShapeMoniker Id="4259241d-04a9-400f-ab4e-ccb80263308f" />
+        <classShapeMoniker Id="129fced6-420f-4798-b32c-14476ac42433" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="045c8fd6-acc0-426c-91a3-f89424f427a2" absoluteBounds="11.875, 20.625, 2, 3.2143172920743659">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblSSOALEConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43dcf4c5-232a-47bf-959a-dc2c5e626bc5" absoluteBounds="11.89, 21.085, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.875 : 20.85); (11.375 : 20.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblSSOALEConfig/tblSSOALEConfig_tblSSOAConfig" />
+      <nodes>
+        <classShapeMoniker Id="045c8fd6-acc0-426c-91a3-f89424f427a2" />
+        <classShapeMoniker Id="c170f0f7-799c-4543-b274-db4c9354dc73" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="13d63ee8-6855-4be3-8175-898e4b035fc8" absoluteBounds="8.75, 22.375, 2, 1.9140649786591553">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblSSOAType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fc15695-3a38-4162-9670-97f45739c865" absoluteBounds="8.765, 22.835, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9884197d-0087-4a62-8f0f-87aa9d7727ef" isExpanded="false" absoluteBounds="9.875, 19.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblSingleSignOnAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ac818dc-edfe-4709-8300-a27c332e4594" absoluteBounds="9.89, 19.96, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.46875 : 19.5); (10.46875 : 13.4713159701228)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblSingleSignOnAccount/tblSingleSignOnAccount_tblUserSecurityAccessToken" />
+      <nodes>
+        <classShapeMoniker Id="9884197d-0087-4a62-8f0f-87aa9d7727ef" />
+        <classShapeMoniker Id="6d322858-9288-4c18-9583-0e2060c0b75d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.0625 : 19.5); (10.0625 : 16.7213159701228)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblSingleSignOnAccount/tblSingleSignOnAccount_tblUserSecurityAltAuthAcct" />
+      <nodes>
+        <classShapeMoniker Id="9884197d-0087-4a62-8f0f-87aa9d7727ef" />
+        <classShapeMoniker Id="dc9bd568-fada-4ddc-8d0f-f0479aca7147" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.875 : 19.7562525); (8.75 : 19.7562525)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblSingleSignOnAccount/tblSingleSignOnAccount_tblSSOASecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="9884197d-0087-4a62-8f0f-87aa9d7727ef" />
+        <classShapeMoniker Id="fc2bb81d-f16d-419f-b886-0d8bef8810e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.875 : 19.95); (10.875 : 20.25); (12.875 : 20.25); (12.875 : 20.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblSingleSignOnAccount/tblSingleSignOnAccount_tblSSOALEConfig" />
+      <nodes>
+        <classShapeMoniker Id="9884197d-0087-4a62-8f0f-87aa9d7727ef" />
+        <classShapeMoniker Id="045c8fd6-acc0-426c-91a3-f89424f427a2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b912b0fd-8e46-4932-ac20-f50150990ca8" isExpanded="false" absoluteBounds="0.625, 19.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vtblSSOAConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d87c2f43-92a9-4763-a54c-55372aaf9fd3" absoluteBounds="0.64, 19.71, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34780bdb-f0f7-4461-bbc3-2119c0598c80" isExpanded="false" absoluteBounds="0.625, 20.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vtblSSOALEConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6abbec64-9855-4efb-a6d2-8a98a64bef9d" absoluteBounds="0.64, 20.96, 1.9700000000000002, 3.3973186140259104" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="533a2e64-137d-463c-9495-ae0965d189e4" absoluteBounds="11.5, 7.75, 2, 6.0005722493926674">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9698b377-7728-4c43-814b-a2ae635c0f6d" absoluteBounds="11.515, 8.21, 1.9700000000000002, 5.4405722493926678" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.5 : 7.75); (12.5 : 7.35331464817127); (12.9791666666667 : 7.35331464817126 : JumpStart); (13.1458333333333 : 7.35331464817127 : JumpEnd); (13.875 : 7.35331464817127); (13.875 : 5.03906497865915); (12.5 : 5.03906497865915); (12.5 : 4.91406497865915); (12.625 : 4.91406497865915); (12.625 : 2.10681398719549); (12.75 : 2.10681398719549); (12.75 : 1.17840699359775); (12.5 : 1.17840699359775)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblFormSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="f767c24f-5310-4793-a05a-4fa63368b96e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.53125 : 7.75); (11.53125 : 7.19881431768338); (10.9895833333333 : 7.19881431768338 : JumpStart); (10.8229166666667 : 7.19881431768338 : JumpEnd); (9.875 : 7.19881431768338)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblProcedureSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="862dcd8e-72af-430c-a77d-6ac129a9a60f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 8.17840699359775); (10.9895833333333 : 8.17840699359775 : JumpStart); (10.8229166666667 : 8.17840699359775 : JumpEnd); (9.875 : 8.17840699359775)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblReportSecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="21dc7cf2-cc9b-49fc-b462-d8e9e5023ac2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.5 : 8.1); (14.625 : 8.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserAdmin" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="df4fe3b6-f7d2-4966-ab21-e01b483b7a24" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.0625 : 7.75); (13.0625 : 7.10331464817127)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblProcAlertUserXref" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="dc63a2ce-64d1-4a8a-8a30-661a5c34e0e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 12.2356579850614); (10.625 : 12.2356579850614)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecurityAccessToken" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="6d322858-9288-4c18-9583-0e2060c0b75d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.5 : 13.7505722493927); (12.5 : 15.4856579850614); (11.2083333333333 : 15.4856579850614 : JumpStart); (11.0416666666667 : 15.4856579850614 : JumpEnd); (10.5520833333333 : 15.4856579850614 : JumpStart); (10.3854166666667 : 15.4856579850614 : JumpEnd); (10.25 : 15.4856579850614)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecurityAltAuthAcct" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="dc9bd568-fada-4ddc-8d0f-f0479aca7147" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 9.62045499679888); (10.9895833333333 : 9.62045499679888 : JumpStart); (10.8229166666667 : 9.62045499679888 : JumpEnd); (9.9375 : 9.62045499679888); (9.9375 : 10.8550643176834); (7.4375 : 10.8550643176834); (7.4375 : 12.3410669615865); (4.9375 : 12.3410669615865); (4.9375 : 10.9765649786592); (2.875 : 10.9765649786592); (2.875 : 12.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecurityCarrier" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="28e8287d-0202-4970-80d9-4c92f65727d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 8.89943099519831); (10.9895833333333 : 8.89943099519831 : JumpStart); (10.8229166666667 : 8.89943099519831 : JumpEnd); (9.9375 : 8.89943099519831); (9.9375 : 10.8550643176834); (7.5 : 10.8550643176834); (7.5 : 12.4035669615865); (4.9375 : 12.4035669615865); (4.9375 : 11.0390649786592); (1.2187505 : 11.0390649786592); (1.2187505 : 14.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecurityLane" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="3f9389a6-fbbb-4fcc-814c-9a21cb5f12d4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.0312525 : 13.7505722493927); (13.0312525 : 18.4291034521485); (11.2083333333333 : 18.4291034521485 : JumpStart); (11.0416666666667 : 18.4291034521485 : JumpEnd); (10.5520833333333 : 18.4291034521485 : JumpStart); (10.3854166666667 : 18.4291034521485 : JumpEnd); (10.1458333333333 : 18.4291034521485 : JumpStart); (9.97916666666667 : 18.4291034521485 : JumpEnd); (5.375 : 18.4291034521485)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecuritySetting" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="53dc8441-0cae-44b0-807c-2b0599255fa9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 13.6421941097577); (10.5520833333333 : 13.6421941097577 : JumpStart); (10.3854166666667 : 13.6421941097577 : JumpEnd); (7.17708333333333 : 13.6421941097577 : JumpStart); (7.01041666666667 : 13.6421941097577 : JumpEnd); (6.125 : 13.6421941097577)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserSecurityLegalEntity" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="129fced6-420f-4798-b32c-14476ac42433" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 13.7505722493927); (11.125 : 14.1255722493927); (11.125 : 19.125); (10.5520833333333 : 19.125 : JumpStart); (10.3854166666667 : 19.125 : JumpEnd); (10.1458333333333 : 19.125 : JumpStart); (9.97916666666667 : 19.125 : JumpEnd); (9.125 : 19.125); (8.75 : 19.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblSSOASecurityXref" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="fc2bb81d-f16d-419f-b886-0d8bef8810e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 10.3102299983994); (10.90625 : 10.3102299983994); (10.90625 : 4.66406497865915)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tbl365DisplayedAlertMessage" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="63ac824f-828d-4192-89c1-f682b5e575b6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.5 : 10.9565381246963); (14.5 : 10.9565381246963); (14.5 : 8.625); (15.6041666666667 : 8.625 : JumpStart); (15.7708333333333 : 8.625 : JumpEnd); (18.875 : 8.625); (18.875 : 3); (19.0416666666667 : 3 : JumpStart); (19.2083333333333 : 3 : JumpEnd); (20.2916666666667 : 3 : JumpStart); (20.4583333333333 : 3 : JumpEnd); (21.1197926666667 : 3 : JumpStart); (21.2864593333333 : 3 : JumpEnd); (21.625 : 3); (21.625 : 6.25); (22.4375005 : 6.25); (22.4375005 : 5.72131597012281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NGLMASSecurityDataContext/tblUserSecurity/tblUserSecurity_tblUserPageSetting" />
+      <nodes>
+        <classShapeMoniker Id="533a2e64-137d-463c-9495-ae0965d189e4" />
+        <classShapeMoniker Id="1f792370-36d8-4aa3-b8ec-34fa661106f4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f3cbe56f-53d1-4e63-b7ee-97834b2049d8" isExpanded="false" absoluteBounds="26.75, 4.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vSSOResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53a80858-bfe4-49cb-be47-88d8a280962a" absoluteBounds="26.765, 4.585, 1.9700000000000002, 5.997823240856329" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4154c0d2-8fc1-452a-b77d-5b9c64c84831" isExpanded="false" absoluteBounds="29.125, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMASSecurityDataContext/vLEUsers365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12851ff7-a12c-455a-b24e-ec6518441658" absoluteBounds="29.14, 1.21, 1.9700000000000002, 4.5118205969532328" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

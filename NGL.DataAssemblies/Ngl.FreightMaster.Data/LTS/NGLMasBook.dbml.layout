@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 52.125, 57.5" name="NGLMasBook">
+  <DataContextMoniker Name="/NGLMasBookDataContext" />
+  <nestedChildShapes>
+    <classShape Id="06a92202-37b0-4037-ac74-c5ea5552eca7" isExpanded="false" absoluteBounds="3.125, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97cd1896-7ef6-4da1-b6ed-784a977da8a8" absoluteBounds="3.14, 1.71, 1.9700000000000002, 0.98256431768337882" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b546c24e-5d67-4067-b766-f3b41f0de474" isExpanded="false" absoluteBounds="8.25, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookLoad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c906f08b-565f-4d73-8678-65cf704b2fa8" absoluteBounds="8.265, 1.335, 1.9700000000000002, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae5df5bb-edfe-4c3d-a3b7-36b74899ee47" isExpanded="false" absoluteBounds="3.125, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="726d4d33-827e-436b-99e1-aae0dc8d065b" absoluteBounds="3.14, 2.96, 1.9700000000000002, 3.9545696054895716" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e096f60d-9f78-44fc-9fb1-650249d15465" isExpanded="false" absoluteBounds="3.125, 6.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e80c0e35-e218-4ea7-8e12-5a353ffd77b4" absoluteBounds="3.14, 7.0850000000000009, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9358794-e37f-491d-a104-a699b3c9c0b8" absoluteBounds="25.625, 12.125, 2, 12.130333155492941">
+      <DataClassMoniker Name="/NGLMasBookDataContext/Consolidation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7da56113-6fb1-497b-919d-17eaa0ce95cb" absoluteBounds="25.64, 12.585, 1.9700000000000002, 11.570333155492941" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="16feaa1c-de95-4c8a-8558-4d3795601e49" isExpanded="false" absoluteBounds="0.625, 7.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/UserAdminRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48f2445d-53aa-4b2f-a525-79f6b8e806d0" absoluteBounds="0.64000000000000012, 7.8350000000000009, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="917a02d3-7b6d-47fa-9117-a8a8e1c0277b" isExpanded="false" absoluteBounds="0.625, 8.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/UserAdminAsNvarcharRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0eaf2f87-3bb1-49eb-8e0a-ef3847a96f72" absoluteBounds="0.64000000000000012, 8.585, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7f1273ec-9ce4-4b59-b769-444ab9f4f530" isExpanded="false" absoluteBounds="13.625, 25.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vARMassEntry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e5541fc-71ea-4288-91a0-dcb2084473b2" absoluteBounds="13.64, 25.585, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4654095-4884-4a97-bcb4-fdf1463fba22" isExpanded="false" absoluteBounds="25.75, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookDeleted" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c5d0063-8585-4016-99d1-ffc749e44581" absoluteBounds="25.765, 1.2100000000000009, 1.9700000000000002, 10.641581503053505" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b57a3e3a-ef7a-490e-944b-1753cd278ae9" isExpanded="false" absoluteBounds="21.25, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookConsSubForm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c3b3cfa-4d3e-42f7-ab2f-20c940378579" absoluteBounds="21.265, 1.085, 1.9700000000000002, 18.62884571403265" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab6979ec-d5f0-4ee5-86c9-67e1c10f1172" isExpanded="false" absoluteBounds="23.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadStatusBoard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5cf2d97-ce1c-4f64-b8ab-047f3fb92b04" absoluteBounds="23.515, 0.96, 1.9700000000000002, 13.985087451835472" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a8dac84-4898-463e-9302-b2935befb492" isExpanded="false" absoluteBounds="0.625, 8.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vUserAdminWithCompControlRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90b8cca6-cb19-41ec-b0b0-598a83627e48" absoluteBounds="0.64, 9.335, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9a93242-13da-4422-951e-d74725f16a71" absoluteBounds="11.125, 29.25, 2, 6.929323901832106">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblSolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7af12f42-ced6-4ca8-ad74-4a26a0724b29" absoluteBounds="11.14, 29.71, 1.9700000000000002, 6.3693239018321037" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="360884f4-f78f-4426-a12f-02f29e49674f" isExpanded="false" absoluteBounds="8.25, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac3ac08f-b711-4514-bce0-b5fa167b0dd2" absoluteBounds="8.265, 4.21, 1.9700000000000002, 5.6263225798805552" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed94083f-a624-4462-8015-c37914438c42" isExpanded="false" absoluteBounds="3, 8.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/CarrierRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3659329-4c35-480e-bd34-c10e82a9fff6" absoluteBounds="3.015, 8.71, 1.9700000000000002, 14.17083778232336" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7498553-4826-44e9-9b02-735ca8f2f9dc" isExpanded="false" absoluteBounds="8.5, 5.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookRevHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1bd24d0-f4e8-411d-8058-f8a86bf0e9a5" absoluteBounds="8.515, 5.8350000000000009, 1.9700000000000002, 21.415100671350956" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5fe7bcea-ea2e-433b-b7d7-62329eca92cc" isExpanded="false" absoluteBounds="3, 11.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookCarrTend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd92e0cd-8398-42b8-bf24-2e01dbb0d1c2" absoluteBounds="3.015, 11.96, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa55161b-199f-4489-914e-6c7ee6336e26" absoluteBounds="19, 11.5, 2, 20.860598688423636">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNewBookingsForSolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="984dde6c-c6b9-46e7-98c6-778c66c3cd9e" absoluteBounds="19.015, 11.96, 1.9700000000000002, 20.300598688423634" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9907807-4732-4efa-90dd-a9fe087852e9" isExpanded="false" absoluteBounds="16.125, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNewPOsForSolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9435eb6-ec60-44cd-998d-e7ff1f27b129" absoluteBounds="16.14, 1.0850000000000009, 1.9700000000000002, 12.313334477444489" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c69158f6-6e9b-445f-a806-0e2fb914fac3" isExpanded="false" absoluteBounds="11.375, 27.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblSolutionTruck" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a72181d9-0bb7-4254-b68c-06b83360b8db" absoluteBounds="11.39, 27.71, 1.9700000000000002, 9.15557885915041" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.25 : 29.25); (12.25 : 27.7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblSolution/tblSolution_tblSolutionTruck" />
+      <nodes>
+        <classShapeMoniker Id="f9a93242-13da-4422-951e-d74725f16a71" />
+        <classShapeMoniker Id="c69158f6-6e9b-445f-a806-0e2fb914fac3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2d7bc559-a598-4650-971c-ab908e4d4d73" absoluteBounds="15.625, 26.5, 2, 23.275352984766165">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblSolutionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82989328-395a-421f-b884-91cc64d187b9" absoluteBounds="15.64, 26.96, 1.9700000000000002, 22.715352984766163" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.28125 : 27.7); (13.28125 : 43.5228499348958); (15.625 : 43.5228499348958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblSolutionTruck/tblSolutionTruck_tblSolutionDetail" />
+      <nodes>
+        <classShapeMoniker Id="c69158f6-6e9b-445f-a806-0e2fb914fac3" />
+        <classShapeMoniker Id="2d7bc559-a598-4650-971c-ab908e4d4d73" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d98c534b-ec53-4d62-ae57-9875efdc4a24" absoluteBounds="28.5, 1, 2, 1.914064978659153">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblNGLMessageTypeRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adc0e4de-a910-43be-8a65-fd7a5e985516" absoluteBounds="28.515, 1.46, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c0b4bd24-1e56-4b43-9f60-128587adc059" absoluteBounds="28.625, 3.25, 2, 3.2143172920743623">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblNGLMessageRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22fe96ab-53a9-44bf-85c8-1986aac16341" absoluteBounds="28.64, 3.71, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(29.5625 : 2.75354248046875); (29.5625 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblNGLMessageTypeRefBook/tblNGLMessageTypeRefBook_tblNGLMessageRefBook" />
+      <nodes>
+        <classShapeMoniker Id="d98c534b-ec53-4d62-ae57-9875efdc4a24" />
+        <classShapeMoniker Id="c0b4bd24-1e56-4b43-9f60-128587adc059" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f9e04fb6-cad2-466e-bfee-c0ac847aec1e" isExpanded="false" absoluteBounds="11.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookRevenue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a61cb1f6-1394-4675-ba9f-c27b2a4dc665" absoluteBounds="11.515, 0.96, 1.9700000000000002, 24.758606620132923" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5003451538462 : 0.95); (11.1253451538462 : 1.325); (10.875 : 1.325); (10.875 : 0.250345153846155); (10.25 : 0.875345153846154)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/vBookRevenue/vBookRevenue_BookLoad" />
+      <nodes>
+        <classShapeMoniker Id="f9e04fb6-cad2-466e-bfee-c0ac847aec1e" />
+        <classShapeMoniker Id="b546c24e-5d67-4067-b766-f3b41f0de474" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.5314250769231 : 0.95); (12.5314250769231 : 3.975); (10.8645833333333 : 3.975 : JumpStart); (10.6979166666667 : 3.975 : JumpEnd); (10.5520833333333 : 3.975 : JumpStart); (10.3854166666667 : 3.975 : JumpEnd); (10.25 : 3.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/vBookRevenue/vBookRevenue_BookFee" />
+      <nodes>
+        <classShapeMoniker Id="f9e04fb6-cad2-466e-bfee-c0ac847aec1e" />
+        <classShapeMoniker Id="360884f4-f78f-4426-a12f-02f29e49674f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1d372adf-9ebb-4f9c-a5d2-b4d191a0f60e" isExpanded="false" absoluteBounds="0.625, 15, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookLTL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e026f06-3616-4fd2-9464-779b2040ef11" absoluteBounds="0.64, 15.46, 1.9700000000000002, 8.0410768762230873" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b447907b-eb07-40e2-8dd3-0aa60d65a1f1" isExpanded="false" absoluteBounds="0.625, 15.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookConsolidatedOpen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08e53d09-2135-4d8d-95e2-1a94ee9837ec" absoluteBounds="0.64000000000000012, 15.96, 1.9700000000000002, 4.140319935977459" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65d36890-b3bd-470e-bf0d-e3adfbcfb0b9" isExpanded="false" absoluteBounds="0.625, 16, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44875937-b9e4-4622-acd9-545cccd495fd" absoluteBounds="0.64, 16.46, 1.9700000000000002, 8.0410768762230873" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f178dd9e-847f-4b47-9c2e-77dca212a278" isExpanded="false" absoluteBounds="0.625, 16.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookOrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f3b849f-6aaa-49c7-9783-49e4cd611894" absoluteBounds="0.64, 16.96, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd9cdd25-cdb8-46cd-b703-5c8ed10f6064" absoluteBounds="18.875, 29.125, 2, 20.860598688423636">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNewBookingsWaitingForSolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8004d79-0549-48da-bd0b-a8a51501b5fa" absoluteBounds="18.89, 29.585, 1.9700000000000002, 20.300598688423634" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a45c92e-6595-444e-bea7-87dfb7957c4e" absoluteBounds="31.25, 0.875, 2, 2.09981530914704">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblOptDistIndex" />
+      <nestedChildShapes>
+        <elementListCompartment Id="818cff0e-c52f-4f7d-abde-744f897843b0" absoluteBounds="31.265, 1.335, 1.9700000000000002, 1.53981530914704" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6481c3cc-8e1d-4682-be8e-10e7f225fc2d" absoluteBounds="21.5, 22.125, 2, 9.15832786768675">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97164368-c546-4c87-8696-c7090b6f22bf" absoluteBounds="21.515, 22.585, 1.9700000000000002, 8.5983278676867485" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1289999a-518c-4e0c-a446-747f1f5b5b3d" isExpanded="false" absoluteBounds="3, 12.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/CompRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d9bbcb7-9820-4753-ac78-646c0321259d" absoluteBounds="3.015, 12.71, 1.9700000000000002, 41.476136364042759" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0697c5e8-1614-489e-9fb1-569bef041962" isExpanded="false" absoluteBounds="3, 13.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblBookItemCommCodeXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38a07ff0-731f-421e-88ca-148dea62126f" absoluteBounds="3.0150000000000006, 13.71, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4 : 12.7); (4 : 13.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/CompRefBook/CompRefBook_tblBookItemCommCodeXref" />
+      <nodes>
+        <classShapeMoniker Id="1289999a-518c-4e0c-a446-747f1f5b5b3d" />
+        <classShapeMoniker Id="0697c5e8-1614-489e-9fb1-569bef041962" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9274954c-0690-41b7-a6ec-f3cbe0682844" absoluteBounds="31.25, 3.25, 2, 10.644330511589844">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookFeesPending" />
+      <nestedChildShapes>
+        <elementListCompartment Id="277226c7-1581-49d9-800c-9ad0d6d9f6c8" absoluteBounds="31.265, 3.71, 1.9700000000000002, 10.084330511589844" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0abce7ce-286c-4683-bf2f-543bff16a785" isExpanded="false" absoluteBounds="3.125, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d3a675e-53f7-4ce0-a706-23ecbfad4a15" absoluteBounds="3.14, 3.585, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" isExpanded="false" absoluteBounds="3.125, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d72e18e1-59e6-4452-bff9-6796b98ab19c" absoluteBounds="3.14, 0.96, 1.9700000000000002, 4.69757092744112" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e1f9d1f-d056-4a9e-b25c-c5013a26373c" isExpanded="false" absoluteBounds="0.625, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblNGLAPICodeRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91dd70b0-35c6-4207-85b4-0122fead186f" absoluteBounds="0.64000000000000012, 2.585, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8373bfd4-c4c5-4e32-81d2-c4d5ab68dd94" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblNGLAPIAccessorialsXrefRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca29cd5e-e0df-4372-b5e3-c2b9ac0295a9" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.354064978659153" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 0.6562505); (8.1875 : 0.6562505); (8.1875 : 3.65625); (9.25 : 3.65625); (9.25 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_BookFee" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="360884f4-f78f-4426-a12f-02f29e49674f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 2.575); (3.125 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblNGLAPICodeRefBook/tblNGLAPICodeRefBook_BookAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="0e1f9d1f-d056-4a9e-b25c-c5013a26373c" />
+        <classShapeMoniker Id="0abce7ce-286c-4683-bf2f-543bff16a785" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 0.725); (2.5 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_tblNGLAPIAccessorialsXrefRefBook" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="8373bfd4-c4c5-4e32-81d2-c4d5ab68dd94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.65625 : 2.125); (0.65625 : 0.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblNGLAPICodeRefBook/tblNGLAPICodeRefBook_tblNGLAPIAccessorialsXrefRefBook" />
+      <nodes>
+        <classShapeMoniker Id="0e1f9d1f-d056-4a9e-b25c-c5013a26373c" />
+        <classShapeMoniker Id="8373bfd4-c4c5-4e32-81d2-c4d5ab68dd94" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e125a38c-367b-462e-b2a2-2f613f43f43e" isExpanded="false" absoluteBounds="3, 9.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/LaneFeeRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc90d2a4-5fd4-48d4-b15e-ef026fdc7c01" absoluteBounds="3.015, 10.335, 1.9700000000000002, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 0.95); (5.5 : 1.325); (5.5 : 9.5); (5.375 : 9.5); (5 : 9.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_LaneFeeRefBook" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="e125a38c-367b-462e-b2a2-2f613f43f43e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0ff19f7b-9947-4a89-8b11-4c39eb67972e" isExpanded="false" absoluteBounds="3, 7.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookSpotRateData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5307611d-ee0d-4115-8c49-fe11a49363a1" absoluteBounds="3.015, 7.835, 1.9700000000000002, 3.9545696054895716" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.46875 : 8.25); (4.46875 : 7.825)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/CarrierRefBook/CarrierRefBook_BookSpotRateData" />
+      <nodes>
+        <classShapeMoniker Id="ed94083f-a624-4462-8015-c37914438c42" />
+        <classShapeMoniker Id="0ff19f7b-9947-4a89-8b11-4c39eb67972e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8a0204df-37c2-4557-a947-d5dce1cec7cc" isExpanded="false" absoluteBounds="0.625, 5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookSpotRateData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d45e7fa-233d-4f13-84c3-49f51a3fba72" absoluteBounds="0.64, 5.46, 3.0949999999999998, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b7054b4-2a7c-4a8c-b0c2-d01469ca0a8c" absoluteBounds="45.375, 1.5, 2, 13.244835138420262">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBoardStop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b57854ef-f7ce-4fa6-a27b-1b8d9e803b03" absoluteBounds="45.39, 1.96, 1.9700000000000002, 12.684835138420263" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19ea9ed8-3581-446c-9548-ded8fc502c81" isExpanded="false" absoluteBounds="0.5, 5.625, 2.25, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vSpotRateFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09d584b9-2645-4513-add0-2776d1e34f34" absoluteBounds="0.515, 6.085, 2.2199999999999998, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a99cf7e3-ceea-4dcc-8c8f-0e2b2f60e27a" isExpanded="false" absoluteBounds="0.75, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblAccessorialNGLAPIFeesXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19559448-b4c8-4fd8-93e8-746820815ba6" absoluteBounds="0.76500000000000012, 1.835, 1.9700000000000002, 0.79681398719549179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 0.95); (2.75 : 1.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_tblAccessorialNGLAPIFeesXref" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="a99cf7e3-ceea-4dcc-8c8f-0e2b2f60e27a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.6875 : 2.125); (1.6875 : 1.825)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblNGLAPICodeRefBook/tblNGLAPICodeRefBook_tblAccessorialNGLAPIFeesXref" />
+      <nodes>
+        <classShapeMoniker Id="0e1f9d1f-d056-4a9e-b25c-c5013a26373c" />
+        <classShapeMoniker Id="a99cf7e3-ceea-4dcc-8c8f-0e2b2f60e27a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a98ed6a7-cc3b-447d-98cb-7c746be80b20" isExpanded="false" absoluteBounds="0.5, 6.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/PalletTypeRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a2124b9-91cc-45c2-b6b1-9245901354e2" absoluteBounds="0.515, 7.085, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="afec89c8-db7c-42a8-a83e-e95953e13ce5" isExpanded="false" absoluteBounds="0.625, 17, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vTenderedOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b01284ac-0e62-44ec-aeef-74daa4192eeb" absoluteBounds="0.64000000000000012, 17.46, 1.9700000000000002, 8.0410768762230873" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df6fe6ae-9ed1-48da-8ffc-395b60a1f617" isExpanded="false" absoluteBounds="3, 9.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/tblUserSecurityCarrierRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3571714a-1912-4b5d-80a3-e644b52892d1" absoluteBounds="3.015, 9.585, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.46875 : 8.7); (4.46875 : 9.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/CarrierRefBook/CarrierRefBook_tblUserSecurityCarrierRefBook" />
+      <nodes>
+        <classShapeMoniker Id="ed94083f-a624-4462-8015-c37914438c42" />
+        <classShapeMoniker Id="df6fe6ae-9ed1-48da-8ffc-395b60a1f617" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="35c1294d-5146-4d75-841f-68a4af998fbd" isExpanded="false" absoluteBounds="3.125, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookPackage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6895f103-b37f-43e6-b343-c19c95451dd7" absoluteBounds="3.14, 4.96, 1.9700000000000002, 4.140319935977459" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="92aaea21-d27f-47df-b534-f4878fde9fb4" isExpanded="false" absoluteBounds="0.625, 30.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookPackage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26273bad-53dc-46bb-aafd-efb5b8ff1767" absoluteBounds="0.64000000000000012, 30.71, 2.3449999999999998, 4.3260702664653454" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d1bfb8b-2c90-4614-a9f5-b3c3d796988a" absoluteBounds="38.5, 1.375, 2, 18.631594722568991">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookAllItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f3322d1-e324-4531-b436-9a45b2675fb9" absoluteBounds="38.515, 1.835, 1.9700000000000002, 18.071594722568989" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cebbbb12-ea22-473f-b374-2ad6171c0ec3" absoluteBounds="40.875, 1.5, 2, 18.445844392081103">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookAllItemByCarrier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b90ac1a-4a23-445c-8d5e-f8f2feb1f89f" absoluteBounds="40.89, 1.96, 1.9700000000000002, 17.8858443920811" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ba1f862-fcff-41d7-9cb6-31d4694b2701" isExpanded="false" absoluteBounds="8.25, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7029617d-2362-472b-aa9d-61c2e5e30d79" absoluteBounds="8.265, 2.085, 1.9700000000000002, 15.656840426226456" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.25 : 1.325); (9.25 : 1.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/BookLoad/BookLoad_BookItem" />
+      <nodes>
+        <classShapeMoniker Id="b546c24e-5d67-4067-b766-f3b41f0de474" />
+        <classShapeMoniker Id="6ba1f862-fcff-41d7-9cb6-31d4694b2701" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b8c2b0d0-d5d1-4999-a1fa-1bb496cd23c6" isExpanded="false" absoluteBounds="0.5, 10.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/APMassEntryFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a34cc0f-7df8-42e3-a3ab-f7317e8660f0" absoluteBounds="0.51500000000000012, 10.96, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91c55711-b259-4205-99c2-d80da9adeddd" isExpanded="false" absoluteBounds="0.625, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/APMassEntryHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7dd35005-5a7e-438b-b4c7-14795663f720" absoluteBounds="0.64, 11.71, 2.3449999999999998, 6.7408245628078776" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c9af072-0b92-4808-a298-0d3b96a56352" isExpanded="false" absoluteBounds="0.625, 12, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/APMassEntryHistoryFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae46b5f7-33c4-440c-93e3-cac548e9d69e" absoluteBounds="0.64000000000000012, 12.46, 1.9700000000000002, 2.6543172920743623" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 11.7); (1.625 : 12)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/APMassEntryHistory/APMassEntryHistory_APMassEntryHistoryFee" />
+      <nodes>
+        <classShapeMoniker Id="91c55711-b259-4205-99c2-d80da9adeddd" />
+        <classShapeMoniker Id="4c9af072-0b92-4808-a298-0d3b96a56352" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="25078275-4898-4213-bc10-d35d77197b63" isExpanded="false" absoluteBounds="9, 6.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookFeesPending" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1d17e91-c7f2-4b61-ad7b-3b646998aaba" absoluteBounds="9.015, 6.71, 1.9700000000000002, 5.8120729103684425" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 0.54687275); (10.4951390705128 : 0.546872749999999 : JumpStart); (10.6618057371795 : 0.54687275 : JumpEnd); (10.78125 : 0.54687275); (10.78125 : 6.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_BookFeesPending" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="25078275-4898-4213-bc10-d35d77197b63" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="494ba8fb-5f55-4e85-bc37-4d41f408784d" isExpanded="false" absoluteBounds="8.625, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookRevHistoryFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9d3f317-58b0-4fb4-a452-209e138f2118" absoluteBounds="8.64, 4.96, 1.9700000000000002, 5.6263225798805552" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5625 : 5.375); (9.5625 : 4.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/BookRevHistory/BookRevHistory_BookRevHistoryFee" />
+      <nodes>
+        <classShapeMoniker Id="f7498553-4826-44e9-9b02-735ca8f2f9dc" />
+        <classShapeMoniker Id="494ba8fb-5f55-4e85-bc37-4d41f408784d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 0.76562775); (10.2763840705128 : 0.765627749999999 : JumpStart); (10.4430507371795 : 0.76562775 : JumpEnd); (10.46875 : 0.76562775); (10.46875 : 4.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/tblAccessorialRefBook/tblAccessorialRefBook_BookRevHistoryFee" />
+      <nodes>
+        <classShapeMoniker Id="ee3a2a80-c60d-4aa6-a62b-f78305005d52" />
+        <classShapeMoniker Id="494ba8fb-5f55-4e85-bc37-4d41f408784d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="83ad38ec-6e1f-48b1-9fef-d3e537650dbc" isExpanded="false" absoluteBounds="0.625, 17.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookCarrierComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f99143fe-d0b6-4a52-a2ed-c6ce72b552da" absoluteBounds="0.64000000000000012, 18.085, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a50c3e3-40f2-402b-be81-4c3f3638c933" isExpanded="false" absoluteBounds="0.625, 12.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/APMassEntryMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8c333a8-0c04-4b46-9d88-1bcf73f74c28" absoluteBounds="0.64000000000000012, 13.085, 1.9700000000000002, 1.9113159701228142" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0680da6b-a068-4e5e-92ca-8189da232873" isExpanded="false" absoluteBounds="0.625, 13.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vAPMassEntryMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4b5783e-5df9-4047-886f-406b92f6a80b" absoluteBounds="0.64000000000000012, 13.71, 1.9700000000000002, 2.0970663006107011" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e8dc618-3598-4d22-b6d6-e83dbd0e26fe" isExpanded="false" absoluteBounds="0.625, 13.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vAPMassEntryFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3e4b77c-53a0-40f2-b377-0a1809002ee4" absoluteBounds="0.64000000000000012, 14.21, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6a874a7-f160-4445-aa48-4594abb98e28" isExpanded="false" absoluteBounds="0.625, 14.25, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vAPMESummaryField" />
+      <nestedChildShapes>
+        <elementListCompartment Id="352487f0-531a-4817-95fc-8af4eb991762" absoluteBounds="0.64000000000000012, 14.71, 1.9700000000000002, 3.0258179530501366" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2487250e-b5e0-4dbf-b741-b60c7dce4903" isExpanded="false" absoluteBounds="3.125, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookRefStops" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8333328c-364a-4ab8-8393-f12c5f92086d" absoluteBounds="3.14, 2.335, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3702bd0d-0c3e-4236-8b51-61fcc2097f7b" isExpanded="false" absoluteBounds="3.125, 5.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookTrackDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="749dd5e8-b845-4831-a4b5-db789fef4631" absoluteBounds="3.14, 6.335, 1.9700000000000002, 5.6263225798805552" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 6.625); (4.125 : 6.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/BookTrack/BookTrack_BookTrackDetail" />
+      <nodes>
+        <classShapeMoniker Id="e096f60d-9f78-44fc-9fb1-650249d15465" />
+        <classShapeMoniker Id="3702bd0d-0c3e-4236-8b51-61fcc2097f7b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e7e3228d-cb68-48ba-8ccd-e63444635631" isExpanded="false" absoluteBounds="3, 5.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookTrack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bbf4e481-ae0d-46ca-82dd-f8b7ed9d1a09" absoluteBounds="3.015, 5.585, 1.9700000000000002, 3.2115682835380235" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bea1a41b-c7e2-4d9e-a1b0-f7bc932676a1" isExpanded="false" absoluteBounds="47.75, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNGLAccountingConsSum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="586df8a2-728b-4fd1-b9b1-2fed4f5fb83e" absoluteBounds="47.765, 2.585, 1.9700000000000002, 8.5983278676867485" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f51bc63f-22dd-4e54-9701-192d2971f038" isExpanded="false" absoluteBounds="47.75, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNGLAccounting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ac249c0-6be6-4cd4-813f-b29b6e9a10ac" absoluteBounds="47.765, 1.96, 1.9700000000000002, 12.87058546890815" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de9e3b84-b939-4973-93cd-800f37b72e21" isExpanded="false" absoluteBounds="0.5, 9.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/APMassEntry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a51066fa-89e9-4625-aa0c-09fa69e474cd" absoluteBounds="0.51500000000000012, 9.96, 1.9700000000000002, 7.8553265457352" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 9.95); (1.5 : 10.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/APMassEntry/APMassEntry_APMassEntryFee" />
+      <nodes>
+        <classShapeMoniker Id="de9e3b84-b939-4973-93cd-800f37b72e21" />
+        <classShapeMoniker Id="b8c2b0d0-d5d1-4999-a1fa-1bb496cd23c6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.031252 : 9.95); (2.031252 : 10.25); (1.58333333333333 : 10.25 : JumpStart); (1.41666666666667 : 10.25 : JumpEnd); (0.25 : 10.25); (0.25 : 12.85); (0.625 : 12.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/APMassEntry/APMassEntry_APMassEntryMsg" />
+      <nodes>
+        <classShapeMoniker Id="de9e3b84-b939-4973-93cd-800f37b72e21" />
+        <classShapeMoniker Id="6a50c3e3-40f2-402b-be81-4c3f3638c933" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="05d758ff-9dd8-4249-a08a-88d0599c2be2" absoluteBounds="36.125, 1.375, 2, 5.4433212579290062">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vFBSHIDGrid365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d5cbed2-557b-4555-9bf9-2bc60b2e7590" absoluteBounds="36.14, 1.835, 1.9700000000000002, 4.8833212579290066" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d1ce88a-61a0-408d-a681-2753b6d13c71" isExpanded="false" absoluteBounds="47.75, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vCMLoadBoardRevLoadSumTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49852231-cd49-40fc-aea3-e699288982af" absoluteBounds="47.765, 3.21, 1.9700000000000002, 2.4685669615864754" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3ceb084-2a62-4cae-9a3c-6b355758e30e" isExpanded="false" absoluteBounds="47.75, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLBLoadStatus365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79856dc6-52f6-4c2b-89af-2f1fb1130295" absoluteBounds="47.765, 3.835, 1.9700000000000002, 3.5830689445137978" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8a78b85-4630-402f-b359-9182a95dd83a" isExpanded="false" absoluteBounds="49.875, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="884976f7-dded-48ff-a6d7-2019c2ffad9c" absoluteBounds="49.89, 1.96, 1.9700000000000002, 4.69757092744112" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4d77f77-7e34-4319-826e-3047bc1accae" isExpanded="false" absoluteBounds="8.25, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBookingsForSolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3779b8f8-4db5-4f1e-9e91-f64167c213ca" absoluteBounds="8.265, 2.96, 1.9700000000000002, 20.300598688423634" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e5d6965-4f74-4fcc-9d69-448d76542f94" isExpanded="false" absoluteBounds="3.125, 3.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/BookImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e891bfcf-d771-448d-be2b-3d81ee01e927" absoluteBounds="3.14, 4.335, 1.9700000000000002, 1.725565639634927" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="370c388e-2a0e-4fe1-b88d-35623bad0d07" isExpanded="false" absoluteBounds="3.25, 10.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/LaneRefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c3f664b-f507-45b5-9c60-713f4b09e506" absoluteBounds="3.265, 11.21, 1.9700000000000002, 34.417623805503048" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 10.75); (4.125 : 10.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/LaneRefBook/LaneRefBook_LaneFeeRefBook" />
+      <nodes>
+        <classShapeMoniker Id="370c388e-2a0e-4fe1-b88d-35623bad0d07" />
+        <classShapeMoniker Id="e125a38c-367b-462e-b2a2-2f613f43f43e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f31546c3-2da9-490e-95d9-1ee138184157" absoluteBounds="34.125, 4.75, 2, 9.5298285286625219">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookFee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ca037a0-86f7-4c4b-a39c-424bec65e808" absoluteBounds="34.14, 5.21, 1.9700000000000002, 8.9698285286625214" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="831d55a1-b139-4cc9-9c9d-4480db6f918a" isExpanded="false" absoluteBounds="0.625, 27.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBoardShipingSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49bd3167-d83b-4334-aab8-f9edb9051960" absoluteBounds="0.64000000000000012, 27.835, 1.9700000000000002, 4.5118205969532328" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebe1daab-73ea-4cb7-8154-a594831d9182" isExpanded="false" absoluteBounds="0.625, 31.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookAccessorial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70c82cca-f047-496b-93cb-a258c5461c23" absoluteBounds="0.64000000000000012, 32.335, 1.9700000000000002, 2.282816631098588" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" absoluteBounds="5.875, 0.875, 2, 56.33891181161006">
+      <DataClassMoniker Name="/NGLMasBookDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c90ac5e-3cb5-4a5d-9e24-734b7a0601b3" absoluteBounds="5.89, 1.3350000000000009, 1.9700000000000002, 55.778911811610058" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 1.475); (5.58333333333333 : 1.475 : JumpStart); (5.41666666666667 : 1.475 : JumpEnd); (5.125 : 1.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookCode" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="06a92202-37b0-4037-ac74-c5ea5552eca7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.875 : 1.1); (8.25 : 1.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookLoad" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="b546c24e-5d67-4067-b766-f3b41f0de474" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 2.725); (5.125 : 2.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookNote" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="ae5df5bb-edfe-4c3d-a3b7-36b74899ee47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 6.85); (5.125 : 6.85)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookTrack" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="e096f60d-9f78-44fc-9fb1-650249d15465" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.875 : 3.975); (8.25 : 3.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookFee" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="360884f4-f78f-4426-a12f-02f29e49674f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.875 : 5.6); (8.5 : 5.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookRevHistory" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="f7498553-4826-44e9-9b02-735ca8f2f9dc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 11.725); (5 : 11.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookCarrTend" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="5fe7bcea-ea2e-433b-b7d7-62329eca92cc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 3.35); (5.58333333333333 : 3.35 : JumpStart); (5.41666666666667 : 3.35 : JumpEnd); (5.125 : 3.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookAccessorial" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="0abce7ce-286c-4683-bf2f-543bff16a785" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 7.6); (5.58333333333333 : 7.6 : JumpStart); (5.41666666666667 : 7.6 : JumpEnd); (5 : 7.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookSpotRateData" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="0ff19f7b-9947-4a89-8b11-4c39eb67972e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 4.725); (5.58333333333333 : 4.725 : JumpStart); (5.41666666666667 : 4.725 : JumpEnd); (5.125 : 4.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookPackage" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="35c1294d-5146-4d75-841f-68a4af998fbd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.875 : 6.475); (9 : 6.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookFeesPending" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="25078275-4898-4213-bc10-d35d77197b63" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 4.1); (5.125 : 4.1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/Book/Book_BookImage" />
+      <nodes>
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+        <classShapeMoniker Id="0e5d6965-4f74-4fcc-9d69-448d76542f94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 10.975); (5.875 : 10.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/LaneRefBook/LaneRefBook_Book" />
+      <nodes>
+        <classShapeMoniker Id="370c388e-2a0e-4fe1-b88d-35623bad0d07" />
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5 : 12.475); (5.875 : 12.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/NGLMasBookDataContext/CompRefBook/CompRefBook_Book" />
+      <nodes>
+        <classShapeMoniker Id="1289999a-518c-4e0c-a446-747f1f5b5b3d" />
+        <classShapeMoniker Id="9323e864-36d5-46c1-98cd-26e2a82c8ca6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c86b6ea1-f7c5-4fda-b6bd-2def12940403" isExpanded="false" absoluteBounds="16.125, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNewPOsForSolution365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73cf0938-0d6b-4d4a-97be-b1cd5b8fa3a4" absoluteBounds="16.14, 1.96, 1.9700000000000002, 12.313334477444489" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2066e592-563f-4407-93dd-b3b65fff92d3" isExpanded="false" absoluteBounds="16.125, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vNewBookingsForSolution365" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ea1e385-8d2a-4d1c-aca9-990ccdf86e01" absoluteBounds="16.14, 2.835, 1.9700000000000002, 20.857849679887295" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46c17ccf-a876-46dc-b324-119e171da3b7" isExpanded="false" absoluteBounds="18.5, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookFinancial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9921cbe-e6c9-44ba-8ecf-a9c00fecfa9a" absoluteBounds="18.515, 1.085, 1.9700000000000002, 11.756083485980827" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa47fd30-cddb-467b-b7b4-02834ba9926f" isExpanded="false" absoluteBounds="0.625, 4.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookImageSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ac04dc8-3a08-4ecb-8290-b2e2edf36895" absoluteBounds="0.64, 4.835, 1.9700000000000002, 1.7255656396349273" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9433afe-a2fa-4705-930f-70dfee4dca3e" isExpanded="false" absoluteBounds="0.625, 25.875, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBoardRev" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cca7ad80-de2a-4981-89a5-dab1b4478ca1" absoluteBounds="0.64000000000000012, 26.335, 1.9700000000000002, 5.2548219189047813" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4362b16-01cb-4996-852d-17f39babcf27" isExpanded="false" absoluteBounds="0.625, 26.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBoardSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="831f035e-9738-4aa2-8e96-469abc829b12" absoluteBounds="0.64000000000000012, 27.085, 1.9700000000000002, 7.4838258847594261" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5fd4c37-f0ff-4958-b35b-514208852679" isExpanded="false" absoluteBounds="0.625, 28, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLoadBoardChangeSHID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb406569-2796-4e77-98aa-95ad6dc80e24" absoluteBounds="0.64000000000000012, 28.46, 1.9700000000000002, 1.1683146481712658" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2fc0b378-d8b0-4925-9052-e2dec2997749" isExpanded="false" absoluteBounds="0.625, 28.75, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLELane365RefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a23bb47-56ce-4833-bc2b-2197965ec4fe" absoluteBounds="0.64000000000000012, 29.21, 1.9700000000000002, 21.043600010375179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5b52c368-2c3d-4b1d-8ffe-beb47ab28fc4" isExpanded="false" absoluteBounds="0.625, 29.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLEComp365RefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="109581e0-75f5-4445-b483-a3a1a174a4bb" absoluteBounds="0.64, 29.96, 1.9700000000000002, 16.399841748178005" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d17bb657-0052-41ba-be1c-0d8f285f21af" isExpanded="false" absoluteBounds="0.625, 31, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vLegalEntityCarrierByLERefBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="272de6e9-2a3a-4c97-9aa5-771dcf1a5332" absoluteBounds="0.64, 31.46, 2.4699999999999998, 10.084330511589844" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42a476b7-70d9-4738-992b-cdeeb71766ec" isExpanded="false" absoluteBounds="0.625, 32.625, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6711da67-c896-47db-a36f-3638c11713a6" absoluteBounds="0.64000000000000012, 33.085, 1.9700000000000002, 2.8400676225622492" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3b3ea7c-c3e6-4a1b-9ee6-b5c7a27c82cf" isExpanded="false" absoluteBounds="0.625, 33.5, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookLoadMaintenance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c75df136-36bb-4220-8c6c-85fb28de4654" absoluteBounds="0.64, 33.96, 1.9700000000000002, 27.544861577451229" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58c57aae-a130-48ab-9ab9-defade3d7450" isExpanded="false" absoluteBounds="0.625, 34.375, 2, 0.45">
+      <DataClassMoniker Name="/NGLMasBookDataContext/vBookLoadBoard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38c009bf-059e-401e-be52-bc82e29e858e" absoluteBounds="0.64, 34.835, 1.9700000000000002, 26.05885893354813" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

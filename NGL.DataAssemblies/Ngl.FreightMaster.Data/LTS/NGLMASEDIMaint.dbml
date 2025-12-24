@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLMASDEV7051" EntityNamespace="LTS" Class="NGLMASEDIMaintDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MININT-1CJQH8R\SQL2014;Initial Catalog=NGLMASDEV7051;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Ngl.FreightMaster.Data.My.MySettings" SettingsPropertyName="NGLMASDEV7051ConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblEDITypes" Member="tblEDITypes">
+    <Type Name="tblEDIType">
+      <Column Name="EDITControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EDITDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EDITUpdated" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="EDITDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EDITCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EDITCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EDITModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDITModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tblEDIType_tblEDIDocSegmentElement" Member="tblEDIDocSegmentElements" ThisKey="EDITControl" OtherKey="DSEEDITControl" Type="tblEDIDocSegmentElement" />
+      <Association Name="tblEDIType_tblEDIDataMapField" Member="tblEDIDataMapFields" ThisKey="EDITControl" OtherKey="DataMapFieldEDITControl" Type="tblEDIDataMapField" />
+      <Association Name="tblEDIType_tblEDIMasterDocument" Member="tblEDIMasterDocuments" Storage="_tblEDIMasterDocuments_s" ThisKey="EDITControl" OtherKey="MasterDocEDITControl" Type="tblEDIMasterDocument" />
+      <Association Name="tblEDIType_tblEDITPDocument" Member="tblEDITPDocuments" ThisKey="EDITControl" OtherKey="TPDocEDITControl" Type="tblEDITPDocument" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDataType" Member="tblEDIDataTypes">
+    <Type Name="tblEDIDataType">
+      <Column Name="EDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EDIDataTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EDIDataTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EDIDataTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIDataTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EDIDataTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIDataType_tblEDIElmnt" Member="tblEDIElmnts" ThisKey="EDIDataTypeControl" OtherKey="ElementEDIDataTypeControl" Type="tblEDIElmnt" />
+      <Association Name="tblEDIDataType_tblEDIDataMapField" Member="tblEDIDataMapFields" ThisKey="EDIDataTypeControl" OtherKey="DataMapFieldEDIDataTypeControl" Type="tblEDIDataMapField" />
+      <Association Name="tblEDIDataType_tblEDIMasterDocStructElement" Member="tblEDIMasterDocStructElements" ThisKey="EDIDataTypeControl" OtherKey="MDSElementEDIDataTypeControl" Type="tblEDIMasterDocStructElement" />
+      <Association Name="tblEDIDataType_tblEDIDocStructElement" Member="tblEDIDocStructElements" ThisKey="EDIDataTypeControl" OtherKey="DSElementEDIDataTypeControl" Type="tblEDIDocStructElement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIElmnt" Member="tblEDIElmnts">
+    <Type Name="tblEDIElmnt">
+      <Column Name="ElementControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ElementName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ElementDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ElementEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElementMinLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElementMaxLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElementValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElementFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElementDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ElementCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ElementCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ElementModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ElementModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ElementUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIElmnt_tblEDIDocSegmentElement" Member="tblEDIDocSegmentElements" ThisKey="ElementControl" OtherKey="DSEElementControl" Type="tblEDIDocSegmentElement" />
+      <Association Name="tblEDIDataType_tblEDIElmnt" Member="tblEDIDataType" ThisKey="ElementEDIDataTypeControl" OtherKey="EDIDataTypeControl" Type="tblEDIDataType" IsForeignKey="true" />
+      <Association Name="tblEDIValidationType_tblEDIElmnt" Member="tblEDIValidationType" ThisKey="ElementValidationTypeControl" OtherKey="ValidationTypeControl" Type="tblEDIValidationType" IsForeignKey="true" />
+      <Association Name="tblEDIFormattingFunction_tblEDIElmnt" Member="tblEDIFormattingFunction" ThisKey="ElementFormattingFnControl" OtherKey="FormattingFnControl" Type="tblEDIFormattingFunction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIValidationTypes" Member="tblEDIValidationTypes">
+    <Type Name="tblEDIValidationType">
+      <Column Name="ValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ValidationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ValidationTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ValidationTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidationTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ValidationTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIValidationType_tblEDIElmnt" Member="tblEDIElmnts" ThisKey="ValidationTypeControl" OtherKey="ElementValidationTypeControl" Type="tblEDIElmnt" />
+      <Association Name="tblEDIValidationType_tblEDIMasterDocStructElmntAttribute" Member="tblEDIMasterDocStructElmntAttributes" ThisKey="ValidationTypeControl" OtherKey="MDSAttrValidationTypeControl" Type="tblEDIMasterDocStructElmntAttribute" />
+      <Association Name="tblEDIValidationType_tblEDIDocStructElmntAttribute" Member="tblEDIDocStructElmntAttributes" ThisKey="ValidationTypeControl" OtherKey="DSAttrValidationTypeControl" Type="tblEDIDocStructElmntAttribute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIFormattingFunctions" Member="tblEDIFormattingFunctions">
+    <Type Name="tblEDIFormattingFunction">
+      <Column Name="FormattingFnControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FormattingFnName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FormattingFnDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FormattingFnModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FormattingFnModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FormattingFnUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIFormattingFunction_tblEDIElmnt" Member="tblEDIElmnts" ThisKey="FormattingFnControl" OtherKey="ElementFormattingFnControl" Type="tblEDIElmnt" />
+      <Association Name="tblEDIFormattingFunction_tblEDIDocSegmentElement" Member="tblEDIDocSegmentElements" ThisKey="FormattingFnControl" OtherKey="DSEFormattingFnControl" Type="tblEDIDocSegmentElement" />
+      <Association Name="tblEDIFormattingFunction_tblEDIMasterDocStructElmntAttribute" Member="tblEDIMasterDocStructElmntAttributes" ThisKey="FormattingFnControl" OtherKey="MDSAttrFormattingFnControl" Type="tblEDIMasterDocStructElmntAttribute" />
+      <Association Name="tblEDIFormattingFunction_tblEDIDocStructElmntAttribute" Member="tblEDIDocStructElmntAttributes" ThisKey="FormattingFnControl" OtherKey="DSAttrFormattingFnControl" Type="tblEDIDocStructElmntAttribute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDISegments" Member="tblEDISegments">
+    <Type Name="tblEDISegment">
+      <Column Name="SegmentControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SegmentMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SegmentModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SegmentModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SegmentUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDISegment_tblEDIDocSegmentElement" Member="tblEDIDocSegmentElements" ThisKey="SegmentControl" OtherKey="DSESegmentControl" Type="tblEDIDocSegmentElement" />
+      <Association Name="tblEDISegment_tblEDIMasterDocStructSegment" Member="tblEDIMasterDocStructSegments" ThisKey="SegmentControl" OtherKey="MDSSegMDSLoopControl" Type="tblEDIMasterDocStructSegment" />
+      <Association Name="tblEDISegment_tblEDIDocStructSegment" Member="tblEDIDocStructSegments" ThisKey="SegmentControl" OtherKey="DSSegDSLoopControl" Type="tblEDIDocStructSegment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDILoops" Member="tblEDILoops">
+    <Type Name="tblEDILoop">
+      <Column Name="LoopControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoopName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LoopDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LoopMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoopMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoopDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LoopCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LoopCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LoopModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LoopModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LoopUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDILoop_tblEDIMasterDocStructLoops" Member="tblEDIMasterDocStructLoops" ThisKey="LoopControl" OtherKey="MDSLoopLoopControl" Type="tblEDIMasterDocStructLoops" />
+      <Association Name="tblEDILoop_tblEDIDocStructLoop" Member="tblEDIDocStructLoops" ThisKey="LoopControl" OtherKey="DSLoopLoopControl" Type="tblEDIDocStructLoop" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDocSegmentElements" Member="tblEDIDocSegmentElements">
+    <Type Name="tblEDIDocSegmentElement">
+      <Column Name="DSEControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSEEDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSESegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSEElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSEPosition" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSEDefaultVal" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSEFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSESeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSEDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSECreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSECreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSEModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSEModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSEUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIElmnt_tblEDIDocSegmentElement" Member="tblEDIElmnt" ThisKey="DSEElementControl" OtherKey="ElementControl" Type="tblEDIElmnt" IsForeignKey="true" />
+      <Association Name="tblEDIFormattingFunction_tblEDIDocSegmentElement" Member="tblEDIFormattingFunction" ThisKey="DSEFormattingFnControl" OtherKey="FormattingFnControl" Type="tblEDIFormattingFunction" IsForeignKey="true" />
+      <Association Name="tblEDISegment_tblEDIDocSegmentElement" Member="tblEDISegment" ThisKey="DSESegmentControl" OtherKey="SegmentControl" Type="tblEDISegment" IsForeignKey="true" />
+      <Association Name="tblEDIType_tblEDIDocSegmentElement" Member="tblEDIType" ThisKey="DSEEDITControl" OtherKey="EDITControl" Type="tblEDIType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[tblEDIDataMapField ]" Member="tblEDIDataMapFields">
+    <Type Name="tblEDIDataMapField">
+      <Column Name="DataMapFieldControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataMapFieldEDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DataMapFieldEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DataMapFieldTable" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataMapFieldColumn" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataMapFieldDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DataMapFieldCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DataMapFieldCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataMapFieldModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataMapFieldModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataMapFieldModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIDataType_tblEDIDataMapField" Member="tblEDIDataType" ThisKey="DataMapFieldEDIDataTypeControl" OtherKey="EDIDataTypeControl" Type="tblEDIDataType" IsForeignKey="true" />
+      <Association Name="tblEDIType_tblEDIDataMapField" Member="tblEDIType" ThisKey="DataMapFieldEDITControl" OtherKey="EDITControl" Type="tblEDIType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[tblEDIMasterDocuments ]" Member="tblEDIMasterDocuments">
+    <Type Name="tblEDIMasterDocument">
+      <Column Name="MasterDocControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterDocEDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MasterDocModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MasterDocModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MasterDocModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIMasterDocument_tblEDIMasterDocStructLoops" Member="tblEDIMasterDocStructLoops" ThisKey="MasterDocControl" OtherKey="MDSLoopMasterDocControl" Type="tblEDIMasterDocStructLoops" />
+      <Association Name="tblEDIType_tblEDIMasterDocument" Member="tblEDIType" ThisKey="MasterDocEDITControl" OtherKey="EDITControl" Type="tblEDIType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIMasterDocStructLoops" Member="tblEDIMasterDocStructLoops">
+    <Type Name="tblEDIMasterDocStructLoops">
+      <Column Name="MDSLoopControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MDSLoopMasterDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopParentLoopID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSLoopModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDSLoopModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSLoopUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIMasterDocStructLoops_tblEDIMasterDocStructSegment" Member="tblEDIMasterDocStructSegments" ThisKey="MDSLoopControl" OtherKey="MDSSegMDSLoopControl" Type="tblEDIMasterDocStructSegment" />
+      <Association Name="tblEDILoop_tblEDIMasterDocStructLoops" Member="tblEDILoop" ThisKey="MDSLoopLoopControl" OtherKey="LoopControl" Type="tblEDILoop" IsForeignKey="true" />
+      <Association Name="tblEDIMasterDocument_tblEDIMasterDocStructLoops" Member="tblEDIMasterDocument" Storage="_tblEDIMasterDocuments_" ThisKey="MDSLoopMasterDocControl" OtherKey="MasterDocControl" Type="tblEDIMasterDocument" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDITransformationTypes" Member="tblEDITransformationTypes">
+    <Type Name="tblEDITransformationType">
+      <Column Name="TransformationTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransformationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TransformationTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TransformationTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransformationTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TransformationTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDITransformationType_tblEDIMasterDocStructElmntAttribute" Member="tblEDIMasterDocStructElmntAttributes" ThisKey="TransformationTypeControl" OtherKey="MDSAttrTransformationTypeControl" Type="tblEDIMasterDocStructElmntAttribute" />
+      <Association Name="tblEDITransformationType_tblEDIDocStructElmntAttribute" Member="tblEDIDocStructElmntAttributes" ThisKey="TransformationTypeControl" OtherKey="DSAttrTransformationTypeControl" Type="tblEDIDocStructElmntAttribute" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDocStructLoops" Member="tblEDIDocStructLoops">
+    <Type Name="tblEDIDocStructLoop">
+      <Column Name="DSLoopControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSLoopTPDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopParentLoopID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSLoopModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSLoopModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSLoopUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIDocStructLoop_tblEDIDocStructSegment" Member="tblEDIDocStructSegments" ThisKey="DSLoopControl" OtherKey="DSSegDSLoopControl" Type="tblEDIDocStructSegment" />
+      <Association Name="tblEDILoop_tblEDIDocStructLoop" Member="tblEDILoop" ThisKey="DSLoopLoopControl" OtherKey="LoopControl" Type="tblEDILoop" IsForeignKey="true" />
+      <Association Name="tblEDITPDocument_tblEDIDocStructLoop" Member="tblEDITPDocument" ThisKey="DSLoopTPDocControl" OtherKey="TPDocControl" Type="tblEDITPDocument" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetCompany" Member="vwGetCompanies">
+    <Type Name="vwGetCompany">
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CCEDIControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetCompCarriers" Member="vwGetCompCarriers">
+    <Type Name="vwGetCompCarrier">
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CCEDIControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDITPDocuments" Member="tblEDITPDocuments">
+    <Type Name="tblEDITPDocument">
+      <Column Name="TPDocControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TPDocEDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocCCEDIControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TPDocModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TPDocModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TPDocModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDITPDocument_tblEDIDocStructLoop" Member="tblEDIDocStructLoops" ThisKey="TPDocControl" OtherKey="DSLoopTPDocControl" Type="tblEDIDocStructLoop" />
+      <Association Name="tblEDIType_tblEDITPDocument" Member="tblEDIType" ThisKey="TPDocEDITControl" OtherKey="EDITControl" Type="tblEDIType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIMasterDocStructSegments" Member="tblEDIMasterDocStructSegments">
+    <Type Name="tblEDIMasterDocStructSegment">
+      <Column Name="MDSSegControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MDSSegMDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MDSSegUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSSegModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDSSegModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSSegUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIMasterDocStructSegment_tblEDIMasterDocStructElement" Member="tblEDIMasterDocStructElements" ThisKey="MDSSegControl" OtherKey="MDSElementMDSSegControl" Type="tblEDIMasterDocStructElement" />
+      <Association Name="tblEDIMasterDocStructLoops_tblEDIMasterDocStructSegment" Member="tblEDIMasterDocStructLoops" ThisKey="MDSSegMDSLoopControl" OtherKey="MDSLoopControl" Type="tblEDIMasterDocStructLoops" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblEDISegment_tblEDIMasterDocStructSegment" Member="tblEDISegment" ThisKey="MDSSegMDSLoopControl" OtherKey="SegmentControl" Type="tblEDISegment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIMasterDocStructElements" Member="tblEDIMasterDocStructElements">
+    <Type Name="tblEDIMasterDocStructElement">
+      <Column Name="MDSElementControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MDSElementMDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MDSElementEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSElementModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDSElementModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSElementUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="MDSElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblEDIMasterDocStructElement_tblEDIMasterDocStructElmntAttribute" Member="tblEDIMasterDocStructElmntAttributes" ThisKey="MDSElementControl" OtherKey="MDSAttrMDSElementControl" Type="tblEDIMasterDocStructElmntAttribute" />
+      <Association Name="tblEDIDataType_tblEDIMasterDocStructElement" Member="tblEDIDataType" ThisKey="MDSElementEDIDataTypeControl" OtherKey="EDIDataTypeControl" Type="tblEDIDataType" IsForeignKey="true" />
+      <Association Name="tblEDIMasterDocStructSegment_tblEDIMasterDocStructElement" Member="tblEDIMasterDocStructSegment" ThisKey="MDSElementMDSSegControl" OtherKey="MDSSegControl" Type="tblEDIMasterDocStructSegment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetElementsBySegmentLoop" Member="vwGetElementsBySegmentLoops">
+    <Type Name="vwGetElementsBySegmentLoop">
+      <Column Name="MDSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementMDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MDSElementEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSSegMDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_GetMasterDocument" Member="vw_GetMasterDocuments">
+    <Type Name="vw_GetMasterDocument">
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MasterDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocEDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EDITDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetSegmentByMaster" Member="vwGetSegmentByMasters">
+    <Type Name="vwGetSegmentByMaster">
+      <Column Name="MDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetMDocSegmentsByLoop" Member="vwGetMDocSegmentsByLoops">
+    <Type Name="vwGetMDocSegmentsByLoop">
+      <Column Name="MDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSSegMDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwGetSegmentElementsBySegmentLoop" Member="vwGetSegmentElementsBySegmentLoops">
+    <Type Name="vwGetSegmentElementsBySegmentLoop">
+      <Column Name="DSSegDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DSElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DSElementEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDocStructElements" Member="tblEDIDocStructElements">
+    <Type Name="tblEDIDocStructElement">
+      <Column Name="DSElementControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSElementDSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DSElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DSElementEDIDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSElementCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSElementModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSElementModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSElementUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIDocStructElement_tblEDIDocStructElmntAttribute" Member="tblEDIDocStructElmntAttributes" ThisKey="DSElementControl" OtherKey="DSAttrDSElementControl" Type="tblEDIDocStructElmntAttribute" />
+      <Association Name="tblEDIDataType_tblEDIDocStructElement" Member="tblEDIDataType" ThisKey="DSElementEDIDataTypeControl" OtherKey="EDIDataTypeControl" Type="tblEDIDataType" IsForeignKey="true" />
+      <Association Name="tblEDIDocStructSegment_tblEDIDocStructElement" Member="tblEDIDocStructSegment" ThisKey="DSElementDSSegControl" OtherKey="DSSegControl" Type="tblEDIDocStructSegment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_GetSegmentByLoop" Member="vw_GetSegmentByLoops">
+    <Type Name="vw_GetSegmentByLoop">
+      <Column Name="DSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDocStructSegments" Member="tblEDIDocStructSegments">
+    <Type Name="tblEDIDocStructSegment">
+      <Column Name="DSSegControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSSegDSLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegSegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DSSegUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegMinCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegMaxCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSSegCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSSegModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSSegModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSSegUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIDocStructSegment_tblEDIDocStructElement" Member="tblEDIDocStructElements" ThisKey="DSSegControl" OtherKey="DSElementDSSegControl" Type="tblEDIDocStructElement" />
+      <Association Name="tblEDIDocStructLoop_tblEDIDocStructSegment" Member="tblEDIDocStructLoop" ThisKey="DSSegDSLoopControl" OtherKey="DSLoopControl" Type="tblEDIDocStructLoop" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblEDISegment_tblEDIDocStructSegment" Member="tblEDISegment" ThisKey="DSSegDSLoopControl" OtherKey="SegmentControl" Type="tblEDISegment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_tblEDIDocStructElmntAttributes" Member="vw_tblEDIDocStructElmntAttributes">
+    <Type Name="vw_tblEDIDocStructElmntAttribute">
+      <Column Name="DSAttrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSAttrDSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrQualifyingElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="DSAttrQualifyingValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DSAttrUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrMinDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrMaxDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDefaultVal" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrTransformationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDataMapFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDataMapFieldColumnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSAttrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_tblEDIMasterDocStructElmntAttributes" Member="vw_tblEDIMasterDocStructElmntAttributes">
+    <Type Name="vw_tblEDIMasterDocStructElmntAttribute">
+      <Column Name="MDSAttrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MDSAttrMDSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrQualifyingElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MDSAttrQualifyingValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MDSAttrUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrMinDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrMaxDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDefaultVal" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrTransformationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDataMapFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDSAttrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="MDSAttrDataMapFieldColumnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIMasterDocStructElmntAttributes" Member="tblEDIMasterDocStructElmntAttributes">
+    <Type Name="tblEDIMasterDocStructElmntAttribute">
+      <Column Name="MDSAttrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MDSAttrMDSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrQualifyingElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MDSAttrQualifyingValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MDSAttrUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrMinDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrMaxDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDefaultVal" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrTransformationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDataMapFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MDSAttrCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDSAttrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MDSAttrModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIFormattingFunction_tblEDIMasterDocStructElmntAttribute" Member="tblEDIFormattingFunction" ThisKey="MDSAttrFormattingFnControl" OtherKey="FormattingFnControl" Type="tblEDIFormattingFunction" IsForeignKey="true" />
+      <Association Name="tblEDIMasterDocStructElement_tblEDIMasterDocStructElmntAttribute" Member="tblEDIMasterDocStructElement" ThisKey="MDSAttrMDSElementControl" OtherKey="MDSElementControl" Type="tblEDIMasterDocStructElement" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblEDITransformationType_tblEDIMasterDocStructElmntAttribute" Member="tblEDITransformationType" ThisKey="MDSAttrTransformationTypeControl" OtherKey="TransformationTypeControl" Type="tblEDITransformationType" IsForeignKey="true" />
+      <Association Name="tblEDIValidationType_tblEDIMasterDocStructElmntAttribute" Member="tblEDIValidationType" ThisKey="MDSAttrValidationTypeControl" OtherKey="ValidationTypeControl" Type="tblEDIValidationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEDIDocStructElmntAttributes" Member="tblEDIDocStructElmntAttributes">
+    <Type Name="tblEDIDocStructElmntAttribute">
+      <Column Name="DSAttrControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DSAttrDSElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrQualifyingElementControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="DSAttrQualifyingValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DSAttrUsage" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrMinDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrMaxDataLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDefaultVal" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrTransformationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrValidationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrFormattingFnControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDataMapFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DSAttrCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DSAttrModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DSAttrModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblEDIFormattingFunction_tblEDIDocStructElmntAttribute" Member="tblEDIFormattingFunction" ThisKey="DSAttrFormattingFnControl" OtherKey="FormattingFnControl" Type="tblEDIFormattingFunction" IsForeignKey="true" />
+      <Association Name="tblEDIDocStructElement_tblEDIDocStructElmntAttribute" Member="tblEDIDocStructElement" ThisKey="DSAttrDSElementControl" OtherKey="DSElementControl" Type="tblEDIDocStructElement" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblEDITransformationType_tblEDIDocStructElmntAttribute" Member="tblEDITransformationType" ThisKey="DSAttrTransformationTypeControl" OtherKey="TransformationTypeControl" Type="tblEDITransformationType" IsForeignKey="true" />
+      <Association Name="tblEDIValidationType_tblEDIDocStructElmntAttribute" Member="tblEDIValidationType" ThisKey="DSAttrValidationTypeControl" OtherKey="ValidationTypeControl" Type="tblEDIValidationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_tblEDIDataMapField" Member="vw_tblEDIDataMapFields">
+    <Type Name="vw_tblEDIDataMapField">
+      <Column Name="DataMapFieldControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataMapFieldTable" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spInsertOrUpdateAnimal" Method="spInsertOrUpdateAnimal">
+    <Parameter Name="AnimalControl" Parameter="animalControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AnimalName" Parameter="animalName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AnimalDesc" Parameter="animalDesc" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AnimalListTypeControl" Parameter="animalListTypeControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AnimalLGTControl" Parameter="animalLGTControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AnimalLEAControl" Parameter="animalLEAControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spInsertOrUpdateAnimalResult">
+      <Column Name="AnimalControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDocSegmentElementsList" Method="spDocSegmentElementsList">
+    <ElementType Name="spDocSegmentElementsListResult">
+      <Column Name="DSEControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DSEDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spAddEDIMasterDocStructElements" Method="spAddEDIMasterDocStructElements">
+    <Parameter Name="MDSSegControl" Parameter="mDSSegControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spPopulateDocSegElements" Method="spPopulateDocSegElements">
+    <Parameter Name="SegmentLength" Parameter="segmentLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EDITControl" Parameter="eDITControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SegmentControl" Parameter="segmentControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spPopulateDocSegElementsResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spPopulateEDIMasterLoopSegmentElements" Method="spPopulateEDIMasterLoopSegmentElements">
+    <Parameter Name="SegmentLength" Parameter="segmentLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SegmentControl" Parameter="segmentControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MDSLoopControl" Parameter="mDSLoopControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spPopulateEDIMasterLoopSegmentElementsResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spPopulateEDITPLoopSegmentElements" Method="spPopulateEDITPLoopSegmentElements">
+    <Parameter Name="SegmentLength" Parameter="segmentLength" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SegmentControl" Parameter="segmentControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DSLoopControl" Parameter="dSLoopControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spPopulateEDITPLoopSegmentElementsResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spEDIDocumentList" Method="spEDIDocumentList">
+    <ElementType Name="spEDIDocumentListResult">
+      <Column Name="EDITControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocCCEDIControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocCreateUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TPDocCreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocDisabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocModUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+      <Column Name="MasterDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteTPDocLoops" Method="spDeleteTPDocLoops">
+    <Parameter Name="DSLoopControl" Parameter="dSLoopControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteMDocLoops" Method="spDeleteMDocLoops">
+    <Parameter Name="MDSLoopControl" Parameter="mDSLoopControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCopyTPDocConfigToNewTPDoc" Method="spCopyTPDocConfigToNewTPDoc">
+    <Parameter Name="TPDocControl" Parameter="tPDocControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewTPDocControl" Parameter="newTPDocControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCopyMDocConfigtoTPEDIDoc" Method="spCopyMDocConfigtoTPEDIDoc">
+    <Parameter Name="MasterDocControl" Parameter="masterDocControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TPDocControl" Parameter="tPDocControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SpDeleteTPDoc" Method="SpDeleteTPDoc">
+    <Parameter Name="TPDocControl" Parameter="tPDocControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SpDeleteMasterDoc" Method="SpDeleteMasterDoc">
+    <Parameter Name="MDocControl" Parameter="mDocControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCopyTPDocConfigToMasterDoc" Method="spCopyTPDocConfigToMasterDoc">
+    <Parameter Name="MasterDocControl" Parameter="masterDocControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TPDocControl" Parameter="tPDocControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_PreviewEDIMasterDocumentConfig" Method="sp_PreviewEDIMasterDocumentConfig">
+    <Parameter Name="MasterDocControl" Parameter="masterDocControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_PreviewEDIMasterDocumentConfigResult">
+      <Column Name="MasterDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EditDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MasterDocType" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MasterDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LoopName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MDSLoopLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopParentLoopID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MDSLoopUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="LoopMinCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoopMaxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MDSSegSeqIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SegmentDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MDSSegUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentMinCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SegmentMaxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MDSElementUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="ElementEDIDataTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementMinLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementMaxLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MDSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MappingDetails" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_PreviewEDITPDocumentConfig" Method="sp_PreviewEDITPDocumentConfig">
+    <Parameter Name="TPDocControl" Parameter="tPDocControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_PreviewEDITPDocumentConfigResult">
+      <Column Name="TPDocControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EDITName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EditDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TPDocType" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocInbound" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TPDocPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LoopName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DSLoopLoopControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopParentLoopID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopSeqIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DSLoopUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="LoopMinCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoopMaxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSSegSeqIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SegmentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SegmentDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DSSegUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="SegmentMinCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SegmentMaxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ElementDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DSElementUsage" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="ElementEDIDataTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementMinLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ElementMaxLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSAttrNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MappingDetails" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

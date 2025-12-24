@@ -1,0 +1,1864 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLMASPROD" EntityNamespace="LTS" Class="NGLMASSecurityDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-0R0EJUB;Initial Catalog=NGLMASPROD;Integrated Security=True" SettingsObjectName="Ngl.FreightMaster.Data.My.MySettings" SettingsPropertyName="NGLMASPRODConnectionString8" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblFormSecurityXref" Member="tblFormSecurityXrefs">
+    <Type Name="tblFormSecurityXref">
+      <Column Name="FormSecurityXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblFormList_tblFormSecurityXref" Member="tblFormList" ThisKey="FormControl" OtherKey="FormControl" Type="tblFormList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblFormSecurityXref" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProcedureSecurityXref" Member="tblProcedureSecurityXrefs">
+    <Type Name="tblProcedureSecurityXref">
+      <Column Name="ProcedureSecurityXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblProcedureList_tblProcedureSecurityXref" Member="tblProcedureList" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblProcedureSecurityXref" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportSecurityXref" Member="tblReportSecurityXrefs">
+    <Type Name="tblReportSecurityXref">
+      <Column Name="ReportSecurityXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblReportList_tblReportSecurityXref" Member="tblReportList" ThisKey="ReportControl" OtherKey="ReportControl" Type="tblReportList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblReportSecurityXref" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportPar" Member="tblReportPars">
+    <Type Name="tblReportPar">
+      <Column Name="ReportParControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportParReportControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParReportParTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportParSource" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ReportParValueField" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportParTextField" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportParSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParApplyUserName" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParDefaultValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportParUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblReportParType_tblReportPar" Member="tblReportParType" ThisKey="ReportParReportParTypeControl" OtherKey="ReportParTypeControl" Type="tblReportParType" IsForeignKey="true" />
+      <Association Name="tblReportList_tblReportPar" Member="tblReportList" ThisKey="ReportParReportControl" OtherKey="ReportControl" Type="tblReportList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportParType" Member="tblReportParTypes">
+    <Type Name="tblReportParType">
+      <Column Name="ReportParTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportParTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportParTypeDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ReportParTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblReportParType_tblReportPar" Member="tblReportPars" ThisKey="ReportParTypeControl" OtherKey="ReportParReportParTypeControl" Type="tblReportPar" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFormSecurityGroupXref" Member="tblFormSecurityGroupXrefs">
+    <Type Name="tblFormSecurityGroupXref">
+      <Column Name="FormSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblUserGroup_tblFormSecurityGroupXref" Member="tblUserGroup" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblUserGroup" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblFormList_tblFormSecurityGroupXref" Member="tblFormList" ThisKey="FormControl" OtherKey="FormControl" Type="tblFormList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProcedureSecurityGroupXref" Member="tblProcedureSecurityGroupXrefs">
+    <Type Name="tblProcedureSecurityGroupXref">
+      <Column Name="ProcedureSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblUserGroup_tblProcedureSecurityGroupXref" Member="tblUserGroup" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblUserGroup" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblProcedureList_tblProcedureSecurityGroupXref" Member="tblProcedureList" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportSecurityGroupXref" Member="tblReportSecurityGroupXrefs">
+    <Type Name="tblReportSecurityGroupXref">
+      <Column Name="ReportSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblUserGroup_tblReportSecurityGroupXref" Member="tblUserGroup" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblUserGroup" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblReportList_tblReportSecurityGroupXref" Member="tblReportList" ThisKey="ReportControl" OtherKey="ReportControl" Type="tblReportList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportMenu" Member="tblReportMenus">
+    <Type Name="tblReportMenu">
+      <Column Name="ReportMenuControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportMenuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportMenuDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ReportMenuUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFormMenu" Member="tblFormMenus">
+    <Type Name="tblFormMenu">
+      <Column Name="FormMenuControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FormMenuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FormMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormMenuDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FormMenuUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserAdmin" Member="tblUserAdmins">
+    <Type Name="tblUserAdmin">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserAdminUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="CompRefSecurity_tblUserAdmin" Member="CompRefSecurity" ThisKey="UserAdminCompControl" OtherKey="CompNumber" Type="CompRefSecurity" IsForeignKey="true" />
+      <Association Name="tblUserSecurity_tblUserAdmin" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProcAlertUserXref" Member="tblProcAlertUserXrefs">
+    <Type Name="tblProcAlertUserXref">
+      <Column Name="ProcAlertUserXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcAlertUserXrefShowPopup" Type="System.Boolean" DbType="BIT NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ProcAlertUserXrefSendEmail" Type="System.Boolean" DbType="BIT NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="tblProcedureList_tblProcAlertUserXref" Member="tblProcedureList" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblProcAlertUserXref" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAlertMessage" Member="tblAlertMessages">
+    <Type Name="tblAlertMessage">
+      <Column Name="AlertMessageControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AlertMessageProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageCompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageDescription" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AlertMessageSubject" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AlertMessageBody" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AlertMessageClientUpdated" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageEmailsSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageNote1" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageNote2" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageNote3" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageNote4" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageNote5" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertMessageModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlertMessageModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AlertMessageUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAlertMessage_tbl365DisplayedAlertMessage" Member="tbl365DisplayedAlertMessages" ThisKey="AlertMessageControl" OtherKey="DAMXAlertMessageControl" Type="tbl365DisplayedAlertMessage" />
+      <Association Name="tblProcedureList_tblAlertMessage" Member="tblProcedureList" ThisKey="AlertMessageProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureList" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurityAccessToken" Member="tblUserSecurityAccessTokens">
+    <Type Name="tblUserSecurityAccessToken">
+      <Column Name="USATControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USATUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USATSSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USATUserID" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="USATToken" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="USATExpires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USATModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USATModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USATUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblSingleSignOnAccount_tblUserSecurityAccessToken" Member="tblSingleSignOnAccount" ThisKey="USATSSOAControl" OtherKey="SSOAControl" Type="tblSingleSignOnAccount" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblUserSecurityAccessToken" Member="tblUserSecurity" ThisKey="USATUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmGroupType" Member="cmGroupTypes">
+    <Type Name="cmGroupType">
+      <Column Name="GroupTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GroupTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GroupTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GroupTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmGroupType_cmPageMenu" Member="cmPageMenus" ThisKey="GroupTypeControl" OtherKey="PageMenuGroupTypeControl" Type="cmPageMenu" />
+      <Association Name="cmGroupType_cmGroupSubType" Member="cmGroupSubTypes" ThisKey="GroupTypeControl" OtherKey="GroupSubTypeGroupTypeControl" Type="cmGroupSubType" />
+      <Association Name="cmGroupType_cmPageDetail" Member="cmPageDetails" ThisKey="GroupTypeControl" OtherKey="PageDetGroupTypeControl" Type="cmPageDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmMenuType" Member="cmMenuTypes">
+    <Type Name="cmMenuType">
+      <Column Name="MenuTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MenuTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MenuTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MenuTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmMenuType_cmPageMenu" Member="cmPageMenus" ThisKey="MenuTypeControl" OtherKey="PageMenuMenuTypeControl" Type="cmPageMenu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmPageMenu" Member="cmPageMenus">
+    <Type Name="cmPageMenu">
+      <Column Name="PageMenuControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageMenuPageControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuGroupTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuGroupSubTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageMenuDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageMenuCaption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageMenuCaptionLocal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PageMenuSequenceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuOrientation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuWidth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuAllowFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuAllowSort" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuAllowPaging" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuReadOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuReportControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuMenuTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageMenuLink" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PageMenuImgSmall" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PageMenuImgMedium" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PageMenuImgLarge" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PageMenuModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PageMenuModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PageMenuUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmGroupType_cmPageMenu" Member="cmGroupType" ThisKey="PageMenuGroupTypeControl" OtherKey="GroupTypeControl" Type="cmGroupType" IsForeignKey="true" />
+      <Association Name="cmMenuType_cmPageMenu" Member="cmMenuType" ThisKey="PageMenuMenuTypeControl" OtherKey="MenuTypeControl" Type="cmMenuType" IsForeignKey="true" />
+      <Association Name="cmGroupSubType_cmPageMenu" Member="cmGroupSubType" ThisKey="PageMenuGroupSubTypeControl" OtherKey="GroupSubTypeControl" Type="cmGroupSubType" IsForeignKey="true" />
+      <Association Name="cmPage_cmPageMenu" Member="cmPage" ThisKey="PageMenuPageControl" OtherKey="PageControl" Type="cmPage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmPageTemplate" Member="cmPageTemplates">
+    <Type Name="cmPageTemplate">
+      <Column Name="PageTemplateControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageTemplateName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageTemplateDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageTemplateContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PageTemplateModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PageTemplateModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PageTemplateUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmPageTemplate_cmPageTemplateXref" Member="cmPageTemplateXrefs" ThisKey="PageTemplateControl" OtherKey="PTXPageTemplateControl" Type="cmPageTemplateXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmPageTemplateXref" Member="cmPageTemplateXrefs">
+    <Type Name="cmPageTemplateXref">
+      <Column Name="PTXControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PTXPageControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PTXPageTemplateControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PTXModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PTXModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PTXUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmPageTemplate_cmPageTemplateXref" Member="cmPageTemplate" ThisKey="PTXPageTemplateControl" OtherKey="PageTemplateControl" Type="cmPageTemplate" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="cmPage_cmPageTemplateXref" Member="cmPage" ThisKey="PTXPageControl" OtherKey="PageControl" Type="cmPage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmGroupSubType" Member="cmGroupSubTypes">
+    <Type Name="cmGroupSubType">
+      <Column Name="GroupSubTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupSubTypeGroupTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupSubTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupSubTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GroupSubTypeInfo" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupSubTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GroupSubTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GroupSubTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmGroupSubType_cmPageMenu" Member="cmPageMenus" ThisKey="GroupSubTypeControl" OtherKey="PageMenuGroupSubTypeControl" Type="cmPageMenu" />
+      <Association Name="cmGroupSubType_cmPageDetail" Member="cmPageDetails" ThisKey="GroupSubTypeControl" OtherKey="PageDetGroupSubTypeControl" Type="cmPageDetail" />
+      <Association Name="cmGroupType_cmGroupSubType" Member="cmGroupType" ThisKey="GroupSubTypeGroupTypeControl" OtherKey="GroupTypeControl" Type="cmGroupType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmDataType" Member="cmDataTypes">
+    <Type Name="cmDataType">
+      <Column Name="DataTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DataTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmDataType_cmElementField" Member="cmElementFields" ThisKey="DataTypeControl" OtherKey="ElmtFieldDataTypeControl" Type="cmElementField" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmDataElement" Member="cmDataElements">
+    <Type Name="cmDataElement">
+      <Column Name="DataElmtControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataElmtName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DataElmtDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataElmtModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataElmtModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataElmtUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="cmDataElement_cmElementField" Member="cmElementFields" ThisKey="DataElmtControl" OtherKey="ElmtFieldDataElmtControl" Type="cmElementField" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmPage" Member="cmPages">
+    <Type Name="cmPage">
+      <Column Name="PageControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageCaption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageCaptionLocal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PageFormControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDataSource" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageSortable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PagePageable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageGroupable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageEditable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDataElmtControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageElmtFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PageModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PageUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="PageFooterMsg" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Association Name="cmPage_cmPageMenu" Member="cmPageMenus" ThisKey="PageControl" OtherKey="PageMenuPageControl" Type="cmPageMenu" />
+      <Association Name="cmPage_cmPageTemplateXref" Member="cmPageTemplateXrefs" ThisKey="PageControl" OtherKey="PTXPageControl" Type="cmPageTemplateXref" />
+      <Association Name="cmPage_tblUserPageSetting" Member="tblUserPageSettings" ThisKey="PageControl" OtherKey="UserPSPageControl" Type="tblUserPageSetting" />
+      <Association Name="cmPage_cmPageDetail" Member="cmPageDetails" ThisKey="PageControl" OtherKey="PageDetPageControl" Type="cmPageDetail" />
+      <Association Name="tblFormList_cmPage" Member="tblFormList" ThisKey="PageFormControl" OtherKey="FormControl" Type="tblFormList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmLocalizeKeyValuePair" Member="cmLocalizeKeyValuePairs">
+    <Type Name="cmLocalizeKeyValuePair">
+      <Column Name="cmLocalControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cmLocalKey" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cmLocalValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="cmLocalValueLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="cmLocalModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cmLocalModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cmLocalUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurityAltAuthAcct" Member="tblUserSecurityAltAuthAccts">
+    <Type Name="tblUserSecurityAltAuthAcct">
+      <Column Name="USAAControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USAAUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USAASSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USAAUserNameID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USAAIPAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="USAAPublic" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USAAModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USAAModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USAAUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblSingleSignOnAccount_tblUserSecurityAltAuthAcct" Member="tblSingleSignOnAccount" ThisKey="USAASSOAControl" OtherKey="SSOAControl" Type="tblSingleSignOnAccount" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblUserSecurityAltAuthAcct" Member="tblUserSecurity" ThisKey="USAAUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmMenuTree" Member="cmMenuTrees">
+    <Type Name="cmMenuTree">
+      <Column Name="MenuTreeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuTreeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MenuTreeDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MenuTreeCaption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MenuTreeCaptionLocal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MenuTreeLinkTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MenuTreeExpanded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTreeVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTreeUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTreeSequenceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTreeParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuTreeImgSmall" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MenuTreeImgMedium" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MenuTreeImgLarge" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MenuTreeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MenuTreeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MenuTreeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="MenuTreeLinkPageControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserGroupCategory" Member="tblUserGroupCategories">
+    <Type Name="tblUserGroupCategory">
+      <Column Name="UGCControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UGCName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UGCDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UGCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UGCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UGCUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurityCarrier" Member="tblUserSecurityCarriers">
+    <Type Name="tblUserSecurityCarrier">
+      <Column Name="USCControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USCUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierAccounting" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="USCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USCUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblUserSecurity_tblUserSecurityCarrier" Member="tblUserSecurity" ThisKey="USCUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurityLane" Member="tblUserSecurityLanes">
+    <Type Name="tblUserSecurityLane">
+      <Column Name="USLControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USLUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USLModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USLUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblUserSecurity_tblUserSecurityLane" Member="tblUserSecurity" ThisKey="USLUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecuritySetting" Member="tblUserSecuritySettings">
+    <Type Name="tblUserSecuritySetting">
+      <Column Name="USSControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USSUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USSUserSecurityCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USSCompanyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USSCompanyCity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USSCompanyState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USSType" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="USSRestriction" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USSLastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USSLastLogout" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USSRestrictLanes" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Column Name="USSBrokerNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USSAllowAMS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USSFMUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USSAllowTariff" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USSAllowRateShop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USSAllowTMS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USSAllowReports" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USSModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USSModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USSUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="CompRefSecurity_tblUserSecuritySetting" Member="CompRefSecurity" ThisKey="USSUserSecurityCompControl" OtherKey="CompControl" Type="CompRefSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblUserSecuritySetting" Member="tblUserSecurity" ThisKey="USSUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserSecurityLane" Member="vUserSecurityLanes">
+    <Type Name="vUserSecurityLane">
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurityLegalEntity" Member="tblUserSecurityLegalEntities">
+    <Type Name="tblUserSecurityLegalEntity">
+      <Column Name="USLEControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USLEUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLELEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLELegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USLECompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLEModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USLEModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USLEUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="SecRefLEAdmin_tblUserSecurityLegalEntity" Member="SecRefLEAdmin" Storage="_tblLegalEntityAdmin" ThisKey="USLELEAdminControl" OtherKey="LEAdminControl" Type="SecRefLEAdmin" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblLegalEntityAdminRefSecurity_tblUserSecurityLegalEntity" Member="tblLegalEntityAdminRefSecurity" ThisKey="USLELEAdminControl" OtherKey="LEAdminControl" Type="tblLegalEntityAdminRefSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblUserSecurityLegalEntity" Member="tblUserSecurity" ThisKey="USLEUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLegalEntityAdmin" Member="SecRefLEAdmins">
+    <Type Name="SecRefLEAdmin">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LEAdminModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LEAdminUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="SecRefLEAdmin_tblUserSecurityLegalEntity" Member="tblUserSecurityLegalEntities" ThisKey="LEAdminControl" OtherKey="USLELEAdminControl" Type="tblUserSecurityLegalEntity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vSSOA" Member="vSSOAs">
+    <Type Name="vSSOA">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOASecurityXrefUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefPassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOAClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOADataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOARedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOAAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOADesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOASecurityXrefReferenceID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSSOASecurityXref" Member="tblSSOASecurityXrefs">
+    <Type Name="tblSSOASecurityXref">
+      <Column Name="SSOASecurityXrefControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOASecurityXrefUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefPassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefReferenceID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblSingleSignOnAccount_tblSSOASecurityXref" Member="tblSingleSignOnAccount" ThisKey="SSOAControl" OtherKey="SSOAControl" Type="tblSingleSignOnAccount" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblSSOASecurityXref" Member="tblUserSecurity" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmElementField" Member="cmElementFields">
+    <Type Name="cmElementField">
+      <Column Name="ElmtFieldControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ElmtFieldDataElmtControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ElmtFieldDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ElmtFieldCaption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ElmtFieldCaptionLocal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ElmtFieldDataTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldPrecision" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldScale" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldMaxLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldAllowNull" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldFormat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ElmtFieldDataSourceDataElmtControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldDataSourceElmtFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldDataSourceElmtFieldNameControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldDataSourceElmtFieldDescControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldDataSourceElmtFieldNumberControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldInfo" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ElmtFieldPK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ElmtFieldModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ElmtFieldModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ElmtFieldUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="ElmtFieldTemplate" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="cmDataElement_cmElementField" Member="cmDataElement" ThisKey="ElmtFieldDataElmtControl" OtherKey="DataElmtControl" Type="cmDataElement" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="cmDataType_cmElementField" Member="cmDataType" ThisKey="ElmtFieldDataTypeControl" OtherKey="DataTypeControl" Type="cmDataType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl365DisplayedAlertMessages" Member="tbl365DisplayedAlertMessages">
+    <Type Name="tbl365DisplayedAlertMessage">
+      <Column Name="DAMXControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DAMXUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DAMXAlertMessageControl" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DAMXModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DAMXModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DAMXUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAlertMessage_tbl365DisplayedAlertMessage" Member="tblAlertMessage" ThisKey="DAMXAlertMessageControl" OtherKey="AlertMessageControl" Type="tblAlertMessage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tbl365DisplayedAlertMessage" Member="tblUserSecurity" ThisKey="DAMXUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserPageSettings" Member="tblUserPageSettings">
+    <Type Name="tblUserPageSetting">
+      <Column Name="UserPSControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserPSUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserPSPageControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserPSName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserPSModel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UserPSMetaData" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UserPSAPIReference" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UserPSAPIFilterID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UserPSAPISortKey" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="cmPage_tblUserPageSetting" Member="cmPage" ThisKey="UserPSPageControl" OtherKey="PageControl" Type="cmPage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="tblUserSecurity_tblUserPageSetting" Member="tblUserSecurity" ThisKey="UserPSUserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserSecurity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserSecurityCarrier" Member="vUserSecurityCarriers">
+    <Type Name="vUserSecurityCarrier">
+      <Column Name="USCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USCCarrierNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierSCAC" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="USCCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierContactEMail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierContPhoneExt" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="USCCarrierAccounting" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="USCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USCUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserGroups" Member="vUserGroups">
+    <Type Name="vUserGroup">
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserGroupsLegalEntityCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserGroupsUGCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UGCName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UGCDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserGroupsUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserAdmin365" Member="vUserAdmin365s">
+    <Type Name="vUserAdmin365">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRestrictedReportsByGroup" Member="vRestrictedReportsByGroups">
+    <Type Name="vRestrictedReportsByGroup">
+      <Column Name="ReportSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportReportMenuControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusRestricted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRestrictedProceduresByGroup" Member="vRestrictedProceduresByGroups">
+    <Type Name="vRestrictedProceduresByGroup">
+      <Column Name="ProcedureSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcedureHasAlert" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StatusRestricted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vRestrictedFormsByGroup" Member="vRestrictedFormsByGroups">
+    <Type Name="vRestrictedFormsByGroup">
+      <Column Name="FormSecurityGroupXrefControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FormDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FormFormMenuControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusRestricted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cmPageDetail" Member="cmPageDetails">
+    <Type Name="cmPageDetail">
+      <Column Name="PageDetControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageDetPageControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetGroupTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetGroupSubTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetCaption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetCaptionLocal" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PageDetSequenceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetOrientation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetWidth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetAllowFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetFilterTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetAllowSort" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetAllowPaging" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetReadOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetDataElmtControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetElmtFieldControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetPageTemplateControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetExpanded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetMetaData" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="PageDetFKReference" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetTagIDReference" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetCSSClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PageDetAttributes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetAPIReference" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetAPIFilterID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PageDetAPISortKey" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PageDetModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PageDetModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PageDetUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="PageDetFieldFormatOverride" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetInsertOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetFieldTemplateOverride" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetWidgetAction" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetWidgetActionKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageDetEditWndVisibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetEditWndSeqNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetAddWndVisibility" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PageDetAddWndSeqNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cmGroupSubType_cmPageDetail" Member="cmGroupSubType" ThisKey="PageDetGroupSubTypeControl" OtherKey="GroupSubTypeControl" Type="cmGroupSubType" IsForeignKey="true" />
+      <Association Name="cmGroupType_cmPageDetail" Member="cmGroupType" ThisKey="PageDetGroupTypeControl" OtherKey="GroupTypeControl" Type="cmGroupType" IsForeignKey="true" />
+      <Association Name="cmPage_cmPageDetail" Member="cmPage" ThisKey="PageDetPageControl" OtherKey="PageControl" Type="cmPage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEnumGroupSecurityType" Member="tblEnumGroupSecurityTypes">
+    <Type Name="tblEnumGroupSecurityType">
+      <Column Name="EGroupSecTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EGroupSecTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EGroupSecTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EGroupSecTypeBitPosition" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EGroupSecTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EGroupSecTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EGroupSecTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserGroupsSec365" Member="vUserGroupsSec365s">
+    <Type Name="vUserGroupsSec365">
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserGroupsLegalEntityCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsSecTypeBits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupSecTypeString" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserGroups" Member="tblUserGroups">
+    <Type Name="tblUserGroup">
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserGroupsName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserGroupsLegalEntityCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsUGCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="UserGroupsSecTypeBits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblUserGroup_tblFormSecurityGroupXref" Member="tblFormSecurityGroupXrefs" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblFormSecurityGroupXref" />
+      <Association Name="tblUserGroup_tblProcedureSecurityGroupXref" Member="tblProcedureSecurityGroupXrefs" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblProcedureSecurityGroupXref" />
+      <Association Name="tblUserGroup_tblReportSecurityGroupXref" Member="tblReportSecurityGroupXrefs" ThisKey="UserGroupsControl" OtherKey="UserGroupsControl" Type="tblReportSecurityGroupXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFormList" Member="tblFormLists">
+    <Type Name="tblFormList">
+      <Column Name="FormControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FormName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FormDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FormFormMenuControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="FormSecTypeBits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FormSecTypeBitLocked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblFormList_tblFormSecurityXref" Member="tblFormSecurityXrefs" ThisKey="FormControl" OtherKey="FormControl" Type="tblFormSecurityXref" />
+      <Association Name="tblFormList_tblFormSecurityGroupXref" Member="tblFormSecurityGroupXrefs" ThisKey="FormControl" OtherKey="FormControl" Type="tblFormSecurityGroupXref" />
+      <Association Name="tblFormList_cmPage" Member="cmPages" ThisKey="FormControl" OtherKey="PageFormControl" Type="cmPage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProcedureList" Member="tblProcedureLists">
+    <Type Name="tblProcedureList">
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProcedureName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcedureUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="ProcedureHasAlert" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureSecTypeBits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureSecTypeBitLocked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblProcedureList_tblProcedureSecurityXref" Member="tblProcedureSecurityXrefs" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureSecurityXref" />
+      <Association Name="tblProcedureList_tblProcedureSecurityGroupXref" Member="tblProcedureSecurityGroupXrefs" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcedureSecurityGroupXref" />
+      <Association Name="tblProcedureList_tblProcAlertUserXref" Member="tblProcAlertUserXrefs" ThisKey="ProcedureControl" OtherKey="ProcedureControl" Type="tblProcAlertUserXref" />
+      <Association Name="tblProcedureList_tblAlertMessage" Member="tblAlertMessages" ThisKey="ProcedureControl" OtherKey="AlertMessageProcedureControl" Type="tblAlertMessage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReportList" Member="tblReportLists">
+    <Type Name="tblReportList">
+      <Column Name="ReportControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ReportServerURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ReportURL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ReportPrinterName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ReportDataSource" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AMSActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReportReportMenuControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportMenuSequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="ReportNEXTrackActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReportShowInTree" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReportSecTypeBits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportSecTypeBitLocked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblReportList_tblReportSecurityXref" Member="tblReportSecurityXrefs" ThisKey="ReportControl" OtherKey="ReportControl" Type="tblReportSecurityXref" />
+      <Association Name="tblReportList_tblReportPar" Member="tblReportPars" ThisKey="ReportControl" OtherKey="ReportParReportControl" Type="tblReportPar" />
+      <Association Name="tblReportList_tblReportSecurityGroupXref" Member="tblReportSecurityGroupXrefs" ThisKey="ReportControl" OtherKey="ReportControl" Type="tblReportSecurityGroupXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comp" Member="CompRefSecurities">
+    <Type Name="CompRefSecurity">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNatName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompStreetCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompStreetState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompStreetCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompStreetZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompMailAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CompMailState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompMailCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CompMailZip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompWeb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompDirections" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="CompAbrev" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CompActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTrack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNEXTStopAcctNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNEXTStopPsw" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompNextstopSubmitRFP" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTypeCategory" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFAAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFAAShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CompBudControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompBudSeasDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompBudSeasMo1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo5" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo6" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo8" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo9" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo10" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo11" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSeasMo12" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudSlsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudCogsMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitBudgetMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo4" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo5" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo6" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo7" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo8" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo9" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo10" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo11" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMo12" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitActualMoTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompBudProfitMarginActual" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinDuns" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="CompFinTaxID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompFinPaymentForm" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinSIC" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CompFinPaymentDiscount" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinPaymentNetDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CompFinCommTerms" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CompFinCommTermsPer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinCommCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditUsed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinCreditAvail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDbookedLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDcarrierLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsCurr" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDsavingsLast" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesCur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDRevenuesLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsCurr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinYTDnoLoadsLast" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinInvPrnCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinInvEMailCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinCurType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompFinUser4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUser5" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCustomerSince" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CompFinCardType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardExpires" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthorizor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinCardAuthPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinUseImportFrtCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinBkhlFlatFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompFinBkhlCostPerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLatitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompLongitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompMailTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompFDAShipID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAMS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompPayTolPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolCurHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolWgtFrom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolWgtTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerLo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompPayTolTaxPerHi" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinBillToCompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompSilentTender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompRailStationName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailSPLC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailFSAC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRail333" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompRailR260" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompIsTransLoad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompUser1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompUser4" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CompLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompAlphaCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFinFBToleranceHigh" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompFinFBToleranceLow" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CompRestrictCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWarnOnRestrictedCarrierSelection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompNotifyEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompFax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompCarrierLoadAcceptanceAllowedMinutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompRejectedLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompRejectedLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompExpiredLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompExpiredLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAcceptedLoadsTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAcceptedLoadsCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompHeaderLogo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompHeaderLogoLink" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompAMSApptDetFieldsVisible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompWillLoadOnSunday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompWillLoadOnSaturday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CompRefSecurity_tblUserAdmin" Member="tblUserAdmins" ThisKey="CompNumber" OtherKey="UserAdminCompControl" Type="tblUserAdmin" />
+      <Association Name="CompRefSecurity_tblUserSecuritySetting" Member="tblUserSecuritySettings" ThisKey="CompControl" OtherKey="USSUserSecurityCompControl" Type="tblUserSecuritySetting" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserLane365" Member="vUserLane365s">
+    <Type Name="vUserLane365">
+      <Column Name="USLControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USLUserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USLLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USLModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USLModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="USLUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSSOAConfig" Member="tblSSOAConfigs">
+    <Type Name="tblSSOAConfig">
+      <Column Name="SSOACControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SSOACSSOALEControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOACValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOACModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOACModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOACUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblSSOALEConfig_tblSSOAConfig" Member="tblSSOALEConfig" ThisKey="SSOACSSOALEControl" OtherKey="SSOALEControl" Type="tblSSOALEConfig" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLegalEntityAdmin" Member="tblLegalEntityAdminRefSecurities">
+    <Type Name="tblLegalEntityAdminRefSecurity">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCNSPrefix" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCNSNumberHigh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCNSNumberLow" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminCNSNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminPRONumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminAllowCreateOrderSeq" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminAutoAssignOrderSeqSeed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminBOLLegalText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LEAdminDispatchLegalText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LEAdminCarApptAutomation" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminApptModCutOffMinutes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminDefaultLastLoadTime" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminApptNotSetAlertMinutes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminAllowApptDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminAllowApptEdit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminExpiredLoadsTo" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="LEAdminExpiredLoadsCc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="LEAdminCarrierAcceptLoadMins" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LEAdminModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LEAdminUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblLegalEntityAdminRefSecurity_tblUserSecurityLegalEntity" Member="tblUserSecurityLegalEntities" ThisKey="LEAdminControl" OtherKey="USLELEAdminControl" Type="tblUserSecurityLegalEntity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSSOALEConfig" Member="tblSSOALEConfigs">
+    <Type Name="tblSSOALEConfig">
+      <Column Name="SSOALEControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SSOALESSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALELEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALEClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALELoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALEDataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALERedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALEClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALEAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="[SSOALEModDate]" Member="SSOALEModDate" Storage="_SSOA_EModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOALEModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOALEUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="SSOALESSOATypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSSOALEConfig_tblSSOAConfig" Member="tblSSOAConfigs" ThisKey="SSOALEControl" OtherKey="SSOACSSOALEControl" Type="tblSSOAConfig" />
+      <Association Name="tblSingleSignOnAccount_tblSSOALEConfig" Member="tblSingleSignOnAccount" ThisKey="SSOALESSOAControl" OtherKey="SSOAControl" Type="tblSingleSignOnAccount" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSSOAType" Member="tblSSOATypes">
+    <Type Name="tblSSOAType">
+      <Column Name="SSOATypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SSOATypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOATypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOATypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOATypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOATypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSingleSignOnAccount" Member="tblSingleSignOnAccounts">
+    <Type Name="tblSingleSignOnAccount">
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOADesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOAClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOADataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOARedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOAAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOAModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOAUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="SSOABidTypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSingleSignOnAccount_tblUserSecurityAccessToken" Member="tblUserSecurityAccessTokens" ThisKey="SSOAControl" OtherKey="USATSSOAControl" Type="tblUserSecurityAccessToken" />
+      <Association Name="tblSingleSignOnAccount_tblUserSecurityAltAuthAcct" Member="tblUserSecurityAltAuthAccts" ThisKey="SSOAControl" OtherKey="USAASSOAControl" Type="tblUserSecurityAltAuthAcct" />
+      <Association Name="tblSingleSignOnAccount_tblSSOASecurityXref" Member="tblSSOASecurityXrefs" ThisKey="SSOAControl" OtherKey="SSOAControl" Type="tblSSOASecurityXref" />
+      <Association Name="tblSingleSignOnAccount_tblSSOALEConfig" Member="tblSSOALEConfigs" ThisKey="SSOAControl" OtherKey="SSOALESSOAControl" Type="tblSSOALEConfig" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblSSOAConfig" Member="vtblSSOAConfigs">
+    <Type Name="vtblSSOAConfig">
+      <Column Name="SSOACName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOACValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOALEClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOATypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOATypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOACControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACSSOALEControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOACCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALESSOATypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOACModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOACModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOACUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vtblSSOALEConfig" Member="vtblSSOALEConfigs">
+    <Type Name="vtblSSOALEConfig">
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOATypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOATypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALEClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALELoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALEDataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALERedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALEClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALEAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOALEControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALESSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALESSOATypeControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOALELEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOALEModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SSOALEModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOALEUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblUserSecurity" Member="tblUserSecurities">
+    <Type Name="tblUserSecurity">
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserRemotePassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserUserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserMiddleIn" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserDepartment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserPhoneWork" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneCell" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneHome" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserWorkExt" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UseAuthCode" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NEXTrackOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserSSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAllowNonPrimaryComputers" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserAllowPublicComputer" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserStartFreeTrial" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserEndFreeTrial" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserFreeTrialActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserTheme365" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserMustChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCultureInfo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tblUserSecurity_tblFormSecurityXref" Member="tblFormSecurityXrefs" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblFormSecurityXref" />
+      <Association Name="tblUserSecurity_tblProcedureSecurityXref" Member="tblProcedureSecurityXrefs" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblProcedureSecurityXref" />
+      <Association Name="tblUserSecurity_tblReportSecurityXref" Member="tblReportSecurityXrefs" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblReportSecurityXref" />
+      <Association Name="tblUserSecurity_tblUserAdmin" Member="tblUserAdmins" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblUserAdmin" />
+      <Association Name="tblUserSecurity_tblProcAlertUserXref" Member="tblProcAlertUserXrefs" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblProcAlertUserXref" />
+      <Association Name="tblUserSecurity_tblUserSecurityAccessToken" Member="tblUserSecurityAccessTokens" ThisKey="UserSecurityControl" OtherKey="USATUserSecurityControl" Type="tblUserSecurityAccessToken" />
+      <Association Name="tblUserSecurity_tblUserSecurityAltAuthAcct" Member="tblUserSecurityAltAuthAccts" ThisKey="UserSecurityControl" OtherKey="USAAUserSecurityControl" Type="tblUserSecurityAltAuthAcct" />
+      <Association Name="tblUserSecurity_tblUserSecurityCarrier" Member="tblUserSecurityCarriers" ThisKey="UserSecurityControl" OtherKey="USCUserSecurityControl" Type="tblUserSecurityCarrier" />
+      <Association Name="tblUserSecurity_tblUserSecurityLane" Member="tblUserSecurityLanes" ThisKey="UserSecurityControl" OtherKey="USLUserSecurityControl" Type="tblUserSecurityLane" />
+      <Association Name="tblUserSecurity_tblUserSecuritySetting" Member="tblUserSecuritySettings" ThisKey="UserSecurityControl" OtherKey="USSUserSecurityControl" Type="tblUserSecuritySetting" />
+      <Association Name="tblUserSecurity_tblUserSecurityLegalEntity" Member="tblUserSecurityLegalEntities" ThisKey="UserSecurityControl" OtherKey="USLEUserSecurityControl" Type="tblUserSecurityLegalEntity" />
+      <Association Name="tblUserSecurity_tblSSOASecurityXref" Member="tblSSOASecurityXrefs" ThisKey="UserSecurityControl" OtherKey="UserSecurityControl" Type="tblSSOASecurityXref" />
+      <Association Name="tblUserSecurity_tbl365DisplayedAlertMessage" Member="tbl365DisplayedAlertMessages" ThisKey="UserSecurityControl" OtherKey="DAMXUserSecurityControl" Type="tbl365DisplayedAlertMessage" />
+      <Association Name="tblUserSecurity_tblUserPageSetting" Member="tblUserPageSettings" ThisKey="UserSecurityControl" OtherKey="UserPSUserSecurityControl" Type="tblUserPageSetting" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vSSOResult" Member="vSSOResults">
+    <Type Name="vSSOResult">
+      <Column Name="UserSSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOADesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserAllowNonPrimaryComputers" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserAllowPublicComputer" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SSOAClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOADataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOARedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOAAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAAuthenticationRequired" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CatControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsCarrier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserTheme365" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USATToken" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="USATExpires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USATUserID" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserLEControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NEXTrackOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserMustChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCultureInfo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLEUsers365" Member="vLEUsers365s">
+    <Type Name="vLEUsers365">
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserUserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserSSOAControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SSOASecurityXrefUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefPassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOASecurityXrefReferenceID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminLegalEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LEAdminCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserMiddleIn" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTheme365" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NEXTrackOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserMustChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCultureInfo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spGetSubscribedUsersForAlert" Method="spGetSubscribedUsersForAlert">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSubscribedUsersForAlertResult">
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserRemotePassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserUserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserMiddleIn" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="UserTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserDepartment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserPhoneWork" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneCell" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneHome" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserWorkExt" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UseAuthCode" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NEXTrackOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNGL063SSRS" Method="spNGL063SSRS">
+    <Parameter Name="Enter_Year" Parameter="enter_Year" Type="System.Int32" DbType="Int" />
+    <Parameter Name="From_Carrier" Parameter="from_Carrier" Type="System.Int32" DbType="Int" />
+    <Parameter Name="To_Carrier" Parameter="to_Carrier" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spNGL063SSRSResult">
+      <Column Name="ParCSZC" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="ParCompanyName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ParCompanyAdd1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ParCompanyAdd2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ParCompanyPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ParCompanyFax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ParCompanyTaxID" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ParCOMPANYICC" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ParCOMPANYFMC" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierConMsg" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="VersionDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="VersionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LogoURL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierStreetCity" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CarrierStreetState" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="CarrierStreetCountry" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CarrierStreetZip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Month" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="InvMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Loads" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OnTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Late" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Early" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YearNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetCheckProcedureSecurityWCF" Method="spNetCheckProcedureSecurityWCF">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProcedureName" Parameter="procedureName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spNetCheckProcedureSecurityWCFResult">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetOrCreateSubscriptionAlert" Method="spGetOrCreateSubscriptionAlert">
+    <Parameter Name="AlertName" Parameter="alertName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AlertDescription" Parameter="alertDescription" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spGetOrCreateSubscriptionAlertResult">
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdateSSOASecurityXref" Method="spInsertOrUpdateSSOASecurityXref">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SSOAControl" Parameter="sSOAControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spInsertOrUpdateSSOASecurityXrefResult">
+      <Column Name="ParamName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParamValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteSSOASecurityXref" Method="spDeleteSSOASecurityXref">
+    <Parameter Name="SSOASecurityXrefControl" Parameter="sSOASecurityXrefControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spDeleteSSOASecurityXrefResult">
+      <Column Name="ParamName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParamValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfDoesUserHaveSSOA" Method="udfDoesUserHaveSSOA" IsComposable="true">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SSOAControl" Parameter="sSOAControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.spAddReportIfMissing" Method="spAddReportIfMissing">
+    <Parameter Name="ReportControl" Parameter="reportControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReportName" Parameter="reportName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ReportDescription" Parameter="reportDescription" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ReportServerURL" Parameter="reportServerURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ReportURL" Parameter="reportURL" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ReportPrinterName" Parameter="reportPrinterName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ReportDataSource" Parameter="reportDataSource" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="AMSActive" Parameter="aMSActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ReportReportMenuControl" Parameter="reportReportMenuControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReportMenuSequence" Parameter="reportMenuSequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReportNEXTrackActive" Parameter="reportNEXTrackActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ReportShowInTree" Parameter="reportShowInTree" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spAddReportIfMissingResult">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spAlertShowPopupMsg" Method="spAlertShowPopupMsg">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spAlertShowPopupMsgResult">
+      <Column Name="ShowMsg" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spAlertUsersToEmail" Method="spAlertUsersToEmail">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spAlertUsersToEmailResult">
+      <Column Name="UserSecurityControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserRemotePassword" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserUserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+      <Column Name="UserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserMiddleIn" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="UserTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserDepartment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserPhoneWork" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneCell" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserPhoneHome" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserWorkExt" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UseAuthCode" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NEXTrackOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdatetblUserSecurityAccessToken" Method="spInsertOrUpdatetblUserSecurityAccessToken">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SSOAControl" Parameter="sSOAControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strToken" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Expires" Parameter="expires" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="USATUserID" Parameter="uSATUserID" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="spInsertOrUpdatetblUserSecurityAccessTokenResult">
+      <Column Name="ParamName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ParamValue" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdatePageHelpNotes" Method="spInsertOrUpdatePageHelpNotes">
+    <Parameter Name="PageHelpControl" Parameter="pageHelpControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="NotesLevel" Parameter="notesLevel" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spInsertOrUpdatePageHelpNotesResult">
+      <Column Name="PageHelpControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetPageHelpNotes" Method="spGetPageHelpNotes">
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetPageHelpNotesResult">
+      <Column Name="NoteLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HelpWindowTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DefaultTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PageHelpControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NotesLocal" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetCheckUserSecurityByControl" Method="spNetCheckUserSecurityByControl">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserRemotePassword" Parameter="userRemotePassword" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spNetCheckUserSecurityByControlResult">
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetCheckFormSecurity365" Method="spNetCheckFormSecurity365">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetCheckFormSecurity365Result">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetCheckProcedureSecurity365" Method="spNetCheckProcedureSecurity365">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserControl" Parameter="userControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetCheckProcedureSecurity365Result">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCMCreatePage" Method="spCMCreatePage">
+    <Parameter Name="FormName" Parameter="formName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="PageName" Parameter="pageName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="PageDesc" Parameter="pageDesc" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="PageCaption" Parameter="pageCaption" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="PageCaptionLocal" Parameter="pageCaptionLocal" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageDataSource" Parameter="pageDataSource" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PageSortable" Parameter="pageSortable" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PagePageable" Parameter="pagePageable" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PageGroupable" Parameter="pageGroupable" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PageEditable" Parameter="pageEditable" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PageDataElmtControl" Parameter="pageDataElmtControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageElmtFieldControl" Parameter="pageElmtFieldControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageAutoRefreshSec" Parameter="pageAutoRefreshSec" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FormDescription" Parameter="formDescription" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FormControl" Parameter="formControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spCMCreatePageResult">
+      <Column Name="PageControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCMCreateDataElement" Method="spCMCreateDataElement">
+    <Parameter Name="DataElmtName" Parameter="dataElmtName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCMUpdateDataElements" Method="spCMUpdateDataElements">
+    <Parameter Name="DataElmtName" Parameter="dataElmtName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCMCreatePageDetailFromField" Method="spCMCreatePageDetailFromField">
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ParentID" Parameter="parentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ElmtFieldControl" Parameter="elmtFieldControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetSingleSignOnAccountByUser" Method="spGetSingleSignOnAccountByUser">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SSOAControl" Parameter="sSOAControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSingleSignOnAccountByUserResult">
+      <Column Name="SSOASecurityXrefControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RefID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCMCreateAllPageDetailsForDataElement" Method="spCMCreateAllPageDetailsForDataElement">
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ParentID" Parameter="parentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataElmtControl" Parameter="dataElmtControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetUserGroupsForLE" Method="spGetUserGroupsForLE">
+    <Parameter Name="LEAdminControl" Parameter="lEAdminControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetUserGroupsForLEResult">
+      <Column Name="UserGroupsControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserGroupsLegalEntityCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsUGCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupsUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdateUserSecurityLE" Method="spInsertOrUpdateUserSecurityLE">
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LEAdminControl" Parameter="lEAdminControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spInsertOrUpdateUserSecurityLEResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCreateDefaultUserGroupsForLE" Method="spCreateDefaultUserGroupsForLE">
+    <Parameter Name="LegalEntity" Parameter="legalEntity" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spCreateDefaultUserGroupsForLEResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetCheckProcedureSecurityByName" Method="spNetCheckProcedureSecurityByName">
+    <Parameter Name="ProcedureName" Parameter="procedureName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AddIfMissing" Parameter="addIfMissing" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UserControl" Parameter="userControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetCheckProcedureSecurityByNameResult">
+      <Column Name="AllowAccess" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCopycmPageDetailsToAllUsers" Method="spCopycmPageDetailsToAllUsers">
+    <Parameter Name="PageDetControl" Parameter="pageDetControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetUserAssociatedCarriers" Method="spGetUserAssociatedCarriers">
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsEdit" Parameter="isEdit" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spGetUserAssociatedCarriersResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCreateRestrictedFormByGroup" Method="spCreateRestrictedFormByGroup">
+    <Parameter Name="FormControl" Parameter="formControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetUnrestrictedCompsByUser" Method="spGetUnrestrictedCompsByUser">
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetUnrestrictedCompsByUserResult">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCreateRestrictedReportByGroup" Method="spCreateRestrictedReportByGroup">
+    <Parameter Name="ReportControl" Parameter="reportControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCreateRestrictedProcedureByGroup" Method="spCreateRestrictedProcedureByGroup">
+    <Parameter Name="ProcedureControl" Parameter="procedureControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spNetCheckReportSecurity365" Method="spNetCheckReportSecurity365">
+    <Parameter Name="ReportControl" Parameter="reportControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Usercontrol" Parameter="usercontrol" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetCheckReportSecurity365Result">
+      <Column Name="" Member="Column1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCmPageMaintHideAllControls" Method="spCmPageMaintHideAllControls">
+    <Parameter Name="PageDetPageControl" Parameter="pageDetPageControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateGridFieldSequenceNo" Method="spUpdateGridFieldSequenceNo">
+    <Parameter Name="NewPosition" Parameter="newPosition" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MovingElementControl" Parameter="movingElementControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageControl" Parameter="pageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModUser" Parameter="modUser" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateNTOnlyBasedOnGroup" Method="spUpdateNTOnlyBasedOnGroup">
+    <Parameter Name="NewGroupControl" Parameter="newGroupControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spUpdateNTOnlyBasedOnGroupResult">
+      <Column Name="blnToNTOnly" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfGetNTOnlyBasedOnGroup" Method="udfGetNTOnlyBasedOnGroup" IsComposable="true">
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.spRestrictProceduresAssociatedWithForm365" Method="spRestrictProceduresAssociatedWithForm365">
+    <Parameter Name="FormControl" Parameter="formControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spRestrictProceduresAssociatedWithAllForms365" Method="spRestrictProceduresAssociatedWithAllForms365">
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUnrestrictProceduresAssociatedWithForm365" Method="spUnrestrictProceduresAssociatedWithForm365">
+    <Parameter Name="FormControl" Parameter="formControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUnrestrictProceduresAssociatedWithAllForms365" Method="spUnrestrictProceduresAssociatedWithAllForms365">
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetEquivalentUserGroupForNewLE" Method="spGetEquivalentUserGroupForNewLE">
+    <Parameter Name="UserSecurityControl" Parameter="userSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewLEAdminControl" Parameter="newLEAdminControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetEquivalentUserGroupForNewLEResult">
+      <Column Name="NewGroupControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetFormSecTypeXTabData" Method="spGetFormSecTypeXTabData">
+    <ElementType Name="spGetFormSecTypeXTabDataResult">
+      <Column Name="Control" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Everyone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierDispatch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Warehouse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTrack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTStop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEOperations" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Super" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spConfigureSecTypesForForm" Method="spConfigureSecTypesForForm">
+    <Parameter Name="FormName" Parameter="formName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="blnCarrierDispatch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnCarrierAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnWarehouse" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTrack" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTStop" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEOperations" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAdmin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnSuper" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnInactive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetProcedureSecTypeXTabData" Method="spGetProcedureSecTypeXTabData">
+    <ElementType Name="spGetProcedureSecTypeXTabDataResult">
+      <Column Name="Control" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Everyone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierDispatch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Warehouse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTrack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTStop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEOperations" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Super" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetReportSecTypeXTabData" Method="spGetReportSecTypeXTabData">
+    <ElementType Name="spGetReportSecTypeXTabDataResult">
+      <Column Name="Control" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Desc]" Member="Desc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Everyone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierDispatch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Warehouse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTrack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NEXTStop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEOperations" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAccounting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LEAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Super" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spConfigureSecTypesForProcedure" Method="spConfigureSecTypesForProcedure">
+    <Parameter Name="ProcedureName" Parameter="procedureName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="blnCarrierDispatch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnCarrierAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnWarehouse" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTrack" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTStop" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEOperations" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAdmin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnSuper" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnInactive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spConfigureSecTypesForReport" Method="spConfigureSecTypesForReport">
+    <Parameter Name="ReportName" Parameter="reportName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="blnCarrierDispatch" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnCarrierAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnWarehouse" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTrack" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnNEXTStop" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEOperations" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAccounting" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnLEAdmin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnSuper" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="blnInactive" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateGroupBasedOnSecurityType" Method="spUpdateGroupBasedOnSecurityType">
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateAllGroupsBasedOnSecurityType" Method="spUpdateAllGroupsBasedOnSecurityType">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCMUpdateAllUserPermissions" Method="spCMUpdateAllUserPermissions">
+    <Parameter Name="GroupControl" Parameter="groupControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spCMUpdateAllUserPermissionsResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetUnrestrictedLanesByUser" Method="spGetUnrestrictedLanesByUser">
+    <Parameter Name="USC" Parameter="uSC" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetUnrestrictedLanesByUserResult">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spReSecureUsers" Method="spReSecureUsers">
+    <Parameter Name="LEAdminControl" Parameter="lEAdminControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Activate" Parameter="activate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AdminUserSecurityControl" Parameter="adminUserSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdminUserSecurityToken" Parameter="adminUserSecurityToken" Type="System.String" DbType="NVarChar(4000)" />
+    <ElementType Name="spReSecureUsersResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCreateUserSpeciicPageDetails" Method="spCreateUserSpeciicPageDetails">
+    <Parameter Name="PageDetPageControl" Parameter="pageDetPageControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageDetUserSecurityControl" Parameter="pageDetUserSecurityControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewUserSecurityControl" Parameter="newUserSecurityControl" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spNetGetSSOAccount" Method="spNetGetSSOAccount">
+    <Parameter Name="AuthenticatedUser" Parameter="authenticatedUser" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spNetGetSSOAccountResult">
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOADesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AllowNonPrimaryComputers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowPublicComputer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SSOAClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOADataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOARedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOAAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAAuthenticationRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SSOAUserSecurityControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOAUserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AuthenticationErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthenticationErrorMessage" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IsCarrier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierContControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserTheme365" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CatControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserMustChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCultureInfo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGet365Account" Method="spGet365Account">
+    <Parameter Name="AuthenticatedUser" Parameter="authenticatedUser" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Expires" Parameter="expires" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="pUSC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pUSATToken" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="pUSATUserID" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pUserEmail" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="pUserFirstName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pUserLastName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pSSOAAuthCode" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="pSSOAControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pPass" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="UserFriendlyName" Parameter="userFriendlyName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="UserWorkPhone" Parameter="userWorkPhone" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="UserWorkExt" Parameter="userWorkExt" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="spGet365AccountResult">
+      <Column Name="SSOAControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOADesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AllowNonPrimaryComputers" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowPublicComputer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SSOAClientID" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOALoginURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOADataURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOARedirectURL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAClientSecret" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SSOAAuthCode" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SSOAAuthenticationRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SSOAUserSecurityControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SSOAUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SSOAUserEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserFriendlyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AuthenticationErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthenticationErrorMessage" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IsCarrier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierContControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserTheme365" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedFTUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CatControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserMustChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserCultureInfo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserTimeZone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

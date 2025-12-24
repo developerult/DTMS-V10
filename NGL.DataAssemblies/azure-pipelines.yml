@@ -1,0 +1,17 @@
+trigger:
+- master
+
+pool: 
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  NUGET_ENABLE_LEGACY_CSPROJ_PACK: 'true'
+
+steps:
+- template: azure-pipelines-template.yml
+  parameters:
+    buildConfiguration: $(buildConfiguration)
+    buildPlatform: $(buildPlatform)

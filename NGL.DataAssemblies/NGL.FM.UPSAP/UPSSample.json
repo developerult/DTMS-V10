@@ -1,0 +1,77 @@
+{
+    "RateRequest": {
+        "Request": {
+            "SubVersion": "1703",
+            "TransactionReference": {
+                "CustomerContext": " "
+            }
+        },
+        "Shipment": {
+            "ShipmentRatingOptions": {
+                "UserLevelDiscountIndicator": "TRUE"
+            },
+            "Shipper": {
+                "Name": "Brett Susick",
+                "ShipperNumber": " ",
+                "Address": {
+                    "AddressLine": "400 POYDRAS ST 10",
+                    "City": "NEW ORLEANS",
+                    "StateProvinceCode": "LA",
+                    "PostalCode": "70130",
+                    "CountryCode": "US"
+                }
+            },
+            "ShipTo": {
+                "Name": "Sarita Lynn",
+                "Address": {
+                    "AddressLine": "355 West San Fernando Street",
+                    "City": "San Jose",
+                    "StateProvinceCode": "CA",
+                    "PostalCode": "95113",
+                    "CountryCode": "US"
+                }
+            },
+            "ShipFrom": {
+                "Name": "Brett Susick",
+                "Address": {
+                    "AddressLine": "400 POYDRAS ST 10",
+                    "City": "NEW ORLEANS",
+                    "StateProvinceCode": "LA",
+                    "PostalCode": "70130",
+                    "CountryCode": "US"
+                }
+            },
+            "Service": {
+                "Code": "03",
+                "Description": "Ground"
+            },
+            "ShipmentTotalWeight": {
+                "UnitOfMeasurement": {
+                    "Code": "LBS",
+                    "Description": "Pounds"
+                },
+                "Weight": "20"
+            },
+            "Package": {
+                "PackagingType": {
+                    "Code": "02",
+                    "Description": "Package"
+                },
+                "Dimensions": {
+                    "UnitOfMeasurement": {
+                        "Code": "IN"
+                    },
+                    "Length": "10",
+                    "Width": "7",
+                    "Height": "5"
+                },
+                "PackageWeight": {
+                    "UnitOfMeasurement": {
+                        "Code": "LBS"
+                    },
+                    "Weight": "20"
+                }
+            }
+        }
+    }
+}

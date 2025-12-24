@@ -1,0 +1,777 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+NGL.FreightMaster.PCMiler
+</name>
+</assembly>
+<members>
+<member name="T:NGL.FreightMaster.PCMiler.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.clsFMStopData">
+ <summary>
+ Stop Data 
+ </summary>
+ <remarks>
+ Modified by RHR for v-8.5.0.001 on 11/19/2021 added country property
+ </remarks>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCMiles.PCMReSyncMultiStop(System.Collections.Generic.List{NGL.FreightMaster.PCMiler.clsFMStopData},NGL.FreightMaster.PCMiler.clsPCMBadAddresses@,System.Collections.Generic.List{NGL.FreightMaster.PCMiler.clsPCMReportRecord}@,System.Double,System.Boolean,System.Boolean,System.String)">
+ <summary>
+ The StopDate, BadAddresses and ReportRecords are passed by reference and 
+ results are returned to the caller.  The return vlaue clsPCMReturnEx as 
+ information about failed processes previously contained in the clsAllStops 
+ object.  Stop are now processed by address and not by pro number. 
+ </summary>
+ <param name="StopData"></param>
+ <param name="BadAddresses"></param>
+ <param name="ReportRecords"></param>
+ <param name="dblBatchID"></param>
+ <param name="blnKeepStopNumbers"></param>
+ <param name="LoggingOn"></param>
+ <param name="LogFileName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMiler">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.#ctor">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.CityToLatLongCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.cityStateZipLookupCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.FullNameCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.getGeoCodeCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.LatLongToCityCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesEXCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.MilesCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.zipcodeCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncEXCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncMultiStopCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.getRouteMilesCompleted">
+<remarks/>
+</member>
+<member name="E:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMValidateAddressCompleted">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.CityToLatLong(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.CityToLatLongAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.CityToLatLongAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.cityStateZipLookup(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.cityStateZipLookupAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.cityStateZipLookupAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.FullName(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.FullNameAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.FullNameAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getGeoCode(System.String,System.Double@,System.Double@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getGeoCodeAsync(System.String,System.Double,System.Double,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getGeoCodeAsync(System.String,System.Double,System.Double,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.LatLongToCity(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.LatLongToCityAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.LatLongToCityAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMiles(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesAsync(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesAsync(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesEX(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesEXAsync(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getPracticalMilesEXAsync(NGL.FreightMaster.PCMiler.PCM.clsAddress,NGL.FreightMaster.PCMiler.PCM.clsAddress,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.Double,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.Miles(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.MilesAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.MilesAsync(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.zipcode(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.zipcodeAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.zipcodeAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSync(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[]@,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncAsync(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[],NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncAsync(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[],NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncEX(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[]@,NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncEXAsync(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[],NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncEXAsync(NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop[],System.String,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsAllStop[],NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncMultiStop(NGL.FreightMaster.PCMiler.PCM.clsFMStopData[]@,System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncMultiStopAsync(NGL.FreightMaster.PCMiler.PCM.clsFMStopData[],System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMReSyncMultiStopAsync(NGL.FreightMaster.PCMiler.PCM.clsFMStopData[],System.Double,System.Boolean,NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getRouteMiles(NGL.FreightMaster.PCMiler.PCM.clsSimpleStop[]@,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getRouteMilesAsync(NGL.FreightMaster.PCMiler.PCM.clsSimpleStop[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.getRouteMilesAsync(NGL.FreightMaster.PCMiler.PCM.clsSimpleStop[],System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMValidateAddress(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String@)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMValidateAddressAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.PCMValidateAddressAsync(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:NGL.FreightMaster.PCMiler.PCM.PCMiler.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsAddress">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAddress.strAddress">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAddress.strCity">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAddress.strState">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAddress.strZip">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsPCMReturn">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReturn.RetVal">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReturn.Message">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.Address">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.StopNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.TotalMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.LegMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.LegCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.TotalCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.LegHours">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsSimpleStop.TotalHours">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.StopNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.SeqNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.LegMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.TotalMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.LegCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.TotalCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.LegTime">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.TotalTime">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.LegTolls">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.TotalTolls">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.LegESTCHG">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.TotalESTCHG">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.Zip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.City">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.State">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.Street">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMReportRecord.StopName">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsFMStopData">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.BookControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.BookCustCompControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.BookLoadControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.BookODControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.BookProNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LaneOriginAddressUse">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.RouteType">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.DistType">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.StopNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.SeqNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LegMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.TotalMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LegCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.TotalCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LegTime">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.TotalTime">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LegTolls">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.TotalTolls">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LegESTCHG">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.TotalESTCHG">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.Zip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.City">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.State">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.Street">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.StopName">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.PCMilerStreet">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.PCMilerState">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.PCMilerCity">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.PCMilerZip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.Matched">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LocationisOrigin">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.AddressValid">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.LogBadAddress">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsFMStopData.Warning">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsAllStop">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.ConsNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.DistToPrev">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.TotalRouteCost">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.SeqNbr">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.TruckDesignator">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.TruckNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.StopNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.Stopname">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.ID1">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsAllStop.ID2">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookCustCompControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookLoadControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookODControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookStopNo">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.RouteType">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.DistType">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookOrigZip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookDestZip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookOrigAddress1">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookDestAddress1">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookOrigCity">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookDestCity">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookOrigState">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookDestState">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.BookProNumber">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMDataStop.LaneOriginAddressUse">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.FailedAddressMessage">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.BadAddressCount">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.TotalMiles">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.OriginZip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.DestZip">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.AutoCorrectBadLaneZipCodes">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsGlobalStopData.BatchID">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.BookControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.LaneControl">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.objOrig">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.objDest">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.objPCMOrig">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.objPCMDest">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.Message">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.clsPCMBadAddress.BatchID">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.CityToLatLongCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.CityToLatLongCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.CityToLatLongCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.CityToLatLongCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.cityStateZipLookupCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.cityStateZipLookupCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.cityStateZipLookupCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.cityStateZipLookupCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.FullNameCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.FullNameCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.FullNameCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.FullNameCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventArgs.dblLat">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventArgs.dblLong">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getGeoCodeCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.LatLongToCityCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.LatLongToCityCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.LatLongToCityCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.LatLongToCityCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesCompletedEventArgs.arrBaddAddresses">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesEXCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesEXCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesEXCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesEXCompletedEventArgs.arrBaddAddresses">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getPracticalMilesEXCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.MilesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.MilesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.MilesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.MilesCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.zipcodeCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.zipcodeCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.zipcodeCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.zipcodeCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventArgs.arrAllStops">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventArgs.arrBaddAddresses">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventArgs.arrAllStops">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventArgs.arrBaddAddresses">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncEXCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventArgs.oIFMStops">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventArgs.oPCMReportRecords">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMReSyncMultiStopCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getRouteMilesCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.getRouteMilesCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getRouteMilesCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getRouteMilesCompletedEventArgs.sRoute">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.getRouteMilesCompletedEventArgs.LastError">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMValidateAddressCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:NGL.FreightMaster.PCMiler.PCM.PCMValidateAddressCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMValidateAddressCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="P:NGL.FreightMaster.PCMiler.PCM.PCMValidateAddressCompletedEventArgs.LastError">
+<remarks/>
+</member>
+</members>
+</doc>

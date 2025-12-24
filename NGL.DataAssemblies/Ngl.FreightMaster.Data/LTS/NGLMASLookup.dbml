@@ -1,0 +1,1581 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGLMASPROD" EntityNamespace="LTS" ContextNamespace="LTS" Class="NGLMASLookupDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SAGAR-PC;Initial Catalog=NGLTMSPROD;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="Ngl.FreightMaster.Data.My.MySettings" SettingsPropertyName="NGLMASPRODConnectionString8" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AlphaCompanyXref" Member="AlphaCompanyXrefs">
+    <Type Name="AlphaCompanyXref">
+      <Column Name="ACXControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACXCompNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACXAlphaNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACXUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChartOfAccounts" Member="ChartOfAccounts">
+    <Type Name="ChartOfAccount">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AcctNo" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AcctDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AcctType" Type="System.Char" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="AcctLine" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="AcctLineNumber" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="AcctLinNumberSub" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="rowguid" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsReadOnly="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AcctUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Code" Member="Codes">
+    <Type Name="Code">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CodeType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CodeDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CommodityCode" Member="CommodityCodes">
+    <Type Name="CommodityCode">
+      <Column Name="CommCodeType" Type="System.Char" DbType="NVarChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommCodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditCardTypes" Member="CreditCardTypes">
+    <Type Name="CreditCardType">
+      <Column Name="CreditCardControlNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreditCardType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CreditCardTypesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Currency" Member="Currencies">
+    <Type Name="Currency">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrencyType" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CurrencyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencyCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Help" Member="Helps">
+    <Type Name="Help">
+      <Column Name="HelpControlName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HelpText" Type="System.String" DbType="NText" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="HelpUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LaneTrans" Member="LaneTrans">
+    <Type Name="LaneTran">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTransNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTransTypeDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTransServiceFeeMin" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeFlat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeePerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTransUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoadType" Member="LoadTypes">
+    <Type Name="LoadType">
+      <Column Name="ID" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="LoadType" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LoadTypeGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LoadTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Months" Member="Months">
+    <Type Name="Month">
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="MonthsUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SpecialCodes" Member="SpecialCodes">
+    <Type Name="SpecialCode">
+      <Column Name="SpecialCodesControl" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SpecialCodesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TempError" Member="TempErrors">
+    <Type Name="TempError">
+      <Column Name="TempErrorControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TempErrorBookControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TempErrorBookLoadControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TempErrorDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UOM" Member="UOMs">
+    <Type Name="UOM">
+      <Column Name="UOM" Type="System.String" DbType="NVarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UOMUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentForm" Member="PaymentForms">
+    <Type Name="PaymentForm">
+      <Column Name="PaymentFormNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentFormType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentFormUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Seasonality" Member="Seasonalities">
+    <Type Name="Seasonality">
+      <Column Name="SeasControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SeasProfileNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeasDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeasMo1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo5" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo6" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo8" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo9" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo10" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo11" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasMo12" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SeasModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SeasModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SeasUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="msrepl_tran_version" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.States" Member="States">
+    <Type Name="State">
+      <Column Name="STATE" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="STATENAME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="StatesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="StateControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.APAdjReason" Member="APAdjReasons">
+    <Type Name="APAdjReason">
+      <Column Name="APAdjReasonControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="APAdjReasonCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="APAdjReasonDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="APAdjReasonUpdated" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAPAdjReason" Member="vLookupAPAdjReasons">
+    <Type Name="vLookupAPAdjReason">
+      <Column Name="APAdjReasonControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APAdjReasonCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="APAdjReasonDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NegativeRevenueReason" Member="NegativeRevenueReasons">
+    <Type Name="NegativeRevenueReason">
+      <Column Name="NegativeRevenueCode" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NegativeRevenueReason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NegativeRevenueUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAPCarrier" Member="vLookupAPCarriers">
+    <Type Name="vLookupAPCarrier">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAPCarrierAmtPaid" Member="vLookupAPCarrierAmtPaids">
+    <Type Name="vLookupAPCarrierAmtPaid">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAPCarrierPaid" Member="vLookupAPCarrierPaids">
+    <Type Name="vLookupAPCarrierPaid">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAPCompany" Member="vLookupAPCompanies">
+    <Type Name="vLookupAPCompany">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookUpARCompany" Member="vLookUpARCompanies">
+    <Type Name="vLookUpARCompany">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookuptblBracketType" Member="vLookuptblBracketTypes">
+    <Type Name="vLookuptblBracketType">
+      <Column Name="BTControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BTDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BTName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialVariableCodes" Member="tblAccessorialVariableCodes">
+    <Type Name="tblAccessorialVariableCode">
+      <Column Name="AccessorialVariableCodesControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialVariableCodesName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCodesDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialVariableModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialVariableUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAccessorialVariableCode_CarrierTariffFeeRefLookup" Member="CarrierTariffFeeRefLookups" ThisKey="AccessorialVariableCodesControl" OtherKey="CarrTarFeesVariableCode" Type="CarrierTariffFeeRefLookup" />
+      <Association Name="tblAccessorialVariableCode_tblAccessorial" Member="tblAccessorials" ThisKey="AccessorialVariableCodesControl" OtherKey="AccessorialVariableCode" Type="tblAccessorial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NatFuelZoneStates" Member="NatFuelZoneStates">
+    <Type Name="NatFuelZoneState">
+      <Column Name="NatFuelZoneStatesState" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NatFuelZoneStatesNatFuelZoneID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneStatesModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NatFuelZoneStatesModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NatFuelZoneStatesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="NatFuelZone_NatFuelZoneState" Member="NatFuelZone" ThisKey="NatFuelZoneStatesNatFuelZoneID" OtherKey="NatFuelZoneID" Type="NatFuelZone" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NatFuelZone" Member="NatFuelZones">
+    <Type Name="NatFuelZone">
+      <Column Name="NatFuelZoneID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NatFuelZoneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NatFuelZoneIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NatFuelZoneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NatFuelZoneUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="NatFuelZone_NatFuelZoneState" Member="NatFuelZoneStates" ThisKey="NatFuelZoneID" OtherKey="NatFuelZoneStatesNatFuelZoneID" Type="NatFuelZoneState" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupActiveAPCarrier" Member="vLookupActiveAPCarriers">
+    <Type Name="vLookupActiveAPCarrier">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vEmailInvoiceComps" Member="vEmailInvoiceComps">
+    <Type Name="vEmailInvoiceComp">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompFinInvEMailCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinInvPrnCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vUserAdminWithCompControl" Member="vUserAdminWithCompControlRefVlookups">
+    <Type Name="vUserAdminWithCompControlRefVlookup">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminCompControl" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CompNatNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAdminAsNvarchar" Member="UserAdminAsNvarcharRefvLookups">
+    <Type Name="UserAdminAsNvarcharRefvLookup">
+      <Column Name="UserAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserAdminCompControl" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vSecureCarrier" Member="vSecureCarrierRefLookups">
+    <Type Name="vSecureCarrierRefLookup">
+      <Column Name="CarrTarCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdminUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRouteType" Member="tblRouteTypes">
+    <Type Name="tblRouteType">
+      <Column Name="RouteTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RouteTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteTypeDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RouteTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAttribute" Member="tblAttributes">
+    <Type Name="tblAttribute">
+      <Column Name="AttributeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttributeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeAttributeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeActionControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AttributeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttributeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AttributeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAttributeType" Member="tblAttributeTypes">
+    <Type Name="tblAttributeType">
+      <Column Name="AttributeTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttributeTypeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeTypeDescription" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AttributeTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AttributeTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AttributeTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAction" Member="tblActions">
+    <Type Name="tblAction">
+      <Column Name="ActionControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ActionName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ActionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionArgumentCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionStringFormat" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ActionCommand" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ActionURI" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ActionDescription" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ActionModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActionModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookuptblAttribute" Member="vLookuptblAttributes">
+    <Type Name="vLookuptblAttribute">
+      <Column Name="Control" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(201)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeAttributeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblClassType" Member="tblClassTypes">
+    <Type Name="tblClassType">
+      <Column Name="ClassTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ClassTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClassTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ClassTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblModeType" Member="tblModeTypes">
+    <Type Name="tblModeType">
+      <Column Name="ModeTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModeTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModeTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModeTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ModeTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTarAgent" Member="tblTarAgents">
+    <Type Name="tblTarAgent">
+      <Column Name="TarAgentControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TarAgentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TarAgentDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarAgentModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TarAgentModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarAgentUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTariffType" Member="tblTariffTypes">
+    <Type Name="tblTariffType">
+      <Column Name="TariffTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TariffTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TariffTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TariffTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TariffTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTarRateType" Member="tblTarRateTypes">
+    <Type Name="tblTarRateType">
+      <Column Name="TarRateTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TarRateTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TarRateTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarRateTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TarRateTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarRateTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPointType" Member="tblPointTypes">
+    <Type Name="tblPointType">
+      <Column Name="PointTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PointTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PointTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PointTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PointTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PointTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTarBracketType" Member="tblTarBracketTypes">
+    <Type Name="tblTarBracketType">
+      <Column Name="TarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TarBracketTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TarBracketTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarBracketTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TarBracketTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TarBracketTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblTarBracketType_CarrierTariffFeeRefLookup" Member="CarrierTariffFeeRefLookups" ThisKey="TarBracketTypeControl" OtherKey="CarrTarFeesTarBracketTypeControl" Type="CarrierTariffFeeRefLookup" />
+      <Association Name="tblTarBracketType_tblAccessorial" Member="tblAccessorials" ThisKey="TarBracketTypeControl" OtherKey="AccessorialTarBracketTypeControl" Type="tblAccessorial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialFeeAllocationType" Member="tblAccessorialFeeAllocationTypes">
+    <Type Name="tblAccessorialFeeAllocationType">
+      <Column Name="AccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialFeeAllocationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeAllocationTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeAllocationTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialFeeAllocationTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeAllocationTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAccessorialFeeAllocationType_CarrierTariffFeeRefLookup" Member="CarrierTariffFeeRefLookups" ThisKey="AccessorialFeeAllocationTypeControl" OtherKey="CarrTarFeesAccessorialFeeAllocationTypeControl" Type="CarrierTariffFeeRefLookup" />
+      <Association Name="tblAccessorialFeeAllocationType_tblAccessorial" Member="tblAccessorials" ThisKey="AccessorialFeeAllocationTypeControl" OtherKey="AccessorialAccessorialFeeAllocationTypeControl" Type="tblAccessorial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialFeeType" Member="tblAccessorialFeeTypes">
+    <Type Name="tblAccessorialFeeType">
+      <Column Name="AccessorialFeeTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialFeeTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialFeeTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialFeeCalcType" Member="tblAccessorialFeeCalcTypes">
+    <Type Name="tblAccessorialFeeCalcType">
+      <Column Name="AccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialFeeCalcTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeCalcTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeCalcTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialFeeCalcTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeCalcTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAccessorialFeeCalcType_CarrierTariffFeeRefLookup" Member="CarrierTariffFeeRefLookups" ThisKey="AccessorialFeeCalcTypeControl" OtherKey="CarrTarFeesAccessorialFeeCalcTypeControl" Type="CarrierTariffFeeRefLookup" />
+      <Association Name="tblAccessorialFeeCalcType_tblAccessorial" Member="tblAccessorials" ThisKey="AccessorialFeeCalcTypeControl" OtherKey="AccessorialAccessorialFeeCalcTypeControl" Type="tblAccessorial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarrierTariffFees" Member="CarrierTariffFeeRefLookups">
+    <Type Name="CarrierTariffFeeRefLookup">
+      <Column Name="CarrTarFeesControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrTarFeesCarrTarControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrTarFeesMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CarrTarFeesVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CarrTarFeesAccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrTarFeesVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrTarFeesVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarFeesEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrTarFeesTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CarrTarFeesBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarFeesAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesPreCloneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarFeesModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarFeesModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CarrTarFeesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblAccessorialVariableCode_CarrierTariffFeeRefLookup" Member="tblAccessorialVariableCode" ThisKey="CarrTarFeesVariableCode" OtherKey="AccessorialVariableCodesControl" Type="tblAccessorialVariableCode" IsForeignKey="true" />
+      <Association Name="tblAccessorialFeeAllocationType_CarrierTariffFeeRefLookup" Member="tblAccessorialFeeAllocationType" ThisKey="CarrTarFeesAccessorialFeeAllocationTypeControl" OtherKey="AccessorialFeeAllocationTypeControl" Type="tblAccessorialFeeAllocationType" IsForeignKey="true" />
+      <Association Name="tblAccessorialFeeCalcType_CarrierTariffFeeRefLookup" Member="tblAccessorialFeeCalcType" ThisKey="CarrTarFeesAccessorialFeeCalcTypeControl" OtherKey="AccessorialFeeCalcTypeControl" Type="tblAccessorialFeeCalcType" IsForeignKey="true" />
+      <Association Name="tblTarBracketType_CarrierTariffFeeRefLookup" Member="tblTarBracketType" ThisKey="CarrTarFeesTarBracketTypeControl" OtherKey="TarBracketTypeControl" Type="tblTarBracketType" IsForeignKey="true" />
+      <Association Name="tblAccessorial_CarrierTariffFeeRefLookup" Member="tblAccessorial" ThisKey="CarrTarFeesAccessorialCode" OtherKey="AccessorialCode" Type="tblAccessorial" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialFeeDependencyType" Member="tblAccessorialFeeDependencyTypes">
+    <Type Name="tblAccessorialFeeDependencyType">
+      <Column Name="AccessorialFeeDependencyTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialFeeDependencyTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeDependencyTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeDependencyTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialFeeDependencyTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeDependencyTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorialFeeOverRideReason" Member="tblAccessorialFeeOverRideReasons">
+    <Type Name="tblAccessorialFeeOverRideReason">
+      <Column Name="AccessorialFeeOverRideReasonControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialFeeOverRideReasonName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeOverRideReasonDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeOverRideReasonModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialFeeOverRideReasonModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialFeeOverRideReasonUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupLaneCarrierTariff" Member="vLookupLaneCarrierTariffs">
+    <Type Name="vLookupLaneCarrierTariff">
+      <Column Name="CarrTarTariffModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCheckDigitAlgorithm" Member="tblCheckDigitAlgorithms">
+    <Type Name="tblCheckDigitAlgorithm">
+      <Column Name="ChkDigAlgControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChkDigAlgName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowWeightFactor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowErrorCode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllow10DigitCode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowOver10DigitCode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowZeroDigitCode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowWeightFactorDigitSplitting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgAllowUseIndexForWeightFactor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChkDigAlgExp1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgExp2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgExp3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgExp4" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChkDigAlgModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChkDigAlgUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="ChkDigAlgAllowUseSubtractionFactor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCountries" Member="tblCountries">
+    <Type Name="tblCountry">
+      <Column Name="CountryControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryISO" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CountryUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCarrierQualValidated" Member="vCarrierQualValidateds">
+    <Type Name="vCarrierQualValidated">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupLaneDefaultCarrier" Member="vLookupLaneDefaultCarriers">
+    <Type Name="vLookupLaneDefaultCarrier">
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupERPSetting" Member="vLookupERPSettings">
+    <Type Name="vLookupERPSetting">
+      <Column Name="ERPSettingControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblServiceType" Member="tblServiceTypes">
+    <Type Name="tblServiceType">
+      <Column Name="ServiceTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ServiceTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblServiceType_tblServiceToken" Member="tblServiceTokens" ThisKey="ServiceTypeControl" OtherKey="ServiceTokenServiceTypeControl" Type="tblServiceToken" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblServiceToken" Member="tblServiceTokens">
+    <Type Name="tblServiceToken">
+      <Column Name="ServiceTokenControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceTokenServiceTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceToken" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenBookControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenCarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenCarrierContControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenLaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenAltKeyControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ServiceTokenSendEmail" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenBookTrackComment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServiceTokenBookTrackStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTokenNotificationEMailAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServiceTokenNotificationEMailAddressCc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServiceTokenUserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceTokenExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ServiceTokenModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ServiceTokenModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceTokenUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="tblServiceType_tblServiceToken" Member="tblServiceType" ThisKey="ServiceTokenServiceTypeControl" OtherKey="ServiceTypeControl" Type="tblServiceType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vEmailInvoiceComps210Off" Member="vEmailInvoiceComps210Offs">
+    <Type Name="vEmailInvoiceComps210Off">
+      <Column Name="CompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CompMailTo" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompFinInvEMailCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CompFinInvPrnCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDATEquipType" Member="tblDATEquipTypes">
+    <Type Name="tblDATEquipType">
+      <Column Name="DATEquipTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DATEquipTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DATEquipTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DATEquipTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DATEquipTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DATEquipTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFilterType" Member="tblFilterTypes">
+    <Type Name="tblFilterType">
+      <Column Name="FilterTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FilterTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FilterTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FilterTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FilterTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FilterTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblZipCode" Member="tblZipCodes">
+    <Type Name="tblZipCode">
+      <Column Name="ZipCodeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="PrimaryRecord" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="Population" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HouseholdsPerZipcode" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
+      <Column Name="WhitePopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BlackPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HispanicPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AsianPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HawaiianPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IndianPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtherPopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MalePopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FemalePopulation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PersonsPerHousehold" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AverageHouseValue" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
+      <Column Name="IncomePerHousehold" Type="System.Decimal" DbType="Decimal(18,8)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.Decimal" DbType="Decimal(18,6)" CanBeNull="true" />
+      <Column Name="Elevation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="StateFullName" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Column Name="CityType" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CityAliasAbbreviation" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
+      <Column Name="AreaCode" Type="System.String" DbType="NVarChar(55)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Column Name="CityAliasName" Type="System.String" DbType="NVarChar(35)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
+      <Column Name="CountyFIPS" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="StateFIPS" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="TimeZone" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="DayLightSaving" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="MSA" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PMSA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CSA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBSA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBSA_DIV" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CBSA_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CBSA_Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MSA_Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PMSA_Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Division" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingName" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="PreferredLastLineKey" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="ClassificationCode" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="MultiCounty" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CSAName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CBSA_Div_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CityStateKey" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="CityAliasCode" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CityMixedCase" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CityAliasMixedCase" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StateANSI" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="CountyANSI" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="FacilityCode" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="UniqueZIPName" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CityDeliveryIndicator" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CarrierRouteRateSortation" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="FinanceNumber" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="ZipCodeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ZipCodeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ZipCodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLanguageCode" Member="tblLanguageCodes">
+    <Type Name="tblLanguageCode">
+      <Column Name="LCControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LCName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LCDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LCCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LCModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LCModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LCUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDispatchType" Member="tblDispatchTypes">
+    <Type Name="tblDispatchType">
+      <Column Name="DispatchTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DispatchTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DispatchTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DispatchTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DispatchTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DispatchTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vGetLEWithCAMConfigsToCopy" Member="vGetLEWithCAMConfigsToCopies">
+    <Type Name="vGetLEWithCAMConfigsToCopy">
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LegalEntity" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LECompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vBookFeesPending" Member="vBookFeesPendingRefs">
+    <Type Name="vBookFeesPendingRef">
+      <Column Name="BFPControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BFPBookControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BFPMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BFPValue" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BFPVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BFPAccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BFPAccessorialFeeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeeTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPOverRidden" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VariableCodeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VariableCodeDesc" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BFPVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BFPEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BFPTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BFPBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="BFPBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeeAllocationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FeeAllocationTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BracketTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BracketTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeeCalcTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FeeCalcTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BFPApprovedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BFPApprovedBy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BFPModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BFPModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BookSHID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BookCarrOrderNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BookProNumber" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierSCAC" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="BookLockAllCosts" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookLockBFCCost" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookDestName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="TenderedCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BFPMessage" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hazmat" Member="Hazmats">
+    <Type Name="Hazmat">
+      <Column Name="HazControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HazRegulation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazItem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazLabelCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazSymbols" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazSpecialProvisions" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazPackagingExceptions" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazPackagingNonBulk" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazPackagingBulk" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazQLPassAirRail" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazQLCargoAir" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazStowageLocation" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazStowageOther" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HazDesc01" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc02" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc03" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazUnit" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazPackingGroup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HazPackingDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazShipInst" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazLtdQ" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarPoll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarStorCat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazNMFCSub" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazNMFC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFrtClass" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxGndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSgndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HazUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNGLAPIPalletTypes" Member="vNGLAPIPalletTypes">
+    <Type Name="vNGLAPIPalletType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PalletType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PalletTypeDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLookupGroupType" Member="tblLookupGroupTypes">
+    <Type Name="tblLookupGroupType">
+      <Column Name="LGTControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LGTName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LGTDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LGTModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LGTModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LGTUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblListType" Member="tblListTypes">
+    <Type Name="tblListType">
+      <Column Name="ListTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ListTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ListTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ListTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ListTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ListTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCalculationFactorType" Member="tblCalculationFactorTypes">
+    <Type Name="tblCalculationFactorType">
+      <Column Name="CalcFactorTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CalcFactorTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CalcFactorTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CalcFactorTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalcFactorTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CalcFactorTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoadStatusCodes" Member="LoadStatusCodes">
+    <Type Name="LoadStatusCode">
+      <Column Name="LoadStatusControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadStatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoadStatusDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoadStatusLSCTControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LoadStatusCodesUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="LoadStatusSequenceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PalletType" Member="PalletTypes">
+    <Type Name="PalletType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PalletTypeBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PalletType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PalletTypeDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="PalletTypeHeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeWidth" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeDepth" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeVolume" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeContainer" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TempType" Member="TempTypes">
+    <Type Name="TempType">
+      <Column Name="CommCodeType" Type="System.String" DbType="NVarChar(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="DATEquipTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAMSApptStatus" Member="tblAMSApptStatus">
+    <Type Name="tblAMSApptStatus">
+      <Column Name="AMSApptStatusControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AMSApptStatusName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AMSApptStatusDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AMSApptStatusFn" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AMSApptStatusModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AMSApptStatusModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AMSApptStatusUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAMSApptType" Member="tblAMSApptTypes">
+    <Type Name="tblAMSApptType">
+      <Column Name="AMSApptTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AMSApptTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AMSApptTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AMSApptTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AMSApptTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AMSApptTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAMSApptDetailField" Member="tblAMSApptDetailFields">
+    <Type Name="tblAMSApptDetailField">
+      <Column Name="ApptDetailFieldControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApptDetailFieldBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApptDetailFieldName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ApptDetailFieldDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ApptDetailFieldModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApptDetailFieldModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ApptDetailFieldUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupLaneTariff" Member="vLookupLaneTariffs">
+    <Type Name="vLookupLaneTariff">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAcssCode" Member="vLookupAcssCodes">
+    <Type Name="vLookupAcssCode">
+      <Column Name="NACControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NACCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NACName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupAcssCodeByLegalEntity" Member="vLookupAcssCodeByLegalEntities">
+    <Type Name="vLookupAcssCodeByLegalEntity">
+      <Column Name="NACControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NACCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NACName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAccessorial" Member="tblAccessorials">
+    <Type Name="tblAccessorial">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="AccessorialVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AccessorialTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AccessorialBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialProfileSpecific" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AccessorialVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="tblAccessorial_CarrierTariffFeeRefLookup" Member="CarrierTariffFeeRefLookups" ThisKey="AccessorialCode" OtherKey="CarrTarFeesAccessorialCode" Type="CarrierTariffFeeRefLookup" />
+      <Association Name="tblAccessorialVariableCode_tblAccessorial" Member="tblAccessorialVariableCode" ThisKey="AccessorialVariableCode" OtherKey="AccessorialVariableCodesControl" Type="tblAccessorialVariableCode" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="tblAccessorialFeeAllocationType_tblAccessorial" Member="tblAccessorialFeeAllocationType" ThisKey="AccessorialAccessorialFeeAllocationTypeControl" OtherKey="AccessorialFeeAllocationTypeControl" Type="tblAccessorialFeeAllocationType" IsForeignKey="true" />
+      <Association Name="tblAccessorialFeeCalcType_tblAccessorial" Member="tblAccessorialFeeCalcType" ThisKey="AccessorialAccessorialFeeCalcTypeControl" OtherKey="AccessorialFeeCalcTypeControl" Type="tblAccessorialFeeCalcType" IsForeignKey="true" />
+      <Association Name="tblTarBracketType_tblAccessorial" Member="tblTarBracketType" ThisKey="AccessorialTarBracketTypeControl" OtherKey="TarBracketTypeControl" Type="tblTarBracketType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vAccessorial" Member="vAccessorials">
+    <Type Name="vAccessorial">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialVariableCodesName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCodesDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AccessorialTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AccessorialBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeAllocationTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeAllocationTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TarBracketTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TarBracketTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeCalcTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialFeeCalcTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialProfileSpecific" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HDMName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HDMDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="AccessorialMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AccessorialVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vP44NGLFeeMapXref" Member="vP44NGLFeeMapXrefs">
+    <Type Name="vP44NGLFeeMapXref">
+      <Column Name="NACControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NACCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NACDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NACName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NACID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NACNACodeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPackageDescription" Member="tblPackageDescriptions">
+    <Type Name="tblPackageDescription">
+      <Column Name="PkgDescControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PkgDescLEAdminControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PkgDescName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PkgDescDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PkgDescFAKClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PkgDescNMFCClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PkgDescNMFCSubClass" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PkgDescModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PkgDescModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PkgDescUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFeatureType" Member="tblFeatureTypes">
+    <Type Name="tblFeatureType">
+      <Column Name="FeatureTypeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FeatureTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FeatureTypeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FeatureTypeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FeatureTypeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FeatureTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vNatFuelZoneState" Member="vNatFuelZoneStates">
+    <Type Name="vNatFuelZoneState">
+      <Column Name="NatFuelzoneStateRowID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NatFuelState" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NatFuelZoneModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NatFuelZoneModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NatFuelZoneUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLaneTrans" Member="vLaneTrans">
+    <Type Name="vLaneTran">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LaneTransNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneTransTypeDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LaneTransServiceFeeMin" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeeFlat" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LaneTransServiceFeePerc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LaneTransUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCurrency" Member="vCurrencies">
+    <Type Name="vCurrency">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrencyType" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="CurrencyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencyCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLoadType" Member="vLoadTypes">
+    <Type Name="vLoadType">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoadType" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="LoadTypeGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LoadTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTempType" Member="vTempTypes">
+    <Type Name="vTempType">
+      <Column Name="UniqueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CommCodeType" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DATEquipTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vPalletType" Member="vPalletTypes">
+    <Type Name="vPalletType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PalletTypeBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PalletType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PalletTypeDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="PalletTypeHeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeWidth" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeDepth" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeVolume" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PalletTypeContainer" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookUpComCodes" Member="vLookUpComCodes">
+    <Type Name="vLookUpComCode">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CodeDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CodeType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookUpPayCodes" Member="vLookUpPayCodes">
+    <Type Name="vLookUpPayCode">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CodeDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CodeType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookupTranCode" Member="vLookupTranCodes">
+    <Type Name="vLookupTranCode">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CodeDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CodeType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vLookUpCodes" Member="vLookUpCodes">
+    <Type Name="vLookUpCode">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CodeDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CodeType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblImageTypeCode" Member="tblImageTypeCodes">
+    <Type Name="tblImageTypeCode">
+      <Column Name="ImageTypeCodeControl" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageTypeCodeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ImageTypeCodeDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ImageTypeCodeModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ImageTypeCodeModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ImageTypeCodeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vTempType365" Member="vTempType365s">
+    <Type Name="vTempType365">
+      <Column Name="CommCodeType" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CommCodeDescription" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TempType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TariffTempTypeName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TempTypeUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="DATEquipTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DATEquipTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TempTypeBitPos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCarrierTariffEquipment" Member="vCarrierTariffEquipments">
+    <Type Name="vCarrierTariffEquipment">
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ModeTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TariffTemp" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrTarEffDateFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarRevisionNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrTarControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarCompControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTempType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEffDateTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CarrTarApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarTariffModeTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CarrTarEquipCasesMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCasesMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipWgtMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipWgtMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCubesMinimum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipCubesMaximum" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPltsMinimum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipPltsMaximum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrTarEquipMultiOrigRating" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.udfIsNegRevReasonInUse" Method="udfIsNegRevReasonInUse" IsComposable="true">
+    <Parameter Name="Code" Parameter="code" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.udfGetNextNegRevReasonCode" Method="udfGetNextNegRevReasonCode" IsComposable="true">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetSelectedBookEquipCodes" Method="spGetSelectedBookEquipCodes">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSelectedBookEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetAvailBookEquipCodes" Method="spGetAvailBookEquipCodes">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetAvailBookEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetAvailLaneEquipCodes" Method="spGetAvailLaneEquipCodes">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetAvailLaneEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetAvailMasterTruckEquipCodes" Method="spGetAvailMasterTruckEquipCodes">
+    <Parameter Name="MasterTruckCodesCarrierTruckControl" Parameter="masterTruckCodesCarrierTruckControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetAvailMasterTruckEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetSelectedLaneEquipCodes" Method="spGetSelectedLaneEquipCodes">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSelectedLaneEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetSelectedMasterTruckEquipCodes" Method="spGetSelectedMasterTruckEquipCodes">
+    <Parameter Name="MasterTruckCodesCarrierTruckControl" Parameter="masterTruckCodesCarrierTruckControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSelectedMasterTruckEquipCodesResult">
+      <Column Name="Control" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetGetAvailableBookFees50" Method="spNetGetAvailableBookFees50">
+    <Parameter Name="BookControl" Parameter="bookControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetGetAvailableBookFees50Result">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetGetAvailableCarrierFees50" Method="spNetGetAvailableCarrierFees50">
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetGetAvailableCarrierFees50Result">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetGetAvailableFees50" Method="spNetGetAvailableFees50">
+    <Parameter Name="CarrierTruckControl" Parameter="carrierTruckControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetGetAvailableFees50Result">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spNetGetAvailableLaneFees50" Method="spNetGetAvailableLaneFees50">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spNetGetAvailableLaneFees50Result">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccessorialModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetLaneCarrierRestrictions" Method="spGetLaneCarrierRestrictions">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetLaneCarrierRestrictionsResult">
+      <Column Name="LLTCControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetLaneNonRestrictedCarriers" Method="spGetLaneNonRestrictedCarriers">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetLaneNonRestrictedCarriersResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetHazmatDetails" Method="spGetHazmatDetails">
+    <Parameter Name="BookItemControl" Parameter="bookItemControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetHazmatDetailsResult">
+      <Column Name="HazControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazRegulation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HazItem" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HazClass" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HazID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HazDesc01" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc02" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazDesc03" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HazUnit" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazPackingGroup" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HazPackingDesc" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazShipInst" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HazLtdQ" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarPoll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazMarStorCat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HazNMFCSub" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazNMFC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFrtClass" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxGndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazFdxAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSgndOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazUPSAirOK" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HazModUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HazModDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HazUpdated" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetorCreateActionControl" Method="spGetorCreateActionControl">
+    <Parameter Name="ActionName" Parameter="actionName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ActionType" Parameter="actionType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActionArgumentCount" Parameter="actionArgumentCount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ActionStringFormat" Parameter="actionStringFormat" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ActionCommand" Parameter="actionCommand" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ActionURI" Parameter="actionURI" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ActionDescription" Parameter="actionDescription" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="ActionModUser" Parameter="actionModUser" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ActionControl" Parameter="actionControl" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetorCreateAttributeControl" Method="spGetorCreateAttributeControl">
+    <Parameter Name="AttributeName" Parameter="attributeName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AttributeAttributeTypeControl" Parameter="attributeAttributeTypeControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeActionControl" Parameter="attributeActionControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AttributeMessage" Parameter="attributeMessage" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="AttributeModUser" Parameter="attributeModUser" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AttributeControl" Parameter="attributeControl" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetorCreateAttributeTypeControl" Method="spGetorCreateAttributeTypeControl">
+    <Parameter Name="AttributeTypeName" Parameter="attributeTypeName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AttributeTypeDescription" Parameter="attributeTypeDescription" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="AttributeTypeModUser" Parameter="attributeTypeModUser" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AttributeTypeControl" Parameter="attributeTypeControl" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetLaneCrossDockList" Method="spGetLaneCrossDockList">
+    <Parameter Name="LaneNumberMaster" Parameter="laneNumberMaster" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CrossDockFacilityFlag" Parameter="crossDockFacilityFlag" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spGetLaneCrossDockListResult">
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LaneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.udfLookupLaneDefaultCarrier" Method="udfLookupLaneDefaultCarrier" IsComposable="true">
+    <Parameter Name="LaneControl" Parameter="laneControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CarrierActive" Parameter="carrierActive" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="udfLookupLaneDefaultCarrierResult">
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LaneControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetCurrentCNSNumbers" Method="spGetCurrentCNSNumbers">
+    <Parameter Name="DaysOut" Parameter="daysOut" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="ModDate" Parameter="modDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="spGetCurrentCNSNumbersResult">
+      <Column Name="BookConsPrefix" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetHDMsForRateShop" Method="spGetHDMsForRateShop">
+    <Parameter Name="DestZip" Parameter="destZip" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="DestCity" Parameter="destCity" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="DestState" Parameter="destState" Type="System.String" DbType="NVarChar(8)" />
+    <Parameter Name="DestCountry" Parameter="destCountry" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="spGetHDMsForRateShopResult">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetSubscriptionAlerts" Method="spGetSubscriptionAlerts">
+    <Parameter Name="UserControl" Parameter="userControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetSubscriptionAlertsResult">
+      <Column Name="ProcedureControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProcedureDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetCarriersWAccessorialMaintConfigsToCopy" Method="spGetCarriersWAccessorialMaintConfigsToCopy">
+    <Parameter Name="LEAControl" Parameter="lEAControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetCarriersWAccessorialMaintConfigsToCopyResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCopyCarrierAccessorialMaintConfig" Method="spCopyCarrierAccessorialMaintConfig">
+    <Parameter Name="CopyToCarrierControl" Parameter="copyToCarrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CopyFromCarrierControl" Parameter="copyFromCarrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LEAdminControl" Parameter="lEAdminControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spCopyCarrierAccessorialMaintConfigResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCopyLECAMConfig" Method="spCopyLECAMConfig">
+    <Parameter Name="CopyToLEControl" Parameter="copyToLEControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CopyFromLEControl" Parameter="copyFromLEControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spCopyLECAMConfigResult">
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCheckSettlementAuditMessageVisibility" Method="spCheckSettlementAuditMessageVisibility">
+    <Parameter Name="CompControl" Parameter="compControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CarrierControl" Parameter="carrierControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SHID" Parameter="sHID" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spCheckSettlementAuditMessageVisibilityResult">
+      <Column Name="ShowAuditFailReason" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ShowPendingFeeFailReason" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="APMessage" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetCarrierTariffProNames" Method="spGetCarrierTariffProNames">
+    <Parameter Name="CarrTarControl" Parameter="carrTarControl" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetCarrierTariffProNamesResult">
+      <Column Name="CarrProName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSaveP44NGLFeeMapXref" Method="spSaveP44NGLFeeMapXref">
+    <Parameter Name="NACControl" Parameter="nACControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AccessorialCode" Parameter="accessorialCode" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetLoadStatusControl" Method="spGetLoadStatusControl">
+    <Parameter Name="LoadStatusCode" Parameter="loadStatusCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DefaultLoadStatusDesc" Parameter="defaultLoadStatusDesc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LoadStatusLSCTControl" Parameter="loadStatusLSCTControl" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LoadStatusSequenceNo" Parameter="loadStatusSequenceNo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spGetLoadStatusControlResult">
+      <Column Name="LoadStatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoadStatusDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoadStatusLSCTControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoadStatusSequenceNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetAccessorialForNACCode" Method="spGetAccessorialForNACCode">
+    <Parameter Name="nacCode" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="spGetAccessorialForNACCodeResult">
+      <Column Name="AccessorialCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccessorialVariableCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessorialVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAutoApprove" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAllowCarrierUpdates" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialCaption" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccessorialEDICode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="AccessorialTaxable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialIsTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialTaxSortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialBOLText" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="AccessorialBOLPlacement" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccessorialAccessorialFeeAllocationTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialTarBracketTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialAccessorialFeeCalcTypeControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialProfileSpecific" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialHDMControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccessorialMinimum" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AccessorialVariable" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetLookupListNGLExpenseCarrier" Method="spGetLookupListNGLExpenseCarrier">
+    <Parameter Name="SortByIndex" Parameter="sortByIndex" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="spGetLookupListNGLExpenseCarrierResult">
+      <Column Name="CarrierControl" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CarrierName" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CarrierNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertOrUpdateCodes" Method="spInsertOrUpdateCodes">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="CodeType" Parameter="codeType" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="CodeDescription" Parameter="codeDescription" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="IsInserted" Parameter="isInserted" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="spInsertOrUpdateCodesResult">
+      <Column Name="RetCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteCode" Method="spDeleteCode">
+    <Parameter Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="spDeleteCodeResult">
+      <Column Name="RetCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RetMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

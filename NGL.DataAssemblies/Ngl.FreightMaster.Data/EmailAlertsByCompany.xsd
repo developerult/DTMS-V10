@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EmailAlertsByCompany" targetNamespace="http://tempuri.org/EmailAlertsByCompany.xsd" xmlns:mstns="http://tempuri.org/EmailAlertsByCompany.xsd" xmlns="http://tempuri.org/EmailAlertsByCompany.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EmailAlertsByCompany" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="EmailAlertsByCompany" msprop:Generator_DataSetName="EmailAlertsByCompany">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EmailAlertsData" msprop:Generator_UserTableName="EmailAlertsData" msprop:Generator_RowDeletedName="EmailAlertsDataRowDeleted" msprop:Generator_RowChangedName="EmailAlertsDataRowChanged" msprop:Generator_RowClassName="EmailAlertsDataRow" msprop:Generator_RowChangingName="EmailAlertsDataRowChanging" msprop:Generator_RowEvArgName="EmailAlertsDataRowChangeEvent" msprop:Generator_RowEvHandlerName="EmailAlertsDataRowChangeEventHandler" msprop:Generator_TableClassName="EmailAlertsDataDataTable" msprop:Generator_TableVarName="tableEmailAlertsData" msprop:Generator_RowDeletingName="EmailAlertsDataRowDeleting" msprop:Generator_TablePropName="EmailAlertsData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompanyControl" msprop:Generator_UserColumnName="CompanyControl" msprop:Generator_ColumnPropNameInRow="CompanyControl" msprop:Generator_ColumnVarNameInTable="columnCompanyControl" msprop:Generator_ColumnPropNameInTable="CompanyControlColumn" type="xs:int" />
+              <xs:element name="CompanyNumber" msprop:Generator_UserColumnName="CompanyNumber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CompanyNumber" msprop:Generator_ColumnPropNameInTable="CompanyNumberColumn" msprop:Generator_ColumnVarNameInTable="columnCompanyNumber" default=" " minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlertType" msprop:Generator_UserColumnName="AlertType" msprop:Generator_ColumnPropNameInRow="AlertType" msprop:Generator_ColumnVarNameInTable="columnAlertType" msprop:Generator_ColumnPropNameInTable="AlertTypeColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="AlertCount" msprop:Generator_UserColumnName="AlertCount" msprop:Generator_ColumnPropNameInRow="AlertCount" msprop:Generator_ColumnVarNameInTable="columnAlertCount" msprop:Generator_ColumnPropNameInTable="AlertCountColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CarrierControl" msprop:Generator_UserColumnName="CarrierControl" msprop:Generator_ColumnVarNameInTable="columnCarrierControl" msprop:Generator_ColumnPropNameInRow="CarrierControl" msprop:Generator_ColumnPropNameInTable="CarrierControlColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CarrierNumber" msprop:Generator_UserColumnName="CarrierNumber" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnCarrierNumber" msprop:Generator_ColumnPropNameInTable="CarrierNumberColumn" msprop:Generator_ColumnPropNameInRow="CarrierNumber" default=" " minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_UserColumnName="Email" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnPropNameInRow="Email" default=" " minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CCEmail" msprop:Generator_UserColumnName="CCEmail" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnCCEmail" msprop:Generator_ColumnPropNameInTable="CCEmailColumn" msprop:Generator_ColumnPropNameInRow="CCEmail" default=" " minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

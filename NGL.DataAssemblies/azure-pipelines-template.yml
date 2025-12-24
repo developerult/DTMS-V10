@@ -1,0 +1,48 @@
+parameters:
+- name: buildConfiguration
+  type: string
+  default: 'Release'
+- name: buildPlatform
+  type: string
+  default: 'Any CPU'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: version-increment-task@0
+  inputs:
+    incrementType: patch
+    versionVariable: buildVersion
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+    feedsToUse: 'select'
+    vstsFeed: '8b7c74d8-234d-460c-b2f5-c9f56f673a39/fb49f8d2-9b14-4316-bbfa-b9c3f411d1bf'
+    includeNuGetOrg: true
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    vsVersion: '15.0'
+    msbuildArgs: '/p:Version=$(buildVersion)'
+    platform: '${{ parameters.buildPlatform }}'
+    configuration: '${{ parameters.buildConfiguration }}'
+
+- task: VSTest@2
+  inputs:
+    platform: '${{ parameters.buildPlatform }}'
+    configuration: '${{ parameters.buildConfiguration }}'
+
+- task: NuGetAuthenticate@1
+  inputs:
+    forceReinstallCredentialProvider: false
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.SourcesDirectory)/**/bin/$(buildConfiguration)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '8b7c74d8-234d-460c-b2f5-c9f56f673a39/fb49f8d2-9b14-4316-bbfa-b9c3f411d1bf'
+    allowPackageConflicts: true
